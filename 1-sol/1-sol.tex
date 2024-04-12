@@ -1,0 +1,1030 @@
+\documentclass[12pt,a4paper, spanish]{article}
+% Sacar draft para que aparezcan las imagenes.
+% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
+% Opciones de clase: article, report, letter, beamer...
+
+% Paquetes:
+% =========
+\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
+\usepackage[T1]{fontenc} % tildes
+\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
+\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{amsmath} % Soporte de mathmatics
+\usepackage{amssymb} % fuentes de mathmatics
+\usepackage{array} % Para tablas y eso
+\usepackage{caption} % Configuracion de figuras y tablas
+\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
+\usepackage{multicol} 
+\usepackage{tikz} % para graficar
+\usepackage{cancel}
+\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+
+% para hacer los graficos tipo grafos
+\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+\usetikzlibrary{external}
+
+\include{graficos.tex} % Voy a definir graficos fuera del documento para que no sea tan pesada la lectura
+\include{definiciones.tex} % idem con las definiciones
+
+
+\begin{document}
+
+\pagestyle{empty} % Para que no muestre el número en pie de página
+
+% Info para armar título.
+\title{Práctica 1 de álgebra 1} % título
+\author{D. Garraz} % autor
+\date{last update: \today} % Cambiar de ser necesario
+% \maketitle  % Para que aprezca el título en el documento
+
+\section*{Colección de resultados, fórmulas, definiciones}
+Voy a estar usando:
+\begin{enumerate}[label=(\alph*)]
+	\item $A \union B = B \union A \to \text{Conmuta}$
+	\item $A \inter B = B \inter A \to \text{Conmuta}$
+	\item $(A \union B)^c = A^c \inter B^c \to \text{De Morgan 1}$
+	\item $(A \inter B)^c = A^c \union B^c \to \text{De Morgan 2}$
+	\item $A \inter(B \union C) = (A \inter B) \union (A \inter C) \to \text{Distributiva 1}$
+	\item $A \union(B \inter C) = (A \union B) \inter (A \union C) \to \text{Distributiva 2}$
+	\item $A - B = A \inter B^c$
+	\item $A \triangle B =
+		      \begin{cases}
+			      (A - B) \union (B - A)             \\
+			      (A \union B) \inter (A \inter B)^c \\
+			      (A \inter B^c) \union (B \inter A^c)
+		      \end{cases}
+	      $
+	\item $A^c = \set{x \en \universo \talque x \notin A}$
+	\item
+	      \def\subconjuntoYequivalente{
+		      \begin{array}{|c|}
+			      A \subseteq B \\
+			      \hline
+			      A^c \union B
+		      \end{array}
+	      }
+	      \[
+		      \begin{array}{|c|c|c|c|c|c|c|c|}
+			      \hline
+			      x \en A & x \en B & x \en A^c & x \en A \inter B & x \en A \union B & x \en \subconjuntoYequivalente & x \en A \triangle B & A - B \\
+			      \hline
+			      V       & V       & F         & V                & V                & V                              & F                   & F     \\
+			      V       & F       & F         & F                & V                & F                              & V                   & V     \\
+			      F       & V       & V         & F                & V                & V                              & V                   & F     \\
+			      F       & F       & V         & F                & F                & V                              & F                   & F     \\
+			      \hline
+		      \end{array}
+	      \]
+	\item
+	      \emph{Cuando para probar $p \entonces q$ se prueba en su lugar $\neg q \entonces \neg p$ se dice que es una demostración
+		      por contrarrecíproco, mientras que cuando se prueba en su lugar que suponer que vale $p \land \neg q$
+		      lleva a una contradicción, se dice que es una demostración por reducción al absurdo.}
+
+\end{enumerate}
+
+\section*{Ejercicios sueltos que me parecen relevantes}
+\subsubsection*{Distributiva}
+Probar la propiedad distributiva: $X \inter (Y \union Z) = (X \inter Y) \union (X \inter Z)$\\
+Tengo que hacer una doble inclusión:
+$\to \begin{cases}
+		1) & X \inter (Y \union Z) \subseteq (X \inter Y) \union (X \inter Z) \\
+		2) & (X \inter Y) \union (X \inter Z) \subseteq X \inter (Y \union Z)
+	\end{cases}$
+
+\begin{enumerate}[label=\arabic*)]
+	\item
+	      $x \en X \inter (Y \union Z)$ quiere decir que $x \en X$ y
+	      $\llaves{c}{
+			      x \en Y \\
+			      \o      \\
+			      x \en Z
+		      } $.
+	      Por lo tanto $\to
+		      \llaves{c}{
+			      x \en X \inter Y\\
+			      \o \\
+			      x \en X \inter Z
+		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \checkmark.\\
+
+	\item
+	      Ahora hay que probar la vuelta. Uso razonamiento análogo.
+	      $x \en (X \inter Y) \union (X \inter Z)$, por lo que $x \en X$ y
+	      $
+		      \llaves{c}{
+			      x \en X \inter Y \blue{$\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) $}\\
+			      \o               \\
+			      x \en X \inter Z \blue{$\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)$}
+		      }$.
+	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \checkmark}\\
+	      \red{¿Estoy suponiendo cosas que debería demostrar, me estoy salteando pasos?}\\
+	      \blue{Para que la solución quede más creíble usé que $S \subseteq S \union T$ fue el dealbreaker. }
+
+\end{enumerate}
+
+\subsubsection*{De Morgan}
+Probar la propiedad $(A \inter B)^c = A^c \union B^c$.\\
+Tengo que hacer una doble inclusión
+$\to \begin{cases}
+		1) & (A \inter B)^c \subseteq A^c \union B^c \\
+		2) & A^c \union B^c \subseteq (A \inter B)^c
+	\end{cases}
+$
+\begin{enumerate}[label=\arabic*)]
+	\item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $\\
+	      Por hipótesis $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B
+		      \entonces x \en A^c \o x \en B^c \entonces x \en A^c \union B^c$\\
+	      $\begin{array}{|c|c|c|c|}
+			      \hline
+			      A & B & A^c \union B^c & (A \inter B)^c \\ \hline
+			      V & V & F              & F              \\
+			      V & F & V              & V              \\
+			      F & V & V              & V              \\
+			      F & F & V              & V              \\ \hline
+		      \end{array}
+	      $
+
+	      \blue{Uso la tabla para ver la definición $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B$}
+
+	\item Pruebo por absurdo. Si $\paratodo x \en A^c \union B^c \entonces x \en (A \inter B)^c$\\
+	      \green{Supongo} que $ x \notin (A \inter B)^c \stacktext{def}{\sisolosi} x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
+		      \llaves{c}{
+			      x \notin A\\
+			      \o \\
+			      x \notin B\\
+		      }$, por lo que $x \notin A \union B \entonces x \notin A \inter B$ contradiciendo el \green{supuesto}, absurdo. Debe ocurrir que $x \en (A \inter B)^c   $
+
+	      $\begin{array}{|c|c|c|c|c|}
+			      \hline
+			      A & B & A \inter B & (A \union B) & (A \inter B) \subseteq (A \union B) \\ \hline
+			      V & V & V          & V            & V                                   \\
+			      V & F & F          & V            & V                                   \\
+			      F & V & F          & V            & V                                   \\
+			      F & F & F          & F            & V                                   \\ \hline
+		      \end{array}
+	      $
+\end{enumerate}
+
+\newpage
+\section*{Ejercicios de la guía}
+
+\ejercicio
+%1
+$A = \set{1,2,3}$
+\begin{multicols}{2}
+	\begin{enumerate}[label=(\roman*)]
+		\item $1 \en A \flecha{respueta} \text{V}$
+		\item $\set{1} \subseteq A \flecha{respueta} \text{V}$
+		\item $\set{2,1} \subseteq A \flecha{respuesta} \text{V}$
+		\item $\set{1,3} \en A \flecha{respuesta} \text{F}$
+		\item $\set{2} \en A \flecha{respuesta} \text{F}$
+	\end{enumerate}
+\end{multicols}
+
+\ejercicio
+%2
+$A = \set{1,2,\set{3},\set{1,2}}$
+\begin{multicols}{2}
+	\begin{enumerate}[label=(\roman*)]
+		\item $3 \en A       \flecha{respueta} \text{F}  $
+		\item $\set{3} \subseteq A \flecha{respueta} \text{F}$
+		\item $\set{3} \en A    \flecha{respueta} \text{V}$
+		\item $\set{\set{3}} \en A \flecha{respueta} \text{V}$
+		\item $\set{1,2} \en A \flecha{respueta} \text{V}$
+		\item $\set{1,2} \subseteq A \flecha{respueta} \text{V} $
+		\item $\set{\set{1,2}} \subseteq A \flecha{respueta} \text{V} $
+		\item $\set{\set{1,2}, 3} \subseteq A \flecha{respueta} \text{F} $
+		\item $\vacio \en A \flecha{respueta} \text{F} $
+		\item $\vacio \subseteq A \flecha{respueta} \text{V} $
+		\item $A \en A \flecha{respueta} \text{F} $
+		\item $A \subseteq A \flecha{respueta} \text{V} $
+	\end{enumerate}
+\end{multicols}
+
+%3
+\ejercicio
+Inclusión :
+$
+	\begin{cases}
+		\text{Definición}      & A \subseteq B \text{ si } \paratodo x, x \en A \entonces x \en B   \\
+		\text{Contrarecíproco} & A \nsubseteq B \text{ si } \exists x, x \en A \entonces x \notin B
+	\end{cases}
+$
+\begin{enumerate}[label=(\roman*)]
+	\item $\begin{cases}
+			      A = \set{1, 2, 3} \\
+			      B = \set{5,4,3,2,1}
+		      \end{cases}
+		      \flecha{respueta} \quad
+		      A \stacktext{\checkmark}{\subseteq} B$
+	\item $\begin{cases}
+			      A = \set{1, 2, 3} \\
+			      B = \set{1,2,\set{3},-3}
+		      \end{cases}
+		      \flecha{respueta} \quad
+		      A \nsubseteq B \flecha{dado}[que] \set{3} \notin B$
+	\item $
+		      \llaves{ll}{
+			      A = \set{x \en \reales \talque 2<|x|<3} & \tresiiiUno \\
+			      B = \set{x \en \reales \talque x^2 < 3 } & \tresiiiDos
+		      }\\
+		      \flecha{respueta} A \nsubseteq B \flecha{dado}[que] 2.5 \en A \text{ y } 2.5 \notin B
+	      $
+	\item$
+		      \begin{cases}
+			      A = \set{\vacio} \\
+			      B = \vacio
+		      \end{cases}\\
+		      \flecha{respueta}
+		      A \nsubseteq B \flecha{dado}[que] \text{$B$ no tiene ningún elemento, sin embargo $A$ tiene un elemento: $\vacio$.}
+	      $
+\end{enumerate}
+
+%4
+\ejercicio
+Subconjuntos: $A = \set{1, -2, 7, 3}$, $B = \set{1, \set{3}, 10}$, $C = \set{-2,\set{1,2,3},3}$,\\
+Conjunto referencial: $V = \set{1,\set{3}, -2,7, 10, \set{1,2,3},3}$, hallar:
+
+\begin{multicols}{2}
+	\begin{enumerate}[label=(\roman*)]
+		\item $A \inter (B \triangle C)$
+		\item $(A \inter B) \triangle (A \inter C)$
+		\item $A^c \inter B^c \inter C^c$
+	\end{enumerate}
+\end{multicols}
+
+%5
+\ejercicio
+Describir
+$
+	\begin{cases}
+		i) \quad (A \union B \union C)^c  & \text{en términos de intersecciones y complementos} \\
+		ii) \quad (A \inter B \inter C)^c & \text{en términos de uniones y complementos}        \\
+	\end{cases}
+$
+\begin{enumerate}[label=\roman*)]
+	\item $\quad (A \union B \union C)^c \stacktext{(c)}{=} (A \union B)^c \inter C^c \stacktext{(c)}{=} A^c \inter B^c \inter C^c$
+	\item $\quad (A \inter B \inter C)^c \stacktext{(d)}{=} (A \inter B)^c \union C^c \stacktext{(d)}{=} A^c \union B^c \union C^c$
+\end{enumerate}
+\red{Solo eso? Falta demostrar algo de alguna manera más rigurosa?}\\
+\blue{No, con eso sería suficiente \checkmark}
+
+%6
+\ejercicio
+
+%7
+\ejercicio
+$\flecha{del}[gráfico] (C \inter B) - A) \union (A - B) =\\
+	\flecha{uso que}[$A - B = A \inter B^c$] = (C \inter B \inter A^c) \union (A \inter B^c) \stackrel{\blue{*}}{=}\\
+	\flecha{distributiva} C \union (A \inter B^c) \inter B \union (A \inter B^c) \inter A^c \union (A \inter B^c) =\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (B \union B^c) \inter (A^c \union A) \inter (A^c \union B^c)=\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter \universo \inter \universo \inter (A^c \union B^c)=\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (A^c \union B^c)=\\
+	= C \inter C \union C \inter B^c \union A\inter C \union A \inter B^c ... \\
+	= C \union C \inter B^c \union A\inter C \union A \inter B^c \red{... esto no puede ser así}\\
+	\blue{efectivamente, no hay que enloquecer, corto en \blue{*} \checkmark }
+$
+
+%8
+\ejercicio
+Hallar $\partes(A)$, el conjunto partes formado por todos los subconjuntos de A.\\
+$
+	\partes(A) \to
+	\begin{cases}
+		B \en \partes(A) \sisolosi B \subseteq A \\
+		\partes(A) = \set{B \talque B \subseteq A}
+	\end{cases}
+$
+\begin{enumerate}[label=(\roman*)]
+	\item $A = \set{1} \to \partes(A) = \set{\vacio, A}$ \red{controlar}
+	\item $A = \set{a, b} \to \partes(A) = \set{\vacio, \set{a}, \set{b}, A}$
+	\item $A = \set{1, \set{1,2}, 3} \to \partes(A) = \set{\vacio, \set{1},\set{\set{1,2}}, \set{3}, \set{1,\set{1,2}}, \set{1,3},\set{\set{1,2},3}, A }$
+\end{enumerate}
+
+%9
+\ejercicio
+Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi A \subseteq B$
+\begin{itemize}
+	\item[$\entonces$)] Pruebo por absurdo. Supongo que $A \nsubseteq B \entonces \exists x \en A \talque x \notin B$.\\
+	      Si $x \en A \entonces \set{x} \en \partes(A)
+		      \flecha{hipótesis}[$\partes(A) \subseteq \partes(B)$] \set{x} \en \partes(B)
+		      \entonces x \en B .$ Absurdo.\\
+	      $\to \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}$\checkmark\red{controlar} \estabien
+
+	\item[$\Leftarrow$)]
+	      $\qvq A \subseteq B \entonces \partes(A) \subseteq \partes(B),\\
+		      \paratodo S \en \partes(A) \sisolosi S \subseteq A \stacktext{hip}{\subseteq} B \entonces S \en \partes(B).\\
+		      \to \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$\checkmark\red{controlar} \estabien
+\end{itemize}
+
+%10
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Sean p, q proposiciones. Verificar que las siguientes expresiones tienen la misma tabla de verdad para
+	      concluir que son equivalentes:
+	      \[
+		      \begin{array}{|c|c|c|c|c|c|c|c|}
+			      \hline
+			      p & q & \neg p & \neg q & p \entonces q & \neg q \entonces \neg p & \neg p \lor q & \neg(p \land \neg q) \\
+			      \hline  \hline
+			      V & V & F      & F      & V             & V                       & V             & V                    \\
+			      V & F & F      & V      & F             & F                       & F             & F                    \\
+			      F & V & V      & F      & V             & V                       & V             & V                    \\
+			      F & F & V      & V      & V             & V                       & V             & V                    \\
+			      \hline
+		      \end{array}
+	      \]
+	\item
+	      \[
+		      \begin{array}{|c|c|c|c|c|c|}
+			      \hline
+			      p & q & \neg q & p \entonces q & \neg (p \entonces q) & p\, \y \neg q \\ \hline  \hline
+			      V & V & F      & V             & F                    & F             \\
+			      V & F & V      & F             & V                    & V             \\
+			      F & V & F      & V             & F                    & F             \\
+			      F & F & V      & V             & F                    & F             \\ \hline
+		      \end{array}
+	      \]
+\end{enumerate}
+
+%11
+\ejercicio Hallar contraejemplos para mostrar que las siguientes proposiciones son falsas:
+\begin{enumerate}[label=\roman*)]
+	\item $\paratodo a \en \naturales,\, \frac{a-1}{a}$ no es un número entero.\\
+	      La proposición es falsa, dado que si $a = 1 \entonces \frac{\green{1} - 1}{1} = 0 \en \enteros$
+
+	\item $\paratodo x, y \en \reales$ con $x, y$ positivos, $\sqrt{x+y} = \sqrt{x} + \sqrt{y}$.\\
+	      La proposición es falsa, dado que si.\\
+	      \[
+		      \llaves{c}{
+			      x = 4.\\
+			      y = 4
+		      } \to \sqrt{4+4} = \sqrt{8} = 2\sqrt{2} \stacktext{?}{\leftrightarrow} \sqrt{4} + \sqrt{4} = 2 + 2 = 4
+	      \]
+
+	\item $\paratodo x \en \reales,\, x^2 > 4 \entonces x > 2$.\\
+	      La  proposición es falsa, dado que si $x = -3$, queda $9 > 4 \entonces -3 > 2$, lo cual es falso,
+\end{enumerate}
+
+
+%12
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Decidir si las siguientes proposiciones son verdaderas o falsas, justificando debidamente:
+
+	      \begin{enumerate}[label=(\alph*)]
+		      \item $\paratodo n \en \naturales,\, n \geq 5 \o n \leq 8$.\\
+		            La proposición es verdadera. El conjunto descrito por $\set{ n \en \naturales \talque n \leq 8 \o n \geq 5} = \naturales$\\
+		            \doceiA                        \\
+		            \red{¿Se puede justificar con un gráfico?}
+
+		      \item $\existe n \en \naturales \talque n \geq 5 \y n\leq 8.$\\
+		            La proposición es verdadera, en este caso es cuestión de encontrar solo un valor que cumpla, $n = 6$
+
+		      \item $\paratodo n \en \naturales, \existe m \en \naturales \talque m > n$.\\
+		            La proposición es verdadera, si se elige por ejemplo a $m = n+1$
+
+		      \item $\existe n \en \naturales \talque \paratodo m \en \naturales, m >n$.\\
+		            La proposición es falsa, el único $n \en \naturales$ que no tiene un número menor estricto es el 1. Pero la condición
+		            dice que $\paratodo m \en \naturales$ se debe cumplir y si m $1 \nless 1$
+
+		      \item $\paratodo x \en \reales,\, x > 3 \entonces x^2 > 4$.\\
+		            La proposición es verdadera. Si $x > 3 \entonces x^2 > 9 \flecha{en}[particular] x^2 > 9 > 4 \entonces x^2 > 4$
+
+		      \item Si $z$ es un número real, entonces $z \en \complejos$.\\
+		            Están proponiendo que dado $z \en \reales \entonces z \en \complejos$. Dado que $\reales \subseteq \complejos = \set{a \en \reales,\, b\en \reales \talque a + i b}$, con $i^2 = -1$
+		            Por lo tanto para $b = 0$, podría generar todo $\reales$.
+	      \end{enumerate}
+
+	\item
+	      \begin{enumerate}[label=(\alph*)]
+		      \item $\existe n \en \naturales,\, n < 5 \y n > 8$.\\
+		            $A =  \set{n \en \naturales \talque n < 5 \y n > 8} = \vacio \entonces \noexiste n$ que cumpla lo pedido.\\
+		            \doceiiA \\
+		            \red{¿Se puede justificar con un gráfico?}
+
+		      \item $\paratodo n \en \naturales \talque n < 5 \o n > 8$.\\
+		            La proposición es falsa, $n = 6$ no cumple estar en ese conjunto.
+
+		      \item $\existe n \en \naturales, \paratodo m \en \naturales \talque m \leq n$.\\
+		            La proposición es falsa, porque el conjunto $\naturales$ no tiene un máximo. $n = m+1$.
+
+		      \item $\paratodo n \en \naturales \talque \existe m \en \naturales, m \leq n$.\\
+		            La proposición es verdadera, el único $m \en \naturales$ que cumple eso es el $m = 1$.
+
+		      \item $\existe x \en \reales,\, x \leq 3 \entonces x^2 \leq 4$.\\
+		            La proposición es falsa. Dado dos conjunto:\\
+		            \[
+			            \llaves{c}{
+			            \magenta{$A = \set{x \en \reales \talque x \leq 3}$} \\
+			            {\color{green}B = \set{x \en \reales \talque x^2 \leq 2}}
+			            } \to \doceiiE
+		            \]
+		            {
+		            \color{red}Si lo pienso como conjuntos, entiendo que $A \nsubseteq B$ entonces es falso.
+		            Pero si leo el enunciado, me confunde el $\existe$, porque 3 sería un contraejemplo
+		            y no se usaban para los $\paratodo$?
+		            }
+
+		      \item Si $z$ no es un número real, entonces $z \notin \complejos$.\\
+		            La proposición es falsa. Están proponiendo que dado $z \notin \reales \entonces z \notin \complejos$. Si $z = i$, se prueba lo contrario.
+		            Dado que $i \notin \reales$, pero  $i \en \complejos$
+	      \end{enumerate}
+
+
+	\item Reescribir las proposiciones (e), (f) usando las equivalencias del ejercicio 10 i)\\
+	      $
+		      \begin{array}{|c|c|c|c|}
+			      \hline
+			      p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \to \checkmark                     \\
+			      \hline
+			      \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \to \checkmark                     \\
+			      \hline
+			      \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \stackrel{?}{=} \universo \to \checkmark             \\
+			      \hline
+			      \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \stackrel{?}{=}\vacio^c=\universo \to \checkmark \\
+			      \hline
+		      \end{array}
+	      $
+\end{enumerate}
+
+%13
+\ejercicio Determinar cuáles de las siguientes afirmaciones son verdaderas y cualesquiera sean los subconjuntos $A$, $B$ y $C$ de un conjunto referencial $\universo$ y cuáles no.
+Para las que sean verdaderas, dar una demostración, para las otras dar un contraejemplo.
+
+\begin{enumerate}[label=\roman*)]
+	\item $(A \triangle B) - C = (A-C) \triangle (B - C)$. Es verdadera. Pruebo con tabla de verdad.\\
+	      $
+		      \begin{array}{|c|c|c|c|c|c|c|c|c|}
+			      \hline
+			      A & B & C & C^c & A - C & B - C & A \triangle B & (A \triangle B) - C & (A - C) \triangle (B - C) \\
+			      \hline  \hline
+			      V & V & V & F   & F     & F     & F             & F                   & F                         \\
+			      V & V & F & V   & V     & V     & F             & F                   & F                         \\
+			      \hline
+			      V & F & V & F   & F     & F     & V             & F                   & F                         \\
+			      V & F & F & V   & V     & F     & V             & V                   & V                         \\
+			      \hline
+			      F & V & V & F   & F     & F     & V             & F                   & F                         \\
+			      F & V & F & V   & F     & V     & V             & V                   & V                         \\
+			      \hline
+			      F & F & V & F   & F     & F     & F             & F                   & F                         \\
+			      F & F & F & V   & F     & F     & F             & F                   & F                         \\
+			      \hline
+		      \end{array}
+	      $\\
+	      Hay distribución entre la resta y una diferencias simétrica.
+
+	\item $(A \inter B) \triangle C = (A \triangle C) \inter (B \triangle C)$
+	\item $C \subseteq A \entonces B \inter C \subseteq (A \triangle B)^c$
+	\item $A \triangle B = \vacio \sisolosi A = B$
+\end{enumerate}
+
+%14
+\ejercicio Sean $A$, $B$ y $C$ subconjuntos de un conjunto referencial $\universo$. Probar que:
+\begin{enumerate}[label=\roman*)]
+	\item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$
+
+	\item $A - (B - C) = (A-B) \union (A \inter C)$\\
+	      $(A - B) \union (A \inter C) = A \inter [(A \inter B^c) \union C] = A \inter [(A \union C) \inter (B^c \union C)] =\\
+		      A \inter (B^c \union C) = A \union(B-C)^c = A - (B - C)$
+
+	\item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$ \Hacer
+	\item $(A \inter C ) - B = (A - B) \inter C$
+	\item $A \subseteq B \entonces A \triangle B = B \inter A^c$
+	\item $A \subseteq C \sisolosi B^c \subseteq A^c$
+	\item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$
+\end{enumerate}
+
+%15
+
+\ejercicio Sean $A = \set{1, 2, 3},\, B = \set{1, 3, 5, 7}.$ Hallar $A \times A, A \times B, (A \inter B) \times (A \union B).$
+
+\begin{itemize}
+	\item $A \times A =
+		      \llave{l}{
+			      \set{a \en A, b \en A \talque (a, b) \en A \times A} \to \text{Comprensión}\\
+			      \set{(1,1), (1,2), (1,3),(2,1),(2,2), (2,3), (3,1), (3,2), (3,3)} \to \text{Extensión}
+		      }$
+
+	\item  $A \times B = \cdots$
+
+	\item $(A \inter B) \times (A \union B) = \\
+		      \llave{l}{
+			      \set{1, 3} \times \set{1,2,3,5,7} =
+			      \begin{array}{c|c|c|c|c|c}
+				      \times & 1     & 2      & 3      & 5      & 7     \\
+				      \hline
+				      1      & (1,1) & \cdots & \cdots & \cdots & (1,7) \\
+				      \hline
+				      3      & (3,1) & \cdots & \cdots & \cdots & (3,7) \\
+				      \hline
+			      \end{array}\\
+
+			      (A \inter B) \times (A \union B) = \set{s \en (A \inter B), t \en (A \union B) \talque (s, t) \en (A \inter B) \times (A \union B)}
+		      }$
+\end{itemize}
+
+\ejercicio Sean $A, B$ y $C$ conjuntos. Probar que:
+\begin{enumerate}[label=\roman*)]
+	\item $(A \union B) \times C = (A \times C) \union (B \times C)$
+	\item $(A \inter B) \times C = (A \times C) \inter (B \times C)$
+	\item $(A - B) \times C = (A \times C) - (B \times C)$
+	\item $(A \triangle B) \times C = (A \times C) \triangle (B \times C)$
+\end{enumerate}
+
+
+\noindent\separador
+
+\underline{\textit{Relaciones}}
+
+Definción de Relación, $\relacion$:
+\begin{center}
+	\fbox{
+		\parbox{.9\textwidth}{
+			Sean $A$ y $B$ conjuntos. Una \textit{relación $\relacion$ de $A$ en $B$}
+			es un subconjunto cualquiera $\relacion$ del producto cartesiano $A \times B$. Es decir $\relacion$
+			de $A$ en $B$ si $\relacion \en \partes(A \times B)$.
+		}
+	}
+\end{center}
+
+\ejercicio Sean $A = \set{1, 2, 3}$ y $B = \set{1, 3, 5, 7}$. Verificar las siguientes
+relaciones de $A$ y $B$ y en caso afirmativo graficarlas por medio de un diagrama
+con flechas de $A$ en $B$ y por medio de puntos en el producto cartesiano $A \times B$.
+
+\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $\relacion = \set{(1,1), (1,3), (1,7), (3,1), (3,5)}\\
+			      \diecisietei $
+
+		\item $\relacion = \set{(1,1), (1,3), (2,7), (3,2), (3,5)}\\
+			      \to 3 \relacion 2 \notin \partes(A \times B) $
+
+		\item $\relacion = \set{(1,1), (2,7), (3,7)}\hacer$
+
+		\item $\relacion = \set{(1,3), (2,1), (3,7)}\hacer$
+	\end{enumerate}
+\end{multicols}
+
+%18
+\ejercicio Sean $A = \set{1, 2, 3}$ y $B = \set{1, 3, 5, 7}$. Describir por extensión cada una de las
+siguientes relaciones de $A$ en $B$:
+\begin{enumerate}[label=\roman*)]
+	\item $(a,b) \en \relacion \sisolosi a\leq b =\\
+		      \set{(1,1), (1,3), (1,5), (1,7), (2,3), (2,5), (2,7), (3,3), (3,5), (3,7)}$
+
+	\item $(a,b) \en \relacion \sisolosi a > b = \set{}\hacer$
+
+	\item $(a,b) \en \relacion \sisolosi a \cdot b = \set{(2,1), (2,3), (2,5), (2,7)}$
+
+	\item $(a,b) \en \relacion \sisolosi a + b > 6 = \set{}\hacer$
+\end{enumerate}
+%19
+\ejercicio Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describit por
+extensión la relación en $A$ que representa y determinar si es \textit{reflexiva, simétrica, antisimétrica o transitiva}.
+\begin{enumerate}
+	\item  \textit{Reflexiva}: $(x, x) \en \relacion \paratodo x \en A$ o $x \relacion x.\, \paratodo x \en A$. Gráficamente,
+	      cada elemento tiene que tener un bucle.
+	      \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+		      \node[](a) {$\bullet$} edge [in=0,out=90,loop] ();
+		      \node[] at (a.west) {$x$};
+	      \end{tikzpicture}
+
+	\item  \textit{Simétrica}: $(x, y) \en \relacion$, entonces el par $(y, x) \en \relacion$, también si $\paratodo x, y \en A, x\relacion y \entonces y \relacion x$.
+	      Gráficamente tiene que haber un ida y vuelta en cada elemento de la relación.
+	      \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+		      \node[] (x) {$\bullet$};
+		      \node[] at (x.west) {$x$};
+		      \node[below right =0.2 of x] (y) {$\bullet$};
+		      \node[] at (y.south east) {$y$};
+		      \draw[->, bend left=1cm] (x.center) to (y);
+		      \draw[->, bend left=1cm] (y.center) to (x);
+	      \end{tikzpicture}
+
+	\item  \textit{Antisimétrica}: $(x, y) \en \relacion$, con $x \distinto y$ entonces el par $(y, x) \notin \relacion$, también se puede pensar
+	      como $\paratodo x,y \en A, x\relacion y$ e $ y \relacion x \entonces x = y$. Gráficamente \textbf{no} tiene que haber ningún ida y vuelta en el gráfico.
+	      Solo en una dirección.
+	      \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+		      \node[] (x) {$\bullet$};
+		      \node[] at (x.west) {$x$};
+		      \node[below right =0.2 of x] (y) {$\bullet$};
+		      \node[] at (y.south east) {$y$};
+		      \draw[->] (x.center) to (y.center);
+	      \end{tikzpicture}
+	\item  \textit{Transitiva}: Para toda terna $x, y, z \en A$ tales que $(x, y) \en \relacion$ e $(y,z) \en \relacion$, se tiene que $(x, z) \en \relacion$.
+	      Otra manera sería si $\paratodo x, y, z \en A$, $x \relacion y$ e $y \relacion z \entonces x\relacion z$. Gráficamente tiene que haber flecha directa
+	      entre las puntas de cualquier camino que vaya por más de dos nodos.
+	      \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+		      \node[] (x) {$\bullet$};
+		      \node[] at (x.north east) {$x$};
+		      \node[below right = 0.6cm of x] (y) {$\bullet$};
+		      \node[] at (y.north east) {$y$};
+		      \node[below right = 0.6cm of y] (z) {$\bullet$};
+		      \node[] at (z.north east) {$z$};
+
+		      \draw[->, bend left] (x.center) to (y.center);
+		      \draw[->, bend left] (y.center) to (z.center);
+		      \draw[->,magenta, bend right]
+		      (x.center)
+		      to node[midway,below left] {atajo}
+		      (z.center);
+	      \end{tikzpicture}
+\end{enumerate}
+
+\begin{enumerate}[label=\roman*)]
+
+	\item
+	      \begin{minipage}{0.37\textwidth}
+		      \diecinuevei
+	      \end{minipage}
+	      \begin{minipage}{0.5\textwidth}
+		      \begin{itemize}
+			      \item No es reflexiva, porque no hay bucles en todos los vértices, en particular $a \norelacion a$.
+			      \item No es simétrica, porque $d \norelacion c$.
+			      \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+			      \item No es transitiva, porque $c \relacion h$ y $h \relacion g$, pero $c \norelacion h$.
+		      \end{itemize}
+	      \end{minipage}
+
+	\item \hacer
+
+	\item \hacer
+
+	\item
+	      \begin{minipage}{0.37\textwidth}
+		      \diecinueveiv
+	      \end{minipage}
+	      \begin{minipage}{0.5\textwidth}
+		      \begin{itemize}
+			      \item Reflexiva, porque hay bucles en todos los elementos de $A$.
+			      \item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.
+			      \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+			      \item Es transitiva, porque hay \textit{atajos} en todas las relaciones de ternas.
+		      \end{itemize}
+	      \end{minipage}
+\end{enumerate}
+
+%20
+\ejercicio Sea $A = \set{1, 2, 3, 4, 5, 6}$. Graficar la relación, $\relacion= {(1,1), (1,3), (3,1), (3,3), (6,4), (4,6), (4,4), (6,6)}$
+\begin{minipage}{0.25\textwidth}
+	\veinte
+\end{minipage}
+\begin{minipage}{0.7\textwidth}
+	\begin{itemize}
+		\item No es reflexiva porque no hay bucles ni en 2 ni en 5.
+		\item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.
+		\item No es antisimétrica, porque $1 \relacion 3$ y $3 \relacion 1$ con $1 \neq 3$.
+		\item Es transitiva. \\
+		      \red{Chequear. Caso particula donde no hay ternas de $x,y,z$ distintos}.
+		      \blue{Sí, el que $2$ esté ahí solo ni cumple la hipótesis de transitividad.}
+	\end{itemize}
+\end{minipage}
+
+%21
+\ejercicio \hacer
+
+%22
+\ejercicio En cada uno de los siguientes casos determinar si la relación $\relacion $ en $A$ es reflexiva, simétrica,
+antisimétrica, transitiva, de equivalencia o de orden.
+
+\begin{enumerate}
+	\item \textit{Relación de equivalencia}: La relación debe ser reflexiva, simétrica y transitiva.
+	\item \textit{Relación de orden}: La relación debe ser reflexiva, antisimétrica y transitiva.
+\end{enumerate}
+
+\begin{enumerate}[label=\roman*)]
+	\item  $A = \set{1,2,3,4,5}, \relacion = {(1,1), (2,2), (3,3), (4,4), (5,5), (1,2), (1,3), (2,5), (1,5)}$\\
+	      \begin{enumerate}
+		      \item[R:] Es reflexiva, porque hay bucles en todos los elementos de $A$.
+		      \item[S:] No es simétrica, dado que existe $(1, 5)$, pero no $(5, 1)$
+		      \item[AS:] Es antisimétrica. No hay ningún par que tenga la vuelta, excepto los casos $x \relacion x$.
+		      \item[T:] Es transitiva. La terna 1, 2, 5 es transitiva.
+	      \end{enumerate}
+	      La relación es R, AS y T, por lo tanto es una \textit{relación de orden}.
+
+	\item \hacer
+
+	\item \hacer
+	\item \hacer
+	\item \hacer
+	\item $A = \partes(\set{n \en \naturales \talque n \leq 30})$, $\relacion$ definida por $X \relacion Y \sisolosi 2 \notin X \inter Y^c$\\
+	      $\begin{array}{|c|c|c|c|c|c|}
+			      \hline
+			      2 \en X     & 2 \en Y     & 2 \en Y^c   & 2 \en X^c   & 2 \notin X \inter Y^c & 2 \notin Y \inter X^c \\ \hline  \hline
+			      \magenta{V} & \magenta{V} & \magenta{F} & \magenta{F} & \magenta{V}           & \magenta{V}           \\
+			      \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{F}              & \cyan{V}              \\
+			      \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{V}              & \cyan{F}              \\
+			      \magenta{F} & \magenta{F} & \magenta{V} & \magenta{V} & \magenta{V}           & \magenta{V}           \\ \hline
+		      \end{array}$.\\
+	      \begin{enumerate}
+		      \item[R:]
+		            La relación es reflexiva ya que para que un elemento $X$ esté relacionado con sí mismo debe ocurrir
+		            que $X \relacion X \sisolosi 2 \notin X \inter X^c$, es decir $2 \notin \vacio$, lo cual es siempre cierto.
+
+		      \item[S:]
+		            La relación no es simétrica. Se puede ver con la \cyan{segunda y tercera} fila de la tabla con un contraejemplo. $X = \set{1}$ y $Y = \set{2},\, X,Y \subseteq A$, $X \relacion Y$, pero $Y \norelacion X$,
+
+		      \item[AS:]
+		            La relación no es antisimétrica. Se puede ver con la \magenta{primera o cuarta} fila tabla con un contraejempl con un contraejemplo. Si $X = \set{1,2}$ e $Y = \set{2,3} \entonces X \relacion Y$ y además $Y \relacion X$
+		            con  $X \distinto Y$.
+
+		      \item[T:]
+		            Es transitiva. Si bien no es lo más fácil de explicar, se puede ver en la tabla que para tener 2 relaciones
+		            en una terna $X, Y, Z$ no se puede llegar nunca al caso de la segunda fila de la tabla, donde se lograría que
+		            $X \norelacion Z$
+	      \end{enumerate}
+
+	\item $A = \naturales \times \naturales,\, \relacion$ definida por $(a,b) \relacion (c,d) \sisolosi bc$ es múltiplo de $ad$.
+	      \begin{enumerate}
+		      \item[R:] $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$, se concluye que sí es reflexiva.
+		      \item[S:]
+		            $ \llave{l}{
+				            (a,b) \relacion (c,d) \sisolosi bc \llamadaI= k\cdot ad \\
+				            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \llamadaI= h\cdot k \cdot ad = k'ad
+			            }$.\\
+		            con  $k'=1$ se cumple la igualdad. La relación es simétrica.
+		      \item[AS:] Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
+		            la relación no es antisimétrica.
+		      \item[T:]$
+			            \llave{l}{
+				            (a,b) \relacion (c,d) \sisolosi bc \llamadaI= k\cdot ad \\
+				            (c,d) \relacion (e,f) \sisolosi de \llamadaI= h\cdot cf \\
+				            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{$be = k'\cdot af$}\\
+				            \flecha{multiplico}[M.A.M.]
+				            \llaves{l}
+				            {
+					            bc \llamadaI= k\cdot ad \\
+					            de \llamadaI= h\cdot cf \\
+				            } \flecha{y}[acomodo] be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to \magenta{$be \stackrel{\checkmark}= k' \cdot af$}.
+			            }$\\
+		            Se concluye que la relación es transitiva.
+	      \end{enumerate}
+	      Con esos resultados se puede decir que $\relacion$ en $A$ es de \textit{equivalencia}.
+
+\end{enumerate}
+%23
+\ejercicio
+Sea $A$ un conjunto. Describir todas las relaciones en $A$ que son a la vez
+\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item simétricas y antisimétricas\\ \red{elementos en bucles sueltos?}
+		\item de equivalencia y de orden\\ \red{Idem anterior}
+	\end{enumerate}
+\end{multicols}
+
+¿Puede una relación en $A$ no ser ni simétrica ni antisimétrica? \red{22 (vi)?}\\
+
+%24
+\ejercicio
+Sea $A = \set{a, b, c, d, e, f}$. Dada la relación de equivalencia en $A$:
+\begin{align*}
+	\relacion = \set{(a, a), (b, b), (c, c), (d, d), (e, e), (f, f), (a, b), (b, a), (a, f), (f, a), (b, f), (f, b), (c, e), (e, c)}
+\end{align*}
+Hallar la clase $\clase{a}$ de $a$, la clase $\clase{b}$ de $b$, la clase $\clase{c}$ de $c$, la clase $\clase{d}$ de $d$, y la partición asociada a $\relacion$ \\
+\veinticuatro
+$\to
+	\llave{rclclcl}{
+		\clase{a} & = & \set{a, b, f}  & = & \clase{b} & = & \clase{f} \\
+		\clase{c} & = & \set{c, e}     & = & \clase{e} &   & \\
+		\clase{d} & = & \set{d}        &   &         &   & \\
+	}$ \\
+La partición asociada a $\relacion:\,  \set{\set{d}, \set{c,e}, \set{a, b, f}} = \set{\clase{d}, \clase{b}, \clase{a}}$.
+
+%25
+\ejercicio
+\Hacer
+Sea $A = \set{1,2,3,4,5,6,7,8,9,10}$. Hallar y graficar la relación de equivalencia en $A$ asociada a la partición $\set{ \set{1,3}, \set{2,6,7}, \set{4,8,9,10}, \set{5} }$.
+¿Cuántas clases de equivalencia distintas tiene? Hallar un representante para cada clase.
+
+%26
+\ejercicio
+\Hacer
+Sean $P = \partes(\set{1,2,3,4,5,6,7,8,9,10})$ el conjunto de partes de $\set{1,\dots, 10}$ y $\relacion$ la relación en $P$ definida por:
+\[
+	A \relacion B \sisolosi (A \triangle B) \sisolosi \inter \set{1,2,3} = \vacio
+\]
+\begin{enumerate}[label=\roman*)]
+	\item  Probar que $\relacion$ es una relación de equivalencia y decidir si es antisimétrica (\textit{\underline{Sugerencia:}} usar adecuadamente el ejercicio \textbf{14iii})).
+	\item Hallar la clase de equivalencia de $A = \set{1,2,3}$.
+\end{enumerate}
+
+\separadorCorto
+
+%27
+\ejercicio
+Sean $A = \set{n \en \naturales \talque n \leq 92}$ y
+$\relacion$ la relación en $A$ definida por
+$x \relacion y \sisolosi x^2 - y^2 = 93x - 93y$
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $\relacion$ es una relación de equivalencia. ¿Es antisimétrica?
+	\item Hallar la clase de equivalencia de cada $x \en A$. Deducir cuántas clases de equivalencia \textbf{distintas} determina la relación $\relacion$
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item Primero acomodo la condición de la relación:\\
+	      $x^2 - y^2 = 93x - 93y \flecha{acomodo}
+		      \llave{rrcl}{
+			      \cyan{$*^1$} & x & = & y  \\
+			      & & \o &\\
+			      \cyan{$*^2$} & x + y & = & 93
+		      }$\\
+	      Para ser relación de equivalencia es necesario que:\\
+	      $\relacion \to
+		      \llaves{cl}{
+			      R: & \text{Reflexiva} \to x \relacion x \sisolosi x \llamadaI = x  \checkmark\\
+			      S: & \text{Simétrica} \to
+			      \llave{l}{
+				      x \relacion y \sisolosi x + y\llamadaII = 93\\
+				      y \relacion x \sisolosi y + x \llamadaII = 93  \checkmark
+			      }\\
+			      T: & \text{Transitiva} \to
+			      \llave{l}{
+				      x \relacion y \sisolosi x \llamadaII = 93 - y\\
+				      y \relacion z \sisolosi y \llamadaII = 93 - z \\
+				      \flecha{resto}[m.a.m] x - y = -y + z \to x \llamadaI = z \sisolosi x \relacion z
+			      }\\
+		      }$\\
+	      La $\relacion$ no es antisimétrica, como contraejemplo se ve que $1 \relacion 92$ y $92 \relacion 1$ con $1 \distinto 92$
+
+	\item
+	      \begin{minipage}{0.2\textwidth}
+		      \veintisiete
+	      \end{minipage}
+	      \begin{minipage}{0.7\textwidth}
+		      A priori no sé como encontrar las clases de equivalencia, pero solo buscando la relación del $1$ con algún número (excepto el mismo) veo que únicamente
+		      se puede relacionar con el $92$ por la condición de la relación. De ahí se pueden inferir que todas las clases van a ser así chiquitas.Las clases de equivalencia :
+
+		      $\llave{ccccc}{
+				      \clase{1} & = & \clase{92} & = & \set{1, 92}\\
+				      \clase{2} & = & \clase{91} & = & \set{2, 91}\\
+				      \vdots  &   & \vdots   &   & \vdots\\
+				      \clase{45} & = & \clase{47} & = & \set{45, 47}\\
+				      \clase{46} & = & \set{46}
+			      }$\\
+		      Hay entonces 46 clases. $A = \set{\clase{1},\, \clase{2},\, \dots,\, \clase{45},\, \clase{46}}$
+	      \end{minipage}
+\end{enumerate}
+
+%28
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Sea $A = \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}$. Consideremos en $\partes(A)$ la relación de equivalencia dada
+	      por el cardinal (es decir, la cantidad de elementos): Dos subconjuntos de $A$ están relacionados si y solo si tienen la misma cantidad
+	      de elementos ¿Cuántas clases de equivalencia \textbf{distintas} determina la relación? Hallar un representante par acada clase.\\
+
+	      \separadorCorto
+
+	      $\partes(A) = \set{\vacio, \set{1}, \set{1,2}, \cdots, \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}$, el conjunto $\partes(A)$ tiene un total de
+	      $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.\\
+	      $\llave{lcl}{
+			      \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
+			      \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
+			      \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
+			      \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
+			      \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
+			      \vdots                            &\vdots  & \vdots\\
+			      \text{Conjuntos con 10 elementos: } & \clase{10} & \set{1,2,3,4,5,6,7,8,9,10} = A\\
+		      }$
+
+	\item
+	      En el conjunto de todos los subconjuntos finitos de $\naturales$, consideremos nuevamente la relación de equivalencia dada por el cardinal: Dos subconjuntos finitos
+	      de $\naturales$ están relacionados si y solo si tienen la misma cantidad de elementos ¿Cuántas clases de equivalencia \textbf{distintas} determina la relación?
+	      Hallar un representante para cada clase.\\
+
+	      \separadorCorto
+
+	      Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\\
+	      La relación determina $N+1$ \textit{clases de equivalencia} distintas.\\
+	      $\llave{lcl}{
+			      \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
+			      \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
+			      \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
+			      \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
+			      \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
+			      \vdots                            &\vdots  & \vdots\\
+			      \text{Conjuntos con 10 elementos: } & \clase{N} & \set{1,2,3,4, \cdots, N-1, N} \naturales_N\\
+		      }$
+\end{enumerate}
+
+\noindent\separador
+
+\noindent\underline{\textit{Funciones}}\\
+
+Sean $A$ y  $B$ conjuntos, y sea $\relacion$ de $A$ en $B$. Se dice que
+$\relacion$ es una \textit{función} cuando todo elemento $x \en A$ está relacionado con algún
+$y \en B$, y este elemento $y$ es único. Es decir:\\
+
+$\llave{l}{
+		\paratodo x \en A, \existe! y \en B \talque x \relacion y\\
+		\paratodo x \en A, \existe y \en B \talque x\relacion y, \\
+		\text{si } y, z \en B \text{ son tales que } x \relacion y \text{ y } x \relacion z \entonces y = z.
+	}
+$
+\begin{itemize}
+	\item Dada $f:A\,(dominio) \to B\,(codominio)$ el conjunto \textit{imagen} es: $\imagen(f)= \set{y \en B : \existe x \en A \talque f(x) = y}$
+	\item \begin{itemize}
+		      \item \textit{inyectiva:} si $\forall x, x' \en A \text{ tales que } f(x) = f(x')$ se tiene que $ x = x'$
+		      \item \textit{sobreyectiva:} si $\forall y \en B, \existe x \en A \text{ tal que } f(x) = y.\: f\text{ es sobreyectiva si } \imagen(f) = B$
+		      \item \textit{biyectiva:} Cuando es inyectiva y sobreyectiva.
+	      \end{itemize}
+	\item $A, B, C$ conjuntos y $f: A \to B \to C,\, g: B \to C$ funciones. Entonces la \textit{composición} de $f$ con $g$, que se nota:\\
+	      $g \comp f = g\left(f(x)\right),\, \paratodo x \en A$, resulta ser una función de $A$ en $C$.
+	\item $f$ es biyectiva cuando: $f\inv : B \to A$ es la función que satisface que:\\
+	      $\paratodo y \en B: f\inv(y) = x \sisolosi f(x) = y$
+\end{itemize}
+
+%29
+\ejercicio
+Determinar si $\relacion$ es una función de $A$ en $B$ en los casos
+\begin{enumerate}[label=\roman*)]
+	\item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,a),(4,b),(5,c),(3,d)} $\\
+	      No es función, dado que $3 \relacion a$, $3 \relacion d$ y $a \distinto d$
+
+	\item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b)}$\\
+	      No es función, dado que todo elemnto de $A$ tiene que estar relacionado a algún elemento de $B,\, 5 \norelacion y$ para ninún $ y \en B$
+
+	\item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b),(5,c)} $\\
+	      Es función.
+
+	\item $A = \naturales,\, B = \reales, \, \relacion = \set{(a,b) \en \naturales \times \reales \talque a = 2b - 3} $\\
+	      Es función.
+
+	\item $A = \reales,\, B = \naturales, \, \relacion = \set{(a,b) \en \reales \times \naturales \talque a = 2b - 3} $\\
+	      No es función, $\sqrt{2} \norelacion b$ para ningún $b \en \naturales$
+	\item $A = \enteros,\, B = \enteros, \, \relacion = \set{(a,b) \en \enteros \times \enteros \talque a +b \text{ es divisible por }5} $\\
+	      No es función, porque $0 \relacion 5$ y $0 \relacion 10$ y necesito que $\paratodo x \en \enteros,\, \existe!\, y \en \enteros$
+\end{enumerate}
+
+%30
+\ejercicio
+Determinar si las siguientes funciones son inyectivas, sobreyectivas o biyectivas. Para las que sean biyectivas hallar la inversa y para la que no sean sobreyectivas hallar la imagen.\\
+\begin{enumerate}[label=\roman*)]
+	\item $f: \reales \to \reales,\quad f(x) = 12 x^2 - 5$\\
+	      No es \textit{inyectiva}, $f(-1) = f(1)$.\\
+	      No es \textit{sobreyectiva}, $\imagen(f) = [-5, +\infinito)$.
+	\item \hacer
+
+	\item \hacer
+
+	\item $f: \naturales \to \naturales,\quad
+		      f(n) = \llave{ll}{
+			      \frac{n}{2} & \text{si $n$ es par}\\
+			      n + 1 & \text{si $n$ es impar}\\
+		      }$\\
+	      Es \textit{inyectiva} y \textit{sobreyectiva}. $\paratodo m,m' \en \naturales,
+		      \llave{l}{
+			      f(2m) = \frac{2m}{2} = m \\
+			      f(2m'-1) = 2m' - 1 + 1 = 2m' \\
+		      } \to$ Si bien $f(8) = f(3)$ la función es \textit{sobreyectiva} porque
+	      genera todo $\naturales$ tan solo con la parte par de la función.\\
+	      $f^{-1}(n) =
+		      \llave{ll}{
+			      2n    & \text{si $n$ es par}\\
+			      n - 1 & \text{si $n$ es impar} \\
+		      }$\\
+          \red{Qué onda?}
+
+\end{enumerate}
+
+\separador
+\separador
+
+\subsection*{Notas random}
+\begin{itemize}
+	\item Cardinal: cantidad de elementos de un conjunto.
+	\item El conjunto $\partes(A)$ tiene $2^n$ el cardinal del conjunto $A$.
+	\item Una relación $\relacion$ es un subconjunto de un producto cartesiano.
+	\item  Leyes de absorción, obvias pero no tan.
+	      $\llave{c}{
+			      A \union( A \inter B ) = A\\
+			      A \inter ( A \union B ) = A\\
+		      }$
+	\item probar identidades de conjuntos:
+	      \begin{itemize}
+		      \item
+		            $A = B \to
+			            \llave{c}{
+				            A \subset B \\
+				            B \subset A \\
+			            }$
+		      \item lógica proposicional
+		      \item tabla de verdad
+	      \end{itemize}
+	\item
+\end{itemize}
+\end{document}
+
+
+% Ejemplos:
+% text color --> {\color{violet} texto violeta}
+% color boxed text --> \colorbox{violet}{texto con fondo violeta}
+% color framed text --> \fcolorbox{violet}{white}{texto enmarcado viloleta}
+% IMAGENES --> \includegraphics[width=0.5\textwidth]{ARCHIVO}' >> "$nombre_final"

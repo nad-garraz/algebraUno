@@ -1,0 +1,283 @@
+\documentclass[12pt,a4paper, spanish]{article}
+% Sacar draft para que aparezcan las imagenes.
+% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
+% Opciones de clase: article, report, letter, beamer...
+
+% Paquetes:
+% =========
+\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
+\usepackage[T1]{fontenc} % tildes
+\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
+\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{amsmath} % Soporte de mathmatics
+\usepackage{amssymb} % fuentes de mathmatics
+\usepackage{array} % Para tablas y eso
+\usepackage{caption} % Configuracion de figuras y tablas
+\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
+\usepackage{multicol} 
+\usepackage{tikz} % para graficar
+\usepackage{cancel}
+\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+
+% para hacer los graficos tipo grafos
+\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+\usetikzlibrary{external}
+
+\include{graficos.tex} % Voy a definir graficos fuera del documento para que no sea tan pesada la lectura
+\include{definiciones.tex} % idem con las definiciones
+
+
+\begin{document}
+
+\pagestyle{empty} % Para que no muestre el número en pie de página
+
+% Info para armar título.
+\title{Práctica 2 de álgebra 1} % título
+\author{D. Garraz} % autor
+\date{last update: \today} % Cambiar de ser necesario
+% \maketitle  % Para que aprezca el título en el documento
+
+\section*{Inducción, números naturales}
+
+\begin{enumerate}
+	\item $\paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}$
+
+	\item $\paratodo n \en \naturales: \sumatoria{i = 0}{n} q^i =
+		      1 + q + q^2 + \cdots  + q^{n-1} + q^n =
+		      \llave{lll}{
+			      n+1 & \text{si} & q = 1\\
+			      \frac{q^{n+1}-1}{q-1} & \text{si} & q \distinto 1\\
+		      }$
+
+	\item Inducción: Sea $H \subseteq \reales$ un conjunto. Se dice que $H$ es un conjunto \textit{inductivo} si se cumplen las dos condiciones siguiente:
+	      \begin{itemize}
+		      \item $1 \in H$
+		      \item $\paratodo x , x \in H \entonces x+1 \en H$
+	      \end{itemize}
+
+	\item Principio de inducción: Sea $p(n), n \in \naturales$ , una afirmación sobre los números naturales.
+	      Si $p$ satisface
+	      \begin{itemize}
+		      \item (Caso Base) $p(1)$ es Verdadera.
+		      \item (Paso inductivo) $\paratodo h \en \naturales,\, p(h)$ \textit{Verdadera}
+		            $\entonces p(h+1)$ \textit{Verdadera, entonces $p(n)$ es Verdadera} $\paratodo n \en \naturales$.
+	      \end{itemize}
+
+	\item Principio de inducción \textit{corrido}: Sea $n_0 \en \enteros$ y sea $p(n),\, n\geq n_0,\,$ una afirmación sobre $\enteros_{\geq n_0}$. Si $p$
+	      satisface:
+	      \begin{itemize}
+		      \item (Caso Base) $p(n_0)$ es Verdadera.
+		      \item (Paso inductivo) $\paratodo h \geq n_0,\, p(h)$ \textit{Verdadera}
+		            $\entonces p(h+1)$ \textit{Verdadera, entonces $p(n)$ es Verdadera} $\paratodo n \en \naturales$.
+	      \end{itemize}
+\end{enumerate}
+
+\section*{Ejercicio fuera de la guía}
+Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
+\begin{enumerate}
+	\item La proposición: $p(n): \frac{(2n)!}{n!^2} \leq (n+1)! $
+
+	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\checkmark
+
+	\item Mi \textbf{HI} es \textit{que vale}  $ \frac{(2h)!}{h!^2} \leq (h+1)! $
+
+	\item Quiero probar que $\frac{(2(h+1))!}{(h+1)!^2} \leq ((h+1)+1)!
+		      \flecha{acomodo}
+		      \frac{(2h + 2)!}{(h + 1)!^2} \leq (h+2)!$
+
+	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
+	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} = \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{$(2h)!$}}{(h + 1)^2 \cdot \blue{$h!^2$}} \stacktext{HI}\leq   \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{$(h+1)!$} \leq (h+2)!$\\
+	      Probando esa última desigualdad se prueba lo buscado.
+
+
+\end{enumerate}
+
+\section*{Ejercicios de la guía}
+%1
+\ejercicio
+\hacer
+
+
+%2
+\ejercicio
+
+\hacer
+
+
+%3
+\ejercicio
+Calcular
+\begin{multicols}{2}
+	\begin{enumerate}[label=\roman*)]
+		\item $ \sumatoria{i=1}{n} (4i + 1) $
+		      \hacer
+
+
+		\item $\sumatoria{i=6}{n} 2(i-5)$
+		      \hacer
+
+	\end{enumerate}
+\end{multicols}
+
+%4
+\ejercicio Calcular \begin{enumerate}[label=\roman*)] \item $\sumatoria{i=0}{n}2^i$\\
+	      $ \sumatoria{i=0}{n}2^i \stackrel{q\neq1} = \frac{\red{2}^{n+1} - 1}{\red{$2$} - 1} = 2^{n+1} - 1 $
+
+	\item $\sumatoria{i=1}{n} q^i$\\
+	      $\sumatoria{i=1}{n} q^i = \red{$-1 + 1$} + \sumatoria{i=1}{n} q^i = \red{$-1$} + \sumatoria{i = \red{$0$}}{n} q^i =
+		      \llave{lll}{
+			      n + 1 \red{$-1$} = n & \text{si} & q = 1\\
+			      \frac{q^{n+1}-1}{q-1} \red{$-1$} = \frac{q^{n+1} - q}{q-1} & \text{si} & q \distinto 1\\
+		      }$
+
+	\item \hacer
+	\item \hacer
+\end{enumerate}
+
+%5
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      \hacer
+
+	\item $\underbrace{S = \frac{N(N+1)}{2} = \sumatoria{1}{N} i }_{Gauss} \to \sumatoria{1}{n} 2i -1 = 2 \sumatoria{1}{n}i - \sumatoria{1}{n} 1 = 2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \checkmark $
+
+	\item $
+		      \llaves{ l }{
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \checkmark\\
+			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \checkmark \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
+			      \sumatoria{1}{k+1} 2i -1 = \HI{\sumatoria{1}{k} 2i -1} + \kmasuno{2(k+1) -1} = k^2 + 2k + 1 = (k+1)^2 \green{\checkmark}
+		      } \to \boxed{\sumatoria{i = 1}{n} (2i - 1) = n^2}$
+\end{enumerate}
+
+%6
+\ejercicio
+\hacer
+
+%7
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item $\llave{ l }{
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} (-1)^{i+1} i^2 = (-1)^2 \cdot 1 = 1 \checkmark\\
+			      \text{Paso inductivo }
+			      \llave{ l }{
+				      n = k \to \sumatoria{1}{k} (-1)^{i+1} i^2 = (-1)^{k+1} \frac{k(k+1)}{2} \\
+				      \entonces\\
+				      n = k+1 \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 \eq?= (-1)^{(k+1)+1} \frac{(k+1)(k+2)}{2}\\
+				      \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 = \HI{ \sumatoria{1}{k} (-1)^{i+1} i^2 } + \kmasuno{(-1)^{k+2} (k+1)^2 } =\\
+				      (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2 \flecha{acomodar}[fáctor cómun] (-1)^k (k+1)\left[ -\frac{k}{2} + (k+1) \right] =\\
+				      (-1)^k (k+1)\frac{(k+2)}{2} \checkmark
+			      }
+		      }\\ \to
+		      \boxed{\sumatoria{i=1}{n} (-1)^{i+1} i^2 = (-1)^{n+1} \frac{n(n+1)}{2}}
+	      $
+
+	\item
+	      \hacer
+
+	\item
+	      \hacer
+
+	\item
+	      $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
+	      $\llave{l}{
+		      \text{Primer caso } n = 1 \to \productoria{i=1}{1} \parentesis{ 1 + a^{2^{i-1}} } = 1 + a^{2^0} = \magenta{$1 + a$} = \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} = \magenta{$1 + a$} \checkmark \\
+		      \text{Paso inductivo } n = k \to \productoria{i=1}{k} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^k}}{1-a} \entonces n = k+1 \to  \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } \eq?= \frac{1-a^{2^{k+1}}}{1-a}\\
+		      \llave{l}{
+		      \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } =
+		      \HI{ \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}}   \cdot \kmasuno{ 1 + a^{2^{i-1}}}  =
+		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k} \flecha{diferencia}[de cuadrados] \frac{1 - \parentesis{ a^{2^k}}^2}{1-a} =\\
+		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\checkmark
+		      }
+		      }
+	      $
+
+
+
+	\item $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\\
+	      \red{Qué onda esa $n$ ahí? Complica mucho el uso de la HI}
+
+\end{enumerate}
+
+%8
+\ejercicio
+Sea $a,\, b \en \reales$. Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$. Deducir la fórmula de la serie
+geométrica: para todo $a \neq 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.\\
+$\llave{ l }{
+		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \checkmark\\
+		\text{Paso inductivo: } n = k  a^k - b^k = (a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} \entonces
+		a^{k+1} - b^{k+1} \eq?= (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
+		\llave{l}{
+			(a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i} =
+			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} + \kmasuno{(a - b) a^k \cdot b^{k+1-(k+1)}} = \\
+			b \cdot \HI{(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}} + (a - b) a^k = b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\checkmark
+		}\\
+	}$\\
+Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1}{n} a^{i-1} = a^n - 1 \to\\
+	\llave{ l }{
+		(a-1) \sumatoria{1}{n} a^{i-1} =(a-1) \cdot (1 + a + a^2 + \cdots + a^{n-1})  = a^n - 1 \flecha{multiplico por $a$ y}[divido por $(a - 1)$ M.A.M.]\\
+		\sumatoria{1}{n} a^i = a + a^2 + \cdots + a^n  = \frac{a^{n+1} - a}{a-1} \flecha{sumo un $1$}[M.A.M.]
+		\sumatoria{\magenta{$i = 0$}}{n} a^i = 1 + a + a^2 + \cdots + a^n   = \frac{a^n - a}{a-1} + 1 \to\\
+		\boxed{ \frac{a^n + 1}{a-1} =  \sumatoria{i = 0}{n} a^i  }
+	}$
+
+%9
+\ejercicio
+
+%10
+\ejercicio
+
+%11
+\ejercicio
+
+%12
+\ejercicio
+
+%13
+\ejercicio
+
+%14
+\ejercicio
+Probar que para todo $n \geq 3$ vale que:
+\begin{enumerate}[label=\roman*)]
+	\item la cantidad de diagonales de un polígono de $n$ lados es $\frac{n(n-3)}{2}$.
+	      $a_n = \frac{n(n-3)}{2}$ la diferencia de lados entre 2 figuras consecutivas sería de $a_{n+1} - a_{n} = n - 1$\\
+	      $\llave{ l }{
+			      \text{Caso base: } n = 3 \to a_3 = 0,\, n = 4 \to a_4 = 2, \text{la diferencia de las diagonales: } 2 = 2 - 1.\\
+			      \begin{tikzpicture}[scale=0.5]
+				      % Cuadrado
+				      \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+				      % Diagonales
+				      \draw (0,0) -- (2,2);
+				      \draw (0,2) -- (2,0);
+			      \end{tikzpicture}
+\qquad
+			      \begin{tikzpicture}[scale=0.5]
+				      % Triángulo
+				      \draw (2,0) -- (4,1) -- (2,2) -- cycle;
+			      \end{tikzpicture}
+		      }$\\
+          \red{Se siente circular el pensamiento de usar la diferencia de la fórmula que tengo que probar.}
+
+	\item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.
+\end{enumerate}
+
+\separador
+
+\textit{Recurrencia}
+
+
+%15
+\ejercicio
+
+%16
+\ejercicio
+
+%17
+\ejercicio
+
+
+\end{document}

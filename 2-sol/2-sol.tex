@@ -24,7 +24,7 @@
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external}
+\usetikzlibrary{external,angles,quotes}
 
 \include{graficos.tex} % Voy a definir graficos fuera del documento para que no sea tan pesada la lectura
 \include{definiciones.tex} % idem con las definiciones
@@ -37,7 +37,7 @@
 % Info para armar título.
 \title{Práctica 2 de álgebra 1} % título
 \author{D. Garraz} % autor
-\date{last update: \today} % Cambiar de ser necesario
+\date{\today} % Cambiar de ser necesario
 % \maketitle  % Para que aprezca el título en el documento
 
 \section*{Inducción, números naturales}
@@ -91,9 +91,72 @@ Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
 	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
 	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} = \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{$(2h)!$}}{(h + 1)^2 \cdot \blue{$h!^2$}} \stacktext{HI}\leq   \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{$(h+1)!$} \leq (h+2)!$\\
 	      Probando esa última desigualdad se prueba lo buscado.
-
-
 \end{enumerate}
+
+\subsubsection*{Ejercicio de la clase del 12/4}
+Sea $(a_n)_{n \en \naturales_0}$ con
+$\llave{l}{
+		a_0 = 1\\
+		a_1 = 3\\
+		a_n = a_{n-1} - a_{n-2}\ \paratodo n \geq 2
+	}$
+\begin{enumerate}[label=(\alph*)]
+	\item Probar que $a_{n+6} = a_n$\\
+	      Por inducción: \boxed{p(n):   a_{n+6} = a_n \paratodo n \geq \naturales_0 \V?}\\
+	      $\llave{l}{
+		      \textit{ Caso Base:} \text{ Primero notar que,} \\
+		      \to
+		      \llaves{l}{
+			      a_0 = 1\\
+			      a_1 = 3\\
+			      a_2 \eqDef= 2\\
+			      a_3 \eqDef= -1\\
+			      a_4 \eqDef= -3\\
+			      a_5 \eqDef= -2
+		      } \to
+		      \llaves{l}{
+			      a_6 \eqDef= 1\\
+			      a_7 \eqDef= 3\\
+			      a_8 \eqDef= 2\\
+			      a_9 \eqDef= -1\\
+			      a_{10} \eqDef= -3\\
+			      a_{11} \eqDef= -2
+		      } \to
+		      \cdots \text{ Se ve que tiene un período de 6 elementos.}\\
+
+		      p(n=2) \V? \to a_8 \eq?=a_2 \checkmark\\
+
+		      \textit{Paso inductivo: } \text{Supongo } p(k) \V \entonces p(k+1) \V?\\
+		      \textit{Hipótesis inductiva: } \text{Supongo } a_{k+6} = a_k \paratodo k \in \naturales_0 \V ,\, \qvq a_{k+7} = a_{k+1}\\
+		      \red{$a_{k+7}$} \eqDef= a_{k+6} - a_{k+5} \stacktext{HI}{=} a_k - a_{k+5} \eqDef = a_k - (\underbrace{\textstyle a_k + a_{k+4}}_{a_{k+5}}) = -a_{k+4}\\
+		      \to \red{$a_{k+7}$} = -a_{k+4} \eqDef= -(a_{k+3} - a_{k+2}) \eqDef = -\parentesis{ a_{k+2} - \red{$a_{k+1}$} - a_{k+2} } = \red{$a_{k+1}$}\checkmark
+		      }\\
+	      $\\
+	      Como $p(0) \y p(1) \y \cdots p(5)$ son verdaderas y $p(k)$ es verdadera así como $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n \in \naturales_0$
+
+	\item Calcular $\sumatoria{k=0}{255} a_k$ \\
+	      $\sumatoria{k=0}{255} a_k =
+		      \underbrace{\textstyle a_0 + a_1 + a_2 + a_3 + a_4 + a_5}_{= 0} +
+		      \underbrace{\textstyle a_6 + a_7 + a_8 + a_9 + a_{10} + a_{11} }_{=0} +
+		      \cdots +
+		      a_{252} + a_{253} + a_{254} + a_{255}
+	      $\\
+	      En la sumatoria hay \red{256 términos}. $256 = 42 \cdot 6 + 4$ por lo tanto van a haber 42 bloques que dan 0 y sobreviven los últimos 4 términos.
+	      $\sumatoria{k=0}{255} a_k = \underbrace{\textstyle 0 + 0 + \dots + 0}_{42 \text{ ceros}} + a_{252} + a_{253} + a_{254} + a_{255} =
+		      \cancel{a_{252}} + a_{253} + a_{254} + \cancel{a_{255}} = a_{253} + a_{254} = 5\\
+	      $ Donde usé que: $a_n =
+		      \llave{rcl}{
+			      1 & \text{si} & n\mod6 = 0 \\
+			      3 & \text{si} & n\mod6 = 1 \\
+			      2 & \text{si} & n\mod6 = 2 \\
+			      -1 & \text{si} & n\mod6 = 3 \\
+			      -3 & \text{si} & n\mod6 = 4 \\
+			      -2 & \text{si} & n\mod6 = 5 \\
+		      }\longrightarrow
+	      $
+	      \boxed{\sumatoria{k=0}{255} a_k = 5} \checkmark
+\end{enumerate}
+
 
 \section*{Ejercicios de la guía}
 %1
@@ -149,7 +212,12 @@ Calcular
 		      \llaves{ l }{
 			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \checkmark\\
 			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \checkmark \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
-			      \sumatoria{1}{k+1} 2i -1 = \HI{\sumatoria{1}{k} 2i -1} + \kmasuno{2(k+1) -1} = k^2 + 2k + 1 = (k+1)^2 \green{\checkmark}
+			      \sumatoria{1}{k+1} 2i -1 =
+			      \HI{
+				      \sumatoria{1}{k} 2i -1
+			      } + \kmasuno{
+				      2(k+1) -1
+			      } = k^2 + 2k + 1 = (k+1)^2 \green{\checkmark}
 		      } \to \boxed{\sumatoria{i = 1}{n} (2i - 1) = n^2}$
 \end{enumerate}
 
@@ -167,7 +235,13 @@ Calcular
 				      n = k \to \sumatoria{1}{k} (-1)^{i+1} i^2 = (-1)^{k+1} \frac{k(k+1)}{2} \\
 				      \entonces\\
 				      n = k+1 \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 \eq?= (-1)^{(k+1)+1} \frac{(k+1)(k+2)}{2}\\
-				      \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 = \HI{ \sumatoria{1}{k} (-1)^{i+1} i^2 } + \kmasuno{(-1)^{k+2} (k+1)^2 } =\\
+				      \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 =
+				      \HI{
+					      \sumatoria{1}{k} (-1)^{i+1} i^2
+				      } +
+				      \kmasuno{
+					      (-1)^{k+2} (k+1)^2
+				      } =\\
 				      (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2 \flecha{acomodar}[fáctor cómun] (-1)^k (k+1)\left[ -\frac{k}{2} + (k+1) \right] =\\
 				      (-1)^k (k+1)\frac{(k+2)}{2} \checkmark
 			      }
@@ -188,7 +262,12 @@ Calcular
 		      \text{Paso inductivo } n = k \to \productoria{i=1}{k} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^k}}{1-a} \entonces n = k+1 \to  \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } \eq?= \frac{1-a^{2^{k+1}}}{1-a}\\
 		      \llave{l}{
 		      \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } =
-		      \HI{ \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}}   \cdot \kmasuno{ 1 + a^{2^{i-1}}}  =
+		      \HI{ 
+          \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}
+          } \cdot 
+          \kmasuno{
+            1 + a^{2^{i-1}}
+          }  =
 		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k} \flecha{diferencia}[de cuadrados] \frac{1 - \parentesis{ a^{2^k}}^2}{1-a} =\\
 		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\checkmark
 		      }
@@ -197,9 +276,30 @@ Calcular
 
 
 
-	\item $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\\
-	      \red{Qué onda esa $n$ ahí? Complica mucho el uso de la HI}
+	\item
+	      $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\\
+	      En este ejercicio conviene abrir la productoria y acomodar los factores. Por inducción:\\
+	      $\llave{l}{
+			      p(n):\ \productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)  \\
+			      \textit{Caso Base: } p(1) \text{ V?} \to \productoria{i=1}{1} \frac{1+i}{2i-3} = \frac{1+1}{2 \cdot 1 - 3} = 2^1 (1 - 2\cdot 1) = -2\\
+			      \textit{Paso inductivo: Supongo } p(k) \text{ Verdadero } \flecha{quiero ver}[que] p(k+1) \text{ Verdadero para algún } k \en \naturales.\\
+			      \textit{Hipótesis inductiva: Supongo } \productoria{i=1}{k} \frac{k+i}{2i-3} = 2^k (1 -2k), \qvq   \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = 2^{k+1} (1 -2(k+1))\\
 
+			      \llave{l}{
+				      \productoria{i=1}{k} \frac{k+i}{2i-3} = \frac{k+1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k+3}{2 \cdot 3 - 3} \cdots \frac{2k}{2 \cdot k - 3} = 2^k(1 - 2k)\\
+				      \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = \frac{k+2}{2 \cdot 1 - 3} \cdot \frac{k+3}{2 \cdot 2 - 3} \cdots \frac{k+1 + (k-1)}{2(k-1) - 3} \cdot \frac{k+1 + k}{2k - 3}\cdot \frac{k+1 + (k+1)}{2(k + 1) - 3} \\
+				      \flecha{Masajear: multiplico por $1 = \frac{\cyan{$k+1$}}{\cyan{$k+1$}}$}[corro los denominadores una fracción hacia $\leftarrow$]
+				      \frac{\cyan{$k+1$}}{\cyan{$k+1$}} \cdot \frac{1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{1} = \\
+				      \flecha{acomodo para que}[aparezca la HI]
+				      \HI{
+					      \textstyle \frac{\cyan{$k+1$}}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}
+				      }  \cdot \frac{2k+2}{\cyan{$k+1$}} =\\
+				      = 2^k (1 -2k) \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{\cyan{$k+1$}} = 2^k \cancel{(1 - 2k)} \cdot \frac{2k + 1}{(-1)\cancel{(1 - 2k)}}  \cdot \frac{2\cancel{(k + 1)}}{\cancel{\cyan{$k + 1$}}} = 2^{k+1}(-1)(2k + 1)=\\
+				      = 2^{k+1} \parentesis{1 - 2(k+1)} \checkmark
+
+			      }
+		      }$
+	      Como $p(1)$ es verdadero y $p(k)$ es verdadero y $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n\en \naturales $
 \end{enumerate}
 
 %8
@@ -212,8 +312,14 @@ $\llave{ l }{
 		a^{k+1} - b^{k+1} \eq?= (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
 		\llave{l}{
 			(a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i} =
-			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} + \kmasuno{(a - b) a^k \cdot b^{k+1-(k+1)}} = \\
-			b \cdot \HI{(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}} + (a - b) a^k = b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\checkmark
+			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} + 
+      \kmasuno{
+        (a - b) a^k \cdot b^{k+1-(k+1)}
+      } = \\
+			b \cdot 
+      \HI{
+				(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}
+			} + (a - b) a^k \eqHI= b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\checkmark
 		}\\
 	}$\\
 Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1}{n} a^{i-1} = a^n - 1 \to\\
@@ -243,26 +349,111 @@ Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1
 \ejercicio
 Probar que para todo $n \geq 3$ vale que:
 \begin{enumerate}[label=\roman*)]
-	\item la cantidad de diagonales de un polígono de $n$ lados es $\frac{n(n-3)}{2}$.
-	      $a_n = \frac{n(n-3)}{2}$ la diferencia de lados entre 2 figuras consecutivas sería de $a_{n+1} - a_{n} = n - 1$\\
-	      $\llave{ l }{
-			      \text{Caso base: } n = 3 \to a_3 = 0,\, n = 4 \to a_4 = 2, \text{la diferencia de las diagonales: } 2 = 2 - 1.\\
-			      \begin{tikzpicture}[scale=0.5]
-				      % Cuadrado
-				      \draw (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
-				      % Diagonales
-				      \draw (0,0) -- (2,2);
-				      \draw (0,2) -- (2,0);
-			      \end{tikzpicture}
-\qquad
-			      \begin{tikzpicture}[scale=0.5]
-				      % Triángulo
-				      \draw (2,0) -- (4,1) -- (2,2) -- cycle;
-			      \end{tikzpicture}
-		      }$\\
-          \red{Se siente circular el pensamiento de usar la diferencia de la fórmula que tengo que probar.}
+	\item La cantidad de diagonales de un polígono de $n$ lados es $\frac{n(n-3)}{2}$.\\
+	      Ejercicio donde hay que encontrar una fórmula a partir de algún método \textit{creativo} para luego probar por inducción.\\
+	      \begin{tikzpicture}[scale=0.9]
+		      \coordinate (n) at (0,0);
+		      \coordinate (1) at (2,0);
+		      \coordinate (2) at (3,1.5);
+		      \coordinate (3) at (3.5,2.5);
+		      \coordinate (k) at (2.5,3.8);
+		      \coordinate (n-3) at (0.5,4);
+		      \coordinate (n-2) at (-1,3.2);
+		      \coordinate (n-1) at (-2,2);
 
-	\item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.
+		      \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
+			      {
+				      \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
+				      \draw[dashed, magenta] (n) -- (\point);
+			      }
+		      \draw[dashed, green] (n-1) -- (1);
+		      \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+
+		      \begin{scope}[xshift=8cm]
+			      \coordinate (n) at (0,0);
+			      \coordinate (1) at (2,0);
+			      \coordinate (2) at (3,1.5);
+			      \coordinate (3) at (3.5,2.5);
+			      \coordinate (k) at (2.5,3.8);
+			      \coordinate (n-3) at (0.5,4);
+			      \coordinate (n-2) at (-1,3.2);
+			      \coordinate (n-1) at (-2,2);
+			      \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
+				      {
+					      \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
+				      }
+		      \end{scope}
+
+		      \draw[ultra thick, red] (n-1) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+
+	      \end{tikzpicture}\\
+	      Se desprende del gráfico el siguiente razonamiento: En el polígono \cyan{cyan} de $n$ lados voy a tener una cantidad de
+	      diagonales dada por la sucesión $d_n$. El polígono \red{rojo} me genera polígono que tiene un lado menos y
+	      un lado menos, cantidad que viene determinada por $d_{n-1}$. Las líneas punteadas son las diagonales de $d_n$ que no estarán en
+	      $d_{n-1}$. Ahora voy a encontrar una relación entre ambas sucesiones. Al sacan un lado pierdo las \magenta{diagonales} desde $2$ hasta $n-2$ que
+	      serían $n - 3$ en total y además pierdo la {\color{green}diagonal} que conectan el vértice $1$ con el $n-1$:
+	      ${\color{cyan}d_n} = {\color{red}d_{n-1}} + {\color{green}1} +{\color{magenta}n-2} = d_{n-1} + n - 1$
+	      $\to {d_n = d_{n-1} + n - 1}$\\
+	      Ahora inducción:\\
+	      $p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3\\
+		      \llave{l}{
+		      \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\checkmark}\\
+		      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
+		      \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 } \\
+		      d={k+1} \eqDef = d_k + k-1 \eqHI = \frac{k(k-3)}{2} + k-1 = \frac{k^2 - k - 2}{2} = \frac{(k-2)(k+1)}{2} \checkmark\\
+		      }\\
+	      $
+	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$
+
+	\item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.\\
+	      \begin{tikzpicture}[scale=0.9]
+		      \coordinate (n) at (0,0);
+		      \coordinate (1) at (2,0);
+		      \coordinate (2) at (3.2,1.5);
+		      \coordinate (3) at (3.7,2.8);
+		      \coordinate (k) at (2.5,3.8);
+		      \coordinate (n-3) at (0.5,4);
+		      \coordinate (n-2) at (-1,3.2);
+		      \coordinate (n-1) at (-2,2);
+
+		      \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
+			      {
+				      \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
+			      }
+		      \draw[dashed, green] (n-1) -- (1);
+		      \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+
+
+		      \draw[dashed, green] (n-1) -- (1);
+		      \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+
+		      \pic [draw, angle eccentricity=1.5] {angle = 1--n--n-1};
+		      \pic [draw, angle eccentricity=1.5] {angle = 2--1--n};
+		      \pic [draw, angle eccentricity=1.5] {angle = 3--2--1};
+		      \pic [draw, angle eccentricity=1.5] {angle = k--3--2};
+		      \pic [draw, angle eccentricity=1.5] {angle = n-3--k--3};
+		      \pic [draw, angle eccentricity=1.5] {angle = n-2--n-3--k};
+		      \pic [draw, angle eccentricity=1.5] {angle = n-1--n-2--n-3};
+		      \pic [draw, angle eccentricity=1.5] {angle = n--n-1--n-2};
+
+		      \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n-1--1--n};
+		      \pic [draw, red, angle eccentricity=1.5, angle radius=0.7cm] {angle = 1--n--n-1};
+		      \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n--n-1--1};
+	      \end{tikzpicture}\\
+	      En este caso estoy generando la suma de los ángulos internos de 2 polígonos, uno con $\alpha_n$ de $n$ lados y otro con $n-1, \alpha_{n-1}$
+	      Es más claro en este caso que al sacarle un lado, estoy robádo un triángulo que tiene como suma de sus ángulos internos $\pi$, entonces afirmo
+	      $\alpha_{n+1} = \alpha_n + \pi $. Ahora pruebo por inducción lo pedido.
+	      $p(n): \alpha_n = \pi(n-2) \paratodo n \geq 3$\\
+	      $ \llave{l}{
+			      \textit{Caso Base: } p(3) \V? \to \pi(3-2) = \pi, \text{ lo cual es verdad para el triángulo.\checkmark}\\
+			      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
+			      \textit{Hipótesis Inductiva: } \alpha_k = \pi(k-2) \entonces \alpha_{k+1} = \pi(k-1) \\
+			      \llaves{l}{
+				      \alpha_k \eqDef = \alpha_{k+1} - \pi\\
+				      \alpha_k \eqHI= \pi(k-2)\\
+			      } \to \alpha_{k+1} = \pi(k-2) + \pi = \pi(k-1)\checkmark
+		      }$\\
+	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$\\
 \end{enumerate}
 
 \separador
@@ -278,6 +469,7 @@ Probar que para todo $n \geq 3$ vale que:
 
 %17
 \ejercicio
+...
 
-
+\update
 \end{document}

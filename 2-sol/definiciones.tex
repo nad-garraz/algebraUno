@@ -22,7 +22,7 @@
 
 \def\existe{\,\exists\,}
 \def\noexiste{\,\nexists\,}
-\def\paratodo{\forall}
+\def\paratodo{\,\forall\,}
 \def\distinto{\neq}
 \def\en{\in}
 \def\talque{\;|\;}
@@ -50,7 +50,8 @@
 \newcommand{\productoria}[2]{\prod\limits_{#1}^{#2}}
 \newcommand{\kmasuno}[1]{\underbrace{#1}_{k+1\text{-ésimo}}}
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
-
+\def\V?{\text{ ¿verdadera? }}
+\def\V{\text{ verdadera }}
 
 
 
@@ -79,11 +80,11 @@
 }
 
 % Colores
-\newcommand{\red}[1]{ {\color{red} \text{#1}}}
-\newcommand{\green}[1]{ {\color{olive} \text{#1}}}
-\newcommand{\blue}[1]{ {\color{blue} \text{#1}}}
-\newcommand{\cyan}[1]{ {\color{cyan} \text{#1}}}
-\newcommand{\magenta}[1]{ {\color{magenta} \text{#1}}}
+\newcommand{\red}[1]{{\color{red} \text{#1}}}
+\newcommand{\green}[1]{{\color{olive} \text{#1}}}
+\newcommand{\blue}[1]{{\color{blue} \text{#1}}}
+\newcommand{\cyan}[1]{{\color{cyan} \text{#1}}}
+\newcommand{\magenta}[1]{{\color{magenta} \text{#1}}}
 
 % Conjuntos entre llaves
 \newcommand{\set}[1] { \left\{ #1 \right\} }
@@ -92,6 +93,8 @@
 % Stackrel text
 \newcommand{\stacktext}[2]{ \stackrel{\text{#1}}{#2} }
 \def\eq?{\stackrel{\text{?}}}
+\def\eqHI{\stackrel{\text{HI}}}
+\def\eqDef{\stackrel{\text{def}}}
 
 % Flecha con texto
 \NewDocumentCommand{\flecha}{m o}{%
@@ -100,4 +103,13 @@
 	}{
 		\xrightarrow[\text{#2}]{\text{#1}}
 	}
+}
+
+
+%Update tiem
+\def\update{
+\vspace{1cm}
+\separador
+\separador
+\text{Ultima compilación: }\today\ a las \currenttime
 }

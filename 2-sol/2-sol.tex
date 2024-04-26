@@ -75,6 +75,102 @@
 	      \end{itemize}
 \end{enumerate}
 
+\begin{enumerate}
+	\item explicación de las torres de Hanoi.
+	      \begin{enumerate}[label=\arabic*)]
+		      \item $a_1 = 1$
+		      \item $a_3 = 7$
+		      \item $a_4 = 15$
+		      \item $a_9 = a_9 +1+a_9 = 2 a_9 +1$
+	      \end{enumerate}
+	      $\to$ \boxed{a{_n+1} = 2a_n + 1}
+
+	\item Una sucesión $(a_n)_{n \en \naturales}$ como las torres de Hanoi $a_1 = 1 \y a_{n+1}= 2a_n + 1, \paratodo n \en \naturales$, es una
+	      sucesión definida por recurrencia.\\
+
+	\item El patrón de las torres de Hanoi parece ser $\underbrace{a_n = 2^n -1 }_{\text{término general}} \paratodo n \en \naturales$.
+	      Esto puedo probarse por inducción.
+	      $ \llave{l}{
+			      \text{Proposición:} p(n): a_n = 2^n -1\\
+			      \text{Caso Base: } p(1) \text{ es verdadero?} a_1 = 2^1 -1 =1 \checkmark\\
+			      \text{Paso inductivo: } p(h) \text{ es verdadero}  \entonces p(h+1) V?\\
+
+			      \llave{l}{
+				      \text{HI}:  a_h = 2^h -1\\
+				      \text{QPQ}: a_{h+1} = 2^{h+1}
+			      } \to \text{cuentas y queda que }  \boxed{ p(n)\ es\ V, \paratodo n \en \naturales}
+		      } $
+
+	\item $\sum$ es una def por recurrencia $\to \sumatoria{k=1}{1} a_k = a_1 \y \sumatoria{k=1}{n+1} a_k =... facil $
+
+\end{enumerate}
+
+
+\textit{Principio de inducción III: } Sea $p(n)$ una proposición sobre $\naturales$. Si se cumple:
+\begin{enumerate}
+	\item  $p(1) \y p(2) \ V$
+	\item $\paratodo h \en \naturales,\, p(h) \y p(h+1),\, V \entonces p(h+2)\ V\ (\text{paso inductivo})$,
+	      entonces $p(n)$ es verdadera.
+\end{enumerate}
+
+$p(n): a_n = 3^n$\\
+
+$\llave{l}{
+		\text{caso base: } a_1 = 3, a_2 =9 \checkmark\\
+		\text{Paso inductivo: } \paratodo h \en \naturales, p(h) \y p(h+1) \ V \entonces p(h+2)\ V\\
+
+		\llave{l}{
+			\text{HI: }  a_h = 3^h \y a_{h+1} = 3^{h+1}\\
+			\text{Quiero probar que: } a_{h+2}= 3^{h+2}\\
+			\text{Usando la fórmula de recurrencia sale enseguida}
+		}
+	}
+$
+
+\textit{Principio de inducción IV } Sea $p(n)$ una proposición sobre $\enteros_{\geq n_0}$. Si se cumple:
+\begin{enumerate}
+	\item  $p(n_0) \y p(n_0 + 1) \ V$
+	\item $\paratodo h \en \enteros_{\geq n_0},\, p(h+1) \y p(h+2)\, V \entonces p(h+2)\ V\ (\text{paso inductivo})$,
+	      entonces $p(n)$ es verdadera. $\paratodo n \geq n_0$\\
+\end{enumerate}
+
+
+\textit{Sucesión de Fibonacci}: $F_0 = 0, F_1 = 1, F_{n+2} = F_{n+1} + F_n, \paratodo n \geq 0$\\
+Truco para sacar fórmulas a partir de Fibo.\\
+$F_{n+2} - F_{n+1} - F_n = 0 \to x^2 - x -1 = 0 =
+	\llaves{ l }{
+		\Phi = \frac{1+\sqrt{5}}{2}\\
+		\tilde\Phi = \frac{1-\sqrt{5}}{2}\\
+	} \to \Phi^2 = \Phi + 1 \y \tilde\Phi^2  =\tilde\Phi + 1 $
+\begin{itemize}
+	\item  defino sucesiones $\Phi^n$ que satisfacen la recurrencia de la sucesión de Fibonacci pero no sus condiciones iniciales.
+	\item puedo formar una combineta lineal talque: $(c_n)_{n\en \naturales_0} = (a\Phi^n + b\tilde\Phi^n)$ es la sucesión que satisface:
+	      $\llave{ l }{
+			      c_o = a+b\\
+			      c_1 = a\Phi + b\tilde\Phi
+		      }$ y la recurrencia de Fibonacci.\\
+	      Resuelvo todo y llego a $\boxed{}$
+\end{itemize}
+
+\textit{Sucesione de Lucas}: Generalizaciones de Fibonacci.$(a_n)_{n\in\naturales_0}$\\
+
+$a_0 = \alpha, a_1 = \beta \y a_{n+2} = \gamma a_{n+1} +\delta a_n,\, \paratodo n \geq 0,\, con \alpha, \beta, \gamma, \delta $ dados.\\
+Esto lo meto en la ecuación característica: $x^2 - \gamma x -\delta = 0$, necesito raíces distintas.
+Notar que $r^2 = \gamma r^1 + \delta$, y lo mismo es para $\tilde r$. Las sucesiones ($r^n$) y ($\tilde r^n$) satisfacen la recurrencia de Lucas,
+pero no las condiciones iniciales $\alpha$ y $\beta$.
+$c_n = (a r^n + b \tilde r^n)$, satisface Lucas, pero las condiciones iniciales son $c_0$ y $c_1$ o
+$
+	\llave{l}{
+		a + b = \alpha\\
+		r a +\tilde b = \beta\\
+	}\to
+	\llave{l}{
+		ra +rb = r\alpha\\
+		ra + \tilde r b = \beta\\
+	}
+$ luego hago lo mismo con $\tilde r$
+Como resultado: $a = \frac{\beta - \tilde r \alpha}{r - \tilde r}$
+
 \section*{Ejercicio fuera de la guía}
 Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
 \begin{enumerate}
@@ -157,6 +253,31 @@ $\llave{l}{
 	      \boxed{\sumatoria{k=0}{255} a_k = 5} \checkmark
 \end{enumerate}
 
+\separador
+
+Sea $(a_n)_{n\en \naturales}$ la sucesión definida por:
+$a_1 = 1 \y a_{n+1} = \parentesis{\sqrt{a_n} - (n+1)}^2, \, \paratodo n \en \naturales$.
+Voy a encontrar la fórmula general.
+
+$
+	\llave{ l }{
+		a_1 = 1,\, a_2 = (1 - 2)^2,\, a_3 = 4,\, a_4 = 4,\, a_5 = 9,\, \dots\\
+		a_n =
+		\llave{l}{
+			\parentesis{\frac{n+2}{3}^2} \text{si $n$ es impar}\\
+			\parentesis{\frac{n}{3}^2} \text{si $n$ es par}\\
+		}\\
+		\to \text{ Se muestra por inducción } \hacer\\
+	}$
+
+
+\separador
+
+Sea $(a_n)_{n\en \naturales}$ la sucesión definida por: $a_1 = 3, a_2 = 9 \y a_{n+2} = a+{n+1}+ 3a_n +3^{3+1},\, \paratodo n \en \naturales$\\
+Tengo que encontrar el término general de esta  sucesión definida por recurrencia.
+$a_1 =3, a_2 = 9. a_3 = a_2 + 3a_1 + 3^2=27 \to$ pinta ser $a_n = 3^n$. \\
+Interesante que acá la HI dependería de muchos términos. Así que ahora viene una versión
+cambiada del principio de inducción.\\
 
 \section*{Ejercicios de la guía}
 %1
@@ -262,12 +383,12 @@ Calcular
 		      \text{Paso inductivo } n = k \to \productoria{i=1}{k} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^k}}{1-a} \entonces n = k+1 \to  \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } \eq?= \frac{1-a^{2^{k+1}}}{1-a}\\
 		      \llave{l}{
 		      \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } =
-		      \HI{ 
-          \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}
-          } \cdot 
-          \kmasuno{
-            1 + a^{2^{i-1}}
-          }  =
+		      \HI{
+			      \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}
+		      } \cdot
+		      \kmasuno{
+			      1 + a^{2^{i-1}}
+		      }  =
 		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k} \flecha{diferencia}[de cuadrados] \frac{1 - \parentesis{ a^{2^k}}^2}{1-a} =\\
 		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\checkmark
 		      }
@@ -312,12 +433,12 @@ $\llave{ l }{
 		a^{k+1} - b^{k+1} \eq?= (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
 		\llave{l}{
 			(a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i} =
-			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} + 
-      \kmasuno{
-        (a - b) a^k \cdot b^{k+1-(k+1)}
-      } = \\
-			b \cdot 
-      \HI{
+			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} +
+			\kmasuno{
+				(a - b) a^k \cdot b^{k+1-(k+1)}
+			} = \\
+			b \cdot
+			\HI{
 				(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}
 			} + (a - b) a^k \eqHI= b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\checkmark
 		}\\
@@ -463,9 +584,24 @@ Probar que para todo $n \geq 3$ vale que:
 
 %15
 \ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
+        $a_1 = 2$ y $a_{n+1} = 2 n a_n+ 2^{n+1}n!,\, \paratodo n \en \naturales$.\\
+	      Probar que $a_n = 2^n n!$.\\
+        \magenta{Hecho en cuaderno, pasar}
+        
+	\item
+	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
+	      $a_1 = 0$ y $a_{n+1} = a_n + n(3n + 1),\, \paratodo n \en \naturales$\\
+        Probar que $a_n = n^2 (n-1)$.\\
+        \magenta{Hecho en cuaderno, pasar}
+
+\end{enumerate}
 
 %16
 \ejercicio
+Hallar la fórmula para el término general de las sucesiones $(a_n)_{n \en \naturales}$
 
 %17
 \ejercicio

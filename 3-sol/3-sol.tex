@@ -1,0 +1,536 @@
+\documentclass[12pt,a4paper, spanish]{article}
+% Sacar draft para que aparezcan las imagenes.
+% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
+% Opciones de clase: article, report, letter, beamer...
+
+% Paquetes:
+% =========
+\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
+\usepackage[T1]{fontenc} % tildes
+\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
+\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{amsmath} % Soporte de mathmatics
+\usepackage{amssymb} % fuentes de mathmatics
+\usepackage{array} % Para tablas y eso
+\usepackage{caption} % Configuracion de figuras y tablas
+\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
+\usepackage{multicol} 
+\usepackage{tikz} % para graficar
+\usepackage{cancel}
+\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+
+% para hacer los graficos tipo grafos
+\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+\usetikzlibrary{external}
+
+\include{definiciones.tex} % idem con las definiciones
+
+\begin{document}
+
+\pagestyle{empty} % Para que no muestre el número en pie de página
+
+% Info para armar título.
+\title{Práctica 3 de álgebra 1} % título
+\author{D. Garraz} % autor
+\date{last update: \today} % Cambiar de ser necesario
+% \maketitle  % Para que aprezca el título en el documento
+\section*{Ejercicios fuera de la guía}
+\textbf{26/4}\\
+Sea $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$ la relación de equivalencia $\to X \relacion Y \sisolosi X \triangle Y \subseteq \set{4,5,6,7,8}$.\\
+¿Cuántos conjuntos hay en la clase de equivalencia de $X = \set{x \en \naturales : x \geq 6}$
+
+\separadorCorto
+La relación como pares ordenados de subconjuntos de $\naturales$, cosas así: $ (X,Y) = \parentesis{ \set{3, 5, 30}, \set{1,2,3,5} }$, pero no va a ser cualquier cosa
+porque la relación es de equivalencia, formado por los elementos no comunes a $X$ e $Y$ tienen que estar en $\set{4,5,6,7,8}$.\\
+Para tener una relación de equivalencia deben cumplirse:
+
+\begin{itemize}
+	\item Reflexión. $X \triangle X = \vacio \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}$
+
+	\item Simetría. $X \triangle Y \stackrel{\checkmark}= Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)$ \red{¿Habría que probar esto? ¿Tablita?}
+
+  \item Transitividad. No es trivial. Los elementos tienen que estar formados por los elementos $\set{4,5,6,7,8}$ para cumplir la transitividad.\\
+    \red{Corroborar. Si esto es así, ¿cómo lo probraría?}
+\end{itemize}
+
+Cómo $X = \set{x \en \naturales : x \geq 6}$ me pide entonce que le dé $\#\overline X = \#\partes(\set{6,7,8}) = 2^3 - 1$. Donde le quito el último elemento porque $\vacio$
+no tiene elementos y aún menos elementos $\geq 6$
+
+
+
+\section*{Ejercicios de la guía}
+
+%1
+\ejercicio
+
+%2
+\ejercicio
+%3
+\ejercicio
+%4
+\ejercicio
+%5
+\ejercicio
+%6
+\ejercicio
+%7
+\ejercicio
+%8
+\ejercicio
+
+
+%9
+\ejercicio
+Si $A$ es un conjunto con $n$ elementos ¿Cuántas relaciones en $A$ hay?
+¿Cuántas de ellas son reflexivas?
+¿Cuántas de  ellas son simétricas? ¿Cuántas de ellas son reflexivas y simétricas? \\
+
+\separadorCorto
+
+Dado que para dos conjuntos $A = \set{a,b,c}$ y $B = \set{1,2}$ la cantidad de relaciones
+que hay entre ellos es igual a la cantidad de subconjuntos de $\partes(A \times B)$, entonces si
+$A = \set{1,\cdots, n}$ el cardinal $\# \partes(A \relacion A ) = 2^{n^2}$\\
+
+Las relaciones reflexivas son de la forma $a_i \relacion a_i$, por lo que solo será una relación por cada
+elemento del conjunto $\# (A \relacion A)_{ref} = n$. Voy a calcular la cantidad de elementos que tiene
+el conjunto $\partes \parentesis{ (A \relacion A)_{ref} }$, porque estoy buscando todos los subconjuntos que puedo
+formar con los elementos de $(A \relacion A)_{ref}$, entonces $ \#\partes((A \relacion A)_{ref}) = 2^n$\\
+\red{Corroborar}
+
+Las relaciones simétricas serán aquellas que $a_i \relacion a_j \entonces a_j \relacion a_i$. Pensando esto como los elementos de la diagonal
+para abajo de una matriz de $n\times n$ tengo $\sumatoria{i=1}{n} i = \frac{n \cdot (n+1)}{2}$.\\
+Voy a calcular la cantidad de elementos que tiene el conjunto $\partes \parentesis{ (a_i \relacion a_j)_{sim} }$, porque estoy buscando todos los
+subconjuntos que puedo formar con los elementos señalados en la matriz, entonces:\\
+$ \#\partes((A \relacion A)_{sim}) = 2^{\frac{n \cdot (n+1)}{2}}$\\
+$
+	\begin{array}{c|c|c|c|c|c|c|c|}
+		\multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
+		a_1                  & R,\, S                  & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+		a_2                  & S                       & R,\, S                  & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+		a_3                  & S                       & S                       & R,\, S                  & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+		\vdots               & \vdots                  & \vdots                  & \vdots                  & \ddots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+		a_{n-2}              & S                       & S                       & S                       & \ddots                     & R,\, S                      & \cdot                       & \cdot                   \\ \cline{2-8}
+		a_{n-1}              & S                       & S                       & S                       & \ddots                     & S                           & R,\, S                      & \cdot                   \\ \cline{2-8}
+		a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & R,\, S                  \\ \cline{2-8}
+	\end{array}
+$\\
+\red{Corroborar, cómo es el caso en que $i=j$?}
+\red{son necesarias para la simetria?}
+
+%10
+\ejercicio
+Sean $A = \set{1,2,3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$. Sea $\mathcal F$ el conjunto de todas las funciones
+$f: A \to B$.
+\begin{enumerate}[label=\roman*)]
+	\item  ¿Cuántos elementos tiene le conjunto $\mathcal F$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \imagen(f) }$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \imagen(f)}$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : f(1) \en \set{2,4,6} }$
+\end{enumerate}
+
+\separadorCorto
+
+Cuando se calcula la cantidad de funciones, haciendo el árbol se puede ver que va a haber $\#\imagen(f)$ de funciones que provienen
+de un elemento del dominio. Por lo tanto si tengo un conjunto $A_m$ y uno $B_m$, la cantidad de funciones $f : A \to B$ será
+de $m^n$\\
+
+\begin{enumerate}[label=\roman*)]
+	\item $\# \mathcal F = 12^5$
+
+	\item $\# \mathcal F = 11^5$
+
+	\item Tengo una que va a parar al $10$ y cuento que queda. Por ejemplo si $f(2) = 10$: $A = \set{1,\cancel{2},3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$.
+	      Por lo tanto tengo $\# \mathcal F = 12^4 \cdot \underbrace{\normalsize 1}_{f (2) = 10}$\\
+	      \red{Corroborar}
+
+	\item Me dicen que $f(\set1) = \set{2,4,6}$,
+	      Si lo pienso como el anterior ahora tengo 3 veces más combinaciones, entonces
+	      $\# \mathcal F = 12^4 \cdot \underbrace{\tiny 3}_{ f (\set{1})= \set{2,4,6}}$
+\end{enumerate}
+
+%11
+\ejercicio
+Sean $A = \set{1,2,3,4,5,6,7}$ y $\set{8,9,10,11,12,13,14}$.
+\begin{enumerate}[label=\roman*)]
+	\item ¿Cuántas funciones biyectivas $f: A \to B$ hay?
+	\item ¿Cuántas funciones biyectivas $f: A \to B$ hay tales que $f(\set{1,2,3}) = \set{12,13,14}$?
+\end{enumerate}
+
+\separadorCorto
+
+Cuando cuento funciones biyectivas, el ejercicio es como reordenar los elementos del conjunto de llegada de todas las
+formas posibles. Dado un conjunto Im($f$), la cantidad de funciones biyectivas será $\#\imagen(f)$
+
+\begin{enumerate}[label=\roman*)]
+	\item Hay $7!$ funciones biyectivas.
+	\item Dado que hay 3 valores fijos, juego con los 4 valores restantes, por lo tanto habrá $4!$ funciones biyectivas
+\end{enumerate}
+
+%12
+\ejercicio
+¿Cuántos números de 5 cifras distintas se pueden armar usando los dígitos del 1 al 5?
+¿ Y usando los dígitos del 1 al 7? ¿ Y usando los dígitos del 1 al 7 de manera que el dígito de las centenas no sea el 2?
+\begin{enumerate}[label=\arabic*)]
+	\item Hay que usar $\set{1,2,3,4,5}$ y reordenarlos de todas las formas posibles. $5!$
+
+	\item Hay que usar $\set{1,2,3,4,5,6,7}$ y ver de cuantas formas posibles pueden ponerse en 5 lugares:
+	      $\llave{c c c c c}{
+			      \_ & \_ & \_& \_& \_ \\
+			      1 & 2 &3 &4 &5
+		      }$, dado que no puedo repetir, a medida que voy llenando los valores, me voy quedando cada vez con menos valores
+	      para elegir del conjunto de datos, por lo tanto queda algo así:
+	      $\llave{c c c c c}{
+			      \#7 & \#6 & \#5 & \#4 &\#3 \\
+			      \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      \_ & \_ & \_& \_& \_ \\
+			      1 & 2 &3 &4 &5
+		      }\to$ Tengo $7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 = \frac{7!}{2!} $ \red{interpretar?}
+
+	\item Parecido al anterior pero fijo el 2 en el dígito de las centenas:\\
+	      $\llave{c c c c c}{
+			      \#6 & \#5 & \#4 & \#1 &\#3 \\
+			      \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      \_ & \_ & \_& 2 & \_ \\
+			      1 & 2 &3 &4 &5
+		      }
+		      \to $ Tengo $6 \cdot 5 \cdot 4 \cdot 1 \cdot 3 = \frac{6!}{2!} $ \red{interpretar?}
+\end{enumerate}
+
+%13
+\ejercicio
+Sean $A = \set{1,2,3,4,5,6,7}$ y $B = \set{1,2,3,4,5,6,7,8,9,10}$.
+\begin{enumerate}[label=\roman*)]
+	\item ¿Cuántas funciones inyectivas $f; A \to B$ hay?
+	\item ¿Cuántas de ellas son tales que $f(1)$ es par?
+	\item ¿Y cuántas tales que $f(1)$ y $f(2)$ son pares?
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item Una pregunta equivalente a si tengo 10 pelotitas distintas y 7 cajitas cómo puedo ordenarlas.
+	      $\llave{c c c c c c c}{
+			      \#10 & \#9 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to\frac{10!}{3!} = \magenta{$\frac{\#B}{\#B - \#A}$
+		      }$
+
+	\item Hay 5 números pares para elegir como imagen de $f(1)$\\
+	      $\llave{c c c c c c c}{
+			      \#5 & \#9 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to 5 \cdot \frac{9!}{3!}$
+
+	\item Hay 5 números pares para elegir como imagen de $f(1)$, luego habrá 4 números pares para $f(2)$\\
+	      $\llave{c c c c c c c}{
+			      \#5 & \#4 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to 5 \cdot 4 \cdot \frac{8!}{3!}$
+\end{enumerate}
+
+%14
+\ejercicio
+¿Cuántas funciones biyectivas $f: \set{1,2,3,4,5,6,7} \to \set{1,2,3,4,5,6,7}$ tales que $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$ hay?
+
+\separadorCorto
+
+Primero veo la condición  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$, donde podría formar $\frac{5!}{(5-3)!} = 60$ combinaciones biyectivas,
+para tener las funciones tengo que estar usando todos los valores del $\set{1,2,3,4,5,6,7}$\\
+$\llave{c c c c c c c}{
+		\#5 & \#4 & \#3 & \#4 & \#3 & \#2 & \#1 \\
+		\downarrow & \downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+	}
+	\to 5 \cdot 4 \cdot 3 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = \frac{5!}{(5-3)!} \cdot 4!$
+
+%15
+\ejercicio
+Sea $A = \set{f : \set{1,2,3,4} \to \set{1,2,3,4,5,6,7,8} \text{ tal que $f$ es una función inyectiva}}.$\\
+Sea $\relacion$ la relación de equivalencia en $A$ definida por: $f \relacion g \sisolosi f(1) + f(2) = g(1) + g(2)$.\\
+Sea $f \en A$ la función definida por $f(n) = n+2$ ¿Cuántos elementos tiene su clase de equivalencia?
+
+\separadorCorto
+
+Uf... enunciado feo.\\
+
+\red{¿Qué onda esa $g$?}
+
+%16
+\ejercicio
+
+Determinar cuántas funciones $f : \set{1,2,3,4,5,6,7,8} \to \set{\foreach \i in {1,...,11}{ \i, }12}$ satisfacen
+simultáneamente las condiciones:\\
+\begin{multicols}{3}
+	\begin{itemize}
+		\item $f$ es inyectiva,
+		\item $f(5) + f(6) = 6$,
+		\item $f(1) \leq 6$.
+	\end{itemize}
+\end{multicols}
+
+\separadorCorto
+
+\begin{itemize}
+	\item $f$ inyectiva hace que mi conjunto de llegada se reduzca en 1 con cada elección.
+
+	\item Si $f(5) + f(6) = 6$ entonces $f: \set{5,6} \to \set{1,2,4,5}$. Una vez que $f(5)$ tome
+	      un valor de los 4 posibles e.g. $f(5) = 1 \flecha{condiciona}[única opción] f(6) = 5 $
+
+	\item $f(1) \leq 6 \to f : \set{1} \to \set{\cancel{1},2,3,\cancel{4},5,6}$ donde cancele el 1
+	      y el 4, para sacar 2 números que sí o sí deben irse en la condición de $f(5) + f(6) = 6$. Por lo
+	      tanto $f(1)$ puede tomar 4 valores.
+\end{itemize}
+
+$\llave{c c c c c c c c}
+	{
+		\#4 & \#9 & \#8 & \#7 & \#4 & \#1 & \#6 & \#5 \\
+		\downarrow & \downarrow & \downarrow &\downarrow & \downarrow & \downarrow &\downarrow &\downarrow\\
+		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) & f(7) & f(8)
+	}
+	\to 4 \cdot 9 \cdot 8 \cdot 7 \cdot 4 \cdot 1 \cdot 6 \cdot 5 = 4 \cdot 4 \cdot \frac{9!}{4!} = 241.920$\\
+
+\red{Siento todo esto muy artesanal y poco justificable suficientemente \it{mathy-snobby}}
+
+\separador
+
+{\it \underline{Número combinatorio}}
+
+%17
+\ejercicio
+
+\begin{enumerate}[label=\roman*)]
+	\item ¿Cuántos subconjuntos de 4 elementos tiene el conjunto $\set{\foreach \i in {1,...,6}{ \i, }7} $
+	\item ¿ Y si se pide que 1 pertenezca al subconjunto?
+	\item ¿ Y si se pide que 1 no pertenezca al subconjunto?
+	\item ¿ Y si se pide que 1 o 2 pertenezca al subconjunto, pero no simultáneamente los dos?
+\end{enumerate}
+
+\separadorCorto
+
+El problema de tomar $k$ elementos de un conjunto de $n$ elementos se calcula con $\binom{n}{k} = \frac{n!}{k!(n-k)!}$
+
+\begin{enumerate}[label=\roman*)]
+	\item  $\binom{7}{4} = \frac{7!}{4!(7-4)!} = \frac{7\cdot \cancel{6} \cdot 5 \cdot \cancel{4!}}{\cancel{4!}(\cancel{3!})} = 35$
+
+	\item $\binom{6}{3} = \frac{6!}{3!\cdot 3!} = 20$.
+
+	\item $\binom{6}{4} = \frac{6!}{4!\cdot 2!} = 15$.
+
+	\item $\binom{5}{3} \cdot 2 = \frac{5!}{3!\cdot 2!} \cdot 2 = 20$
+\end{enumerate}
+
+%18
+\ejercicio
+Sea $A = \set{n \in \naturales : n \leq 20}$. Calcular la cantidad de subconjuntos $B \subseteq A$ que cumplen las siguientes condiciones:
+\begin{enumerate}[label=\roman*)]
+	\item $B$ tiene 10 elementos y contiene exactamente 4 múltiplos de 3.
+	\item $B$ tiene 5 elementos y no hay dos elementos de $B$ cuya suma sea impar.
+\end{enumerate}
+
+\separadorCorto
+
+El conjunto $A = \set{\foreach \i in {1,...,19}{\i, }20}$\\
+\begin{enumerate}[label=\roman*)]
+	\item
+	      $ \flecha{multiplos}[de 3] C = \set{3, 6, 9, 12, 15, 18}$, agarro 4 elementos del conjunto $C$ y luego 6 de los restantes del conjunto $A$ sin contar
+	      el múltiplo de 3 que ya usé.\\
+	      $\llave{l}{
+			      \binom{6}{4} \cdot \binom{9}{6} = \frac{\cancel{6!}}{4! 2!} \cdot \frac{9!}{\cancel{6!} 3!} \flecha{simplificando} 9 \cdot 4 \cdot 7 \cdot 5 = 1260  \\
+			      \red{Verificar y preguntar por la justificación.}
+		      }$
+
+	\item
+	      La condición de que la suma \textit{no sea impar} implica que todos los elementos deben ser par o todos impar.\\
+	      $\llave{l}{
+			      \flecha{todos}[pares]   \set{2,4,6,8,10,12,14,16,18, 20} \flecha{10 elementos}[quiero 5] \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252\\
+			      \flecha{todos}[impares] \set{1,3,5,9,11,13,15,17,19} \flecha{9 elementos}[quiero 5] \binom{9}{5} = \frac{9!}{5!\cdot 4!} = 126
+		      }$
+\end{enumerate}
+
+%19
+\ejercicio
+Dadas dos rectas paralelas en el plano, se marcan $n$ puntos distintos sobre una y $m$ puntos distintos sobre la otra.
+¿Cuántos triángulos se pueden formar con vértices en esos puntos?\\
+\hacer
+
+%20
+\ejercicio
+Determinar cuántas funciones $f: \set{1,2,3,\dots,11} \to \set{1,2,3,\dots,16}$ satisfacen simultáneamente las condiciones:
+\begin{multicols}{3}
+	\begin{itemize}
+		\item $f$ es inyectiva,
+		\item Si $n$ es par, $f(n)$ es par,
+		\item $f(1) \leq f(3) \leq f(5) \leq f(7)$.
+	\end{itemize}
+\end{multicols}
+
+\separadorCorto
+
+\begin{itemize}
+	\item
+	      La función es inyectiva y cuando \textit{inyecto un conjunto de m elementos en uno de n elementos } $\to \frac{m!}{(m-n)!}$.
+
+	\item
+	      Para cumplir la segunda condición el Dom($f$) tengo 5 números par $\set{2,4,6,8,10}$ y en el codominio tengo 8 números par
+	      $\set{\foreach \i in {2,4,...,14}{\i,}16}$ al \textit{inyectar} obtengo $\frac{8!}{(8-5)!}$ permutaciones.
+
+	\item
+	      La condición de las desigualdades se piensa con los elementos de la Im($f$) restantes después de la \text{inyección}, que son $16 - 5 = 11$.
+	      De esos 11 elementos quiero tomar 4. El cuántas formas distintas de tomar 4 elementos de un conjunto de 11 elementos se calcula con $\binom{11}{4}$,
+	      número de combinación que cumple las desigualdades, porque todos los números son \underline{distintos}. Para la combinación
+	      \textbf{no hay órden}, elegir $\set{16,1,15,13}$ es lo mismo
+	      \footnote{Que sea lo mismo quiere decir que no lo cuenta nuevamente, el contador aumenta solo si cambian los
+		      elementos y \underline{no} el lugar de los elementos}
+	      que $\set{1,16,13,15}$. Es por eso que \textit{con $4$ elementos seleccionados}
+	      solo hay \underline{una} \textit{permutación} que cumple las desigualdades; en este ejemplo sería $\set{1,13,15,16}$
+
+	\item
+	      Por último inyecto los número del dominio restantes $\set{9,11}$ en los 7 elementos de Im($f$) que quedaron luego de la combinación de las
+	      desigualdades $\to \frac{7!}{(7-2)!}$\\
+
+	      Concluyendo: Habrían $\frac{8!}{(8-5)!} \cdot \binom{11}{4} \cdot \frac{7!}{(7-2)!} = 93.139.200$\\
+	      \red{Corroborar}
+\end{itemize}
+
+
+%21
+\ejercicio
+¿Cuántos anagramas tienen las palabras \textit{estudio, elementos} y \textit{combinatorio}\\
+\separadorCorto
+
+El anagrama equivale a permutar los elementos. Si no hay letras repetidas es una biyección $\#(letras)!$\\
+La palabra \textit{estudio} tiene $7!$ anagramas.\\
+
+\textit{Elementos} tiene 3 letras \underline{e}, por lo tanto los elementos no repetidos son 6 $\set{l,m,n,t,o,s}$; esto
+es una \textit{inyección}
+\footnote{Primero ubico lo que no está repetido. Luego agrego, en una dada posición, a eso 3 o más elementos repetidos. Esta última acción
+	no altera la cantidad de permutaciones. Pensar en esto: lmntosEEE cuenta como lmntos\_\_\_.}
+$ \to \frac{9!}{(9-6)!} = \frac{9!}{3!}$.\\
+También puedo pensar esto con combinatoria: Primero ubico a las 3 letras \textit{e} en los lugares de las letras, por ejemplo
+$\llave{c c c c c c c c c} % hay 9 en total
+	{
+		e & \_ & e & \_ & e & \_ & \_ & \_ & \_\\
+		1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
+	} \to$
+donde esta es una de un total de $\binom{9}{3}$ formas de hacer eso, y los elementos que quedan en el conjunto de letras se \textit{inyectan}
+en los lugares vacíos que quedan, en este caso tengo 6 elementos para ubicar en 6 lugares, lo que sería una biyección $\#(letras)!$.\\
+$\to \binom{9}{3} \cdot 6!  = \frac{9!}{3!}$
+
+\textit{Combinatorio} tiene repetidas las letras \textit{i} (x2) y la \textit{o} (x3). Tengo un conjunto de 7 elementos $\set{c,m.b,n,a,t,r}$
+sin repetición. Puedo ubicar las letras con combinación en los 12 lugares \textit{o} y luego las \textit{i} en los 9 lugares restantes. Una vez hecho
+eso puedo \textit{inyectar (biyectar?)} las letras no repetidas restantes:\\
+$\to \binom{12}{3} \cdot \binom{9}{2} \cdot 7! =
+	\underbrace{\normalsize \frac{12!}{3! 2!} }_{
+		\text{ notar \footnotemark}
+	}
+	= \frac{\foreach \i in {12,11,...,5}{\i \cdot}4}{2} = 39.916.800$
+
+\footnotetext{Esto es el total de biyecciones dividido entre las cantidades de repeticiones de los elementos en cuestión.}
+
+%22
+\ejercicio
+
+¿Cuántas palabras se pueden formar permutando las letras de $cuadros$
+\begin{enumerate}[label=\roman*)]
+	\item con la condición de que todas las vocales estén juntas?
+	\item con la condición de que las consonantes mantengan el orden relativo original?
+	\item con la condición de que nunca haya dos (o más) consonantes juntas?
+\end{enumerate}
+
+\separadorCorto
+
+El conjunto de consonantes es $C = \set{c,d,r,s}$ y de vocales $V = \set{u,a,o}$
+\begin{enumerate}[label=\roman*)]
+	\item  Para que las vocales estén juntas tengo que considerar las permutaciones dentro del conjunto $V$, que son iguales a 3! y ahora \textit{inyecto} el conjunto de
+	      5 elementos $CV = \set{c,d,r,s,{uao}}$ que da 5!.\\
+	      Finalmente se pueden formar $3! \cdot 5!$ palabras con la condición pedida.
+
+	\item \red{¿Qué sería el orden relativo?}
+
+	\item \hacer
+
+\end{enumerate}
+
+%23
+\ejercicio
+
+Con la palabra $polinomios$,
+
+\begin{enumerate}[label=\roman*)]
+	\item ¿Cuántos anagramas pueden formarse en las que las 2 letras $i$ no estén juntas?
+	\item ¿Cuántos anagramas puede formarse en los que la letra $n$ aprezca a la izquierda de la letra $s$ y
+	      la letra $s$ aparezca a la izquierda de la letra $p$ (no necesariamente una al lado de la otra)?
+\end{enumerate}
+
+
+%24
+\ejercicio
+
+%25
+\ejercicio
+
+%26
+\ejercicio
+
+%27
+\ejercicio
+
+%28
+\ejercicio
+En este ejercicio no hace falta usar inducción.
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $\sumatoria{k = 0}{n} \binom{n}{k}^2 = \binom{2n}{n}$. \qquad sug: $\binom{n}{k} = \binom{n}{n-k}$.
+	\item Probar que $\sumatoria{k = 0}{n} (-1)^k \binom{n}{k} = 0$.
+	\item Probar que $\sumatoria{k = 0}{2n} \binom{2n}{k} = 4^n$ y deducir que $\binom{2n}{n} < 4^n$.
+	\item Calcular $\sumatoria{k = 0}{2n+1} \binom{2n+1}{k}$ y deducir que $\sumatoria{k=0}{n} \binom{2n+1}{k}$.
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item \hacer
+	\item \hacer
+	\item \hacer
+	\item \hacer
+\end{enumerate}
+
+%29
+\ejercicio
+
+Sea $X = \set{\foreach \i in {1,...,19}{\i,}20}$, y sea $R$ la relación de orden en $\partes(X)$ definida por:
+$A \relacion B \sisolosi A - B = \vacio.$\\
+¿Cuántos conjuntos $A \en \partes(X)$ cumplen simultáneamente $\#A \geq 2$ y $A \relacion \set{1,2,3,4,5,6,7,8,9}$?
+
+%30
+\ejercicio
+Sea $X = \set{1,2,3,4,5,\red{$\cancelto{6}{5}$},7,8,9,10}$, y sea $R$ la relación de equivalencia en $\partes(X)$ definida por:
+$A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.$\\
+¿Cuántos conjuntos $B \en \partes(X)$ de exactamente 5 elementos tiene la clase de equivalencia $\overline A $ de $A = \set{1,3,5}$?
+
+\separadorCorto
+
+Como $A$ tiene al 1 y al 3, los elementos pertenecientes a la clase $\overline A$ entonces si $C \subseteq \overline A \entonces
+	\llaves{c}{
+		1 \en C\\
+		3 \en C\\
+		2 \notin C
+	} $. Los conjuntos de 5 serán de la forma elementos de la forma:\\
+$\llave{c c c c c} % hay 5 en total
+	{
+		1 & 3 & \_ & \_ & \_   \\
+	} \flecha{5 elementos}[$ \inter \set{1,2,3} = \set{1,3}$] \binom{7}{3} = 35$. Los números 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
+\red{¿Es solo eso o interpreto mal la $\relacion$ u otra cosa?}
+
+%31
+\ejercicio
+
+\end{document}

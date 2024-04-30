@@ -52,8 +52,8 @@ Para tener una relación de equivalencia deben cumplirse:
 
 	\item Simetría. $X \triangle Y \stackrel{\checkmark}= Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)$ \red{¿Habría que probar esto? ¿Tablita?}
 
-  \item Transitividad. No es trivial. Los elementos tienen que estar formados por los elementos $\set{4,5,6,7,8}$ para cumplir la transitividad.\\
-    \red{Corroborar. Si esto es así, ¿cómo lo probraría?}
+	\item Transitividad. No es trivial. Los elementos tienen que estar formados por los elementos $\set{4,5,6,7,8}$ para cumplir la transitividad.\\
+	      \red{Corroborar. Si esto es así, ¿cómo lo probraría?}
 \end{itemize}
 
 Cómo $X = \set{x \en \naturales : x \geq 6}$ me pide entonce que le dé $\#\overline X = \#\partes(\set{6,7,8}) = 2^3 - 1$. Donde le quito el último elemento porque $\vacio$
@@ -134,7 +134,7 @@ $f: A \to B$.
 \separadorCorto
 
 Cuando se calcula la cantidad de funciones, haciendo el árbol se puede ver que va a haber $\#\imagen(f)$ de funciones que provienen
-de un elemento del dominio. Por lo tanto si tengo un conjunto $A_m$ y uno $B_m$, la cantidad de funciones $f : A \to B$ será
+de un elemento del dominio. Por lo tanto si tengo un conjunto $A_n$ y uno $B_m$, la cantidad de funciones $f : A \to B$ será
 de $m^n$\\
 
 \begin{enumerate}[label=\roman*)]
@@ -243,14 +243,17 @@ Sean $A = \set{1,2,3,4,5,6,7}$ y $B = \set{1,2,3,4,5,6,7,8,9,10}$.
 
 \separadorCorto
 
-Primero veo la condición  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$, donde podría formar $\frac{5!}{(5-3)!} = 60$ combinaciones biyectivas,
-para tener las funciones tengo que estar usando todos los valores del $\set{1,2,3,4,5,6,7}$\\
+Primero veo la condición  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$, donde podría formar $\frac{5!}{(5-3)!} = 60$ combinaciones biyectivas.
+Para obtener la cantidad de funciones pedidas, tengo que usar todos los valores del $\set{1,2,3,4,5,6,7}$. Primero fijo la cantidad de
+valores que pueden tomar $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$ luego lo que reste.
+\\
 $\llave{c c c c c c c}{
 		\#5 & \#4 & \#3 & \#4 & \#3 & \#2 & \#1 \\
 		\downarrow & \downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
-		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)\\
+		\multicolumn{3}{c}{\blue{Condiciones pedidas}} & \multicolumn{4}{c}{\green{Lo que resta para completar}}
 	}
-	\to 5 \cdot 4 \cdot 3 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = \frac{5!}{(5-3)!} \cdot 4!$
+	\to \blue{$5 \cdot 4 \cdot 3$} \cdot \green{$4 \cdot 3 \cdot 2 \cdot 1$} = \frac{5!}{(5-3)!} \cdot 4!$
 
 %15
 \ejercicio
@@ -467,8 +470,37 @@ Con la palabra $polinomios$,
 
 \begin{enumerate}[label=\roman*)]
 	\item ¿Cuántos anagramas pueden formarse en las que las 2 letras $i$ no estén juntas?
-	\item ¿Cuántos anagramas puede formarse en los que la letra $n$ aprezca a la izquierda de la letra $s$ y
+	\item ¿Cuántos anagramas puede formarse en los que la letra $n$ aparezca a la izquierda de la letra $s$ y
 	      la letra $s$ aparezca a la izquierda de la letra $p$ (no necesariamente una al lado de la otra)?
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. Para que no hayan $"ii"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre
+	      puedo poner las letras $"\underline{i}\, \_ \, \underline{i} "$. Para cada uno de estas 120 configuraciones de la pinta: \\
+	      $\llave{c c c c c c c c c c} % hay 9 en total
+		      {
+			      \magenta{i} & \magenta{\_} & \magenta{i} & \_ & \_ & \_ & \_ &\_ & \_ & \_\\
+			      \_ & \_ & \magenta{i} & \magenta{\_} & \_ & \_ & \_ &\magenta{i} & \_ & \_\\
+			      \_ & \_ & \_ & \magenta{i} & \_ & \magenta{\_} & \_ &\_ & \_ & \magenta{i}\\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+		      } \to
+	      $ tengo que rellenar con 8 letras los lugares que sobran, teniendo en cuenta las repeticiones de las $"o"$: $\binom{10}{3} \cdot \frac{8!}{3!}$
+
+	\item
+	      Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. Para que se forme  $"n\dots s \dots p"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre
+	      puedo poner las letras $"\underline{n}\dots \underline s \dots \underline{p} "$. Para cada uno de estas 120 configuraciones de la pinta: \\
+	      $\llave{c c c c c c c c c c} % hay 9 en total
+		      {
+			      \magenta{n} & \magenta{s} & \magenta{p} & \_ & \_ & \_ & \_ &\_ & \_ & \_\\
+			      \_ & \_ & \magenta{n} & \magenta{s} & \_ & \_ & \_ &\magenta{p} & \_ & \_\\
+			      \_ & \_ & \_ & \magenta{n} & \_ & \magenta{s} & \_ &\_ & \_ & \magenta{p}\\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+		      } \to
+	      $ tengo que rellenar con 7 letras los lugares que sobran, teniendo en cuenta las repeticiones de las $"o"$ y de las $"i"$:
+	      $\binom{10}{3} \cdot \frac{7!}{3!2!}$
 \end{enumerate}
 
 
@@ -496,9 +528,25 @@ En este ejercicio no hace falta usar inducción.
 
 \separadorCorto
 
+Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
 \begin{enumerate}[label=\roman*)]
-	\item \hacer
-	\item \hacer
+	\item
+
+	\item  Binomio $\to
+		      \llaves{lcr}{
+			      x &=& 1\\
+			      y &=& -1
+		      } \to 0^n = \sumatoria{k=0}{n} \binom{n}{k} 1^n (-1)^{n-k}  = \sumatoria{k=0}{n} \binom{n}{k} (-1)^{n-k} = 0 \to\\
+		      \llave{l}{
+		      \flecha{si $n$ es par}[primer término positivo] \sumatoria{k=0}{n} (-1)^k  \binom{n}{k} =
+		      \binom{n}{0} - \binom{n}{1} + \dots + (-1)^\frac{n}{2} \binom{n}{\frac{n}{2}} +\dots  - \binom{n}{k-1} + \binom{n}{n} \to\\
+		      \flecha{uso sugerencia}[$\binom{n}{k} = \binom{n}{n-k}$ ]
+		      2\cdot\binom{n}{0} - 2 \cdot \binom{n}{1} + \dots + 2 \cdot (-1)^{\frac{n}{2} + 1} \binom{n}{\frac{n}{2} + 1} + (-1)^\frac{n}{2} \binom{n}{\frac{n}{2}} = 0 \red{¿Qué onda?}\\
+
+		      \flecha{si $n$ es impar}[primer término negativo] \sumatoria{k=0}{n} (-1)^{k+1} \binom{n}{k} =
+		      - \binom{n}{0} + \binom{n}{1} - \dots  - \binom{n}{k-1} + \binom{n}{n} \flecha{uso sugeerencia}[$\binom{n}{k} = \binom{n}{n-k}$ \checkmark] 0
+		      }$
+
 	\item \hacer
 	\item \hacer
 \end{enumerate}
@@ -518,19 +566,63 @@ $A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.$\\
 
 \separadorCorto
 
-Como $A$ tiene al 1 y al 3, los elementos pertenecientes a la clase $\overline A$ entonces si $C \subseteq \overline A \entonces
-	\llaves{c}{
-		1 \en C\\
-		3 \en C\\
-		2 \notin C
-	} $. Los conjuntos de 5 serán de la forma elementos de la forma:\\
+Como $A$ tiene al 1 y al 3, los elementos $C$, \textit{conjuntos en este caso}, pertenecientes a la clase $\overline A$
+deberían cumplir que si $C \subseteq \overline A \entonces
+	\llaves{cc}{
+		1 \en C&\\
+		3 \en C&\\
+		2 \notin C &\to \text{ si } 2 \en C \entonces A\cancel\relacion C
+	} $.\\
+Los conjuntos de 5 elementos serán de la forma:\\
 $\llave{c c c c c} % hay 5 en total
 	{
 		1 & 3 & \_ & \_ & \_   \\
-	} \flecha{5 elementos}[$ \inter \set{1,2,3} = \set{1,3}$] \binom{7}{3} = 35$. Los números 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
+	} \flecha{5 elementos}[$ \inter \set{1,2,3} \stackrel{\checkmark}= \set{1,3}$] \binom{7}{3} = 35$. Los 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
 \red{¿Es solo eso o interpreto mal la $\relacion$ u otra cosa?}
 
 %31
 \ejercicio
+Sean $X = \set{n \en \naturales : n\leq 100}$ y $A = \set{1}$ ¿Cuántos subconjuntos $B\subseteq X$ satisfacen que el conjunto $A \triangle B$
+tiene a lo sumo 2 elementos?
+
+\separadorCorto
+...\\
+\textit{a lo sumo = como mucho = como máximo}\\
+\textit{al menos =  por poco = como mínimo}\\
+...\\
+
+La diferencia simétrica es la unión de los elementos no comunes a los conjuntos $A$ y $B$. Si me piden que:\\
+$\#( A \triangle B) \leq 2 \entonces B =
+	\llave{ccl}{
+		1 \en B & \to & \#B \leq 3
+		\flecha{Busco conjuntos}[de la forma]
+		\llave{lll}{
+			\underline{1}\; \_ \;\_ &\flecha{el 1 está usado}[quedan  99. Elijo 2.] &   \binom{99}{2}\\
+			\underline{1} \;\_      &\flecha{el 1 está usado}[quedan  99. Elijo 1.] &   \binom{99}{1}\\
+			\underline{1}           &\flecha{el 1 está usado}[quedan  99. Elijo 0.] &  \binom{99}{0}
+		}\\
+		1 \notin B & \to & \#B \leq 1
+		\flecha{Busco conjuntos}[de la forma]
+		\llave{lll}{
+			\_ & \flecha{tengo 99 números para}[elegir \red{$1 \notin B$}. Elijo 1]     & \binom{99}{1}\\
+			\vacio & \flecha{tengo 99 números para}[elegir \red{$1 \notin B$}. Elijo 0] & \binom{99}{0}
+		}\\
+	}$
+
+Por último habría un total de $ \binom{99}{2} + \binom{99}{1} + \binom{99}{0} +\binom{99}{1} + \binom{99}{0}$ subconjuntos $B \subseteq X$
+para cumplir lo pedido.
+
+
+%32
+\ejercicio
+
+\begin{enumerate}[label=\roman*)]
+	\item Sea $A$ un conjunto con $2n$ elementos. ¿Cuántas relaciones de equivalencia pueden definirse en $A$ que cumplan la condición
+	      de que para todo $a \en A$ la clase de equivalencia de $a$ tenga $n$ elementos?
+
+	\item Sea $A$ un conjunto con $3n$ elementos. ¿Cuántas relaciones de equivalencia pueden definirse en $A$ que cumplan la condición
+	      de que para todo $a \en A$ la clase de equivalencia de $a$ tenga $n$ elementos?
+
+\end{enumerate}
 
 \end{document}

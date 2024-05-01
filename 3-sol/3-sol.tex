@@ -39,26 +39,59 @@
 % \maketitle  % Para que aprezca el título en el documento
 \section*{Ejercicios fuera de la guía}
 \textbf{26/4}\\
-Sea $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$ la relación de equivalencia $\to X \relacion Y \sisolosi X \triangle Y \subseteq \set{4,5,6,7,8}$.\\
-¿Cuántos conjuntos hay en la clase de equivalencia de $X = \set{x \en \naturales : x \geq 6}$
+Sea $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$ la relación de equivalencia
+$\to X \relacion Y \sisolosi X \triangle Y \subseteq \set{4,5,6,7,8}$.\\
+¿Cuántos conjuntos hay en la clase de equivalencia de $X = \set{x \en \naturales : x \geq 6}$?
 
 \separadorCorto
-La relación como pares ordenados de subconjuntos de $\naturales$, cosas así: $ (X,Y) = \parentesis{ \set{3, 5, 30}, \set{1,2,3,5} }$, pero no va a ser cualquier cosa
-porque la relación es de equivalencia, formado por los elementos no comunes a $X$ e $Y$ tienen que estar en $\set{4,5,6,7,8}$.\\
+
+\begin{enumerate}
+	\item La relación toma valores de $\partes(\naturales)$
+
+	\item Los elementos del conjunto $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$
+
+	\item El conjunto $X = \set{\foreach \i in {6,...,10}{\i, }\dots}$ es simplemente un elemento de $\partes(\naturales)$.
+	      Los conjuntos $Y \in \partes(\naturales)$ tales que $X \relacion Y$ van a ser los conjuntos que junto a $X$ formarán la
+	      clase de equivalencia.\\
+	      $ \overline{X} = \set{Y \in \partes{\naturales} : X \relacion Y}$
+\end{enumerate}
+
 Para tener una relación de equivalencia deben cumplirse:
-
 \begin{itemize}
-	\item Reflexión. $X \triangle X = \vacio \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}$
-
-	\item Simetría. $X \triangle Y \stackrel{\checkmark}= Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)$ \red{¿Habría que probar esto? ¿Tablita?}
-
-	\item Transitividad. No es trivial. Los elementos tienen que estar formados por los elementos $\set{4,5,6,7,8}$ para cumplir la transitividad.\\
-	      \red{Corroborar. Si esto es así, ¿cómo lo probraría?}
+	\item Reflexividad. $X \triangle X = \vacio \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}$
+	\item Simetría. $X \triangle Y \stackrel{\checkmark}= Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)$
+	\item Transitividad.
 \end{itemize}
 
-Cómo $X = \set{x \en \naturales : x \geq 6}$ me pide entonce que le dé $\#\overline X = \#\partes(\set{6,7,8}) = 2^3 - 1$. Donde le quito el último elemento porque $\vacio$
-no tiene elementos y aún menos elementos $\geq 6$
+Condiciones que debería cumplir un elemeto $Y$ para pertenecer a la la clase de equivalencia, en otras palabras estar relacionado con $X$:\\
+Los elementos $\to$\\
+$\llaves{l}{
+		1, 2, 3 \text{ no deben pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{3,8,9,\dots}}_Y = \set{3,6,7} \cancel{\subseteq} \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{1,2,3}}_Y = \set{1,2,3,6,7,\dots} \cancel{\subseteq} \set{4,5,6,7,8}\\
+		}\\ \hline
 
+		4,5,6,7,8 \text{ pueden o no pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{4,6,8,9,\dots}}_Y = \set{4,7} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{9,\dots}}_Y = \set{6,7,8} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}
+		}\\ \hline
+
+		9,10, \dots \text{ deben pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{6,7,8}}_Y = \set{9,10,\dots} \cancel\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{10,\dots}}_Y = \set{9} \cancel\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{9,\dots}}_Y = \set{6,7,8} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}
+		}
+	}$
+
+Se concluye que la clase de equivalencia será el conjunto $\overline{X}$ (\red{notación inventada}):\\
+$\overline{X} = \set{ Y_1  \union \set{9,10,\dots}, Y_2  \union \set{9,10,\dots}, \dots, Y_{32}  \union \set{9,10,\dots}}$
+con
+$Y_i \en \partes(\set{4,5,6,7,8})\; i \in [1,2^5] $ donde $\#\overline{X} = 2^5$\\
+
+\noindent\red{Entiendo que el enunciado no pedía encontrar la clase de equivalencia, no obstante ¿estaría bien así?}\\
 
 
 \section*{Ejercicios de la guía}
@@ -101,10 +134,10 @@ formar con los elementos de $(A \relacion A)_{ref}$, entonces $ \#\partes((A \re
 \red{Corroborar}
 
 Las relaciones simétricas serán aquellas que $a_i \relacion a_j \entonces a_j \relacion a_i$. Pensando esto como los elementos de la diagonal
-para abajo de una matriz de $n\times n$ tengo $\sumatoria{i=1}{n} i = \frac{n \cdot (n+1)}{2}$.\\
-Voy a calcular la cantidad de elementos que tiene el conjunto $\partes \parentesis{ (a_i \relacion a_j)_{sim} }$, porque estoy buscando todos los
-subconjuntos que puedo formar con los elementos señalados en la matriz, entonces:\\
-$ \#\partes((A \relacion A)_{sim}) = 2^{\frac{n \cdot (n+1)}{2}}$\\
+para abajo de una matriz de $n\times n$ tengo $\sumatoria{i=1}{n} i = \frac{n \cdot (n+1)}{2}$ elementos matriciales.\\
+$\sumatoria{k = 0}{n} \binom{\frac{n \cdot (n+1)}{2}}{k} = 2^{\frac{n \cdot (n+1)}{2}}$
+\red{Corroborar}
+
 $
 	\begin{array}{c|c|c|c|c|c|c|c|}
 		\multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
@@ -117,8 +150,6 @@ $
 		a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & R,\, S                  \\ \cline{2-8}
 	\end{array}
 $\\
-\red{Corroborar, cómo es el caso en que $i=j$?}
-\red{son necesarias para la simetria?}
 
 %10
 \ejercicio
@@ -566,12 +597,12 @@ $A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.$\\
 
 \separadorCorto
 
-Como $A$ tiene al 1 y al 3, los elementos $C$, \textit{conjuntos en este caso}, pertenecientes a la clase $\overline A$
-deberían cumplir que si $C \subseteq \overline A \entonces
+Como $A$ tiene al 1 y al 3, los elementos $B$, \textit{conjuntos en este caso}, pertenecientes a la clase $\overline A$
+deberían cumplir que si $B \subseteq \overline A \entonces
 	\llaves{cc}{
-		1 \en C&\\
-		3 \en C&\\
-		2 \notin C &\to \text{ si } 2 \en C \entonces A\cancel\relacion C
+		1 \en B&\\
+		3 \en B&\\
+		2 \notin B &\to \text{ si } 2 \en B \entonces A \cancel\relacion B
 	} $.\\
 Los conjuntos de 5 elementos serán de la forma:\\
 $\llave{c c c c c} % hay 5 en total

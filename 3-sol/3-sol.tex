@@ -21,6 +21,7 @@
 \usepackage{tikz} % para graficar
 \usepackage{cancel}
 \usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+\usepackage{ulem}
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
@@ -319,9 +320,12 @@ simultáneamente las condiciones:\\
 	\item Si $f(5) + f(6) = 6$ entonces $f: \set{5,6} \to \set{1,2,4,5}$. Una vez que $f(5)$ tome
 	      un valor de los 4 posibles e.g. $f(5) = 1 \flecha{condiciona}[única opción] f(6) = 5 $
 
-	\item $f(1) \leq 6 \to f : \set{1} \to \set{\cancel{1},2,3,\cancel{4},5,6}$ donde cancele el 1
-	      y el 4, para sacar 2 números que sí o sí deben irse en la condición de $f(5) + f(6) = 6$. Por lo
-	      tanto $f(1)$ puede tomar 4 valores.
+	\item $f(1) \leq 6 \to f : \set{1} \to \set{\cancel{1},2,3,\cancel{4},5,6}$ donde cancelé el 1
+	      y el 4, para sacar 2 números que sí o sí deben irse en la condición
+	      \footnote{¿Podría haber elegido el 1 y 2? Sí, cualquiera 2 números del conjunto $\set{1,2,4,5}$}
+	      de $f(5) + f(6) = 6$. Por lo
+	      tanto $f(1)$ puede tomar 4 valores. Por lo que sobrarían 9 elementos del conjunto de llegada para repartir
+	      en las $f$ que no tienen condición.
 \end{itemize}
 
 $\llave{c c c c c c c c}
@@ -469,7 +473,7 @@ $\to \binom{12}{3} \cdot \binom{9}{2} \cdot 7! =
 	= \frac{\foreach \i in {12,11,...,5}{\i \cdot}4}{2} = 39.916.800$
 
 \footnotetext{Esto es el total de biyecciones dividido entre las cantidades de repeticiones de los elementos en cuestión.}
-
+\newpage
 %22
 \ejercicio
 
@@ -484,13 +488,56 @@ $\to \binom{12}{3} \cdot \binom{9}{2} \cdot 7! =
 
 El conjunto de consonantes es $C = \set{c,d,r,s}$ y de vocales $V = \set{u,a,o}$
 \begin{enumerate}[label=\roman*)]
-	\item  Para que las vocales estén juntas tengo que considerar las permutaciones dentro del conjunto $V$, que son iguales a 3! y ahora \textit{inyecto} el conjunto de
-	      5 elementos $CV = \set{c,d,r,s,{uao}}$ que da 5!.\\
-	      Finalmente se pueden formar $3! \cdot 5!$ palabras con la condición pedida.
+	\item  Para que las vocales estén juntas pienso a las 3 como un solo elemento, fusionadas las 3 letras, con sus permutaciones,
+	      es decir que tengo 3! cosas de la siguiente pinta:\\
+	      $\llave{c c c} % hay 3 en total
+		      {
+			      u & a & o\\
+			      u & o & a\\
+			      o & a & u\\
+			      o & u & a\\
+			      a & o & u\\
+			      a & u & o\\
+		      } $\\
+	      Los anagramas para que las letras estén juntas los formo combinando $\binom{5}{1} = 5$ poniendo los 3!=6 valores así en cada uno de los
+	      5 lugares:\\
+	      $\llave{c c c c c} % hay 5
+		      {
+			      uao & \_ & \_ & \_ & \_\\
+			      \_& uao  & \_ & \_ & \_\\
+			      \_ & \_ & \_ & uao &  \_\\
+			      \vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+			      1 & 2 & 3 & 4 & 5
+		      } $\\
+	      Ahora puedo \textit{inyectar} las 4 consonantese en los 4 lugares que quedan libres. Finalmente se pueden formar
+	      $\underbrace{4!}_{consonantes} \cdot \underbrace{ \binom{5}{1} \cdot 3!}_{vocales} =  720$ anagramas con la condición pedida.\\
 
-	\item \red{¿Qué sería el orden relativo?}
+	\item Supongo que el \red{orden relativo} es que aparezcan ordenadas así $"c \dots d \dots r \dots s"$, quiere decir que tengo que combinar
+	      un grupo de 4 letras en 7 que serían los lugares de la letras teniendo un total de $\binom{7!}{4!}$ y luego tengo 1! permutaciones o, \textit{no permuto
+		      dicho de otra forma},    dado que eso alteraría el orden y no quiero que pase eso. Obtengo cosas así:\\
+	      $\llave{c c c c c c c c} % hay 7
+		      {
+			      c & d & r & s &\_ & \_ & \_\\
+			      \_ & c & \_ & d & \_ & r & s\\
+			      c & \_ & \_ & d & r & \_ & s\\
+			      \vdots & \vdots &\vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7
+		      } \to
+	      $ lo cual deja 3 lugares libres para permutar con las 3 vocales, esa permutación es una \text{biyección} da $3!$.\\
+	      Por último se pueden formar $\underbrace{\binom{7!}{4!}\cdot 1!}_{consonantes} \cdot \underbrace{3!}_{vocales} =
+		      \frac{7!}{4!\cdot \cancel{3!}} \cdot \cancel{3!} = \frac{7 \cdot 6 \cdot 5 \cdot \cancel{4!}}{\cancel{4!}} = 210$
 
-	\item \hacer
+
+	\item $C = \set{c,d,r,s}$ sin que estén juntas quiere decir que puedo ordenar de pocas formas, muy pocas porque solo hay 7 lugares.
+	      $\llave{c c c c c c c c} % hay 7 en total
+		      {
+			      c & \_ & d & \_ & r & \_ & s\\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7
+		      } \to
+	      $ esta combinación es única $\binom{7!}{7!} = 1$, lo único que resta hacer es permutar las consonantes en esos espacios. 4
+	      espacios para 4 consonantes.
+	      Luego relleno \textit{inyectando} las vocales, como antes. El total de anagramas será
+	      $\underbrace{\binom{7!}{7!} \cdot 4!}_{consonantes} \cdot \underbrace{3!}_{vocales} = 144 $
 
 \end{enumerate}
 
@@ -509,16 +556,23 @@ Con la palabra $polinomios$,
 
 \begin{enumerate}[label=\roman*)]
 	\item
-	      Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. Para que no hayan $"ii"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre
-	      puedo poner las letras $"\underline{i}\, \_ \, \underline{i} "$. Para cada uno de estas 120 configuraciones de la pinta: \\
-	      $\llave{c c c c c c c c c c} % hay 9 en total
+	      Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. \sout{Para que no hayan $"ii"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre
+		      puedo poner las letras $"\underline{i}\, \_ \, \underline{i} "$. Para cada uno de estas 120 configuraciones de la pinta:} \red{Está mal!} \\
+	      $\llave{c c c c c c c c c c c} % hay 9 en total
 		      {
 			      \magenta{i} & \magenta{\_} & \magenta{i} & \_ & \_ & \_ & \_ &\_ & \_ & \_\\
-			      \_ & \_ & \magenta{i} & \magenta{\_} & \_ & \_ & \_ &\magenta{i} & \_ & \_\\
-			      \_ & \_ & \_ & \magenta{i} & \_ & \magenta{\_} & \_ &\_ & \_ & \magenta{i}\\ \hline
+			      \_ & \_ & \magenta{i} & \magenta{\_} & \_ & \_ & \_ &\magenta{i} & \_ & \_ & \to \text{\footnotesize Con las \magenta{$i$} donde están el \magenta{"\_"} tiene 4 posiciones}\\
+			      \_ & \_ & \_ & \magenta{i} & \_ & \magenta{\_} & \_ &\_ & \_ & \magenta{i}& \to \text{\footnotesize Con las \magenta{$i$} donde están el \magenta{"\_"} tiene 5 posiciones} \\ \cline{1-10}
 			      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
-		      } \to
-	      $ tengo que rellenar con 8 letras los lugares que sobran, teniendo en cuenta las repeticiones de las $"o"$: $\binom{10}{3} \cdot \frac{8!}{3!}$
+		      } \\
+	      $ Estoy contando de más. La cantidad para que las $i$ no estén juntas es 36... salieron contando a mano 
+	      \footnote{$\sumatoria{1}{8} k = 36$}
+	      .
+	      Luego inyectando con las repeticiones de la $"o"$: $36 \cdot \frac{8!}{3!} = 241.920 $\\
+        Pensando en el complemento:\\
+	      Las posiciones que pueden tomar las $ii$ juntas, se calculan a mano enseguida. Habrían en total \\
+        $\to \underbrace{\frac{10!}{3! \cdot 2!}}_\universo - \underbrace{9 \cdot \frac{8!}{3!}}_{complemento} = 241.920 $
+
 
 	\item
 	      Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. Para que se forme  $"n\dots s \dots p"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre

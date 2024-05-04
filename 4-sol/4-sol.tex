@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper, spanish]{article}
+% Sacar draft para que aparezcan las imagenes.
+% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
+% Opciones de clase: article, report, letter, beamer...
+
+% Paquetes:
+% =========
+\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
+\usepackage[T1]{fontenc} % tildes
+\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
+\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{amsmath} % Soporte de mathmatics
+\usepackage{amssymb} % fuentes de mathmatics
+\usepackage{array} % Para tablas y eso
+\usepackage{caption} % Configuracion de figuras y tablas
+\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
+\usepackage{multicol} 
+\usepackage{tikz} % para graficar
+\usepackage{cancel}
+\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+\usepackage{ulem}
+
+% para hacer los graficos tipo grafos
+\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+\usetikzlibrary{external}
+
+\include{definiciones.tex} % idem con las definiciones
+
+\begin{document}
+
+\pagestyle{empty} % Para que no muestre el número en pie de página
+
+% Info para armar título.
+\title{Práctica 4 de álgebra 1} % título
+\author{D. Garraz} % autor
+\date{last update: \today} % Cambiar de ser necesario
+
+% \maketitle  % Para que aprezca el título en el documento
+\section*{Definiciones y fórmulas útiles}
+\begin{itemize}
+	\item $d$ divide a $a \to d \divide a \sisolosi \existe k \in \enteros : a = k \cdot d$
+	\item $ \divset{-a}{-|a|,\dots,-1,1,\dots,|a|}$.
+	\item $d \divide 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
+	\item $\llave{l}{
+			      d \divide a \sisolosi -d \divide a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))\\
+			      d \divide a \sisolosi d \divide -a \text{ (pues} a = k \cdot d \sisolosi (-a) = (-k) \cdot d)\\
+			      \entonces d \divide a \sisolosi |d| \,\divide\, |a|
+		      }$
+
+	\item $\llave{l}{
+			      d \divide a \text{ y } d \divide b \entonces d \divide a + b\\
+			      d \divide a \text{ y } d \divide b \entonces d \divide a - b\\
+			      d \divide a \entonces d \divide c \cdot a,\, \paratodo c \en \enteros\\
+			      d \divide a \entonces d \divide c \cdot a\\
+			      d \divide a \entonces d^2 \divide a^2 \text{  y  } d^n \divide a^n \, \paratodo n \en \naturales\\
+			      d \divide a \cdot b \text{ no implica } d \divide a \o d \divide b. \text{ Por ejemplo } 6 \divide 3 \cdot 4
+		      }$
+
+	\item
+	      $\llave{l}{
+			      \textit{$a$ es congruente a $b$ módulo $d$} \text{ si }   d \divide a-b \text{. Se nota } \congruencia{a}{b}{d}\\
+			      \congruencia{a}{b}{d} \sisolosi d \divide a-b
+		      }$
+
+	\item $
+    \llave{c}{
+      \congruencia{a_1}{b_1}{d}\\
+      \vdots\\
+      \congruencia{a_n}{b_n}{d}
+    }
+     \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
+     $. 
+	\item $
+    \llave{c}{
+      \congruencia{a_1}{b_1}{d}\\
+      \vdots\\
+      \congruencia{a_n}{b_n}{d}
+    }
+     \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
+\end{itemize}
+
+\section*{Ejercicios dados en clase}
+\ejercicio
+
+
+\section{Ejercicios de la guía}\
+
+\textit{\underline{Divibilidad}}
+%1
+\ejercicio
+Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$
+
+\begin{enumerate}[label=\roman*)]
+	\item $a \cdot b \divide c \entonces a \divide c$ \ y \ $b \divide c$
+	\item $4 \divide a^2 \entonces 2 \divide a $
+	\item $2 \divide a\cdot b \entonces 2 \divide a $ \ o \ $2 \divide b$
+	\item $9 \divide a\cdot b \entonces 9 \divide a  $ \ o \ $9 \divide b$
+	\item $a \divide b + c \entonces a \divide b $ \ o \  $9 \divide b$
+\end{enumerate}
+
+
+\end{document}

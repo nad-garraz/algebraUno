@@ -16,6 +16,7 @@
 \def\o{\lor}
 \def\neg{\sim}
 \def\entonces{\Rightarrow}
+\def\noEntonces{\centernot\Rightarrow}
 \def\sisolosi{\iff}
 \def\clase{\overline}
 
@@ -52,7 +53,8 @@
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
 
 % enteros
-\def\divide{\,|\,}
+\def\divide{\, | \,}
+\def\noDivide{\centernot\divide}
 \def\congruente{\, \equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(\text{mod}\;#3)}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
@@ -65,6 +67,8 @@
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
 \newcommand{\hacer}{{\color{black!30!red}Hacer!}}
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
+\def\Tilde{\quad\checkmark}
+
 
 \def\llamadaI{\stackrel{\cyan{$*^1$}}}
 \def\llamadaII{\stackrel{\cyan{$*^2$}}}
@@ -75,7 +79,7 @@
 \def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
 
 % sección ejercicio con su respectivo formato y contador
-\newcounter{ejercicio}[subsubsection] % contador que se resetea en cada sección
+\newcounter{ejercicio}[section] % contador que se resetea en cada sección
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno

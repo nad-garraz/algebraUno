@@ -22,6 +22,8 @@
 \usepackage{cancel}
 \usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
 \usepackage{ulem}
+\usepackage{centernot} % tacha cosas
+% \usepackage{lipsum}
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
@@ -40,6 +42,7 @@
 
 % \maketitle  % Para que aprezca el título en el documento
 \section*{Definiciones y fórmulas útiles}
+
 \begin{itemize}
 	\item $d$ divide a $a \to d \divide a \sisolosi \existe k \in \enteros : a = k \cdot d$
 	\item $ \divset{-a}{-|a|,\dots,-1,1,\dots,|a|}$.
@@ -66,40 +69,112 @@
 		      }$
 
 	\item $
-    \llave{c}{
-      \congruencia{a_1}{b_1}{d}\\
-      \vdots\\
-      \congruencia{a_n}{b_n}{d}
-    }
-     \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
-     $. 
+		      \llave{c}{
+			      \congruencia{a_1}{b_1}{d}\\
+			      \vdots\\
+			      \congruencia{a_n}{b_n}{d}
+		      }
+		      \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
+	      $.
 	\item $
-    \llave{c}{
-      \congruencia{a_1}{b_1}{d}\\
-      \vdots\\
-      \congruencia{a_n}{b_n}{d}
-    }
-     \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
+		      \llave{c}{
+			      \congruencia{a_1}{b_1}{d}\\
+			      \vdots\\
+			      \congruencia{a_n}{b_n}{d}
+		      }
+		      \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
 \end{itemize}
 
 \section*{Ejercicios dados en clase}
 \ejercicio
 
 
-\section{Ejercicios de la guía}\
+\section{Ejercicios de la guía}
 
-\textit{\underline{Divibilidad}}
+\textit{\underline{Divisibilidad}}
 %1
 \ejercicio
-Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$
-
+Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$:\\
+Calcular
 \begin{enumerate}[label=\roman*)]
-	\item $a \cdot b \divide c \entonces a \divide c$ \ y \ $b \divide c$
-	\item $4 \divide a^2 \entonces 2 \divide a $
-	\item $2 \divide a\cdot b \entonces 2 \divide a $ \ o \ $2 \divide b$
+	\item $a \cdot b \divide c \entonces a \divide c$ \ y \ $b \divide c$ \\
+	      \separadorCorto
+
+	      $\llave{l}{
+			      c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \divide c \Tilde\\
+			      c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \divide c\Tilde
+		      }$
+
+	\item $4 \divide a^2 \entonces 2 \divide a $\\
+	      \separadorCorto
+
+	      $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \divide 2
+		      \flecha{si $a\cdot b \divide c$}[$\entonces a \divide c \y b \divide c$]
+		      a \divide 2 \Tilde$
+
+	\item $2 \divide a \cdot b \entonces 2 \divide a $ \ o \ $2 \divide b$
+	      \separadorCorto
+	      \hacer
+
 	\item $9 \divide a\cdot b \entonces 9 \divide a  $ \ o \ $9 \divide b$
+	      \separadorCorto
+	      \hacer
+
 	\item $a \divide b + c \entonces a \divide b $ \ o \  $9 \divide b$
+	      \separadorCorto
+	      $12 \divide 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
+
+	\item
+	      \separadorCorto
+	      \hacer
+	\item
+	      \separadorCorto
+	      \hacer
+	\item
+	      \separadorCorto
+	      \hacer
+	\item $a \divide b + a^2 \entonces a \divide b$
+	      \separadorCorto
+
+	      $  a \divide b + a^2 \entonces b + a^2 = k \cdot a \flecha{acomodo} b = (k - a) \cdot a = h \cdot a \entonces a | b \Tilde$\\
+	      $ \flecha{también puedo}[decir si:]
+		      \llaves{l}{
+			      a \divide a^2 \\
+			      a \divide b - a^2
+		      } \flecha{por}[propiedad] a \divide (b - a^2) + (a^2) = b \entonces a \divide b \Tilde $
+
+
+	\item
+	      \separadorCorto
+	      \hacer
 \end{enumerate}
 
+\ejercicio
+Hallar todos los $n \en \naturales$ tales que:
+	\begin{enumerate}[label=\roman*)]
+		\item $3n - 1 \divide n+7$\\
+      \separadorCorto
+
+      Busco eliminar la $n$ del \textit{miembro} derecho.\\
+      $\llaves{l}{
+        3n - 1 \divide n + 7
+        \flecha{$a|c \entonces$}[$a \divide k\cdot c$]
+        3n - 1 \divide \red{3} \cdot (n+7) = 3n + 21\\
+        \flecha{$a \divide b \y a \divide c$}[$\entonces a \divide b \pm c$]
+        3n-1 \divide 3n + 21 - (3n -1) = 22
+      } \to 3n - 1 \divide 22\\
+      \flecha{busco $n$}[para que] \frac{22}{3n-1} \en \divset{22}{1\pm1, \pm2, \pm11, \pm22} \flecha{probando} n \en \set{1,4} \Tilde$
+    \item 
+    \item
+
+    \item $n-2 \divide n^3 - 8$
+
+      \separadorCorto
+
+      $n-2 \divide n^3 - 8 = (n-2) \cdot (n^2 + 2n + 4)$ Esto va a dividir para todo $n \distinto 2$\\
+      \red{corroborar. ¿Otra forma de llegar a eso?} 
+
+
+	\end{enumerate}
 
 \end{document}

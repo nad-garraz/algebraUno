@@ -40,7 +40,7 @@
 \author{D. Garraz} % autor
 \date{last update: \today} % Cambiar de ser necesario
 
-% \maketitle  % Para que aprezca el título en el documento
+\maketitle  % para que aprezca el título en el documento
 \section*{Definiciones y fórmulas útiles}
 
 \begin{itemize}
@@ -84,13 +84,19 @@
 		      }
 		      \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
 \end{itemize}
+\textit{\underline{Algoritmo de división:}}\\
+Dados $a,d\en \enteros$ con $d \distinto 0$, \textit{\underline{existen}} $k$, $r \en \enteros$ tales que: $a =  k \cdot d + r$, con $0\leq r < |d|$.
+Y además estos $k$ y $r$ son \textit{\underline{únicos}}.\\
 
+\noindent Notación: $r_d(a)$ es el resto de dividir a $a$ entre $d$
+%
+%
+%
 \section*{Ejercicios dados en clase}
-\ejercicio
+% \ejercicio
 
 
-\section{Ejercicios de la guía}
-
+\section*{Ejercicios de la guía}
 \textit{\underline{Divisibilidad}}
 %1
 \ejercicio
@@ -114,14 +120,22 @@ Calcular
 
 	\item $2 \divide a \cdot b \entonces 2 \divide a $ \ o \ $2 \divide b$\\
 	      \separadorCorto
-	      \hacer
+
+	      Si $2 \divide a \cdot b \entonces
+		      \llaves{c}{
+			      a \text{ tiene que ser } par \\
+			      \o \\
+			      b \text{ tiene que ser } par \\
+		      } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \divide a \cdot b \entonces 2 \divide a $ \ o \ $2 \divide b$.
 
 	\item $9 \divide a\cdot b \entonces 9 \divide a  $ \ o \ $9 \divide b$\\
 	      \separadorCorto
-	      \hacer
 
-	\item $a \divide b + c \entonces a \divide b $ \ o \  $9 \divide b$\\
+	      Si $a = 3 \y b = 3$, se tiene que $9 \divide 9$, sin embargo $9 \noDivide 3$
+
+	\item $a \divide b + c \entonces a \divide b $ \ o \  $a \divide c$\\
 	      \separadorCorto
+
 	      $12 \divide 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
 
 	\item
@@ -144,37 +158,229 @@ Calcular
 		      } \flecha{por}[propiedad] a \divide (b - a^2) + (a^2) = b \entonces a \divide b \Tilde $
 
 
-	\item
+	\item $a \divide b \entonces a^n \divide b^n,\, \paratodo n \en \naturales$
 	      \separadorCorto
-	      \hacer
+
+	      Pruebo por inducción. $p(n)\  :\  a \divide b \entonces a^n \divide b^n $\\
+	      $
+		      \llave{l}{
+			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \divide b^1 \checkmark\\
+			      \text{Paso inductivo: } \paratodo h \en \naturales, p(h) \ V \entonces p(h+1)\ V?\\
+			      \text{Si } a \divide b \entonces a^k \divide b^k  \entonces a^k \cdot c = b^k
+			      \flecha{multiplico por}[$b$ M.A.M]
+			      b \cdot a^k \cdot c = b^{k+1}
+			      \flecha{$a\divide b$}[$a \cdot d = b$]
+			      a\cdot d \cdot a^k \cdot c =  a^{k+1}\cdot(cd) = b^{k+1}\\
+			      \flecha{concluyendo}[que] a^{k+1} \divide b^{k+1} \text{como quería mostrarse.}
+		      }
+	      $ Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
+	      es verdadera $\paratodo n \en \naturales$
+
 \end{enumerate}
 
 \ejercicio
 Hallar todos los $n \en \naturales$ tales que:
-	\begin{enumerate}[label=\roman*)]
-		\item $3n - 1 \divide n+7$\\
-      \separadorCorto
+\begin{enumerate}[label=\roman*)]
+	\item $3n - 1 \divide n+7$\\
+	      \separadorCorto
 
-      Busco eliminar la $n$ del \textit{miembro} derecho.\\
-      $\llaves{l}{
-        3n - 1 \divide n + 7
-        \flecha{$a|c \entonces$}[$a \divide k\cdot c$]
-        3n - 1 \divide \red{3} \cdot (n+7) = 3n + 21\\
-        \flecha{$a \divide b \y a \divide c$}[$\entonces a \divide b \pm c$]
-        3n-1 \divide 3n + 21 - (3n -1) = 22
-      } \to 3n - 1 \divide 22\\
-      \flecha{busco $n$}[para que] \frac{22}{3n-1} \en \divset{22}{1\pm1, \pm2, \pm11, \pm22} \flecha{probando} n \en \set{1,4} \Tilde$
-    \item 
-    \item
+	      Busco eliminar la $n$ del \textit{miembro} derecho.\\
+	      $\llaves{l}{
+			      3n - 1 \divide n + 7
+			      \flecha{$a|c \entonces$}[$a \divide k\cdot c$]
+			      3n - 1 \divide \red{3} \cdot (n+7) = 3n + 21\\
+			      \flecha{$a \divide b \y a \divide c$}[$\entonces a \divide b \pm c$]
+			      3n-1 \divide 3n + 21 - (3n -1) = 22
+		      } \to 3n - 1 \divide 22\\
+		      \flecha{busco $n$}[para que] \frac{22}{3n-1} \en \divset{22}{1\pm1, \pm2, \pm11, \pm22} \flecha{probando} n \en \set{1,4} \Tilde$
+	\item
+	\item
 
-    \item $n-2 \divide n^3 - 8$
+	\item $n-2 \divide n^3 - 8$
 
-      \separadorCorto
+	      \separadorCorto
 
-      $n-2 \divide n^3 - 8 = (n-2) \cdot (n^2 + 2n + 4)$ Esto va a dividir para todo $n \distinto 2$\\
-      \red{corroborar. ¿Otra forma de llegar a eso?} 
+	      $n-2 \divide n^3 - 8 = (n-2) \cdot (n^2 + 2n + 4)$ Esto va a dividir para todo $n \distinto 2$\\
+	      \red{corroborar. ¿Otra forma de llegar a eso?}
+
+\end{enumerate}
+
+%3
+\ejercicio Sean $a.\,b \en \enteros$.
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $a-b \divide a^n - b^n$ para todo $n \en \naturales \y a \distinto b \en \enteros$
+	\item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \divide a^n - b^n$.
+	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divide a^n + b^n$.
+\end{enumerate}
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item  Si $a-b \divide a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
+		      \llaves{l}{
+		      \congruencia{a}{b}{a-b} \\
+		      \congruencia{a^2}{\underbrace{a}_{\stackrel{(a-b)}\congruente b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
+		      \quad\vdots\\
+		      \congruencia{a^n}{b^n}{a-b} \\
+		      } \to\\ a-b \divide a^n - b^n$
+
+	\item  Sé que $\congruencia{a}{-b}{a+b} \sisolosi
+		      \llaves{l}{
+		      \congruencia{a^2}{\underbrace{a}_{\stackrel{(a+b)}\congruente -b}\cdot b}{a+b} \flecha{propiedad}[congruencia] \congruencia{a^2}{(-1)^2 \cdot b^2}{a+b} \\
+		      \quad\vdots\\
+		      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \to
+		      \llave{ll}{
+			      \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
+			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
+		      }\\
+		      }$\\
+	      \red{Vale esto com prueba de algo?}
+
+	\item Sería lo mismo que en el item anterior.
 
 
-	\end{enumerate}
+	      %4
+	      \ejercicio
+	      Sea $a \in \enteros$ impar. Probar que $2^{n+2} \divide a^{2^n} - 1$ para todo $n \en \naturales$\\
+	      \separadorCorto
+
+	      Pruebo por inducción: $p(n): 2^{n+2} \divide a^{2^n} - 1$\\
+	      $\llaves{l}{
+			      \textit{Caso bade: } p(1)\ :\ 2^3 \divide a^2 - 1 = (a - 1) \cdot (a + 1)
+			      \flecha{$a$ es eimpar}[$a = 2m -1$] (2m - 2)\cdot(2m) =\\
+			      4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \divide 8 \cdot h \text{ con $h$ entero.}\checkmark\\
+
+			      \textit{Paso inductivo: } p(k) \ V  \entonces p(k+1) \ V? \flecha{es}[decir]
+			      2^{k+2} \divide a^{2^k} - 1 \entonces  2^{k+3} \divide a^{2^{k+1}} - 1\ V? \\
+
+			      \textit{Hipótesis inductiva: }\\
+			      \llave{l}{
+				      2^{k+3} \divide a^{2^{k+1}} - 1 \flecha{acomodar}[diferencia cuadrados] 2\cdot 2^k \divide (a^{2^k})^2 - 1 =\\
+				      \ub{ (a^{2^k} - 1) }{\text{par}} \cdot  \ub{(a^{2^k} + 1)}{\text{par}}  \\
+				      \red{Necesito probar eso?$\to$}\flecha{Si $a \stackrel{\tiny HI}\divide b$ y $c \divide d$}[$\entonces a\cdot c \divide b\cdot d$]
+				      \ub{2^{k+2}}{a} \cdot \ub{2}{c}   \divide  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \divide a^{2^{k+1}} - 1 \quad V \checkmark
+			      }
+		      } $\\
+	      Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
+	      es verdadera $\paratodo n \en \naturales$
+
+	      %5
+	      \ejercicio
+	      \separadorCorto
+	      %6
+	      \ejercicio
+	      \separadorCorto
+
+
+	      %7
+	      \ejercicio
+	      \begin{enumerate}[label=\roman*)]
+		      \item $99 \divide 10^{2n} + 197$
+		      \item $9 \divide 7 \cdot 5^{2n} + 2^{4n+1}$
+		      \item $56 \divide 13^{2n} + 28n^2 - 84n -1$
+		      \item $256 \divide 7^{2n} + 208n - 1$
+	      \end{enumerate}
+
+	      \separadorCorto
+	      % definicion local
+	      \def\cong99{\stackrel{(99)}\congruente}
+	      % fin definicion local
+	      \begin{enumerate}[label=\roman*)]
+		      \item $99 \divide 10^{2n} + 197 \stackrel{def}{\sisolosi}
+			            \congruencia{10^{2n} + 197}{0}{99} \to
+			            \congruencia{10^{2n} + 198}{1}{99} \to
+			            \congruencia{10^{2n} + \ub{198}{\cong99 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
+			            \llave{l}{
+				            \flecha{sé}[que] \congruencia{100}{1}{99} \sisolosi \congruencia{100^2}{\ub{100}{ \cong99 1 }}{99} \to
+				            \congruencia{100^2}{1}{99} \sisolosi \dots \sisolosi \congruencia{100^n}{1}{99}\\
+				            \red{¿Tengo que demostrar ese renglón por inducción o con "propiedad de congruencia" funciona?}
+			            }
+		            $\\
+		            Se concluye que  $99 \divide 10^{2n} + 197 \sisolosi 99 \divide \ub{100 - 1}{99}$
+
+
+		      \item
+		            % definicion local
+		            \def\cong9{\stackrel{(9)}\congruente}
+		            % fin definicion local
+
+		            $9 \divide 7 \cdot 5^{2n} + 2^{4n+1}
+			            \stackrel{def}{\sisolosi}
+			            \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
+			            \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
+			            \congruencia{\ub{9 \cdot 5^{2n}}{\cong9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9}\\
+			            \flecha{simplifico}[y acomodo]
+			            \congruencia{2^{4n}}{5^{2n}}{9} \to
+			            \congruencia{16^n}{25^n}{9}
+			            \flecha{simetría}[congruencia]
+			            \congruencia{25^n}{16^n}{9}
+			            \flecha{$25\cong9 16$}
+			            \congruencia{25}{16}{9} =
+			            \congruencia{9}{0}{9}\\
+		            $
+		            Se concluye que $9 \divide 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divide 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
+
+		      \item \hacer
+		      \item \hacer
+	      \end{enumerate}
+
+	      \textit{\underline{Algoritmo de División}}:\\
+	      %8
+	      \ejercicio
+
+	      % definiciones locales
+	      \begin{enumerate}[label=\roman*)]
+		      \begin{minipage}{0.5\linewidth}
+			      \item $a =133,\quad b = -14.$
+			      \item $a =13,\quad b = 111.$
+			      \item $a =3b+7,\quad b \distinto 0.$
+		      \end{minipage}
+		      \begin{minipage}{0.5\linewidth}
+			      \item $a = b^2 - 6,\quad b \distinto 0.$
+			      \item $a = n^2 + 5,\quad b = n+2 \ (n \en \naturales).$
+			      \item $a = n + 3,\quad = n^2 + 1 \ (n \en \naturales).$
+		      \end{minipage}
+	      \end{enumerate}
+	      \separadorCorto
+	      \begin{enumerate}[label=\roman*)]
+		      \item $133 : (-14) \entonces 133 = \blue{(-9)} \cdot (-14) + \magenta{7}  $
+		      \item $ $
+		      \item $a = 3b + 7 \to
+			            \text{me interesa: }\to
+			            \llaves{l}{
+				            |b| \leq |a| \checkmark\\
+				            0 \leq \magenta{r} < |b| \checkmark \\
+			            } \to\\ $
+
+
+                  $ \to\llave{l}{
+				            \text{Si: } |b| > 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
+				            \text{Si: } |b| \leq 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
+                    \footnotesize
+				            \begin{array}{|l|l|l|l|l|l|l|l|}
+					            \hline
+                      (a,b) & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
+                      (\blue{$q$},\magenta{$r$}) & (2,0) & (2,1) & (2,2) & (2,3) & (4, 0) & \dots \\ \hline
+                      \hline
+					            % (\blue{q},\magenta{r})&
+				            \end{array}
+                  }
+            $
+	      \end{enumerate}
+	\item
+
+
+	      %9
+	      \ejercicio
+	      \separadorCorto
+
+	      %10
+	      \ejercicio
+	      \separadorCorto
+
+
+\end{enumerate}
+
+
+
 
 \end{document}

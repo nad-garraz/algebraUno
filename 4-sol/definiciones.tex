@@ -23,7 +23,7 @@
 
 \def\existe{\,\exists\,}
 \def\noexiste{\,\nexists\,}
-\def\paratodo{\forall}
+\def\paratodo{\;\forall}
 \def\distinto{\neq}
 \def\en{\in}
 \def\talque{\;|\;}
@@ -58,23 +58,26 @@
 \def\congruente{\, \equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
+\newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
 \newcommand{\ub}[2]{ \underbrace{#1}_{#2} }
+\def\cop{\, \perp \, }
 
 
 % =====
 % Miscelanea
 % =====
+\def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
 \newcommand{\hacer}{{\color{black!30!red}Hacer!}}
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
 \def\Tilde{\quad\checkmark}
+\def\ytext{\quad\text{y}\quad}
+\def\otext{\quad\text{o}\quad}
 
 
-\def\llamadaI{\stackrel{\cyan{$*^1$}}}
-\def\llamadaII{\stackrel{\cyan{$*^2$}}}
-\def\llamadaIII{\stackrel{\cyan{$*^3$}}}
+\newcommand{\llamada}[1]{\stackrel{\cyan{\FiveStar$^{#1}$}} }
 
-% separador
+% separador\
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
 \def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
 
@@ -83,14 +86,14 @@
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
-	\titleformat{\section}[runin]{\normalfont\bfseries}{\theejercicio}{1em}{}%
-	\section*{\noindent\theejercicio. \noindent}%
+  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{}[\\ ]%
+	\section*{\theejercicio.}%
 }
 
 % Colores
 \newcommand{\red}[1]{ {\color{red} \text{#1}}}
 \newcommand{\green}[1]{ {\color{olive} \text{#1}}}
-\newcommand{\blue}[1]{ {\color{blue} \text{#1}}}
+\newcommand{\blue}[1]{ {\color{Cerulean} \text{#1}}}
 \newcommand{\cyan}[1]{ {\color{cyan} \text{#1}}}
 \newcommand{\magenta}[1]{ {\color{magenta} \text{#1}}}
 

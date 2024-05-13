@@ -744,22 +744,22 @@ antisimétrica, transitiva, de equivalencia o de orden.
 		      \item[R:] $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$, se concluye que sí es reflexiva.
 		      \item[S:]
 		            $ \llave{l}{
-				            (a,b) \relacion (c,d) \sisolosi bc \llamadaI= k\cdot ad \\
-				            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \llamadaI= h\cdot k \cdot ad = k'ad
+				            (a,b) \relacion (c,d) \sisolosi bc \llamada{1}= k\cdot ad \\
+				            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \llamada{1}= h\cdot k \cdot ad = k'ad
 			            }$.\\
 		            con  $k'=1$ se cumple la igualdad. La relación es simétrica.
 		      \item[AS:] Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
 		            la relación no es antisimétrica.
 		      \item[T:]$
 			            \llave{l}{
-				            (a,b) \relacion (c,d) \sisolosi bc \llamadaI= k\cdot ad \\
-				            (c,d) \relacion (e,f) \sisolosi de \llamadaI= h\cdot cf \\
+				            (a,b) \relacion (c,d) \sisolosi bc \llamada{1}= k\cdot ad \\
+				            (c,d) \relacion (e,f) \sisolosi de \llamada{1}= h\cdot cf \\
 				            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{$be = k'\cdot af$}\\
 				            \flecha{multiplico}[M.A.M.]
 				            \llaves{l}
 				            {
-					            bc \llamadaI= k\cdot ad \\
-					            de \llamadaI= h\cdot cf \\
+					            bc \llamada{1}= k\cdot ad \\
+					            de \llamada{1}= h\cdot cf \\
 				            } \flecha{y}[acomodo] be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to \magenta{$be \stackrel{\checkmark}= k' \cdot af$}.
 			            }$\\
 		            Se concluye que la relación es transitiva.
@@ -838,17 +838,17 @@ $x \relacion y \sisolosi x^2 - y^2 = 93x - 93y$
 	      Para ser relación de equivalencia es necesario que:\\
 	      $\relacion \to
 		      \llaves{cl}{
-			      R: & \text{Reflexiva} \to x \relacion x \sisolosi x \llamadaI = x  \checkmark\\
+			      R: & \text{Reflexiva} \to x \relacion x \sisolosi x \llamada{1} = x  \checkmark\\
 			      S: & \text{Simétrica} \to
 			      \llave{l}{
-				      x \relacion y \sisolosi x + y\llamadaII = 93\\
-				      y \relacion x \sisolosi y + x \llamadaII = 93  \checkmark
+				      x \relacion y \sisolosi x + y\llamada{1}I = 93\\
+				      y \relacion x \sisolosi y + x \llamada{1}I = 93  \checkmark
 			      }\\
 			      T: & \text{Transitiva} \to
 			      \llave{l}{
-				      x \relacion y \sisolosi x \llamadaII = 93 - y\\
-				      y \relacion z \sisolosi y \llamadaII = 93 - z \\
-				      \flecha{resto}[m.a.m] x - y = -y + z \to x \llamadaI = z \sisolosi x \relacion z
+				      x \relacion y \sisolosi x \llamada{1}I = 93 - y\\
+				      y \relacion z \sisolosi y \llamada{1}I = 93 - z \\
+				      \flecha{resto}[m.a.m] x - y = -y + z \to x \llamada{1} = z \sisolosi x \relacion z
 			      }\\
 		      }$\\
 	      La $\relacion$ no es antisimétrica, como contraejemplo se ve que $1 \relacion 92$ y $92 \relacion 1$ con $1 \distinto 92$

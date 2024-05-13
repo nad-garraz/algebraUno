@@ -23,6 +23,7 @@
 \usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
 \usepackage{ulem}
 \usepackage{centernot} % tacha cosas
+\usepackage{bbding} % símbolos de donde uso FiveStar
 % \usepackage{lipsum}
 
 % para hacer los graficos tipo grafos
@@ -41,7 +42,7 @@
 \date{last update: \today} % Cambiar de ser necesario
 
 \maketitle  % para que aprezca el título en el documento
-\section*{Definiciones y fórmulas útiles}
+\section{Definiciones y fórmulas útiles}
 
 \begin{itemize}
 	\item $d$ divide a $a \to d \divide a \sisolosi \existe k \in \enteros : a = k \cdot d$
@@ -54,11 +55,11 @@
 		      }$
 
 	\item $\llave{l}{
-			      d \divide a \text{ y } d \divide b \entonces d \divide a + b\\
-			      d \divide a \text{ y } d \divide b \entonces d \divide a - b\\
-			      d \divide a \entonces d \divide c \cdot a,\, \paratodo c \en \enteros\\
+			      d \divide a \ytext d \divide b \entonces d \divide a + b\\
+			      d \divide a \ytext d \divide b \entonces d \divide a - b\\
+			      d \divide a \entonces d \divide c \cdot a, \paratodo c \en \enteros\\
 			      d \divide a \entonces d \divide c \cdot a\\
-			      d \divide a \entonces d^2 \divide a^2 \text{  y  } d^n \divide a^n \, \paratodo n \en \naturales\\
+			      d \divide a \entonces d^2 \divide a^2 \ytext d^n \divide a^n  \paratodo n \en \naturales\\
 			      d \divide a \cdot b \text{ no implica } d \divide a \o d \divide b. \text{ Por ejemplo } 6 \divide 3 \cdot 4
 		      }$
 
@@ -84,20 +85,208 @@
 		      }
 		      \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
 \end{itemize}
+
 \textit{\underline{Algoritmo de división:}}\\
-Dados $a,d\en \enteros$ con $d \distinto 0$, \textit{\underline{existen}} $k$, $r \en \enteros$ tales que: $a =  k \cdot d + r$, con $0\leq r < |d|$.
-Y además estos $k$ y $r$ son \textit{\underline{únicos}}.\\
+% macro local
+\newcommand{\condicionResto}[1]{\ub{0 \leq #1 < |d|}{\text{\tiny cumple condición de resto}}}
+\begin{itemize}
+	\item
+	      Dados $a, \, d \en \enteros$ con $d \distinto 0$,
+	      \textit{\underline{existen}} $k$ (cociente),
+	      $r \text{(resto)} \en \enteros$ tales que:\\
+	      \[
+		      \llaves{c}{
+			      a =  k \cdot d + r,\\
+			      \text{con } 0\leq r < |d|.
+		      }
+	      \]
+	      Y además estos $k$ y $r$ son \textit{\underline{únicos}}.\\
 
-\noindent Notación: $r_d(a)$ es el resto de dividir a $a$ entre $d$
-%
-%
-%
-\section*{Ejercicios dados en clase}
-% \ejercicio
+	\item \textit{Notación: } $r_d(a)$ es el resto de dividir a $a$ entre $d$
+
+	\item $\condicionResto{r} \entonces r = r_d(r)$. Un número que cumple condición de resto, es su resto.
+
+	\item $r_d(a) = 0 \sisolosi d \divide a \sisolosi \congruencia{a}{0}{d}$
+
+	\item $\congruencia{a}{r_d(a)}{d}$. Tiene mucho sentido.
+
+	\item $\congruencia{a}{r}{d}$ con $\condicionResto{r} \entonces r = r_d(a)$
+
+	\item $\congruencia{r_1}{r_2}{d}$ con $\condicionResto{r_1,r_2} \entonces r_1 = r_2$
+
+	\item $\congruencia{a}{b}{d} \sisolosi r_d(a) = r_d(b)$. Dos números que son congruentes, tienen igual resto.
+
+	\item $r_d(a+b) = r_d(r_d(a) + r_d(b))$ ya que si
+	      $ \llaves{c}{
+			      \congruencia{a}{r_d(a)}{d}\\
+			      \congruencia{b}{r_d(b)}{d}
+		      } \to \congruencia{a + b}{r_d(a) + r_d(b)}{d}
+	      $
+
+	\item $r_d(a \cdot b) = r_d(r_d(a) \cdot r_d(b))$ ya que si
+	      $ \llaves{c}{
+			      \congruencia{a}{r_d(a)}{d}\\
+			      \congruencia{b}{r_d(b)}{d}
+		      } \to \congruencia{a \cdot b}{r_d(a) \cdot r_d(b)}{d}$
+\end{itemize}
+
+\textit{\underline{Sistema de numeración: }}
+\begin{itemize}
+	\item Sea $d \en \naturales, d \geq 2$. Entonces $\paratodo a \en \naturales_0$ se puede
+	      escribir en la forma
+	      \[
+		      a = r_n d^n + r_{n-1} d^{n-1} + \cdots + r_1 d^1 + r_0
+	      \]
+	      con $0 \leq r_i < d$ para $0 \leq i \leq n$ con $r_n,\dots, r_0$ son únicos
+	      en esas condiciones.
+
+	\item \textit{Notación:} $a = (r_n r_{n-1}\cdots r_1 r_0)_d =
+		      \llave{l}{
+			      2020 = (2020)_{10} \\
+			      2020 = (7E4)_{16} \\
+			      2020 = (31040)_{5}
+		      }$
+	\item $d^n = (1 \ub{0\cdots 0}{n})$
+
+	\item ¿Cuál es el número más grande que puedo escribir usando n cifras en base $d$?\\
+	      $(\ub{d-1\quad d-1\quad \cdots\quad d-1}{n \text{ cifras}})_d =  \sumatoria{i=0}{n-1}(d-1)d^i = d^n -1$
+
+	\item ¿Cuántos números hay con $\leq n$ cifras?\\
+	      Hay del $0$ hasta el $d^n -1$, es decir $d^n$.
+
+	\item ¿Cuál es la forma más rápida de calcular $2^{16}$
+
+\end{itemize}
+\textit{\underline{Máximo común divisor: }}
+%%%%%% Macro local
+\def\mcd{(a:b)}
+\def\D{\mathcal D}
+\def\cz{s\cdot a + t \cdot b}
+%%%%%% fin Macro local
+\begin{itemize}
+	\item Sean $a,b \en \enteros$, \underline{no ambos nulos}. El MCD entre $a$ y $b$ es el mayor de los divisores
+	      común entre $a$ y $b$ y se nota $\mcd$
+
+	\item $\mcd \en \naturales$ (pues $\mcd \geq 1$) siempre existe.
+	      $\D com_+(a,b) = \D_+(a) \inter \D_+(b) \distinto \vacio
+		      \text{ pues } 1 \en \D com_+(a,b)$.
+	      Se ve también que está acotado por el menor entre $a$ y $b$, pues si
+	      $d \divide a \y d \divide b \entonces d \leq |a| \y d \leq|b|$ y es \underline{único}.
+
+	\item Sean $a$ y $b \en \enteros$, no ambos nulos.\\
+	      \begin{itemize}
+		      \item $\mcd = (\pm a : \pm b)$
+		      \item $\mcd = (b:a)$
+		      \item $(a:1) = 1$
+		      \item $(a:0) = |a|,\ \paratodo a \en \enteros -\set{0}$
+		      \item si $b \divide a \entonces \mcd = |b|$ si $b \en \enteros - \set{0}$
+	      \end{itemize}
+
+	\item \textit{Algoritmo de Euclides}:
+	      Sean $a, b \en \enteros$ con $b \distinto 0$, entonces, $\paratodo k \en \enteros$, se tiene:
+	      $\mcd = (b:a-kb)$. En particular, como $r_b(a) = a-kb$, con $k$ el cociente (para $b\distinto 0$), se tiene
+	      $\mcd = (b: r_b(a))$
+
+	\item \textit{Combinacion Entera}:
+	      Sean $a,b \en \enteros$ no ambos nulos, entonces $\existe s,\ t \en \enteros$ tal que $\mcd = \cz$.
+	      \begin{itemize}
+		      \item Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
+		            \[
+			            d \divide a \ytext d \divide b \sisolosi d \divide \ub{\mcd}{\cz}
+		            \].
+		      \item Sea $c \en \enteros$ entonces $\existe s', t' \en \enteros$ con $c = s'a + t'b \sisolosi \mcd \divide c$.
+		      \item Todos los números múltiplos del MCD se escriben como combinación entera de $a$ y $b$.
+		      \item Si un número es una combinación entera de $a$ y $b$ entonces es un múltiplo del MCD.
+		      \item Sean $a,\ b \en \enteros$ no ambos nulos, y sea $k \en \naturales$
+		            \[
+			            (ka:kb) = k(a:b)
+		            \]
+	      \end{itemize}
+	\item \textit{Coprimos: }
+	      \begin{itemize}
+		      \item
+		            Dados $a,b \en \enteros$, no ambos nulos, se dice que son \textit{coprimos} si $\mcd = 1$
+		            \[
+			            \begin{array}{c}
+				            a \cop b \sisolosi \mcd = 1 \\
+				            \qquad a\cop b \sisolosi \existe s,\ t \en \enteros \text{ tal que } 1 = \cz
+			            \end{array}
+		            \]
+		      \item
+		            Sean $a,b \en \enteros$, no ambos nulos. Entonces $\frac{a}{\mcd}\cop \frac{b}{\mcd}$.
+		      \item Coprimizar es :
+		            $\llaves{l}{
+				            a = \mcd \cdot a'\\
+				            b = \mcd \cdot b'
+			            }\to a' \ytext b'$ son coprimos.
+
+		      \item Sean $a, c, d \en \enteros$ con $c,d$ no nulos. Entonces:
+		            \[
+			            c \divide a \ytext d \divide a \ytext c \cop d \entonces c\cdot d \divide a
+		            \]
+		      \item Sean $a, b, d \en \enteros$ con $d \distinto 0$. Entonces:
+		            \[
+			            d \divide a\cdot b \ytext d \divide a \entonces d \divide b
+		            \]
+
+	      \end{itemize}
+
+\end{itemize}
+\subsubsection*{Ejercicios dados en clase:}
+
+\ejercicio
+Sean $a$, $b \en \enteros$ tal que $(a:b) = 6$. Hallar todos los $d = (2a + b : 3a - 2b)$ y dar un ejemplo en cada caso.\\
+\separadorCorto
+
+Conviene \textit{coprimizar}: $(a:b) = 6 \sisolosi
+	\llaves{l}{
+		a = 6A\\
+		b = 6B
+	}$ con $(A:B) \llamada{1}= 1$\\
+$d =
+	(2\cdot 6A + 6B : 3\cdot 6A - 2\cdot 6B) =
+	(6\cdot( 2 \cdot A + B) : 6\cdot (3\cdot A - 2\cdot B)) =
+	6 \cdot \ub{(2A + B : 3A - 2B)}{D}\\
+	\to d \llamada{2}= 6 D \flecha{busco divisores}[comunes]
+	\llave{l}{
+		D \divide 2A + B \\
+		D \divide 3A - 2B \\
+	} \flecha{operaciones}[$\dots$]
+	\llave{l}{
+		D \divide 7B \\
+		D \divide 7A \\
+	}\entonces
+	D = (7A:7B) =7 \cdot (A:B) \llamada{1}= 7$  \\
+Por lo tanto $D \en \divsetP{7}{1,7}$, pero yo quiero encontrar ejemplos de $a$ y $b$:\\
+$\llamada{2}\to
+	\llave{c}{
+		d = 6 \cdot 7 = 42
+		\llave{ll}{
+			\text{Si:} & A = 2 \to a = 12\\
+			& B = 3 \to b = 18\\
+			\multicolumn{2}{l}{(7:0)\entonces D = 7 \to d = (42:0) = \ub{42}{6\cdot D}}
+		}\\
+
+		\magenta{$\o$} \\
+		d = 6 \cdot 1 = 6
+		\llave{ll}{
+			\text{Si:} & A = 0 \to a = 0\\
+			& B = 1 \to b = 6\\
+			\multicolumn{2}{l}{(1:-2) \entonces D = 1 \to d = (6:-12) = \ub{6}{6\cdot D}}
+		}
+	}$
 
 
-\section*{Ejercicios de la guía}
-\textit{\underline{Divisibilidad}}
+
+\newpage
+
+%=========================
+% Ejercicio guia
+%=========================
+
+\section*{Ejercicios de la guía:}
+\setcounter{ejercicio}{0} % Reset the custom counter
+\noindent\textit{\underline{Divisibilidad}}
 %1
 \ejercicio
 Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$:\\
@@ -147,7 +336,7 @@ Calcular
 	\item
 	      \separadorCorto
 	      \hacer
-	\item $a \divide b + a^2 \entonces a \divide b$
+	\item $a \divide b + a^2 \entonces a \divide b$\\
 	      \separadorCorto
 
 	      $  a \divide b + a^2 \entonces b + a^2 = k \cdot a \flecha{acomodo} b = (k - a) \cdot a = h \cdot a \entonces a | b \Tilde$\\
@@ -158,13 +347,13 @@ Calcular
 		      } \flecha{por}[propiedad] a \divide (b - a^2) + (a^2) = b \entonces a \divide b \Tilde $
 
 
-	\item $a \divide b \entonces a^n \divide b^n,\, \paratodo n \en \naturales$
+	\item $a \divide b \entonces a^n \divide b^n, \paratodo n \en \naturales$\\
 	      \separadorCorto
 
 	      Pruebo por inducción. $p(n)\  :\  a \divide b \entonces a^n \divide b^n $\\
 	      $
 		      \llave{l}{
-			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \divide b^1 \checkmark\\
+			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \divide b^1 \Tilde\\
 			      \text{Paso inductivo: } \paratodo h \en \naturales, p(h) \ V \entonces p(h+1)\ V?\\
 			      \text{Si } a \divide b \entonces a^k \divide b^k  \entonces a^k \cdot c = b^k
 			      \flecha{multiplico por}[$b$ M.A.M]
@@ -174,10 +363,15 @@ Calcular
 			      \flecha{concluyendo}[que] a^{k+1} \divide b^{k+1} \text{como quería mostrarse.}
 		      }
 	      $ Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
-	      es verdadera $\paratodo n \en \naturales$
+	      es verdadera $\paratodo n \en \naturales$\\
+	      \textit{Este resultado es importante y se va a ver en muchos ejercicios.\\
+		      $a \divide b \entonces a^n \divide b^n \sisolosi
+			      \congruencia{b}{0}{a} \entonces \congruencia{b^n}{\ub{0}{\stackrel{(a^n)}\congruente a^n}}{a^n} \sisolosi \congruencia{b^n}{a^n}{a^n}$}
+
 
 \end{enumerate}
 
+%2
 \ejercicio
 Hallar todos los $n \en \naturales$ tales que:
 \begin{enumerate}[label=\roman*)]
@@ -196,12 +390,11 @@ Hallar todos los $n \en \naturales$ tales que:
 	\item
 	\item
 
-	\item $n-2 \divide n^3 - 8$
-
+	\item $n-2 \divide n^3 - 8$ \\
 	      \separadorCorto
 
-	      $n-2 \divide n^3 - 8 = (n-2) \cdot (n^2 + 2n + 4)$ Esto va a dividir para todo $n \distinto 2$\\
-	      \red{corroborar. ¿Otra forma de llegar a eso?}
+	      $\flecha{$a \divide b$}[$\entonces a \divide k \cdot b$]
+		      n-2 \divide \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $ Esto va a dividir para todo $n \distinto 2$\\
 
 \end{enumerate}
 
@@ -213,29 +406,70 @@ Hallar todos los $n \en \naturales$ tales que:
 	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divide a^n + b^n$.
 \end{enumerate}
 \separadorCorto
-
+%=============
+%Macro local
+\def\aMenosB{\stackrel{(a-b)}\congruente}
+\def\aMasB{\stackrel{(a-b)}\congruente}
+%FinMacro local
+%=============
 \begin{enumerate}[label=\roman*)]
 	\item  Si $a-b \divide a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
 		      \llaves{l}{
-		      \congruencia{a}{b}{a-b} \\
-		      \congruencia{a^2}{\underbrace{a}_{\stackrel{(a-b)}\congruente b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
-		      \quad\vdots\\
-		      \congruencia{a^n}{b^n}{a-b} \\
-		      } \to\\ a-b \divide a^n - b^n$
+			      \congruencia{a}{b}{a-b} \\
+			      \congruencia{a^2}{\ub{a}{\aMenosB b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
+			      \quad\vdots\\
+			      \congruencia{a^n}{b^n}{a-b}
+		      }\\
+		      \to \congruencia{a^n}{b^n}{a-b} \sisolosi a-b \divide a^n - b^n$
 
 	\item  Sé que $\congruencia{a}{-b}{a+b} \sisolosi
 		      \llaves{l}{
-		      \congruencia{a^2}{\underbrace{a}_{\stackrel{(a+b)}\congruente -b}\cdot b}{a+b} \flecha{propiedad}[congruencia] \congruencia{a^2}{(-1)^2 \cdot b^2}{a+b} \\
-		      \quad\vdots\\
-		      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \to
-		      \llave{ll}{
-			      \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
-			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
+			      \congruencia{a^2}{\ub{a}{\aMasB -b} \cdot b}{a+b} \flecha{propiedad}[congruencia] \congruencia{a^2}{(-1)^2 \cdot b^2}{a+b} \\
+			      \quad \vdots \quad \llamada{1}{\ot} \\
+			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \to
+			      \llaves{ll}{
+				      \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
+				      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
+			      }\llamada{2}{}\\
 		      }\\
-		      }$\\
-	      \red{Vale esto com prueba de algo?}
+		      \llamada{2}{}
+		      \boxed{
+			      \llave{l}{
+				      \text{Con $n$ par: }  \congruencia{a^n}{ b^n}{a+b} \entonces a+b \divide a^n - b^n  \\
+				      \text{Con $n$ impar: }  \congruencia{a^n}{ - b^n}{a+b} \entonces a+b \divide a^n + b^n
+			      }
+		      }
+	      $
 
-	\item Sería lo mismo que en el item anterior.
+	      $\llamada{1}{}
+		      \textit{Inducción:}\\
+		      \llave{l}{
+			      p(n)\ :\ \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.\\
+			      \textit{Caso base: }\\
+			      p(1)\ :\
+			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
+			      \entonces
+			      \magenta{$\congruencia{a}{-b}{a+b}$} \text{ Verdadero}.\\
+			      \textit{Hipótesis inductiva: }\\
+			      p(k)\ V \entonces p(k+1)\ V? \\
+			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}
+			      \entonces
+			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^{k+1}}{(-1)^{k+1}\cdot b^{k+1}}{a+b} \\
+			      \text{Parto de } p(k):\\
+			      \llave{l}{
+				      \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}\\
+				      \flecha{multiplico}[por $a$]
+				      \congruencia{a\cdot a^k}{(-1)^k\cdot \ub{a}{\aMasB -b}\cdot b^k}{a+b}\\
+				      \flecha{y acomodo}
+				      \congruencia{a^{k+1}}{(-1)^{k+1} \cdot b^{k+1}}{a+b} \Tilde
+			      }
+		      }
+	      $
+	      \\
+	      Como $p(1),\ p(k),\ p(k+1)$ son verdaderas por principio de inducción lo es también $p(n) \paratodo n \en \naturales$
+
+
+	\item hecho en el anterior.
 
 
 	      %4
@@ -245,9 +479,9 @@ Hallar todos los $n \en \naturales$ tales que:
 
 	      Pruebo por inducción: $p(n): 2^{n+2} \divide a^{2^n} - 1$\\
 	      $\llaves{l}{
-			      \textit{Caso bade: } p(1)\ :\ 2^3 \divide a^2 - 1 = (a - 1) \cdot (a + 1)
-			      \flecha{$a$ es eimpar}[$a = 2m -1$] (2m - 2)\cdot(2m) =\\
-			      4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \divide 8 \cdot h \text{ con $h$ entero.}\checkmark\\
+			      \textit{Caso base: } p(1)\ :\ 2^3 \divide a^2 - 1 = (a - 1) \cdot (a + 1)
+			      \flecha{$a$ es impar}[$a = 2m -1$] (2m - 2)\cdot(2m) =\\
+			      4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \divide 8 \cdot h \text{ con $h$ entero.}\Tilde\\
 
 			      \textit{Paso inductivo: } p(k) \ V  \entonces p(k+1) \ V? \flecha{es}[decir]
 			      2^{k+2} \divide a^{2^k} - 1 \entonces  2^{k+3} \divide a^{2^{k+1}} - 1\ V? \\
@@ -256,8 +490,13 @@ Hallar todos los $n \en \naturales$ tales que:
 			      \llave{l}{
 				      2^{k+3} \divide a^{2^{k+1}} - 1 \flecha{acomodar}[diferencia cuadrados] 2\cdot 2^k \divide (a^{2^k})^2 - 1 =\\
 				      \ub{ (a^{2^k} - 1) }{\text{par}} \cdot  \ub{(a^{2^k} + 1)}{\text{par}}  \\
-				      \red{Necesito probar eso?$\to$}\flecha{Si $a \stackrel{\tiny HI}\divide b$ y $c \divide d$}[$\entonces a\cdot c \divide b\cdot d$]
-				      \ub{2^{k+2}}{a} \cdot \ub{2}{c}   \divide  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \divide a^{2^{k+1}} - 1 \quad V \checkmark
+				      \tiny\llaves{lll}{
+					      a \divide b                 & \sisolosi   & a\cdot k_1 = b\\
+					      c \divide d                 & \sisolosi   & c\cdot k_2 = d\\ \hline
+					      a\cdot c \divide b \cdot d  & \sisolosi   & a\cdot c \cdot \ub{k_3}{k_1\cdot k_2} =  b\cdot d
+				      }
+				      \flecha{Si $a \stackrel{\tiny HI}\divide b$ y $c \divide d$}[$\entonces a\cdot c \divide b\cdot d$]
+				      \ub{2^{k+2}}{a} \cdot \ub{2}{c}   \divide  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \divide a^{2^{k+1}} - 1 \quad V \Tilde
 			      }
 		      } $\\
 	      Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
@@ -326,6 +565,7 @@ Hallar todos los $n \en \naturales$ tales que:
 	      \textit{\underline{Algoritmo de División}}:\\
 	      %8
 	      \ejercicio
+	      Calcular el cociente y el resto de la división de $a$ por $b$ en los casos:\\
 
 	      % definiciones locales
 	      \begin{enumerate}[label=\roman*)]
@@ -347,39 +587,385 @@ Hallar todos los $n \en \naturales$ tales que:
 		      \item $a = 3b + 7 \to
 			            \text{me interesa: }\to
 			            \llaves{l}{
-				            |b| \leq |a| \checkmark\\
-				            0 \leq \magenta{r} < |b| \checkmark \\
+				            |b| \leq |a| \Tilde\\
+				            0 \leq \magenta{r} < |b| \Tilde \\
 			            } \to\\ $
 
 
-                  $ \to\llave{l}{
+		            $ \to\llave{l}{
 				            \text{Si: } |b| > 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
 				            \text{Si: } |b| \leq 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
-                    \footnotesize
+				            \footnotesize
 				            \begin{array}{|l|l|l|l|l|l|l|l|}
 					            \hline
-                      (a,b) & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
-                      (\blue{$q$},\magenta{$r$}) & (2,0) & (2,1) & (2,2) & (2,3) & (4, 0) & \dots \\ \hline
-                      \hline
-					            % (\blue{q},\magenta{r})&
+					            (a,b)                      & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
+					            (\blue{$q$},\magenta{$r$}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
+					            \hline
 				            \end{array}
-                  }
-            $
+			            }
+		            $
+
+		      \item $a = b^2 - 6,\quad b \distinto 0.$\\
+		            \separadorCorto
+
 	      \end{enumerate}
 	\item
 
 
 	      %9
-	      \ejercicio
+	      \ejercicio Sabiendo que el resto de la división de un entero $a$ por 18 es 5, calcular el resto de:
+	      \begin{enumerate}[label=\roman*)]
+		      \item la división de $a^2 -3a +11$ por 18.
+		      \item la división de $a$ por 3.
+		      \item la división de $4a+1$ por 9.
+		      \item la división de $7a^2 + 12$ por 28.
+	      \end{enumerate}
 	      \separadorCorto
+	      \begin{enumerate}[label=\roman*)]
+		      \item $r_{18}(a) = r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) = r_{18}(21) = 3 $
+
+		            \separadorCorto
+
+		      \item $
+			            \llaves{l}{
+				            a = 3 \cdot q + r_3(a)\\
+				            6 \cdot a = 18 \cdot q + \ub{\green{$6 \cdot r_3(a)$}}{r_{18}(6a)}\\
+			            } \to
+			            r_{18}(6a) = r_{18}( r_{18}(6) \cdot r_{18}(a) ) = r_{18}(30) = 12\\
+			            \entonces \green{$6 \cdot r_3(a)$} = r_{18}(6a) \to  r_3(a) = 2
+		            $
+
+		            \separadorCorto
+
+		      \item $r_9(4a+1) = \ub{r_9(4 \cdot r_9(a) + 1)}{\blue{*1}} \to\\
+			            a = 18 \cdot q + 5 = 9 \cdot \ub{( 9 \cdot q)}{q'} + \ub{5}{r_9(a)}
+			            \flecha{\blue{*1}}
+			            r_9(a) = r_9(21) = 3
+		            $
+
+		      \item
+		            $r_{28}(7a^2 + 12) = r_{28}(7 \cdot r_{28}(a)^2 + 12) \flecha{¿qué es} r_{28}(a)$\\
+		            $\llave{l}{
+				            a = 18 \cdot q + 5 \flecha{busco algo}[para el 28]\\
+				            14 \cdot a = \ub{252 \cdot q}{28 \cdot 9\cdot q } + 70
+				            \flecha{corrijo según}[condición resto]
+				            28 \cdot 9\cdot q + \ub{2\cdot28 +14}{70} = 28\cdot (9\cdot q + 2) + 14  \Tilde\\
+				            \flecha{por lo}[tanto] 14a = 28\cdot q' + 14 \entonces \congruencia{14\cdot a}{14}{28} \sisolosi  \congruencia{a}{1}{28}
+			            }$\\
+		            Ahora que sé que $r_{28}(a) = 1$ sale que $r_{28}(7a^2 + 12) = r_{28}(7 \cdot \ub{r_{28}(a)^2}{1} + 12) = r_{28}(19)=19 \Tilde$
+	      \end{enumerate}
 
 	      %10
 	      \ejercicio
+	      \begin{enumerate}[label=\roman*)]
+		      \item
+		            Si $\congruencia{a}{22}{14}$, hallar el resto de dividir a $a$ por 14, por 2 y por 7.
+		      \item
+		            Si $\congruencia{a}{13}{5}$, hallar el resto de dividir a $33a^3 + 3a^2 -197a +2$ por 5.
+		      \item Hallar, para cada $n \en \naturales$, el resto de la división de $\sumatoria{i=1}{n} (-1)^i \cdot i!$ por 12
+	      \end{enumerate}
+
 	      \separadorCorto
 
 
+	      \begin{enumerate}[label=\roman*)]
+		      \item $\llave{l}{
+				            \congruencia{a}{22}{14} \to a = 14 \cdot q + \ub{22}{14 + 8} = 14 \cdot (q + 1) + 8 \flecha{el resto}[es] r_{14}(a) = 8 \Tilde\\
+				            \congruencia{a}{22}{14} \to a = \ub{14 \cdot q}{2 \cdot (7 \cdot q)} + \ub{22}{2 \cdot 11} = 2 \cdot (7q + 11) + 0 \flecha{el resto}[es] r_{2}(a) = 0 \Tilde\\
+				            \congruencia{a}{22}{14} \to a = \ub{14 \cdot q}{7 \cdot (2 \cdot q)} + \ub{22}{1 + 7 \cdot 3} = 7 \cdot (2q + 3) + 1 \flecha{el resto}[es] r_{7}(a) = 1 \Tilde\\
+			            }$
+
+		      \item  Dos números congruentes tienen el mismo resto. $\congruencia{a}{13}{5}  \sisolosi \congruencia{a}{3}{5}$
+		            $r_5(33a^3 + 3a^2 -197a +2) = r_5( 3 \cdot r_5(a)^3 + 3 \cdot r_5(a)^2 - 2\cdot r_5(a) + 2 )\\
+			            \flecha{como $\congruencia{a}{13}{5}$}[$r_5(a) = 3$] r_5(33a^3 + 3a^2 -197a +2) = 4$
+		      \item \hacer
+	      \end{enumerate}
+
 \end{enumerate}
 
+%11
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $\congruencia{a^2}{-1}{5} \sisolosi \congruencia{a}{2}{5}  \o \congruencia{a}{3}{5}$
+	\item Probar que no existe ningún entero $a$ tal que $\congruencia{a^3}{-3}{7}$
+	\item Probar que $\congruencia{a^7}{a}{7} \paratodo a \en \enteros$
+	\item Probar que $7 \divide a^2 + b^2 \sisolosi 7 \divide a \y 7 \divide b.$
+	\item Probar que $5 \divide a^2 + b^2 + 1 \sisolosi 5 \divide a \o 5 \divide b$. ¿Vale la recíproca?
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item Me piden que pruebe una congruencia es válida solo para ciertos $a \en \enteros$. Pensado en términos de \textit{restos}
+	      quiero que el resto al poner los $a$ en cuestión cumplan la congruencia.\\
+	      $
+		      \llave{l}{
+			      \congruencia{a^2}{-1}{5} \sisolosi
+			      \congruencia{a^2}{4}{5}  \sisolosi
+			      \congruencia{a^2 - 4}{0}{5} \sisolosi
+			      \congruencia{(a-2)\cdot (a+2)}{0}{5}\\
+			      \flecha{quiero que el }[resto sea 0]
+			      r_5(a^2 + 1) =
+			      r_5(a^2 - 4) =
+			      r_5(r_5(a-2) \cdot r_5(a+2)) =
+			      \ub{r_5(( r_5(a) - 2) \cdot (r_5(a) + 2) )}{\llamada{1}{}} = 0\\
+			      \flecha{el resto será}[ 0 cuando] r_5(a^2 + 1) = 0 \llamada{1}\sisolosi
+			      r_5(( r_5(a) - 2) \cdot (r_5(a) + 2) ) = 0
+			      \llave{l}{
+				      r_5(a) = 2 \Leftrightarrow  \congruencia{a}{2}{5} \Tilde\\
+				      r_5(a) = -2 \Leftrightarrow  \congruencia{a}{\ub{3}{\stackrel{(5)}\congruente -2}}{5} \Tilde\\
+			      }
+		      }$\\
+	      \textit{Más aún}:\\
+	      Para una congruencia módulo 5 habrá solo 5 posibles restos, por lo tanto se pueden ver todos los casos
+	      haciendo una \textit{table de restos}.\\
+	      $
+		      \begin{array}{|c|c|c|c|c|c|}
+			      \hline
+			      a        & 0 & 1 & 2 & 3 & 4 \\ \hline\hline
+			      r_5(a)   & 0 & 1 & 2 & 3 & 4 \\ \hline
+			      r_5(a^2) & 0 & 1 & 4 & 4 & 1 \\ \hline
+		      \end{array}
+		      \to   $ La tabla muestra que para un dado $a\\ \to
+		      r_5(a) =
+		      \llaves{l}{
+			      2 \sisolosi \congruencia{a}{2}{5} \sisolosi \congruencia{a^2}{4}{5} \sisolosi \congruencia{a^2}{-1}{5} \\
+			      3 \sisolosi \congruencia{a}{3}{5} \sisolosi \congruencia{a^2}{4}{5} \sisolosi \congruencia{a^2}{-1}{5} \\
+		      }$
+
+	\item \hacer
+
+	\item Me piden que exista una dada congruencia para todo $a \en \enteros$. Eso equivale a probar a que al dividir el \textit{lado izquierdo}
+	      entre el \textit{divisor}, el \textit{resto} sea lo que está en el \textit{lado derecho} de la congruencia.\\
+	      $\congruencia{a^7 - a}{0}{7}
+		      \sisolosi \congruencia{a \cdot \ub{(a^6 - 1)}{(a^3 - 1) \cdot (a^3 + 1)}}{0}{7}
+		      \sisolosi \congruencia{a \cdot (a^3 - 1) \cdot (a^3 + 1)}{0}{7}
+		      \flecha{tabla de restos con}[sus propiedades lineales]\\
+		      \begin{array}{|c|c|c|c|c|c|c|c|}
+			      \hline
+			      a            & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline\hline
+			      r_7(a)       & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			      r_7(a^3 - 1) & 6 & 0 & 0 & 5 & 0 & 5 & 5 \\ \hline
+			      r_7(a^3 + 1) & 1 & 2 & 2 & 0 & 2 & 0 & 0 \\ \hline
+		      \end{array}
+		      \to $ Cómo para todos los $a$, alguno de los factores del resto siempre se anula, es decir:\\
+	      $r_7(a^7 - a) = r_7(r_7(a) \cdot  r_7(a^3 - 1) \cdot r_7(a^3 + 1)) = 0 \paratodo a \en \enteros$
+	\item
+	\item
+
+\end{enumerate}
+
+%12
+\ejercicio
+\separadorCorto
+
+%13
+\ejercicio
+%%%%%% macro local
+\def\cong7{\stackrel{(7)}\congruente }
+%%%%%% finmacro local
+Se define por recurrencia la sucesión $(a_n)_{n\en\naturales}$:\\
+\[
+	a_1 = 3,\, a_2 = -5 \ytext a_{n+2} = a_{n+1} - 6^{2n} \cdot a_n + 21^n \cdot n^{21} \text{, para todo } n \en \naturales.
+\]
+Probar que $\congruencia{a_n}{3^n}{\text{mod } 7} $ para todo $n\en\naturales$.\\
+\separadorCorto
+La infumabilidad de esos números me obliga a atacar a esto con el resto e inducción.\\
+$\flecha{acomodo}[enunciado feo]
+	r_7(a_{n+2}) = r_7( r_7(a_{n+1}) - \ub{r_7(36)^n}{\cong7 1} \cdot r_7(a_n) + \ub{r_7(21)^n}{\cong7 0} \cdot r_7(n)^{21}  ) =
+	\ub{r_7(a_{n+2}) = r_7(a_{n+1}) - r_7(a_n)}{\llamada{1}\ } $\Tilde\\
+Puesto de otra forma $ \congruencia{a_{n+2}}{a_{n+1} - a_n}{7}
+	\to
+	\llave{l}{
+		\congruencia{a_1}{3^1}{7} \sisolosi \congruencia{a_1}{3}{7}   \\
+		\congruencia{a_2}{3^2}{7} \sisolosi \congruencia{a_2}{2}{7}  \\
+		\congruencia{a_3}{3^3}{7} \sisolosi \congruencia{a_3}{6}{7}  \\
+	}$\\
+Quiero probar que  $\congruencia{a_n}{3^n}{\text{mod } 7} \to$  inducción completa:\\
+
+$ p(n)\ :\ \congruencia{a_n}{3^n}{\text{mod } 7} \paratodo n \en \naturales\\
+	\llave{ll}{
+		\text{Casos base: } &
+		\llave{l}{
+			p(n = 1)\ :\ \congruencia{a_1}{3^1}{7} \text{Verdadera}\\
+			p(n = 2)\ :\ \congruencia{a_2}{3^2}{7}\cong7 2 \cong7 -5 \text{Verdadera}\\
+		} \\
+
+		\text{Paso Inductivo: } &
+		\llave{l}{
+			p(k)\ : \  \congruencia{a_k}{3^k}{\text{mod } 7} \text{ Verdadera }\\
+			\y\\
+			p(k+1)\ : \  \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7} \text{ Verdadera }\\
+			\entonces p(k+1)\ : \  \congruencia{a_{k+2}}{3^{k+2}}{\text{mod } 7} \text{ Verdadera?}\\
+		} \\
+
+		\text{Hipótesis inductiva: } &
+		\llave{l}{
+			\congruencia{a_k}{3^k}{\text{mod } 7} \\
+			\congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7} \\
+			\flecha{sumo}[pensando en $\llamada{1}{}$]
+			\congruencia{\ub{a_{k+1} - a_k}{a_{k+2}}}{\ub{3^{k+1} - 3^k}{2\cdot 3^k}}{\text{mod } 7}\\
+			\flecha{paso en}[limpio]  \congruencia{a_{k+2}}{\ub{9}{\cong7 2} \cdot 3^k}{7} \cong7 3^{k+2}
+			\to  \boxed{\congruencia{a_{k+2}}{3^{k+2}}{7} }
+		}
+	}
+$\\
+Concluyendo como $p(1), p(2), p(k), p(k+1) \y p(k+2)$ resultaron verdaderas por el principio de inducción
+$p(n)$ es verdadera $\paratodo n \en \naturales$.
+
+%14
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item Hallar el desarrollo en base 2 de
+	      \begin{enumerate}[label=(\alph*)]
+		      \item 1365
+		      \item 2800
+		      \item $3\cdot 2^{12}$
+		      \item $13 \cdot 2^n + 5 \cdot 2^{n-1}$
+	      \end{enumerate}
+\end{enumerate}
+\separadorCorto
+
+%15
+\ejercicio
+\separadorCorto
+%16
+\ejercicio
+\separadorCorto
+%17
+\ejercicio
+\separadorCorto
+
+\textit{\underline{Máximo común divisor:}}
+
+%18
+\ejercicio
+En cada uno de los siguientes casos calcular el máximo común divisor entre $a$ y $b$ y escribirlo como combinación lineal entera de $a$ y $b$:
+\begin{enumerate}[label=\roman*)]
+	\item $a = 2532,\ b = 63$.
+	\item $a = 131,\ b = 23$.
+	\item $a = n^4 - 3,\ b = n^2 + 2\ (n \en \naturales)$.
+\end{enumerate}
+
+\separadorCorto
+
+%19
+\ejercicio
+\separadorCorto
+%20
+\ejercicio
+Sea $a \en \enteros$.
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $(5a + 8 : 7a + 2) = 1 \otext 41.$ Exhibir un valor de $a$ para el cual da 1, y verificar
+	      que efectivamente para $a = 23$ da $43$
+
+	\item Probar que $(2\cdot a ^2 +3a: 5a +6) = 1 \otext 43.$ Exhibir un valor de $a$ para el cual da 1, y verificar
+	      que efectivamente para $a = 16$ da $43$
+
+	\item Probar que $(a^2-3a+2 : 3a^3 -5a^2) = 2 \otext 4.$ y exhibir un valor de $a$ para cada caso.\\
+	      (Para este item es \textbf{indispensable} mostrar que el máximo común divisor nunca puede ser 1).
+	      que efectivamente para $a = 16$ da $43$
+\end{enumerate}
+\separadorCorto
+\begin{enumerate}[label=\roman*)]
+	\item \red{Pasar!}
+	\item \hacer
+	\item
+	      $(a^2-3a+2 : 3a^3 -5a^2) \flecha{Euclides} (\ub{a^2 - 3a + 2}{\llamada{1}{} par} : \ub{6a -8}{\llamada{1}{} par})\\
+		      \flecha{busco}[divisor]
+		      \llaves{l}{
+			      d \divide a^2 - 3a + 2\\
+			      d \divide 6a - 8\\
+		      }
+		      \flecha{$\times 6$}[$\times a$]
+		      \llaves{l}{
+			      d \divide 10a -12\\
+			      d \divide 6a - 8\\
+		      }
+		      \flecha{$\times 6$}[$\times 10$]
+		      \llaves{l}{
+			      d \divide 8
+		      }\to
+		      \divsetP{8}{1,2,4,8} \llamada{1}= \set{2,4,8}\\
+		      \llave{ll}{
+			      a = 1 & (0:-2) = 2\\
+			      a = 2 & (0:4) = 4
+		      }$\\
+	      \red{Parecido al hecho en clase.}\\
+	      \red{¿Qué onda el 8? Hice mal cuentas? Si no, cómo lo descarto?}
+\end{enumerate}
+
+
+%21
+\ejercicio Sean $a,b \en \enteros$ coprimos. Probar que $7a - 3b \ytext 2a -b$ son coprimos.
+
+\separadorCorto
+
+$\llaves{ccccc}{
+		d \divide 7a-3b & \flecha{$\cdot 2$} &d \divide b  &\to&d \divide b\\
+		d \divide 2a-b &\flecha{$\cdot 7$} & d \divide 2a-b & \to &d \divide a\\
+	} \flecha{propiedad}[divisor y \mcd] d \divide (a:b) \flecha{$(a:b)$}[coprimos] d \divide 1\\
+$ Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.
+%22
+\ejercicio
+\separadorCorto
+
+%23
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
+	\item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
+	\item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item
+	      $\frac{b+4}{a} + \frac{5}{b} =
+		      \frac{b^2 + 4b + 5a}{ab}
+		      \flecha{quiero que}
+		      ab \divide \frac{b^2 + 4b + 5a}{ab}\\
+		      \flecha{por}[coprimitusibilidad]
+		      \llave{l}{
+			      a | b^2 + 4b +5a \\
+			      b | b^2 + 4b +5a \\
+		      } \to
+		      \llave{l}{
+			      a | b^2 + 4b  \\
+			      b | 5a \\
+		      } \flecha{es seguro que $b\noDivide a$}[debe dividr a 5]
+		      \llave{l}{
+			      a | b\cdot(b+4)  \\
+			      b | 5 \\
+		      }
+	      $\\
+	      Seguro tengo que $b = \set{\pm1, \pm5} \to$ pruebo valores de $b$ y veo que valor de $a$ queda:\\
+	      $\llave{l}{
+			      b = 1 \to (a\divide 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)} \\
+			      b = -1 \to (a \divide -3,1) \to \set{(\pm 1, -1).(\pm 3,1)} \\
+			      b = 5 \to (a \divide 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
+			      b = -5 \to (a \divide 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
+		      }$
+
+	\item \Hacer
+	\item \hacer
+\end{enumerate}
+
+\textit{\underline{Primos y factorización: }}
+
+%24
+\ejercicio
+\separadorCorto
+
+%25
+\ejercicio
+Sea $p$ primo positivo.
+\begin{enumerate}[label=\roman*)] 
+  \item Probar que si $0 < k < p \divide \binom{p}{k}$. 
+  \item Probar que si $a, b \en \enteros$, entonces $\congruencia{(a+b)^p}{a^p + b^p}{p}$.
+ \end{enumerate}
+\separadorCorto
 
 
 

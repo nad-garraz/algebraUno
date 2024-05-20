@@ -255,19 +255,121 @@
 					            (a:p) = p \sisolosi p \divide a
 				            }$
 		            \end{center}
-		      \item Sea $n \en \enteros - \set{0},\, n = \ub{s }{\set{-1,1}} \cdot \productoria{i=1}{r} p_i^{\alpha_i} $ su factorización
-		            en primos. Entonces todo divisor positivo de $n$ se escribe como:\\
+		      \item Sea $n \en \enteros - \set{0},\,
+			            n = \ub{s }{\set{-1,1}} \cdot \productoria{i=1}{k} p_i^{\alpha_i} =
+			            p_1^{\alpha_1} \cdots p_k^{\alpha_k}$
+		            su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:\\
 		            \[
 			            \llave{c}{
-			            \productoria{i=1}{r} p_i^{\beta_i} \text{ con } 0 \leq \beta_i \leq \alpha,\, \paratodo 1\leq i \leq r\\
+			            \text{Si } m \divide n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
+			            \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\, 1\leq i \leq k\\
 			            \text{ y hay } \\
-			            (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_r + 1) = \productoria{i=1}{r} \alpha_i +1 \\
+			            (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
 			            \text{divisores positivos de } n.
 			            }\]
 	      \end{itemize}
 
 \end{itemize}
 \subsubsection*{Ejercicios dados en clase:}
+\ejercicio  4400 ¿Cuántos divisores distintos tiene? ¿Cuánto vale la suma de sus divisores.\\
+\separadorCorto
+$
+	4400
+	\flecha{factorizo} 4400 = 2^4 \cdot 5^2 \cdot 11
+	\flecha{los divisores $m \divide 4400$}[tendrán la forma]
+	m = \pm 2^{\alpha} \cdot 2^{\beta} \cdot 2^{\gamma},\,
+	\text{ con }
+	\llaves{c}{
+		0 \leq \alpha\leq 4\\
+		0 \leq \beta \leq 2\\
+		0 \leq \gamma \leq 1
+	}
+$\\
+Hay entonces un total de $5 \cdot 3 \cdot 2 = 30$ divisores positivos y $60$ enteros.\\
+Ahora busco la suma de esos divisores:
+$
+	\sumatoria{i=0}{4} \sumatoria{j=0}{2}\sumatoria{k=0}{1} 2^i \cdot 5^j \cdot 11^k =
+	\parentesis{\sumatoria{i=0}{4} 2^i } \cdot \parentesis{ \sumatoria{j=0}{2} 5^j } \cdot \parentesis{ \sumatoria{k=0}{1} 11^k}\\
+	\flecha{sumas}[geométricas]
+	\ub{\frac{2^{4+1} - 1}{2 - 1}}{31} \cdot \ub{\frac{5^{2+1} - 1}{5 - 1}}{31} \cdot \ub{\frac{11^{1+1} - 1}{11 - 1}}{12} = 11532.
+$\\
+
+\ejercicio
+Hallar el menor $n \en \naturales$ tal que:
+\begin{enumerate}[label=\roman*)]
+	\item $(n:2528) = 316 $
+	\item $n$ tiene exáctamente 48 divisores positivos
+	\item $27 \noDivide n$
+\end{enumerate}
+\separadorCorto
+$
+	\llave{l}{
+		\flecha{factorizo}[2528] 2528 = 2^5 \cdot 79 \Tilde\\
+		\flecha{factorizo}[316] 316 = 2^2 \cdot 79 \Tilde\\
+		\flecha{reescribo}[condición] (n:2^5 \cdot 79) = 2^2 \cdot 79
+	}\\
+	\flecha{quiero}[encontrar] n = 2^{\alpha_2} \cdot 3^{\alpha_3} \cdot 5^{\alpha_5} \cdot 7^{\alpha_7} \cdots 79^{\alpha_79} \cdots .\\
+	\flecha{como} (n:2^5 \cdot 79) = 2^2 \cdot 79
+	\flecha{tengo}[que]
+	\llave{ll}{
+		\alpha_2 = 2, & \text{dado que $2^2 \cdot 79 \divide n$. \blue{Recordar que busco el menor $n$!}.}\\
+		\alpha_{79} \geq 1, & \text{Al igual que antes.} \\
+		\flecha{notar}[que] \alpha_3 < 3 &  \text{ si no } 3^3 = 27 \divide n
+	}\\
+	\flecha{la estrategia sigue con}[el primo más chico que haya]
+	\llave{l}{
+		48 = \ub{(\alpha_2 + 1)}{2 + 1} \cdot (\alpha_3 + 1) \cdots\\
+		48 = 3 \cdot (\alpha_3 + 1) \cdots\\
+		16 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots \ub{(\alpha_{79} + 1)}{=2\text{ quiero el menor}} \cdots \\
+		8 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots \\
+		8 = \ub{(\alpha_3 + 1)}{=2} \cdot \ub{(\alpha_5 + 1)}{=2} \cdot \ub{(\alpha_7 + 1)}{=2} \cdot 1 \cdots 1 \\
+	}
+$
+El $n$ que cumple lo pedido sería $n = 2^2 \cdot 3^1 \cdot 5^1 \cdot 7^1 \cdot 79^1$
+
+\ejercicio
+Sabiendo que $(a:b) = 5$. Probar que $(3ab: a^2 + b^2) = 25$
+
+\separadorCorto
+
+Coprimizar:
+$
+	\llave{l}{
+		c = \frac{a}{5}\\
+		d = \frac{b}{5}\\
+	}
+	\to
+	(a:b) = 5 \cdot \ub{(c:d)}{1} = 5\\
+	\to
+	\llave{l}{
+		\flecha{según}[enunciado]
+		25  = (3ab : a^2 + b^2) \flecha{reemplazo} 25 = 25 \cdot \ub{(3 cd : c^2 + d^2)}{1}
+	}\\
+	\flecha{Voy a probar}[que] (3cd : c^2 + d^) = 1.\\
+	\flecha{Supongo que}[no lo fuera] \existe p \to
+	\llave{l}{
+		p \divide (3cd : c^2 + d^2) \to
+		\llave{l}{
+			p \divide 3cd \to
+			\llave{l}{
+				p \divide 3  \to p = 3
+				\flecha{tabla}[$r_3(c^2 + d^2)$]
+				\llave{lll}{
+					0 & \text{si} & \ub{\congruencia{c,d}{0}{3}}{\magenta{noup! }(c:d) = 1} \\
+					\neq 0 & \text{si} & \text{ otro caso}
+				}\\
+				p \divide c \to
+				\llave{l}{
+					\flecha{como} p \divide c^2 + d^2 \entonces p \divide d^2 \to \ub{p \divide d}{\magenta{noup! } (c:d) = 1} \\
+				}\\
+				p \divide d \to \magenta{noup! idem}\\
+			}
+			\\
+			p \divide c^2 + d^2
+		}
+	}
+$\\
+Si ningún primo $p$ divide a $(3cd : c^2 + d^2) \entonces (3cd : c^2 + d^2) = 1$
 
 \ejercicio
 Ejercicio parcial
@@ -362,10 +464,6 @@ Luego si  $5 \noDivide (a^3 + 1 : a^2 - a + 1) \entonces \ub{15}{5\cdot 3} \noDi
 		1 & \text{ si } & \congruencia{a}{1 \o 2}{3}\\
 	}
 $
-
-
-
-
 
 
 \ejercicio

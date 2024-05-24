@@ -1,0 +1,116 @@
+\documentclass[12pt,a4paper, spanish]{article}
+% Sacar draft para que aparezcan las imagenes.
+% Opciones: 12pt, 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
+% Opciones de clase: article, report, letter, beamer...
+
+% Paquetes:
+% =========
+\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
+\usepackage[T1]{fontenc} % tildes
+\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
+\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{amsmath} % Soporte de mathmatics
+\usepackage{amssymb} % fuentes de mathmatics
+\usepackage{array} % Para tablas y eso
+\usepackage{caption} % Configuracion de figuras y tablas
+\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
+\usepackage{multicol} 
+\usepackage{tikz} % para graficar
+\usepackage{cancel}
+\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
+\usepackage{ulem}
+\usepackage{centernot} % tacha cosas
+\usepackage{bbding} % símbolos de donde uso FiveStar
+% \usepackage{lipsum}
+
+% para hacer los graficos tipo grafos
+\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+\usetikzlibrary{external}
+
+\include{definiciones.tex} % idem con las definiciones
+
+\begin{document}
+
+\pagestyle{empty} % Para que no muestre el número en pie de página
+
+% Info para armar título.
+\title{Práctica 5 de álgebra 1} % título
+\author{D. Garraz} % autor
+\date{last update: \today} % Cambiar de ser necesario
+
+\maketitle  % para que aprezca el título en el documento
+\section{Definiciones y fórmulas útiles}
+\def\mcd{(a:b)}
+\begin{itemize}
+	\item Sea $ax + by = c \sisolosi \frac{a}{\mcd} x + \frac{b}{\mcd}y = \frac{c}{(a:b)}$,
+	      donde $\frac{c}{(a:b)} \en \enteros$, entonces hay solución.
+\end{itemize}
+
+\subsubsection*{Ejercicios dados en clase:}
+
+\newpage
+
+%=========================
+% Ejercicio guia
+%=========================
+
+\section*{Ejercicios de la guía:}
+\setcounter{ejercicio}{0} % Reset the custom counter
+%1
+\ejercicio
+%2
+\ejercicio
+Determinar todos los $(a,b)$ que simultáneamente $4 \divide a,\, 8 \divide b \y 33a + 9b = 120$.
+
+\separadorCorto
+respuesta: $(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8}$\\
+\red{Pasar ejercicio}
+
+%3
+\ejercicio
+Si se sabe que cada unidad de un cierto producto $A$ cuesta $39$ pesos y que cada unidad de un cierto
+producto $B$ cuesta 48 pesos, ¿cuántas unidades de cada producto se pueden comprar gastando exactamente
+135 pesos?
+
+\separadorCorto
+
+$
+	\llave{l}{
+		A \geq 0 y B \geq 0 \text{ Son productos}\\
+		(A:B) = 3 \entonces 39A + 28B = 135
+		\flecha{coprimizar}
+		13A + 16B = 45\\
+    \text{ A ojo } \to (A,B) = (1,2)
+	}
+$
+
+%4
+\ejercicio
+Hallar, cuando existan, todas las soluciones de las siguientes ecuaciones de congruencia:
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)] 
+  \item $\congruencia{17X}{3}{11} \flecha{respuesta} \congruencia{X}{6}{11} $\\
+    \red{pasar}
+
+  \item $\congruencia{56X}{28}{35}\\
+    \llave{l}{
+      \congruencia{56X}{28}{35} \sisolosi
+      \congruencia{7X}{21}{35} \stackrel{\red{?}}\sisolosi
+      7X - 35K = 21\\
+      \flecha{a}[ojo] (X,K) = (-2,-1) + q \cdot (-5, 1)\\
+      \congruencia{X}{-2}{5} \sisolosi \congruencia{X}{3}{5} = \set{\dots, -2, 3, 8, \dots, 5q+3}
+    }\\
+    \flecha{respuesta} \congruencia{X}{3}{5} $
+    \red{corroborar}
+ \end{enumerate}
+
+\separadorCorto
+
+
+
+\end{document}

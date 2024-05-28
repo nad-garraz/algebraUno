@@ -42,15 +42,91 @@
 \date{last update: \today} % Cambiar de ser necesario
 
 \maketitle  % para que aprezca el título en el documento
+
 \section{Definiciones y fórmulas útiles}
+
 \def\mcd{(a:b)}
+
 \begin{itemize}
-  \item Sea
-    $ax + by = c \text{ tiene solución para $x$ y $y$ }\\
-    \sisolosi 
-    \ub{\frac{a}{\mcd}}{=A} x + \ub{\frac{b}{\mcd}}{=B} y = \ub{ \frac{c}{(a:b)}}{= C \en \enteros}$,
-	     \text{también tiene solución para $x$ y $y$.}  
+	\item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \y b \distinto 0$ y sea
+    $S = \set{ (x,y) \en \enteros^2 : aX + bY = C }$.\\
+    Entonces $S \distinto \vacio \sisolosi (a:b) \divide c$
+	      % \sisolosi
+	      %  \ub{A}{\frac{a}{\mcd}} x + \ub{B}{\frac{b}{\mcd}} y = \ub{C}{\frac{c}{(a:b)}} \en \enteros$,
+	      % \text{también tiene solución para $x$ y $y$.}
+
+  \item Las socluciones al sistema: $S = \set{(x,y) \en \enteros^2 \text{ con }
+    \llaves{l}{
+     x = x_0 + kb'\\ 
+     y = y_0 + kb' 
+    }
+    , k \en \enteros}
+    $
+
+  \item $\congruencia{aX}{c}{b}$ con $ a,\, b \distinto 0$ tiene solución $\sisolosi \mcd \divide c$ tiene solución $\sisolosi \mcd \divide c$. En ese caso, coprimizando:
 \end{itemize}
+
+\textit\underline{Ecuaciones de congruencia}
+
+\begin{itemize}
+  \item Algoritmo de solución:
+    \begin{enumerate}[label=\arabic*)] 
+  \item reducir $a,\, c$ módulo $m$. Podemos suponer $0 \leq a, c < m$
+  \item tiene solución $\sisolosi (a:m) \divide c$. Y en ese caso coprimizo:
+    \[
+      \congruencia{aX}{c}{m} \sisolosi \congruencia{a'X}{c'}{m},\ \text{ con } a' = \frac{a}{(a:m)},\, m' = \frac{m}{(a:m)} \text{ y } c' = \frac{c}{(a:m)}
+    \]
+    \item   Ahora que $a' \cop m'$, puedo limpiar los factores comunes entre $a'$ y $c'$ (los puedo simplificar)
+      \[
+        \congruencia{a'X}{c'}(m') \sisolosi \congruencia{a''X}{c''}{m'} \text{ con } a'' = \frac{a'}(a':c') \text{ y } c'' = \frac{c'}{(a':c')}
+      \]
+    \item Encuentro una solución particular $X_0$ con $ 0\leq X_0 < m'$ y tenemos
+      \[
+        \congruencia{aX}{c}{m} \sisolosi \congruencia{X}{X_0}{m'}
+      \]
+     \end{enumerate}
+
+\end{itemize}
+
+\textit\underline{Ecuaciones de congruencia}
+Sean $m_1,\dots m_n \en \enteros$ \underline{coprimos dos a dos} ($\paratodo i \distinto j$, se tiene $m_i \cop m_j$). \\
+Entonces, dados $c_1,\dots, c_n \en \enteros$ cualesquiera, el sistema de ecuaciones de congruencia. 
+\[
+  \llave{c}{
+  \congruencia{X}{c_1}{m_1}\\
+  \congruencia{X}{c_2}{m_2}\\
+  \vdots\\
+  \congruencia{X}{c_n}{m_n}
+  }
+\] 
+
+es equivalente al sistema (tienen misma soluciones)
+
+\[
+  \congruencia{X}{x_0}{m_1\cdot m_2 \cdots m_n}
+\]
+para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
+
+\textit{\underline{Pequeño teorema de Fermat}}
+\begin{itemize}
+  \item Sea $p$ primo, y sea $a \en \enteros$. Entonces:
+    \begin{enumerate}[label=\arabic*.)]
+        \item $ \congruencia{a^p}{a}{p} $
+        \item $ p \noDivide a \entonces \congruencia{a^{p-1}}{1}{p} $
+      \end{enumerate}
+  \item Sea $p$ primo, entonces $ \paratodo a \en \enteros$ tal que $ p \noDivide a$ se tiene:
+    \[
+      \congruencia{a^n}{a^{r_{p-1}(n)}}{p} ,\, \paratodo n \en \naturales 
+    \]
+  \item Sea $a \en \enteros$ y $p > 0$ primo tal que $(a:p) = 1$, y sea  $d \en \naturales$ con $d \leq p-1$
+    el mínimo tal que:
+    \[
+      \congruencia{a^d}{1}{p} \entonces d \divide (p-1)
+    \]  
+\end{itemize}
+
+
+
 
 \subsubsection*{Ejercicios dados en clase:}
 
@@ -82,11 +158,11 @@ producto $B$ cuesta 48 pesos, ¿cuántas unidades de cada producto se pueden com
 
 $
 	\llave{l}{
-    A \geq 0 \y B \geq 0 \text{. Dado que son productos.}\\
+		A \geq 0 \y B \geq 0 \text{. Dado que son productos.}\\
 		(A:B) = 3 \entonces 39A + 28B = 135
 		\flecha{coprimizar}
 		13A + 16B = 45\\
-    \text{ A ojo } \to (A,B) = (1,2)
+		\text{ A ojo } \to (A,B) = (1,2)
 	}
 $
 
@@ -96,21 +172,21 @@ Hallar, cuando existan, todas las soluciones de las siguientes ecuaciones de con
 
 \separadorCorto
 
-\begin{enumerate}[label=\roman*)] 
-  \item $\congruencia{17X}{3}{11} \flecha{respuesta} \congruencia{X}{6}{11} $\\
-    \red{pasar}
+\begin{enumerate}[label=\roman*)]
+	\item $\congruencia{17X}{3}{11} \flecha{respuesta} \congruencia{X}{6}{11} $\\
+	      \red{pasar}
 
-  \item $\congruencia{56X}{28}{35}\\
-    \llave{l}{
-      \congruencia{56X}{28}{35} \sisolosi
-      \congruencia{7X}{21}{35} \stackrel{\red{?}}\sisolosi
-      7X - 35K = 21\\
-      \flecha{a}[ojo] (X,K) = (-2,-1) + q \cdot (-5, 1)\\
-      \congruencia{X}{-2}{5} \sisolosi \congruencia{X}{3}{5} = \set{\dots, -2, 3, 8, \dots, 5q+3}
-    }\\
-    \flecha{respuesta} \congruencia{X}{3}{5} $
-    \red{corroborar}
- \end{enumerate}
+	\item $\congruencia{56X}{28}{35}\\
+		      \llave{l}{
+			      \congruencia{56X}{28}{35} \sisolosi
+			      \congruencia{7X}{21}{35} \stackrel{\red{?}}\sisolosi
+			      7X - 35K = 21\\
+			      \flecha{a}[ojo] (X,K) = (-2,-1) + q \cdot (-5, 1)\\
+			      \congruencia{X}{-2}{5} \sisolosi \congruencia{X}{3}{5} = \set{\dots, -2, 3, 8, \dots, 5q+3}
+		      }\\
+		      \flecha{respuesta} \congruencia{X}{3}{5} $
+	      \red{corroborar}
+\end{enumerate}
 
 \separadorCorto
 

@@ -192,7 +192,7 @@
 	\item \textit{Combinacion Entera}:
 	      Sean $a,b \en \enteros$ no ambos nulos, entonces $\existe s,\ t \en \enteros$ tal que $\mcd = \cz$.
 	      \begin{itemize}
-		      \item Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
+          \item Todos los divisores comunes entre $a$ y $b$ dividen al $\mcd$. Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
 		            \[
 			            d \divide a \ytext d \divide b \sisolosi d \divide \ub{\mcd}{\cz}
 		            \].
@@ -267,6 +267,30 @@
 			            (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
 			            \text{divisores positivos de } n.
 			            }\]
+
+                \item Sean $a$ y $b \en \enteros$ no nulos, con
+                  $
+                  \llave{l}{
+                    a = \pm p_1^{m_1}\cdots p_r^{m_r} \text{ con } m_1,\cdots, m_r \en \enteros_0\\
+                    b = \pm p_1^{n_1}\cdots p_r^{n_r} \text{ con } n_1,\cdots, n_r \en \enteros_0\\
+                    \llave{l}{
+                    \entonces \mcd = p_1^{min\set{m_1,n_1}}\cdots p_r^{min\set{m_r,n_r}}\\
+                    \entonces [a:b] = p_1^{max\set{m_1,n_1}}\cdots p_r^{max\set{m_r,n_r}}
+                    }
+                  }
+                  $
+
+                \item Sean $a,b,c \en \enteros$ no nulos:
+                  \begin{itemize}
+                    \item $a \cop b \sisolosi \text{no tienen primos en común}.$
+                    \item $\mcd = 1 \y (a : c) = 1 \sisolosi (a : bc) = 1$
+                    \item $\mcd = 1 \sisolosi (a^m, b^n) = 1 ,\, \paratodo m, n \en\enteros$
+                    \item $(a^n:a^m) = \mcd^n$
+                  \end{itemize}
+
+                \item Si $a \divide m \ \y \  b \divide m$, entonces $[a:b] \divide m$
+
+                \item $\mcd \cdot [a:b] = |a \cdot b|$
 	      \end{itemize}
 
 \end{itemize}

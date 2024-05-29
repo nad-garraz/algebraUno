@@ -118,13 +118,24 @@ para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
     \[
       \congruencia{a^n}{a^{r_{p-1}(n)}}{p} ,\, \paratodo n \en \naturales 
     \]
-  \item Sea $a \en \enteros$ y $p > 0$ primo tal que $(a:p) = 1$, y sea  $d \en \naturales$ con $d \leq p-1$
+  \item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ub{(a:p) = 1}{a \cop p}$, y sea  $d \en \naturales$ con $d \leq p-1$
     el mínimo tal que:
     \[
       \congruencia{a^d}{1}{p} \entonces d \divide (p-1)
     \]  
 \end{itemize}
-
+\textit{\underline{Aritmética modular:}}
+\begin{itemize}
+  \item Sea $n \en \naturales, n\geq2$\\
+    $
+      \enteros/_{n\enteros} = \set{\clase{0},\clase{1},\cdots, \clase{n-1} }\\
+      \clase{a},\clase{b} \en \enteros\_{n\enteros}:
+      \llave{l}{
+        \clase{a} \clase{+} \clase{b} := \overline{r_n^{a+b}} \\
+        \clase{a} \clase{\cdot} \clase{b} := \overline{r_n^{a\cdot b}}
+      }
+    $
+\end{itemize}
 
 
 

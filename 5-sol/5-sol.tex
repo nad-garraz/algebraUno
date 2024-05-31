@@ -49,92 +49,92 @@
 
 \begin{itemize}
 	\item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \y b \distinto 0$ y sea
-    $S = \set{ (x,y) \en \enteros^2 : aX + bY = C }$.\\
-    Entonces $S \distinto \vacio \sisolosi (a:b) \divide c$
+	      $S = \set{ (x,y) \en \enteros^2 : aX + bY = C }$.\\
+	      Entonces $S \distinto \vacio \sisolosi (a:b) \divide c$
 	      % \sisolosi
 	      %  \ub{A}{\frac{a}{\mcd}} x + \ub{B}{\frac{b}{\mcd}} y = \ub{C}{\frac{c}{(a:b)}} \en \enteros$,
 	      % \text{también tiene solución para $x$ y $y$.}
 
-  \item Las socluciones al sistema: $S = \set{(x,y) \en \enteros^2 \text{ con }
-    \llaves{l}{
-     x = x_0 + kb'\\ 
-     y = y_0 + kb' 
-    }
-    , k \en \enteros}
-    $
+	\item Las socluciones al sistema: $S = \set{(x,y) \en \enteros^2 \text{ con }
+			      \llaves{l}{
+				      x = x_0 + kb'\\
+				      y = y_0 + kb'
+			      }
+			      , k \en \enteros}
+	      $
 
-  \item $\congruencia{aX}{c}{b}$ con $ a,\, b \distinto 0$ tiene solución $\sisolosi \mcd \divide c$ tiene solución $\sisolosi \mcd \divide c$. En ese caso, coprimizando:
+	\item $\congruencia{aX}{c}{b}$ con $ a,\, b \distinto 0$ tiene solución $\sisolosi \mcd \divide c$ tiene solución $\sisolosi \mcd \divide c$. En ese caso, coprimizando:
 \end{itemize}
 
 \textit\underline{Ecuaciones de congruencia}
 
 \begin{itemize}
-  \item Algoritmo de solución:
-    \begin{enumerate}[label=\arabic*)] 
-  \item reducir $a,\, c$ módulo $m$. Podemos suponer $0 \leq a, c < m$
-  \item tiene solución $\sisolosi (a:m) \divide c$. Y en ese caso coprimizo:
-    \[
-      \congruencia{aX}{c}{m} \sisolosi \congruencia{a'X}{c'}{m},\ \text{ con } a' = \frac{a}{(a:m)},\, m' = \frac{m}{(a:m)} \text{ y } c' = \frac{c}{(a:m)}
-    \]
-    \item   Ahora que $a' \cop m'$, puedo limpiar los factores comunes entre $a'$ y $c'$ (los puedo simplificar)
-      \[
-        \congruencia{a'X}{c'}(m') \sisolosi \congruencia{a''X}{c''}{m'} \text{ con } a'' = \frac{a'}(a':c') \text{ y } c'' = \frac{c'}{(a':c')}
-      \]
-    \item Encuentro una solución particular $X_0$ con $ 0\leq X_0 < m'$ y tenemos
-      \[
-        \congruencia{aX}{c}{m} \sisolosi \congruencia{X}{X_0}{m'}
-      \]
-     \end{enumerate}
+	\item Algoritmo de solución:
+	      \begin{enumerate}[label=\arabic*)]
+		      \item reducir $a,\, c$ módulo $m$. Podemos suponer $0 \leq a, c < m$
+		      \item tiene solución $\sisolosi (a:m) \divide c$. Y en ese caso coprimizo:
+		            \[
+			            \congruencia{aX}{c}{m} \sisolosi \congruencia{a'X}{c'}{m},\ \text{ con } a' = \frac{a}{(a:m)},\, m' = \frac{m}{(a:m)} \text{ y } c' = \frac{c}{(a:m)}
+		            \]
+		      \item   Ahora que $a' \cop m'$, puedo limpiar los factores comunes entre $a'$ y $c'$ (los puedo simplificar)
+		            \[
+			            \congruencia{a'X}{c'}(m') \sisolosi \congruencia{a''X}{c''}{m'} \text{ con } a'' = \frac{a'}(a':c') \text{ y } c'' = \frac{c'}{(a':c')}
+		            \]
+		      \item Encuentro una solución particular $X_0$ con $ 0\leq X_0 < m'$ y tenemos
+		            \[
+			            \congruencia{aX}{c}{m} \sisolosi \congruencia{X}{X_0}{m'}
+		            \]
+	      \end{enumerate}
 
 \end{itemize}
 
 \textit\underline{Ecuaciones de congruencia}
 Sean $m_1,\dots m_n \en \enteros$ \underline{coprimos dos a dos} ($\paratodo i \distinto j$, se tiene $m_i \cop m_j$). \\
-Entonces, dados $c_1,\dots, c_n \en \enteros$ cualesquiera, el sistema de ecuaciones de congruencia. 
+Entonces, dados $c_1,\dots, c_n \en \enteros$ cualesquiera, el sistema de ecuaciones de congruencia.
 \[
-  \llave{c}{
-  \congruencia{X}{c_1}{m_1}\\
-  \congruencia{X}{c_2}{m_2}\\
-  \vdots\\
-  \congruencia{X}{c_n}{m_n}
-  }
-\] 
+	\llave{c}{
+		\congruencia{X}{c_1}{m_1}\\
+		\congruencia{X}{c_2}{m_2}\\
+		\vdots\\
+		\congruencia{X}{c_n}{m_n}
+	}
+\]
 
 es equivalente al sistema (tienen misma soluciones)
 
 \[
-  \congruencia{X}{x_0}{m_1\cdot m_2 \cdots m_n}
+	\congruencia{X}{x_0}{m_1\cdot m_2 \cdots m_n}
 \]
 para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
 
 \textit{\underline{Pequeño teorema de Fermat}}
 \begin{itemize}
-  \item Sea $p$ primo, y sea $a \en \enteros$. Entonces:
-    \begin{enumerate}[label=\arabic*.)]
-        \item $ \congruencia{a^p}{a}{p} $
-        \item $ p \noDivide a \entonces \congruencia{a^{p-1}}{1}{p} $
-      \end{enumerate}
-  \item Sea $p$ primo, entonces $ \paratodo a \en \enteros$ tal que $ p \noDivide a$ se tiene:
-    \[
-      \congruencia{a^n}{a^{r_{p-1}(n)}}{p} ,\, \paratodo n \en \naturales 
-    \]
-  \item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ub{(a:p) = 1}{a \cop p}$, y sea  $d \en \naturales$ con $d \leq p-1$
-    el mínimo tal que:
-    \[
-      \congruencia{a^d}{1}{p} \entonces d \divide (p-1)
-    \]  
+	\item Sea $p$ primo, y sea $a \en \enteros$. Entonces:
+	      \begin{enumerate}[label=\arabic*.)]
+		      \item $ \congruencia{a^p}{a}{p} $
+		      \item $ p \noDivide a \entonces \congruencia{a^{p-1}}{1}{p} $
+	      \end{enumerate}
+	\item Sea $p$ primo, entonces $ \paratodo a \en \enteros$ tal que $ p \noDivide a$ se tiene:
+	      \[
+		      \congruencia{a^n}{a^{r_{p-1}(n)}}{p} ,\, \paratodo n \en \naturales
+	      \]
+	\item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ub{(a:p) = 1}{a \cop p}$, y sea  $d \en \naturales$ con $d \leq p-1$
+	      el mínimo tal que:
+	      \[
+		      \congruencia{a^d}{1}{p} \entonces d \divide (p-1)
+	      \]
 \end{itemize}
 \textit{\underline{Aritmética modular:}}
 \begin{itemize}
-  \item Sea $n \en \naturales, n\geq2$\\
-    $
-      \enteros/_{n\enteros} = \set{\clase{0},\clase{1},\cdots, \clase{n-1} }\\
-      \clase{a},\clase{b} \en \enteros\_{n\enteros}:
-      \llave{l}{
-        \clase{a} \clase{+} \clase{b} := \overline{r_n^{a+b}} \\
-        \clase{a} \clase{\cdot} \clase{b} := \overline{r_n^{a\cdot b}}
-      }
-    $
+	\item Sea $n \en \naturales, n\geq2$\\
+	      $
+		      \enteros/_{n\enteros} = \set{\clase{0},\clase{1},\cdots, \clase{n-1} }\\
+		      \clase{a},\clase{b} \en \enteros\_{n\enteros}:
+		      \llave{l}{
+		      \clase{a} \clase{+} \clase{b} := \overline{r_n^{a+b}} \\
+		      \clase{a} \clase{\cdot} \clase{b} := \overline{r_n^{a\cdot b}}
+		      }
+	      $
 \end{itemize}
 
 
@@ -159,29 +159,31 @@ Determinar todos los $(a,b)$ que simultáneamente $4 \divide a,\, 8 \divide b \y
 \separadorCorto
 Si $(33:9) \divide 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divide 120$\Tilde\\
 $
-\llave{l}{
- 4 \divide a \to a = 4k_!\\
-  8 \divide b \to b = 8k_2
-}
-\flecha{meto en}[$33a + 9b = 120$]
-132 k_1 + 72 k_2 = 120
-\flecha{$(132:72) = 12 \divide 120$}[coprimizo]
-11 k_1 + 6 k_2 = 10\\
-\llaves{l}{
- 11 = 6 \cdot 1 + 5 \\
- 6 = 5 \cdot 1 + 1 \Tilde \\
-}
-\flecha{combinación entera 1}[con Euclides como]
-1 =  \blue{11} \cdot -1 + \blue{6} \cdot -2 
-\flecha{solución}[particular]
-10 = \blue{11}\cdot\ub{-10}{k_1}   + \blue{6} \cdot \ub{20}{k_2} \\
+	\llave{l}{
+		4 \divide a \to a = 4k_!\\
+		8 \divide b \to b = 8k_2
+	}
+	\flecha{meto en}[$33a + 9b = 120$]
+	132 k_1 + 72 k_2 = 120
+	\flecha{$(132:72) = 12 \divide 120$}[coprimizo]
+	11 k_1 + 6 k_2 = 10$ \\
+
+\noindent Busco solución particular con algo parecido a Euclides:\\
+$\llaves{l}{
+		11 = 6 \cdot 1 + 5 \\
+		6 = 5 \cdot 1 + 1 \Tilde \\
+	}
+	\flecha{escribo al 1 como}[combinación entera de \blue{11} y \blue{6}]
+	1 =  \blue{11} \cdot -1 + \blue{6} \cdot -2
+	\flecha{solución}[particular]
+	10 = \blue{11}\cdot(\ub{-10}{k_1})   + \blue{6} \cdot \ub{20}{k_2} \\
 $
 Para $11 k_1 + 6 k_2 = 10$ tengo la solución general $(k_1, k_2) = (-10 + (-6)k, 20 + 11k)$ con $k \en \enteros$\\
 Pero quiero los valores de $a$ y $b$:\\
 La solución general será $\boxed{(a,b) = (4k_1, 8k_2) = (-40 + 24 k, 160 + (-88)k)}$\\
 
 \noindent Otra respuesta con solución a ojo menos falopa, esta recta es la misma que la anterior:\\
-$(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8} \to (a,b) = $\\
+$(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8} $\\
 
 %3
 \ejercicio
@@ -222,25 +224,104 @@ Hallar, cuando existan, todas las soluciones de las siguientes ecuaciones de con
 		      \flecha{respuesta} \congruencia{X}{3}{5} $
 	      \red{corroborar}
 
-      \item
-      \item $\congruencia{78X}{30}{12126}  \to 78X - 12126 Y = 30 \flecha{$(78:12126) = 6$}[coprimizando] 13X - 2021 Y = 5$\\
-        Busco solución particular con Euclides:\\
-        $\llave{l}{
-          \blue{2021} =  \blue{13} \cdot 155 + 6\\
-         13 =  6 \cdot 2 + 1
-       }\flecha{Escribo al 1 como}[combinación de \blue{2021} y\blue{13}]
-       1 = \blue{13} \cdot 311 + \blue{2021} \cdot (-2) 
-       \flecha{quiero}[al 5]
-       5 =  \blue{13}\cdot 1555 + \blue{2021} \cdot (-10)$\\
+	\item
+	\item $\congruencia{78X}{30}{12126}  \to 78X - 12126 Y = 30 \flecha{$(78:12126) = 6$}[coprimizando] 13X - 2021 Y = 5$\\
+	      Busco solución particular con algo parecido a Euclides:\\
+	      $\llave{l}{
+			      \blue{2021} =  \blue{13} \cdot 155 + 6\\
+			      13 =  6 \cdot 2 + 1
+		      }\flecha{Escribo al 1 como}[combinación de \blue{13} y\blue{2021}]
+		      1 = \blue{13} \cdot 311 + \blue{2021} \cdot (-2)
+		      \flecha{quiero}[al 5]
+		      5 =  \blue{13}\cdot 1555 + \blue{2021} \cdot (-10)$\\
 
-       Respuesta: $\boxed{\congruencia{78X}{30}{12126}
-       \stackrel{\red{?}} \sisolosi \congruencia{X}{1555}{2021}}$
+	      Respuesta: $\boxed{\congruencia{78X}{30}{12126}
+			      \stackrel{\red{?}} \sisolosi \congruencia{X}{1555}{2021}}$
 
-       
 \end{enumerate}
 
+%5
+\ejercicio
+Hallar todos los $(a,b) \en \enteros^2$ tales que $\congruencia{b}{2a}{5}$ y $28a + 10b = 26$.
+
 \separadorCorto
+Parecido al \textbf{2.}.\\
+$ \congruencia{b}{2a}{5} \sisolosi b = 5k + 2a
+	\flecha{meto en}[$28a + 10b = 26$]
+	48a + 50k = 26
+	\flecha{$(48:59) = 2$}[$2 \divide 26$]
+	24a + 25k = 13
+	\flecha{a}[ojo]
+	\llaves{l}{
+		a = -13 + (-25)q\\
+		k = 13 + 24 q
+	}
+$\\
+\textit{Let's corroborate:}\\
+$b = 5\cdot \ub{(13 + 24q)}{k} + 2\cdot \ub{(-13 + (-25)q)}{a} = 39 + 70q
+	\llave{l}{
+		b = \congruencia{39 + 70 q}{4}{5}\Tilde  \\
+		2a = \congruencia{-26-50q}{-1}{5} \congruente 4\ (5)\Tilde
+	}$
+
+%10
+\setcounter{ejercicio}{9}
+\ejercicio Hallar, cuando existan, todos los enteros $a$ que satisfacen simultáneamente:\\
+
+\begin{enumerate}[label=\roman*)]
+	\item
+	      $
+		      \llave{l}{
+			      \llamada1 \congruencia{a}{3}{10} \\
+			      \llamada2 \congruencia{a}{2}{7} \\
+			      \llamada3 \congruencia{a}{5}{9} \\
+		      }
+	      $\\
+	      El sistema tiene solución dado que 10, 7 y 9 son coprimos dos a dos. Resuelvo:\\
+	      $\flecha{Arranco}[ en $\llamada1$]
+		      a = 10k + 3 \conga{7}
+		      3k + 3 \conga{\llamada2}
+		      2\ (7)
+		      \flecha{usando que}[$3\cop 7$] \congruencia{k}{2}{7}
+		      \to k = 7q + 2.\\
+		      \flecha{actualizo}[$a$]
+		      a = 10 \cdot \ub{(7q + 2)}{k} + 3 = 70 q + 23 \conga9
+		      7q \conga{\llamada3}
+		      5\ (9)
+		      \flecha{usando que}[$7\cop 9$] \congruencia{q}{0}{9}
+		      \to q = 9j\\
+		      \flecha{actualizo}[$a$]
+		      a = 70 \ub{(9j)}{q} + 23 = 680j + 23 \to \boxed{\congruencia{a}{23}{630}} \Tilde
+	      $\\
+	      La solución hallada es la que el Teorema chino del Resto me garantiza que tengo en el
+	      intervalo $[0, 10\cdot 7 \cdot 9)$
+
+	\item $
+		      \llave{l}{
+			      \llamada1 \congruencia{a}{1}{12} \\
+			      \llamada2 \congruencia{a}{7}{10} \\
+			      \llamada3 \congruencia{a}{4}{9}
+		      }
+	      $
+
+	\item
+
+\end{enumerate}
 
 
 
+%15
+\setcounter{ejercicio}{14}
+\ejercicio
+Hallar el resto de la división de $a$ por $p$ en los casos.
+
+\separadorCorto
+\begin{enumerate}[label=\roman*)]
+	\item $a = 71^{22283},\, p=11$
+
+	      \separadorCorto
+	      $a = 71^{22283} = 71^{10 \cdot 2228 +2 + 1} = \ub{(71^{10})^{2228}}{\stackrel{11 \noDivide p}{\congruente} 1^{2228}\ (11)} \cdot 71^2 \cdot 71^1 \congruente 71^3 \ (11)$\Tilde\\
+	      Usando corolario con $p$ primo y $p \cop 71$,  $\to \congruencia{71^{22283}}{71^{r_{10}(22283)}}{11} \congruente 71^3 \ (11) \Tilde$
+
+\end{enumerate}
 \end{document}

@@ -140,15 +140,15 @@ para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
 
 
 \subsubsection*{Ejercicios dados en clase:}
-\ejercicio Hallar los posibles restos de dividir a $a$ por 70, 
+\ejercicio Hallar los posibles restos de dividir a $a$ por 70,
 sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$
 \separadorCorto
 Hay que notar:
 $\llave{l}{
- 5 \divide m\\ 
- 7 \divide m\\ 
- 3 \noDivide m \red{¡He aquí la más trampa!}
-}$\\
+		5 \divide m\\
+		7 \divide m\\
+		3 \noDivide m \red{¡He aquí la más trampa!}
+	}$\\
 Estudio
 
 \newpage
@@ -331,8 +331,62 @@ Hallar el resto de la división de $a$ por $p$ en los casos.
 	\item $a = 71^{22283},\, p=11$
 
 	      \separadorCorto
-	      $a = 71^{22283} = 71^{10 \cdot 2228 +2 + 1} = \ub{(71^{10})^{2228}}{\stackrel{11 \noDivide p}{\congruente} 1^{2228}\ (11)} \cdot 71^2 \cdot 71^1 \congruente 71^3 \ (11)$\Tilde\\
-	      Usando corolario con $p$ primo y $p \cop 71$,  $\to \congruencia{71^{22283}}{71^{r_{10}(22283)}}{11} \congruente 71^3 \ (11) \Tilde$
+	      $a = 71^{22283} = 71^{10 \cdot 2228 +2 + 1} = \ub{(71^{10})^{2228}}{\stackrel{11 \noDivide p}{\congruente} 1^{2228}\ (11)} \cdot 71^2 \cdot 71^1 \congruente 71^3 \ (11) \to \congruencia{a}{5^3}{11} $\Tilde\\
+	      Usando corolario con $p$ primo y $p \cop 71$,  $\to \congruencia{71^{22283}}{71^{r_{10}(22283)}}{11} \congruente 71^3 \ (11) \to  \congruencia{a}{5^3}{11} \Tilde$
 
+	\item $a = 5 \cdot 7^{2451} + 3 \cdot 65^{2345} - 23 \cdot 8^{138}, \, p = 13$
+
+	      \separadorCorto
+	      $\congruencia{a}{5 \cdot 7^{204 \cdot 12 + 3} + 3 \cdot 8^{11 \cdot 12 + 6}}{13}
+		      \to
+		      \congruencia{a}{5 \cdot (7^{12})^{204} \cdot 7^3 + 3 \cdot (8^{12})^{11} \cdot 8^6}{13}\\
+		      \flecha{$p \noDivide 7$}[$p \noDivide 8$]
+		      \congruencia{a}{5\cdot 7^3 + 3 \cdot 8^6 }{13}
+		      \to
+		      \congruencia{a}{5\cdot(- 6^3 + 3 \cdot 5^5)}{13} $ \red{consultar}
 \end{enumerate}
+
+%16
+%Macro local
+\def\cong97{\stackrel{(97)}\congruente}
+
+\ejercicio
+Resolver en $\enteros$ las siguientes eecuaciones de congruencia:
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item $\congruencia{2^{194}X}{7}{97}$
+
+    \separadorCorto
+    $\flecha{$2 \cop 97$}  2^{194} = (2^{96})^{2} \cdot 2^2 \congruente 4\ (97)
+    \to
+    \congruencia{4X}{7}{97}
+    \flecha{$\times 24$} 
+    \congruencia{-X}{\ub{168}{\cong97 71}}{97}
+    \flecha{$-71 \cong97 26$} \congruencia{X}{26}{97} $\Tilde
+
+	\item $\congruencia{5^{86}X}{3}{89}$\\
+
+    \separadorCorto
+    \hacer
+\end{enumerate}
+
+\setcounter{ejercicio}{19}
+\ejercicio
+Hallar el resto de la división de:
+\begin{enumerate}[label=\roman*)] 
+  \item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70 
+  \item $\sumatoria{i = 1}{1759} i^{42}$ por 56
+ \end{enumerate}
+ \separadorCorto
+ \begin{enumerate}[label=\roman*)] 
+   \item \hacer
+   \item \red{Consultar: ¿Cómo laburo la sumatoria?} 
+     $\llave{l}{
+       \congruencia{\sumatoria{i = 1}{1759} i^{42}}{?}{7}\\
+       \congruencia{\sumatoria{i = 1}{1759} i^{42}}{?}{8}
+     }$
+  \end{enumerate}
+
 \end{document}

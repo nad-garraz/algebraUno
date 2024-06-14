@@ -24,6 +24,7 @@
 \usepackage{ulem}
 \usepackage{centernot} % tacha cosas
 \usepackage{bbding} % símbolos de donde uso FiveStar
+\usepackage{skull} % símbolos de donde uso Skull
 % \usepackage{lipsum}
 
 % para hacer los graficos tipo grafos
@@ -141,15 +142,43 @@ para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
 
 \subsubsection*{Ejercicios dados en clase:}
 \ejercicio Hallar los posibles restos de dividir a $a$ por 70,
-sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$
+sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$\\
+
 \separadorCorto
-Hay que notar:
-$\llave{l}{
+$ (\ub{a^{1081}+ 3a + 17}{m} : \ub{105}{3\cdot 5 \cdot 7})  = \ub{35}{5 \cdot 7}
+	\flecha{notar}[que]
+	\llave{l}{
 		5 \divide m\\
 		7 \divide m\\
-		3 \noDivide m \red{¡He aquí la más trampa!}
-	}$\\
-Estudio
+		3 \noDivide m \red{ \tiny $\to$ ¡He aquí la más importante info!}
+	}\\
+	\llave{l}{
+		5 \divide m
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
+		\to
+		\llave{ll}{
+			\text{si} & 5 \divide a \to \congruencia{2}{0}{5} \skull  \\
+			\text{si} & 5 \noDivide a
+			\flecha{$a^{1081} = a \cdot (a^4)^{270}$}[5 primo y $5 \noDivide a$, fermateo]
+			\congruencia{a + 3a + 2}{0}{5} \to \congruencia{a}{2}{5}\\
+			& \text{si } 5 \divide m \entonces \boxed{\congruencia{a}{2}{5}}
+		}
+		\\
+		7 \divide m
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
+		\to
+		\llave{ll}{
+			\text{si} & 7 \divide a \to \congruencia{3}{0}{7} \skull  \\
+			\text{si} & 7 \noDivide a
+			\flecha{$a^{1081} = a \cdot (a^6)^{180}$}[7 primo y $7 \noDivide a$, fermateo]
+			\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}\\
+			& \text{si } 7 \divide m \entonces \boxed{\congruencia{a}{1}{7}}
+		}
+        \\
+      3 \noDivide m 
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{3} 2}}{0}{3}
+      
+	}$
 
 \newpage
 
@@ -358,35 +387,136 @@ Resolver en $\enteros$ las siguientes eecuaciones de congruencia:
 \begin{enumerate}[label=\roman*)]
 	\item $\congruencia{2^{194}X}{7}{97}$
 
-    \separadorCorto
-    $\flecha{$2 \cop 97$}  2^{194} = (2^{96})^{2} \cdot 2^2 \congruente 4\ (97)
-    \to
-    \congruencia{4X}{7}{97}
-    \flecha{$\times 24$} 
-    \congruencia{-X}{\ub{168}{\cong97 71}}{97}
-    \flecha{$-71 \cong97 26$} \congruencia{X}{26}{97} $\Tilde
+	      \separadorCorto
+	      $\flecha{$2 \cop 97$}  2^{194} = (2^{96})^{2} \cdot 2^2 \congruente 4\ (97)
+		      \to
+		      \congruencia{4X}{7}{97}
+		      \flecha{$\times 24$}
+		      \congruencia{-X}{\ub{168}{\cong97 71}}{97}
+		      \flecha{$-71 \cong97 26$} \congruencia{X}{26}{97} $\Tilde
 
 	\item $\congruencia{5^{86}X}{3}{89}$\\
 
-    \separadorCorto
-    \hacer
+	      \separadorCorto
+	      \hacer
 \end{enumerate}
 
 \setcounter{ejercicio}{19}
 \ejercicio
+% macro local
+
+%Macro local
+\def\sumLocal{\sumatoria{i=1}{1759}}
+% fin macro local
+
 Hallar el resto de la división de:
-\begin{enumerate}[label=\roman*)] 
-  \item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70 
-  \item $\sumatoria{i = 1}{1759} i^{42}$ por 56
- \end{enumerate}
- \separadorCorto
- \begin{enumerate}[label=\roman*)] 
-   \item \hacer
-   \item \red{Consultar: ¿Cómo laburo la sumatoria?} 
-     $\llave{l}{
-       \congruencia{\sumatoria{i = 1}{1759} i^{42}}{?}{7}\\
-       \congruencia{\sumatoria{i = 1}{1759} i^{42}}{?}{8}
-     }$
-  \end{enumerate}
+\begin{enumerate}[label=\roman*)]
+	\item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70
+	\item $\sumLocal i^{42}$ por 56
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item \hacer
+
+	\item Calcular el resto pedido equivale a resolver la ecuaición de equivalencia:\\
+	      $ \congruencia{X}{\sumLocal i^{42}}{56} $ que será aún más simple en la forma:
+	      $\llave{l}{
+			      \congruencia{X}{\sumLocal i^{42}}{7}\\
+			      \congruencia{X}{\sumLocal i^{42}}{8}
+		      }\\
+		      \text{Primerlo estudio la ecuación de módulo 7: }\\
+		      \llave{l}{
+			      \congruencia{\sumLocal i^{42}}{X}{7} \llamada1
+
+			      \flecha{7 es primo, uso \magenta{Fermat}}[si $p \noDivide i \to i^{42} = \congruencia{(i^6)^7}{1}{7}$]
+			      \sumLocal i^{42} = \sumLocal (i^6)^7
+			      \flecha{$251 \cdot 7 + 2 = 1759$}\\
+			      \sumLocal (i^6)^7 \conga7 251 \cdot \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7 + (5^6)^7 + (6^6)^7 + (7^6)^7} + \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7}\\
+			      \sumLocal (i^6)^7 \magenta{$\conga7$ } 251 \cdot \parentesis{1 + 1 + 1 + 1 + 1 + 1 + 0} + \parentesis{1 + 1 + 1 + 1} =
+			      251 \cdot  6 + 4 \conga7 3\\
+			      \flecha{$\llamada1$ } \boxed{\congruencia{X}{3}{7}}\\
+		      }$\\
+	      Ahora se labura el módulo 8.\\
+
+	      $\llave{l}
+		      {
+			      \congruencia{\sumLocal i^{42}}{X}{8}
+			      \flecha{8 no es primo}[no uso Fermat]
+			      \text{Analizo a mano}
+			      \flecha{$219 \cdot 8 + 7 = 1759$}
+			      \congruencia{X}{\sumLocal i^{42}}{8} \conga8
+			      \\
+			      \conga8 219 \cdot \ub{(1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42} + 0^{42})}{\text{8 términos: } r_8(i^{42}) = (r_8(i))^{42} }
+			      + (1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42}) \\
+			      \to
+			      \llaves{l}{
+				      2^{42} = (2^3)^{14}\conga8 0\\
+				      4^{42} = (2^3)^{14} \cdot (2^3)^{14}\conga8 0\\
+				      6^{42} = (2^3)^{14} \cdot 3^{42} \conga8 0\\
+				      1^{42} = 1\\
+				      3^{42} = (3^2)^{21} \conga8 1^{21} = 1\\
+				      5^{42} = (5^2)^{21} \conga8 1^{21} = 1\\
+				      7^{42} = (7^2)^{21} \conga8 1^{21} = 1
+			      }\\
+			      \flecha{reemplazo}[esa en]
+			      \sumLocal i^{42} \conga8 219 \cdot 4 + 4  = 880 \conga8 0 \to \boxed{\congruencia{X}{0}{8}}\\
+		      }$\\
+	      El sistema
+	      $\llave{l}{
+			      \congruencia{X}{3}{7} \\
+			      \congruencia{X}{0}{8} \\
+		      }$ tiene solución $\congruencia{X}{24}{56}$, por lo tanto el \textit{resto pedido}: \boxed{ r_{56}\parentesis{\sumLocal i^{42}} = 24}
+\end{enumerate}
+
+\setcounter{ejercicio}{22}
+\ejercicio Hallar todos los divisores positivos de $25^{70}$ que sean congruentes a 2 módulo 9 y 3 módulo 11.
+\separadorCorto
+Quiero que ocurra algo así:
+$\llave{l}{
+		\congruencia{25^{70}}{0}{d} \to \congruencia{5^{140}}{0}{d}  \\
+		\congruencia{d}{2}{9} \\
+		\congruencia{d}{3}{11}
+	}$.
+De la primera ecuación queda que el divisor $d = 5^\alpha$ con $\alpha$ compatible
+con las otras ecuaciones.
+$\to
+	\llave{l}{
+		\congruencia{5^\alpha}{2}{9} \\
+		\congruencia{5^\alpha}{3}{11}
+	}$\\
+
+$\to
+	\llave{l}{
+
+	\congruencia{5^\alpha}{2}{9}
+	\to
+	5^\alpha =
+	\ub{5^2}{\conga9 -2} (\ub{5^{3}}{\conga9 -1})^\frac{\alpha - 2}{3}
+	\conga9 2 \text{ con el exponente } \frac{\alpha - 2 }{3} \conga2 1 \\
+	\red{{\tiny (no me gusta nada)}, quiero que sea $\enteros$ e impar},\\ \to
+	\llave{l}{
+		\congruencia{\alpha}{2}{3}\\
+		\congruencia{\alpha}{1}{2} \llamada{\skull} \\
+	}\\
+	\separadorCorto
+
+	\congruencia{5^\alpha}{3}{11}
+	\flecha{reescribo y Fermat}[11 es primo, $11\noDivide 5$]
+	\congruencia{\ub{5^2}{\conga{11} 3} \cdot (\ub{5^{10}}{\conga{11} 1})^{\frac{\alpha - 2}{10}}}{3}{11}\\
+	\red{esto valdría para $\alpha \geq 2$ y el exponente $\en \enteros_{\geq 0}$?}\\
+	\to
+	\llave{l}{
+		\congruencia{\alpha}{2}{10}
+		\to
+		\llave{l}{
+			\congruencia{\alpha}{0}{2}\llamada{\skull}\\
+			\congruencia{\alpha}{2}{5}
+
+		}
+	}
+	}$
+
 
 \end{document}

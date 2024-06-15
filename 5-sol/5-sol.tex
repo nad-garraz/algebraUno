@@ -217,10 +217,10 @@ Debido a la última condición $\llamada{1}$, el problema se ramifica en 2 siste
 \end{minipage}
 Veo que para el conjunto de posibles $a$
 $\llaves{c}{
- a = 105k_1 + 22 \\
-  o \\
- a = 105k_2 + 92 
-}\flecha{calculo}[$\conga{70}$]$
+		a = 105k_1 + 22 \\
+		o \\
+		a = 105k_2 + 92
+	}\flecha{calculo}[$\conga{70}$]$
 $\congruencia{a}{22}{35} \flecha{quiero los restos}[pedidos del enunciado] r_{70}(a) = \set{22, 57}$,
 valores de $a$ que cumplan condición de $r_{70}(a)$
 
@@ -246,7 +246,7 @@ Determinar todos los $(a,b)$ que simultáneamente $4 \divide a,\, 8 \divide b \y
 Si $(33:9) \divide 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divide 120$\Tilde\\
 $
 	\llave{l}{
-		4 \divide a \to a = 4k_!\\
+		4 \divide a \to a = 4k_1\\
 		8 \divide b \to b = 8k_2
 	}
 	\flecha{meto en}[$33a + 9b = 120$]
@@ -534,36 +534,42 @@ $\to
 		\congruencia{5^\alpha}{3}{11}
 	}$\\
 
-$\to
+$\to \text{Usaré viejo truco de exponenciales de módulo periódicas:}\\
+	\flecha{Busco}[$5^{a} \conga{d} 1$]
 	\llave{l}{
+		\congruencia{5^\alpha}{2}{9} \\
+		\congruencia{5^3}{-1}{9} \flecha{al}[cuadrado] \congruencia{5^6}{1}{9}
+		\flecha{$5^\alpha = 5^{6k+r_6(\alpha)} = (\ob{5^6}{\conga9 1})^k 5^{r_6(\alpha)}$}[tabla de restos]
+		\begin{array}{|l|l|l|l|l|l|l|}
+			\hline
+			r_6(\alpha)   & 0 & 1 & 2 & 3 & 4 & 5       \\ \hline
+			r_9(5^\alpha) & 1 & 5 & 7 & 8 & 4 & \red{2} \\ \hline
+		\end{array}\\
+		\flecha{por lo}[tanto] \text{para que } \congruencia{5^\alpha}{2}{9} \entonces \boxed{\congruencia{\alpha}{5}{9}}     \\
 
-	\congruencia{5^\alpha}{2}{9}
-	\to
-	5^\alpha =
-	\ub{5^2}{\conga9 -2} (\ub{5^{3}}{\conga9 -1})^\frac{\alpha - 2}{3}
-	\conga9 2 \text{ con el exponente } \frac{\alpha - 2 }{3} \conga2 1 \\
-	\red{{\tiny (no me gusta nada)}, quiero que sea $\enteros$ e impar},\\ \to
-	\llave{l}{
-		\congruencia{\alpha}{2}{3}\\
-		\congruencia{\alpha}{1}{2} \llamada{\skull} \\
-	}\\
-	\separadorCorto
 
-	\congruencia{5^\alpha}{3}{11}
-	\flecha{reescribo y Fermat}[11 es primo, $11\noDivide 5$]
-	\congruencia{\ub{5^2}{\conga{11} 3} \cdot (\ub{5^{10}}{\conga{11} 1})^{\frac{\alpha - 2}{10}}}{3}{11}\\
-	\red{esto valdría para $\alpha \geq 2$ y el exponente $\en \enteros_{\geq 0}$?}\\
-	\to
-	\llave{l}{
-		\congruencia{\alpha}{2}{10}
-		\to
-		\llave{l}{
-			\congruencia{\alpha}{0}{2}\llamada{\skull}\\
-			\congruencia{\alpha}{2}{5}
+		\separadorCorto
 
-		}
-	}
-	}$
-
+		\congruencia{5^\alpha}{3}{11}\flecha{a ojo}[$\alpha = 2$] \congruencia{\magenta{$5^2$}}{3}{11} \\
+		\flecha{fermateo}[11 es primo, $11\noDivide 5$]
+		\congruencia{\green{$5^{10}$}}{1}{11}
+		\flecha{noto que tengo otro}[cuando hago $5^{12}$]
+        \congruencia{\magenta{$5^2$} \cdot \green{$5^{10}$}}{3}{11}
+        \flecha{tiene pinta de $\congruencia{\alpha}{2}{10}$}[tabla de restos por si acaso]\\
+		\begin{array}{|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline
+            r_{10}(\alpha)   & 0 & 1 & 2 & 3 & 4 & 5 & 6  & 7 & 8 & 9 \\ \hline
+            r_{11}(5^\alpha) & 1 & 5 & 3 & 4 & 9 & 2 & 10 & 6 & 8 & 7 \\ \hline
+		\end{array}\\
+		\flecha{por lo}[tanto] \text{para que } \congruencia{5^\alpha}{3}{11}
+        \entonces
+        \boxed{\congruencia{\alpha}{2}{10}} \\
+	}$\\
+    El sistema se resuelve para $\congruencia{\alpha}{32}{90}$ y además $0<\alpha \leq 140$ lo que se
+    cumple para $\alpha = 32k + 90 = 
+    \llaves{ll}{
+      90 \text{ si } k = 0\\
+      122 \text{ si } k = 1  
+    } \to \boxed{\divsetP{25^{70}}{ 25^{45}, 25^{61} }} = \set{5^{90}, 5^{122} }  $ 
 
 \end{document}

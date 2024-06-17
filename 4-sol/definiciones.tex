@@ -53,9 +53,10 @@
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
 
 % enteros
-\def\divide{\, | \,}
-\def\noDivide{\centernot\divide}
+\def\dividea{\, | \,}
+\def\noDivide{\centernot\dividea}
 \def\congruente{\, \equiv \,}
+\newcommand{\conga}[1]{\stackrel{(#1)}{\congruente}}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
@@ -76,6 +77,7 @@
 
 
 \newcommand{\llamada}[1]{\stackrel{\cyan{\FiveStar$^{#1}$}} }
+\def\llamadaI{\stackrel{\cyan{$*^1$}}}
 
 % separador\
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}

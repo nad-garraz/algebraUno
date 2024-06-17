@@ -7,7 +7,9 @@
 \def\reales{\mathbb R}
 \def\naturales{\mathbb N}
 \def\enteros{\mathbb Z}
+\def\racionales{\mathbb Q}
 \def\complejos{\mathbb C}
+\def\K{\mathbb K}
 \def\i{\text{i}}
 \def\vacio{\varnothing}
 \def\union{\cup}
@@ -19,6 +21,8 @@
 \def\noEntonces{\centernot\Rightarrow}
 \def\sisolosi{\iff}
 \def\clase{\overline}
+\def\conj{\overline}
+\def\ord{\text{ord}}
 
 
 \def\existe{\,\exists\,}
@@ -52,7 +56,7 @@
 \newcommand{\kmasuno}[1]{\underbrace{#1}_{k+1\text{-ésimo}}}
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
 
-% enteros
+% % enteros
 \def\dividea{\, | \,}
 \def\noDivide{\centernot\dividea}
 \def\congruente{\, \equiv \,}
@@ -88,7 +92,7 @@
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
-  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{}[ ]%
+	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{}[ ]%
 	\section*{\theejercicio.}%
 }
 

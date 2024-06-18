@@ -45,9 +45,22 @@
 
 \maketitle  % para que aprezca el título en el documento
 
+% Macro Local
+\newcommand{\polGen}[1]{\sumatoria{i=0}{n} #1_i X^i}
+
 \section{Definiciones y fórmulas útiles}
+
 \begin{itemize}
-	\item \textit{Algoritmo de división}: $f,g \en K[X]$ no nulos, existen únicos $q$ y $R \en K[X]$ tal que $f = q\cdot g + R$
+	\item \textit{Operaciones: }
+
+	      \begin{itemize}
+		      \item[$+:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \polGen{b}$\\
+		            $\entonces f + g = \sumatoria{i=0}{n} (a_i + b_i) X^i \en \K[X]$
+		      \item[$\cdot:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \sumatoria{j=0}{m} b_j X^j$\\
+                $\entonces f \cdot g = \sumatoria{k=0}{n+m} (\sumatoria{i+j=k}{} a_i \cdot b_j) X^k \en \K[X]$
+	      \end{itemize}
+        \item $(\K[X],+,\cdot) \text{ es un anillo conmutativo } \to f\cdot(g+h) = f\cdot g + f\cdot h,\, \paratodo f,\,g,\,h \en \K[X]$
+	\item \textit{Algoritmo de división}: $f,g \en \K[X]$ no nulos, existen únicos $q$ y $R \en \K[X]$ tal que $f = q\cdot g + R$
 	      con $gr(R) < gr(f)$ o $R = 0$
 
 	\item $\alpha$ es raíz de $f \sisolosi X - \alpha \dividea f \sisolosi f = q \cdot ( X - \alpha)$
@@ -55,7 +68,7 @@
 	\item \textit{Máximo común divisor: } Polinomio mónico de mayor grado que divide a ambos polinomios en $\K[X]$
 	      y vale el algoritmo de Euclides.
 	      \begin{itemize}
-		      \item $(f:g) \dividea f$ y $(f:g) \dividea g$
+		      % \item $(f:g) \dividea f$ y $(f:g) \dividea g$
 
 		      \item $f = (f:g)\cdot k_f$ y $g = (f:g)\cdot k_g$ con $k_f$ y $k_g$ en $\K[X]$
 
@@ -74,10 +87,6 @@
 \ejercicio
 
 \ejercicio
-
-
-
-
 
 
 

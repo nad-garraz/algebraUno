@@ -44,14 +44,34 @@
 \maketitle  % para que aprezca el título en el documento
 
 \section{Definiciones y fórmulas útiles}
-
+\textit{\underline{Raíces de un número complejo: }}
 \begin{itemize}
-	\item $G_n = \set{w \en \complejos / w^n = 1} = \set{e^{\frac{2\pi i k}{n}}\ :\ 0\leq k \leq n}$
+	\item Sean $z, w \en \complejos -\set{0}$, $z = re^{\theta i}$ y $w = se^{\varphi i }$ con $r,\, s \en \reales_{>0}$
+	      y $\theta,\, \varphi \en \reales$.\\ Entonces $z = w \sisolosi
+		      \llave{l}{
+			      r = s\\
+			      \theta = \varphi + 2 k\pi,\ \text{para algún } k \en \enteros
+		      }$
+	\item raíces $n$-esimas: $w^n = z
+		      \to
+		      \llave{l}{
+		      s^n = r \\
+		      \varphi \cdot n = \theta + 2 k \pi \quad\to \text{para algún $k\en \enteros$}\\
+		      \text{$n$ raíces distintas} \to w_k=se^{\varphi_k i}, \text{ donde } s = \sqrt{r} \text{ y }
+		      \varphi_k = \frac{\theta}{n} + \frac{2k\pi}{n} = \frac{\theta + 2k\pi}{n}
+
+
+		      }$
+\end{itemize}
+\begin{itemize}
+	\item $G_n = \set{w \en \complejos / w^n = 1} = \set{e^{\frac{2k \pi}{n} i}\ :\ 0\leq k \leq n-1}$
 
 	\item $(G_n, \cdot)$ es un grupo abeliano, o conmutativo.
 	      \begin{itemize}
-		      \item $\paratodo w, z \en G_n, w\cdot z = z \cdot w \en G_n$.
-		      \item $1 \en G_n,\ w \cdot 1 = 1 \cdot w = w\qquad \paratodo w \en G_n$.
+		      \item $\paratodo w, z \en G_n, w z = z  w \text{ y } z m \en G_n$.
+
+		      \item $1 \en G_n,\ w \cdot 1 = 1 \cdot w = w \qquad \paratodo w \en G_n$.
+
 		      \item $w \en G_n \entonces \existe w^{-1} \en G_n,\ w \cdot w^{-1} = w^{-1}\cdot w = 1$
 		            \begin{itemize}
 			            \item $\conj w \en G_n,\ w \cdot \conj w = |w|^2 = 1 \entonces \conj w = w^{-1}$
@@ -59,23 +79,50 @@
 	      \end{itemize}
 	\item \textit{Propiedades: $w \en G_n$}
 	      \begin{itemize}
-		      \item $m \en \enteros$ y $n \dividea m \entonces w^m = 1$
+		      \item $m \en \enteros$ y $n \divideA m \entonces w^m = 1$.
+
 		      \item $\congruencia{m}{m'}{n} \entonces w^m = w^{m'}\quad (w^m = w^{r_n(m)})$
-		      \item $n \dividea m \sisolosi G_n \subseteq G_m$
+
+		      \item $n \divideA m \sisolosi G_n \subseteq G_m$
+
 		      \item $G_n \inter G_m = G_{(n:m)}$
+
 		      \item Si $(G, \cdot)$ es un grupo y $\#G = n$ decimos que $G$ siempre es cíclico si
 		            $\existe w\en G / G = \set{1,w, w^2,\dots, w^{n-1}}$\\
 		            \begin{itemize}
-			            \item \textit{Observación: } $G_n$ es cíclico, ej, $w := \ub{e^\frac{2\pi i}{n}}{w_1} = \cos(\frac{2\pi}{n}) + i \sin(\frac{2\pi}{n})$
-			            \item $w_1$ genera $G_n = \set{1, w_1, w_1^2,\dots,w_1^{n-1}}$
+			            \item \textit{Observación: } $G_n$ es un grupo cíclico, ej, $w_1 = e^\frac{2\pi i}{n} \to (w_1)^k = w_k$\\
+			                  $\to$ las potencias de $w_1$ generan todo $G_n = \set{1, w_1, w_1^2,\dots,w_1^{n-1}}$
 		            \end{itemize}
-		      \item $w$ es raíz primitiva $n-$ésima de la unidad si: $G_n = \set{1,w,w^2,\dots,w^{n-1}} = \set{i^k\ :\ 0\leq k \leq n-1}$\\
+
+		      \item $w$ es raíz $n-$ésima primitiva de 1 si:
+		            $G_n = \set{1,w,w^2,\dots,w^{n-1}} =
+			            \set{w^k\ :\ 0\leq k \leq n-1}$\\
 		            Ejemplo: $i, -i$ son primitivas de $G_4 = \set{1,i,-1,-i} = \set{i^k\ :\ 0 \leq k \leq 3}$, pero 1 y -1 no son raíces primitivas de $G_4$.
 	      \end{itemize}
-	\item \textit{Definición: } El orden de $w \en G_n$ se define como $\ord(w) = \text{min}\set{k \en \naturales / w^k = 1}$
+	\item \textit{Definición: }
+	      Sea $w$ una raíz primitiva de orden $n$ (el orden de
+	      $w \en G_n,\, \text{ord}(w) = \text{min}\set{k \en \naturales / w^k = 1}$)
 	      \begin{itemize}
-		      \item \textit{Observación: } Si $w \en G_n \entonces \ord(w) \dividea n$
+		      \item $w^m = 1 \sisolosi n \divideA m$
+		      \item \textit{Observación: } Si $w \en G_n \entonces \ord(w) \divideA n$
 	      \end{itemize}
+	\item La suma de las raíces $n$-ésimas de 1 da:
+	      $\sumatoria{k=0}{n-1}w_1^k = \frac{w_1^n -1}{w_1 -1} = 0$ pues $w_1 \distinto 1$
+	\item El producto de las raíces $n$-ésimas de 1 da:
+	      $\productoria{k=0}{n-1} w_1^k = w_1^{0+1+\dots + n-1} =
+		      w_1^{\frac{n(n-1)}{2}} =
+		      \llave{rl}{
+			      1 & \text{si $n$ es impar}\\
+			      -1 & \text{si $n$ es par}
+		      }$
+	\item Sea $w \en G_n$ primitiva. Entonces
+	      \begin{itemize}
+		      \item $w^k \text{ es primitiva } \sisolosi k \cop n $
+		      \item $w_k = e^{\frac{2k\pi}{n}i}$ es primitiva $\sisolosi k \cop n$
+		      \item En particular para $n = p$ primo: $w_k$ es primitiva para $1\leq k < p$ o sea si
+		            $w \en G_p$ y $w \distinto 1$, entonces $w$ es primitiva
+	      \end{itemize}
+        \item $w$ es raíz primitiva de $G_n$ y $k \divideA n \entonces w^k$ es primitiva de $G_\frac{n}{k}$
 \end{itemize}
 
 \subsubsection*{Ejercicios dados en clase:}
@@ -101,13 +148,16 @@
 \ejercicio
 Hallar todos los $n \en \naturales$ tales que
 \begin{enumerate}[label=\roman*)]
-	\item $(\sqrt3 -i)^n = 2^{n-1}(-1 + \sqrt3 i)$ \\
-	      \separadorCorto
-	      $(\sqrt3 -i)^n = 2^n e^{i\frac{11}{12}\pi n} = 2^{n+1}\cdot 2e^{i \frac{2}{3} \pi}
-		      \llave{l}{
-			      2^n = 2^n\\
-			      \frac{11}{12}\pi n = \frac{2}{3}\pi + 2k \pi \to 11n = 8+8k \flecha{8(k+1)} \boxed{\congruencia{n}{0}{8}}
-		      }$
+	\begin{minipage}{0.7\textwidth}
+		\item $(\sqrt3 -i)^n = 2^{n-1}(-1 + \sqrt3 i)$ \\
+		\separadorCorto
+		$(\sqrt3 -i)^n = 2^n e^{i\frac{11}{12}\pi n} = 2^{n+1}\cdot 2e^{i \frac{2}{3} \pi}\\
+			\to
+			\llave{l}{
+				2^n = 2^n\\
+				\frac{11}{12}\pi n = \frac{2}{3}\pi + 2k \pi \to 11n = 8+8k \flecha{8(k+1)} \boxed{\congruencia{n}{0}{8}}
+			}$
+	\end{minipage}
 
 	\item $(-\sqrt3 + i)^n \cdot \parentesis{\frac{1}{2} + \frac{\sqrt3}{2}i}$ es un número real negativo.\\
 	      \separadorCorto
@@ -123,7 +173,25 @@ Hallar todos los $n \en \naturales$ tales que
 
 	\item $\text{arg}((-1+i)^{2n}) = \frac{\pi}{2}$ y $\text{arg}((1-\sqrt3 i)^{n-1}) = \frac{2}{3}\pi$
 	      \separadorCorto
-
-
 \end{enumerate}
+
+\setcounter{ejercicio}{11}
+\ejercicio
+\begin{enumerate}[label=\roman*)] 
+  \item Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$\\ 
+    \separadorCorto
+      Si 
+      $\sumatoria{k=7}{60}w^{4k} =
+      \sumatoria{k=0}{60}w^{4k} - \sumatoria{k=0}{6}w^{4k} =
+      \frac{(w^4)^{61} - 1}{w^4 - 1} - \frac{(w^4)^7 - 1}{w^4 - 1} =
+      \frac{(w^4)^{61} - (w^4)^7 }{w^4 - 1}\\ 
+      \flecha{$61 = 9\cdot6 + 7 $}[$w^36 = 1$]
+      \frac{( (w^{36})^6 \cdot w^7 - (w^4)^7 }{w^4 - 1}
+      \flecha{$w^{36} = 1$}$ \boxed{\sumatoria{k=7}{60}w^{4k} =0}
+
+    \item Sea $w \en G_{11}$, $w \distinto 1.$ Calcular Re$\parentesis{\sumatoria{k=0}{60}w^k}$.\\ 
+      \separadorCorto
+
+ \end{enumerate}
+
 \end{document}

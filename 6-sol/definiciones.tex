@@ -20,6 +20,7 @@
 \def\entonces{\Rightarrow}
 \def\noEntonces{\centernot\Rightarrow}
 \def\sisolosi{\iff}
+\def\sii{\Leftrightarrow}
 \def\clase{\overline}
 \def\conj{\overline}
 \def\ord{\text{ord}}
@@ -64,9 +65,13 @@
 \newcommand{\conga}[1]{\stackrel{(#1)}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
-\newcommand{\ub}[2]{ \underbrace{#1}_{#2} }
-\newcommand{\ob}[2]{ \overbrace{#1}^{#2} }
+\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{#2} }
+\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{#2} }
 \def\cop{\, \perp \, }
+
+% complejos
+\def\re{\mathrm{Re}}
+\def\im{\mathrm{Im}}
 
 
 % =====
@@ -92,7 +97,7 @@
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
-	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{}[ ]%
+	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\separador}[ ]%
 	\section*{\theejercicio.}%
 }
 

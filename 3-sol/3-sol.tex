@@ -1,33 +1,9 @@
-\documentclass[12pt,a4paper, spanish]{article}
-% Sacar draft para que aparezcan las imagenes.
-% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
-% Opciones de clase: article, report, letter, beamer...
+\input{../macros/preamble-general.tex}
 
-% Paquetes:
-% =========
-\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
-\usepackage[T1]{fontenc} % tildes
-\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
-\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{amsmath} % Soporte de mathmatics
-\usepackage{amssymb} % fuentes de mathmatics
-\usepackage{array} % Para tablas y eso
-\usepackage{caption} % Configuracion de figuras y tablas
-\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
-\usepackage{graphicx} % Necesario para poner imagenes
-\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
-\usepackage{multicol} 
-\usepackage{tikz} % para graficar
-\usepackage{cancel}
-\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
-\usepackage{ulem}
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
-% para hacer los graficos tipo grafos
-\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external}
-
-\include{definiciones.tex} % idem con las definiciones
 
 \begin{document}
 
@@ -249,8 +225,8 @@ Sean $A = \set{1,2,3,4,5,6,7}$ y $B = \set{1,2,3,4,5,6,7,8,9,10}$.
 			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
 			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
 		      }
-		      \to\frac{10!}{3!} = \magenta{$\frac{\#B}{\#B - \#A}$
-		      }$
+		      \to\frac{10!}{3!} = \magenta{\frac{\#B}{\#B - \#A} }
+              $
 
 	\item Hay 5 números pares para elegir como imagen de $f(1)$\\
 	      $\llave{c c c c c c c}{
@@ -285,7 +261,7 @@ $\llave{c c c c c c c}{
 		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)\\
 		\multicolumn{3}{c}{\blue{Condiciones pedidas}} & \multicolumn{4}{c}{\green{Lo que resta para completar}}
 	}
-	\to \blue{$5 \cdot 4 \cdot 3$} \cdot \green{$4 \cdot 3 \cdot 2 \cdot 1$} = \frac{5!}{(5-3)!} \cdot 4!$
+	\to \blue{5 \cdot 4 \cdot 3} \cdot \green{4 \cdot 3 \cdot 2 \cdot 1} = \frac{5!}{(5-3)!} \cdot 4!$
 
 %15
 \ejercicio
@@ -645,7 +621,7 @@ $A \relacion B \sisolosi A - B = \vacio.$\\
 
 %30
 \ejercicio
-Sea $X = \set{1,2,3,4,5,\red{$\cancelto{6}{5}$},7,8,9,10}$, y sea $R$ la relación de equivalencia en $\partes(X)$ definida por:
+Sea $X = \set{1,2,3,4,5,\red{\cancelto{6}{5}},7,8,9,10}$, y sea $R$ la relación de equivalencia en $\partes(X)$ definida por:
 $A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.$\\
 ¿Cuántos conjuntos $B \en \partes(X)$ de exactamente 5 elementos tiene la clase de equivalencia $\overline A $ de $A = \set{1,3,5}$?
 

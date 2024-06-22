@@ -1,35 +1,12 @@
-\documentclass[12pt,a4paper, spanish]{article}
-% Sacar draft para que aparezcan las imagenes.
-% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
-% Opciones de clase: article, report, letter, beamer...
+\input{../macros/preamble-general.tex}
 
-% Paquetes:
-% =========
-\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
-\usepackage[T1]{fontenc} % tildes
-\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
-\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{amsmath} % Soporte de mathmatics
-\usepackage{amssymb} % fuentes de mathmatics
-\usepackage{array} % Para tablas y eso
-\usepackage{caption} % Configuracion de figuras y tablas
-\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
-\usepackage{graphicx} % Necesario para poner imagenes
-\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
-\usepackage{multicol} 
-\usepackage{tikz} % para graficar
-\usepackage{cancel}
-\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
-\usepackage{bbding} % símbolos de donde uso FiveStar
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
-% para hacer los graficos tipo grafos
-\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external}
-
-\include{graficos.tex} % Voy a definir graficos fuera del documento para que no sea tan pesada la lectura
-\include{definiciones.tex} % idem con las definiciones
-
+% Voy a definir graficos fuera del documento para que
+% el código quede un poco más limpio
+\include{graficos.tex} 
 
 \begin{document}
 
@@ -108,18 +85,18 @@ $\to \begin{cases}
 			      x \en X \inter Y\\
 			      \o \\
 			      x \en X \inter Z
-		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \checkmark.\\
+		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \Tilde.\\
 
 	\item
 	      Ahora hay que probar la vuelta. Uso razonamiento análogo.
 	      $x \en (X \inter Y) \union (X \inter Z)$, por lo que $x \en X$ y
 	      $
 		      \llaves{c}{
-			      x \en X \inter Y \blue{$\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) $}\\
+			      x \en X \inter Y \blue{\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) }\\
 			      \o               \\
-			      x \en X \inter Z \blue{$\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)$}
+			      x \en X \inter Z \blue{\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)}
 		      }$.
-	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \checkmark}\\
+	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \Tilde}\\
 	      \red{¿Estoy suponiendo cosas que debería demostrar, me estoy salteando pasos?}\\
 	      \blue{Para que la solución quede más creíble usé que $S \subseteq S \union T$ fue el dealbreaker. }
 
@@ -219,7 +196,7 @@ $
 			      B = \set{5,4,3,2,1}
 		      \end{cases}
 		      \flecha{respueta} \quad
-		      A \stacktext{\checkmark}{\subseteq} B$
+		      A \stacktext{\Tilde}{\subseteq} B$
 	\item $\begin{cases}
 			      A = \set{1, 2, 3} \\
 			      B = \set{1,2,\set{3},-3}
@@ -270,7 +247,7 @@ $
 	\item $\quad (A \inter B \inter C)^c \stacktext{(d)}{=} (A \inter B)^c \union C^c \stacktext{(d)}{=} A^c \union B^c \union C^c$
 \end{enumerate}
 \red{Solo eso? Falta demostrar algo de alguna manera más rigurosa?}\\
-\blue{No, con eso sería suficiente \checkmark}
+\blue{No, con eso sería suficiente \Tilde}
 
 %6
 \ejercicio
@@ -285,7 +262,7 @@ $\flecha{del}[gráfico] (C \inter B) - A) \union (A - B) =\\
 	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (A^c \union B^c)=\\
 	= C \inter C \union C \inter B^c \union A\inter C \union A \inter B^c ... \\
 	= C \union C \inter B^c \union A\inter C \union A \inter B^c \red{... esto no puede ser así}\\
-	\blue{efectivamente, no hay que enloquecer, corto en \blue{*} \checkmark }
+	\blue{efectivamente, no hay que enloquecer, corto en \blue{*} \Tilde }
 $
 
 %8
@@ -312,12 +289,12 @@ Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi 
 	      Si $x \en A \entonces \set{x} \en \partes(A)
 		      \flecha{hipótesis}[$\partes(A) \subseteq \partes(B)$] \set{x} \en \partes(B)
 		      \entonces x \en B .$ Absurdo.\\
-	      $\to \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}$\checkmark\red{controlar} \estabien
+	      $\to \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}$\Tilde\red{controlar} \estabien
 
 	\item[$\Leftarrow$)]
 	      $\qvq A \subseteq B \entonces \partes(A) \subseteq \partes(B),\\
 		      \paratodo S \en \partes(A) \sisolosi S \subseteq A \stacktext{hip}{\subseteq} B \entonces S \en \partes(B).\\
-		      \to \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$\checkmark\red{controlar} \estabien
+		      \to \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$\Tilde\red{controlar} \estabien
 \end{itemize}
 
 %10
@@ -421,8 +398,8 @@ Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi 
 		            La proposición es falsa. Dado dos conjunto:\\
 		            \[
 			            \llaves{c}{
-			            \magenta{$A = \set{x \en \reales \talque x \leq 3}$} \\
-			            {\color{green}B = \set{x \en \reales \talque x^2 \leq 2}}
+				            \magenta{A = \set{x \en \reales \talque x \leq 3}} \\
+				            \green{B = \set{x \en \reales \talque x^2 \leq 2}}
 			            } \to \doceiiE
 		            \]
 		            {
@@ -441,13 +418,13 @@ Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi 
 	      $
 		      \begin{array}{|c|c|c|c|}
 			      \hline
-			      p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \to \checkmark                     \\
+			      p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \to \Tilde                     \\
 			      \hline
-			      \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \to \checkmark                     \\
+			      \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \to \Tilde                     \\
 			      \hline
-			      \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \stackrel{?}{=} \universo \to \checkmark             \\
+			      \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \stackrel{?}{=} \universo \to \Tilde             \\
 			      \hline
-			      \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \stackrel{?}{=}\vacio^c=\universo \to \checkmark \\
+			      \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \stackrel{?}{=}\vacio^c=\universo \to \Tilde \\
 			      \hline
 		      \end{array}
 	      $
@@ -728,10 +705,12 @@ antisimétrica, transitiva, de equivalencia o de orden.
 		            que $X \relacion X \sisolosi 2 \notin X \inter X^c$, es decir $2 \notin \vacio$, lo cual es siempre cierto.
 
 		      \item[S:]
-		            La relación no es simétrica. Se puede ver con la \cyan{segunda y tercera} fila de la tabla con un contraejemplo. $X = \set{1}$ y $Y = \set{2},\, X,Y \subseteq A$, $X \relacion Y$, pero $Y \norelacion X$,
+		            La relación no es simétrica. Se puede ver con la \cyan{segunda y tercera} fila de la tabla con un contraejemplo.
+		            $X = \set{1}$ y $Y = \set{2},\, X,Y \subseteq A$, $X \relacion Y$, pero $Y \norelacion X$,
 
 		      \item[AS:]
-		            La relación no es antisimétrica. Se puede ver con la \magenta{primera o cuarta} fila tabla con un contraejempl con un contraejemplo. Si $X = \set{1,2}$ e $Y = \set{2,3} \entonces X \relacion Y$ y además $Y \relacion X$
+		            La relación no es antisimétrica. Se puede ver con la \magenta{primera o cuarta} fila tabla con un contraejempl
+		            con un contraejemplo. Si $X = \set{1,2}$ e $Y = \set{2,3} \entonces X \relacion Y$ y además $Y \relacion X$
 		            con  $X \distinto Y$.
 
 		      \item[T:]
@@ -749,19 +728,22 @@ antisimétrica, transitiva, de equivalencia o de orden.
 				            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \llamada{1}= h\cdot k \cdot ad = k'ad
 			            }$.\\
 		            con  $k'=1$ se cumple la igualdad. La relación es simétrica.
-		      \item[AS:] Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
+		      \item[AS:] Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que
+		            $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
 		            la relación no es antisimétrica.
 		      \item[T:]$
 			            \llave{l}{
 				            (a,b) \relacion (c,d) \sisolosi bc \llamada{1}= k\cdot ad \\
 				            (c,d) \relacion (e,f) \sisolosi de \llamada{1}= h\cdot cf \\
-				            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{$be = k'\cdot af$}\\
+				            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{be = k'\cdot af}\\
 				            \flecha{multiplico}[M.A.M.]
 				            \llaves{l}
 				            {
 					            bc \llamada{1}= k\cdot ad \\
-					            de \llamada{1}= h\cdot cf \\
-				            } \flecha{y}[acomodo] be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to \magenta{$be \stackrel{\checkmark}= k' \cdot af$}.
+					            de \llamada{1}= h\cdot cf
+				            } \flecha{y}[acomodo]
+				            be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to
+				            \magenta{be \stackrel{\Tilde}= k' \cdot af}.
 			            }$\\
 		            Se concluye que la relación es transitiva.
 	      \end{enumerate}
@@ -832,18 +814,18 @@ $x \relacion y \sisolosi x^2 - y^2 = 93x - 93y$
 	\item Primero acomodo la condición de la relación:\\
 	      $x^2 - y^2 = 93x - 93y \flecha{acomodo}
 		      \llave{rrcl}{
-			      \cyan{$*^1$} & x & = & y  \\
+			      \cyan{*^1} & x & = & y  \\
 			      & & \o &\\
-			      \cyan{$*^2$} & x + y & = & 93
+			      \cyan{*^2} & x + y & = & 93
 		      }$\\
 	      Para ser relación de equivalencia es necesario que:\\
 	      $\relacion \to
 		      \llaves{cl}{
-			      R: & \text{Reflexiva} \to x \relacion x \sisolosi x \llamada{1} = x  \checkmark\\
+			      R: & \text{Reflexiva} \to x \relacion x \sisolosi x \llamada{1} = x  \Tilde\\
 			      S: & \text{Simétrica} \to
 			      \llave{l}{
 				      x \relacion y \sisolosi x + y\llamada{1}I = 93\\
-				      y \relacion x \sisolosi y + x \llamada{1}I = 93  \checkmark
+				      y \relacion x \sisolosi y + x \llamada{1}I = 93  \Tilde
 			      }\\
 			      T: & \text{Transitiva} \to
 			      \llave{l}{
@@ -991,7 +973,7 @@ Determinar si las siguientes funciones son inyectivas, sobreyectivas o biyectiva
 			      2n    & \text{si $n$ es par}\\
 			      n - 1 & \text{si $n$ es impar} \\
 		      }$\\
-          \red{Qué onda?}
+	      \red{Qué onda?}
 
 \end{enumerate}
 

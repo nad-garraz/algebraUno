@@ -1,34 +1,19 @@
-\documentclass[12pt,a4paper, spanish]{article}
-% Sacar draft para que aparezcan las imagenes.
-% Opciones: 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
-% Opciones de clase: article, report, letter, beamer...
+\input{../macros/preamble-general.tex}
 
-% Paquetes:
-% =========
-\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
-\usepackage[T1]{fontenc} % tildes
-\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
-\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{amsmath} % Soporte de mathmatics
-\usepackage{amssymb} % fuentes de mathmatics
-\usepackage{array} % Para tablas y eso
-\usepackage{caption} % Configuracion de figuras y tablas
-\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
-\usepackage{graphicx} % Necesario para poner imagenes
-\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
-\usepackage{multicol} 
-\usepackage{tikz} % para graficar
-\usepackage{cancel}
-\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
-
-% para hacer los graficos tipo grafos
-\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
+% Algunos paquetes quizás exclusivos de este archivo que no
+% quiero poner en el preamble-general
+% el día de mañana podría integrarse
 \usetikzlibrary{external,angles,quotes}
 
-\include{graficos.tex} % Voy a definir graficos fuera del documento para que no sea tan pesada la lectura
-\include{definiciones.tex} % idem con las definiciones
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
+% Local acá que se usa mucha inducción
+\def\V{\text{ verdadera }}
+\def\eq?{\stackrel{\text{?}}}
+\def\eqHI{\stackrel{\text{HI}}}
+\def\eqDef{\stackrel{\text{def}}}
 
 \begin{document}
 
@@ -92,7 +77,7 @@
 	      Esto puedo probarse por inducción.
 	      $ \llave{l}{
 			      \text{Proposición:} p(n): a_n = 2^n -1\\
-			      \text{Caso Base: } p(1) \text{ es verdadero?} a_1 = 2^1 -1 =1 \checkmark\\
+			      \text{Caso Base: } p(1) \text{ es verdadero?} a_1 = 2^1 -1 =1 \Tilde\\
 			      \text{Paso inductivo: } p(h) \text{ es verdadero}  \entonces p(h+1) V?\\
 
 			      \llave{l}{
@@ -116,7 +101,7 @@
 $p(n): a_n = 3^n$\\
 
 $\llave{l}{
-		\text{caso base: } a_1 = 3, a_2 =9 \checkmark\\
+		\text{caso base: } a_1 = 3, a_2 =9 \Tilde\\
 		\text{Paso inductivo: } \paratodo h \en \naturales, p(h) \y p(h+1) \ V \entonces p(h+2)\ V\\
 
 		\llave{l}{
@@ -176,7 +161,7 @@ Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
 \begin{enumerate}
 	\item La proposición: $p(n): \frac{(2n)!}{n!^2} \leq (n+1)! $
 
-	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\checkmark
+	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\Tilde
 
 	\item Mi \textbf{HI} es \textit{que vale}  $ \frac{(2h)!}{h!^2} \leq (h+1)! $
 
@@ -185,7 +170,9 @@ Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
 		      \frac{(2h + 2)!}{(h + 1)!^2} \leq (h+2)!$
 
 	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
-	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} = \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{$(2h)!$}}{(h + 1)^2 \cdot \blue{$h!^2$}} \stacktext{HI}\leq   \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{$(h+1)!$} \leq (h+2)!$\\
+	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} =
+		      \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{(2h)!}}{(h + 1)^2 \cdot \blue{h!^2}} \stacktext{HI}\leq
+		      \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{(h+1)!} \leq (h+2)!$\\
 	      Probando esa última desigualdad se prueba lo buscado.
 \end{enumerate}
 
@@ -220,12 +207,18 @@ $\llave{l}{
 		      } \to
 		      \cdots \text{ Se ve que tiene un período de 6 elementos.}\\
 
-		      p(n=2) \V? \to a_8 \eq?=a_2 \checkmark\\
+		      p(n=2) \V? \to a_8 \eq?= a_2 \Tilde\\
 
 		      \textit{Paso inductivo: } \text{Supongo } p(k) \V \entonces p(k+1) \V?\\
-		      \textit{Hipótesis inductiva: } \text{Supongo } a_{k+6} = a_k \paratodo k \in \naturales_0 \V ,\, \qvq a_{k+7} = a_{k+1}\\
-		      \red{$a_{k+7}$} \eqDef= a_{k+6} - a_{k+5} \stacktext{HI}{=} a_k - a_{k+5} \eqDef = a_k - (\underbrace{\textstyle a_k + a_{k+4}}_{a_{k+5}}) = -a_{k+4}\\
-		      \to \red{$a_{k+7}$} = -a_{k+4} \eqDef= -(a_{k+3} - a_{k+2}) \eqDef = -\parentesis{ a_{k+2} - \red{$a_{k+1}$} - a_{k+2} } = \red{$a_{k+1}$}\checkmark
+		      \textit{Hipótesis inductiva: }
+		      \text{Supongo } a_{k+6} = a_k \paratodo k \in \naturales_0 \V ,\, \qvq a_{k+7} = a_{k+1}\\
+		      \red{a_{k+7}} \eqDef=
+		      a_{k+6} - a_{k+5} \stacktext{HI}{=}
+		      a_k - a_{k+5} \eqDef=
+		      a_k - (\ub{ a_k + a_{k+4}}{a_{k+5}}) = -a_{k+4}\\
+		      \to \red{a_{k+7}} = -a_{k+4} \eqDef=
+		      -(a_{k+3} - a_{k+2}) \eqDef =
+		      - ( a_{k+2} - \red{a_{k+1}} - a_{k+2} ) = \red{a_{k+1}} \Tilde
 		      }\\
 	      $\\
 	      Como $p(0) \y p(1) \y \cdots p(5)$ son verdaderas y $p(k)$ es verdadera así como $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n \in \naturales_0$
@@ -250,7 +243,7 @@ $\llave{l}{
 			      -2 & \text{si} & n\mod6 = 5 \\
 		      }\longrightarrow
 	      $
-	      \boxed{\sumatoria{k=0}{255} a_k = 5} \checkmark
+	      \boxed{\sumatoria{k=0}{255} a_k = 5} \Tilde
 \end{enumerate}
 
 \separador
@@ -308,13 +301,13 @@ Calcular
 
 %4
 \ejercicio Calcular \begin{enumerate}[label=\roman*)] \item $\sumatoria{i=0}{n}2^i$\\
-	      $ \sumatoria{i=0}{n}2^i \stackrel{q\neq1} = \frac{\red{2}^{n+1} - 1}{\red{$2$} - 1} = 2^{n+1} - 1 $
+	      $ \sumatoria{i=0}{n}2^i \stackrel{q\neq1} = \frac{\red{2}^{n+1} - 1}{\red{2} - 1} = 2^{n+1} - 1 $
 
 	\item $\sumatoria{i=1}{n} q^i$\\
-	      $\sumatoria{i=1}{n} q^i = \red{$-1 + 1$} + \sumatoria{i=1}{n} q^i = \red{$-1$} + \sumatoria{i = \red{$0$}}{n} q^i =
+	      $\sumatoria{i=1}{n} q^i = \red{-1 + 1} + \sumatoria{i=1}{n} q^i = \red{-1} + \sumatoria{i = \red{0}}{n} q^i =
 		      \llave{lll}{
-			      n + 1 \red{$-1$} = n & \text{si} & q = 1\\
-			      \frac{q^{n+1}-1}{q-1} \red{$-1$} = \frac{q^{n+1} - q}{q-1} & \text{si} & q \distinto 1\\
+			      n + 1 \red{-1} = n & \text{si} & q = 1\\
+			      \frac{q^{n+1}-1}{q-1} \red{-1} = \frac{q^{n+1} - q}{q-1} & \text{si} & q \distinto 1\\
 		      }$
 
 	\item \hacer
@@ -327,18 +320,18 @@ Calcular
 	\item
 	      \hacer
 
-	\item $\underbrace{S = \frac{N(N+1)}{2} = \sumatoria{1}{N} i }_{Gauss} \to \sumatoria{1}{n} 2i -1 = 2 \sumatoria{1}{n}i - \sumatoria{1}{n} 1 = 2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \checkmark $
+	\item $\underbrace{S = \frac{N(N+1)}{2} = \sumatoria{1}{N} i }_{Gauss} \to \sumatoria{1}{n} 2i -1 = 2 \sumatoria{1}{n}i - \sumatoria{1}{n} 1 = 2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \Tilde $
 
 	\item $
 		      \llaves{ l }{
-			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \checkmark\\
-			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \checkmark \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \Tilde\\
+			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \Tilde \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
 			      \sumatoria{1}{k+1} 2i -1 =
 			      \HI{
 				      \sumatoria{1}{k} 2i -1
 			      } + \kmasuno{
 				      2(k+1) -1
-			      } = k^2 + 2k + 1 = (k+1)^2 \green{\checkmark}
+			      } = k^2 + 2k + 1 = (k+1)^2 \green{\Tilde}
 		      } \to \boxed{\sumatoria{i = 1}{n} (2i - 1) = n^2}$
 \end{enumerate}
 
@@ -350,7 +343,7 @@ Calcular
 \ejercicio
 \begin{enumerate}[label=\roman*)]
 	\item $\llave{ l }{
-			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} (-1)^{i+1} i^2 = (-1)^2 \cdot 1 = 1 \checkmark\\
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} (-1)^{i+1} i^2 = (-1)^2 \cdot 1 = 1 \Tilde\\
 			      \text{Paso inductivo }
 			      \llave{ l }{
 				      n = k \to \sumatoria{1}{k} (-1)^{i+1} i^2 = (-1)^{k+1} \frac{k(k+1)}{2} \\
@@ -364,7 +357,7 @@ Calcular
 					      (-1)^{k+2} (k+1)^2
 				      } =\\
 				      (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2 \flecha{acomodar}[fáctor cómun] (-1)^k (k+1)\left[ -\frac{k}{2} + (k+1) \right] =\\
-				      (-1)^k (k+1)\frac{(k+2)}{2} \checkmark
+				      (-1)^k (k+1)\frac{(k+2)}{2} \Tilde
 			      }
 		      }\\ \to
 		      \boxed{\sumatoria{i=1}{n} (-1)^{i+1} i^2 = (-1)^{n+1} \frac{n(n+1)}{2}}
@@ -379,18 +372,28 @@ Calcular
 	\item
 	      $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
 	      $\llave{l}{
-		      \text{Primer caso } n = 1 \to \productoria{i=1}{1} \parentesis{ 1 + a^{2^{i-1}} } = 1 + a^{2^0} = \magenta{$1 + a$} = \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} = \magenta{$1 + a$} \checkmark \\
-		      \text{Paso inductivo } n = k \to \productoria{i=1}{k} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^k}}{1-a} \entonces n = k+1 \to  \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } \eq?= \frac{1-a^{2^{k+1}}}{1-a}\\
+		      \text{Primer caso } n = 1 \to
+		      \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
+		      1 + a^{2^0} = \magenta{1 + a} =
+		      \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
+		      \magenta{1 + a} \Tilde \\
+		      \text{Paso inductivo } n = k \to
+		      \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
+		      \frac{1-a^{2^k}}{1-a} \entonces
+		      n = k+1 \to  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) \eq?=
+		      \frac{1 - a^{2^{k+1}}}{1-a}\\
 		      \llave{l}{
-		      \productoria{i=1}{k+1} \parentesis{ 1 + a^{2^{i-1}} } =
+		      \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) =
 		      \HI{
-			      \productoria{i=1}{k} \parentesis{ 1 + a^{2^k}}
+			      \productoria{i=1}{k} ( 1 + a^{2^k} )
 		      } \cdot
 		      \kmasuno{
 			      1 + a^{2^{i-1}}
 		      }  =
-		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k} \flecha{diferencia}[de cuadrados] \frac{1 - \parentesis{ a^{2^k}}^2}{1-a} =\\
-		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\checkmark
+		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k}
+		      \flecha{diferencia}[de cuadrados]
+		      \frac{1 - ( a^{2^k})^2}{1-a} =\\
+		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\Tilde
 		      }
 		      }
 	      $
@@ -409,14 +412,14 @@ Calcular
 			      \llave{l}{
 				      \productoria{i=1}{k} \frac{k+i}{2i-3} = \frac{k+1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k+3}{2 \cdot 3 - 3} \cdots \frac{2k}{2 \cdot k - 3} = 2^k(1 - 2k)\\
 				      \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = \frac{k+2}{2 \cdot 1 - 3} \cdot \frac{k+3}{2 \cdot 2 - 3} \cdots \frac{k+1 + (k-1)}{2(k-1) - 3} \cdot \frac{k+1 + k}{2k - 3}\cdot \frac{k+1 + (k+1)}{2(k + 1) - 3} \\
-				      \flecha{Masajear: multiplico por $1 = \frac{\cyan{$k+1$}}{\cyan{$k+1$}}$}[corro los denominadores una fracción hacia $\leftarrow$]
-				      \frac{\cyan{$k+1$}}{\cyan{$k+1$}} \cdot \frac{1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{1} = \\
+				      \flecha{Masajear: multiplico por $1 = \frac{\cyan{k+1}}{\cyan{k+1}}$}[corro los denominadores una fracción hacia $\leftarrow$]
+				      \frac{\cyan{k+1}}{\cyan{k+1}} \cdot \frac{1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{1} = \\
 				      \flecha{acomodo para que}[aparezca la HI]
 				      \HI{
-					      \textstyle \frac{\cyan{$k+1$}}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}
-				      }  \cdot \frac{2k+2}{\cyan{$k+1$}} =\\
-				      = 2^k (1 -2k) \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{\cyan{$k+1$}} = 2^k \cancel{(1 - 2k)} \cdot \frac{2k + 1}{(-1)\cancel{(1 - 2k)}}  \cdot \frac{2\cancel{(k + 1)}}{\cancel{\cyan{$k + 1$}}} = 2^{k+1}(-1)(2k + 1)=\\
-				      = 2^{k+1} \parentesis{1 - 2(k+1)} \checkmark
+					      \textstyle \frac{\cyan{k+1}}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}
+				      }  \cdot \frac{2k+2}{\cyan{k+1}} =\\
+				      = 2^k (1 -2k) \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{\cyan{k+1}} = 2^k \cancel{(1 - 2k)} \cdot \frac{2k + 1}{(-1)\cancel{(1 - 2k)}}  \cdot \frac{2\cancel{(k + 1)}}{\cancel{\cyan{k + 1}}} = 2^{k+1}(-1)(2k + 1)=\\
+				      = 2^{k+1} \parentesis{1 - 2(k+1)} \Tilde
 
 			      }
 		      }$
@@ -428,7 +431,7 @@ Calcular
 Sea $a,\, b \en \reales$. Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$. Deducir la fórmula de la serie
 geométrica: para todo $a \neq 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.\\
 $\llave{ l }{
-		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \checkmark\\
+		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \Tilde\\
 		\text{Paso inductivo: } n = k  a^k - b^k = (a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} \entonces
 		a^{k+1} - b^{k+1} \eq?= (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
 		\llave{l}{
@@ -440,14 +443,17 @@ $\llave{ l }{
 			b \cdot
 			\HI{
 				(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}
-			} + (a - b) a^k \eqHI= b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\checkmark
+			} + (a - b) a^k \eqHI= b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\Tilde
 		}\\
 	}$\\
 Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1}{n} a^{i-1} = a^n - 1 \to\\
 	\llave{ l }{
-		(a-1) \sumatoria{1}{n} a^{i-1} =(a-1) \cdot (1 + a + a^2 + \cdots + a^{n-1})  = a^n - 1 \flecha{multiplico por $a$ y}[divido por $(a - 1)$ M.A.M.]\\
-		\sumatoria{1}{n} a^i = a + a^2 + \cdots + a^n  = \frac{a^{n+1} - a}{a-1} \flecha{sumo un $1$}[M.A.M.]
-		\sumatoria{\magenta{$i = 0$}}{n} a^i = 1 + a + a^2 + \cdots + a^n   = \frac{a^n - a}{a-1} + 1 \to\\
+		(a-1) \sumatoria{1}{n} a^{i-1} = 
+        (a-1) \cdot (1 + a + a^2 + \cdots + a^{n-1})  = a^n - 1
+        \flecha{multiplico por $a$ y}[divido por $(a - 1)$ M.A.M.]\\
+		\sumatoria{1}{n} a^i = a + a^2 + \cdots + a^n  = \frac{a^{n+1} - a}{a-1}
+        \flecha{sumo un $1$}[M.A.M.]
+		\sumatoria{\magenta{i = 0}}{n} a^i = 1 + a + a^2 + \cdots + a^n   = \frac{a^n - a}{a-1} + 1 \to\\
 		\boxed{ \frac{a^n + 1}{a-1} =  \sumatoria{i = 0}{n} a^i  }
 	}$
 
@@ -513,15 +519,15 @@ Probar que para todo $n \geq 3$ vale que:
 	      un lado menos, cantidad que viene determinada por $d_{n-1}$. Las líneas punteadas son las diagonales de $d_n$ que no estarán en
 	      $d_{n-1}$. Ahora voy a encontrar una relación entre ambas sucesiones. Al sacan un lado pierdo las \magenta{diagonales} desde $2$ hasta $n-2$ que
 	      serían $n - 3$ en total y además pierdo la {\color{green}diagonal} que conectan el vértice $1$ con el $n-1$:
-	      ${\color{cyan}d_n} = {\color{red}d_{n-1}} + {\color{green}1} +{\color{magenta}n-2} = d_{n-1} + n - 1$
+	      $\cyan{d_n} = \red{d_{n-1}} + \green{1} +\magenta{n-2} = d_{n-1} + n - 1$
 	      $\to {d_n = d_{n-1} + n - 1}$\\
 	      Ahora inducción:\\
 	      $p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3\\
 		      \llave{l}{
-		      \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\checkmark}\\
+		      \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\Tilde}\\
 		      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
 		      \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 } \\
-		      d={k+1} \eqDef = d_k + k-1 \eqHI = \frac{k(k-3)}{2} + k-1 = \frac{k^2 - k - 2}{2} = \frac{(k-2)(k+1)}{2} \checkmark\\
+		      d={k+1} \eqDef = d_k + k-1 \eqHI = \frac{k(k-3)}{2} + k-1 = \frac{k^2 - k - 2}{2} = \frac{(k-2)(k+1)}{2} \Tilde\\
 		      }\\
 	      $
 	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$
@@ -566,13 +572,13 @@ Probar que para todo $n \geq 3$ vale que:
 	      $\alpha_{n+1} = \alpha_n + \pi $. Ahora pruebo por inducción lo pedido.
 	      $p(n): \alpha_n = \pi(n-2) \paratodo n \geq 3$\\
 	      $ \llave{l}{
-			      \textit{Caso Base: } p(3) \V? \to \pi(3-2) = \pi, \text{ lo cual es verdad para el triángulo.\checkmark}\\
+			      \textit{Caso Base: } p(3) \V? \to \pi(3-2) = \pi, \text{ lo cual es verdad para el triángulo.\Tilde}\\
 			      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
 			      \textit{Hipótesis Inductiva: } \alpha_k = \pi(k-2) \entonces \alpha_{k+1} = \pi(k-1) \\
 			      \llaves{l}{
 				      \alpha_k \eqDef = \alpha_{k+1} - \pi\\
 				      \alpha_k \eqHI= \pi(k-2)\\
-			      } \to \alpha_{k+1} = \pi(k-2) + \pi = \pi(k-1)\checkmark
+			      } \to \alpha_{k+1} = \pi(k-2) + \pi = \pi(k-1)\Tilde
 		      }$\\
 	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$\\
 \end{enumerate}
@@ -587,15 +593,15 @@ Probar que para todo $n \geq 3$ vale que:
 \begin{enumerate}[label=\roman*)]
 	\item
 	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
-        $a_1 = 2$ y $a_{n+1} = 2 n a_n+ 2^{n+1}n!,\, \paratodo n \en \naturales$.\\
+	      $a_1 = 2$ y $a_{n+1} = 2 n a_n+ 2^{n+1}n!,\, \paratodo n \en \naturales$.\\
 	      Probar que $a_n = 2^n n!$.\\
-        \magenta{Hecho en cuaderno, pasar}
-        
+	      \magenta{Hecho en cuaderno, pasar}
+
 	\item
 	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
 	      $a_1 = 0$ y $a_{n+1} = a_n + n(3n + 1),\, \paratodo n \en \naturales$\\
-        Probar que $a_n = n^2 (n-1)$.\\
-        \magenta{Hecho en cuaderno, pasar}
+	      Probar que $a_n = n^2 (n-1)$.\\
+	      \magenta{Hecho en cuaderno, pasar}
 
 \end{enumerate}
 
@@ -605,7 +611,6 @@ Hallar la fórmula para el término general de las sucesiones $(a_n)_{n \en \nat
 
 %17
 \ejercicio
-...
 
 \update
 \end{document}

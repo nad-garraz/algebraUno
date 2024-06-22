@@ -1,37 +1,13 @@
-\documentclass[12pt,a4paper, spanish]{article}
-% Sacar draft para que aparezcan las imagenes.
-% Opciones: 12pt, 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
-% Opciones de clase: article, report, letter, beamer...
+\input{../macros/preamble-general.tex}
 
-% Paquetes:
-% =========
-\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
-\usepackage[T1]{fontenc} % tildes
-\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
-\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{amsmath} % Soporte de mathmatics
-\usepackage{amssymb} % fuentes de mathmatics
-\usepackage{array} % Para tablas y eso
-\usepackage{caption} % Configuracion de figuras y tablas
-\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
-\usepackage{graphicx} % Necesario para poner imagenes
-\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
-\usepackage{multicol} 
-\usepackage{tikz} % para graficar
-\usepackage{cancel}
-\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
-\usepackage{ulem}
-\usepackage{centernot} % tacha cosas
-\usepackage{bbding} % símbolos de donde uso FiveStar
-% \usepackage{lipsum}
-\usepackage{polynom} % para hacer división de polinomios
+% Algunos paquetes quizás exclusivos de este archivo que no
+% quiero poner en el preamble-general
+% el día de mañana podría integrarse
+\usepackage{polynom} % para división de polinomios
 
-% para hacer los graficos tipo grafos
-\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external}
-
-\include{definiciones.tex} % idem con las definiciones
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
 \begin{document}
 
@@ -46,28 +22,28 @@
 \section{Definiciones y fórmulas útiles}
 
 \begin{itemize}
-	\item $d$ divide a $a \to d \dividea a \sisolosi \existe k \in \enteros : a = k \cdot d$
+	\item $d$ divide a $a \to d \divideA a \sisolosi \existe k \in \enteros : a = k \cdot d$
 	\item $ \divset{-a}{-|a|,\dots,-1,1,\dots,|a|}$.
-	\item $d \dividea 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
+	\item $d \divideA 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
 	\item $\llave{l}{
-			      d \dividea a \sisolosi -d \dividea a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))\\
-			      d \dividea a \sisolosi d \dividea -a \text{ (pues} a = k \cdot d \sisolosi (-a) = (-k) \cdot d)\\
-			      \entonces d \dividea a \sisolosi |d| \,\dividea\, |a|
+			      d \divideA a \sisolosi -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))\\
+			      d \divideA a \sisolosi d \divideA -a \text{ (pues} a = k \cdot d \sisolosi (-a) = (-k) \cdot d)\\
+			      \entonces d \divideA a \sisolosi |d| \,\divideA\, |a|
 		      }$
 
 	\item $\llave{l}{
-			      d \dividea a \ytext d \dividea b \entonces d \dividea a + b\\
-			      d \dividea a \ytext d \dividea b \entonces d \dividea a - b\\
-			      d \dividea a \entonces d \dividea c \cdot a, \paratodo c \en \enteros\\
-			      d \dividea a \entonces d \dividea c \cdot a\\
-			      d \dividea a \entonces d^2 \dividea a^2 \ytext d^n \dividea a^n  \paratodo n \en \naturales\\
-			      d \dividea a \cdot b \text{ no implica } d \dividea a \o d \dividea b. \text{ Por ejemplo } 6 \dividea 3 \cdot 4
+			      d \divideA a \ytext d \divideA b \entonces d \divideA a + b\\
+			      d \divideA a \ytext d \divideA b \entonces d \divideA a - b\\
+			      d \divideA a \entonces d \divideA c \cdot a, \paratodo c \en \enteros\\
+			      d \divideA a \entonces d \divideA c \cdot a\\
+			      d \divideA a \entonces d^2 \divideA a^2 \ytext d^n \divideA a^n  \paratodo n \en \naturales\\
+			      d \divideA a \cdot b \text{ no implica } d \divideA a \o d \divideA b. \text{ Por ejemplo } 6 \divideA 3 \cdot 4
 		      }$
 
 	\item
 	      $\llave{l}{
-			      \textit{$a$ es congruente a $b$ módulo $d$} \text{ si }   d \dividea a-b \text{. Se nota } \congruencia{a}{b}{d}\\
-			      \congruencia{a}{b}{d} \sisolosi d \dividea a-b
+			      \textit{$a$ es congruente a $b$ módulo $d$} \text{ si }   d \divideA a-b \text{. Se nota } \congruencia{a}{b}{d}\\
+			      \congruencia{a}{b}{d} \sisolosi d \divideA a-b
 		      }$
 
 	\item $
@@ -107,7 +83,7 @@
 
 	\item $\condicionResto{r} \entonces r = r_d(r)$. Un número que cumple condición de resto, es su resto.
 
-	\item $r_d(a) = 0 \sisolosi d \dividea a \sisolosi \congruencia{a}{0}{d}$
+	\item $r_d(a) = 0 \sisolosi d \divideA a \sisolosi \congruencia{a}{0}{d}$
 
 	\item $\congruencia{a}{r_d(a)}{d}$. Tiene mucho sentido.
 
@@ -172,7 +148,7 @@
 	      $\D com_+(a,b) = \D_+(a) \inter \D_+(b) \distinto \vacio
 		      \text{ pues } 1 \en \D com_+(a,b)$.
 	      Se ve también que está acotado por el menor entre $a$ y $b$, pues si
-	      $d \dividea a \y d \dividea b \entonces d \leq |a| \y d \leq|b|$ y es \underline{único}.
+	      $d \divideA a \y d \divideA b \entonces d \leq |a| \y d \leq|b|$ y es \underline{único}.
 
 	\item Sean $a$ y $b \en \enteros$, no ambos nulos.\\
 	      \begin{itemize}
@@ -180,7 +156,7 @@
 		      \item $\mcd = (b:a)$
 		      \item $(a:1) = 1$
 		      \item $(a:0) = |a|,\ \paratodo a \en \enteros -\set{0}$
-		      \item si $b \dividea a \entonces \mcd = |b|$ si $b \en \enteros - \set{0}$
+		      \item si $b \divideA a \entonces \mcd = |b|$ si $b \en \enteros - \set{0}$
 		      \item $\mcd = (a: b+na)$ con $n \en \enteros$
 		      \item $\mcd = (a: r_a(b))$ con $n \en \enteros$
 	      \end{itemize}
@@ -195,9 +171,9 @@
 	      \begin{itemize}
 		      \item Todos los divisores comunes entre $a$ y $b$ dividen al $\mcd$. Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
 		            \[
-			            d \dividea a \ytext d \dividea b \sisolosi d \dividea \ub{\mcd}{\cz}
+			            d \divideA a \ytext d \divideA b \sisolosi d \divideA \ub{\mcd}{\cz}
 		            \].
-		      \item Sea $c \en \enteros$ entonces $\existe s', t' \en \enteros$ con $c = s'a + t'b \sisolosi \mcd \dividea c$.
+		      \item Sea $c \en \enteros$ entonces $\existe s', t' \en \enteros$ con $c = s'a + t'b \sisolosi \mcd \divideA c$.
 		      \item Todos los números múltiplos del MCD se escriben como combinación entera de $a$ y $b$.
 		      \item Si un número es una combinación entera de $a$ y $b$ entonces es un múltiplo del MCD.
 		      \item Sean $a,\ b \en \enteros$ no ambos nulos, y sea $k \en \naturales$
@@ -225,11 +201,11 @@
 
 		      \item Sean $a, c, d \en \enteros$ con $c,d$ no nulos. Entonces:
 		            \[
-			            c \dividea a \ytext d \dividea a \ytext c \cop d \red{$\sisolosi$} c\cdot d \dividea a
+			            c \divideA a \ytext d \divideA a \ytext c \cop d \red{\sisolosi} c\cdot d \divideA a
 		            \]
 		      \item Sean $a, b, d \en \enteros$ con $d \distinto 0$. Entonces:
 		            \[
-			            d \dividea a \cdot b \ytext d \cop a   \entonces d \dividea b
+			            d \divideA a \cdot b \ytext d \cop a   \entonces d \divideA b
 		            \]
 
 	      \end{itemize}
@@ -238,22 +214,22 @@
 	      \begin{itemize}
 		      \item Sea $p$ primo y sean $a,b \en \enteros$. Entonces:
 		            \[
-			            p \dividea a\cdot b \entonces p \dividea a \o p \dividea b
+			            p \divideA a\cdot b \entonces p \divideA a \o p \divideA b
 		            \]
 		      \item \textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores $\to$}\\
 		            Sean $a_1,\dots, a_n \en \enteros$:\\
 		            \begin{center}
 			            $
 				            \llave{l}{
-					            p \dividea a_1 \cdot a_2 \cdots a_n \entonces p \dividea a_i \text{ para algún } i \text{ con } 1 \leq i \leq n.\\
-					            p \dividea a^n \entonces p \dividea a.
+					            p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n.\\
+					            p \divideA a^n \entonces p \divideA a.
 				            }$
 		            \end{center}
 		      \item Si $a \en \enteros$, $p$ primo:\\
 		            \begin{center}
 			            $\llave{l}{
 					            (a:p) = 1 \sisolosi p \noDivide a\\
-					            (a:p) = p \sisolosi p \dividea a
+					            (a:p) = p \sisolosi p \divideA a
 				            }$
 		            \end{center}
 		      \item Sea $n \en \enteros - \set{0},\,
@@ -262,7 +238,7 @@
 		            su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:\\
 		            \[
 			            \llave{c}{
-			            \text{Si } m \dividea n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
+			            \text{Si } m \divideA n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
 			            \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\, 1\leq i \leq k\\
 			            \text{ y hay } \\
 			            (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
@@ -289,7 +265,7 @@
 			            \item $(a^n:a^m) = \mcd^n$
 		            \end{itemize}
 
-		      \item Si $a \dividea m \ \y \  b \dividea m$, entonces $[a:b] \dividea m$
+		      \item Si $a \divideA m \ \y \  b \divideA m$, entonces $[a:b] \divideA m$
 
 		      \item $\mcd \cdot [a:b] = |a \cdot b|$
 	      \end{itemize}
@@ -301,7 +277,7 @@
 $
 	4400
 	\flecha{factorizo} 4400 = 2^4 \cdot 5^2 \cdot 11
-	\flecha{los divisores $m \dividea 4400$}[tendrán la forma]
+	\flecha{los divisores $m \divideA 4400$}[tendrán la forma]
 	m = \pm 2^{\alpha} \cdot 2^{\beta} \cdot 2^{\gamma},\,
 	\text{ con }
 	\llaves{c}{
@@ -337,9 +313,9 @@ $
 	\flecha{como} (n:2^5 \cdot 79) = 2^2 \cdot 79
 	\flecha{tengo}[que]
 	\llave{ll}{
-		\alpha_2 = 2, & \text{dado que $2^2 \cdot 79 \dividea n$. \blue{Recordar que busco el menor $n$!}.}\\
+		\alpha_2 = 2, & \text{dado que $2^2 \cdot 79 \divideA n$. \blue{Recordar que busco el menor $n$!}.}\\
 		\alpha_{79} \geq 1, & \text{Al igual que antes.} \\
-		\flecha{notar}[que] \alpha_3 < 3 &  \text{ si no } 3^3 = 27 \dividea n
+		\flecha{notar}[que] \alpha_3 < 3 &  \text{ si no } 3^3 = 27 \divideA n
 	}\\
 	\flecha{la estrategia sigue con}[el primo más chico que haya]
 	\llave{l}{
@@ -373,24 +349,24 @@ $
 	\flecha{Voy a probar}[que] (3cd : c^2 + d^) = 1.\\
 	\flecha{Supongo que}[no lo fuera] \existe p \to
 	\llave{l}{
-		p \dividea (3cd : c^2 + d^2) \to
+		p \divideA (3cd : c^2 + d^2) \to
 		\llave{l}{
-			p \dividea 3cd \to
+			p \divideA 3cd \to
 			\llave{l}{
-				p \dividea 3  \to p = 3
+				p \divideA 3  \to p = 3
 				\flecha{tabla}[$r_3(c^2 + d^2)$]
 				\llave{lll}{
 					0 & \text{si} & \ub{\congruencia{c,d}{0}{3}}{\magenta{noup! }(c:d) = 1} \\
 					\neq 0 & \text{si} & \text{ otro caso}
 				}\\
-				p \dividea c \to
+				p \divideA c \to
 				\llave{l}{
-					\flecha{como} p \dividea c^2 + d^2 \entonces p \dividea d^2 \to \ub{p \dividea d}{\magenta{noup! } (c:d) = 1} \\
+					\flecha{como} p \divideA c^2 + d^2 \entonces p \divideA d^2 \to \ub{p \divideA d}{\magenta{noup! } (c:d) = 1} \\
 				}\\
-				p \dividea d \to \magenta{noup! idem}\\
+				p \divideA d \to \magenta{noup! idem}\\
 			}
 			\\
-			p \dividea c^2 + d^2
+			p \divideA c^2 + d^2
 		}
 	}
 $\\
@@ -406,28 +382,28 @@ Ejercicio parcial
 \separadorCorto
 Busco independencia de $n$ en algún lado del $\mcd$. Si $ d = (7^{n-1} + 5^{n+2} : 5\cdot 7^n - 5^{n+1})\to\\
 	\llave{l}{
-		d \dividea 7^{n-1} + 5^{n+2} \\
-		d \dividea 5\cdot 7^n - 5^{n+1}
+		d \divideA 7^{n-1} + 5^{n+2} \\
+		d \divideA 5\cdot 7^n - 5^{n+1}
 	}
 	\to
 	\llave{l}{
-		d \dividea \ub{7^{n-1} + 5^{n+2}}{\congruente 2^n\ (5)} \\
-		d \dividea 5 \cdot ( 7^n - 5^n)
+		d \divideA \ub{7^{n-1} + 5^{n+2}}{\congruente 2^n\ (5)} \\
+		d \divideA 5 \cdot ( 7^n - 5^n)
 	}
-	\flecha{$p \noDivide d \y d \dividea p \cdot k$}[$\entonces p \dividea k$]
+	\flecha{$p \noDivide d \y d \divideA p \cdot k$}[$\entonces p \divideA k$]
 	\llave{l}{
-		d \dividea 7^{n-1} + 5^{n+2} \\
-		d \dividea 7^n - 5^n
+		d \divideA 7^{n-1} + 5^{n+2} \\
+		d \divideA 7^n - 5^n
 	}\\
 	\to
 	\llave{l}{
-		d \dividea 176 \cdot 5^n \\
-		d \dividea 7^n - 5^n
+		d \divideA 176 \cdot 5^n \\
+		d \divideA 7^n - 5^n
 	}
-	\flecha{$p \noDivide d \y d \dividea p \cdot k$}[$\entonces p \dividea k$]
+	\flecha{$p \noDivide d \y d \divideA p \cdot k$}[$\entonces p \divideA k$]
 	\llave{l}{
-		d \dividea 176 \\
-		d \dividea 7^n - 5^n
+		d \divideA 176 \\
+		d \divideA 7^n - 5^n
 	}
 	\to d = (176 : 7^n - 5^n) \Tilde\\
 $
@@ -460,15 +436,15 @@ $\llaves{l}{
 		(2k-1)^2 - (2k -1) + 1 \stackrel{(2)}\congruente (-1)^2 -1 + 1 \stackrel{(2)}\congruente 1\\
 		(2k)^2 - (2k) +1 \stackrel{(2)}\congruente (0)^2 - 0 + 1\stackrel{(2)}\congruente 1.
 	}$ Por lo tanto 2 no puede ser un divisor de ambas expresiones  y si $2 \noDivide A \entonces 2 \cdot k \noDivide A$ tampoco.\\
-Se ve fácil contrarecíproco: $\ub{2k}{par} \dividea A \entonces 2 \dividea A$. Porque existe un $k$ tal que
+Se ve fácil contrarecíproco: $\ub{2k}{par} \divideA A \entonces 2 \divideA A$. Porque existe un $k$ tal que
 $2 \cdot c \cdot k = A \entonces 2 \cdot (c\cdot k) = A.$\\
 Ahora cuentas para simplificar la expresión y encontrar número del lado derecho.\\
 $
 	\llave{l}{
-		d \dividea  a^3 + 1\\
-		d \dividea  a^2 -a +1
+		d \divideA  a^3 + 1\\
+		d \divideA  a^2 -a +1
 	}
-	\to d \dividea 30
+	\to d \divideA 30
 	\to\divsetP{d}{1,2,3,5,6,10,15,30}
 	\flecha{por lo de antes}[no hay divisores pares] \divsetP{d}{1,3,5,15}\\
 	\flecha{hacer tabla de restos}[empezar por los números chicos]
@@ -506,12 +482,12 @@ $d =
 	6 \cdot \ub{(2A + B : 3A - 2B)}{D}\\
 	\to d \llamada{2}= 6 D \flecha{busco divisores}[comunes]
 	\llave{l}{
-		D \dividea 2A + B \\
-		D \dividea 3A - 2B \\
+		D \divideA 2A + B \\
+		D \divideA 3A - 2B \\
 	} \flecha{operaciones}[$\dots$]
 	\llave{l}{
-		D \dividea 7B \\
-		D \dividea 7A \\
+		D \divideA 7B \\
+		D \divideA 7A \\
 	}\entonces
 	D = (7A:7B) =7 \cdot (A:B) \llamada{1}= 7$  \\
 Por lo tanto $D \en \divsetP{7}{1,7}$, pero yo quiero encontrar ejemplos de $a$ y $b$:\\
@@ -524,7 +500,7 @@ $\llamada{2}\to
 			\multicolumn{2}{l}{(7:0)\entonces D = 7 \to d = (42:0) = \ub{42}{6\cdot D}}
 		}\\
 
-		\magenta{$\o$} \\
+		\magenta{\o} \\
 		d = 6 \cdot 1 = 6
 		\llave{ll}{
 			\text{Si:} & A = 0 \to a = 0\\
@@ -553,18 +529,18 @@ $d = (a^3 + 4a + 1 : a^2 + 2)
 	\to d = (a^2 + 2 : 2a+1) \Tilde\\
 	\flecha{buscar}[divisores]
 	\llave{l}{
-		d \dividea a^2 + 2\\
-		d \dividea 2a + 1\\
+		d \divideA a^2 + 2\\
+		d \divideA 2a + 1\\
 	}
 	\flecha{$2F_1 - aF_2$}
 	\llave{l}{
-		d \dividea -a + 4\\
-		d \dividea 2a + 1\\
+		d \divideA -a + 4\\
+		d \divideA 2a + 1\\
 	}
 	\flecha{$2F_1 + F_2$}
 	\llave{l}{
-		d \dividea -a + 4\\
-		d \dividea 9\\
+		d \divideA -a + 4\\
+		d \divideA 9\\
 	}\\
 	\to d = (-a+4 : 9)
 	\flecha{divisores}[candidatos a MCD] \set{1,3,9}\Tilde $\\
@@ -573,7 +549,7 @@ Hago tabla de restos 9 y 3, para ver si las expresiones $(a^2 + 2 : 2a+1)$ son d
 
 \noindent$\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
-		r_9(a)       & 0 & 1 & 2 & 3 & \magenta{4} & 5 & 6 & 7 & 8 \\ \hline\hline
+		r_9(a)      & 0 & 1 & 2 & 3 & \magenta{4} & 5  & 6  & 7  & 8  \\ \hline\hline
 		r_9(-a + 4) & 4 & 3 & 2 & 1 & \magenta{0} & -1 & -2 & -3 & -4 \\ \hline
 		% r_9(2a + 1)  & 1 & 3 & 5 & 7 & \magenta{0} & 2 & 4 & 6 & 8 \\ \hline
 	\end{array} \to$ \magenta{$\congruencia{a}{4}{9}$}, valores de $a$ candidatos para obtener MCD.\\
@@ -619,40 +595,40 @@ El MCD \boxed{(a^3 + 4a + 1 : a^2 + 2) =
 Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$:\\
 Calcular
 \begin{enumerate}[label=\roman*)]
-	\item $a \cdot b \dividea c \entonces a \dividea c$ \ y \ $b \dividea c$ \\
+	\item $a \cdot b \divideA c \entonces a \divideA c$ \ y \ $b \divideA c$ \\
 	      \separadorCorto
 
 	      $\llave{l}{
-			      c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \dividea c \Tilde\\
-			      c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \dividea c\Tilde
+			      c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \divideA c \Tilde\\
+			      c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \divideA c\Tilde
 		      }$
 
-	\item $4 \dividea a^2 \entonces 2 \dividea a $\\
+	\item $4 \divideA a^2 \entonces 2 \divideA a $\\
 	      \separadorCorto
 
-	      $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \dividea 2
-		      \flecha{si $a\cdot b \dividea c$}[$\entonces a \dividea c \y b \dividea c$]
-		      a \dividea 2 \Tilde$
+	      $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \divideA 2
+		      \flecha{si $a\cdot b \divideA c$}[$\entonces a \divideA c \y b \divideA c$]
+		      a \divideA 2 \Tilde$
 
-	\item $2 \dividea a \cdot b \entonces 2 \dividea a $ \ o \ $2 \dividea b$\\
+	\item $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$\\
 	      \separadorCorto
 
-	      Si $2 \dividea a \cdot b \entonces
+	      Si $2 \divideA a \cdot b \entonces
 		      \llaves{c}{
 			      a \text{ tiene que ser } par \\
 			      \o \\
 			      b \text{ tiene que ser } par \\
-		      } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \dividea a \cdot b \entonces 2 \dividea a $ \ o \ $2 \dividea b$.
+		      } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$.
 
-	\item $9 \dividea a\cdot b \entonces 9 \dividea a  $ \ o \ $9 \dividea b$\\
+	\item $9 \divideA a\cdot b \entonces 9 \divideA a  $ \ o \ $9 \divideA b$\\
 	      \separadorCorto
 
-	      Si $a = 3 \y b = 3$, se tiene que $9 \dividea 9$, sin embargo $9 \noDivide 3$
+	      Si $a = 3 \y b = 3$, se tiene que $9 \divideA 9$, sin embargo $9 \noDivide 3$
 
-	\item $a \dividea b + c \entonces a \dividea b $ \ o \  $a \dividea c$\\
+	\item $a \divideA b + c \entonces a \divideA b $ \ o \  $a \divideA c$\\
 	      \separadorCorto
 
-	      $12 \dividea 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
+	      $12 \divideA 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
 
 	\item
 	      \separadorCorto
@@ -663,36 +639,36 @@ Calcular
 	\item
 	      \separadorCorto
 	      \hacer
-	\item $a \dividea b + a^2 \entonces a \dividea b$\\
+	\item $a \divideA b + a^2 \entonces a \divideA b$\\
 	      \separadorCorto
 
-	      $  a \dividea b + a^2 \entonces b + a^2 = k \cdot a \flecha{acomodo} b = (k - a) \cdot a = h \cdot a \entonces a | b \Tilde$\\
+	      $  a \divideA b + a^2 \entonces b + a^2 = k \cdot a \flecha{acomodo} b = (k - a) \cdot a = h \cdot a \entonces a | b \Tilde$\\
 	      $ \flecha{también puedo}[decir si:]
 		      \llaves{l}{
-			      a \dividea a^2 \\
-			      a \dividea b - a^2
-		      } \flecha{por}[propiedad] a \dividea (b - a^2) + (a^2) = b \entonces a \dividea b \Tilde $
+			      a \divideA a^2 \\
+			      a \divideA b - a^2
+		      } \flecha{por}[propiedad] a \divideA (b - a^2) + (a^2) = b \entonces a \divideA b \Tilde $
 
 
-	\item $a \dividea b \entonces a^n \dividea b^n, \paratodo n \en \naturales$\\
+	\item $a \divideA b \entonces a^n \divideA b^n, \paratodo n \en \naturales$\\
 	      \separadorCorto
 
-	      Pruebo por inducción. $p(n)\  :\  a \dividea b \entonces a^n \dividea b^n $\\
+	      Pruebo por inducción. $p(n)\  :\  a \divideA b \entonces a^n \divideA b^n $\\
 	      $
 		      \llave{l}{
-			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \dividea b^1 \Tilde\\
+			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \divideA b^1 \Tilde\\
 			      \text{Paso inductivo: } \paratodo h \en \naturales, p(h) \ V \entonces p(h+1)\ V?\\
-			      \text{Si } a \dividea b \entonces a^k \dividea b^k  \entonces a^k \cdot c = b^k
+			      \text{Si } a \divideA b \entonces a^k \divideA b^k  \entonces a^k \cdot c = b^k
 			      \flecha{multiplico por}[$b$ M.A.M]
 			      b \cdot a^k \cdot c = b^{k+1}
-			      \flecha{$a\dividea b$}[$a \cdot d = b$]
+			      \flecha{$a\divideA b$}[$a \cdot d = b$]
 			      a\cdot d \cdot a^k \cdot c =  a^{k+1}\cdot(cd) = b^{k+1}\\
-			      \flecha{concluyendo}[que] a^{k+1} \dividea b^{k+1} \text{como quería mostrarse.}
+			      \flecha{concluyendo}[que] a^{k+1} \divideA b^{k+1} \text{como quería mostrarse.}
 		      }
 	      $ Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
 	      es verdadera $\paratodo n \en \naturales$\\
 	      \textit{Este resultado es importante y se va a ver en muchos ejercicios.\\
-		      $a \dividea b \entonces a^n \dividea b^n \sisolosi
+		      $a \divideA b \entonces a^n \divideA b^n \sisolosi
 			      \congruencia{b}{0}{a} \entonces \congruencia{b^n}{\ub{0}{\stackrel{(a^n)}\congruente a^n}}{a^n} \sisolosi \congruencia{b^n}{a^n}{a^n}$}
 
 
@@ -702,35 +678,35 @@ Calcular
 \ejercicio
 Hallar todos los $n \en \naturales$ tales que:
 \begin{enumerate}[label=\roman*)]
-	\item $3n - 1 \dividea n+7$\\
+	\item $3n - 1 \divideA n+7$\\
 	      \separadorCorto
 
 	      Busco eliminar la $n$ del \textit{miembro} derecho.\\
 	      $\llaves{l}{
-			      3n - 1 \dividea n + 7
-			      \flecha{$a|c \entonces$}[$a \dividea k\cdot c$]
-			      3n - 1 \dividea \red{3} \cdot (n+7) = 3n + 21\\
-			      \flecha{$a \dividea b \y a \dividea c$}[$\entonces a \dividea b \pm c$]
-			      3n-1 \dividea 3n + 21 - (3n -1) = 22
-		      } \to 3n - 1 \dividea 22\\
+			      3n - 1 \divideA n + 7
+			      \flecha{$a|c \entonces$}[$a \divideA k\cdot c$]
+			      3n - 1 \divideA \red{3} \cdot (n+7) = 3n + 21\\
+			      \flecha{$a \divideA b \y a \divideA c$}[$\entonces a \divideA b \pm c$]
+			      3n-1 \divideA 3n + 21 - (3n -1) = 22
+		      } \to 3n - 1 \divideA 22\\
 		      \flecha{busco $n$}[para que] \frac{22}{3n-1} \en \divset{22}{1\pm1, \pm2, \pm11, \pm22} \flecha{probando} n \en \set{1,4} \Tilde$
 	\item
 	\item
 
-	\item $n-2 \dividea n^3 - 8$ \\
+	\item $n-2 \divideA n^3 - 8$ \\
 	      \separadorCorto
 
-	      $\flecha{$a \dividea b$}[$\entonces a \dividea k \cdot b$]
-		      n-2 \dividea \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $ Esto va a dividir para todo $n \distinto 2$\\
+	      $\flecha{$a \divideA b$}[$\entonces a \divideA k \cdot b$]
+		      n-2 \divideA \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $ Esto va a dividir para todo $n \distinto 2$\\
 
 \end{enumerate}
 
 %3
 \ejercicio Sean $a.\,b \en \enteros$.
 \begin{enumerate}[label=\roman*)]
-	\item Probar que $a-b \dividea a^n - b^n$ para todo $n \en \naturales \y a \distinto b \en \enteros$
-	\item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \dividea a^n - b^n$.
-	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \dividea a^n + b^n$.
+	\item Probar que $a-b \divideA a^n - b^n$ para todo $n \en \naturales \y a \distinto b \en \enteros$
+	\item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \divideA a^n - b^n$.
+	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divideA a^n + b^n$.
 \end{enumerate}
 \separadorCorto
 %=============
@@ -740,14 +716,14 @@ Hallar todos los $n \en \naturales$ tales que:
 %FinMacro local
 %=============
 \begin{enumerate}[label=\roman*)]
-	\item  Si $a-b \dividea a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
+	\item  Si $a-b \divideA a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
 		      \llaves{l}{
 			      \congruencia{a}{b}{a-b} \\
 			      \congruencia{a^2}{\ub{a}{\aMenosB b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
 			      \quad\vdots\\
 			      \congruencia{a^n}{b^n}{a-b}
 		      }\\
-		      \to \congruencia{a^n}{b^n}{a-b} \sisolosi a-b \dividea a^n - b^n$
+		      \to \congruencia{a^n}{b^n}{a-b} \sisolosi a-b \divideA a^n - b^n$
 
 	\item  Sé que $\congruencia{a}{-b}{a+b} \sisolosi
 		      \llaves{l}{
@@ -762,8 +738,8 @@ Hallar todos los $n \en \naturales$ tales que:
 		      \llamada{2}{}
 		      \boxed{
 			      \llave{l}{
-				      \text{Con $n$ par: }  \congruencia{a^n}{ b^n}{a+b} \entonces a+b \dividea a^n - b^n  \\
-				      \text{Con $n$ impar: }  \congruencia{a^n}{ - b^n}{a+b} \entonces a+b \dividea a^n + b^n
+				      \text{Con $n$ par: }  \congruencia{a^n}{ b^n}{a+b} \entonces a+b \divideA a^n - b^n  \\
+				      \text{Con $n$ impar: }  \congruencia{a^n}{ - b^n}{a+b} \entonces a+b \divideA a^n + b^n
 			      }
 		      }
 	      $
@@ -771,17 +747,18 @@ Hallar todos los $n \en \naturales$ tales que:
 	      $\llamada{1}{}
 		      \textit{Inducción:}\\
 		      \llave{l}{
-			      p(n)\ :\ \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.\\
+			      p(n)\ :\ \magenta{\congruencia{a}{-b}{a+b}} \entonces
+			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.\\
 			      \textit{Caso base: }\\
 			      p(1)\ :\
-			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
 			      \entonces
-			      \magenta{$\congruencia{a}{-b}{a+b}$} \text{ Verdadero}.\\
+			      \magenta{\congruencia{a}{-b}{a+b}} \text{ Verdadero}.\\
 			      \textit{Hipótesis inductiva: }\\
 			      p(k)\ V \entonces p(k+1)\ V? \\
-			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}
 			      \entonces
-			      \magenta{$\congruencia{a}{-b}{a+b}$} \entonces \congruencia{a^{k+1}}{(-1)^{k+1}\cdot b^{k+1}}{a+b} \\
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^{k+1}}{(-1)^{k+1}\cdot b^{k+1}}{a+b} \\
 			      \text{Parto de } p(k):\\
 			      \llave{l}{
 				      \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}\\
@@ -801,29 +778,29 @@ Hallar todos los $n \en \naturales$ tales que:
 
 	      %4
 	      \ejercicio
-	      Sea $a \in \enteros$ impar. Probar que $2^{n+2} \dividea a^{2^n} - 1$ para todo $n \en \naturales$\\
+	      Sea $a \in \enteros$ impar. Probar que $2^{n+2} \divideA a^{2^n} - 1$ para todo $n \en \naturales$\\
 	      \separadorCorto
 
-	      Pruebo por inducción: $p(n): 2^{n+2} \dividea a^{2^n} - 1$\\
+	      Pruebo por inducción: $p(n): 2^{n+2} \divideA a^{2^n} - 1$\\
 	      $\llaves{l}{
-			      \textit{Caso base: } p(1)\ :\ 2^3 \dividea a^2 - 1 = (a - 1) \cdot (a + 1)
+			      \textit{Caso base: } p(1)\ :\ 2^3 \divideA a^2 - 1 = (a - 1) \cdot (a + 1)
 			      \flecha{$a$ es impar}[$a = 2m -1$] (2m - 2)\cdot(2m) =\\
-			      4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \dividea 8 \cdot h \text{ con $h$ entero.}\Tilde\\
+			      4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \divideA 8 \cdot h \text{ con $h$ entero.}\Tilde\\
 
 			      \textit{Paso inductivo: } p(k) \ V  \entonces p(k+1) \ V? \flecha{es}[decir]
-			      2^{k+2} \dividea a^{2^k} - 1 \entonces  2^{k+3} \dividea a^{2^{k+1}} - 1\ V? \\
+			      2^{k+2} \divideA a^{2^k} - 1 \entonces  2^{k+3} \divideA a^{2^{k+1}} - 1\ V? \\
 
 			      \textit{Hipótesis inductiva: }\\
 			      \llave{l}{
-				      2^{k+3} \dividea a^{2^{k+1}} - 1 \flecha{acomodar}[diferencia cuadrados] 2\cdot 2^k \dividea (a^{2^k})^2 - 1 =\\
+				      2^{k+3} \divideA a^{2^{k+1}} - 1 \flecha{acomodar}[diferencia cuadrados] 2\cdot 2^k \divideA (a^{2^k})^2 - 1 =\\
 				      \ub{ (a^{2^k} - 1) }{\text{par}} \cdot  \ub{(a^{2^k} + 1)}{\text{par}}  \\
 				      \tiny\llaves{lll}{
-					      a \dividea b                 & \sisolosi   & a\cdot k_1 = b\\
-					      c \dividea d                 & \sisolosi   & c\cdot k_2 = d\\ \hline
-					      a\cdot c \dividea b \cdot d  & \sisolosi   & a\cdot c \cdot \ub{k_3}{k_1\cdot k_2} =  b\cdot d
+					      a \divideA b                 & \sisolosi   & a\cdot k_1 = b\\
+					      c \divideA d                 & \sisolosi   & c\cdot k_2 = d\\ \hline
+					      a\cdot c \divideA b \cdot d  & \sisolosi   & a\cdot c \cdot \ub{k_3}{k_1\cdot k_2} =  b\cdot d
 				      }
-				      \flecha{Si $a \stackrel{\tiny HI}\dividea b$ y $c \dividea d$}[$\entonces a\cdot c \dividea b\cdot d$]
-				      \ub{2^{k+2}}{a} \cdot \ub{2}{c}   \dividea  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \dividea a^{2^{k+1}} - 1 \quad V \Tilde
+				      \flecha{Si $a \stackrel{\tiny HI}\divideA b$ y $c \divideA d$}[$\entonces a\cdot c \divideA b\cdot d$]
+				      \ub{2^{k+2}}{a} \cdot \ub{2}{c}   \divideA  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \divideA a^{2^{k+1}} - 1 \quad V \Tilde
 			      }
 		      } $\\
 	      Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
@@ -840,10 +817,10 @@ Hallar todos los $n \en \naturales$ tales que:
 	      %7
 	      \ejercicio
 	      \begin{enumerate}[label=\roman*)]
-		      \item $99 \dividea 10^{2n} + 197$
-		      \item $9 \dividea 7 \cdot 5^{2n} + 2^{4n+1}$
-		      \item $56 \dividea 13^{2n} + 28n^2 - 84n -1$
-		      \item $256 \dividea 7^{2n} + 208n - 1$
+		      \item $99 \divideA 10^{2n} + 197$
+		      \item $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}$
+		      \item $56 \divideA 13^{2n} + 28n^2 - 84n -1$
+		      \item $256 \divideA 7^{2n} + 208n - 1$
 	      \end{enumerate}
 
 	      \separadorCorto
@@ -851,7 +828,7 @@ Hallar todos los $n \en \naturales$ tales que:
 	      \def\cong99{\stackrel{(99)}\congruente}
 	      % fin definicion local
 	      \begin{enumerate}[label=\roman*)]
-		      \item $99 \dividea 10^{2n} + 197 \stackrel{def}{\sisolosi}
+		      \item $99 \divideA 10^{2n} + 197 \stackrel{def}{\sisolosi}
 			            \congruencia{10^{2n} + 197}{0}{99} \to
 			            \congruencia{10^{2n} + 198}{1}{99} \to
 			            \congruencia{10^{2n} + \ub{198}{\cong99 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
@@ -861,7 +838,7 @@ Hallar todos los $n \en \naturales$ tales que:
 				            \red{¿Tengo que demostrar ese renglón por inducción o con "propiedad de congruencia" funciona?}
 			            }
 		            $\\
-		            Se concluye que  $99 \dividea 10^{2n} + 197 \sisolosi 99 \dividea \ub{100 - 1}{99}$
+		            Se concluye que  $99 \divideA 10^{2n} + 197 \sisolosi 99 \divideA \ub{100 - 1}{99}$
 
 
 		      \item
@@ -869,7 +846,7 @@ Hallar todos los $n \en \naturales$ tales que:
 		            \def\cong9{\stackrel{(9)}\congruente}
 		            % fin definicion local
 
-		            $9 \dividea 7 \cdot 5^{2n} + 2^{4n+1}
+		            $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
 			            \stackrel{def}{\sisolosi}
 			            \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
 			            \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
@@ -883,7 +860,7 @@ Hallar todos los $n \en \naturales$ tales que:
 			            \congruencia{25}{16}{9} =
 			            \congruencia{9}{0}{9}\\
 		            $
-		            Se concluye que $9 \dividea 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \dividea 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
+		            Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
 
 		      \item \hacer
 		      \item \hacer
@@ -920,13 +897,13 @@ Hallar todos los $n \en \naturales$ tales que:
 
 
 		            $ \to\llave{l}{
-				            \text{Si: } |b| > 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
-				            \text{Si: } |b| \leq 7 \to (\blue{$q$},\magenta{$r$}) = (3,7)\\
+				            \text{Si: } |b| > 7 \to (\blue{q},\magenta{r}) = (3,7)\\
+				            \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)\\
 				            \footnotesize
 				            \begin{array}{|l|l|l|l|l|l|l|l|}
 					            \hline
-					            (a,b)                      & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
-					            (\blue{$q$},\magenta{$r$}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
+					            (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
+					            (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
 					            \hline
 				            \end{array}
 			            }
@@ -949,19 +926,20 @@ Hallar todos los $n \en \naturales$ tales que:
 	      \end{enumerate}
 	      \separadorCorto
 	      \begin{enumerate}[label=\roman*)]
-		      \item $r_{18}(a) = r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) = r_{18}(21) = 3 $
+		      \item $r_{18}(a) =
+			            r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) =
+			            r_{18}(21) = 3 $
 
 		            \separadorCorto
 
 		      \item $
 			            \llaves{l}{
 				            a = 3 \cdot q + r_3(a)\\
-				            6 \cdot a = 18 \cdot q + \ub{\green{$6 \cdot r_3(a)$}}{r_{18}(6a)}\\
+				            6 \cdot a = 18 \cdot q + \ub{\green{6 \cdot r_3(a)}}{r_{18}(6a)}\\
 			            } \to
 			            r_{18}(6a) = r_{18}( r_{18}(6) \cdot r_{18}(a) ) = r_{18}(30) = 12\\
-			            \entonces \green{$6 \cdot r_3(a)$} = r_{18}(6a) \to  r_3(a) = 2
+			            \entonces \green{6 \cdot r_3(a)} = r_{18}(6a) \to  r_3(a) = 2
 		            $
-
 		            \separadorCorto
 
 		      \item $r_9(4a+1) = \ub{r_9(4 \cdot r_9(a) + 1)}{\blue{*1}} \to\\
@@ -1016,8 +994,8 @@ Hallar todos los $n \en \naturales$ tales que:
 	\item Probar que $\congruencia{a^2}{-1}{5} \sisolosi \congruencia{a}{2}{5}  \o \congruencia{a}{3}{5}$
 	\item Probar que no existe ningún entero $a$ tal que $\congruencia{a^3}{-3}{7}$
 	\item Probar que $\congruencia{a^7}{a}{7} \paratodo a \en \enteros$
-	\item Probar que $7 \dividea a^2 + b^2 \sisolosi 7 \dividea a \y 7 \dividea b.$
-	\item Probar que $5 \dividea a^2 + b^2 + 1 \sisolosi 5 \dividea a \o 5 \dividea b$. ¿Vale la recíproca?
+	\item Probar que $7 \divideA a^2 + b^2 \sisolosi 7 \divideA a \y 7 \divideA b.$
+	\item Probar que $5 \divideA a^2 + b^2 + 1 \sisolosi 5 \divideA a \o 5 \divideA b$. ¿Vale la recíproca?
 \end{enumerate}
 
 \separadorCorto
@@ -1201,17 +1179,17 @@ Sea $a \en \enteros$.
 	      $(a^2-3a+2 : 3a^3 -5a^2) \flecha{Euclides} (\ub{a^2 - 3a + 2}{\llamada{1}{} par} : \ub{6a -8}{\llamada{1}{} par})\\
 		      \flecha{busco}[divisor]
 		      \llaves{l}{
-			      d \dividea a^2 - 3a + 2\\
-			      d \dividea 6a - 8\\
+			      d \divideA a^2 - 3a + 2\\
+			      d \divideA 6a - 8\\
 		      }
 		      \flecha{$\times 6$}[$\times a$]
 		      \llaves{l}{
-			      d \dividea 10a -12\\
-			      d \dividea 6a - 8\\
+			      d \divideA 10a -12\\
+			      d \divideA 6a - 8\\
 		      }
 		      \flecha{$\times 6$}[$\times 10$]
 		      \llaves{l}{
-			      d \dividea 8
+			      d \divideA 8
 		      }\to
 		      \divsetP{8}{1,2,4,8} \llamada{1}= \set{2,4,8}\\
 		      \llave{ll}{
@@ -1229,9 +1207,9 @@ Sea $a \en \enteros$.
 \separadorCorto
 
 $\llaves{ccccc}{
-		d \dividea 7a-3b & \flecha{$\cdot 2$} &d \dividea b  &\to&d \dividea b\\
-		d \dividea 2a-b &\flecha{$\cdot 7$} & d \dividea 2a-b & \to &d \dividea a\\
-	} \flecha{propiedad}[divisor y \mcd] d \dividea (a:b) \flecha{$(a:b)$}[coprimos] d \dividea 1\\
+		d \divideA 7a-3b & \flecha{$\cdot 2$} &d \divideA b  &\to&d \divideA b\\
+		d \divideA 2a-b &\flecha{$\cdot 7$} & d \divideA 2a-b & \to &d \divideA a\\
+	} \flecha{propiedad}[divisor y \mcd] d \divideA (a:b) \flecha{$(a:b)$}[coprimos] d \divideA 1\\
 $ Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.
 %22
 \ejercicio
@@ -1252,7 +1230,7 @@ $ Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.
 	      $\frac{b+4}{a} + \frac{5}{b} =
 		      \frac{b^2 + 4b + 5a}{ab}
 		      \flecha{quiero que}
-		      ab \dividea \frac{b^2 + 4b + 5a}{ab}\\
+		      ab \divideA \frac{b^2 + 4b + 5a}{ab}\\
 		      \flecha{por}[coprimitusibilidad]
 		      \llave{l}{
 			      a | b^2 + 4b +5a \\
@@ -1269,10 +1247,10 @@ $ Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.
 	      $\\
 	      Seguro tengo que $b = \set{\pm1, \pm5} \to$ pruebo valores de $b$ y veo que valor de $a$ queda:\\
 	      $\llave{l}{
-			      b = 1 \to (a\dividea 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)} \\
-			      b = -1 \to (a \dividea -3,1) \to \set{(\pm 1, -1).(\pm 3,1)} \\
-			      b = 5 \to (a \dividea 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
-			      b = -5 \to (a \dividea 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
+			      b = 1 \to (a\divideA 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)} \\
+			      b = -1 \to (a \divideA -3,1) \to \set{(\pm 1, -1).(\pm 3,1)} \\
+			      b = 5 \to (a \divideA 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
+			      b = -5 \to (a \divideA 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
 		      }$
 
 	\item \Hacer
@@ -1289,7 +1267,7 @@ $ Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.
 \ejercicio
 Sea $p$ primo positivo.
 \begin{enumerate}[label=\roman*)]
-	\item Probar que si $0 < k < p \dividea \binom{p}{k}$.
+	\item Probar que si $0 < k < p \divideA \binom{p}{k}$.
 	\item Probar que si $a, b \en \enteros$, entonces $\congruencia{(a+b)^p}{a^p + b^p}{p}$.
 \end{enumerate}
 \separadorCorto

@@ -7,7 +7,9 @@
 \def\reales{\mathbb R}
 \def\naturales{\mathbb N}
 \def\enteros{\mathbb Z}
+\def\racionales{\mathbb Q}
 \def\complejos{\mathbb C}
+\def\K{\mathbb K}
 \def\i{\text{i}}
 \def\vacio{\varnothing}
 \def\union{\cup}
@@ -18,7 +20,10 @@
 \def\entonces{\Rightarrow}
 \def\noEntonces{\centernot\Rightarrow}
 \def\sisolosi{\iff}
+\def\sii{\Leftrightarrow}
 \def\clase{\overline}
+\def\conj{\overline}
+\def\ord{\text{ord}}
 
 
 \def\existe{\,\exists\,}
@@ -52,17 +57,21 @@
 \newcommand{\kmasuno}[1]{\underbrace{#1}_{k+1\text{-ésimo}}}
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
 
-% enteros
-\def\dividea{\, | \,}
-\def\noDivide{\centernot\dividea}
+% % enteros
+\def\divideA{\, | \,}
+\def\noDivide{\centernot\divideA}
 \def\congruente{\, \equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
 \newcommand{\conga}[1]{\stackrel{(#1)}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
-\newcommand{\ub}[2]{ \underbrace{#1}_{#2} }
-\newcommand{\ob}[2]{ \overbrace{#1}^{#2} }
+\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{#2} }
+\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{#2} }
 \def\cop{\, \perp \, }
+
+% complejos
+\def\re{\mathrm{Re}}
+\def\im{\mathrm{Im}}
 
 
 % =====
@@ -76,8 +85,7 @@
 \def\ytext{\quad\text{y}\quad}
 \def\otext{\quad\text{o}\quad}
 
-
-\newcommand{\llamada}[1]{\stackrel{\cyan{\FiveStar$^{#1}$}}{} }
+\newcommand{\llamada}[1]{\stackrel{\cyan{\FiveStar^{#1}}}{} }
 
 % separador\
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
@@ -88,16 +96,16 @@
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
-  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\ejercicio}[ ]%
+	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\separador}[ ]%
 	\section*{\theejercicio.}%
 }
 
 % Colores
-\newcommand{\red}[1]{ {\color{red}\text{#1}}}
-\newcommand{\green}[1]{ {\color{olive}\text{#1}}}
-\newcommand{\blue}[1]{ {\color{Cerulean}\text{#1}}}
-\newcommand{\cyan}[1]{ {\color{cyan} \text{#1}}}
-\newcommand{\magenta}[1]{ {\color{magenta} \text{#1}}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{olive}{#1}}
+\newcommand{\blue}[1]{\textcolor{Cerulean}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
 
 % Conjuntos entre llaves
 \newcommand{\set}[1] { \left\{ #1 \right\} }
@@ -114,4 +122,12 @@
 	}{
 		\xrightarrow[\text{#2}]{\text{#1}}
 	}
+}
+
+%Update tiem
+\def\update{
+	\vspace{1cm}
+	\separador
+	\separador
+	\text{Ultima compilación: }\today\ a las \currenttime
 }

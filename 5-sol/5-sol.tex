@@ -1,38 +1,8 @@
-\documentclass[12pt,a4paper, spanish]{article}
-% Sacar draft para que aparezcan las imagenes.
-% Opciones: 12pt, 10pt, 11pt, landscape, twocolumn, fleqn, leqno...
-% Opciones de clase: article, report, letter, beamer...
+\input{../macros/preamble-general.tex}
 
-% Paquetes:
-% =========
-\usepackage[headheight=110pt, top = 2cm, bottom = 2cm, left=1cm, right=1cm]{geometry} %modifico márgenes
-\usepackage[T1]{fontenc} % tildes
-\usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
-\usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
-\usepackage{amsmath} % Soporte de mathmatics
-\usepackage{amssymb} % fuentes de mathmatics
-\usepackage{array} % Para tablas y eso
-\usepackage{caption} % Configuracion de figuras y tablas
-\usepackage[dvipsnames]{xcolor} % Para colorear el texto: black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
-\usepackage{graphicx} % Necesario para poner imagenes
-\usepackage{enumitem} % Cambiar labels y más flexibilidad para el enumerate
-\usepackage{multicol} 
-\usepackage{tikz} % para graficar
-\usepackage{cancel}
-\usepackage{titlesec} % para editar titulos y hacer secciones con formato a medida
-\usepackage{ulem}
-\usepackage{centernot} % tacha cosas
-\usepackage{bbding} % símbolos de donde uso FiveStar
-\usepackage{skull} % símbolos de donde uso Skull
-% \usepackage{lipsum}
-\usepackage{soul}
-
-% para hacer los graficos tipo grafos
-\usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external}
-
-\include{definiciones.tex} % idem con las definiciones
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
 \begin{document}
 
@@ -52,7 +22,7 @@
 \begin{itemize}
 	\item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \y b \distinto 0$ y sea
 	      $S = \set{ (x,y) \en \enteros^2 : aX + bY = C }$.\\
-	      Entonces $S \distinto \vacio \sisolosi (a:b) \dividea c$
+	      Entonces $S \distinto \vacio \sisolosi (a:b) \divideA c$
 	      % \sisolosi
 	      %  \ub{A}{\frac{a}{\mcd}} x + \ub{B}{\frac{b}{\mcd}} y = \ub{C}{\frac{c}{(a:b)}} \en \enteros$,
 	      % \text{también tiene solución para $x$ y $y$.}
@@ -65,7 +35,7 @@
 			      , k \en \enteros}
 	      $
 
-	\item $\congruencia{aX}{c}{b}$ con $ a,\, b \distinto 0$ tiene solución $\sisolosi \mcd \dividea c$ tiene solución $\sisolosi \mcd \dividea c$. En ese caso, coprimizando:
+	\item $\congruencia{aX}{c}{b}$ con $ a,\, b \distinto 0$ tiene solución $\sisolosi \mcd \divideA c$ tiene solución $\sisolosi \mcd \divideA c$. En ese caso, coprimizando:
 \end{itemize}
 
 \textit\underline{Ecuaciones de congruencia}
@@ -74,7 +44,7 @@
 	\item Algoritmo de solución:
 	      \begin{enumerate}[label=\arabic*)]
 		      \item reducir $a,\, c$ módulo $m$. Podemos suponer $0 \leq a, c < m$
-		      \item tiene solución $\sisolosi (a:m) \dividea c$. Y en ese caso coprimizo:
+		      \item tiene solución $\sisolosi (a:m) \divideA c$. Y en ese caso coprimizo:
 		            \[
 			            \congruencia{aX}{c}{m} \sisolosi \congruencia{a'X}{c'}{m},\ \text{ con } a' = \frac{a}{(a:m)},\, m' = \frac{m}{(a:m)} \text{ y } c' = \frac{c}{(a:m)}
 		            \]
@@ -123,7 +93,7 @@ para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
 	\item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ub{(a:p) = 1}{a \cop p}$, y sea  $d \en \naturales$ con $d \leq p-1$
 	      el mínimo tal que:
 	      \[
-		      \congruencia{a^d}{1}{p} \entonces d \dividea (p-1)
+		      \congruencia{a^d}{1}{p} \entonces d \divideA (p-1)
 	      \]
 \end{itemize}
 
@@ -169,51 +139,49 @@ para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
 
 
 \subsubsection*{Ejercicios dados en clase:}
-\ejercicio Hallar los posibles restos de dividir a $a$ por 70,
-sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$\\
+\ejercicio Hallar los posibles restos de dividir a $a$ por 70, sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$\\
 
 \separadorCorto
 $ (\ub{a^{1081}+ 3a + 17}{m} : \ub{105}{3\cdot 5 \cdot 7})  = \ub{35}{5 \cdot 7}
 	\flecha{notar}[que]
 	\llave{l}{
-		5 \dividea m\\
-		7 \dividea m\\
-		3 \noDivide m \red{ \tiny $\to$ ¡He aquí la más importante info!}
+		5 \divideA m\\
+		7 \divideA m\\
+        3 \noDivide m \red{\to \text{\tiny¡He aquí la más importante info!}}
 	}\\
 	\llave{l}{
-		5 \dividea m
+		5 \divideA m
 		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
 		\to
 		\llave{ll}{
-			\text{si} & 5 \dividea a \to \congruencia{2}{0}{5} \magenta{ ningún $a$ } \skull  \\
+          \text{si} & 5 \divideA a \to \congruencia{2}{0}{5} \magenta{ \text{ningún } a } \skull  \\
 			\text{si} & 5 \noDivide a
 			\flecha{$a^{1081} = a \cdot (a^4)^{270}$}[5 primo y $5 \noDivide a$, fermateo]
 			\congruencia{a + 3a + 2}{0}{5} \to \congruencia{a}{2}{5}\\
-			& \text{si } 5 \dividea m \entonces \boxed{\congruencia{a}{2}{5}}\Tilde
+			& \text{si } 5 \divideA m \entonces \boxed{\congruencia{a}{2}{5}}\Tilde
 		}
 		\\
-		7 \dividea m
+		7 \divideA m
 		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
 		\to
 		\llave{ll}{
-			\text{si} & 7 \dividea a \to \congruencia{3}{0}{7} \magenta{ ningún $a$ } \skull  \\
+          \text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \magenta{ \text{ningún } a } \skull  \\
 			\text{si} & 7 \noDivide a
 			\flecha{$a^{1081} = a \cdot (a^6)^{180}$}[7 primo y $7 \noDivide a$, fermateo]
 			\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}\\
-			& \text{si } 7 \dividea m \entonces \boxed{\congruencia{a}{1}{7}}\Tilde
+			& \text{si } 7 \divideA m \entonces \boxed{\congruencia{a}{1}{7}}\Tilde
 		}
 		\\
 		3 \noDivide m
 		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{3} 2}}{0}{3}
 		\to
 		\llave{ll}{
-			\text{si} & 3 \dividea a \to \congruencia{2}{0}{3}
-			% \flecha{$3\noDivide m$ y $3 \dividea a$}
+			\text{si} & 3 \divideA a \to \congruencia{2}{0}{3}
+			% \flecha{$3\noDivide m$ y $3 \divideA a$}
 			\llave{l}{
-				\text{si } 3 \dividea m \to \congruencia{2}{0}{3} \to \text{\magenta{ningún $a$} $\skull$ , pero } \\
-				\text{quiero } 3 \noDivide m \entonces \magenta{todo $a$} \text{, pero en esta rama}\\
-				3 \dividea a \entonces \text{si } 3\noDivide m \to \boxed{\congruencia{a}{0}{3}} \Tilde
-
+              \text{si } 3 \divideA m \to \congruencia{2}{0}{3} \to \magenta{\text{ningún } a} \skull, \text{ pero} \\
+                \text{quiero } 3 \noDivide m \entonces \magenta{\text{todo } a} \text{, pero en esta rama}\\
+				3 \divideA a \entonces \text{si } 3\noDivide m \to \boxed{\congruencia{a}{0}{3}} \Tilde
 			}\\
 			\text{si} & 3 \noDivide a
 			\flecha{$a^{1081} = a \cdot (a^2)^{540}$}[3 primo y $3 \noDivide a$, fermateo]
@@ -268,38 +236,38 @@ $ \llaves{l}{
 	}$ potencialmente $\ub{8}{(3+1)\cdot (1+1)} $posibles valores distintos $\set{1, 3, 9, 27, 5, 15, 45, 135}$\\
 Como condición mínima para que no sea siempre $(a^{97} - 36 : 135) = 1$ es que
 $\llaves{c}{
-		3 \dividea a^{97} - 36\\
+		3 \divideA a^{97} - 36\\
 		\text{o bien,}\\
-		5 \dividea a^{97} - 36
+		5 \divideA a^{97} - 36
 	}$ si no ocurre ninguna de éstas el MCD será 1.\\
 
 $\llave{l}{
-		5 \dividea a^{97} - 36 \to a^{97} - 36 \conga{5} a^{97} -1 \conga5 0
+		5 \divideA a^{97} - 36 \to a^{97} - 36 \conga{5} a^{97} -1 \conga5 0
 		\to
 		\llave{ll}{
-			\flecha{si}[$5 \dividea a$] & \congruencia{-1}{0}{5}
-			\flecha{ningún $a$ tal que}[$5 \dividea a$ logra que] 5 \dividea a^{97} - 36 \\
+			\flecha{si}[$5 \divideA a$] & \congruencia{-1}{0}{5}
+			\flecha{ningún $a$ tal que}[$5 \divideA a$ logra que] 5 \divideA a^{97} - 36 \\
 
 			\flecha{si}[$5 \noDivide a$] & \congruencia{(a^4)^{24} \cdot a -1 }{0}{5}
 			\flecha{5 primo, $5 \noDivide a$}[$\congruencia{a^4}{1}{5}$]
 			\boxed{\congruencia{a}{1}{5}}
 		}\\
-		\text{Se concluye de esta rama que si } 5 \dividea a^{97} - 36
+		\text{Se concluye de esta rama que si } 5 \divideA a^{97} - 36
 		\entonces
 		\boxed{\congruencia{a}{1}{5}}\llamada3 \Tilde \\
 
 		\separadorCorto
 
-		3 \dividea a^{97} - 36 \to a^{97} - 36 \conga{3} a^{97} \conga3 0
+		3 \divideA a^{97} - 36 \to a^{97} - 36 \conga{3} a^{97} \conga3 0
 		\to
 		\llave{ll}{
-			\flecha{si}[$3 \dividea a$] & \congruencia{0}{0}{3}
-			\flecha{dado que en}[esta rama $a \dividea 3$] \boxed{ \congruencia{a}{0}{3} } \\
+			\flecha{si}[$3 \divideA a$] & \congruencia{0}{0}{3}
+			\flecha{dado que en}[esta rama $a \divideA 3$] \boxed{ \congruencia{a}{0}{3} } \\
 			\flecha{si}[$3 \noDivide a$] & \congruencia{(a^2)^{48} \cdot a}{0}{3}
 			\flecha{3 primo, $3 \noDivide a$}[$\congruencia{a^2}{1}{3} $]
 			\boxed{\congruencia{a}{0}{3}}
 		}\\
-		\text{Se concluye de esta rama que si } 3 \dividea a^{97} - 36
+		\text{Se concluye de esta rama que si } 3 \divideA a^{97} - 36
 		\entonces
 		\boxed{\congruencia{a}{0}{3}}\llamada4 \Tilde
 	}$\\
@@ -316,14 +284,14 @@ $\llaves{c}{
 los posibles MCDs.\\
 
 $\llave{l}{
-		\flecha{\magenta{supongo} $5\dividea a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
+		\flecha{\magenta{supongo} $5\divideA a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
 		a^{197} - 1 \conga{5} 0
 		\to
 		\llave{l}{
-			\flecha{si}[$5 \dividea a$]
+			\flecha{si}[$5 \divideA a$]
 			\congruencia{-1}{0}{5}
-			\flecha{\green{ningún} $a$ tal que}[$5 \dividea a$ logra que] 5 \dividea a^{197} - 26 \\
-			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $5\dividea a$]
+			\flecha{\green{ningún} $a$ tal que}[$5 \divideA a$ logra que] 5 \divideA a^{197} - 26 \\
+			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $5\divideA a$]
 			\congruencia{a}{0}{5}\\
 			\separadorCorto
 			\flecha{si}[$5 \noDivide a$]
@@ -341,14 +309,14 @@ $\llave{l}{
 
 		\separadorCorto
 
-		\flecha{\magenta{supongo} $3\dividea a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
+		\flecha{\magenta{supongo} $3\divideA a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
 		a^{197} - 2 \conga{3} 0
 		\to
 		\llave{l}{
-			\flecha{si}[$3 \dividea a$]
+			\flecha{si}[$3 \divideA a$]
 			\congruencia{-2}{0}{3}
-			\flecha{\green{ningún} $a$ tal que}[$3 \dividea a$ logra que] 3 \dividea a^{197} - 26 \\
-			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $3\dividea a$]
+			\flecha{\green{ningún} $a$ tal que}[$3 \divideA a$ logra que] 3 \divideA a^{197} - 26 \\
+			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $3\divideA a$]
 			\congruencia{a}{0}{3}\\
 			\separadorCorto
 			\flecha{si}[$3 \noDivide a$]
@@ -424,7 +392,7 @@ $
 $
 
 \noindent Después de fumarme eso: $(a^{97} - 36 : 135) \en\set{1,9}$, porque todas las soluciones cumplen que:\\
-$3 \dividea a^{97} \entonces 9 \dividea a^{97}\entonces 27 \dividea a^{97}$ y como $9 \dividea 36$ y $27 \noDivide 36$
+$3 \divideA a^{97} \entonces 9 \divideA a^{97}\entonces 27 \divideA a^{97}$ y como $9 \divideA 36$ y $27 \noDivide 36$
 siempre el mayor divisor de la expresión va a ser 9.
 
 \red{No estoy súper convencido. ¿Podría ocurrir que en algún caso de 27?}\\
@@ -442,18 +410,18 @@ siempre el mayor divisor de la expresión va a ser 9.
 
 %2
 \ejercicio
-Determinar todos los $(a,b)$ que simultáneamente $4 \dividea a,\, 8 \dividea b \y 33a + 9b = 120$.
+Determinar todos los $(a,b)$ que simultáneamente $4 \divideA a,\, 8 \divideA b \y 33a + 9b = 120$.
 
 \separadorCorto
-Si $(33:9) \dividea 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \dividea 120$\Tilde\\
+Si $(33:9) \divideA 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divideA 120$\Tilde\\
 $
 	\llave{l}{
-		4 \dividea a \to a = 4k_1\\
-		8 \dividea b \to b = 8k_2
+		4 \divideA a \to a = 4k_1\\
+		8 \divideA b \to b = 8k_2
 	}
 	\flecha{meto en}[$33a + 9b = 120$]
 	132 k_1 + 72 k_2 = 120
-	\flecha{$(132:72) = 12 \dividea 120$}[coprimizo]
+	\flecha{$(132:72) = 12 \divideA 120$}[coprimizo]
 	11 k_1 + 6 k_2 = 10$ \\
 
 \noindent Busco solución particular con algo parecido a Euclides:\\
@@ -537,7 +505,7 @@ Parecido al \textbf{2.}.\\
 $ \congruencia{b}{2a}{5} \sisolosi b = 5k + 2a
 	\flecha{meto en}[$28a + 10b = 26$]
 	48a + 50k = 26
-	\flecha{$(48:59) = 2$}[$2 \dividea 26$]
+	\flecha{$(48:59) = 2$}[$2 \divideA 26$]
 	24a + 25k = 13
 	\flecha{a}[ojo]
 	\llaves{l}{
@@ -677,15 +645,15 @@ Hallar el resto de la división de:
 		      }\\
 		      \text{Primerlo estudio la ecuación de módulo 7: }\\
 		      \llave{l}{
-			      \congruencia{\sumLocal i^{42}}{X}{7} \llamada1
+                \congruencia{\sumLocal i^{42}}{X}{7} \llamada{1}
 
 			      \flecha{7 es primo, uso \magenta{Fermat}}[si $p \noDivide i \to i^{42} = \congruencia{(i^6)^7}{1}{7}$]
 			      \sumLocal i^{42} = \sumLocal (i^6)^7
 			      \flecha{$251 \cdot 7 + 2 = 1759$}\\
 			      \sumLocal (i^6)^7 \conga7 251 \cdot \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7 + (5^6)^7 + (6^6)^7 + (7^6)^7} + \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7}\\
-			      \sumLocal (i^6)^7 \magenta{$\conga7$ } 251 \cdot \parentesis{1 + 1 + 1 + 1 + 1 + 1 + 0} + \parentesis{1 + 1 + 1 + 1} =
+			      \sumLocal (i^6)^7 \magenta{\conga7 } 251 \cdot \parentesis{1 + 1 + 1 + 1 + 1 + 1 + 0} + \parentesis{1 + 1 + 1 + 1} =
 			      251 \cdot  6 + 4 \conga7 3\\
-			      \flecha{$\llamada1$ } \boxed{\congruencia{X}{3}{7}}\\
+                  \flecha{$\llamada{1}$ } \boxed{\congruencia{X}{3}{7}}\\
 		      }$\\
 	      Ahora se labura el módulo 8.\\
 
@@ -780,11 +748,11 @@ $\to \text{Usaré viejo truco de exponenciales de módulo periódicas:}\\
 
 		\separadorCorto
 
-		\congruencia{5^\alpha}{3}{11}\flecha{a ojo}[$\alpha = 2$] \congruencia{\magenta{$5^2$}}{3}{11} \\
+		\congruencia{5^\alpha}{3}{11}\flecha{a ojo}[$\alpha = 2$] \congruencia{\magenta{5^2}}{3}{11} \\
 		\flecha{fermateo}[11 es primo, $11\noDivide 5$]
-		\congruencia{\green{$5^{10}$}}{1}{11}
+		\congruencia{\green{5^{10}}}{1}{11}
 		\flecha{noto que tengo otro}[cuando hago $5^{12}$]
-		\congruencia{\magenta{$5^2$} \cdot \green{$5^{10}$}}{3}{11}\\
+		\congruencia{\magenta{5^2} \cdot \green{5^{10}}}{3}{11}\\
 		\flecha{para no perder soluciones de $\congruencia{5^\alpha}{3}{11} $}[tabla de restos por las dudas]
 		\begin{array}{|l|l|l|l|l|l|l|l|l|l|l|}
 			\hline

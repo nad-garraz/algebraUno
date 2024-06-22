@@ -30,7 +30,7 @@
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external,angles,quotes}
+\usetikzlibrary{external,angles,quotes,decorations.pathreplacing}
 
 \setlength{\parindent}{0pt} % Para que no haya indentación en las nuevas líneas.
 
@@ -567,19 +567,22 @@ Se define en $\complejos - \set{0}$ la relación $\relacion$ dada por $z \relaci
 				            z \relacion w = r s  e^{(\theta - \varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \\
 				            w \relacion v = r t  e^{(\varphi - \alpha )i} \sisolosi \varphi = 2k_2\pi + \alpha \\
 				            \entonces z \relacion v \sisolosi \theta =  2k_1\pi + \ub{\varphi}{2k_2\pi + \alpha} = 2\pi(k_1 + k_2) + \alpha = 2k_3\pi + \alpha \Tilde
-			            }$
+			            }$\\
 		            La relación $\relacion$ es de equivalencia.
 	      \end{itemize}
 
 	\item
-	      arg$( 1 + i) = \frac{\pi}{4}$ los $w \en \complejos$ tales que $z \relacion w \sisolosi \text{arg}(w) =\frac{1}{4}\pi$ \\
-	      \begin{tikzpicture}[baseline=0,scale = 1.4, every node/.style={font=\tiny}]
-		      \draw[ultra thin,->,gray] (-1.5,0) -- (1.5,0) node[below] {Re};
-		      \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
-		      \draw[magenta] (0,0) -- (2,2) node[right] {$\clase{z}$};
+	      arg$( 1 + i) = \frac{\pi}{4}$ los $w \en \complejos$ tales que $z \relacion w \sisolosi \text{arg}(w) =\frac{1}{4}\pi$
+	      \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]
+		      % \draw[help lines, dashed, step=0.25, ultra thin](-.5,-0.5) grid (1.5,1.5);
+
+		      \draw[ultra thin,->,gray] (-.5,0) -- (1.5,0) node[below] {Re};
+		      \draw[ultra thin,->,gray] (0,-.5) -- (0,1.5) node[right] {Im};
+		      \draw[dotted, magenta, -latex] (0,0) -- (1.5,1.5) node[right] {$\clase{z}$};
 		      % \draw[ultra thin] (0,0) circle (1);
-		      \filldraw[thin] (1,1) circle (1pt) node[below, right] {$z$}; % Added the origin
+		      \filldraw[thin] (1,1) circle (0.5pt) node[above] {$z$}; % Added the origin
 		      \draw[thin] (0,0) circle (2pt); % Added the origin
+		      \draw[thin, decorate,decoration={brace,amplitude=2pt,mirror,raise=1pt}] (0,0) -- (1,1) node[midway,below right] {$\sqrt{2}$} ;
 	      \end{tikzpicture}
 \end{enumerate}
 

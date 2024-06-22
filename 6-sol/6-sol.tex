@@ -26,6 +26,7 @@
 \usepackage{skull} % símbolos de donde uso Skull
 % \usepackage{lipsum}
 \usepackage{soul} % para tachar en mathmode -> \hbox{\sout{$x+1$}}
+\usepackage{bbding} % símbolos de donde uso FiveStar
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
@@ -40,7 +41,7 @@
 
 % Info para armar título.
 \title{Práctica 6 de álgebra 1} % título
-\author{D. Garraz} % autor
+\author{Nad Garraz} % autor
 \date{last update: \today} % Cambiar de ser necesario
 
 \maketitle  % para que aprezca el título en el documento
@@ -62,8 +63,6 @@
 		      \varphi \cdot n = \theta + 2 k \pi \quad\to \text{para algún $k\en \enteros$}\\
 		      \text{$n$ raíces distintas} \to w_k=se^{\varphi_k i}, \text{ donde } s = \sqrt{r} \text{ y }
 		      \varphi_k = \frac{\theta}{n} + \frac{2k\pi}{n} = \frac{\theta + 2k\pi}{n}
-
-
 		      }$
 \end{itemize}
 \begin{itemize}
@@ -195,6 +194,7 @@ Hallar todos los $n \en \naturales$ tales que
 			}$
 	\end{minipage}
 
+
 	\item $(-\sqrt3 + i)^n \cdot \parentesis{\frac{1}{2} + \frac{\sqrt3}{2}i}$ es un número real negativo.\\
 	      \separadorCorto
 	      Un número real negativo tendrá un arg$(z) = \pi$\\
@@ -211,6 +211,7 @@ Hallar todos los $n \en \naturales$ tales que
 
 	      \separadorCorto
 \end{enumerate}
+
 \setcounter{ejercicio}{8}
 
 %9
@@ -408,7 +409,7 @@ Si $w \en G_n \entonces
 
 
 \end{enumerate}
-\newpage
+
 %12
 \ejercicio
 \begin{enumerate}[label=\roman*)]
@@ -424,15 +425,15 @@ Si $w \en G_n \entonces
 
 	      Si
 	      $\sumatoria{k=7}{60}w^{4k} =
-              \ub{\sumatoria{k=7}{60}w^{4k} + \magenta{$\sumatoria{k=0}{6}w^{4k}$}}{\sumatoria{k=0}{60}w^{4k}}
-              - \magenta{$\sumatoria{k=0}{6}w^{4k}$} =
+		      \ub{\sumatoria{k=7}{60}w^{4k} + \magenta{$\sumatoria{k=0}{6}w^{4k}$}}{\sumatoria{k=0}{60}w^{4k}}
+		      - \magenta{$\sumatoria{k=0}{6}w^{4k}$} =
 		      \sumatoria{k=0}{60}w^{4k} - \sumatoria{k=0}{6}w^{4k} =
 		      \frac{(w^4)^{61} - 1}{w^4 - 1} - \frac{(w^4)^7 - 1}{w^4 - 1} =
 		      \frac{(w^4)^{61} - (w^4)^7 }{w^4 - 1}\\
 		      \flecha{$61 = 9\cdot6 + 7 $}[$w^36 = 1$]
-              \frac{((\ob{ \scriptstyle w^{36}}{=1})^6  \cdot (w^4)^7 - (w^4)^7 }{w^4 - 1}
+		      \frac{((\ob{ \scriptstyle w^{36}}{=1})^6  \cdot (w^4)^7 - (w^4)^7 }{w^4 - 1}
 		      \to$
-              \boxed{\sumatoria{k=7}{60}w^{4k} =0}
+	      \boxed{\sumatoria{k=7}{60}w^{4k} =0}
 
 	\item Sea $w \en G_{11}$, $w \distinto 1.$ Calcular $\re\parentesis{\sumatoria{k=0}{60}w^k}$.
 
@@ -450,7 +451,7 @@ Si $w \en G_n \entonces
 
 	      $\sumatoria{k=0}{60}w^k =
 		      w^0 + \dots + w^{60} =
-              5 \cdot \ub{\ob{(w^0 + w^1 + \dots + w^9 + w^{10})}{=0}}{\text{\tiny agrupé usando: }w \en G^{11} \entonces w^k = w^{r_{11}(k)}} +
+		      5 \cdot \ub{\ob{(w^0 + w^1 + \dots + w^9 + w^{10})}{=0}}{\text{\tiny agrupé usando: }w \en G^{11} \entonces w^k = w^{r_{11}(k)}} +
 		      w^{55} + w^{56} + w^{57} + w^{58} + w^{59} + w^{60}=\\
 		      = w^0 + w^1 + w^2 + w^3 + w^4 + w^5 \llamada1
 	      $\\
@@ -461,6 +462,83 @@ Si $w \en G_n \entonces
 		      = w^0 + \ub{w^1 + w^2 + w^3 + w^4 + w^5 + w^0 + w^{10} + w^9 + w^8 + w^7 + w^6}{\sumatoria{k=0}{10} w^k} =
 		      \ub{w^0}{1} + \ub{\sumatoria{k=0}{10} w^k}{= 0} = 1
 	      $
-
 \end{enumerate}
+
+%13
+\ejercicio
+Sea $w = e^{\frac{2\pi}{3}i}$ raíz cúbica de la unidad y sea $(z_n)_{n\en \naturales}$ la sucesión de números
+complejos definida por:
+\[
+	z_1 = 1+w \quad \text{y} \quad z_{n+1} = \conj{1 + z_n^2},\, \paratodo n \en \naturales.
+\]
+Probar que para todo $n \en \naturales$ vale que
+$z_n =
+	\llave{ll}{
+		e^{\frac{2\pi}{6}i}  & \text{si $n$ impar}\\
+		e^{-\frac{2\pi}{6}i}  & \text{si $n$ par}
+	}$. Concluir que $z_n \en G_6$ para todo $n \en \naturales$.
+
+\separadorCorto
+\begin{minipage}{0.8\textwidth}
+	Hay que probar por inducción. Quiero probar:\\
+	$p(n) :
+		z_n =
+		\llave{ll}{
+			e^{\frac{2\pi}{6}i}  & \text{si $n$ impar}\\
+			e^{-\frac{2\pi}{6}i}  & \text{si $n$ par}
+		} \paratodo n \en \naturales\\
+		\textit{Caso base: }\\
+		\llave{l}{
+			p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = e^{\frac{\pi}{3}i} \Tilde\\
+			p(2) : z_2 = \conj{ 1 + z_1^2} = \conj{ 1 + e^{\frac{2\pi}{3}i} } = 1 + e^{-\frac{2\pi}{3}i} = e^{-\frac{\pi}{3}i} \Tilde
+		}$\\
+
+	\textit{Paso inductivo: }\\
+	$\llave{l}{
+			p(2k) : z_{2k} = e^{-\frac{\pi}{3}i} \ \text{Verdadero} \entonces p(2k+2) \  \text{¿Verdadero?}\\
+			p(2k+1) : z_{2k+1} = e^{\frac{\pi}{3}i} \ \text{Verdadero} \entonces p(2k+3) \  \text{¿Verdadero?}
+		}\\
+		\llave{l}{
+			z_{2k+2} = \conj{ 1 + z_{2k+1}^2 }
+			\stackrel{HI}{\sisolosi} z_{2k+2} =
+			\conj{ 1 + e^{\frac{2\pi}{3}i} } =
+			\conj{ e^{\frac{\pi}{3}i} } =
+			e^{-\frac{\pi}{3}i} \Tilde
+			\\
+			z_{2k+3} = \conj{ 1 + z_{2k+2}^2 }
+			\stackrel{HI}{\sisolosi} z_{2k+3} =
+			\conj{ 1 + e^{-\frac{2\pi}{3}i} } =
+			\conj{ e^{-\frac{\pi}{3}i} } =
+			e^{\frac{\pi}{3}i} \Tilde
+		}$\\
+
+	Dado que $p(1), p(2), p(2k),p(2k+1),p(2k+2),p(2k+3)$ resultaron ser verdaderas, entonces
+	por criterio de inducción se concluye que $p(n)$ también lo es $\paratodo n \en \naturales$.\\
+    Dado que la sucesión $z_n$   tiene solo 2 imágenes, para cualquier $n\en \naturales$ se concluye que
+    $z_n \en G_6\ \paratodo n \en \naturales$ 
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+	\begin{tikzpicture}[baseline=0,scale = 1.4, every node/.style={font=\tiny}]
+		\draw[ultra thin,->,gray] (-1.5,0) -- (1.5,0) node[below] {Re};
+		\draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
+		\draw[ultra thin] (0,0) circle (1);
+		\filldraw[thin] (-.5,0) circle (1pt) node[below] {$-\frac{1}{2}$}; % Added the origin
+		\draw[latex-latex, blue] (-.5,0.1) -- (0.5,0.1) node[midway, above]{ 1};
+		\node[right] at (1*360/6:1)  {$e^{\frac{2\pi}{6}i}$} ;
+		\node[right] at (5*360/6:1)  {$e^{-\frac{2\pi}{6}i}$} ;
+		\foreach \x in {0,...,5} {
+				\filldraw (\x*360/6:1) circle (1pt) ;
+				\filldraw (\x*360/6:1.2) node { $\x$};
+				\ifnum\x<6
+					\draw[thick, magenta] (\x*360/6:1) -- ({(\x+1)*360/6}:1);
+				\fi
+				\ifnum\x<3
+					\draw[thick, cyan] ({\x*360/3+360/3}:1) -- ({(\x+1)*360/3+360/3}:1);
+				\fi
+			}
+	\end{tikzpicture}
+\end{minipage}
+
+
+
 \end{document}

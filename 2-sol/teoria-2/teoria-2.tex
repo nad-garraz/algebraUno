@@ -1,0 +1,151 @@
+\subsubsection*{Inducción, números naturales}
+
+\begin{enumerate}
+	\item $\paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}$
+
+	\item $\paratodo n \en \naturales: \sumatoria{i = 0}{n} q^i =
+		      1 + q + q^2 + \cdots  + q^{n-1} + q^n =
+		      \llave{lll}{
+			      n+1 & \text{si} & q = 1\\
+			      \frac{q^{n+1}-1}{q-1} & \text{si} & q \distinto 1\\
+		      }$
+
+	\item Inducción: Sea $H \subseteq \reales$ un conjunto. Se dice que $H$ es un conjunto \textit{inductivo} si se cumplen las dos condiciones siguiente:
+	      \begin{itemize}
+		      \item $1 \in H$
+		      \item $\paratodo x , x \in H \entonces x+1 \en H$
+	      \end{itemize}
+
+	\item Principio de inducción: Sea $p(n), n \in \naturales$ , una afirmación sobre los números naturales.
+	      Si $p$ satisface
+	      \begin{itemize}
+		      \item (Caso Base) $p(1)$ es Verdadera.
+		      \item (Paso inductivo) $\paratodo h \en \naturales,\, p(h)$ \textit{Verdadera}
+		            $\entonces p(h+1)$ \textit{Verdadera, entonces $p(n)$ es Verdadera} $\paratodo n \en \naturales$.
+	      \end{itemize}
+
+	\item Principio de inducción \textit{corrido}: Sea $n_0 \en \enteros$ y sea $p(n),\, n\geq n_0,\,$ una afirmación sobre $\enteros_{\geq n_0}$. Si $p$
+	      satisface:
+	      \begin{itemize}
+		      \item (Caso Base) $p(n_0)$ es Verdadera.
+		      \item (Paso inductivo) $\paratodo h \geq n_0,\, p(h)$ \textit{Verdadera}
+		            $\entonces p(h+1)$ \textit{Verdadera, entonces $p(n)$ es Verdadera} $\paratodo n \en \naturales$.
+	      \end{itemize}
+\end{enumerate}
+
+\begin{enumerate}
+	\item explicación de las torres de Hanoi.
+	      \begin{enumerate}[label=\arabic*)]
+		      \item $a_1 = 1$
+		      \item $a_3 = 7$
+		      \item $a_4 = 15$
+		      \item $a_9 = a_9 +1+a_9 = 2 a_9 +1$
+	      \end{enumerate}
+	      $\to$ \boxed{a{_n+1} = 2a_n + 1}
+
+	\item Una sucesión $(a_n)_{n \en \naturales}$ como las torres de Hanoi $a_1 = 1 \y a_{n+1}= 2a_n + 1, \paratodo n \en \naturales$, es una
+	      sucesión definida por recurrencia.\\
+
+	\item El patrón de las torres de Hanoi parece ser $\underbrace{a_n = 2^n -1 }_{\text{término general}} \paratodo n \en \naturales$.
+	      Esto puedo probarse por inducción.
+	      $ \llave{l}{
+			      \text{Proposición:} p(n): a_n = 2^n -1\\
+			      \text{Caso Base: } p(1) \text{ es verdadero?} a_1 = 2^1 -1 =1 \Tilde\\
+			      \text{Paso inductivo: } p(h) \text{ es verdadero}  \entonces p(h+1) V?\\
+
+			      \llave{l}{
+				      \text{HI}:  a_h = 2^h -1\\
+				      \text{QPQ}: a_{h+1} = 2^{h+1}
+			      } \to \text{cuentas y queda que }  \boxed{ p(n)\ es\ V, \paratodo n \en \naturales}
+		      } $
+
+	\item $\sum$ es una def por recurrencia $\to \sumatoria{k=1}{1} a_k = a_1 \y \sumatoria{k=1}{n+1} a_k =... facil $
+
+\end{enumerate}
+
+
+\textit{Principio de inducción III: } Sea $p(n)$ una proposición sobre $\naturales$. Si se cumple:
+\begin{enumerate}
+	\item  $p(1) \y p(2) \ V$
+	\item $\paratodo h \en \naturales,\, p(h) \y p(h+1),\, V \entonces p(h+2)\ V\ (\text{paso inductivo})$,
+	      entonces $p(n)$ es verdadera.
+\end{enumerate}
+
+$p(n): a_n = 3^n$\\
+
+$\llave{l}{
+		\text{caso base: } a_1 = 3, a_2 =9 \Tilde\\
+		\text{Paso inductivo: } \paratodo h \en \naturales, p(h) \y p(h+1) \ V \entonces p(h+2)\ V\\
+
+		\llave{l}{
+			\text{HI: }  a_h = 3^h \y a_{h+1} = 3^{h+1}\\
+			\text{Quiero probar que: } a_{h+2}= 3^{h+2}\\
+			\text{Usando la fórmula de recurrencia sale enseguida}
+		}
+	}
+$
+
+\textit{Principio de inducción IV } Sea $p(n)$ una proposición sobre $\enteros_{\geq n_0}$. Si se cumple:
+\begin{enumerate}
+	\item  $p(n_0) \y p(n_0 + 1) \ V$
+	\item $\paratodo h \en \enteros_{\geq n_0},\, p(h+1) \y p(h+2)\, V \entonces p(h+2)\ V\ (\text{paso inductivo})$,
+	      entonces $p(n)$ es verdadera. $\paratodo n \geq n_0$\\
+\end{enumerate}
+
+
+\textit{Sucesión de Fibonacci}: $F_0 = 0, F_1 = 1, F_{n+2} = F_{n+1} + F_n, \paratodo n \geq 0$\\
+Truco para sacar fórmulas a partir de Fibo.\\
+$F_{n+2} - F_{n+1} - F_n = 0 \to x^2 - x -1 = 0 =
+	\llaves{ l }{
+		\Phi = \frac{1+\sqrt{5}}{2}\\
+		\tilde\Phi = \frac{1-\sqrt{5}}{2}\\
+	} \to \Phi^2 = \Phi + 1 \y \tilde\Phi^2  =\tilde\Phi + 1 $
+\begin{itemize}
+	\item  defino sucesiones $\Phi^n$ que satisfacen la recurrencia de la sucesión de Fibonacci pero no sus condiciones iniciales.
+	\item puedo formar una combineta lineal talque: $(c_n)_{n\en \naturales_0} = (a\Phi^n + b\tilde\Phi^n)$ es la sucesión que satisface:
+	      $\llave{ l }{
+			      c_o = a+b\\
+			      c_1 = a\Phi + b\tilde\Phi
+		      }$ y la recurrencia de Fibonacci.\\
+	      Resuelvo todo y llego a $\boxed{}$
+\end{itemize}
+
+\textit{Sucesione de Lucas}: Generalizaciones de Fibonacci.$(a_n)_{n\in\naturales_0}$\\
+
+$a_0 = \alpha, a_1 = \beta \y a_{n+2} = \gamma a_{n+1} +\delta a_n,\, \paratodo n \geq 0,\, con \alpha, \beta, \gamma, \delta $ dados.\\
+Esto lo meto en la ecuación característica: $x^2 - \gamma x -\delta = 0$, necesito raíces distintas.
+Notar que $r^2 = \gamma r^1 + \delta$, y lo mismo es para $\tilde r$. Las sucesiones ($r^n$) y ($\tilde r^n$) satisfacen la recurrencia de Lucas,
+pero no las condiciones iniciales $\alpha$ y $\beta$.
+$c_n = (a r^n + b \tilde r^n)$, satisface Lucas, pero las condiciones iniciales son $c_0$ y $c_1$ o
+$
+	\llave{l}{
+		a + b = \alpha\\
+		r a +\tilde b = \beta\\
+	}\to
+	\llave{l}{
+		ra +rb = r\alpha\\
+		ra + \tilde r b = \beta\\
+	}
+$ luego hago lo mismo con $\tilde r$
+Como resultado: $a = \frac{\beta - \tilde r \alpha}{r - \tilde r}$
+
+\section*{Ejercicio fuera de la guía}
+Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
+\begin{enumerate}
+	\item La proposición: $p(n): \frac{(2n)!}{n!^2} \leq (n+1)! $
+
+	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\Tilde
+
+	\item Mi \textbf{HI} es \textit{que vale}  $ \frac{(2h)!}{h!^2} \leq (h+1)! $
+
+	\item Quiero probar que $\frac{(2(h+1))!}{(h+1)!^2} \leq ((h+1)+1)!
+		      \flecha{acomodo}
+		      \frac{(2h + 2)!}{(h + 1)!^2} \leq (h+2)!$
+
+	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
+	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} =
+		      \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{(2h)!}}{(h + 1)^2 \cdot \blue{h!^2}} \stacktext{HI}\leq
+		      \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{(h+1)!} \leq (h+2)!$\\
+	      Probando esa última desigualdad se prueba lo buscado.
+\end{enumerate}
+

@@ -1,0 +1,19 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      \hacer
+
+	\item $\underbrace{S = \frac{N(N+1)}{2} = \sumatoria{1}{N} i }_{Gauss} \to \sumatoria{1}{n} 2i -1 = 2 \sumatoria{1}{n}i - \sumatoria{1}{n} 1 = 2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \Tilde $
+
+	\item $
+		      \llaves{ l }{
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \Tilde\\
+			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \Tilde \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
+			      \sumatoria{1}{k+1} 2i -1 =
+			      \HI{
+				      \sumatoria{1}{k} 2i -1
+			      } + \kmasuno{
+				      2(k+1) -1
+			      } = k^2 + 2k + 1 = (k+1)^2 \green{\Tilde}
+		      } \to \boxed{\sumatoria{i = 1}{n} (2i - 1) = n^2}$
+\end{enumerate}

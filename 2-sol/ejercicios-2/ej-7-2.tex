@@ -1,0 +1,86 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item $\llave{ l }{
+			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} (-1)^{i+1} i^2 = (-1)^2 \cdot 1 = 1 \Tilde\\
+			      \text{Paso inductivo }
+			      \llave{ l }{
+				      n = k \to \sumatoria{1}{k} (-1)^{i+1} i^2 = (-1)^{k+1} \frac{k(k+1)}{2} \\
+				      \entonces\\
+				      n = k+1 \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 \eq?= (-1)^{(k+1)+1} \frac{(k+1)(k+2)}{2}\\
+				      \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 =
+				      \HI{
+					      \sumatoria{1}{k} (-1)^{i+1} i^2
+				      } +
+				      \kmasuno{
+					      (-1)^{k+2} (k+1)^2
+				      } =\\
+				      (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2 \flecha{acomodar}[fáctor cómun] (-1)^k (k+1)\left[ -\frac{k}{2} + (k+1) \right] =\\
+				      (-1)^k (k+1)\frac{(k+2)}{2} \Tilde
+			      }
+		      }\\ \to
+		      \boxed{\sumatoria{i=1}{n} (-1)^{i+1} i^2 = (-1)^{n+1} \frac{n(n+1)}{2}}
+	      $
+
+	\item
+	      \hacer
+
+	\item
+	      \hacer
+
+	\item
+	      $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
+	      $\llave{l}{
+		      \text{Primer caso } n = 1 \to
+		      \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
+		      1 + a^{2^0} = \magenta{1 + a} =
+		      \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
+		      \magenta{1 + a} \Tilde \\
+		      \text{Paso inductivo } n = k \to
+		      \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
+		      \frac{1-a^{2^k}}{1-a} \entonces
+		      n = k+1 \to  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) \eq?=
+		      \frac{1 - a^{2^{k+1}}}{1-a}\\
+		      \llave{l}{
+		      \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) =
+		      \HI{
+			      \productoria{i=1}{k} ( 1 + a^{2^k} )
+		      } \cdot
+		      \kmasuno{
+			      1 + a^{2^{i-1}}
+		      }  =
+		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k}
+		      \flecha{diferencia}[de cuadrados]
+		      \frac{1 - ( a^{2^k})^2}{1-a} =\\
+		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\Tilde
+		      }
+		      }
+	      $
+
+
+
+	\item
+	      $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\\
+	      En este ejercicio conviene abrir la productoria y acomodar los factores. Por inducción:\\
+	      $\llave{l}{
+			      p(n):\ \productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)  \\
+			      \textit{Caso Base: } p(1) \text{ V?} \to \productoria{i=1}{1} \frac{1+i}{2i-3} = \frac{1+1}{2 \cdot 1 - 3} = 2^1 (1 - 2\cdot 1) = -2\\
+			      \textit{Paso inductivo: Supongo } p(k) \text{ Verdadero } \flecha{quiero ver}[que] p(k+1) \text{ Verdadero para algún } k \en \naturales.\\
+			      \textit{Hipótesis inductiva: Supongo } \productoria{i=1}{k} \frac{k+i}{2i-3} = 2^k (1 -2k), \qvq   \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = 2^{k+1} (1 -2(k+1))\\
+
+			      \llave{l}{
+				      \productoria{i=1}{k} \frac{k+i}{2i-3} = \frac{k+1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k+3}{2 \cdot 3 - 3} \cdots \frac{2k}{2 \cdot k - 3} = 2^k(1 - 2k)\\
+				      \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = \frac{k+2}{2 \cdot 1 - 3} \cdot \frac{k+3}{2 \cdot 2 - 3} \cdots \frac{k+1 + (k-1)}{2(k-1) - 3} \cdot \frac{k+1 + k}{2k - 3}\cdot \frac{k+1 + (k+1)}{2(k + 1) - 3} \\
+				      \flecha{Masajear: multiplico por $1 = \frac{\cyan{k+1}}{\cyan{k+1}}$}[corro los denominadores una fracción hacia $\leftarrow$]
+				      \frac{\cyan{k+1}}{\cyan{k+1}} \cdot \frac{1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{1} = \\
+				      \flecha{acomodo para que}[aparezca la HI]
+				      \HI{
+					      \textstyle \frac{\cyan{k+1}}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}
+				      }  \cdot \frac{2k+2}{\cyan{k+1}} =\\
+				      = 2^k (1 -2k) \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{\cyan{k+1}} = 2^k \cancel{(1 - 2k)} \cdot \frac{2k + 1}{(-1)\cancel{(1 - 2k)}}  \cdot \frac{2\cancel{(k + 1)}}{\cancel{\cyan{k + 1}}} = 2^{k+1}(-1)(2k + 1)=\\
+				      = 2^{k+1} \parentesis{1 - 2(k+1)} \Tilde
+
+			      }
+		      }$
+	      Como $p(1)$ es verdadero y $p(k)$ es verdadero y $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n\en \naturales $
+\end{enumerate}
+

@@ -1,0 +1,30 @@
+\ejercicio Determinar cuáles de las siguientes afirmaciones son verdaderas y cualesquiera sean los subconjuntos $A$, $B$ y $C$ de un conjunto referencial $\universo$ y cuáles no.
+Para las que sean verdaderas, dar una demostración, para las otras dar un contraejemplo.
+
+\begin{enumerate}[label=\roman*)]
+	\item $(A \triangle B) - C = (A-C) \triangle (B - C)$. Es verdadera. Pruebo con tabla de verdad.\\
+	      $
+		      \begin{array}{|c|c|c|c|c|c|c|c|c|}
+			      \hline
+			      A & B & C & C^c & A - C & B - C & A \triangle B & (A \triangle B) - C & (A - C) \triangle (B - C) \\
+			      \hline  \hline
+			      V & V & V & F   & F     & F     & F             & F                   & F                         \\
+			      V & V & F & V   & V     & V     & F             & F                   & F                         \\
+			      \hline
+			      V & F & V & F   & F     & F     & V             & F                   & F                         \\
+			      V & F & F & V   & V     & F     & V             & V                   & V                         \\
+			      \hline
+			      F & V & V & F   & F     & F     & V             & F                   & F                         \\
+			      F & V & F & V   & F     & V     & V             & V                   & V                         \\
+			      \hline
+			      F & F & V & F   & F     & F     & F             & F                   & F                         \\
+			      F & F & F & V   & F     & F     & F             & F                   & F                         \\
+			      \hline
+		      \end{array}
+	      $\\
+	      Hay distribución entre la resta y una diferencias simétrica.
+
+	\item $(A \inter B) \triangle C = (A \triangle C) \inter (B \triangle C)$
+	\item $C \subseteq A \entonces B \inter C \subseteq (A \triangle B)^c$
+	\item $A \triangle B = \vacio \sisolosi A = B$
+\end{enumerate}

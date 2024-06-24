@@ -1,0 +1,80 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Decidir si las siguientes proposiciones son verdaderas o falsas, justificando debidamente:
+
+	      \begin{enumerate}[label=(\alph*)]
+		      \item $\paratodo n \en \naturales,\, n \geq 5 \o n \leq 8$.\\
+		            La proposición es verdadera. El conjunto descrito por $\set{ n \en \naturales \talque n \leq 8 \o n \geq 5} = \naturales$\\
+		            \doceiA                        \\
+		            \red{¿Se puede justificar con un gráfico?}
+
+		      \item $\existe n \en \naturales \talque n \geq 5 \y n\leq 8.$\\
+		            La proposición es verdadera, en este caso es cuestión de encontrar solo un valor que cumpla, $n = 6$
+
+		      \item $\paratodo n \en \naturales, \existe m \en \naturales \talque m > n$.\\
+		            La proposición es verdadera, si se elige por ejemplo a $m = n+1$
+
+		      \item $\existe n \en \naturales \talque \paratodo m \en \naturales, m >n$.\\
+		            La proposición es falsa, el único $n \en \naturales$ que no tiene un número menor estricto es el 1. Pero la condición
+		            dice que $\paratodo m \en \naturales$ se debe cumplir y si m $1 \nless 1$
+
+		      \item $\paratodo x \en \reales,\, x > 3 \entonces x^2 > 4$.\\
+		            La proposición es verdadera. Si $x > 3 \entonces x^2 > 9 \flecha{en}[particular] x^2 > 9 > 4 \entonces x^2 > 4$
+
+		      \item Si $z$ es un número real, entonces $z \en \complejos$.\\
+		            Están proponiendo que dado $z \en \reales \entonces z \en \complejos$. Dado que $\reales \subseteq \complejos = \set{a \en \reales,\, b\en \reales \talque a + i b}$, con $i^2 = -1$
+		            Por lo tanto para $b = 0$, podría generar todo $\reales$.
+	      \end{enumerate}
+
+	\item
+	      \begin{enumerate}[label=(\alph*)]
+		      \item $\existe n \en \naturales,\, n < 5 \y n > 8$.\\
+		            $A =  \set{n \en \naturales \talque n < 5 \y n > 8} = \vacio \entonces \noexiste n$ que cumpla lo pedido.\\
+		            \doceiiA \\
+		            \red{¿Se puede justificar con un gráfico?}
+
+		      \item $\paratodo n \en \naturales \talque n < 5 \o n > 8$.\\
+		            La proposición es falsa, $n = 6$ no cumple estar en ese conjunto.
+
+		      \item $\existe n \en \naturales, \paratodo m \en \naturales \talque m \leq n$.\\
+		            La proposición es falsa, porque el conjunto $\naturales$ no tiene un máximo. $n = m+1$.
+
+		      \item $\paratodo n \en \naturales \talque \existe m \en \naturales, m \leq n$.\\
+		            La proposición es verdadera, el único $m \en \naturales$ que cumple eso es el $m = 1$.
+
+		      \item $\existe x \en \reales,\, x \leq 3 \entonces x^2 \leq 4$.\\
+		            La proposición es falsa. Dado dos conjunto:\\
+		            \[
+			            \llaves{c}{
+				            \magenta{A = \set{x \en \reales \talque x \leq 3}} \\
+				            \green{B = \set{x \en \reales \talque x^2 \leq 2}}
+			            } \to \doceiiE
+		            \]
+		            {
+		            \color{red}Si lo pienso como conjuntos, entiendo que $A \nsubseteq B$ entonces es falso.
+		            Pero si leo el enunciado, me confunde el $\existe$, porque 3 sería un contraejemplo
+		            y no se usaban para los $\paratodo$?
+		            }
+
+		      \item Si $z$ no es un número real, entonces $z \notin \complejos$.\\
+		            La proposición es falsa. Están proponiendo que dado $z \notin \reales \entonces z \notin \complejos$. Si $z = i$, se prueba lo contrario.
+		            Dado que $i \notin \reales$, pero  $i \en \complejos$
+	      \end{enumerate}
+
+
+	\item Reescribir las proposiciones (e), (f) usando las equivalencias del ejercicio 10 i)\\
+	      $
+		      \begin{array}{|c|c|c|c|}
+			      \hline
+			      p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \to \Tilde                     \\
+			      \hline
+			      \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \to \Tilde                     \\
+			      \hline
+			      \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \stackrel{?}{=} \universo \to \Tilde             \\
+			      \hline
+			      \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \stackrel{?}{=}\vacio^c=\universo \to \Tilde \\
+			      \hline
+		      \end{array}
+	      $
+\end{enumerate}

@@ -1,0 +1,11 @@
+\ejercicio
+$\flecha{del}[gráfico] (C \inter B) - A) \union (A - B) =\\
+	\flecha{uso que}[$A - B = A \inter B^c$] = (C \inter B \inter A^c) \union (A \inter B^c) \stackrel{\blue{*}}{=}\\
+	\flecha{distributiva} C \union (A \inter B^c) \inter B \union (A \inter B^c) \inter A^c \union (A \inter B^c) =\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (B \union B^c) \inter (A^c \union A) \inter (A^c \union B^c)=\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter \universo \inter \universo \inter (A^c \union B^c)=\\
+	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (A^c \union B^c)=\\
+	= C \inter C \union C \inter B^c \union A\inter C \union A \inter B^c ... \\
+	= C \union C \inter B^c \union A\inter C \union A \inter B^c \red{... esto no puede ser así}\\
+	\blue{efectivamente, no hay que enloquecer, corto en \blue{*} \Tilde }
+$

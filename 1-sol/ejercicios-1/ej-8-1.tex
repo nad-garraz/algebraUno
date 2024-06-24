@@ -1,0 +1,14 @@
+\ejercicio
+Hallar $\partes(A)$, el conjunto partes formado por todos los subconjuntos de A.\\
+$
+	\partes(A) \to
+	\begin{cases}
+		B \en \partes(A) \sisolosi B \subseteq A \\
+		\partes(A) = \set{B \talque B \subseteq A}
+	\end{cases}
+$
+\begin{enumerate}[label=(\roman*)]
+	\item $A = \set{1} \to \partes(A) = \set{\vacio, A}$ \red{controlar}
+	\item $A = \set{a, b} \to \partes(A) = \set{\vacio, \set{a}, \set{b}, A}$
+	\item $A = \set{1, \set{1,2}, 3} \to \partes(A) = \set{\vacio, \set{1},\set{\set{1,2}}, \set{3}, \set{1,\set{1,2}}, \set{1,3},\set{\set{1,2},3}, A }$
+\end{enumerate}

@@ -16,7 +16,7 @@
 % Info para armar título.
 \title{Práctica 6 de álgebra 1} % título
 \author{Nad Garraz} % autor
-\date{last update: \today} % Cambiar de ser necesario
+\date{\update} % Cambiar de ser necesario
 
 \maketitle  % para que aprezca el título en el documento
 
@@ -287,14 +287,16 @@ Si $w \en G_n \entonces
 		w^n = 1 \entonces w^k = w^{r_n(k)}\\
 		\conj w^k = w^{r_n(-k)} \\
 		\sumatoria{k=0}{n-1}w^k = 0\\
-		m \divideA n \entonces G_m \subseteq G_n\\
-		\text{Si } w \en G_p \text{ con $p$ primo} \entonces w \text{es primitiva}
+		m \divideA n \entonces G_m \subseteq G_n,\text{ lo uso para saber con cuales raíces hay que tener cuidado}\\
+		\text{Si } w \en G_p \text{ con $p$ primo } \entonces w \text{ es primitiva}
 		w^k \text{es primitiva} \sisolosi k \cop n
 	}$\\
+
 \begin{enumerate}[label=\roman*)]
 	\item Calcular $w + \conj w + (w + w^2)^2 - w^{38}(1 - w^2)$ para cada $w \en G_7$.
 
 	      \separadorCorto
+	      Raíces de $G_7$ de interés: 7 es primo e impar $\entonces w = 1$ se hace a parte.\\
 	      \textit{Si} $w = 1$: \\
 	      $w + \conj w + (w + w^2)^2 - w^{38}(1 - w^2) = 6$\\
 
@@ -306,6 +308,7 @@ Si $w \en G_n \entonces
 	\item Calcular $w^{73} + \conj w \cdot w^9 + 8$ para cada $w\en G_3$.
 
 	      \separadorCorto
+	      Raíces de $G_3$ de interés: 3 es primo e impar $\entonces w = 1$ se hace a parte.\\
 	      \textit{Si} $w = 1$: \\
 	      $w^{73} + \conj w \cdot w^9 + 8 = 10 $\\
 
@@ -316,23 +319,37 @@ Si $w \en G_n \entonces
 	\item Calcular $1 + w^2 + w^{-2} + w^4 + w^{-4}$ para cada $w\en G_{10}$.
 
 	      \separadorCorto
-	      \red{Me falta harto golpe de horno para entender lo que pasa acá}\\
-	      \red{¿Cómo tengo que interpretar la info de $G_5 \subseteq G_{10}$ está proveyendo?}\\
+	      % \red{Me falta harto golpe de horno para entender lo que pasa acá}\\
+	      % \red{¿Cómo tengo que interpretar la info de $G_5 \subseteq G_{10}$ está proveyendo?}\\
+	      Raíces de $G_{10}$ de interés: $2 \divideA 10 \y 5 \divideA 10$. $10$ es par $\entonces w = \pm1$ y
+	      raíces de $G_2$ y de $G_5$ se hacen a parte.\\
 
-	      \begin{minipage}{0.65\textwidth}
-		      \textit{Si} $w = \pm1$: \\
-		      $1 + w^2 + w^{-2} + w^4 + w^{-4} = 5$\\
+	      \begin{minipage}{0.6\textwidth}
+		      \begin{itemize}
+			      \item \textit{Si} $w = \pm1$: \\
+			            $1 + w^2 + w^{-2} + w^4 + w^{-4} = 5$ \Tilde\\
 
-		      \textit{Si} $w \distinto \pm1$: \\
-		      $1 + w^2 + w^{-2} + w^4 + w^{-4} = 1 + w^2 + w^8 + w^4 + w^6\\
-			      \llave{l}{
-				      \flecha{\red{¿justificar?}}[$\magenta{G_5}$]
-				      1 + w^2 + w^3 + w^4 + w^5 = 0\\
-				      \flecha{\red{¿justificar?}}[$\cyan{G_5}$]
-				      1 + \magenta{1} + \ub{\magenta{-1} + w^2 + w^3 + w^4 + w^5}{ = 0} = 2
-			      }$
+			      \item \textit{Si} $w \en G_5 \text{ y } w \distinto \pm1$: \\
+			            $1 + w^2 + w^{-2} + w^4 + w^{-4} = 1 + w^2 + w^3 + w^4 + w^1 = 0$\Tilde\\
+
+			      \item
+			            \textit{Si} $w \en G_2 \text{ es el caso } w = \pm 1$: \Tilde \\
+
+			      \item
+			            \textit{Si} $w\not\en G_2 \union G_5$: \\
+			            $1 + w^2 + w^{-2} + w^4 + w^{-4} = 1 + w^2 + w^8 + w^4 + w^6 = 0$ \Tilde\\
+                        Voy a rotar todo en $\frac{2\pi}{10}$ para así hacer que $"G_5" \to G_5.$\\
+                        $\ub{e^{- i \frac{2\pi}{10}}\cdot e^{i \frac{2\pi}{10}}}{1} (  1 + w^2 + w^8 + w^4 + w^6)=
+                        e^{- i \frac{2\pi}{10}} \ub{e^{i \frac{2\pi}{10}} (  1 + w^2 + w^8 + w^4 + w^6)}{=0} = 0 $\\
+			            \red{En el gráfico de $"G_5"$ puedo ver que la suma da 0, porque el pentágono de $G_5$ está
+                        rotado debería sumar 0 también. ¿Cómo justifico? } $\skull \skull \skull$
+		      \end{itemize}
+
+
+
 	      \end{minipage}
-	      \begin{minipage}{0.4\textwidth}
+	      \begin{minipage}{0.35\textwidth}
+		      \centering
 		      $G_5 \subseteq G_{10}$\\
 		      \begin{tikzpicture}[baseline=0]
 			      \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
@@ -365,10 +382,7 @@ Si $w \en G_n \entonces
 						      \draw[cyan] ({\x*360/5+360/10}:1) -- ({(\x+1)*360/5+360/10}:1);
 					      \fi
 				      }
-		      \end{tikzpicture}
-		      \red{No tiene al 1? No es $G_5$\\
-			      Solo vale el primer gráfico?\\
-			      Condiciona los $w$ del ejercicio?}
+		      \end{tikzpicture}\\
 	      \end{minipage}
 
 	\item Calcular $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}}$ para cada $w \en G_5$
@@ -428,7 +442,7 @@ Si $w \en G_n \entonces
 		      w^0 + \dots + w^{60} =
 		      5 \cdot \ub{\ob{(w^0 + w^1 + \dots + w^9 + w^{10})}{=0}}{\text{\tiny agrupé usando: }w \en G^{11} \entonces w^k = w^{r_{11}(k)}} +
 		      w^{55} + w^{56} + w^{57} + w^{58} + w^{59} + w^{60}=\\
-		      = w^0 + w^1 + w^2 + w^3 + w^4 + w^5 \llamada1
+		      = w^0 + w^1 + w^2 + w^3 + w^4 + w^5 \llamada{1}
 	      $\\
 
 	      También voy a usar que si $w \en G_{11} \entonces \conj w^k = w^{r_{11}(-k)}$\\
@@ -438,6 +452,7 @@ Si $w \en G_n \entonces
 		      \ub{w^0}{1} + \ub{\sumatoria{k=0}{10} w^k}{= 0} = 1
 	      $
 \end{enumerate}
+
 
 %13
 \ejercicio
@@ -454,7 +469,7 @@ $z_n =
 	}$. Concluir que $z_n \en G_6$ para todo $n \en \naturales$.
 
 \separadorCorto
-\begin{minipage}{0.8\textwidth}
+\begin{minipage}{0.75\textwidth}
 	Hay que probar por inducción. Quiero probar:\\
 	$p(n) :
 		z_n =
@@ -464,7 +479,7 @@ $z_n =
 		} \paratodo n \en \naturales\\
 		\textit{Caso base: }\\
 		\llave{l}{
-			p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = e^{\frac{\pi}{3}i} \Tilde\\
+          p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = 1 -\frac{1}{2} + i \frac{\sqrt{3}}{2} = \frac{1}{2} + i \frac{\sqrt{3}}{2} =  e^{\frac{\pi}{3}i} \Tilde\\
 			p(2) : z_2 = \conj{ 1 + z_1^2} = \conj{ 1 + e^{\frac{2\pi}{3}i} } = 1 + e^{-\frac{2\pi}{3}i} = e^{-\frac{\pi}{3}i} \Tilde
 		}$\\
 
@@ -488,32 +503,33 @@ $z_n =
 		}$\\
 
 	Dado que $p(1), p(2), p(2k),p(2k+1),p(2k+2),p(2k+3)$ resultaron ser verdaderas, entonces
-	por criterio de inducción se concluye que $p(n)$ también lo es $\paratodo n \en \naturales$.\\
-	Dado que la sucesión $z_n$   tiene solo 2 imágenes, para cualquier $n\en \naturales$ se concluye que
-	$z_n \en G_6\ \paratodo n \en \naturales$
+	por el principio de inducción se concluye que $p(n)$ también lo es $\paratodo n \en \naturales$.\\
+	Dado que la sucesión $z_n$   tiene solo 2 imágenes, para cualquier $n\en \naturales$ y teniendo en cuenta
+    que $e^{-i\frac{2\pi}{6}} = e^{i\frac{2\pi}{6}\cdot 5} \en G_6\ \paratodo n \en \naturales$
 \end{minipage}
-\begin{minipage}{0.2\textwidth}
+\begin{minipage}{0.3\textwidth}
 	\begin{tikzpicture}[baseline=0,scale = 1.4, every node/.style={font=\tiny}]
-		\draw[ultra thin,->,gray] (-1.5,0) -- (1.5,0) node[below] {Re};
+		\draw[ultra thin,->,gray] (-1.5,0) -- (1.8,0) node[below] {Re};
 		\draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
 		\draw[ultra thin] (0,0) circle (1);
 		\filldraw[thin] (-.5,0) circle (1pt) node[below] {$-\frac{1}{2}$}; % Added the origin
+		\filldraw[thin] (.5,0) circle (1pt) node[below] {$\frac{1}{2}$}; % Added the origin
 		\draw[latex-latex, blue] (-.5,0.1) -- (0.5,0.1) node[midway, above]{ 1};
-		\node[right] at (1*360/6:1)  {$e^{\frac{2\pi}{6}i}$} ;
-		\node[right] at (5*360/6:1)  {$e^{-\frac{2\pi}{6}i}$} ;
 		\foreach \x in {0,...,5} {
 				\filldraw (\x*360/6:1) circle (1pt) ;
-				\filldraw (\x*360/6:1.2) node { $\x$};
+				\filldraw (\x*360/6:0.8) node { $\x$};
+                \filldraw (\x*360/6:1.4) node { $e^{i \frac{2\pi}{6} \cdot \x}$};
 				\ifnum\x<6
 					\draw[thick, magenta] (\x*360/6:1) -- ({(\x+1)*360/6}:1);
 				\fi
-				\ifnum\x<3
-					\draw[thick, cyan] ({\x*360/3+360/3}:1) -- ({(\x+1)*360/3+360/3}:1);
-				\fi
+				% \ifnum\x<3
+				% 	\draw[thick, cyan] ({\x*360/3+360/3}:1) -- ({(\x+1)*360/3+360/3}:1);
+				% \fi
 			}
 	\end{tikzpicture}
 \end{minipage}
-\red{corroborar que no sea un delirio}
+\red{corroborar con profes que no sea un delirio}
+
 
 %14
 \ejercicio
@@ -580,77 +596,82 @@ Se define la siguiente relación $\relacion$ en $G_{20}$:
 \end{enumerate}
 
 \separadorCorto
-\begin{minipage}{0.6\textwidth}
-	Si $z \y w \en G_{20} \sisolosi
-		\llave{l}{
-			z_k = e^{i \frac{2\pi}{20}k_z }\\
-			z_w = e^{i \frac{2\pi}{20}k_w }
-		}$ con $r_{20}(k_{\set{z,w}}) \en \enteros_{[0,19]}$\\
-	$G_2 = \set{-1, 1} \entonces zw^9 =
-		e^{i \frac{2\pi}{20}(k_z + 9 k_w)} \en G_2 \sisolosi\\
-		\sisolosi \frac{1}{10}(k_z + 9 k_w)\cancel\pi = k\cancel\pi \sisolosi
-		\boxed{k_z = 10k - 9 k_w }$ con $k\en \enteros$\\
-	Entonces si $z_{k_z} = e^{i \frac{2\pi}{20}k_z} =
-		e^{i \frac{2\pi}{20}(10k - 9 k_w)}$ se tiene que\\
-	$z \cdot w^9 =
-		e^{i \frac{2\pi}{20}(10k - 9 k_w)} \cdot e^{i \frac{18}{20} k_w} =
-		e^{i k\pi} =
-		\llave{rl}{
-			1 & \text{si $k$ par} \\
-			-1 & \text{si $k$ impar} \\
-		}$\\
-	\red{No le cazo la onda. Entiendo que si $w^k, con k=2 \divideA 20 \entonces w\en G_{10}$
-		¿y entonces?
-		Está bien pedir esa condición para que se relacionen? }
-\end{minipage}
-\begin{minipage}{0.3\textwidth}
-	\begin{tikzpicture}[baseline=0,scale = 2.5, every node/.style={font=\tiny}]
-		\draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
-		\draw[ultra thin,->,gray] (0,-1.5) -- (0,1.7) node[right] {Im};
-		\draw[ultra thin] (0,0) circle (1);
-		% \filldraw[thin] (-.5,0) circle (1pt) node[below] {$-\frac{1}{2}$};
-		% \draw[latex-latex, blue] (-.5,0.1) -- (0.5,0.1) node[midway, above]{ 1};
-		% \node[right] at (1*360/20:1)  {$e^{\frac{2\pi}{6}i}$} ;
-		% \node[right] at (5*360/20:1)  {$e^{-\frac{2\pi}{6}i}$} ;
-		\foreach \x in {0,...,19} {
-				\filldraw (\x*360/20:1) circle (0.5pt);
-				\filldraw (\x*360/20:1.3) node { $e^{i\frac{\x}{20}2\pi}$};
-				\ifnum\x<20
-					\draw[thick, magenta] (\x*360/20:1) -- ({(\x+1)*360/20}:1);
-				\fi
-				\ifnum\x<10
-					\draw[thick, cyan] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
-				\fi
-			}
-	\end{tikzpicture}
-\end{minipage}\\
-
-
 \begin{enumerate}[label=\roman*)]
 	\item
-	      \begin{itemize}
-		      \item
-		            \begin{minipage}{0.7\textwidth}
-			            \textit{Reflexividad: }
-			            Si $ z = e^{i\frac{1}{10}\pi k_z} \entonces
-				            z \relacion z \sisolosi
-				            k_z \cancel\pi= k\cancel\pi $ \Tilde
+	      \textit{Reflexividad: }\\
+	      $ z = e^{i\frac{1}{10}\pi k_z} \entonces
+		      z \relacion z \sisolosi
+		      e^{i\frac{1}{10}\pi k_z} \cdot e^{i\frac{9}{10}\pi k_z} =
+		      e^{ik_z\pi } =
+		      \llave{rl}{
+			      1 & k_z \text{ par}\\
+			      -1 & k_z \text{ impar}\\
+		      } \Tilde
+	      $\\
 
-		            \end{minipage}
-		            \begin{minipage}{0.3\textwidth}
-			            \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]
-				            % \draw[help lines, dashed, step=0.25, ultra thin](-.5,-0.5) grid (1.5,1.5);
+	      \textit{Simetría: }\\
+	      $ z = e^{i\frac{1}{10}\pi k_z} \text{ y }  w = e^{i\frac{1}{10}\pi k_w} \en G_{20}.$
 
-				            \draw[ultra thin,->,gray] (-.5,0) -- (1.5,0) node[below] {Re};
-				            \draw[ultra thin,->,gray] (0,-.5) -- (0,1.5) node[right] {Im};
-				            \draw[dotted, magenta, -latex] (0,0) -- (1.5,1.5) node[right] {$\clase{z}$};
-				            % \draw[ultra thin] (0,0) circle (1);
-				            \filldraw[thin] (1,1) circle (0.5pt) node[above] {$z$}; % Added the origin
-				            \draw[thin] (0,0) circle (2pt); % Added the origin
-				            \draw[thin, decorate,decoration={brace,amplitude=2pt,mirror,raise=1pt}] (0,0) -- (1,1) node[midway,below right] {$\sqrt{2}$} ;
-			            \end{tikzpicture}
-		            \end{minipage}
-	      \end{itemize}
+	      $\relacion$ es simétrica si:  $z \relacion w  \sisolosi w\relacion z\\
+		      \llave{l}{
+		      zw^9 = e^{i \frac{\pi}{10}(k_z + 9k_w)} \en G_2 \sii
+		      \frac{1}{10}(k_z + 9k_w) = k \sii
+		      k_z + 9k_w = 10k \sii
+		      \congruencia{k_z}{-9k_w}{10} \sii
+		      \congruencia{k_z}{k_w}{10} \\
+		      \to \boxed{ z\relacion w  \sisolosi \congruencia{k_z}{k_w}{10}}\\
+
+		      wz^9 = e^{i \frac{\pi}{10}(k_w + 9\magenta{k_z})} =
+		      e^{i \frac{\pi}{10}(k_w + 9(\magenta{10k + k_w}))} =
+				      e^{i \frac{\pi}{10}(90k + 10k_w)} =
+				      e^{i (9k + k_w)\pi} =
+				      e^{i\blue{k'}\pi}\\
+			      }$\\
+	      $\boxed{z \relacion w \sisolosi w \relacion z} \paratodo k,\,k_w \en \enteros \text{ con } \congruencia{k_z}{k_w}{10}\Tilde$\\
+
+	      \textit{Transitividad: }\\
+	      $ \llaves{l}{
+			      z = e^{i\frac{1}{10}\pi k_z}\\
+			      w = e^{i\frac{1}{10}\pi k_w}\\
+			      y = e^{i\frac{1}{10}\pi k_y}
+		      } \en G_{20}
+		      \to
+		      \relacion$ es transitiva si:  $z \relacion w  \text{ y } w\relacion y \entonces z \relacion y\\
+		      \llaves{l}{
+			      z \relacion w \sisolosi \congruencia{k_z}{k_w}{10} \llamada{1}\\
+			      w \relacion y \sisolosi \congruencia{k_w}{k_y}{10} \llamada{2}
+		      }\\
+		      \to
+		      zy^9 = e^{i \frac{\pi}{10}(\magenta{k_z} + 9k_y)} \stackrel{\llamada{1}}=
+		      e^{i \frac{\pi}{10}(\magenta{10 k + k_w} + 9k_y)} \stackrel{\llamada{1}}=
+		      e^{i \frac{\pi}{10}(10 k + 10k' + k_y + 9k_y)} =
+		      e^{i (k + k' + k_y) \pi}  =
+		      e^{i \blue{k''} \pi}
+		      \\
+		      \boxed{
+			      \llaves{l}{
+				      z \relacion w\\
+				      w \relacion z
+			      } \entonces z\relacion y}$
+
+	\item $\# \clase{e^{i\frac{2\pi}{20} k}} = 2$ para algún $k \en \enteros / r_{20}(k) < 20$. Dada
+	      la condición $\congruencia{k_z}{k_w}{10}$, solo hay 2 números que tienen misma cifra de unidad
+	      entre 0 y 20. En el gráfico se ve que si $z\relacion w \entonces w = -z $
 \end{enumerate}
 
+\begin{tikzpicture}[baseline=0,scale = 3, every node/.style={font=\tiny}]
+	\draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
+	\draw[ultra thin,->,gray] (0,-1.5) -- (0,1.7) node[right] {Im};
+	\draw[ultra thin] (0,0) circle (1);
+	\foreach \x in {0,...,19} {
+			\filldraw (\x*360/20:1) circle (0.5pt);
+			\filldraw (\x*360/20:1.3) node { $e^{i\frac{\x}{20}2\pi}$};
+			\ifnum\x<20
+				\draw[thick, magenta] (\x*360/20:1) -- ({(\x+1)*360/20}:1);
+			\fi
+			\ifnum\x<10
+				\draw[thick, cyan] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
+			\fi
+		}
+\end{tikzpicture}
 \end{document}

@@ -1,0 +1,15 @@
+\ejercicio
+Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi A \subseteq B$
+\begin{itemize}
+	\item[$\entonces$)] Pruebo por absurdo. Supongo que $A \nsubseteq B \entonces \exists x \en A \talque x \notin B$.\\
+	      Si $x \en A \entonces \set{x} \en \partes(A)
+		      \flecha{hipótesis}[$\partes(A) \subseteq \partes(B)$] \set{x} \en \partes(B)
+		      \entonces x \en B .$ Absurdo.\\
+	      $\to \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}$\Tilde\red{controlar} \estabien
+
+	\item[$\Leftarrow$)]
+	      $\qvq A \subseteq B \entonces \partes(A) \subseteq \partes(B),\\
+		      \paratodo S \en \partes(A) \sisolosi S \subseteq A \stacktext{hip}{\subseteq} B \entonces S \en \partes(B).\\
+		      \to \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$\Tilde\red{controlar} \estabien
+\end{itemize}
+

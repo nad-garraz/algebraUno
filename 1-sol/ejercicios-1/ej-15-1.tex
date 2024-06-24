@@ -1,0 +1,26 @@
+\ejercicio Sean $A = \set{1, 2, 3},\, B = \set{1, 3, 5, 7}.$ Hallar $A \times A, A \times B, (A \inter B) \times (A \union B).$
+
+\begin{itemize}
+	\item $A \times A =
+		      \llave{l}{
+			      \set{a \en A, b \en A \talque (a, b) \en A \times A} \to \text{Comprensión}\\
+			      \set{(1,1), (1,2), (1,3),(2,1),(2,2), (2,3), (3,1), (3,2), (3,3)} \to \text{Extensión}
+		      }$
+
+	\item  $A \times B = \cdots$
+
+	\item $(A \inter B) \times (A \union B) = \\
+		      \llave{l}{
+			      \set{1, 3} \times \set{1,2,3,5,7} =
+			      \begin{array}{c|c|c|c|c|c}
+				      \times & 1     & 2      & 3      & 5      & 7     \\
+				      \hline
+				      1      & (1,1) & \cdots & \cdots & \cdots & (1,7) \\
+				      \hline
+				      3      & (3,1) & \cdots & \cdots & \cdots & (3,7) \\
+				      \hline
+			      \end{array}\\
+
+			      (A \inter B) \times (A \union B) = \set{s \en (A \inter B), t \en (A \union B) \talque (s, t) \en (A \inter B) \times (A \union B)}
+		      }$
+\end{itemize}

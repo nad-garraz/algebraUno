@@ -1,0 +1,38 @@
+\ejercicio
+Inclusión :
+$
+	\begin{cases}
+		\text{Definición}      & A \subseteq B \text{ si } \paratodo x, x \en A \entonces x \en B   \\
+		\text{Contrarecíproco} & A \nsubseteq B \text{ si } \exists x, x \en A \entonces x \notin B
+	\end{cases}
+$
+\begin{enumerate}[label=(\roman*)]
+	\item $\begin{cases}
+			      A = \set{1, 2, 3} \\
+			      B = \set{5,4,3,2,1}
+		      \end{cases}
+		      \flecha{respueta} \quad
+		      A \stacktext{\Tilde}{\subseteq} B$
+	\item $\begin{cases}
+			      A = \set{1, 2, 3} \\
+			      B = \set{1,2,\set{3},-3}
+		      \end{cases}
+		      \flecha{respueta} \quad
+		      A \nsubseteq B \flecha{dado}[que] \set{3} \notin B$
+	\item $
+		      \llaves{ll}{
+			      A = \set{x \en \reales \talque 2<|x|<3} & \tresiiiUno \\
+			      B = \set{x \en \reales \talque x^2 < 3 } & \tresiiiDos
+		      }\\
+		      \flecha{respueta} A \nsubseteq B \flecha{dado}[que] 2.5 \en A \text{ y } 2.5 \notin B
+	      $
+	\item$
+		      \begin{cases}
+			      A = \set{\vacio} \\
+			      B = \vacio
+		      \end{cases}\\
+		      \flecha{respueta}
+		      A \nsubseteq B \flecha{dado}[que] \text{$B$ no tiene ningún elemento, sin embargo $A$ tiene un elemento: $\vacio$.}
+	      $
+\end{enumerate}
+

@@ -12,13 +12,22 @@ Algunos ejercicio de álgebra 1 en latex
 Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
 
 - En las carpetas de sol-i:
-    - Un archivo con los ejercicios hechos, no necesariamente bien, de una guía en particular
+    - Un archivo con los ejercicios hechos, no necesariamente bien, de una guía en particular.
+    En un futuro no lejano, voy a poner cada ejercicio en un archivo distinto, que va a ser más
+    fácil de mantener.
+
     - En alguna que otra. Un archivo con los gráficos en tikz usados en esa misma guía.
+    Hay unos cuantos gráficos que están en el código de la solución, supongo que también
+    podría separar eso.
+
 -   En la macro:
     - Ahí está el preambulo que carga los paquetes necesarios para poder compilar cada archivo.
 
 
-Podés usar el código como gustes pero tratá de citar este repo [Nad-Garraz algebraUno](https://github.com/nad-garraz/algebraUno)
+Podés usar el código como quieras siguiendo según [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 
-Una estrellita es siempre bienvenida
+Si querés contribuir ya sea codeando o marcando algún error que puede haber en un ejercicio, contactame por [mail]().
+La gente que contribuya tendrá su nombre y contacto en el pdf final como corresponde.
+
+Una estrellita al repo es siempre bienvenida
 (^_^)/

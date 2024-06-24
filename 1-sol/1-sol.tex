@@ -148,109 +148,22 @@ $
 \newpage
 \section*{Ejercicios de la guía}
 
-\ejercicio
 %1
-$A = \set{1,2,3}$
-\begin{multicols}{2}
-	\begin{enumerate}[label=(\roman*)]
-		\item $1 \en A \flecha{respueta} \text{V}$
-		\item $\set{1} \subseteq A \flecha{respueta} \text{V}$
-		\item $\set{2,1} \subseteq A \flecha{respuesta} \text{V}$
-		\item $\set{1,3} \en A \flecha{respuesta} \text{F}$
-		\item $\set{2} \en A \flecha{respuesta} \text{F}$
-	\end{enumerate}
-\end{multicols}
+\input{ej-1-1}
 
-\ejercicio
 %2
-$A = \set{1,2,\set{3},\set{1,2}}$
-\begin{multicols}{2}
-	\begin{enumerate}[label=(\roman*)]
-		\item $3 \en A       \flecha{respueta} \text{F}  $
-		\item $\set{3} \subseteq A \flecha{respueta} \text{F}$
-		\item $\set{3} \en A    \flecha{respueta} \text{V}$
-		\item $\set{\set{3}} \en A \flecha{respueta} \text{V}$
-		\item $\set{1,2} \en A \flecha{respueta} \text{V}$
-		\item $\set{1,2} \subseteq A \flecha{respueta} \text{V} $
-		\item $\set{\set{1,2}} \subseteq A \flecha{respueta} \text{V} $
-		\item $\set{\set{1,2}, 3} \subseteq A \flecha{respueta} \text{F} $
-		\item $\vacio \en A \flecha{respueta} \text{F} $
-		\item $\vacio \subseteq A \flecha{respueta} \text{V} $
-		\item $A \en A \flecha{respueta} \text{F} $
-		\item $A \subseteq A \flecha{respueta} \text{V} $
-	\end{enumerate}
-\end{multicols}
+\input{ej-2-1}
 
 %3
-\ejercicio
-Inclusión :
-$
-	\begin{cases}
-		\text{Definición}      & A \subseteq B \text{ si } \paratodo x, x \en A \entonces x \en B   \\
-		\text{Contrarecíproco} & A \nsubseteq B \text{ si } \exists x, x \en A \entonces x \notin B
-	\end{cases}
-$
-\begin{enumerate}[label=(\roman*)]
-	\item $\begin{cases}
-			      A = \set{1, 2, 3} \\
-			      B = \set{5,4,3,2,1}
-		      \end{cases}
-		      \flecha{respueta} \quad
-		      A \stacktext{\Tilde}{\subseteq} B$
-	\item $\begin{cases}
-			      A = \set{1, 2, 3} \\
-			      B = \set{1,2,\set{3},-3}
-		      \end{cases}
-		      \flecha{respueta} \quad
-		      A \nsubseteq B \flecha{dado}[que] \set{3} \notin B$
-	\item $
-		      \llaves{ll}{
-			      A = \set{x \en \reales \talque 2<|x|<3} & \tresiiiUno \\
-			      B = \set{x \en \reales \talque x^2 < 3 } & \tresiiiDos
-		      }\\
-		      \flecha{respueta} A \nsubseteq B \flecha{dado}[que] 2.5 \en A \text{ y } 2.5 \notin B
-	      $
-	\item$
-		      \begin{cases}
-			      A = \set{\vacio} \\
-			      B = \vacio
-		      \end{cases}\\
-		      \flecha{respueta}
-		      A \nsubseteq B \flecha{dado}[que] \text{$B$ no tiene ningún elemento, sin embargo $A$ tiene un elemento: $\vacio$.}
-	      $
-\end{enumerate}
+\input{ej-3-1}
 
 %4
-\ejercicio
-Subconjuntos: $A = \set{1, -2, 7, 3}$, $B = \set{1, \set{3}, 10}$, $C = \set{-2,\set{1,2,3},3}$,\\
-Conjunto referencial: $V = \set{1,\set{3}, -2,7, 10, \set{1,2,3},3}$, hallar:
-
-\begin{multicols}{2}
-	\begin{enumerate}[label=(\roman*)]
-		\item $A \inter (B \triangle C)$
-		\item $(A \inter B) \triangle (A \inter C)$
-		\item $A^c \inter B^c \inter C^c$
-	\end{enumerate}
-\end{multicols}
+\input{ej-4-1}
 
 %5
-\ejercicio
-Describir
-$
-	\begin{cases}
-		i) \quad (A \union B \union C)^c  & \text{en términos de intersecciones y complementos} \\
-		ii) \quad (A \inter B \inter C)^c & \text{en términos de uniones y complementos}        \\
-	\end{cases}
-$
-\begin{enumerate}[label=\roman*)]
-	\item $\quad (A \union B \union C)^c \stacktext{(c)}{=} (A \union B)^c \inter C^c \stacktext{(c)}{=} A^c \inter B^c \inter C^c$
-	\item $\quad (A \inter B \inter C)^c \stacktext{(d)}{=} (A \inter B)^c \union C^c \stacktext{(d)}{=} A^c \union B^c \union C^c$
-\end{enumerate}
-\red{Solo eso? Falta demostrar algo de alguna manera más rigurosa?}\\
-\blue{No, con eso sería suficiente \Tilde}
-
+\input{ej-5-1}
 %6
-\ejercicio
+\input{ej-6-1}
 
 %7
 \ejercicio

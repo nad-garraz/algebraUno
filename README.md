@@ -25,7 +25,7 @@ Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
     - Ahí está el preambulo que carga los paquetes necesarios para poder compilar cada archivo.
 
 
-## Contribuir
+# Contribuir
 Si querés contribuir no hace falta codear, podés marcar algún error que pueda haber en un ejercicio por ejemplo. Ahí
 podés comentarnos por el Telegram o mail así lo solucionamos y aumentamos la calidad del trabajo.
 La gente que contribuya tendrá su nombre (lugar a determinar) en el pdf como corresponde!

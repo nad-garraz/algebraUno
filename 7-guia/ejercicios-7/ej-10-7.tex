@@ -1,1 +1,32 @@
-\ejercicio\hacer
+\ejercicio
+% Enunciado
+
+Sea $f \en \racionales[X]$ tal que $f(1) =  -2, f(2) = 1 \ytext f(-1) = 0.$ Hallar el resto de la división de $f$ por $X^3 - 2X^2 - X + 2$.
+
+\separadorCorto
+
+
+$f(x) = q(x)\cdot \ub{x^3 - 2x^2 -x + 2}{g(x)}  + r(x)$, con $g(x) = (x-2) \cdot (x-1)\cdot(x+1) \ytext
+	r(x) = a^2 + bx + c,$ ya que el $\gr{r} < \gr{g}$
+$\flecha{evaluar}
+	\llave{l}{
+		f(1) = -2 = q(1) \cdot \cancelto{0}{g(1)} + r(1) = -2\\
+		f(2) = 1 = q(2) \cdot \cancelto{0}{g(2)} + r(2) = 1\\
+		f(-1) = 0 = q(-1) \cdot \cancelto{0}{g(-1)} + r(-1) = 0
+	}\to
+	\llave{l}{
+		r(1) = a + b +c = -2 \\
+		r(2) = 4a + 2b +c = 1 \\
+		r(-1) = a - b +c = 0 \\
+	}\to
+	\matriz{ccc|c}{
+		1 & 1 & 1 & -2 \\
+		4 & 2 & 1 & 1 \\
+		1 & -1 & 1 & 0 \\
+	}\to \\
+	\matriz{ccc|c}{
+		1 & 0 & 0 & \frac{4}{3} \\
+		0 & 1 & 0 & -1 \\
+		0 & 0 & 1 & -\frac{7}{3} \\
+	}
+	\to$ \boxed{r(x) = \frac{4}{3} x^2 - x - \frac{7}{3}}

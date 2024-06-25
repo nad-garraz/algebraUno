@@ -1,0 +1,60 @@
+% Macro Local
+\newcommand{\polGen}[1]{\sumatoria{i=0}{n} #1_i X^i}
+\newcommand{\mult}[1]{\text{mult}(#1)}
+
+
+\subsubsection*{Definiciones y fórmulas útiles}
+
+\begin{itemize}
+	\item \textit{Operaciones: }
+	      \begin{itemize}
+		      \item[$+:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \polGen{b}$\\
+		            $\entonces f + g = \sumatoria{i=0}{n} (a_i + b_i) X^i \en \K[X]$
+		      \item[$\cdot:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \sumatoria{j=0}{m} b_j X^j$\\
+		            $\entonces f \cdot g = \sumatoria{k=0}{n+m} (\sumatoria{i+j=k}{} a_i \cdot b_j) X^k \en \K[X]$
+	      \end{itemize}
+	\item $(\K[X],+,\cdot) \text{ es un anillo conmutativo } \to f\cdot(g+h) = f\cdot g + f\cdot h,\, \paratodo f,\,g,\,h \en \K[X]$
+
+	\item \textit{Algoritmo de división}: $f,g \en \K[X]$ no nulos, existen únicos $q$ y $R \en \K[X]$ tal que $f = q\cdot g + R$
+	      con $gr(R) < gr(f)$ o $R = 0$
+
+	\item $\alpha$ es raíz de $f \sisolosi X - \alpha \divideA f \sisolosi f = q \cdot ( X - \alpha)$
+
+	\item \textit{Máximo común divisor: } Polinomio mónico de mayor grado que divide a ambos polinomios en $\K[X]$
+	      y vale el algoritmo de Euclides.
+	      \begin{itemize}
+		      \item $(f:g) \divideA f$ y $(f:g) \divideA g$
+
+		      \item $f = (f:g)\cdot k_f$ y $g = (f:g)\cdot k_g$ con $k_f$ y $k_g$ en $\K[X]$
+
+		      \item Dos polinomios son coprimos si $(f:g) = 1 \sisolosi f \distinto g$
+	      \end{itemize}
+
+	\item \textit{Raíces múltiples: } $f \en \K[x], \alpha \en \K$ es raíz de $f$ de multiplicidad
+	      $m \en \naturales_0$ si $(X - \alpha)^m \divideA f$ y $(X - \alpha)^{m+1} \noDivide f$.
+	      O sea, $f = (X - \alpha)^m \cdot \ub{q(\alpha)}{\distinto 0}$
+	      \begin{itemize}
+		      \item Una raíz simple de $f$ cumplirá que $(x-\alpha) \divideA f$,
+		            pero $(x - \alpha)^2 \noDivide f$
+	      \end{itemize}
+
+	\item Vale que $\alpha$ es raíz múltiple de $f \sisolosi f(\alpha) = 0$ y $f'(\alpha) = 0 \sisolosi \alpha$
+	      es raíz de $(f:f'),\, X - \alpha \divideA (f:f')$
+	      \begin{itemize}
+		      \item $\mult{\alpha,f} = m \sisolosi f(\alpha) = 0$ y $\mult(\alpha;f') = m-1$
+
+		      \item $\mult{\alpha;f} = m \sisolosi
+			            \llave{rl}{
+				            \mult{\alpha;f}\geq m     &
+				            \llave{c}{
+					            f(\alpha) = 0\\
+					            \vdots\\
+					            f^{(m-1)(\alpha) = 0}
+				            }\\
+				            \mult{\alpha;f} = m     &
+				            \llave{c}{
+					            f^{m)(\alpha) \distinto 0}
+				            }
+			            }$
+	      \end{itemize}
+\end{itemize}

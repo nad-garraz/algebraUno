@@ -85,7 +85,18 @@
 \def\ytext{\quad\text{y}\quad}
 \def\otext{\quad\text{o}\quad}
 
-\newcommand{\llamada}[1]{\stackrel{\cyan{\text{\FiveStar}^{#1}}}{} }
+% asterisco para hacer llamadas de atención
+\newcommand{\llamada}[1]{%
+	\stackrel{\textcolor{
+			\ifcase\numexpr#1 mod 5\relax
+				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean
+			\fi
+		}
+        {\text{\FiveStar}^{#1}}%
+	}{ }%
+}
+
+% \newcommand{\llamada}[1]{\stackrel{\cyan{\text{\FiveStar}^{#1}}}{} }
 
 % separador\
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
@@ -102,9 +113,10 @@
 
 % Colores
 \newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\green}[1]{\textcolor{olive}{#1}}
+\newcommand{\green}[1]{\textcolor{OliveGreen}{#1}}
 \newcommand{\blue}[1]{\textcolor{Cerulean}{#1}}
 \newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\yellow}[1]{\textcolor{YellowOrange}{#1}}
 \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
 
 % Conjuntos entre llaves

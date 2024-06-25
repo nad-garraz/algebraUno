@@ -9,7 +9,8 @@
 \def\enteros{\mathbb Z}
 \def\racionales{\mathbb Q}
 \def\complejos{\mathbb C}
-\def\K{\mathbb K}
+
+\def\K{\mathbb K} % cuerpo K
 \def\i{\text{i}}
 \def\vacio{\varnothing}
 \def\union{\cup}
@@ -17,10 +18,13 @@
 \def\y{\land}
 \def\o{\lor}
 \def\neg{\sim}
+
 \def\entonces{\Rightarrow}
 \def\noEntonces{\centernot\Rightarrow}
-\def\sisolosi{\iff}
-\def\sii{\Leftrightarrow}
+
+\def\sisolosi{\iff} % largo
+\def\sii{\Leftrightarrow} % corto
+
 \def\clase{\overline}
 \def\conj{\overline}
 \def\ord{\text{ord}}
@@ -31,7 +35,7 @@
 \def\paratodo{\;\forall}
 \def\distinto{\neq}
 \def\en{\in}
-\def\talque{\;|\;}
+\def\talque{\;/\;}
 
 % =====
 \def\qvq{\text{ quiero ver que }}
@@ -92,7 +96,7 @@
 				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean
 			\fi
 		}
-        {\text{\FiveStar}^{#1}}%
+		{\text{\FiveStar}^{#1}}%
 	}{ }%
 }
 

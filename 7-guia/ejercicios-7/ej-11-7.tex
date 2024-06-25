@@ -1,1 +1,62 @@
-\ejercicio\hacer
+%11
+\ejercicio
+Sea $n \en \naturales,\, n\geq 3$. Hallar el resto de la división de $X^{2n} + 3X^{n+1} + 3X^n - 5X^2 +2X + 1$
+por $X^3 - X$ en $\racionales[X]$.
+
+\separadorCorto
+
+$\llave{l}{
+		f(X) = X^{2n} + 3X^{n+1} + 3X^n - 5X^2 +2X + 1 \\
+		g(X) = X \cdot (X-1) \cdot (X+1)
+      } \entonces f = q(X) \cdot g(X) + r(X)$ con $\gr{\ub{aX^2 + bX + c}{r(X)}} \leq 2$
+
+$\llave{l}{
+		f(0) = q(0) \cdot \ub{g(0)}{=0} + r(0) = 1\\
+		f(1) = q(1) \cdot \ub{g(1)}{=0} + r(1) = 3\\
+		f(-1) = q(-1) \cdot \ub{g(-1)}{=0} + r(-1) = 1 + 3(-1)^{n+1} + 3(-1)^n - 5 -2 + 1 =
+		\llave{rl}{
+			2 & n \text{ impar }\\
+			1 & n \text{ par }
+		}
+	}\\
+    \flecha{sistema de}[ecuaciones de $r(X)$]
+	\llave{l}{
+		r(0) = c = 1 \\
+		r(1) = a + b + 1 = 3 \to a+b = 2 \\
+		r(-1) = a - b + 1 =
+		\llave{rl}{
+			2 \to a - b = 1 & n \text{ impar }\\
+			1 \to a - b = 0 & n \text{ par }
+		}
+	}$
+
+$
+	\llave{cc}{
+		\flecha{$n$}[impar] &
+		\matriz{cc|c}{
+			1 & 1 & 2  \\
+			1 & -1 & 1 \\
+		} \to
+		\matriz{cc|c}{
+			1 & 0 & \frac{3}{2}  \\
+			0 & 1 & \frac{1}{2} \\
+          } \to \boxed{r_{impar}(X) = \frac{3}{2}X^2 + \frac{1}{2}X + 1} \Tilde
+        \\
+		\flecha{$n$}[par] &
+		\matriz{cc|c}{
+			1 & 1 & 2  \\
+			1 & -1 & 0 \\
+		}\to
+		\matriz{cc|c}{
+			1 & 0 & 1  \\
+			0 & 1 & 1 \\
+          } \to \boxed{r_{par}(X) = X^2 + X + 1} \Tilde
+	}
+$
+% \to
+% \matriz{ccc|c}{
+% 	1 & 0 & 0 & \frac{4}{3} \\
+% 	0 & 1 & 0 & -1 \\
+% 	0 & 0 & 1 & -\frac{7}{3} \\
+% }
+% \to$ \boxed{r(X) = \frac{4}{3} X^2 - X - \frac{7}{3}}

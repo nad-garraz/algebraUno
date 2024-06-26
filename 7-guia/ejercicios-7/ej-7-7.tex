@@ -1,1 +1,63 @@
-\ejercicio\hacer
+\ejercicio
+
+Hallar el resto de la división de $f$ por $g$ para:
+
+\begin{enumerate}[label=\roman*)]
+	\item $f = X^{353} - X - 1$ y $g = X^{31} - 2$ en $\racionales[X],\,\reales[X],\,\complejos[X]$,
+
+	\item $f = X^{1000} + X^{40} + X^{20}  + 1$ y $g = X^6 + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$ y $(\enteros/p\enteros)[X]$
+
+	\item $f = X^{200} - 3X^{101} + 2$, y $g = X^{100} - X + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$,
+
+	\item $f = X^{3016} + 2X^{1833} - X^{174} + X^{137} + 2X^4 - X^3 + 1$, y $g = X^4 + X^3 +X^2 + X + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$
+	      (Sug. ver Ej. \refEjercicio{ej:cong} \ref{item})).
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item $g \divideA g \sisolosi \congruencia{X^{31} - 2}{ 0 }{X^{31} - 2} \sisolosi \congruencia{X^{31}}{2}{g}$
+
+	      $f = X^{353} - X - 1 =
+		      (\ub{X^{31}}{\conga g 2})^{11} X^{12} - X - 1 \conga g
+		      2^{11} X^{12} -X -1
+		      \to $
+	      \boxed{r_g(f) = 2^{11} X^{12} -1 }
+
+	\item
+	      $g \divideA g
+		      \sisolosi
+		      \congruencia{X^6 + 1}{ 0 }{X^6 + 1}
+		      \sisolosi
+		      \congruencia{X^6}{-1}{g}$
+
+	      $f =
+		      X^{1000} + X^{40} + X^{20}  + 1 =
+		      (X^6)^{166}X^4 + (X^6)^6 X^4 + (X^6)^3 X^2  + 1 \conga g
+		      X^4 + X^4 \magenta{-} X^2  + 1 =
+		      2X^4 - X^2 + 1\\
+		      \to$
+	      \boxed{r_g(f) = 2X^4 - X^2 + 1}\\
+	      \red{¿Qué onda en $\enteros/p\enteros$?}
+
+	\item
+	      $g \divideA g
+		      \sisolosi
+		      \congruencia{X^{100} - X + 1}{0}{X^{100} - X + 1}
+		      \sisolosi
+		      \congruencia{X^{100}}{X - 1}{g}$
+
+	      $f =
+		      X^{200} - 3X^{101} + 2 =
+		      (X^{100})^2 - 3 X^{100} X + 2 \conga g
+		      (X - 1)^2 - 3 (X - 1) X + 2
+		      \\
+		      \to$
+	      \boxed{r_g(f) = (X - 1)^2 - 3 (X - 1) X + 2}
+
+	\item 
+          \Hacer
+          % $f = X^{3016} + 2X^{1833} - X^{174} + X^{137} + 2X^4 - X^3 + 1$,
+          % y $g = X^4 + X^3 +X^2 + X + 1$
+
+\end{enumerate}

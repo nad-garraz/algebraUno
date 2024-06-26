@@ -49,6 +49,7 @@
 
 % Llaves, paréntesis, contenedores
 \newcommand{\llave}[2]{ \left\{ \begin{array}{#1} #2 \end{array}\right. }
+\newcommand{\llaveInv}[2]{ \left\} \begin{array}{#1} #2 \end{array}\right. }
 \newcommand{\llaves}[2]{ \left\{ \begin{array}{#1} #2 \end{array} \right\} }
 \newcommand{\matriz}[2]{\left( \begin{array}{#1} #2 \end{array} \right)}
 \newcommand{\deter}[2]{\left| \begin{array}{#1} #2 \end{array} \right|}
@@ -104,13 +105,13 @@
 	}{ }%
 }
 
-% \newcommand{\llamada}[1]{\stackrel{\cyan{\text{\FiveStar}^{#1}}}{} }
 
 % separador\
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
 \def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
 
 % sección ejercicio con su respectivo formato y contador
+
 \newcounter{ejercicio}[section] % contador que se resetea en cada sección
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
@@ -118,6 +119,16 @@
 	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\separador}[ ]%
 	\section*{\theejercicio.}%
 }
+
+% Label y refencia para ejercicio
+% hay alguna forma más elegante de hacer esto?
+\newcommand{\labelEjercicio}[1]{
+	\addtocounter{ejercicio}{-1} % counter - 1
+	\refstepcounter{ejercicio} % referencia al anterior y luego + 1
+	\label{#1}}
+\newcommand{\refEjercicio}[1]{{ \bf\ref{#1}.}}
+
+
 
 % Colores
 \newcommand{\red}[1]{\textcolor{red}{#1}}

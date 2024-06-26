@@ -10,7 +10,7 @@ Hallar el resto de la división de $f$ por $g$ para:
 	\item $f = X^{200} - 3X^{101} + 2$, y $g = X^{100} - X + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$,
 
 	\item $f = X^{3016} + 2X^{1833} - X^{174} + X^{137} + 2X^4 - X^3 + 1$, y $g = X^4 + X^3 +X^2 + X + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$
-	      (Sug. ver Ej. \refEjercicio{ej:cong} \ref{item})).
+	      (Sugerencia ver \refEjercicio{ej:cong} \ref{item})).
 \end{enumerate}
 
 \separadorCorto
@@ -55,9 +55,18 @@ Hallar el resto de la división de $f$ por $g$ para:
 		      \to$
 	      \boxed{r_g(f) = (X - 1)^2 - 3 (X - 1) X + 2}
 
-	\item 
-          \Hacer
-          % $f = X^{3016} + 2X^{1833} - X^{174} + X^{137} + 2X^4 - X^3 + 1$,
-          % y $g = X^4 + X^3 +X^2 + X + 1$
+	\item \textit{Usando la sugerencia}: Del ejercicio \refEjercicio{ej:cong} \ref{item}
+	      sale que $X^n - 1 = (X-1) \cdot \sumatoria{k=0}{n-1} X^k$\\
+
+	      $\flecha{$n = 5$}[para el $g$]
+		      X^5 - 1 = (X-1)\ub{(X^4 + X^3 +X^2 + X + 1)}{g}
+		      \sisolosi
+		      \congruencia{X^5}{\ub{1}{r_g(X^5)}}{g} \Tilde
+	      $\\
+
+	      $f = (X^5)^{603} X + 2(X^5)^{366} X^3 - (X^5)^{34} X^4 + (X^5)^{27} X^2 + 2X^4 - X^3 + 1\\
+		      \congruencia{f}{\ub{X + 2X^3 - X^4 + X^2 + 2X^4 - X^3 + 1}{= X^4 + X^3 +X^2 + X + 1 =g}}{g}
+		      \sisolosi
+		      \boxed{\congruencia{f}{0}{g}}$
 
 \end{enumerate}

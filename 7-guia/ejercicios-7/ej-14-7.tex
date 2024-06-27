@@ -1,6 +1,48 @@
 \ejercicio
-\begin{enumerate}[label=\roman*)] 
-  \item Probar que si $w = e^{\frac{2\pi}{5}i} \en G_5$, entonces $X^2 + X -1 = [X - (w + w^{-1})] \cdot [X - (w^2 + w^{-2})].$
+\begin{enumerate}[label=\roman*)]
+	\item Probar que si $w = e^{\frac{2\pi}{5}i} \en G_5$, entonces $X^2 + X -1 = [X - (w + w^{-1})] \cdot [X - (w^2 + w^{-2})]$.
 
-  \item Calcula, justificando cuidadosamente, el valor exactor de $\cos(\frac{2\pi}{5})$
- \end{enumerate}
+	\item Calcula, justificando cuidadosamente, el valor exacto de $\cos(\frac{2\pi}{5})$.
+\end{enumerate}
+
+\separadorCorto
+\begin{enumerate}[label=\roman*)]
+  \item\label{ej14:item}
+	      Voy a usar que si $w \en G_5
+		      \entonces
+		      \llave{l}{
+			      \sumatoria{j=0}{4} w^j = 0 \quad (w \distinto 1) \llamada2\\
+			      w^k = w^{r_5(k)} \llamada{1}
+		      }$\\
+
+	      $ X^2 + X -1 =
+		      [X - (w + w^{-1})] \cdot [X - (w^2 + w^{-2})] =
+		      X^2 - (w^2 + w^{-2}) X - (w + w^{-1}) X + \ub{(w + w^{-1})(w^2 + w^{-2})}{\llamada1}=
+		      X^2 - X(\ub{w^2 + w^{-2} + w + w^{-1}}{\llamada1}) + \ub{ w + w^2 + w^3 + w^4 }{\llamada2}=\\
+		      X^2 - X(\ub{w + w^2 + w^3 + w^4}{\llamada2}) + \magenta{-1} + \ub{ \magenta{1} + w + w^2 + w^3 + w^4}{ = 0} =
+		      X^2 - X(\magenta{-1} + \ub{ \magenta{1} + w + w^2 + w^3 + w^4}{ = 0}) - 1 =
+		      X^2 + X - 1 \Tilde
+	      $
+
+	\item Calculando las raíces a mano de
+	      $X^2 + X - 1
+		      \to
+		      \llave{c}{
+			      \frac{-1 + \sqrt{5}}{2}\\
+			      \text{y}\\
+			      \frac{-1 - \sqrt{5}}{2}\\
+		      }$\\
+
+	      Pero del resultado del inciso \ref{ej14:item} tengo que :\\
+          $
+          w = e^{i\frac{2\pi}{5}} 
+          \flecha{sé que una raíz dada}[la factorización es]
+            w + w^{-1} =
+            w + \conj w =
+            2\re(w) =
+            2\cdot \ub{\cos(\frac{2\pi}{5})}{\cos{\theta} \geq 0,\, \theta \en [0,2\pi]} = \frac{-1 + \sqrt{5}}{2}\\
+            \to
+            \boxed{\cos(\frac{2\pi}{5}) = \frac{-1 + \sqrt{5}}{4}} \Tilde
+          $
+
+\end{enumerate}

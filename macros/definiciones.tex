@@ -26,7 +26,6 @@
 \def\sii{\Leftrightarrow} % corto
 
 \def\clase{\overline}
-\def\conj{\overline}
 \def\ord{\text{ord}}
 
 
@@ -77,11 +76,14 @@
 % complejos
 \def\re{\mathrm{Re}}
 \def\im{\mathrm{Im}}
+\def\conj{\overline}
 
-% Macros para polinomios
+% Polinomios
 \newcommand{\cp}[1]{\text{cp}(#1)}
 \newcommand{\gr}[1]{\text{gr}(#1)}
-
+\newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
+\newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
+	      
 
 % =====
 % Miscelanea

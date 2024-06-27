@@ -1,1 +1,25 @@
-\ejercicio\hacer
+\ejercicio
+
+\begin{enumerate}[label=\roman*)]
+	\item Sean $f,g \en \complejos[X]$ y sea $a\en \complejos$. Probar que $a$ es raíz de $f$ y $g$ si y sólo sí $a$ es raíz de
+	      $(f:g)$.
+
+	\item Hallar todas las raíces complejas de $X^4 + 3X - 2$ sabiendo
+      que tiene una raíz en común con ${X^4 + 3X^3 -3X +1}$.
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item \Hacer
+
+    \item  Busco el $(f:g)$:\\
+      \mcd{X^4 + 3X - 2}{X^4 + 3X^3 -3X +1}\\
+      $(f:g) = X^2 + X - 1
+      \flecha{raíces}
+      \llave{l}{
+        \alpha_1 = \frac{1 + \sqrt{5}}{2} \\
+        \alpha_2 = \frac{1 - \sqrt{5}}{2}
+      }\\
+      \mcd{X^4 + 3X - 2}{X^2 + X - 1}$
+\end{enumerate}

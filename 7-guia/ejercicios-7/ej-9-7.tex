@@ -16,23 +16,23 @@ polinomial de $f$ y $g$ siendo:
 
 \begin{enumerate}[label=\roman*)]
 	\item
-	      \polylongdiv[style=D]{X^5 + X^3 - 6X^2 + 2X +2}{X^4 - X^3 - X^2 + 1}
+	      \divPol{X^5 + X^3 - 6X^2 + 2X +2}{X^4 - X^3 - X^2 + 1}
 
 	      $\flecha{Euclides} (f:g) = (g : 3X^3 -55X^2 +X + 1)\\
 		      \flecha{escribo a $f$}[en función de $g$]
 		      f = (X+1) \cdot g + 3X^3 -55X^2 +X + 1$
 
-	      \polylongdiv[style=D]{X^4 - X^3 - X^2 + 1}{3X^3 -5X^2 +X + 1}
+	      \divPol{X^4 - X^3 - X^2 + 1}{3X^3 -5X^2 +X + 1}
 
-	      \polylongdiv[style=D]{3X^3 -5X^2 +X + 1}{- \frac{2}{9}X^2-\frac{5}{9}X+\frac{7}{9}}
+	      \divPol{3X^3 -5X^2 +X + 1}{- \frac{2}{9}X^2-\frac{5}{9}X+\frac{7}{9}}
 
-	      \polylongdiv[style=D]{- \frac{2}{9}X^2-\frac{5}{9}X+\frac{7}{9}}{\frac{171}{4}X - \frac{171}{4}}
+	      \divPol{- \frac{2}{9}X^2-\frac{5}{9}X+\frac{7}{9}}{\frac{171}{4}X - \frac{171}{4}}
 
-	      \polylonggcd{X^5 + X^3 - 6X^2 + 2X +2}{X^4 - X^3 - X^2 + 1}
+	      \mcd{X^5 + X^3 - 6X^2 + 2X +2}{X^4 - X^3 - X^2 + 1}
 
 	      El MCD será el último resto no nulo y mónico \boxed{\to (f : g) = X-1}\\
 
-	\item \polylonggcd{X^6 + X^4 + X^2  +1}{X^3 + X}\\
+	\item \mcd{X^6 + X^4 + X^2  +1}{X^3 + X}\\
 
 	      El MCD será el último resto no nulo y mónico $\to$\boxed{ (f : g) = X^2+1}\\
 	      El MCD escrito como combinación polinomial de $f$ y $g \to$ \boxed{ X^2 + 1 = f \cdot 1 + g \cdot (-X^3)}
@@ -40,7 +40,7 @@ polinomial de $f$ y $g$ siendo:
 	\item
 	      $\flecha{Haciendo}[Euclides]$
 
-	      \polylonggcd{2X^6 - 4X^5 + X^4 + 4X^3 - 6X^2 + 4X + 1}{X^5 - 2X^4 + 2X^2 - 3X + 1}\\
+	      \mcd{2X^6 - 4X^5 + X^4 + 4X^3 - 6X^2 + 4X + 1}{X^5 - 2X^4 + 2X^2 - 3X + 1}\\
 	      El MCD será el último resto no nulo y \textit{mónico} $\to$ \boxed{(f : g) = 1}\\
 	      El MCD escrito como combinación polinomial de $f$ y $g \to$ \boxed{1 = \frac{1}{3} g \cdot(2X^2-4X+1) - \frac{1}{3} f \cdot (X-2)}\\
 

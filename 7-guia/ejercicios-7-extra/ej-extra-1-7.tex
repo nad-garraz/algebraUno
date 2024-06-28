@@ -1,0 +1,69 @@
+\ejercicio
+\def\c{\textbf{c}}
+\begin{enumerate}[label=\alph*)]
+	\item Hallar todos los posibles $\c \en \reales,\, \c > 0$ tales que:
+	      $$ f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + \c$$ tenga una raíz de argumento $\frac{3\pi}{2}$
+
+	\item Para cada valor de $\c$ hallado, factorizar $f$ en $\racionales[X],\, \reales[X]$ y $\complejos[X]$, sabiendo que tiene al menos una raíz doble.
+\end{enumerate}
+
+\separadorCorto
+\begin{enumerate}[label=\alph*)]
+	\item
+	      Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$\\
+	      Voy a usar que:
+	      $\llamada1
+		      \llave{rcr}{
+			      (-i)^2 & = &  -1\\
+			      (-i)^3 & = &  i\\
+			      (-i)^4 & = &  1\\
+			      (-i)^5 & = &  -i\\
+			      (-i)^6 & = &  -1
+		      }$
+
+	      $
+		      f(r(-i)) =
+		      (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4^3 + 4(r(-i))^2 + 48(r(-i)) + \c \stackrel{\llamada1}=\\
+		      -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0
+		      \sisolosi
+		      \llave{l}{
+			      \re : -r^6  - r^4  - 4r^2  + \c = 0 \entonces \c = r^6  + r^4  + 4r^2\\
+			      \im : r(4r^4- 4 r^2- 48) = 0
+			      \flecha{bicuadrática}[$r^2 = y$ y $r\en\reales_{> 0}$]
+			      r^2 = 3
+		      }
+	      $
+
+	      Por lo tanto si
+	      $\c =
+		      r^6  + r^4  + 4r^2 =
+		      (r^2)^3  + (r^2)^2  + 4r^2
+		      \entonces
+		      \boxed{\c = 48}\Tilde
+	      $\\
+	      con raíces $\pm \sqrt{3}i$ dado que $f\en \reales[X]$
+
+
+	\item
+	      Debe ocurrir que $(X - \sqrt{3}i))(X + \sqrt{3}i) = X^2 + 3 \divideA f$\\
+	      \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}\\
+
+	      $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$ tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
+	      $
+		      q' = 4X^3 - 12X^2 -8 X + 16 = 4(X^3 - 3X^2 - 2X + 16) = 0
+		      \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4,\pm8,\pm16$]
+		      q'(-2) = 0 \text{, pero } f(\magenta{-2})\distinto 0\\
+		      \flecha{divido para}[bajar grado]
+	      $
+		      \divPol{X^3 - 3X^2 - 2X + 16}{X + 2}\\
+              $
+          \flecha{busco raíces}[de] X^2 - 5X + 8 = 0 \sisolosi \alpha = 5 \pm \dots 
+          $
+
+          \red{Algo estoy haciendo mal, esto se hizo eterno$\skull\skull\skull$}
+
+
+
+
+
+\end{enumerate}

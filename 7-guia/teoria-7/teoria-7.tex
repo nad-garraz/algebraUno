@@ -16,7 +16,7 @@
 	\item $(\K[X],+,\cdot) \text{ es un anillo conmutativo } \to f\cdot(g+h) = f\cdot g + f\cdot h,\, \paratodo f,\,g,\,h \en \K[X]$
 
 	\item \textit{Algoritmo de división}: $f,g \en \K[X]$ no nulos, existen únicos $q$ y $R \en \K[X]$ tal que $f = q\cdot g + R$
-	      con $gr(R) < gr(f)$ o $R = 0$
+	      con $\gr(R) < \gr(f)$ o $R = 0$
 
 	\item $\alpha$ es raíz de $f \sisolosi X - \alpha \divideA f \sisolosi f = q \cdot ( X - \alpha)$
 
@@ -30,12 +30,22 @@
 		      \item Dos polinomios son coprimos si $(f:g) = 1 \sisolosi f \distinto g$
 	      \end{itemize}
 
-	\item \textit{Raíces múltiples: } $f \en \K[x], \alpha \en \K$ es raíz de $f$ de multiplicidad
-	      $m \en \naturales_0$ si $(X - \alpha)^m \divideA f$ y $(X - \alpha)^{m+1} \noDivide f$.
-	      O sea, $f = (X - \alpha)^m \cdot \ub{q(\alpha)}{\distinto 0}$
+	\item \textit{Raíces múltiples: }\\
+	      Sea $f \en \K[x]$ no nulo, y sea $\alpha \en \K$. Se dice que:
 	      \begin{itemize}
-		      \item Una raíz simple de $f$ cumplirá que $(x-\alpha) \divideA f$,
-		            pero $(x - \alpha)^2 \noDivide f$
+		      \item $\alpha$ es raíz \underline{múltiple} de $f \sii f = (x - \alpha)^2 q$ para algún $q \en \K[X]$
+
+		      \item $\alpha$ es raíz \underline{simple} de $f \sii x - \alpha \divideA f$ en $\K[X]$,
+		            pero $(X - \alpha)^2 \noDivide f$ en $\K[X] \sii f= (X - \alpha) q$
+		            para algún $q \en \K[X]$ tal que $q(\alpha) \distinto 0$.
+
+		      \item Sea $m \en \naturales_0$. Se dice que $\alpha$ es raíz de multiplicidad (exactamente)
+		            $m$ de $f$, y se nota $\mult{\alpha;f} = m \sisolosi (X - \alpha)^m \divideA f$,
+		            pero $(x - \alpha)^{m+1} \noDivide f$.\\
+		            O equivalentemente, $f = (X - \alpha)^m q$ con $q \en \K[X]$,
+		            pero $q(\alpha) \distinto 0$
+
+		      \item Sea $f \en \K[X]$ no nulo $\mult{\alpha; f} \leq \gr{f}$:
 	      \end{itemize}
 
 	\item Vale que $\alpha$ es raíz múltiple de $f \sisolosi f(\alpha) = 0$ y $f'(\alpha) = 0 \sisolosi \alpha$

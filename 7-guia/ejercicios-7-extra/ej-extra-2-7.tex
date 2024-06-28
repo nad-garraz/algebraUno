@@ -1,0 +1,95 @@
+\ejercicio
+Sea $z = \frac{\sqrt{3}}{2} - \frac{1}{2}i$. Hallar todos los $n \en \naturales$ que cumplen simultáneamente
+las siguientes condiciones:
+\begin{itemize}
+	\item $8 \divideA 3n + |z^3|$
+	\item $\arg(z^{7n+6}) = \arg(i)$
+\end{itemize}
+
+\separadorCorto
+
+$\llave{l}{
+		|z| = 1\\
+		\theta_z = \frac{11}{6}\pi
+	}
+	\to z = |z|e^{\theta_z i} =
+	e^{i\frac{11}{6}\pi}
+	\entonces
+	z^3 = e^{i\frac{11}{2}\pi} = -1
+	\sii |z^3| = 1
+$
+
+$
+	\flecha{primera}[condición]
+	8 \divideA 3n + |z^3| = 3n + 1
+	\sii
+	3n + 1 = 8k
+	\sii
+	\congruencia{3n + 1}{0}{8}
+	\sii
+	\congruencia{3n}{7}{8}
+	\sii
+	{\congruencia{9n}{21}{8}}
+	\sii
+	\congruencia{n}{5}{8}  \Tilde
+$\\
+
+$
+	\flecha{segunda}[condición]
+	\arg(z^{7n+6}) = \arg(i)
+	\sii
+	\parentesis{e^{i\frac{11}{6}\pi}}^{7n+6} = e^{i\frac{\pi}{2}}
+	\sii
+	e^{i\frac{77}{6}\pi + 11 \pi} =
+	e^{i\frac{\pi}{2}}
+	\sii
+	\frac{77}{6}n\pi + 11 \pi = \frac{\pi}{2} + \magenta{2k\pi}\\
+	\flecha{despejo}[$n$]
+	\frac{77}{6}n + 11 = \frac{1}{2} + 2k
+	\sii
+	77n = -63 + 12k
+	\sii
+	\congruencia{77n}{-63}{12}
+	\sii
+	\congruencia{5n}{-3}{12}
+	\sii
+	\congruencia{n}{9}{12} \Tilde
+$\\
+
+$
+	\flecha{junto info}[TCR]
+	\llave{l}{
+		\congruencia{n}{9}{12} \\
+		\congruencia{n}{5}{8}
+	}
+	\flecha{quiero divisores}[coprimos]
+	\llave{l}{
+		\congruencia{n}{1}{4} \blue{\Tilde} \\
+		\congruencia{n}{0}{3}  \\
+		\congruencia{n}{1}{4} \magenta{\Tilde}\blue{\Tilde}\\
+		\congruencia{n}{1}{2} \magenta{\Tilde}
+	}
+    \stackrel{:)}\sisolosi
+	\llave{l}{
+		\congruencia{n}{0}{3}  \\
+		\congruencia{n}{1}{4} \\
+		\congruencia{n}{1}{2}
+	}
+	\sii
+	\llave{l}{
+		\congruencia{n}{0}{3} \llamada1  \\
+		\congruencia{n}{1}{8} \llamada2\\
+	}\\
+	\flecha{de}[$\llamada1$]
+	n = 3k\llamada3 \Tilde
+	\flecha{reemplazo}[en $\llamada2$]
+	\congruencia{3k}{1}{8}
+	\sii
+	\congruencia{k}{3}{8}
+    \sii
+    k = \yellow{8j + 3} \Tilde\\
+	\flecha{reemplazo}[$k$ en $\llamada3$]
+	n = 3 (\yellow{8j+3}) = 24j + 9
+	\sii
+	\boxed{\congruencia{n}{9}{24}} \Tilde
+$

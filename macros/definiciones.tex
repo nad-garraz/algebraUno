@@ -76,6 +76,7 @@
 % complejos
 \def\re{\mathrm{Re}}
 \def\im{\mathrm{Im}}
+\def\arg{\mathrm{arg}}
 \def\conj{\overline}
 
 % Polinomios
@@ -100,7 +101,7 @@
 \newcommand{\llamada}[1]{%
 	\stackrel{\textcolor{
 			\ifcase\numexpr#1 mod 5\relax
-				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean
+				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or
 			\fi
 		}
 		{\text{\FiveStar}^{#1}}%

@@ -1,0 +1,20 @@
+\ejercicio
+Sea $w \en G_{14}.$ Hallar todos los posibles valores de $w^7 + \sumatoria{j=7}{140}w^{2j}$
+
+\separadorCorto
+\text{Si $w = 1$}:\\
+$w^7 + \sumatoria{j=7}{140} w^{2j} = 1 + 134 = 135$\\
+
+\text{Si $w = -1$}:\\
+$w^7 + \sumatoria{j=7}{140} w^{2j} = -1 + 134 = 133$\\
+
+\text{Si $w \distinto \pm1$}:\\
+$w^7 + \sumatoria{j=7}{140} w^{2j} =
+	w^7 + \sumatoria{j=0}{140} (w^{2})^j - \sumatoria{j=0}{6} (w^2)^j =
+	w^7 + \frac{(w^2)^{141} - 1}{w^2 - 1} - (1 + (w^2)^1 + (w^2)^2 + (w^2)^3 + (w^2)^4 + (w^2)^5 + (w^2)^6)
+	\\
+	\llave{l}{
+		\text{Si } w = e^{i\frac{2k\pi}{14}} \text{ con } k\en [0,2,4,6,8,10,12]
+		\entonces 1 + 1 - \ub{(1 + (w^2)^1 + (w^2)^2 + (w^2)^3 + (w^2)^4 + (w^2)^5 + (w^2)^6)}{ = 0} = 0\\
+	}
+$

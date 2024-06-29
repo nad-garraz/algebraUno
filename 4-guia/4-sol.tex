@@ -1,10 +1,5 @@
 \input{../macros/preamble-general.tex}
 
-% Algunos paquetes quizás exclusivos de este archivo que no
-% quiero poner en el preamble-general
-% el día de mañana podría integrarse
-\usepackage{polynom} % para división de polinomios
-
 \begin{document}
 
 
@@ -519,7 +514,7 @@ $d = (a^3 + 4a + 1 : a^2 + 2)
 	\flecha{Euclides}
 	\polyset{vars=a}
 	\llaves{c}{
-		\text{\polylongdiv[style=D]{a^3+4a+1}{a^2 + 2}}
+		\text{\divPol{a^3+4a+1}{a^2 + 2}}
 	}
 	\to d = (a^2 + 2 : 2a+1) \Tilde\\
 	\flecha{buscar}[divisores]

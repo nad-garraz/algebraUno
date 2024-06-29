@@ -1,0 +1,22 @@
+\ejercicio
+Hallar todos los $(a,b) \en \enteros^2$ tales que $\congruencia{b}{2a}{5}$ y $28a + 10b = 26$.
+
+\separadorCorto
+Parecido al \textbf{2.}.\\
+$ \congruencia{b}{2a}{5} \sisolosi b = 5k + 2a
+	\flecha{meto en}[$28a + 10b = 26$]
+	48a + 50k = 26
+	\flecha{$(48:59) = 2$}[$2 \divideA 26$]
+	24a + 25k = 13
+	\flecha{a}[ojo]
+	\llaves{l}{
+		a = -13 + (-25)q\\
+		k = 13 + 24 q
+	}
+$\\
+\textit{Let's corroborate:}\\
+$b = 5\cdot \ub{(13 + 24q)}{k} + 2\cdot \ub{(-13 + (-25)q)}{a} = 39 + 70q
+	\llave{l}{
+		b = \congruencia{39 + 70 q}{4}{5}\Tilde  \\
+		2a = \congruencia{-26-50q}{-1}{5} \congruente 4\ (5)\Tilde
+	}$

@@ -1,0 +1,35 @@
+\ejercicio
+Hallar, cuando existan, todas las soluciones de las siguientes ecuaciones de congruencia:
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item $\congruencia{17X}{3}{11} \flecha{respuesta} \congruencia{X}{6}{11} $\\
+	      \red{pasar}
+
+	\item $\congruencia{56X}{28}{35}\\
+		      \llave{l}{
+			      \congruencia{56X}{28}{35} \sisolosi
+			      \congruencia{7X}{21}{35} \stackrel{\red{?}}\sisolosi
+			      7X - 35K = 21\\
+			      \flecha{a}[ojo] (X,K) = (-2,-1) + q \cdot (-5, 1)\\
+			      \congruencia{X}{-2}{5} \sisolosi \congruencia{X}{3}{5} = \set{\dots, -2, 3, 8, \dots, 5q+3}
+		      }\\
+		      \flecha{respuesta} \congruencia{X}{3}{5} $
+	      \red{corroborar}
+
+	\item
+	\item $\congruencia{78X}{30}{12126}  \to 78X - 12126 Y = 30 \flecha{$(78:12126) = 6$}[coprimizando] 13X - 2021 Y = 5$\\
+	      Busco solución particular con algo parecido a Euclides:\\
+	      $\llave{l}{
+			      \blue{2021} =  \blue{13} \cdot 155 + 6\\
+			      13 =  6 \cdot 2 + 1
+		      }\flecha{Escribo al 1 como}[combinación de \blue{13} y\blue{2021}]
+		      1 = \blue{13} \cdot 311 + \blue{2021} \cdot (-2)
+		      \flecha{quiero}[al 5]
+		      5 =  \blue{13}\cdot 1555 + \blue{2021} \cdot (-10)$\\
+
+	      Respuesta: $\boxed{\congruencia{78X}{30}{12126}
+			      \stackrel{\red{?}} \sisolosi \congruencia{X}{1555}{2021}}$
+
+\end{enumerate}

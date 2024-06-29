@@ -1,0 +1,22 @@
+\ejercicio
+Hallar el resto de la división de $a$ por $p$ en los casos.
+
+\separadorCorto
+\begin{enumerate}[label=\roman*)]
+	\item $a = 71^{22283},\, p=11$
+
+	      \separadorCorto
+	      $a = 71^{22283} = 71^{10 \cdot 2228 +2 + 1} = \ub{(71^{10})^{2228}}{\stackrel{11 \noDivide p}{\congruente} 1^{2228}\ (11)} \cdot 71^2 \cdot 71^1 \congruente 71^3 \ (11) \to \congruencia{a}{5^3}{11} $\Tilde\\
+	      Usando corolario con $p$ primo y $p \cop 71$,  $\to \congruencia{71^{22283}}{71^{r_{10}(22283)}}{11} \congruente 71^3 \ (11) \to  \congruencia{a}{5^3}{11} \Tilde$
+
+	\item $a = 5 \cdot 7^{2451} + 3 \cdot 65^{2345} - 23 \cdot 8^{138}, \, p = 13$
+
+	      \separadorCorto
+	      $\congruencia{a}{5 \cdot 7^{204 \cdot 12 + 3} + 3 \cdot 8^{11 \cdot 12 + 6}}{13}
+		      \to
+		      \congruencia{a}{5 \cdot (7^{12})^{204} \cdot 7^3 + 3 \cdot (8^{12})^{11} \cdot 8^6}{13}\\
+		      \flecha{$p \noDivide 7$}[$p \noDivide 8$]
+		      \congruencia{a}{5\cdot 7^3 + 3 \cdot 8^6 }{13}
+		      \to
+		      \congruencia{a}{5\cdot(- 6^3 + 3 \cdot 5^5)}{13} $ \red{consultar}
+\end{enumerate}

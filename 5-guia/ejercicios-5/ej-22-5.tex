@@ -1,0 +1,21 @@
+\ejercicio
+Resolver en $\enteros$ la ecuación de congruencia $\congruencia{7X^{45}}{1}{46}$.
+
+\separadorCorto
+$\congruencia{7X^{45}}{1}{46}
+	\flecha{multiplico por}[13]
+	\congruencia{91X^{45}}{13}{46}
+	\to \congruencia{X^{45}}{-13}{46}
+	\to \congruencia{X^{45}}{33}{46}\\
+	\to
+	\llave{l}{
+		\congruencia{X^{45}}{33}{23} \to\congruencia{X^{45}}{10}{23}
+		\flecha{23 primo y $23\noDivide X$}[$\congruencia{X^{22}}{1}{23}$]
+		X^{22} X^{22} X^{1} \conga{23} \congruencia{X}{10}{23}\\
+
+		\congruencia{X^{45}}{10}{2} \to  \congruencia{X^{45}}{0}{2}
+		\flecha{$X$ multiplicado por}[si mismo impar veces]
+		\congruencia{X}{0}{2}\\
+	}
+$\\
+La ecuación de congruencia \boxed{\congruencia{X}{10}{46}} cumple las condiciones encontradas.

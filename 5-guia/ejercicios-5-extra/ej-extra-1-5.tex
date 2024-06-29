@@ -1,0 +1,81 @@
+\ejercicio 
+Hallar los posibles restos de dividir a $a$ por 70, sabiendo que $(a^{1081}+ 3a + 17 : 105) = 35$\\
+
+\separadorCorto
+$ (\ub{a^{1081}+ 3a + 17}{m} : \ub{105}{3\cdot 5 \cdot 7})  = \ub{35}{5 \cdot 7}
+	\flecha{notar}[que]
+	\llave{l}{
+		5 \divideA m\\
+		7 \divideA m\\
+        3 \noDivide m \red{\to \text{\tiny¡He aquí la más importante info!}}
+	}\\
+	\llave{l}{
+		5 \divideA m
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
+		\to
+		\llave{ll}{
+          \text{si} & 5 \divideA a \to \congruencia{2}{0}{5} \magenta{ \text{ningún } a } \skull  \\
+			\text{si} & 5 \noDivide a
+			\flecha{$a^{1081} = a \cdot (a^4)^{270}$}[5 primo y $5 \noDivide a$, fermateo]
+			\congruencia{a + 3a + 2}{0}{5} \to \congruencia{a}{2}{5}\\
+			& \text{si } 5 \divideA m \entonces \boxed{\congruencia{a}{2}{5}}\Tilde
+		}
+		\\
+		7 \divideA m
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
+		\to
+		\llave{ll}{
+          \text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \magenta{ \text{ningún } a } \skull  \\
+			\text{si} & 7 \noDivide a
+			\flecha{$a^{1081} = a \cdot (a^6)^{180}$}[7 primo y $7 \noDivide a$, fermateo]
+			\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}\\
+			& \text{si } 7 \divideA m \entonces \boxed{\congruencia{a}{1}{7}}\Tilde
+		}
+		\\
+		3 \noDivide m
+		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{3} 2}}{0}{3}
+		\to
+		\llave{ll}{
+			\text{si} & 3 \divideA a \to \congruencia{2}{0}{3}
+			% \flecha{$3\noDivide m$ y $3 \divideA a$}
+			\llave{l}{
+              \text{si } 3 \divideA m \to \congruencia{2}{0}{3} \to \magenta{\text{ningún } a} \skull, \text{ pero} \\
+                \text{quiero } 3 \noDivide m \entonces \magenta{\text{todo } a} \text{, pero en esta rama}\\
+				3 \divideA a \entonces \text{si } 3\noDivide m \to \boxed{\congruencia{a}{0}{3}} \Tilde
+			}\\
+			\text{si} & 3 \noDivide a
+			\flecha{$a^{1081} = a \cdot (a^2)^{540}$}[3 primo y $3 \noDivide a$, fermateo]
+			\congruencia{a + 0 + 2}{0}{7} \to \congruencia{a}{-2}{3}\\
+			& \text{si } 3 \noDivide m \entonces \llamada{1} \boxed{a \not\equiv 1\ (3)}\Tilde
+		}
+	}$
+Debido a la última condición $\llamada{1}$, el problema se ramifica en 2 sistemas:\\
+\begin{minipage}{0.5\textwidth}
+	\centering
+	$
+		\llave{l}{
+			\congruencia{a}{2}{5} \\
+			\congruencia{a}{1}{7} \\
+			\congruencia{a}{0}{3}
+		}
+		\to \boxed{\congruencia{a}{22}{105} }
+	$
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+	\centering
+	$\llave{l}{
+			\congruencia{a}{2}{5} \\
+			\congruencia{a}{1}{7} \\
+			\congruencia{a}{2}{3}
+		}
+		\to \boxed{\congruencia{a}{92}{105} }
+	$
+\end{minipage}
+Veo que para el conjunto de posibles $a$
+$\llaves{c}{
+		a = 105k_1 + 22 \\
+		o \\
+		a = 105k_2 + 92
+	}\flecha{calculo}[$\conga{70}$]$
+$\congruencia{a}{22}{35} \flecha{quiero los restos}[pedidos del enunciado] r_{70}(a) = \set{22, 57}$,
+valores de $a$ que cumplan condición de $r_{70}(a)$

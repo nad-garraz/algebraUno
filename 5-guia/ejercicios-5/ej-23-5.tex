@@ -1,0 +1,62 @@
+\ejercicio
+Hallar todos los divisores positivos de $5^{140} = 25^{70}$ que sean congruentes
+a 2 módulo 9 y 3 módulo 11.
+
+\separadorCorto
+
+Quiero que ocurra algo así:
+$\llave{l}{
+		\congruencia{25^{70}}{0}{d} \to \congruencia{5^{140}}{0}{d}  \\
+		\congruencia{d}{2}{9} \\
+		\congruencia{d}{3}{11}
+	}$.
+De la primera ecuación queda que el divisor $d = 5^\alpha$ con $\alpha$ compatible
+con las otras ecuaciones.
+$\to
+	\llave{l}{
+		\congruencia{5^\alpha}{2}{9} \\
+		\congruencia{5^\alpha}{3}{11}
+	}$\\
+
+$\to \text{Usaré viejo truco de exponenciales de módulo periódicas:}\\
+	\flecha{Busco}[$5^{a} \conga{d} 1$]
+	\llave{l}{
+		\congruencia{5^\alpha}{2}{9} \\
+		\congruencia{5^3}{-1}{9} \flecha{al}[cuadrado] \congruencia{5^6}{1}{9}
+		\flecha{$5^\alpha = 5^{6k+r_6(\alpha)} = (\ob{5^6}{\conga9 1})^k 5^{r_6(\alpha)}$}[tabla de restos]
+		\begin{array}{|l|l|l|l|l|l|l|}
+			\hline
+			r_6(\alpha)   & 0 & 1 & 2 & 3 & 4 & 5       \\ \hline
+			r_9(5^\alpha) & 1 & 5 & 7 & 8 & 4 & \red{2} \\ \hline
+		\end{array}\\
+		\flecha{por lo}[tanto] \text{para que } \congruencia{5^\alpha}{2}{9} \entonces \boxed{\congruencia{\alpha}{5}{9}}\Tilde     \\
+
+		\separadorCorto
+
+		\congruencia{5^\alpha}{3}{11}\flecha{a ojo}[$\alpha = 2$] \congruencia{\magenta{5^2}}{3}{11} \\
+		\flecha{fermateo}[11 es primo, $11\noDivide 5$]
+		\congruencia{\green{5^{10}}}{1}{11}
+		\flecha{noto que tengo otro}[cuando hago $5^{12}$]
+		\congruencia{\magenta{5^2} \cdot \green{5^{10}}}{3}{11}\\
+		\flecha{para no perder soluciones de $\congruencia{5^\alpha}{3}{11} $}[tabla de restos por las dudas]
+		\begin{array}{|l|l|l|l|l|l|l|l|l|l|l|}
+			\hline
+			r_{10}(\alpha)   & 0 & 1 & 2       & 3 & 4 & 5        \\ \hline
+			r_{11}(5^\alpha) & 1 & 5 & \red{3} & 4 & 9 & \cyan{1} \\ \hline
+		\end{array}\\
+		\flecha{por lo tanto hay}[periodicidad de 5] \text{para que } \congruencia{5^\alpha}{3}{11}
+		\entonces
+		\boxed{\congruencia{\alpha}{2}{5}} \Tilde\\
+	}$\\
+El sistema
+$\llave{l}{
+		\congruencia{\alpha}{5}{9} \\
+		\congruencia{\alpha}{2}{5}
+	}$
+se resuelve para $\congruencia{\alpha}{32}{45}$ y además $0<\alpha \leq 140$ lo que se
+cumple para $\alpha = 45k + 32 =
+	\llaves{lcr}{
+		32  &  \text{ si } & k = 0\\
+		77  &  \text{ si } & k = 1 \\
+		122 &  \text{ si } & k = 2
+	} \to \boxed{\divsetP{25^{70}}{ 5^{32}, 5^{77}, 5^{122} }}  $

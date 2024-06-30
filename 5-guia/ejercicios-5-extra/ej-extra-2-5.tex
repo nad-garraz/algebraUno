@@ -1,177 +1,189 @@
 \ejercicio
 
-\red{Pulir ejercicio, tiene cálculos redundantes. Se hace más complicado de lo necesario.}
-
 Sea $a \en \enteros$ tal que $(a^{197} - 26 : 15) = 1$. Hallar los posibles valores de
 $(a^{97} - 36 : 135)$\\
 
 \separadorCorto
+\underline{Nota: } No perder foco en que \textit{no} hay que encontrar "para que
+$a$ el mcd vale tanto", sino se pone más complicado en el final.\\
 
-Tengo que dar posible valores para $(a^{97} - 36 : 135)$. Como $135 = 3^3\cdot 5$,
-los posibles valores serán de la forma $3^\alpha \cdot 5^\beta$ con
-$ \llaves{l}{
+$(a^{97} - 36 : \ob{135}{3^3\cdot 5}) = 3^\alpha \cdot 5^\beta$ con
+$\llamada1 \llaves{l}{
 		0 \leq \alpha \leq 3\\
 		0 \leq \beta \leq 1\\
-	}$ potencialmente $\ub{8}{(3+1)\cdot (1+1)} $posibles valores distintos $\set{1, 3, 9, 27, 5, 15, 45, 135}$\\
-Como condición mínima para que no sea siempre $(a^{97} - 36 : 135) = 1$ es que
-$\llaves{c}{
+	}$.\\
+Luego $(a^{197} - 26 : \ub{15}{3\cdot 5}) = 1$ se debe cumplir que:
+$
+	\llave{l}{
+		5 \noDivide a^{197} - 26\\
+		3 \noDivide a^{197} - 26
+	}
+$\\
+
+\underline{\textit{Análisis de } $(a^{197} - 26 : 15) = 1$:}\\
+\textit{Estudio la divisibilidad $5$:}\\
+
+$ 5 \noDivide a^{197} - 26
+	\sisolosi
+	\noCongruencia{a^{197} - 26}{0}{5}
+	\sisolosi
+	\noCongruencia{a^{197} - 1}{0}{5}
+	\flecha{analizo casos}[$5\divideA a$ o $5\divideA a$]\\
+	\noCongruencia{a^{197}}{1}{5}
+	\sii
+	\llave{l}{
+		\text{(\magenta{rama $5\noDivide a$})}
+		\flecha{5 es primo}[$5\noDivide a$]
+		\noCongruencia{a\cdot(\ob{a^4}{\conga5 1})^{49}}{1}{5}
+		\sii
+		\noCongruencia{a}{1}{5} \Tilde\\
+		%---
+		\text{(\magenta{rama $5\divideA a$})}
+		\flecha{5 es primo}[$5\divideA a$]
+		\noCongruencia{0}{1}{5} \to \congruencia{a}{0}{5}
+	}
+$\\
+
+\textit{Conclusión divisilidad 5: }\\
+Para que
+\boxed{5 \noDivide a^{197} - 26
+	\sisolosi
+	\noCongruencia{a}{1}{5} \llamada2
+}\\
+
+\textit{Estudio la divisibilidad $3$:}\\
+
+$ 3 \noDivide a^{197} - 26
+	\sisolosi
+	\noCongruencia{a^{197} - 2}{0}{3}
+	\sisolosi
+	\noCongruencia{a^{197} - 2}{0}{3}
+	\flecha{analizo casos}[$3\divideA a$ o $3\divideA a$]\\
+	\noCongruencia{a^{197}}{2}{3}
+	\sii
+	\llave{l}{
+		\text{(\magenta{rama $3\noDivide a$})}
+		\flecha{3 es primo}[$5\noDivide a$]
+		\noCongruencia{a\cdot(\ob{a^2}{\conga3 1})^{98}}{2}{3}
+		\sii
+		\noCongruencia{a}{2}{3} \Tilde\\
+		%---
+		\text{(\magenta{rama $3\divideA a$})}
+		\flecha{3 es primo}[$3\divideA a$]
+		\noCongruencia{0}{2}{3} \to \congruencia{a}{0}{3}
+	}
+$\\
+
+\textit{Conclusión divisilidad 3: }\\
+Para que
+\boxed{
+	3 \noDivide a^{197} - 26
+	\sisolosi
+	\noCongruencia{a}{2}{3}\llamada3
+}\\
+
+\separadorCorto
+\underline{\textit{Análisis de } $(a^{97} - 36 : 135)$:}\\
+Necesito que
+$ \llaves{c}{
 		3 \divideA a^{97} - 36\\
 		\text{o bien,}\\
 		5 \divideA a^{97} - 36
-	}$ si no ocurre ninguna de éstas el MCD será 1.\\
+	}$, para obtener valores distintos de 1 para el MCD.
+\\
 
-$\llave{l}{
-		5 \divideA a^{97} - 36 \to a^{97} - 36 \conga{5} a^{97} -1 \conga5 0
-		\to
-		\llave{ll}{
-			\flecha{si}[$5 \divideA a$] & \congruencia{-1}{0}{5}
-			\flecha{ningún $a$ tal que}[$5 \divideA a$ logra que] 5 \divideA a^{97} - 36 \\
-
-			\flecha{si}[$5 \noDivide a$] & \congruencia{(a^4)^{24} \cdot a -1 }{0}{5}
-			\flecha{5 primo, $5 \noDivide a$}[$\congruencia{a^4}{1}{5}$]
-			\boxed{\congruencia{a}{1}{5}}
-		}\\
-		\text{Se concluye de esta rama que si } 5 \divideA a^{97} - 36
+\textit{Estudio la divisibilidad $5$:(sujetos a $\llamada2$ y $\llamada3$):}\\
+Si
+$ 5 \divideA a^{97} - 36
+	\sisolosi
+	\congruencia{a^{97} - 1}{0}{5}
+	\sisolosi
+	\congruencia{a^{97}}{1}{5}
+	\flecha{analizo casos}[$5\divideA a$ o $5\divideA a$]\\
+	\congruencia{a^{97}}{1}{5}
+	\sii
+	\llave{l}{
+		\text{(\magenta{rama $5\noDivide a$})}
+		\flecha{5 es primo}[$5\noDivide a$]
+		\congruencia{a\cdot(\ob{a^4}{\conga5 1})^{24}}{1}{5}
+		\sii
+		\congruencia{a}{1}{5},\text{ absurdo con $\llamada2$} \skull\\
+		%---
+		\text{(\magenta{rama $5\divideA a$})}
+		\flecha{5 es primo}[$5\divideA a$]
+		\congruencia{0}{1}{3}
+		\to \text{ si } \congruencia{a}{0}{5}
 		\entonces
-		\boxed{\congruencia{a}{1}{5}}\llamada3 \Tilde \\
+		\noCongruencia{a^{97}}{1}{5}
+	}
+$\\
 
-		\separadorCorto
+\textit{Conclusión divisilidad 5: }\\
+\boxed{5 \noDivide a^{97} - 36\quad \paratodo a \en \enteros}\\
 
-		3 \divideA a^{97} - 36 \to a^{97} - 36 \conga{3} a^{97} \conga3 0
+
+\textit{Estudio la divisibilidad $3$ (sujetos a $\llamada2$ y $\llamada3$):}\\
+
+$ 3 \divideA a^{97} - 36
+	\sisolosi
+	\congruencia{a^{97}}{0}{3}
+	\sisolosi
+	\congruencia{a^{97}}{0}{3}
+	\flecha{analizo casos}[$3\divideA a$ o $3\divideA a$]\\
+	\congruencia{a^{97}}{0}{3}
+	\sii
+	\llave{l}{
+		\text{(\magenta{rama $3\noDivide a$})}
+		\flecha{3 es primo}[$3\noDivide a$]
+		\congruencia{a\cdot(\ob{a^2}{\conga5 1})^{48}}{0}{3}
+		\sii
+		\congruencia{a}{0}{3} \Tilde\\
+		%---
+		\text{(\magenta{rama $3\divideA a$})}
+		\flecha{3 es primo}[$3\divideA a$]
+		\congruencia{a}{0}{3}
+		\sii
+		\congruencia{0}{0}{3}
 		\to
-		\llave{ll}{
-			\flecha{si}[$3 \divideA a$] & \congruencia{0}{0}{3}
-			\flecha{dado que en}[esta rama $a \divideA 3$] \boxed{ \congruencia{a}{0}{3} } \\
-			\flecha{si}[$3 \noDivide a$] & \congruencia{(a^2)^{48} \cdot a}{0}{3}
-			\flecha{3 primo, $3 \noDivide a$}[$\congruencia{a^2}{1}{3} $]
-			\boxed{\congruencia{a}{0}{3}}
-		}\\
-		\text{Se concluye de esta rama que si } 3 \divideA a^{97} - 36
+		\text{ si } \congruencia{a}{0}{3}
 		\entonces
-		\boxed{\congruencia{a}{0}{3}}\llamada4 \Tilde
-	}$\\
-
-Todo muy lindo pero los valores de $a$ están condicionados por  $(a^{197} - 26 : 15) = 1$
-una condición que "nada" tiene que ver con el MCD, pero que condiciona los valores que puede
-tomar $a$. Como $a^{197} - 26 $ y $15 = 3 \cdot 5$ son coprimos sus factorizaciones en primos
-no pueden tener ningún número factor en común, dicho de otra forma:
-$\llaves{c}{
-		5 \noDivide  a^{197} - 26 \\
-		\text{ y } \\
-		3 \noDivide  a^{197} - 26
-	}$ estudiar estas condiciones me va a restringir los valores de $a$ que puedo usar para construir
-los posibles MCDs.\\
-
-$\llave{l}{
-		\flecha{\magenta{supongo} $5\divideA a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
-		a^{197} - 1 \conga{5} 0
-		\to
-		\llave{l}{
-			\flecha{si}[$5 \divideA a$]
-			\congruencia{-1}{0}{5}
-			\flecha{\green{ningún} $a$ tal que}[$5 \divideA a$ logra que] 5 \divideA a^{197} - 26 \\
-			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $5\divideA a$]
-			\congruencia{a}{0}{5}\\
-			\separadorCorto
-			\flecha{si}[$5 \noDivide a$]
-			\congruencia{(a^4)^{49} \cdot a - 1}{0}{5}
-			\flecha{5 primo, $5\noDivide a$}[$\congruencia{a^4}{1}{5}$]
-			\congruencia{a}{1}{5}\llamada1\\
-			\flecha{agarro el}[complemento de $\llamada1$]
-			\llave{l}{
-				\hbox{\sout{$\congruencia{a}{0}{5}$}} \to \text{rama $5\noDivide a$} \\
-				\congruencia{a}{2}{5} \\
-				\congruencia{a}{3}{5} \\
-				\congruencia{a}{4}{5} \\
-			}
-		}\\
-
-		\separadorCorto
-
-		\flecha{\magenta{supongo} $3\divideA a^{197} - 26$ y me}[\magenta{quedo con el complemento}]
-		a^{197} - 2 \conga{3} 0
-		\to
-		\llave{l}{
-			\flecha{si}[$3 \divideA a$]
-			\congruencia{-2}{0}{3}
-			\flecha{\green{ningún} $a$ tal que}[$3 \divideA a$ logra que] 3 \divideA a^{197} - 26 \\
-			\flecha{el \magenta{complemento de "\green{ningún}" es }}[\magenta{todo $a$} pero como $3\divideA a$]
-			\congruencia{a}{0}{3}\\
-			\separadorCorto
-			\flecha{si}[$3 \noDivide a$]
-			\congruencia{(a^2)^{93} \cdot a - 2}{0}{3}
-			\flecha{3 primo, $3\noDivide a$}[$\congruencia{a^2}{2}{3}$]
-			\congruencia{a}{2}{3}\llamada2\\
-			\flecha{agarro el}[complemento de $\llamada2$]
-			\llave{l}{
-				\hbox{\sout{$\congruencia{a}{0}{3}$}} \to \text{rama $3\noDivide a$} \\
-				\congruencia{a}{1}{3}
-			}
-		}\\
-
-	}$\\
-\text{Se concluye del estudio que si } $5 \noDivide a^{197} - 26$ y
-$3 \noDivide a^{197} - 26 \to $
-\boxed{
-	\llave{cr}{
-		\congruencia{a}{0}{5} & \text{ o }\\
-		\congruencia{a}{2}{5} & \text{ o }\\
-		\congruencia{a}{3}{5} & \text{ o }\\
-		\congruencia{a}{4}{5}\\
-		\text{ y }&\\
-		\congruencia{a}{0}{3} & \text{ o }\\
-		\congruencia{a}{1}{3}
+		\congruencia{a^{97}}{0}{3}
 	}
-}, 8 sistemas $\skull$ \\
+$\\
 
-Para que el MCD \textit{no sea 1}, se deben satisfacer $\llamada3$ o $\llamada4$, lo cual no ocurre
-nunca con $\llamada3$. Eso acota los valores de $(a^{97} - 36 : 135)$ a $\set{1,3,9,27}$\\
-De los 4 sistemas útiles:\\
-$
-	\llave{l}{
-		\congruencia{a}{0}{5}\\
-		\congruencia{a}{0}{3}
-	}
-	\flecha{solución}
-    \congruencia{a}{0}{15}
-    \flecha{con $a = 0$}
-	\llave{l}{
-		0^{97} - 36 \conga{3} 0\\
-		0^{97} - 36 \conga{9} 0 \Tilde\\
-		0^{97} - 36 \conga{27} - 9 \not\conga{27} 0 \\
-	}
-	\\
-	\llave{l}{
-		\congruencia{a}{2}{5}\\
-		\congruencia{a}{0}{3}
-	}
-	\flecha{solución} \congruencia{a}{12}{15}
-	\flecha{con $a = 12$}
-	\llave{l}{
-		12^{97} - 36 \conga{3} 0\\
-		12^{97} - 36 \conga{9} 4^{97} \cdot (3^2)^{48} \cdot 3 \conga9 0 \Tilde\\
-		12^{97} - 36 \conga{27} 4^{97} \cdot (3^3)^{32} \cdot 3^1 - 9 \conga{27} -9 \not\conga{27} 0 \\
-	}
-	\\
-	\llave{l}{
-		\congruencia{a}{3}{5}\\
-		\congruencia{a}{0}{3}
-	}
-	\flecha{solución} \congruencia{a}{3}{15}
-	\\
-	\llave{l}{
-		\congruencia{a}{4}{5}\\
-		\congruencia{a}{0}{3}
-	}
-	\flecha{solución} \congruencia{a}{9}{15}
-	\flecha{con $a = 9$}
-	\llave{l}{
-		9^{97} - 36 \conga{3} 0\\
-		9^{97} - 36 \conga{9} 0 \to (9^{97} - 36:135) = 9 \Tilde\\
-		9^{97} -36 \conga{27} (3^3)^{64} \cdot 3^2 - 9 \conga{27} -9 \not\conga{27} 0 \\
-	}\\
-$
+\textit{Conclusión divisilidad 3: }\\
+\boxed{3 \divideA a^{97} - 36
+	\sisolosi
+	\congruencia{a}{0}{3}
+\llamada4}\\
 
-\noindent Después de fumarme eso: $(a^{97} - 36 : 135) \en\set{1,9}$, porque todas las soluciones cumplen que:\\
-$3 \divideA a^{97} \entonces 9 \divideA a^{97}\entonces 27 \divideA a^{97}$ y como $9 \divideA 36$ y $27 \noDivide 36$
-siempre el mayor divisor de la expresión va a ser 9.
+De $\llamada1$ 3 es un posible MCD, tengo que ver si $3^2$ o $3^3$ también dividen.\\
+
+\textit{Estudio la divisibilidad $9$ en $a = 3k$ por $\llamada4$:}\\
+$ 9 \divideA (3k)^{97} - 36
+	\sisolosi
+	\congruencia{3k^{97}}{0}{9}
+	\sisolosi
+    \congruencia{3 \cdot (3^2)^{48}\cdot k^{97}}{0}{9}
+    \sisolosi
+	\congruencia{0}{0}{9}\Tilde \paratodo k \en \enteros 
+$\\
+
+\textit{Conclusión divisilidad 9: }\\
+\boxed{ 9 \divideA a^{97} - 36 \text{ puede ser que } (a^{97} - 26:135) = 9 }
+
+
+\textit{Estudio la divisibilidad $27$ en $a = 3k$ por $\llamada4$:}\\
+$ 27 \divideA (3k)^{97} - 36
+	\sisolosi
+    \congruencia{(3k)^{97}}{9}{27}
+	\sisolosi
+    \congruencia{3 \cdot (3^3)^{32} \cdot k^{97}}{9}{27}
+    \sisolosi
+    \congruencia{0}{9}{27} 
+$\\
+
+\textit{Conclusión divisilidad 27: }\\
+Si $\congruencia{a}{0}{3} \entonces 27 \noDivide a^{97} - 36$\\
+
+\magenta{Finalmente: el mcd es 9} 

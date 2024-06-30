@@ -66,6 +66,7 @@
 \def\noDivide{\centernot\divideA}
 \def\congruente{\, \equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
+\newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \;(#3)}
 \newcommand{\conga}[1]{\stackrel{(#1)}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
@@ -84,7 +85,7 @@
 \newcommand{\gr}[1]{\text{gr}(#1)}
 \newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
 \newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
-	      
+
 
 % =====
 % Miscelanea
@@ -158,10 +159,16 @@
 	}
 }
 
-%Update tiem
+% como el stackrel pero también se 
+% puede poner algo debajo
+\newcommand{\taa}[3]{
+  \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
+}
+
+%Update time
 \def\update{
 	\vspace{1cm}
 	\separador
 	\separador
-	\text{Ultima compilación: }\today\ a las \currenttime
+	\text{Última compilación: }\today\ a las \currenttime
 }

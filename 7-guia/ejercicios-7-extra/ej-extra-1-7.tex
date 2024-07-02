@@ -41,26 +41,47 @@
 		      \entonces
 		      \boxed{\c = 48}\Tilde
 	      $\\
-	      con raíces $\pm \sqrt{3}i$ dado que $f\en \reales[X]$
+	      con raíces $\pm \sqrt{3}i$ dado que $f\en \racionales[X]$
 
 
 	\item
-	      % \mcd{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{3X^5 - 10X^4 - 2X^3 + 6X^2 + 4X + 24}
 
 	      Debe ocurrir que $(X - \sqrt{3}i))(X + \sqrt{3}i) = X^2 + 3 \divideA f$\\
 	      \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}\\
 
-	      $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$ tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
+	      $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$
+	      tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
 	      $
-		      q' = 4X^3 - 12X^2 -8 X + 16 = 4(X^3 - 3X^2 - 2X + 16) = 0
-		      \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4,\pm8,\pm16$]
-		      q'(-2) = 0 \text{, pero } f(\magenta{-2})\distinto 0\\
+		      q' = (4X^3 - 12X^2 - 8 X + 16)' =
+		      4(X^3 - 3X^2 - 2X + 4) = 0
+		      \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4$]
+		      q'(1) = 0 \text{, pero }
+              g(\magenta{1})\distinto 0 \entonces f(1) \distinto 0 \\
 		      \flecha{divido para}[bajar grado]
 	      $
-	      \divPol{X^3 - 3X^2 - 2X + 16}{X + 2}\\
+	      \divPol{X^3 - 3X^2 - 2X + 4}{X - 1}
+	      $\\
+		      g' = 4(X-1)\ub{(X^2 - 2X -4)}{ = h}
+		      \flecha{busco raíces}[de $h$]
+		      X^2 - 2X - 4 = 0
+		      \sisolosi
+              \alpha_{1,2} = 1 \pm \sqrt{5}\\
+		      h =
+              (X - (1 + \sqrt{5})) \cdot (X - (1 - \sqrt{5}) =
+              X^2 - 2X - 4
 	      $
-		      \flecha{busco raíces}[de] X^2 - 5X + 8 = 0 \sisolosi \alpha = 5 \pm \dots
-	      $
+          Para calcular que $f(\alpha_1)= g(\alpha_1) = 0$ y comprobar que es una raíz doble, puedo hacer:
+          \divPol{X^4 - 4X^3 - 4X^2 + 16X + 16}{X^2 - 2X - 4} \checkmark
+          $g = h^2 =  (X^2 - 2X - 4)^2 \to \text{no la vi venir}$ \\
 
-	      \red{Algo estoy haciendo mal, esto se hizo eterno$\skull\skull\skull$}
+
+          \textit{factorizaciones: }\\
+          \boxed{
+          \llave{rcl}{
+            \racionales[X] & \to & f = \parentesis{X^2 + 3} (X^2 + 3)(X^2 - 2X - 4)^2\\
+            \reales[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X^2 - 2X - 4)^2\\
+            \complejos[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X-3i)^2 (X+3i)^2
+          }
+        }\Tilde
+          
 \end{enumerate}

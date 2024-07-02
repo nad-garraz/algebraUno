@@ -1,0 +1,68 @@
+\ejercicio
+
+Sea $w = e^{\frac{\pi}{18} i}$. Hallar todos los $n\en \naturales$ que cumplen simultáneamente:
+
+$$
+	\sumatoria{k=0}{5n+1}w^{3k} = 0 \qquad
+	\sumatoria{k=0}{4n+6}w^{4k} = 0.
+$$
+
+Expresar la solución como una única ecuación de congruencia.
+
+
+\separadorCorto
+
+Como $w = e^{\frac{\pi}{18} i} \distinto \pm 1
+	\llave{l}{
+		w^3 \distinto \pm 1\\
+		w^4 \distinto \pm 1
+	}$, puedo usar Gauss para las sumas.
+
+$
+	\llave{l}{
+	\sumatoria{k=0}{5n+1}w^{3k} =
+    \sumatoria{k=0}{5n+1}(w^3)^k =
+	\frac{(w^3)^{5n+2} - 1}{w^3 - 1} = 0
+	\sii
+	(w^3)^{5n+2} = 1
+	\sii
+	\frac{15n + 6}{18}\pi = 2k\pi
+	\sii
+    5n + 2 = 12k\\
+	\sii
+	\congruencia{5n}{10}{12}\llamada1
+	\\
+	\sumatoria{k=0}{4n+6}w^{4k} =
+	\sumatoria{k=0}{4n+6}(w^4)^k =
+	\frac{(w^4)^{4n+7} - 1}{w^4 - 1} = 0
+	\sii
+	(w^4)^{4n+7} = 1
+	\sii
+	\frac{16n + 28}{18}\pi = 2k\pi
+	\sii
+    4n + 7 = 9k\\
+	\sii
+	\congruencia{4n}{2}{9}\llamada2
+	}\\
+$
+
+$\begin{array}{c} \llamada1\\
+  \llamada2
+\end{array}
+	\llave{l}{
+      \congruencia{n}{2}{12} \\
+      \congruencia{n}{5}{9}   
+	}\to
+    \llave{l}{
+      \congruencia{n}{2}{3} \\ 
+      \congruencia{n}{2}{4} \\
+      \congruencia{n}{2}{3}
+    } 
+    \flecha{Sistema compatible}[me quedo con $\congruencia{n}{5}{9} $]
+    \llave{l}{
+      \congruencia{n}{2}{4}\\
+      \congruencia{n}{5}{9}
+    } 
+    \flecha{$9 \cop 4$}[hay solución por TCR] 
+    \boxed{\congruencia{n}{14}{36}} \Tilde
+$

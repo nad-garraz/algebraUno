@@ -18,24 +18,25 @@
 \newpage % página nueva
 
 %=========================
-% Ejercicios extras, parciales, etc.
-%=========================
-\subsubsection*{Ejercicios extras:}
-
-\foreach \x in {1,...,3} {
-		\input{./ejercicios-5-extra/ej-extra-\x-5.tex}
-	}
-
-\newpage % página nueva
-
-%=========================
 % Ejercicios guia
 %=========================
 
 \subsubsection*{Ejercicios de la guía:}
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
 
 \foreach \x in {1,...,30} {
 		\input{./ejercicios-5/ej-\x-5.tex}
 	}
+
+
+\newpage % página nueva
+%=========================
+% Ejercicios extras, parciales, etc.
+%=========================
+\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
+\subsubsection*{Ejercicios extras:}
+
+\foreach \x in {1,...,6} {
+		\input{./ejercicios-5-extra/ej-extra-\x-5.tex}
+	}
+
 \end{document}

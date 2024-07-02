@@ -1,57 +1,66 @@
-\ejercicio 
+\ejercicio
 Hallar los posibles restos de dividir a $a$ por 70, sabiendo que
 $(a^{1081}+ 3a + 17 : 105) = 35$\\
 
 \separadorCorto
 
 $ (\ub{a^{1081}+ 3a + 17}{m} : \ub{105}{3\cdot 5 \cdot 7})  = \ub{35}{5 \cdot 7}
-	\flecha{notar}[que]
-	\llave{l}{
+	\flecha{debe ocurrir}[que]
+	\llave{c}{
 		5 \divideA m\\
+        \text{y}\\
 		7 \divideA m\\
-        3 \noDivide m \red{\to \text{\tiny¡He aquí la más importante info!}}
-	}\\
-	\llave{l}{
-		5 \divideA m
-		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
-		\to
-		\llave{ll}{
-          \text{si} & 5 \divideA a \to \congruencia{2}{0}{5} \magenta{ \text{ningún } a } \skull  \\
-			\text{si} & 5 \noDivide a
-			\flecha{$a^{1081} = a \cdot (a^4)^{270}$}[5 primo y $5 \noDivide a$, fermateo]
-			\congruencia{a + 3a + 2}{0}{5} \to \congruencia{a}{2}{5}\\
-			& \text{si } 5 \divideA m \entonces \boxed{\congruencia{a}{2}{5}}\Tilde
-		}
-		\\
-		7 \divideA m
-		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
-		\to
-		\llave{ll}{
-          \text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \magenta{ \text{ningún } a } \skull  \\
-			\text{si} & 7 \noDivide a
-			\flecha{$a^{1081} = a \cdot (a^6)^{180}$}[7 primo y $7 \noDivide a$, fermateo]
-			\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}\\
-			& \text{si } 7 \divideA m \entonces \boxed{\congruencia{a}{1}{7}}\Tilde
-		}
-		\\
+        \text{y}\\
 		3 \noDivide m
-		\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{3} 2}}{0}{3}
-		\to
-		\llave{ll}{
-			\text{si} & 3 \divideA a \to \congruencia{2}{0}{3}
-			% \flecha{$3\noDivide m$ y $3 \divideA a$}
-			\llave{l}{
-              \text{si } 3 \divideA m \to \congruencia{2}{0}{3} \to \magenta{\text{ningún } a} \skull, \text{ pero} \\
-                \text{quiero } 3 \noDivide m \entonces \magenta{\text{todo } a} \text{, pero en esta rama}\\
-				3 \divideA a \entonces \text{si } 3\noDivide m \to \boxed{\congruencia{a}{0}{3}} \Tilde
-			}\\
-			\text{si} & 3 \noDivide a
-			\flecha{$a^{1081} = a \cdot (a^2)^{540}$}[3 primo y $3 \noDivide a$, fermateo]
-			\congruencia{a + 0 + 2}{0}{7} \to \congruencia{a}{-2}{3}\\
-			& \text{si } 3 \noDivide m \entonces \llamada{1} \boxed{a \not\equiv 1\ (3)}\Tilde
-		}
-	}$
-Debido a la última condición $\llamada{1}$, el problema se ramifica en 2 sistemas:\\
+	}\\
+	5 \divideA m
+	\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
+	\to
+	\llave{cl}{
+		\text{si} & 5 \divideA a \to \congruencia{2}{0}{5}
+		\entonces \noCongruencia{a}{0}{5} \\
+        \text{o}\\
+		\text{si} & 5 \noDivide a
+		\flecha{$a^{1081} = a (a^4)^{270}$}[5 primo y $5 \noDivide a$]
+		\congruencia{a + 3a + 2}{0}{5}
+        \entonces
+        \boxed{\congruencia{a}{2}{5}}\\
+	}
+	\\
+	7 \divideA m
+	\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
+	\to
+	\llave{cl}{
+		\text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \entonces \noCongruencia{a}{0}{7}\\
+        \text{o}\\
+		\text{si} & 7 \noDivide a
+		\flecha{$a^{1081} = a (a^6)^{180}$}[7 primo y $7 \noDivide a$]
+		\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}
+        \entonces
+        \boxed{\congruencia{a}{1}{7}} \\
+	}
+	\\
+	3 \noDivide m
+	\to \noCongruencia{a^{1081} + \ub{3}{=0}a + \ub{17}{\conga{3} 2}}{0}{3}
+	\to
+	\llave{ll}{
+		\text{si} & 3 \divideA a 
+        \to
+        \noCongruencia{2}{0}{3} \entonces \congruencia{a}{0}{3} \\
+        \text{o}\\
+		\text{si} & 3 \noDivide a
+		\flecha{$a^{1081} = a (a^2)^{540}$}[3 primo y $3 \noDivide a$]
+		\noCongruencia{a + 2}{0}{3}
+        \entonces
+        \llave{l}{
+        \noCongruencia{a}{1}{3}\\
+        \noCongruencia{a}{0}{3}\\
+        }
+        \entonces
+        \boxed{\congruencia{a}{2}{3}}\\
+	}
+$\\
+Las condiciones marcan 2 sistemas:\\
 \begin{minipage}{0.5\textwidth}
 	\centering
 	$

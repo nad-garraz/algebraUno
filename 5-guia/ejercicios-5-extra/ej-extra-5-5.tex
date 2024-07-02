@@ -1,0 +1,54 @@
+\ejercicio
+Sea $n\en \naturales$ tal que $(n^{109} + 37:52) = 26$ y $(n^{63} -21:39) = 39$.
+Calcular el resto de dividir a $n$ por 156.
+
+\separadorCorto
+
+$
+	(n^{109} + 37: \ub{52}{13 \cdot 2^2}) = \ub{26}{13 \cdot 2}
+$ y
+$(n^{63} -21 : \ub{39}{13 \cdot 3}) = \ub{39}{13 \cdot 3}$.\\
+
+\textit{Info de los MCD: }\\
+
+Para que $(n^{109} + 37 : 52) = 26$ debe ocurrir que:\\
+
+$
+	\llave{l}{
+		13 \divideA  n^{109} + 37  \\
+		2 \divideA  n^{109} + 37  \\
+		4 \noDivide  n^{109} + 37
+	}
+$
+Para que $(n^{63} -21 : 39) = 39$ debe ocurrir que:\\
+
+$
+	\llave{l}{
+		13 \divideA  n^{63} -21 \\
+		3 \divideA   n^{63} -21
+	}
+$\\
+
+$
+	\llave{l}{
+		\congruencia{n}{1}{2} \\
+		\congruencia{n}{2}{13} \\
+		\noCongruencia{n}{3}{4} \\
+		\congruencia{n}{0}{3}
+	}
+	\sisolosi
+	\llave{l}{
+		\congruencia{n}{1}{2} \\
+		\congruencia{n}{2}{13} \\
+		\congruencia{n}{1}{4} \\
+		\congruencia{n}{0}{3}
+	}
+	\sisolosi
+	\llave{l}{
+		\congruencia{n}{2}{13} \\
+		\congruencia{n}{1}{4} \\
+		\congruencia{n}{0}{3}
+	}
+$
+\red{Completar}
+R: $r_{156}(n) = 93$

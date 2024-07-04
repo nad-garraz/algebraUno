@@ -8,7 +8,7 @@
 \author{Comunidad algebraica} % autor
 \date{\update} % Cambiar de ser necesario
 \maketitle  % para que aprezca el título en el documento
-
+\thispagestyle{empty} % para que no aparezca el número en la primera página
 
 %=========================
 % Un poco de teoría
@@ -35,6 +35,8 @@
 \setcounter{ejercicio}{0} % Reset el counter de \ejercicio
 \subsubsection*{Ejercicios extras:}
 
+% La lista que recorre va del 1 hasta el número del último 
+% ejercicio en el directorio './ejercicios-5-extra/'
 \foreach \x in {1,...,6} {
 		\input{./ejercicios-5-extra/ej-extra-\x-5.tex}
 	}

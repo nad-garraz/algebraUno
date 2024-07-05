@@ -1,0 +1,22 @@
+\ejercicio  4400 ¿Cuántos divisores distintos tiene? ¿Cuánto vale la suma de sus divisores.\\
+\separadorCorto
+$
+	4400
+	\flecha{factorizo} 4400 = 2^4 \cdot 5^2 \cdot 11
+	\flecha{los divisores $m \divideA 4400$}[tendrán la forma]
+	m = \pm 2^\alpha \cdot 2^\beta \cdot 2^\gamma,
+	\text{ con }
+	\llaves{c}{
+		0 \leq \alpha\leq 4\\
+		0 \leq \beta \leq 2\\
+		0 \leq \gamma \leq 1
+	}
+$\\
+Hay entonces un total de $5 \cdot 3 \cdot 2 = 30$ divisores positivos y $60$ enteros.\\
+Ahora busco la suma de esos divisores:
+$
+	\sumatoria{i=0}{4} \sumatoria{j=0}{2}\sumatoria{k=0}{1} 2^i \cdot 5^j \cdot 11^k =
+	\parentesis{\sumatoria{i=0}{4} 2^i } \cdot \parentesis{ \sumatoria{j=0}{2} 5^j } \cdot \parentesis{ \sumatoria{k=0}{1} 11^k}\\
+	\flecha{sumas}[geométricas]
+	\ub{\frac{2^{4+1} - 1}{2 - 1}}{31} \cdot \ub{\frac{5^{2+1} - 1}{5 - 1}}{31} \cdot \ub{\frac{11^{1+1} - 1}{11 - 1}}{12} = 11532.
+$\\

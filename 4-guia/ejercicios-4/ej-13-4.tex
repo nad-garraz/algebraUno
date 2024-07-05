@@ -1,0 +1,51 @@
+\ejercicio
+Se define por recurrencia la sucesión $(a_n)_{n \en \naturales}$:\\
+\[
+	a_1 = 3,\, a_2 = -5 \ytext a_{n+2} = a_{n+1} - 6^{2n} \cdot a_n + 21^n \cdot n^{21} \text{, para todo } n \en \naturales.
+\]
+Probar que $\congruencia{a_n}{3^n}{\text{mod } 7} $ para todo $n\en\naturales$.\\
+
+\separadorCorto
+
+La infumabilidad de esos números me obliga a atacar a esto con el resto e inducción.\\
+$\flecha{acomodo}[enunciado feo]
+	r_7(a_{n+2}) = r_7( r_7(a_{n+1}) - \ub{r_7(36)^n}{\conga7 1} \cdot r_7(a_n) + \ub{r_7(21)^n}{\conga7 0} \cdot r_7(n)^{21}  ) =
+	\ub{r_7(a_{n+2}) = r_7(a_{n+1}) - r_7(a_n)}{\llamada{1}\ } $\Tilde\\
+Puesto de otra forma $ \congruencia{a_{n+2}}{a_{n+1} - a_n}{7}
+	\to
+	\llave{l}{
+		\congruencia{a_1}{3^1}{7} \sisolosi \congruencia{a_1}{3}{7}   \\
+		\congruencia{a_2}{3^2}{7} \sisolosi \congruencia{a_2}{2}{7}  \\
+		\congruencia{a_3}{3^3}{7} \sisolosi \congruencia{a_3}{6}{7}
+	}$\\
+Quiero probar que  $\congruencia{a_n}{3^n}{\text{mod } 7} \to$  inducción completa:\\
+
+$ p(n)\ :\ \congruencia{a_n}{3^n}{\text{mod }7} \paratodo n \en \naturales\\
+	\llave{ll}{
+		\text{Casos base: } &
+		\llave{l}{
+			p(n = 1)\ :\ \congruencia{a_1}{3^1}{7} \text{Verdadera}\\
+			p(n = 2)\ :\ \congruencia{a_2}{3^2}{7}\conga7 2 \conga7 -5 \text{Verdadera}\\
+		} \\
+
+		\text{Paso Inductivo: } &
+		\llave{l}{
+			p(k)\ : \  \congruencia{a_k}{3^k}{\text{mod } 7} \text{ Verdadera }\\
+			\y\\
+			p(k+1)\ : \  \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7} \text{ Verdadera }\\
+			\entonces p(k+1)\ : \  \congruencia{a_{k+2}}{3^{k+2}}{\text{mod } 7} \text{ Verdadera?}\\
+		} \\
+
+		\text{Hipótesis inductiva: } &
+		\llave{l}{
+			\congruencia{a_k}{3^k}{\text{mod } 7} \\
+			\congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7} \\
+			\flecha{sumo}[pensando en $\llamada{1}{}$]
+			\congruencia{\ub{a_{k+1} - a_k}{a_{k+2}}}{\ub{3^{k+1} - 3^k}{2\cdot 3^k}}{\text{mod } 7}\\
+			\flecha{paso en}[limpio]  \congruencia{a_{k+2}}{\ub{9}{\conga7 2} \cdot 3^k}{7} \conga7 3^{k+2}
+			\to  \boxed{\congruencia{a_{k+2}}{3^{k+2}}{7} }
+		}
+	}
+$\\
+Concluyendo como $p(1), p(2), p(k), p(k+1) \y p(k+2)$ resultaron verdaderas por el principio de inducción
+$p(n)$ es verdadera $\paratodo n \en \naturales$.

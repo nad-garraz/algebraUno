@@ -1,0 +1,44 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item $99 \divideA 10^{2n} + 197$
+	\item $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}$
+	\item $56 \divideA 13^{2n} + 28n^2 - 84n -1$
+	\item $256 \divideA 7^{2n} + 208n - 1$
+\end{enumerate}
+
+\separadorCorto
+\begin{enumerate}[label=\roman*)]
+	\item $99 \divideA 10^{2n} + 197 \stackrel{def}{\sisolosi}
+		      \congruencia{10^{2n} + 197}{0}{99} \to
+		      \congruencia{10^{2n} + 198}{1}{99} \to
+		      \congruencia{10^{2n} + \ub{198}{\conga{99} 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
+		      \llave{l}{
+			      \flecha{sé}[que] \congruencia{100}{1}{99} \sisolosi \congruencia{100^2}{\ub{100}{ \conga{99} 1 }}{99} \to
+			      \congruencia{100^2}{1}{99} \sisolosi \dots \sisolosi \congruencia{100^n}{1}{99}\\
+			      \red{¿Tengo que demostrar ese renglón por inducción o con "propiedad de congruencia" funciona?}
+		      }
+	      $\\
+	      Se concluye que  $99 \divideA 10^{2n} + 197 \sisolosi 99 \divideA \ub{100 - 1}{99}$
+
+
+	\item
+	      $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
+		      \stackrel{def}{\sisolosi}
+		      \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
+		      \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
+		      \congruencia{\ub{9 \cdot 5^{2n}}{\conga9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9}\\
+		      \flecha{simplifico}[y acomodo]
+		      \congruencia{2^{4n}}{5^{2n}}{9} \to
+		      \congruencia{16^n}{25^n}{9}
+		      \flecha{simetría}[congruencia]
+		      \congruencia{25^n}{16^n}{9}
+		      \flecha{$25\conga9 16$}
+		      \congruencia{25}{16}{9} =
+		      \congruencia{9}{0}{9}\\
+	      $
+	      Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
+
+	\item \hacer
+	\item \hacer
+\end{enumerate}
+

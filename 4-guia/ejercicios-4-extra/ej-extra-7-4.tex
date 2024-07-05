@@ -1,0 +1,59 @@
+\ejercicio
+Sea $a\en \enteros$ tal que $\congruencia{32a}{17}{9}$. Calcular $(a^3 + 4a + 1 : a^2 + 2)$
+
+\separadorCorto
+
+$\congruencia{32a}{17}{9}
+	\to
+	\congruencia{5a}{8}{9}
+	\flecha{multiplico}[por 2]
+	\congruencia{a}{7}{9} \Tilde$
+
+$d = (a^3 + 4a + 1 : a^2 + 2)
+	\flecha{Euclides}
+	\polyset{vars=a}
+	\llaves{c}{
+		\text{\divPol{a^3+4a+1}{a^2 + 2}}
+	}
+	\to d = (a^2 + 2 : 2a+1) \Tilde\\
+	\flecha{buscar}[divisores]
+	\llave{l}{
+		d \divideA a^2 + 2\\
+		d \divideA 2a + 1\\
+	}
+	\flecha{$2F_1 - aF_2$}
+	\llave{l}{
+		d \divideA -a + 4\\
+		d \divideA 2a + 1\\
+	}
+	\flecha{$2F_1 + F_2$}
+	\llave{l}{
+		d \divideA -a + 4\\
+		d \divideA 9\\
+	}\\
+	\to d = (-a+4 : 9)
+	\flecha{divisores}[candidatos a MCD] \set{1,3,9}\Tilde $\\
+
+Hago tabla de restos 9 y 3, para ver si las expresiones $(a^2 + 2 : 2a+1)$ son divisibles por mis potenciales MCDs.\\
+
+\noindent$\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		r_9(a)      & 0 & 1 & 2 & 3 & \magenta{4} & 5  & 6  & 7  & 8  \\ \hline\hline
+		r_9(-a + 4) & 4 & 3 & 2 & 1 & \magenta{0} & -1 & -2 & -3 & -4 \\ \hline
+		% r_9(2a + 1)  & 1 & 3 & 5 & 7 & \magenta{0} & 2 & 4 & 6 & 8 \\ \hline
+	\end{array} \to$ \magenta{$\congruencia{a}{4}{9}$}, valores de $a$ candidatos para obtener MCD.\\
+
+\noindent$\begin{array}{|c|c|c|c|}
+		\hline
+		r_3(a)      & 0 & \magenta{1} & 2 \\ \hline\hline
+		r_3(-a + 4) & 2 & \magenta{0} & 2 \\ \hline
+		% r_3(a^2 + 2) & 2 & \magenta{0} & 0 \\ \hline
+		% r_3(2a + 1)  & 1 & \magenta{0} & 5 \\ \hline
+	\end{array} \to$ \magenta{$\congruencia{a}{1}{3}$},  valores de $a$ candidatos para obtener MCD .\\
+La condición $\congruencia{a}{7}{9}$ no es compatible con el resultado de la tabla de $r_9$, pero sí con $r_3$. Notar que
+$a = 9k + 7 \conga3 1 $. \\
+El MCD \boxed{(a^3 + 4a + 1 : a^2 + 2) =
+	\llave{lcr}{
+		3 & \text{si} & \congruencia{a}{7}{9}\\
+		1 & \text{si} &  a \not\equiv 7\ (9)
+	}} \Tilde

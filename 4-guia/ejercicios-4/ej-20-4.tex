@@ -1,0 +1,45 @@
+\ejercicio
+Sea $a \en \enteros$.
+\begin{enumerate}[label=\alph*)]
+	\item Probar que $(5a + 8 : 7a + 3) = 1 \otext 41.$
+    Exhibir un valor de $a$ para el cual da 1, y verificar
+	      que efectivamente para $a = 23$ da $41$.
+
+	\item Probar que $(2 a^2 + 3a : 5a +6) = 1 \otext 43.$ Exhibir un valor de $a$ para el cual da 1, y verificar
+	      que efectivamente para $a = 16$ da $43$
+
+	\item Probar que $(a^2-3a+2 : 3a^3 -5a^2) = 2 \otext 4$, y exhibir un valor de $a$ para cada caso.\\
+	      (Para este item es \textbf{indispensable} mostrar que el máximo común divisor nunca puede ser 1).
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item \hacer 
+	\item \hacer
+	\item
+	      $(a^2-3a+2 : 3a^3 -5a^2)
+		      \flecha{Euclides}
+		      (\ub{a^2 - 3a + 2}{\llamada{1} par} : \ub{6a -8}{\llamada{1}{} par})\\
+		      \flecha{busco}[divisor]
+		      \llaves{l}{
+			      d \divideA a^2 - 3a + 2\\
+			      d \divideA 6a - 8
+		      }
+		      \flecha{$\times 6$}[$\times a$]
+		      \llaves{l}{
+			      d \divideA 10a -12\\
+			      d \divideA 6a - 8
+		      }
+		      \flecha{$\times 6$}[$\times 10$]
+		      \llaves{l}{
+			      d \divideA 8
+		      }\to
+		      \divsetP{8}{1,2,4,8} \llamada{1}= \set{2,4,8}\\
+		      \llave{ll}{
+			      a = 1 & (0:-2) = 2\\
+			      a = 2 & (0:4) = 4
+		      }$\\
+	      \red{Parecido al hecho en clase.}\\
+	      \red{¿Qué onda el 8? Hice mal cuentas? Si no, cómo lo descarto?}
+\end{enumerate}

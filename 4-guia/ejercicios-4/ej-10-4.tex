@@ -1,0 +1,24 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Si $\congruencia{a}{22}{14}$, hallar el resto de dividir a $a$ por 14, por 2 y por 7.
+	\item
+	      Si $\congruencia{a}{13}{5}$, hallar el resto de dividir a $33a^3 + 3a^2 -197a +2$ por 5.
+	\item Hallar, para cada $n \en \naturales$, el resto de la división de $\sumatoria{i=1}{n} (-1)^i \cdot i!$ por 12
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item $\llave{l}{
+			      \congruencia{a}{22}{14} \to a = 14 \cdot q + \ub{22}{14 + 8} = 14 \cdot (q + 1) + 8 \flecha{el resto}[es] r_{14}(a) = 8 \Tilde\\
+			      \congruencia{a}{22}{14} \to a = \ub{14 \cdot q}{2 \cdot (7 \cdot q)} + \ub{22}{2 \cdot 11} = 2 \cdot (7q + 11) + 0 \flecha{el resto}[es] r_{2}(a) = 0 \Tilde\\
+			      \congruencia{a}{22}{14} \to a = \ub{14 \cdot q}{7 \cdot (2 \cdot q)} + \ub{22}{1 + 7 \cdot 3} = 7 \cdot (2q + 3) + 1 \flecha{el resto}[es] r_{7}(a) = 1 \Tilde\\
+		      }$
+
+	\item  Dos números congruentes tienen el mismo resto. $\congruencia{a}{13}{5}  \sisolosi \congruencia{a}{3}{5}$
+	      $r_5(33a^3 + 3a^2 -197a +2) = r_5( 3 \cdot r_5(a)^3 + 3 \cdot r_5(a)^2 - 2\cdot r_5(a) + 2 )\\
+		      \flecha{como $\congruencia{a}{13}{5}$}[$r_5(a) = 3$] r_5(33a^3 + 3a^2 -197a +2) = 4$
+	\item \hacer
+\end{enumerate}
+

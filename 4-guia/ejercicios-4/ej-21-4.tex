@@ -1,0 +1,16 @@
+\ejercicio
+Sean $a,b \en \enteros$ coprimos.
+Probar que $7a - 3b \ytext 2a -b$ son coprimos.
+
+\separadorCorto
+
+$\llaves{ccccc}{
+		d \divideA 7a-3b & \flecha{$\cdot 2$} &d \divideA b  &\to&d \divideA b\\
+
+		d \divideA 2a-b &\flecha{$\cdot 7$} & d \divideA 2a-b & \to &d \divideA a\\
+
+	}
+	\flecha{propiedad}[divisor y \mcd] d \divideA (a:b) \flecha{$(a:b)$}[coprimos]
+	d \divideA 1\\
+$
+Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.

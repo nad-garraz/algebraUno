@@ -1,0 +1,73 @@
+\ejercicio Sean $a.\,b \en \enteros$.
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $a-b \divideA a^n - b^n$ para todo $n \en \naturales \y a \distinto b \en \enteros$
+	\item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \divideA a^n - b^n$.
+	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divideA a^n + b^n$.
+\end{enumerate}
+\separadorCorto
+%=============
+%Macro local
+\def\aMenosB{\stackrel{(a-b)}\congruente}
+\def\aMasB{\stackrel{(a-b)}\congruente}
+%FinMacro local
+%=============
+\begin{enumerate}[label=\roman*)]
+	\item  Si $a-b \divideA a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
+		      \llaves{l}{
+			      \congruencia{a}{b}{a-b} \\
+			      \congruencia{a^2}{\ub{a}{\aMenosB b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
+			      \quad\vdots\\
+			      \congruencia{a^n}{b^n}{a-b}
+		      }\\
+		      \to \congruencia{a^n}{b^n}{a-b} \sisolosi a-b \divideA a^n - b^n$
+
+	\item  Sé que $\congruencia{a}{-b}{a+b} \sisolosi
+		      \llaves{l}{
+			      \congruencia{a^2}{\ub{a}{\aMasB -b} \cdot b}{a+b} \flecha{propiedad}[congruencia] \congruencia{a^2}{(-1)^2 \cdot b^2}{a+b} \\
+			      \quad \vdots \quad \llamada{1}{\ot} \\
+			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \to
+			      \llaves{ll}{
+				      \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
+				      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
+			      }\llamada{2}{}\\
+		      }\\
+		      \llamada{2}{}
+		      \boxed{
+			      \llave{l}{
+				      \text{Con $n$ par: }  \congruencia{a^n}{ b^n}{a+b} \entonces a+b \divideA a^n - b^n  \\
+				      \text{Con $n$ impar: }  \congruencia{a^n}{ - b^n}{a+b} \entonces a+b \divideA a^n + b^n
+			      }
+		      }
+	      $
+
+	      $\llamada{1}{}
+		      \textit{Inducción:}\\
+		      \llave{l}{
+			      p(n)\ :\ \magenta{\congruencia{a}{-b}{a+b}} \entonces
+			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.\\
+			      \textit{Caso base: }\\
+			      p(1)\ :\
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
+			      \entonces
+			      \magenta{\congruencia{a}{-b}{a+b}} \text{ Verdadero}.\\
+			      \textit{Hipótesis inductiva: }\\
+			      p(k)\ V \entonces p(k+1)\ V? \\
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}
+			      \entonces
+			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^{k+1}}{(-1)^{k+1}\cdot b^{k+1}}{a+b} \\
+			      \text{Parto de } p(k):\\
+			      \llave{l}{
+				      \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}\\
+				      \flecha{multiplico}[por $a$]
+				      \congruencia{a\cdot a^k}{(-1)^k\cdot \ub{a}{\aMasB -b}\cdot b^k}{a+b}\\
+				      \flecha{y acomodo}
+				      \congruencia{a^{k+1}}{(-1)^{k+1} \cdot b^{k+1}}{a+b} \Tilde
+			      }
+		      }
+	      $
+	      \\
+	      Como $p(1),\ p(k),\ p(k+1)$ son verdaderas por principio de inducción lo es también $p(n) \paratodo n \en \naturales$
+
+
+	\item hecho en el anterior.
+\end{enumerate}

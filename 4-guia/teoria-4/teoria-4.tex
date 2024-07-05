@@ -1,0 +1,252 @@
+\begin{itemize}
+	\item $d$ divide a $a \to
+		      d \divideA a \sisolosi \existe k \en \enteros : a = k \cdot d$
+	\item $ \divset{-a}{-|a|,\dots,-1,1,\dots,|a|}$.
+	\item $d \divideA 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
+	\item $\llave{l}{
+			      d \divideA a \sisolosi -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))\\
+			      d \divideA a \sisolosi d \divideA -a \text{ (pues} a = k \cdot d \sisolosi (-a) = (-k) \cdot d)\\
+			      \entonces d \divideA a \sisolosi |d| \,\divideA\, |a|
+		      }$
+
+	\item $\llave{l}{
+			      d \divideA a \ytext d \divideA b \entonces d \divideA a + b\\
+			      d \divideA a \ytext d \divideA b \entonces d \divideA a - b\\
+			      d \divideA a \entonces d \divideA c \cdot a, \paratodo c \en \enteros\\
+			      d \divideA a \entonces d \divideA c \cdot a\\
+			      d \divideA a \entonces d^2 \divideA a^2 \ytext d^n \divideA a^n  \paratodo n \en \naturales\\
+			      d \divideA a \cdot b \text{ no implica } d \divideA a \o d \divideA b. \text{ Por ejemplo } 6 \divideA 3 \cdot 4
+		      }$
+
+	\item
+	      $\llave{l}{
+			      \textit{$a$ es congruente a $b$ módulo $d$} \text{ si }   d \divideA a-b \text{. Se nota } \congruencia{a}{b}{d}\\
+			      \congruencia{a}{b}{d} \sisolosi d \divideA a-b
+		      }$
+
+	\item $
+		      \llave{c}{
+			      \congruencia{a_1}{b_1}{d}\\
+			      \vdots\\
+			      \congruencia{a_n}{b_n}{d}
+		      }
+		      \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
+	      $.
+	\item $
+		      \llave{c}{
+			      \congruencia{a_1}{b_1}{d}\\
+			      \vdots\\
+			      \congruencia{a_n}{b_n}{d}
+		      }
+		      \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d} \flecha{$a_i = a \y b_i = b$}[$\paratodo i \en \set{1,\dots, n}$] \congruencia{a^n}{b^n}{d}$
+\end{itemize}
+
+\textit{\underline{Algoritmo de división:}}\\
+% macro local
+\newcommand{\condicionResto}[1]{\ub{0 \leq #1 < |d|}{\text{\tiny cumple condición de resto}}}
+\begin{itemize}
+	\item
+	      Dados $a, \, d \en \enteros$ con $d \distinto 0$,
+	      \textit{\underline{existen}} $k$ (cociente),
+	      $r \text{(resto)} \en \enteros$ tales que:\\
+	      \[
+		      \llaves{c}{
+			      a =  k \cdot d + r,\\
+			      \text{con } 0\leq r < |d|.
+		      }
+	      \]
+	      Y además estos $k$ y $r$ son \textit{\underline{únicos}}.\\
+
+	\item \textit{Notación: } $r_d(a)$ es el resto de dividir a $a$ entre $d$
+
+	\item $\condicionResto{r} \entonces r = r_d(r)$. Un número que cumple condición de resto, es su resto.
+
+	\item $r_d(a) = 0 \sisolosi d \divideA a \sisolosi \congruencia{a}{0}{d}$
+
+	\item $\congruencia{a}{r_d(a)}{d}$. Tiene mucho sentido.
+
+	\item $\congruencia{a}{r}{d}$ con $\condicionResto{r} \entonces r = r_d(a)$
+
+	\item $\congruencia{r_1}{r_2}{d}$ con $\condicionResto{r_1,r_2} \entonces r_1 = r_2$
+
+	\item $\congruencia{a}{b}{d} \sisolosi r_d(a) = r_d(b)$. Dos números que son congruentes, tienen igual resto.
+
+	\item $r_d(a+b) = r_d(r_d(a) + r_d(b))$ ya que si
+	      $ \llaves{c}{
+			      \congruencia{a}{r_d(a)}{d}\\
+			      \congruencia{b}{r_d(b)}{d}
+		      } \to \congruencia{a + b}{r_d(a) + r_d(b)}{d}
+	      $
+
+	\item $r_d(a \cdot b) = r_d(r_d(a) \cdot r_d(b))$ ya que si
+	      $ \llaves{c}{
+			      \congruencia{a}{r_d(a)}{d}\\
+			      \congruencia{b}{r_d(b)}{d}
+		      } \to \congruencia{a \cdot b}{r_d(a) \cdot r_d(b)}{d}$
+\end{itemize}
+
+\textit{\underline{Sistema de numeración: }}
+\begin{itemize}
+	\item Sea $d \en \naturales, d \geq 2$. Entonces $\paratodo a \en \naturales_0$ se puede
+	      escribir en la forma
+	      $$
+		      a = r_n d^n + r_{n-1} d^{n-1} + \cdots + r_1 d^1 + r_0
+	      $$
+	      con $0 \leq r_i < d$ para $0 \leq i \leq n$ con $r_n,\dots, r_0$ son únicos
+	      en esas condiciones.
+
+	\item \textit{Notación:} $a = (r_n r_{n-1}\cdots r_1 r_0)_d =
+		      \llave{l}{
+			      2020 = (2020)_{10} \\
+			      2020 = (7E4)_{16} \\
+			      2020 = (31040)_{5}
+		      }$
+	\item $d^n = (1 \ub{0\cdots 0}{n})$
+
+	\item ¿Cuál es el número más grande que puedo escribir usando n cifras en base $d$?\\
+	      $(\ub{d-1\quad d-1\quad \cdots\quad d-1}{n \text{ cifras}})_d =  \sumatoria{i=0}{n-1}(d-1)d^i = d^n -1$
+
+	\item ¿Cuántos números hay con $\leq n$ cifras?\\
+	      Hay del $0$ hasta el $d^n -1$, es decir $d^n$.
+
+	\item ¿Cuál es la forma más rápida de calcular $2^{16}$
+
+\end{itemize}
+\textit{\underline{Máximo común divisor: }}
+%%%%%% Macro local
+\def\mcd{(a:b)}
+\def\D{\mathcal D}
+\def\cz{s\cdot a + t \cdot b}
+%%%%%% fin Macro local
+\begin{itemize}
+	\item Sean $a,b \en \enteros$, \underline{no ambos nulos}. El MCD entre $a$ y $b$ es el mayor de los divisores
+	      común entre $a$ y $b$ y se nota $\mcd$
+
+	\item $\mcd \en \naturales$ (pues $\mcd \geq 1$) siempre existe.
+	      $\D com_+(a,b) = \D_+(a) \inter \D_+(b) \distinto \vacio
+		      \text{ pues } 1 \en \D com_+(a,b)$.
+	      Se ve también que está acotado por el menor entre $a$ y $b$, pues si
+	      $d \divideA a \y d \divideA b \entonces d \leq |a| \y d \leq|b|$ y es \underline{único}.
+
+	\item Sean $a$ y $b \en \enteros$, no ambos nulos.\\
+	      \begin{itemize}
+		      \item $\mcd = (\pm a : \pm b)$
+		      \item $\mcd = (b:a)$
+		      \item $(a:1) = 1$
+		      \item $(a:0) = |a|,\ \paratodo a \en \enteros -\set{0}$
+		      \item si $b \divideA a \entonces \mcd = |b|$ si $b \en \enteros - \set{0}$
+		      \item $\mcd = (a: b+na)$ con $n \en \enteros$
+		      \item $\mcd = (a: r_a(b))$ con $n \en \enteros$
+	      \end{itemize}
+
+	\item \textit{Algoritmo de Euclides}:
+	      Sean $a, b \en \enteros$ con $b \distinto 0$, entonces, $\paratodo k \en \enteros$, se tiene:
+	      $\mcd = (b:a-kb)$. En particular, como $r_b(a) = a-kb$, con $k$ el cociente (para $b\distinto 0$), se tiene
+	      $\mcd = (b: r_b(a))$
+
+	\item \textit{Combinacion Entera}:
+	      Sean $a,b \en \enteros$ no ambos nulos, entonces $\existe s,\ t \en \enteros$ tal que $\mcd = \cz$.
+	      \begin{itemize}
+		      \item Todos los divisores comunes entre $a$ y $b$ dividen al $\mcd$. Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
+		            \[
+			            d \divideA a \ytext d \divideA b \sisolosi d \divideA \ub{\mcd}{\cz}
+		            \].
+		      \item Sea $c \en \enteros$ entonces $\existe s', t' \en \enteros$ con $c = s'a + t'b \sisolosi \mcd \divideA c$.
+
+		      \item Todos los números múltiplos del MCD se escriben como combinación entera de $a$ y $b$.
+		      \item Si un número es una combinación entera de $a$ y $b$ entonces es un múltiplo del MCD.
+		      \item Sean $a,\ b \en \enteros$ no ambos nulos, y sea $k \en \naturales$
+		            \[
+			            (ka:kb) = k(a:b)
+		            \]
+	      \end{itemize}
+	\item \textit{Coprimos: }
+	      \begin{itemize}
+		      \item
+		            Dados $a,b \en \enteros$, no ambos nulos, se dice que son \textit{coprimos} si $\mcd = 1$
+		            \[
+			            \begin{array}{c}
+				            a \cop b \sisolosi \mcd = 1 \\
+				            \qquad a\cop b \sisolosi \existe s,\ t \en \enteros \text{ tal que } 1 = \cz
+			            \end{array}
+		            \]
+		      \item
+		            Sean $a,b \en \enteros$, no ambos nulos. Entonces $\frac{a}{\mcd}\cop \frac{b}{\mcd}$.
+		      \item Coprimizar es :
+		            $\llaves{l}{
+				            a = \mcd \cdot a'\\
+				            b = \mcd \cdot b'
+			            }\to a' \ytext b'$ son coprimos.
+
+		      \item Sean $a, c, d \en \enteros$ con $c,d$ no nulos. Entonces:
+		            \[
+			            c \divideA a \ytext d \divideA a \ytext c \cop d \red{\sisolosi} c\cdot d \divideA a
+		            \]
+		      \item Sean $a, b, d \en \enteros$ con $d \distinto 0$. Entonces:
+		            \[
+			            d \divideA a \cdot b \ytext d \cop a   \entonces d \divideA b
+		            \]
+
+	      \end{itemize}
+
+	\item \textit{\underline{Primos y Factorización:}}
+	      \begin{itemize}
+		      \item Sea $p$ primo y sean $a,b \en \enteros$. Entonces:
+		            \[
+			            p \divideA a\cdot b \entonces p \divideA a \o p \divideA b
+		            \]
+		      \item \textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores $\to$}\\
+		            Sean $a_1,\dots, a_n \en \enteros$:\\
+		            \begin{center}
+			            $
+				            \llave{l}{
+					            p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n.\\
+					            p \divideA a^n \entonces p \divideA a.
+				            }$
+		            \end{center}
+		      \item Si $a \en \enteros$, $p$ primo:\\
+		            \begin{center}
+			            $\llave{l}{
+					            (a:p) = 1 \sisolosi p \noDivide a\\
+					            (a:p) = p \sisolosi p \divideA a
+				            }$
+		            \end{center}
+		      \item Sea $n \en \enteros - \set{0},\,
+			            n = \ub{s }{\set{-1,1}} \cdot \productoria{i=1}{k} p_i^{\alpha_i} =
+			            p_1^{\alpha_1} \cdots p_k^{\alpha_k}$
+		            su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:\\
+		            \[
+			            \llave{c}{
+			            \text{Si } m \divideA n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
+			            \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\, 1\leq i \leq k\\
+			            \text{ y hay } \\
+			            (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
+			            \text{divisores positivos de } n.
+			            }\]
+
+		      \item Sean $a$ y $b \en \enteros$ no nulos, con
+		            $
+			            \llave{l}{
+			            a = \pm p_1^{m_1}\cdots p_r^{m_r} \text{ con } m_1,\cdots, m_r \en \enteros_0\\
+			            b = \pm p_1^{n_1}\cdots p_r^{n_r} \text{ con } n_1,\cdots, n_r \en \enteros_0\\
+			            \llave{l}{
+			            \entonces \mcd = p_1^{min\set{m_1,n_1}}\cdots p_r^{min\set{m_r,n_r}}\\
+			            \entonces [a:b] = p_1^{max\set{m_1,n_1}}\cdots p_r^{max\set{m_r,n_r}}
+			            }
+			            }
+		            $
+
+		      \item Sean $a,b,c \en \enteros$ no nulos:
+		            \begin{itemize}
+			            \item $a \cop b \sisolosi \text{no tienen primos en común}.$
+			            \item $\mcd = 1 \y (a : c) = 1 \sisolosi (a : bc) = 1$
+			            \item $\mcd = 1 \sisolosi (a^m, b^n) = 1 ,\, \paratodo m, n \en\enteros$
+			            \item $(a^n:a^m) = \mcd^n$
+		            \end{itemize}
+
+		      \item Si $a \divideA m \ \y \  b \divideA m$, entonces $[a:b] \divideA m$
+
+		      \item $\mcd \cdot [a:b] = |a \cdot b|$
+	      \end{itemize}
+
+\end{itemize}

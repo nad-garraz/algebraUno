@@ -1,0 +1,43 @@
+\ejercicio
+Sabiendo que $(a:b) = 5$. Probar que $(3ab: a^2 + b^2) = 25$
+
+\separadorCorto
+
+Coprimizar:
+$
+	\llave{l}{
+		c = \frac{a}{5}\\
+		d = \frac{b}{5}\\
+	}
+	\to
+	(a:b) = 5 \cdot \ub{(c:d)}{1} = 5\\
+	\to
+	\llave{l}{
+		\flecha{según}[enunciado]
+		25  = (3ab : a^2 + b^2) \flecha{reemplazo} 25 = 25 \cdot \ub{(3 cd : c^2 + d^2)}{1}
+	}\\
+	\flecha{Voy a probar}[que] (3cd : c^2 + d^) = 1.\\
+	\flecha{Supongo que}[no lo fuera] \existe p \to
+	\llave{l}{
+		p \divideA (3cd : c^2 + d^2) \to
+		\llave{l}{
+			p \divideA 3cd \to
+			\llave{l}{
+				p \divideA 3  \to p = 3
+				\flecha{tabla}[$r_3(c^2 + d^2)$]
+				\llave{lll}{
+					0 & \text{si} & \ub{\congruencia{c,d}{0}{3}}{\magenta{noup! }(c:d) = 1} \\
+					\neq 0 & \text{si} & \text{ otro caso}
+				}\\
+				p \divideA c \to
+				\llave{l}{
+					\flecha{como} p \divideA c^2 + d^2 \entonces p \divideA d^2 \to \ub{p \divideA d}{\magenta{noup! } (c:d) = 1} \\
+				}\\
+				p \divideA d \to \magenta{noup! idem}\\
+			}
+			\\
+			p \divideA c^2 + d^2
+		}
+	}
+$\\
+Si ningún primo $p$ divide a $(3cd : c^2 + d^2) \entonces (3cd : c^2 + d^2) = 1$

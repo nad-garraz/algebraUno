@@ -1,0 +1,28 @@
+\ejercicio
+Sea $a \in \enteros$ impar. Probar que $2^{n+2} \divideA a^{2^n} - 1$ para todo $n \en \naturales$\\
+\separadorCorto
+
+Pruebo por inducción: $p(n): 2^{n+2} \divideA a^{2^n} - 1$\\
+$\llaves{l}{
+		\textit{Caso base: } p(1)\ :\ 2^3 \divideA a^2 - 1 = (a - 1) \cdot (a + 1)
+		\flecha{$a$ es impar}[$a = 2m -1$] (2m - 2)\cdot(2m) =\\
+		4 \cdot \ub{m \cdot (m-1)}{par} = 4 \cdot (2\cdot h) = 8 * h \flecha{por lo}[tanto] 8 \divideA 8 \cdot h \text{ con $h$ entero.}\Tilde\\
+
+		\textit{Paso inductivo: } p(k) \ V  \entonces p(k+1) \ V? \flecha{es}[decir]
+		2^{k+2} \divideA a^{2^k} - 1 \entonces  2^{k+3} \divideA a^{2^{k+1}} - 1\ V? \\
+
+		\textit{Hipótesis inductiva: }\\
+		\llave{l}{
+			2^{k+3} \divideA a^{2^{k+1}} - 1 \flecha{acomodar}[diferencia cuadrados] 2\cdot 2^k \divideA (a^{2^k})^2 - 1 =\\
+			\ub{ (a^{2^k} - 1) }{\text{par}} \cdot  \ub{(a^{2^k} + 1)}{\text{par}}  \\
+			\tiny\llaves{lll}{
+				a \divideA b                 & \sisolosi   & a\cdot k_1 = b\\
+				c \divideA d                 & \sisolosi   & c\cdot k_2 = d\\ \hline
+				a\cdot c \divideA b \cdot d  & \sisolosi   & a\cdot c \cdot \ub{k_3}{k_1\cdot k_2} =  b\cdot d
+			}
+			\flecha{Si $a \stackrel{\tiny HI}\divideA b$ y $c \divideA d$}[$\entonces a\cdot c \divideA b\cdot d$]
+			\ub{2^{k+2}}{a} \cdot \ub{2}{c}   \divideA  \ub{ (a^{2^k} - 1)}{b} \cdot \ub{(a^{2^k} + 1)}{d} \entonces 2^{k+3} \divideA a^{2^{k+1}} - 1 \quad V \Tilde
+		}
+	} $\\
+Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
+es verdadera $\paratodo n \en \naturales$

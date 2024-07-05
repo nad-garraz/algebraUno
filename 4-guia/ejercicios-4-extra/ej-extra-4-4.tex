@@ -1,0 +1,56 @@
+\ejercicio
+
+\begin{enumerate}[label=\roman*)]
+	\item Calcular los posibles valores de: $(7^{n-1} + 5^{n+2} : 5\cdot 7^n - 5^{n+1})$.
+	\item Encontrar $n$ tales que el mcd para ese $n$ tome 3 valores distintos.
+\end{enumerate}
+
+\separadorCorto
+
+Busco independencia de $n$ en algún lado del $\mcd$.
+Si $ d = (7^{n-1} + 5^{n+2} : 5\cdot 7^n - 5^{n+1})\to\\
+	\llave{l}{
+		d \divideA 7^{n-1} + 5^{n+2} \\
+		d \divideA 5\cdot 7^n - 5^{n+1}
+	}
+	\to
+	\llave{l}{
+		d \divideA \ub{7^{n-1} + 5^{n+2}}{\conga5 2^n} \\
+		d \divideA 5 \cdot ( 7^n - 5^n)
+	}
+	\flecha{$p \noDivide d \y d \divideA p \cdot k$}[$\entonces p \divideA k$]
+	\llave{l}{
+		d \divideA 7^{n-1} + 5^{n+2} \\
+		d \divideA 7^n - 5^n
+	}\\
+	\to
+	\llave{l}{
+		d \divideA 176 \cdot 5^n \\
+		d \divideA 7^n - 5^n
+	}
+	\flecha{$p \noDivide d \y d \divideA p \cdot k$}[$\entonces p \divideA k$]
+	\llave{l}{
+		d \divideA 176 \\
+		d \divideA 7^n - 5^n
+	}
+	\to d = (176 : 7^n - 5^n) \Tilde\\
+$
+Factorizo: $176 = 2^4 \cdot 11 \to \divsetP{176}{1,2,4,8,11,16,22,44,88,176}$.\\
+Descarto
+$\to
+	\llave{lclcl}{
+		1           & \to &\congruencia{7^n - 5^n}{2^n}{5} &\to & d \text{ tiene que ser par y } 2 > 1\\
+		11          & \to &\congruencia{7^n - 5^n}{2^n}{5} &\to & d \text{ tiene que ser par}\\
+	}\\
+	\divsetP{d}{2,4,8,16,22,44,88,176}\\
+$
+Estudio congruencia de los pares e impares:
+$
+	\llave{l}{
+		\congruencia{7^{2k} - 5^{2k}}{1^k -25^k}{8} \to \congruencia{1 - \ub{1}{\conga8 25}}{0}{8}\\
+		\congruencia{7^{2k+1} - 5^{2k+1}}{3 - 1}{4} \conga4 2 \\
+	}\\
+$ Puedo descartar a los múltiplos de 4 que no sean múltiplos de 8.
+$	\to \divsetP{d}{2,8,16,22,88,176}$\\
+\red{No lo terminé, no entiendo bien este paso y como descartar algún otro.}
+

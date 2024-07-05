@@ -1,0 +1,86 @@
+\ejercicio
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $\congruencia{a^2}{-1}{5} \sisolosi \congruencia{a}{2}{5}  \o \congruencia{a}{3}{5}$
+	\item Probar que no existe ningún entero $a$ tal que $\congruencia{a^3}{-3}{7}$
+	\item Probar que $\congruencia{a^7}{a}{7} \paratodo a \en \enteros$
+	\item Probar que $7 \divideA a^2 + b^2 \sisolosi 7 \divideA a \y 7 \divideA b.$
+	\item Probar que $5 \divideA a^2 + b^2 + 1 \sisolosi 5 \divideA a \o 5 \divideA b$. ¿Vale la recíproca?
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item Me piden que pruebe una congruencia es válida solo para ciertos $a \en \enteros$. Pensado en términos de \textit{restos}
+	      quiero que el resto al poner los $a$ en cuestión cumplan la congruencia.\\
+	      $
+		      \llave{l}{
+			      \congruencia{a^2}{-1}{5} \sisolosi
+			      \congruencia{a^2}{4}{5}  \sisolosi
+			      \congruencia{a^2 - 4}{0}{5} \sisolosi
+			      \congruencia{(a-2)\cdot (a+2)}{0}{5}\\
+			      \flecha{quiero que el }[resto sea 0]
+			      r_5(a^2 + 1) =
+			      r_5(a^2 - 4) =
+			      r_5(r_5(a-2) \cdot r_5(a+2)) =
+			      \ub{r_5(( r_5(a) - 2) \cdot (r_5(a) + 2) )}{\llamada{1}{}} = 0\\
+			      \flecha{el resto será}[ 0 cuando] r_5(a^2 + 1) = 0 \llamada{1}\sisolosi
+			      r_5(( r_5(a) - 2) \cdot (r_5(a) + 2) ) = 0
+			      \llave{l}{
+				      r_5(a) = 2 \Leftrightarrow  \congruencia{a}{2}{5} \Tilde\\
+				      r_5(a) = -2 \Leftrightarrow  \congruencia{a}{\ub{3}{\conga5 -2}}{5} \Tilde\\
+			      }
+		      }$\\
+	      \textit{Más aún}:\\
+	      Para una congruencia módulo 5 habrá solo 5 posibles restos, por lo tanto se pueden ver todos los casos
+	      haciendo una \textit{table de restos}.\\
+	      $
+		      \begin{array}{|c|c|c|c|c|c|}
+			      \hline
+			      a        & 0 & 1 & 2 & 3 & 4 \\ \hline\hline
+			      r_5(a)   & 0 & 1 & 2 & 3 & 4 \\ \hline
+			      r_5(a^2) & 0 & 1 & 4 & 4 & 1 \\ \hline
+		      \end{array}
+		      \to   $ La tabla muestra que para un dado $a\\ \to
+		      r_5(a) =
+		      \llaves{l}{
+			      2
+			      \sisolosi
+			      \congruencia{a}{2}{5}
+			      \sisolosi
+			      \congruencia{a^2}{4}{5}
+			      \sisolosi
+			      \congruencia{a^2}{-1}{5} \\
+			      3
+			      \sisolosi
+			      \congruencia{a}{3}{5}
+			      \sisolosi
+			      \congruencia{a^2}{4}{5}
+			      \sisolosi
+			      \congruencia{a^2}{-1}{5} \\
+		      }$
+
+	\item \hacer
+
+	\item Me piden que exista una dada congruencia para todo $a \en \enteros$. Eso equivale a probar a que al dividir el \textit{lado izquierdo}
+	      entre el \textit{divisor}, el \textit{resto} sea lo que está en el \textit{lado derecho} de la congruencia.\\
+	      $\congruencia{a^7 - a}{0}{7}
+		      \sisolosi
+		      \congruencia{a \cdot \ub{(a^6 - 1)}{(a^3 - 1) \cdot (a^3 + 1)}}{0}{7}
+		      \sisolosi
+		      \congruencia{a \cdot (a^3 - 1) \cdot (a^3 + 1)}{0}{7}
+		      \flecha{tabla de restos con}[sus propiedades lineales]\\
+		      \begin{array}{|c|c|c|c|c|c|c|c|}
+			      \hline
+			      a            & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline\hline
+			      r_7(a)       & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+			      r_7(a^3 - 1) & 6 & 0 & 0 & 5 & 0 & 5 & 5 \\ \hline
+			      r_7(a^3 + 1) & 1 & 2 & 2 & 0 & 2 & 0 & 0 \\ \hline
+		      \end{array}
+		      \to $ Cómo para todos los $a$, alguno de los factores del resto siempre se anula, es decir:\\
+	      $r_7(a^7 - a) =
+		      r_7(r_7(a) \cdot  r_7(a^3 - 1) \cdot r_7(a^3 + 1)) =
+		      0 \paratodo a \en \enteros$
+	\item
+	\item
+
+\end{enumerate}

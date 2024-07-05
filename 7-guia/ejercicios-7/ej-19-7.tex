@@ -1,2 +1,74 @@
 \ejercicio
-\red{Controlar y Pasar}
+
+Sea $f = X^{20} + 8X^{10} + 2a$. Determinar todos los valores de
+$a \en \complejos$ para los cuales $f$ admite una raíz múltiple en
+$\complejos$. Para cada valor hallado determinar cuántas raíces
+distintas tiene $f$ y la multiplicidad de cada una de ellas.
+
+\separadorCorto
+
+Si $f$ tiene raíces múltiples
+$
+	\alpha_k
+	\sii
+	f(\alpha_k) = f'(\alpha_k) =  0$,
+por lo tanto  tanto comienzo buscando las raíces de $f$ para sacarme ese
+$a$ de en medio.\\
+
+$
+	f' = 20X^{19} + 80 X^9 =
+	20 X^9 (X^{10} + 4)
+	\entonces
+	f' = 0
+	\sii
+	\llave{l}{
+		X = 0\\
+		X^{10} = -4
+		\sii
+		X = \sqrt[10]{4} e^{i\frac{2k+1}{10}\pi}\ k\en \enteros_{[0,9]}
+	}
+$\\
+Hay de momento 11 raíces de $f'$. Me interesa saber si son raíces de $f$:\\
+$
+	f(0) = 2a
+	\entonces
+	f(0) = 0
+	\sii
+	a = 0\\
+	f =
+	(X^{10})^2 + 8X^{10} + 2a
+	\entonces
+	f(\alpha = \magenta{X^{10} = -4}) =
+	(\magenta{-4})^2 + 8(\magenta{-4}) + 2a =
+	-16 + 2a = 0
+	\sii
+	a = 8
+$\\
+
+Entonces:\\
+Si
+$
+	a = 0
+	\entonces
+	f = X^{10}(X^{10} + 8)\\
+	\entonces
+	f = 0
+	\sii
+	X = 0 \otext X^{10} = -8
+$, donde
+\boxed{\mu(0;f) = 10} y
+\boxed{\mu(\sqrt[10]{8}e^{i\frac{2k+1}{10}\pi});f) = 1\ k \en \enteros_{[0-9]}}.\\
+11 raíces distintas.\\
+
+Si
+$
+	a = 8
+	\entonces
+	f = X^{20} + 8X^{10} + 16 = (X^{10} + 4)^2\\
+	\entonces
+	f = 0
+	\sii
+	X^{10} = -4
+$, donde
+\boxed{\mu(\sqrt[10]{4}e^{i\frac{2k+1}{10}\pi});f) = 2\ k \en \enteros_{[0-9]}}.\\
+10 raíces distintas.

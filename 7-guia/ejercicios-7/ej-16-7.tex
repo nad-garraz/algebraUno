@@ -1,26 +1,53 @@
 \ejercicio
 Determinar la multiplicidad de $a$ como raíz de $f$  en los casos
 \begin{enumerate}[label=\roman*)] 
- \item $f = X^5 - 2X^3 + X$,\quad $a=1$,\\ 
- \item $f = X^6 - 3X^4 + 4$,\quad $a=i$,\\ 
- \item $f = (X-2)^2(X^2-4) + (X-2)^3(X-1)$, \quad $a=2$,\\ 
- \item $f = (X-2)^2(X^2-4) - 4(X-2)^3$, \quad $a=2$,\\ 
+ \item $f = X^5 - 2X^3 + X$,\quad $a=1$,
+ \item $f = X^6 - 3X^4 + 4$,\quad $a=i$, 
+ \item $f = (X-2)^2(X^2-4) + (X-2)^3(X-1)$, \quad $a=2$, 
+ \item $f = (X-2)^2(X^2-4) - 4(X-2)^3$, \quad $a=2$.
  \end{enumerate}
 
  \separadorCorto
 
 \begin{enumerate}[label=\roman*)] 
  \item $f = X^5 - 2X^3 + X$,\quad $a=1$,\\ 
-\red{Pasar}
+   Todos casos de factoreo:\\
+    $f = X^5 - 2X^3 + X =
+    X(X^4-2X^2 + 1) = 
+    X(X^2 - 1)^2 =
+    X (X - 1)^{\red{2}} (X + 1)^2 =
+    $
+    \\
+    \boxed{\text{ La multiplicidad de $a=1$ como raíz es 2.}}
 
  \item $f = X^6 - 3X^4 + 4$,\quad $a=i$,\\ 
-   \divPol{X^6 - 3X^4 + 4}{X^2 + 1}
-\red{Pasar}
+   Si $a=i$ es raíz, entonces $-i$ también lo es en un polinomio $\reales[X]$\\
+   \divPol{X^6 - 3X^4 + 4}{X^2 + 1}\\
+    $f =(X^2 + 1)(X^4 - 4X^2 + 4) =
+    (X^2 + 1)(X^2-2)^2 =
+    (X^2 + 1)(X - \sqrt2)^2 (X + \sqrt2)^2 =\\
+    (X - i)^{\red{1}}(X + i)(X - \sqrt2)^2 (X + \sqrt2)^2 =
+    $
+    \\
+    \boxed{\text{ La multiplicidad de $a=i$ como raíz de $f$ es 1.}}
 
-   \hacer
  \item $f = (X-2)^2(X^2-4) + (X-2)^3(X-1)$, \quad $a=2$,\\ 
-\red{Pasar}
+   $
+    f =(X-2)^3 ( (X+2) + (X+1)) =
+    (X-2)^3 (2X+3)
+    $
+    \\
+    \boxed{\text{La multiplicidad de $a=2$ como raíz de $f$ es 3.}}
 
  \item $f = (X-2)^2(X^2-4) - 4(X-2)^3$, \quad $a=2$,\\ 
-\red{Pasar}
+$
+ f = 
+    (X-2)^2(X^2-4) - 4(X-2)^3 =
+    (X-2)^2(X-2)(X+2) - 4(X-2)^3 =\\
+    (X-2)^3(X+2 - 4) =
+    (X-2)^4
+    $
+    \\
+    \boxed{\text{La multiplicidad de $a=2$ como raíz de $f$ es 4.}}
+
  \end{enumerate}

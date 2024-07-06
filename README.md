@@ -20,7 +20,8 @@ Un apunte con sección _ejercicios de parciales_ que vaya creciendo cuatrimestre
 Algunos ejercicio de álgebra 1 en latex
 Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
 
-# Estructura del repo [video introductorios](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB): 
+# Estructura del repo
+- [Videos introductorios al repo](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB): 
 - En las carpetas de `i-guia`:
     - Hay más carpetas con los códigos de ejercicios, ejercicios-extra y teoría. El archivo que se compila `i-sol.tex` también. 
     que quede lo más organizado posible.

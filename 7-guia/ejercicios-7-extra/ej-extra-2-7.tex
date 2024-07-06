@@ -1,7 +1,7 @@
 \ejercicio
-Factorizar el polinomio 
+Factorizar el polinomio
 $
-P = X^4 - X^5 - 13X^4 + 14X^3 + 35X^2 -49X + 49
+	P = X^6 - X^5 - 13X^4 + 14X^3 + 35X^2 -49X + 49
 $
 como producto de irreducibles en $\complejos[X], \reales[X] \ytext \racionales[X]$ sabiendo que $\sqrt7$ es una
 raíz múltiple.
@@ -10,7 +10,44 @@ raíz múltiple.
 
 Un polinomio con coeficientes racionales, y una raíz irracional
 $\alpha = \sqrt7$,
-tendrá también al \textit{conjugado irracional}, $\conj{\alpha} = -\sqrt{7}$
-\footnote{Estoy usando la misma notación para \textit{conjugado racional} y \textit{conjugado complejo}. ¿Está bien? No sé, no me importa mientras se entienda.}
+tendrá también al \textit{conjugado irracional}
+\footnote{Estoy usando la misma notación para \textit{conjugado racional} y
+	\textit{conjugado complejo}. ¿Está bien? No sé, no me importa mientras se entienda.}
+, $\conj{\alpha} = -\sqrt{7}$\\
 
-\divPol{X^6-X^5-13X^4+14X^3+35X^2-49X+49}{X^4-14X^2+49}
+Si agregamos la información de que  $\sqrt7$ es \textit{por lo menos} raíz doble, obtenemos que:\\
+
+$
+	\llave{l}{
+		\sqrt7 \text{ es raíz de } f
+		\entonces
+		-\sqrt7 \text{ es raíz de } f
+		\entonces
+		(X^2 - 7) \divideA f\\
+		\sqrt7 \text{ es raíz doble de } f
+		\entonces
+		-\sqrt7 \text{ es raíz doble de } f
+		\entonces
+		(X^2 - 7)^2 = X^4 - 14X^2 + 49 \divideA f \Tilde\\
+	}
+$\\
+
+\divPol{X^6-X^5-13X^4+14X^3+35X^2-49X+49}{X^4-14X^2+49}\\
+
+$
+	f = (X^4-14X^2+49) \cdot (X^2 - X + 1)
+	\flecha{resolvente}
+	\llave{l}{
+		\alpha_{+,-} = \frac{1 \pm w}{2}\\
+		w^2 = -3 \\
+	}\\
+    \to
+    f = (X^4-14X^2+49) \cdot (X - (\frac{1}{2} + i\frac{\sqrt3 }{2})) (X - (\frac{1}{2} -i \frac{\sqrt3 }{2}))
+$\\
+
+\boxed{
+	\llave{rcl}{
+      \racionales[X] & \to & f = (X^2 + 7)^2  (X^2 - X + 1) \\
+		\reales[X] & \to & f = (X + \sqrt7)^2(X - \sqrt7)^2  (X^2 - X + 1)\\
+		\complejos[X] & \to & f = (X + \sqrt7)^2(X - \sqrt7)^2  (X - (\frac{1}{2} + i\frac{\sqrt3 }{2})) (X - (\frac{1}{2} - i\frac{\sqrt3 }{2}))
+	}}

@@ -1,0 +1,88 @@
+\ejercicio
+
+Probar que, para todo $n \en \naturales$,
+$$ \sumatoria{k=1}{n+1} \frac{3}{n+k} \leq \frac{5}{2}.$$
+
+\separadorCorto
+
+\textit{Inducción: }
+$p(n): \sumatoria{k=1}{n+1} \frac{3}{n+k} \leq \frac{5}{2}  \paratodo n \en \naturales$\\
+
+\textit{Caso base: $p(1)$:}\\
+$
+	\sumatoria{k=1}{\magenta{1}+1} \frac{3}{\magenta{1} + k} =
+	\frac{3}{2} + \frac{3}{4} =
+	\frac{9}{4}
+	\leq
+	\frac{10}{4} =
+	\frac{5}{2}
+	\to
+	p(1) \text{ Verdadera} \Tilde
+$\\
+
+\textit{Paso inductivo: }\\
+$
+	p(\magenta{j}): \sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq \frac{5}{2} \text{ Verdadera }
+	\entonces \text{ quiero probar que }
+	p(\magenta{j + 1}):
+	\sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} \leq \frac{5}{2} \text{ Verdadera }\\
+$
+
+En los ejercicios donde la $n$ aparece adentro de la sumatoria, conviene abrirla para encontrar la \textit{hipótesis inductiva: }
+$\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq \frac{5}{2}$\\
+
+$\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} =
+	\frac{3}{j+1} +
+	\frac{3}{j+2} +
+	\frac{3}{j+3} +
+	\frac{3}{j+4} +
+	\dots +
+	\frac{3}{2j} +
+	\frac{3}{2j+1} \Tilde
+$\\
+
+$
+	\sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} =
+	\sumatoria{k=1}{j + 2} \frac{3}{j+1 + k} =
+	\frac{3}{j+1 + 1} +
+	\frac{3}{j+1 + 2} +
+	\frac{3}{j+1 + 3} +
+	\dots +
+	\frac{3}{j+1 + j-1} +
+	\frac{3}{j+1 + j} +
+	\frac{3}{j+1 + j+1}+
+	\frac{3}{j+1 + j+2} =  \\
+	=
+	\frac{3}{j+2} +
+	\frac{3}{j+3} +
+	\frac{3}{j+4} +
+	\dots +
+	\frac{3}{2j} +
+	\frac{3}{2j+1} +
+	\frac{3}{2j+2}+
+	\frac{3}{2j+3} =
+	\yellow{-\frac{3}{j+1}} +
+	\ub{
+		\yellow{\frac{3}{j+1}  } +
+		\frac{3}{j+2} +
+		\frac{3}{j+3} +
+		\frac{3}{j+4} +
+		\dots +
+		\frac{3}{2j} +
+		\frac{3}{2j+1}
+	}{
+      \sumatoria{k=1}{j + 1} \frac{3}{j + k}
+	} +
+		\frac{3}{2j+2}+
+		\frac{3}{2j+3} \\
+        =
+      \sumatoria{k=1}{j + 1} \frac{3}{j + k} - \frac{3}{j+1} + \frac{3}{2j+2} + \frac{3}{2j+3} =
+      \sumatoria{k=1}{j + 1} \frac{3}{j + k} \ub{- \frac{3}{2k+2} + \frac{3}{2j+3}}{\leq 0}
+      \stackrel{HI}\leq
+      \frac{5}{2}  - \ub{\frac{3}{(2k+2)(2k+3)}}{\leq 0 } \leq \frac{5}{2} 
+      \entonces 
+    \sumatoria{k=1}{j + 2} \frac{3}{j+1 + k} \leq \frac{5}{2} \text{ Verdadera } \Tilde
+$
+
+Dado que $p(1),\, p(j), p(j+1)$ resultaron verdaderas por principio de inducción  también lo es $p(n) \paratodo n \en \naturales$.
+

@@ -1,0 +1,41 @@
+\ejercicio
+
+Determinar cuántas funciones $f : \set{1,2,3,4,5,6,7,8} \to \set{\foreach \i in {1,...,11}{ \i, }12}$ satisfacen
+simultáneamente las condiciones:\\
+\begin{multicols}{3}
+	\begin{itemize}
+		\item $f$ es inyectiva,
+		\item $f(5) + f(6) = 6$,
+		\item $f(1) \leq 6$.
+	\end{itemize}
+\end{multicols}
+
+\separadorCorto
+
+\begin{itemize}
+	\item $f$ inyectiva hace que mi conjunto de llegada se reduzca en 1 con cada elección.
+
+	\item Si $f(5) + f(6) = 6$ entonces $f: \set{5,6} \to \set{1,2,4,5}$. Una vez que $f(5)$ tome
+	      un valor de los 4 posibles e.g. $f(5) = 1 \flecha{condiciona}[única opción] f(6) = 5 $
+
+	\item $f(1) \leq 6 \to f : \set{1} \to \set{\cancel{1},2,3,\cancel{4},5,6}$ donde cancelé el 1
+	      y el 4, para sacar 2 números que sí o sí deben irse en la condición
+	      \footnote{¿Podría haber elegido el 1 y 2? Sí, cualquiera 2 números del conjunto $\set{1,2,4,5}$}
+	      de $f(5) + f(6) = 6$. Por lo
+	      tanto $f(1)$ puede tomar 4 valores. Por lo que sobrarían 9 elementos del conjunto de llegada para repartir
+	      en las $f$ que no tienen condición.
+\end{itemize}
+
+$\llave{c c c c c c c c}
+	{
+		\#4 & \#9 & \#8 & \#7 & \#4 & \#1 & \#6 & \#5 \\
+		\downarrow & \downarrow & \downarrow &\downarrow & \downarrow & \downarrow &\downarrow &\downarrow\\
+		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) & f(7) & f(8)
+	}
+	\to 4 \cdot 9 \cdot 8 \cdot 7 \cdot 4 \cdot 1 \cdot 6 \cdot 5 = 4 \cdot 4 \cdot \frac{9!}{4!} = 241.920$\\
+
+\red{Siento todo esto muy artesanal y poco justificable suficientemente \it{mathy-snobby}}
+
+\separador
+
+{\it \underline{Número combinatorio}}

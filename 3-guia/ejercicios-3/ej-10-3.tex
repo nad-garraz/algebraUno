@@ -1,0 +1,29 @@
+\ejercicio
+Sean $A = \set{1,2,3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$. Sea $\mathcal F$ el conjunto de todas las funciones
+$f: A \to B$.
+\begin{enumerate}[label=\roman*)]
+	\item  ¿Cuántos elementos tiene le conjunto $\mathcal F$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \imagen(f) }$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \imagen(f)}$
+	\item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : f(1) \en \set{2,4,6} }$
+\end{enumerate}
+
+\separadorCorto
+
+Cuando se calcula la cantidad de funciones, haciendo el árbol se puede ver que va a haber $\#\imagen(f)$ de funciones que provienen
+de un elemento del dominio. Por lo tanto si tengo un conjunto $A_n$ y uno $B_m$, la cantidad de funciones $f : A \to B$ será
+de $m^n$\\
+
+\begin{enumerate}[label=\roman*)]
+	\item $\# \mathcal F = 12^5$
+
+	\item $\# \mathcal F = 11^5$
+
+	\item Tengo una que va a parar al $10$ y cuento que queda. Por ejemplo si $f(2) = 10$: $A = \set{1,\cancel{2},3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$.
+	      Por lo tanto tengo $\# \mathcal F = 12^4 \cdot \underbrace{\normalsize 1}_{f (2) = 10}$\\
+	      \red{Corroborar}
+
+	\item Me dicen que $f(\set1) = \set{2,4,6}$,
+	      Si lo pienso como el anterior ahora tengo 3 veces más combinaciones, entonces
+	      $\# \mathcal F = 12^4 \cdot \underbrace{\tiny 3}_{ f (\set{1})= \set{2,4,6}}$
+\end{enumerate}

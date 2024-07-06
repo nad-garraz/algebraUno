@@ -1,0 +1,65 @@
+\ejercicio
+
+¿Cuántas palabras se pueden formar permutando las letras de $cuadros$
+\begin{enumerate}[label=\roman*)]
+	\item con la condición de que todas las vocales estén juntas?
+	\item con la condición de que las consonantes mantengan el orden relativo original?
+	\item con la condición de que nunca haya dos (o más) consonantes juntas?
+\end{enumerate}
+
+\separadorCorto
+
+El conjunto de consonantes es $C = \set{c,d,r,s}$ y de vocales $V = \set{u,a,o}$
+\begin{enumerate}[label=\roman*)]
+	\item  Para que las vocales estén juntas pienso a las 3 como un solo elemento, fusionadas las 3 letras, con sus permutaciones,
+	      es decir que tengo 3! cosas de la siguiente pinta:\\
+	      $\llave{c c c} % hay 3 en total
+		      {
+			      u & a & o\\
+			      u & o & a\\
+			      o & a & u\\
+			      o & u & a\\
+			      a & o & u\\
+			      a & u & o\\
+		      } $\\
+	      Los anagramas para que las letras estén juntas los formo combinando $\binom{5}{1} = 5$ poniendo los 3!=6 valores así en cada uno de los
+	      5 lugares:\\
+	      $\llave{c c c c c} % hay 5
+		      {
+			      uao & \_ & \_ & \_ & \_\\
+			      \_& uao  & \_ & \_ & \_\\
+			      \_ & \_ & \_ & uao &  \_\\
+			      \vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+			      1 & 2 & 3 & 4 & 5
+		      } $\\
+	      Ahora puedo \textit{inyectar} las 4 consonantese en los 4 lugares que quedan libres. Finalmente se pueden formar
+	      $\underbrace{4!}_{consonantes} \cdot \underbrace{ \binom{5}{1} \cdot 3!}_{vocales} =  720$ anagramas con la condición pedida.\\
+
+	\item Supongo que el \red{orden relativo} es que aparezcan ordenadas así $"c \dots d \dots r \dots s"$, quiere decir que tengo que combinar
+	      un grupo de 4 letras en 7 que serían los lugares de la letras teniendo un total de $\binom{7!}{4!}$ y luego tengo 1! permutaciones o, \textit{no permuto
+		      dicho de otra forma},    dado que eso alteraría el orden y no quiero que pase eso. Obtengo cosas así:\\
+	      $\llave{c c c c c c c c} % hay 7
+		      {
+			      c & d & r & s &\_ & \_ & \_\\
+			      \_ & c & \_ & d & \_ & r & s\\
+			      c & \_ & \_ & d & r & \_ & s\\
+			      \vdots & \vdots &\vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7
+		      } \to
+	      $ lo cual deja 3 lugares libres para permutar con las 3 vocales, esa permutación es una \text{biyección} da $3!$.\\
+	      Por último se pueden formar $\underbrace{\binom{7!}{4!}\cdot 1!}_{consonantes} \cdot \underbrace{3!}_{vocales} =
+		      \frac{7!}{4!\cdot \cancel{3!}} \cdot \cancel{3!} = \frac{7 \cdot 6 \cdot 5 \cdot \cancel{4!}}{\cancel{4!}} = 210$
+
+
+	\item $C = \set{c,d,r,s}$ sin que estén juntas quiere decir que puedo ordenar de pocas formas, muy pocas porque solo hay 7 lugares.
+	      $\llave{c c c c c c c c} % hay 7 en total
+		      {
+			      c & \_ & d & \_ & r & \_ & s\\ \hline
+			      1 & 2 & 3 & 4 & 5 & 6 & 7
+		      } \to
+	      $ esta combinación es única $\binom{7!}{7!} = 1$, lo único que resta hacer es permutar las consonantes en esos espacios. 4
+	      espacios para 4 consonantes.
+	      Luego relleno \textit{inyectando} las vocales, como antes. El total de anagramas será
+	      $\underbrace{\binom{7!}{7!} \cdot 4!}_{consonantes} \cdot \underbrace{3!}_{vocales} = 144 $
+
+\end{enumerate}

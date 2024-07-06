@@ -1,0 +1,33 @@
+\ejercicio
+En este ejercicio no hace falta usar inducción.
+\begin{enumerate}[label=\roman*)]
+	\item Probar que $\sumatoria{k = 0}{n} \binom{n}{k}^2 = \binom{2n}{n}$. \qquad sug: $\binom{n}{k} = \binom{n}{n-k}$.
+	\item Probar que $\sumatoria{k = 0}{n} (-1)^k \binom{n}{k} = 0$.
+	\item Probar que $\sumatoria{k = 0}{2n} \binom{2n}{k} = 4^n$ y deducir que $\binom{2n}{n} < 4^n$.
+	\item Calcular $\sumatoria{k = 0}{2n+1} \binom{2n+1}{k}$ y deducir que $\sumatoria{k=0}{n} \binom{2n+1}{k}$.
+\end{enumerate}
+
+\separadorCorto
+
+Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
+\begin{enumerate}[label=\roman*)]
+	\item
+
+	\item  Binomio $\to
+		      \llaves{lcr}{
+			      x &=& 1\\
+			      y &=& -1
+		      } \to 0^n = \sumatoria{k=0}{n} \binom{n}{k} 1^n (-1)^{n-k}  = \sumatoria{k=0}{n} \binom{n}{k} (-1)^{n-k} = 0 \to\\
+		      \llave{l}{
+		      \flecha{si $n$ es par}[primer término positivo] \sumatoria{k=0}{n} (-1)^k  \binom{n}{k} =
+		      \binom{n}{0} - \binom{n}{1} + \dots + (-1)^\frac{n}{2} \binom{n}{\frac{n}{2}} +\dots  - \binom{n}{k-1} + \binom{n}{n} \to\\
+		      \flecha{uso sugerencia}[$\binom{n}{k} = \binom{n}{n-k}$ ]
+		      2\cdot\binom{n}{0} - 2 \cdot \binom{n}{1} + \dots + 2 \cdot (-1)^{\frac{n}{2} + 1} \binom{n}{\frac{n}{2} + 1} + (-1)^\frac{n}{2} \binom{n}{\frac{n}{2}} = 0 \red{¿Qué onda?}\\
+
+		      \flecha{si $n$ es impar}[primer término negativo] \sumatoria{k=0}{n} (-1)^{k+1} \binom{n}{k} =
+		      - \binom{n}{0} + \binom{n}{1} - \dots  - \binom{n}{k-1} + \binom{n}{n} \flecha{uso sugeerencia}[$\binom{n}{k} = \binom{n}{n-k}$ \checkmark] 0
+		      }$
+
+	\item \hacer
+	\item \hacer
+\end{enumerate}

@@ -1,0 +1,37 @@
+\ejercicio
+Determinar cuántas funciones $f: \set{1,2,3,\dots,11} \to \set{1,2,3,\dots,16}$ satisfacen simultáneamente las condiciones:
+\begin{multicols}{3}
+	\begin{itemize}
+		\item $f$ es inyectiva,
+		\item Si $n$ es par, $f(n)$ es par,
+		\item $f(1) \leq f(3) \leq f(5) \leq f(7)$.
+	\end{itemize}
+\end{multicols}
+
+\separadorCorto
+
+\begin{itemize}
+	\item
+	      La función es inyectiva y cuando \textit{inyecto un conjunto de m elementos en uno de n elementos } $\to \frac{m!}{(m-n)!}$.
+
+	\item
+	      Para cumplir la segunda condición el Dom($f$) tengo 5 números par $\set{2,4,6,8,10}$ y en el codominio tengo 8 números par
+	      $\set{\foreach \i in {2,4,...,14}{\i,}16}$ al \textit{inyectar} obtengo $\frac{8!}{(8-5)!}$ permutaciones.
+
+	\item
+	      La condición de las desigualdades se piensa con los elementos de la Im($f$) restantes después de la \text{inyección}, que son $16 - 5 = 11$.
+	      De esos 11 elementos quiero tomar 4. El cuántas formas distintas de tomar 4 elementos de un conjunto de 11 elementos se calcula con $\binom{11}{4}$,
+	      número de combinación que cumple las desigualdades, porque todos los números son \underline{distintos}. Para la combinación
+	      \textbf{no hay órden}, elegir $\set{16,1,15,13}$ es lo mismo
+	      \footnote{Que sea lo mismo quiere decir que no lo cuenta nuevamente, el contador aumenta solo si cambian los
+		      elementos y \underline{no} el lugar de los elementos}
+	      que $\set{1,16,13,15}$. Es por eso que \textit{con $4$ elementos seleccionados}
+	      solo hay \underline{una} \textit{permutación} que cumple las desigualdades; en este ejemplo sería $\set{1,13,15,16}$
+
+	\item
+	      Por último inyecto los número del dominio restantes $\set{9,11}$ en los 7 elementos de Im($f$) que quedaron luego de la combinación de las
+	      desigualdades $\to \frac{7!}{(7-2)!}$\\
+
+	      Concluyendo: Habrían $\frac{8!}{(8-5)!} \cdot \binom{11}{4} \cdot \frac{7!}{(7-2)!} = 93.139.200$\\
+	      \red{Corroborar}
+\end{itemize}

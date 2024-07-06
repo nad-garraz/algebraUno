@@ -1,0 +1,36 @@
+\ejercicio
+Sean $A = \set{1,2,3,4,5,6,7}$ y $B = \set{1,2,3,4,5,6,7,8,9,10}$.
+\begin{enumerate}[label=\roman*)]
+	\item ¿Cuántas funciones inyectivas $f; A \to B$ hay?
+	\item ¿Cuántas de ellas son tales que $f(1)$ es par?
+	\item ¿Y cuántas tales que $f(1)$ y $f(2)$ son pares?
+\end{enumerate}
+
+\separadorCorto
+
+\begin{enumerate}[label=\roman*)]
+	\item Una pregunta equivalente a si tengo 10 pelotitas distintas y 7 cajitas cómo puedo ordenarlas.
+	      $\llave{c c c c c c c}{
+			      \#10 & \#9 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to\frac{10!}{3!} = \magenta{\frac{\#B}{\#B - \#A} }
+              $
+
+	\item Hay 5 números pares para elegir como imagen de $f(1)$\\
+	      $\llave{c c c c c c c}{
+			      \#5 & \#9 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to 5 \cdot \frac{9!}{3!}$
+
+	\item Hay 5 números pares para elegir como imagen de $f(1)$, luego habrá 4 números pares para $f(2)$\\
+	      $\llave{c c c c c c c}{
+			      \#5 & \#4 & \#8 & \#7 & \#6 & \#5 & \#4 \\
+			      \downarrow &\downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
+			      f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)
+		      }
+		      \to 5 \cdot 4 \cdot \frac{8!}{3!}$
+\end{enumerate}

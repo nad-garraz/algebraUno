@@ -1,0 +1,52 @@
+\ejercicio
+Sea $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$ la relación de equivalencia
+$\to X \relacion Y \sisolosi X \triangle Y \subseteq \set{4,5,6,7,8}$.\\
+¿Cuántos conjuntos hay en la clase de equivalencia de $X = \set{x \en \naturales : x \geq 6}$?
+
+\separadorCorto
+
+\begin{enumerate}
+	\item La relación toma valores de $\partes(\naturales)$
+
+	\item Los elementos del conjunto $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$
+
+	\item El conjunto $X = \set{\foreach \i in {6,...,10}{\i, }\dots}$ es simplemente un elemento de $\partes(\naturales)$.
+	      Los conjuntos $Y \in \partes(\naturales)$ tales que $X \relacion Y$ van a ser los conjuntos que junto a $X$ formarán la
+	      clase de equivalencia.\\
+	      $ \overline{X} = \set{Y \in \partes{\naturales} : X \relacion Y}$
+\end{enumerate}
+
+Para tener una relación de equivalencia deben cumplirse:
+\begin{itemize}
+	\item Reflexividad. $X \triangle X = \vacio \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}$
+	\item Simetría. $X \triangle Y \stackrel{\checkmark}= Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)$
+	\item Transitividad.
+\end{itemize}
+
+Condiciones que debería cumplir un elemeto $Y$ para pertenecer a la la clase de equivalencia, en otras palabras estar relacionado con $X$:\\
+Los elementos $\to$\\
+$\llaves{l}{
+		1, 2, 3 \text{ no deben pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{3,8,9,\dots}}_Y = \set{3,6,7} \cancel{\subseteq} \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{1,2,3}}_Y = \set{1,2,3,6,7,\dots} \cancel{\subseteq} \set{4,5,6,7,8}\\
+		}\\ \hline
+
+		4,5,6,7,8 \text{ pueden o no pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{4,6,8,9,\dots}}_Y = \set{4,7} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{9,\dots}}_Y = \set{6,7,8} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}
+		}\\ \hline
+
+		9,10, \dots \text{ deben pertenecer a } Y \flecha{por}[ejemplo]
+		\llave{l}{
+			X \triangle \underbrace{\set{6,7,8}}_Y = \set{9,10,\dots} \cancel\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{10,\dots}}_Y = \set{9} \cancel\subseteq \set{4,5,6,7,8}\\
+			X \triangle \underbrace{\set{9,\dots}}_Y = \set{6,7,8} \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}
+		}
+	}$
+
+Se concluye que la clase de equivalencia será el conjunto $\overline{X}$ (\red{notación inventada}):\\
+$\overline{X} = \set{ Y_1  \union \set{9,10,\dots}, Y_2  \union \set{9,10,\dots}, \dots, Y_{32}  \union \set{9,10,\dots}}$
+con
+$Y_i \en \partes(\set{4,5,6,7,8})\; i \in [1,2^5] $ donde $\#\overline{X} = 2^5$\\

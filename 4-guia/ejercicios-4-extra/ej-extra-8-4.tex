@@ -1,0 +1,73 @@
+\ejercicio
+
+Sea $(a_n)_{n \en \naturales_0}$ con
+$\llave{l}{
+		a_0 = 1\\
+		a_1 = 3\\
+		a_n = a_{n-1} - a_{n-2}\ \paratodo n \geq 2
+	}$
+\begin{enumerate}[label=(\alph*)]
+	\item Probar que $a_{n+6} = a_n$\\
+
+      \separadorCorto
+
+      Por inducción: \boxed{p(n):   a_{n+6} = a_n \paratodo n \geq \naturales_0 \text{ Verdadero?}}\\
+	      $\llave{l}{
+		      \textit{ Caso Base:} \text{ Primero notar que,} \\
+		      \to
+		      \llaves{l}{
+			      a_0 = 1\\
+			      a_1 = 3\\
+			      a_2 \eqDef= 2\\
+			      a_3 \eqDef= -1\\
+			      a_4 \eqDef= -3\\
+			      a_5 \eqDef= -2
+		      } \to
+		      \llaves{l}{
+			      a_6 \eqDef= 1\\
+			      a_7 \eqDef= 3\\
+			      a_8 \eqDef= 2\\
+			      a_9 \eqDef= -1\\
+			      a_{10} \eqDef= -3\\
+			      a_{11} \eqDef= -2
+		      } \to
+		      \cdots \text{ Se ve que tiene un período de 6 elementos.}\\
+
+		      p(n=2) \text{ Verdadero? }? \to a_8 \eq?= a_2 \Tilde\\
+
+		      \textit{Paso inductivo: } \text{Supongo } p(k) \text{ Verdadero? } \entonces p(k+1) \text{ Verdadero? }?\\
+		      \textit{Hipótesis inductiva: }
+		      \text{Supongo } a_{k+6} = a_k \paratodo k \in \naturales_0 \text{ Verdadero? } ,\, \qvq a_{k+7} = a_{k+1}\\
+		      \red{a_{k+7}} \eqDef=
+		      a_{k+6} - a_{k+5} \stacktext{HI}{=}
+		      a_k - a_{k+5} \eqDef=
+		      a_k - (\ub{ a_k + a_{k+4}}{a_{k+5}}) = -a_{k+4}\\
+		      \to \red{a_{k+7}} = -a_{k+4} \eqDef=
+		      -(a_{k+3} - a_{k+2}) \eqDef =
+		      - ( a_{k+2} - \red{a_{k+1}} - a_{k+2} ) = \red{a_{k+1}} \Tilde
+		      }\\
+	      $\\
+	      Como $p(0) \y p(1) \y \cdots p(5)$ son verdaderas y $p(k)$ es verdadera así como $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n \in \naturales_0$
+
+	\item Calcular $\sumatoria{k=0}{255} a_k$ \\
+	      $\sumatoria{k=0}{255} a_k =
+		      \underbrace{\textstyle a_0 + a_1 + a_2 + a_3 + a_4 + a_5}_{= 0} +
+		      \underbrace{\textstyle a_6 + a_7 + a_8 + a_9 + a_{10} + a_{11} }_{=0} +
+		      \cdots +
+		      a_{252} + a_{253} + a_{254} + a_{255}
+	      $\\
+	      En la sumatoria hay \red{256 términos}. $256 = 42 \cdot 6 + 4$ por lo tanto van a haber 42 bloques que dan 0 y sobreviven los últimos 4 términos.
+	      $\sumatoria{k=0}{255} a_k = \underbrace{\textstyle 0 + 0 + \dots + 0}_{42 \text{ ceros}} + a_{252} + a_{253} + a_{254} + a_{255} =
+		      \cancel{a_{252}} + a_{253} + a_{254} + \cancel{a_{255}} = a_{253} + a_{254} = 5\\
+	      $ Donde usé que: $a_n =
+		      \llave{rcl}{
+			      1 & \text{si} & n\mod6 = 0 \\
+			      3 & \text{si} & n\mod6 = 1 \\
+			      2 & \text{si} & n\mod6 = 2 \\
+			      -1 & \text{si} & n\mod6 = 3 \\
+			      -3 & \text{si} & n\mod6 = 4 \\
+			      -2 & \text{si} & n\mod6 = 5 \\
+		      }\longrightarrow
+	      $
+	      \boxed{\sumatoria{k=0}{255} a_k = 5} \Tilde
+\end{enumerate}

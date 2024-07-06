@@ -1,0 +1,39 @@
+\ejercicio\label{extra: \guia}
+Probar la propiedad distributiva: $X \inter (Y \union Z) = (X \inter Y) \union (X \inter Z)$\\
+
+\separadorCorto
+
+Tengo que hacer una doble inclusión:
+$\to \begin{cases}
+		1) & X \inter (Y \union Z) \subseteq (X \inter Y) \union (X \inter Z) \\
+		2) & (X \inter Y) \union (X \inter Z) \subseteq X \inter (Y \union Z)
+	\end{cases}$
+
+\begin{enumerate}[label=\arabic*)]
+	\item
+	      $x \en X \inter (Y \union Z)$ quiere decir que $x \en X$ y
+	      $\llaves{c}{
+			      x \en Y \\
+			      \o      \\
+			      x \en Z
+		      } $.
+	      Por lo tanto $\to
+		      \llaves{c}{
+			      x \en X \inter Y\\
+			      \o \\
+			      x \en X \inter Z
+		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \Tilde.\\
+
+	\item
+	      Ahora hay que probar la vuelta. Uso razonamiento análogo.
+	      $x \en (X \inter Y) \union (X \inter Z)$, por lo que $x \en X$ y
+	      $
+		      \llaves{c}{
+			      x \en X \inter Y \blue{\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) }\\
+			      \o               \\
+			      x \en X \inter Z \blue{\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)}
+		      }$.
+	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \Tilde}\\
+	      \red{¿Estoy suponiendo cosas que debería demostrar, me estoy salteando pasos?}\\
+	      \blue{Para que la solución quede más creíble usé que $S \subseteq S \union T$ fue el dealbreaker. }
+\end{enumerate}

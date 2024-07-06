@@ -1,0 +1,29 @@
+%=========================
+% Un poco de teoría
+%=========================
+\subsubsection*{\hypertarget{teoria-\guia}{Notas teóricas:}}
+\input{./teoria-\guia/teoria-\guia.tex}
+
+\newpage % página nueva
+
+%=========================
+% Ejercicios guia
+%=========================
+\subsubsection*{Ejercicios de la guía:}
+
+\foreach \x in {1,...,\cantidadEjerciciosGuia} { % cantidad de ejercicios de la guía
+		\input{./ejercicios-\guia/ej-\x-\guia.tex}
+	}
+
+\newpage % página nueva
+
+\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
+%=========================
+% Ejercicios extras, parciales, etc.
+%=========================
+
+\subsubsection*{\hypertarget{extras-\guia}{Ejercicios extras:}}
+
+\foreach \x in {1,...,\cantidadEjerciciosExtras} { % cantidad de ejercicios extras
+		\input{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}
+	}

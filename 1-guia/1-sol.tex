@@ -1,140 +1,19 @@
-% Preambulo donde están los paquetes que tienen los comandos que se usan en el código.
 \input{../macros/preamble-general.tex}
 
-% Gráficos fuera del documento para que el código quede un poco más limpio
-\include{graficos.tex} 
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
 
 \begin{document}
 
-% Info para armar título.
-\title{Práctica 1 de álgebra 1} % título
-% === Buscar forma más agradable de presentar a los que contribuyan
-\author{La comunidad algebraica} % autor
+% IMPORTANTE
+% Estos valores son lo único referente a la guía en particular
+\def\guia{1} % <-- El número de la guía
+\def\cantidadEjerciciosGuia{30}
+\def\cantidadEjerciciosExtras{2}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-\date{última compilacion: \today} % Cambiar de ser necesario
-\maketitle  % Para que aprezca el título en el documento
+\input{../macros/encabezado-pie.tex}
+\input{../macros/indice.tex}
+\input{../macros/estructura-ejercicios.tex}
 
-% Archivo con notas teóricas
-\input{./teoria-1/teoria-1.tex}
-
-\section*{Ejercicios sueltos que me parecen relevantes}
-\subsubsection*{Distributiva}
-Probar la propiedad distributiva: $X \inter (Y \union Z) = (X \inter Y) \union (X \inter Z)$\\
-Tengo que hacer una doble inclusión:
-$\to \begin{cases}
-		1) & X \inter (Y \union Z) \subseteq (X \inter Y) \union (X \inter Z) \\
-		2) & (X \inter Y) \union (X \inter Z) \subseteq X \inter (Y \union Z)
-	\end{cases}$
-
-\begin{enumerate}[label=\arabic*)]
-	\item
-	      $x \en X \inter (Y \union Z)$ quiere decir que $x \en X$ y
-	      $\llaves{c}{
-			      x \en Y \\
-			      \o      \\
-			      x \en Z
-		      } $.
-	      Por lo tanto $\to
-		      \llaves{c}{
-			      x \en X \inter Y\\
-			      \o \\
-			      x \en X \inter Z
-		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \Tilde.\\
-
-	\item
-	      Ahora hay que probar la vuelta. Uso razonamiento análogo.
-	      $x \en (X \inter Y) \union (X \inter Z)$, por lo que $x \en X$ y
-	      $
-		      \llaves{c}{
-			      x \en X \inter Y \blue{\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) }\\
-			      \o               \\
-			      x \en X \inter Z \blue{\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)}
-		      }$.
-	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \Tilde}\\
-	      \red{¿Estoy suponiendo cosas que debería demostrar, me estoy salteando pasos?}\\
-	      \blue{Para que la solución quede más creíble usé que $S \subseteq S \union T$ fue el dealbreaker. }
-
-\end{enumerate}
-
-\subsubsection*{De Morgan}
-Probar la propiedad $(A \inter B)^c = A^c \union B^c$.\\
-Tengo que hacer una doble inclusión
-$\to \begin{cases}
-		1) & (A \inter B)^c \subseteq A^c \union B^c \\
-		2) & A^c \union B^c \subseteq (A \inter B)^c
-	\end{cases}
-$
-\begin{enumerate}[label=\arabic*)]
-	\item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $\\
-	      Por hipótesis $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B
-		      \entonces x \en A^c \o x \en B^c \entonces x \en A^c \union B^c$\\
-	      $\begin{array}{|c|c|c|c|}
-			      \hline
-			      A & B & A^c \union B^c & (A \inter B)^c \\ \hline
-			      V & V & F              & F              \\
-			      V & F & V              & V              \\
-			      F & V & V              & V              \\
-			      F & F & V              & V              \\ \hline
-		      \end{array}
-	      $
-
-	      \blue{Uso la tabla para ver la definición $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B$}
-
-	\item Pruebo por absurdo. Si $\paratodo x \en A^c \union B^c \entonces x \en (A \inter B)^c$\\
-	      \green{Supongo} que $ x \notin (A \inter B)^c \stacktext{def}{\sisolosi} x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
-		      \llaves{c}{
-			      x \notin A\\
-			      \o \\
-			      x \notin B\\
-		      }$, por lo que $x \notin A \union B \entonces x \notin A \inter B$ contradiciendo el \green{supuesto}, absurdo. Debe ocurrir que $x \en (A \inter B)^c   $
-
-	      $\begin{array}{|c|c|c|c|c|}
-			      \hline
-			      A & B & A \inter B & (A \union B) & (A \inter B) \subseteq (A \union B) \\ \hline
-			      V & V & V          & V            & V                                   \\
-			      V & F & F          & V            & V                                   \\
-			      F & V & F          & V            & V                                   \\
-			      F & F & F          & F            & V                                   \\ \hline
-		      \end{array}
-	      $
-\end{enumerate}
-
-\newpage
-\section*{Ejercicios de la guía}
-
-% Para hacer un input de todos los archivos en la
-% carpeta de "ejercicio-1"
-\foreach \x in {1,...,30} {
-    \input{./ejercicios-1/ej-\x-1}
-}
-
-%=============
-% Habría que evaluar eliminar o mejorar esta sección de notas
-
-\separador
-\separador
-
-\subsection*{Notas random}
-\begin{itemize}
-	\item Cardinal: cantidad de elementos de un conjunto.
-	\item El conjunto $\partes(A)$ tiene $2^n$ el cardinal del conjunto $A$.
-	\item Una relación $\relacion$ es un subconjunto de un producto cartesiano.
-	\item  Leyes de absorción, obvias pero no tan.
-	      $\llave{c}{
-			      A \union( A \inter B ) = A\\
-			      A \inter ( A \union B ) = A\\
-		      }$
-	\item probar identidades de conjuntos:
-	      \begin{itemize}
-		      \item
-		            $A = B \to
-			            \llave{c}{
-				            A \subset B \\
-				            B \subset A \\
-			            }$
-		      \item lógica proposicional
-		      \item tabla de verdad
-	      \end{itemize}
-	\item
-\end{itemize}
 \end{document}

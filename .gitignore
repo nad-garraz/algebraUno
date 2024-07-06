@@ -1,4 +1,5 @@
 *.aux
 *.log
+*.out
 *polynom-latex.pdf
 1er-parcial/

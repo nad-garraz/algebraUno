@@ -1,52 +1,19 @@
 \input{../macros/preamble-general.tex}
 
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
+
 \begin{document}
 
-% Info para armar título.
-\title{Práctica 6 de álgebra 1} % título
-\author{Comunidad algebraica} % autor
-\date{última compilacion: \today} % Cambiar de ser necesario
-\maketitle  % para que aprezca el título en el documento
+% IMPORTANTE
+% Estos valores son lo único referente a la guía en particular
+\def\guia{6} % <-- El número de la guía
+\def\cantidadEjerciciosGuia{15}
+\def\cantidadEjerciciosExtras{4}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-
-%=========================
-% Un poco de teoría
-%=========================
-\input{./teoria-6/teoria-6.tex}
-
-%=========================
-% Fin un poco de teoría
-%=========================
-
-\newpage % página nueva
-
-%=========================
-% Ejercicios extras, parciales, etc.
-%=========================
-\subsubsection*{Ejercicios extras:}
-
-\foreach \x in {1,...,4} {
-		\input{./ejercicios-6-extra/ej-extra-\x-6.tex}
-	}
-
-%=========================
-% Fin ejercicios extras, parciales, etc.
-%=========================
-
-\newpage % página nueva
-
-%=========================
-% Ejercicios guia
-%=========================
-
-\subsubsection*{Ejercicios de la guía:}
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
-
-\foreach \x in {1,...,15} {
-		\input{./ejercicios-6/ej-\x-6.tex}
-	}
-%=========================
-% Fin ejercicios guia
-%=========================
+\input{../macros/encabezado-pie.tex}
+\input{../macros/indice.tex}
+\input{../macros/estructura-ejercicios.tex}
 
 \end{document}

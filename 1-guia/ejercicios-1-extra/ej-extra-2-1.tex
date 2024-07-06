@@ -1,0 +1,46 @@
+\ejercicio
+Probar la propiedad $(A \inter B)^c = A^c \union B^c$.
+
+
+\separadorCorto
+
+Tengo que hacer una doble inclusión
+$\to \begin{cases}
+		1) & (A \inter B)^c \subseteq A^c \union B^c \\
+		2) & A^c \union B^c \subseteq (A \inter B)^c
+	\end{cases}
+$
+\begin{enumerate}[label=\arabic*)]
+	\item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $\\
+	      Por hipótesis $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B
+		      \entonces x \en A^c \o x \en B^c \entonces x \en A^c \union B^c$\\
+	      $\begin{array}{|c|c|c|c|}
+			      \hline
+			      A & B & A^c \union B^c & (A \inter B)^c \\ \hline
+			      V & V & F              & F              \\
+			      V & F & V              & V              \\
+			      F & V & V              & V              \\
+			      F & F & V              & V              \\ \hline
+		      \end{array}
+	      $
+
+	      \blue{Uso la tabla para ver la definición $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B$}
+
+	\item Pruebo por absurdo. Si $\paratodo x \en A^c \union B^c \entonces x \en (A \inter B)^c$\\
+	      \green{Supongo} que $ x \notin (A \inter B)^c \stacktext{def}{\sisolosi} x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
+		      \llaves{c}{
+			      x \notin A\\
+			      \o \\
+			      x \notin B\\
+		      }$, por lo que $x \notin A \union B \entonces x \notin A \inter B$ contradiciendo el \green{supuesto}, absurdo. Debe ocurrir que $x \en (A \inter B)^c   $
+
+	      $\begin{array}{|c|c|c|c|c|}
+			      \hline
+			      A & B & A \inter B & (A \union B) & (A \inter B) \subseteq (A \union B) \\ \hline
+			      V & V & V          & V            & V                                   \\
+			      V & F & F          & V            & V                                   \\
+			      F & V & F          & V            & V                                   \\
+			      F & F & F          & F            & V                                   \\ \hline
+		      \end{array}
+	      $
+\end{enumerate}

@@ -1,44 +1,19 @@
 \input{../macros/preamble-general.tex}
 
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
+
 \begin{document}
 
+% IMPORTANTE
+% Estos valores son lo único referente a la guía en particular
+\def\guia{5} % <-- El número de la guía
+\def\cantidadEjerciciosGuia{30}
+\def\cantidadEjerciciosExtras{6}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-% Info para armar título.
-\title{Práctica 5 de álgebra 1} % título
-\author{Comunidad algebraica} % autor
-\date{\update} % Cambiar de ser necesario
-\maketitle  % para que aprezca el título en el documento
-\thispagestyle{empty} % para que no aparezca el número en la primera página
-
-%=========================
-% Un poco de teoría
-%=========================
-\input{./teoria-5/teoria-5.tex}
-
-\newpage % página nueva
-
-%=========================
-% Ejercicios guia
-%=========================
-
-\subsubsection*{Ejercicios de la guía:}
-
-\foreach \x in {1,...,30} {
-		\input{./ejercicios-5/ej-\x-5.tex}
-	}
-
-
-\newpage % página nueva
-%=========================
-% Ejercicios extras, parciales, etc.
-%=========================
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
-\subsubsection*{Ejercicios extras:}
-
-% La lista que recorre va del 1 hasta el número del último 
-% ejercicio en el directorio './ejercicios-5-extra/'
-\foreach \x in {1,...,6} {
-		\input{./ejercicios-5-extra/ej-extra-\x-5.tex}
-	}
+\input{../macros/encabezado-pie.tex}
+\input{../macros/indice.tex}
+\input{../macros/estructura-ejercicios.tex}
 
 \end{document}

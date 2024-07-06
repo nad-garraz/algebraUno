@@ -1,4 +1,135 @@
 \ejercicio
+
+
+% Gráficos, separados para no generar bardo
+\def\doceiA{
+	\begin{tikzpicture}[scale=0.8, baseline=0]
+		% Number line
+		\draw[thick, ->,] (1,0) -- (10,0);
+		% Interval
+		\draw[fill=magenta, color=magenta] (5,0.1) circle (3pt);
+		\draw[fill=green, color=green] (8,0.2) circle (3pt);
+		\draw[fill=green, color=green] (1,0.2) circle (3pt);
+		\draw[fill=black] (1,0) circle (3pt);
+		\draw[-, green, thick] (1,0.2) -- (8,0.2);
+		\draw[->, magenta, thick] (5,0.1) -- (9,0.1);
+		\node at (1,-0.3) {1};
+		\node [color=magenta]at (5,-0.3) {5};
+		\node[color=green] at (8,-0.3) {8};
+	\end{tikzpicture}
+}
+\def\doceiiA{
+	\begin{tikzpicture}[scale=0.8, baseline=0]
+		% Number line
+		\draw[thick, ->,] (1,0) -- (10,0);
+		% Interval
+		\draw[color=magenta] (5,0.1) circle (3pt);
+		\draw[color=green] (8,0.1) circle (3pt);
+		\draw[fill=magenta, color=magenta] (1,0.1) circle (3pt);
+		\draw[fill=black] (1,0) circle (3pt);
+		\draw[-, magenta, thick] (1,0.1) -- (5,0.1);
+		\draw[->, green, thick] (8,0.1) -- (10,0.1);
+		\node at (1,-0.3) {1};
+		\node [color=magenta]at (5,-0.3) {5};
+		\node[color=green] at (8,-0.3) {8};
+	\end{tikzpicture}
+}
+
+\def\doceiiE{
+	\begin{tikzpicture}[scale=0.8, baseline=0]
+		% Number line
+		\draw[thick, <->,] (-4,0) -- (5,0);
+		% Interval
+		\draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
+		\draw[fill=green, color=green] (2,0.2) circle (3pt);
+		\draw[fill=green, color=green] (-2,0.2) circle (3pt);
+		\draw[<-, magenta, thick] (-3,0.1) -- (3,0.1);
+		\draw[-, green, thick] (-2,0.2) -- (2,0.2);
+		\node [color=magenta] at (3,-0.3) {3};
+		\node[color=green] at (2,-0.3) {2};
+		\node[color=green] at (-2,-0.3) {-2};
+	\end{tikzpicture}
+}
+
+\def\doceiiicero{
+	\begin{tikzpicture}[scale=0.6, baseline=0]
+		% Number line
+		\draw[thick, <->,] (-4.5,0) -- (4.5,0);
+		% Interval
+		\draw[color=magenta] (3,0.1) circle (3pt);
+		\draw[color=green] (2,0.2) circle (3pt);
+		\draw[color=green] (-2,0.2) circle (3pt);
+
+		\draw[->, magenta, thick] (3,0.1) -- (4.5,0.1);
+		\draw[<-, green, thick] (-4.5,0.2) -- (-2,0.2);
+		\draw[->, green, thick] (2,0.2) -- (4.5,0.2);
+
+		\node[color=magenta] at (3,-0.3) {3};
+		\node[color=green] at (2,-0.3) {2};
+		\node[color=green] at (-2,-0.3) {-2};
+	\end{tikzpicture}
+}
+
+\def\doceiiiuno{
+	\begin{tikzpicture}[scale=0.6, baseline=0]
+		% Number line
+		\draw[thick, <->,] (-4.5,0) -- (4.5,0);
+		% Interval
+		\draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
+		\draw[fill=green, color=green] (2,0.2) circle (3pt);
+		\draw[fill=green, color=green] (-2,0.2) circle (3pt);
+
+		\draw[<-, magenta, thick] (-3,0.1) -- (3,0.1);
+		\draw[-, green, thick] (-2,0.2) -- (2,0.2);
+
+		\node[color=magenta] at (3,-0.3) {3};
+		\node[color=green] at (2,-0.3) {2};
+		\node[color=green] at (-2,-0.3) {-2};
+	\end{tikzpicture}
+}
+
+\def\doceiiidos{
+	\begin{tikzpicture}[scale=0.6, baseline=0]
+		% Number line
+		\draw[thick, <->,] (-4.5,0) -- (4.5,0);
+		% Interval
+		\draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
+		\draw[color=green] (2,0.2) circle (3pt);
+		\draw[color=green] (-2,0.2) circle (3pt);
+
+		\draw[<-, magenta, thick] (-4,0.1) -- (3,0.1);
+		\draw[<-, green, thick] (-4,0.2) -- (-2,0.2);
+		\draw[->, green, thick] (2,0.2) -- (4,0.2);
+
+		\node[color=magenta] at (3,-0.3) {3};
+		\node[color=green] at (2,-0.3) {2};
+		\node[color=green] at (-2,-0.3) {-2};
+	\end{tikzpicture}
+}
+
+\def\doceiiitres{
+	\begin{tikzpicture}[scale=0.6, baseline=0]
+		% Number line
+		\draw[thick, <->,] (-4.5,0) -- (4.5,0);
+		% Interval
+		\draw[color=magenta] (3,0.1) circle (3pt);
+		\draw[color=green] (2,0.2) circle (3pt);
+		\draw[color=green] (-2,0.2) circle (3pt);
+
+		\draw[->, magenta, thick] (3,0.1) -- (4.5,0.1);
+		\draw[-, green, thick] (-2,0.2) -- (2,0.2);
+
+		\node[color=magenta] at (3,-0.3) {3};
+		\node[color=green] at (2,-0.3) {2};
+		\node[color=green] at (-2,-0.3) {-2};
+	\end{tikzpicture}
+}
+
+% Gráficos, separados para no generar bardo
+% =====================================
+% =====================================
+% =====================================
+
 \begin{enumerate}[label=\roman*)]
 	\item
 	      Decidir si las siguientes proposiciones son verdaderas o falsas, justificando debidamente:
@@ -26,6 +157,8 @@
 		            Están proponiendo que dado $z \en \reales \entonces z \en \complejos$. Dado que $\reales \subseteq \complejos = \set{a \en \reales,\, b\en \reales \talque a + i b}$, con $i^2 = -1$
 		            Por lo tanto para $b = 0$, podría generar todo $\reales$.
 	      \end{enumerate}
+
+\separadorCorto
 
 	\item
 	      \begin{enumerate}[label=(\alph*)]

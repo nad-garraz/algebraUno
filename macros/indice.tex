@@ -1,0 +1,27 @@
+%=========================
+% Un poco de Bling-Bling, carátula e índice
+%=========================
+
+%\guia está definido en padres de este archivo
+
+%phantomsection -> para poder saltar a un lugar sin un anchor.
+\vspace{4cm}
+\hypertarget{indice-\guia}{Choose your destiny:}\\
+
+\begin{itemize}
+	\item \hyperlink{teoria-\guia}{Notas teóricas}
+
+
+	\item
+	      Ejercicios de la guía:
+	      \begin{multicols}{8}
+		      \foreach \ejer in {1,...,\cantidadEjerciciosGuia}{
+				      \refEjercicio{ej:\ejer}\\
+			      }
+	      \end{multicols}
+
+	\item \hyperlink{extras-\guia}{Ejercicios Extras}
+
+\end{itemize}
+
+\newpage % nueva página

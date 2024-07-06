@@ -1,0 +1,19 @@
+\ejercicio
+Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
+\begin{enumerate}
+	\item La proposición: $p(n): \frac{(2n)!}{n!^2} \leq (n+1)! $
+
+	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\Tilde
+
+	\item Mi \textbf{HI} es \textit{que vale}  $ \frac{(2h)!}{h!^2} \leq (h+1)! $
+
+	\item Quiero probar que $\frac{(2(h+1))!}{(h+1)!^2} \leq ((h+1)+1)!
+		      \flecha{acomodo}
+		      \frac{(2h + 2)!}{(h + 1)!^2} \leq (h+2)!$
+
+	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
+	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} =
+		      \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{(2h)!}}{(h + 1)^2 \cdot \blue{h!^2}} \stacktext{HI}\leq
+		      \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{(h+1)!} \leq (h+2)!$\\
+	      Probando esa última desigualdad se prueba lo buscado.
+\end{enumerate}

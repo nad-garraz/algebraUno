@@ -1,42 +1,19 @@
 \input{../macros/preamble-general.tex}
 
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
+
 \begin{document}
-% Info para armar título.
-\title{Práctica 4 de álgebra 1} % título
-\author{Comunidad algebraica} % autor
-\date{\update} % Cambiar de ser necesario
-\maketitle  % para que aprezca el título en el documento
 
+% IMPORTANTE
+% Estos valores son lo único referente a la guía en particular
+\def\guia{4} % <-- El número de la guía
+\def\cantidadEjerciciosGuia{40}
+\def\cantidadEjerciciosExtras{8}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-%=========================
-% Un poco de teoría
-%=========================
-\input{./teoria-4/teoria-4.tex}
-
-\newpage % página nueva
-
-%=========================
-% Ejercicios guia
-%=========================
-
-\subsubsection*{Ejercicios de la guía:}
-
-\foreach \x in {1,...,40} {
-		\input{./ejercicios-4/ej-\x-4.tex}
-	}
-
-
-\newpage % página nueva
-%=========================
-% Ejercicios extras, parciales, etc.
-%=========================
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
-\subsubsection*{Ejercicios extras:}
-
-% La lista que recorre va del 1 hasta el número del último 
-% ejercicio en el directorio './ejercicios-4-extra/'
-\foreach \x in {1,...,7} {
-		\input{./ejercicios-4-extra/ej-extra-\x-4.tex}
-	}
+\input{../macros/encabezado-pie.tex}
+\input{../macros/indice.tex}
+\input{../macros/estructura-ejercicios.tex}
 
 \end{document}

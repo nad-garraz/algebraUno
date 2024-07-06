@@ -1,42 +1,19 @@
 \input{../macros/preamble-general.tex}
 
+% Definiciones y macros para que se me haga
+% más ameno el codeo.
+\input{../macros/definiciones.tex}
+
 \begin{document}
 
-% Info para armar título.
-\title{Práctica 7 de álgebra 1} % título
-\author{Comunidad algebraica} % autor
-\date{última compilacion: \today} % Cambiar de ser necesario
-\maketitle  % para que aprezca el título en el documento
+% IMPORTANTE
+% Estos valores son lo único referente a la guía en particular
+\def\guia{7} % <-- El número de la guía
+\def\cantidadEjerciciosGuia{39}
+\def\cantidadEjerciciosExtras{4}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-
-%=========================
-% Un poco de teoría
-%=========================
-\input{./teoria-7/teoria-7.tex}
-
-\newpage % página nueva
-
-
-%=========================
-% Ejercicios guia
-%}=========================
-
-\subsubsection*{Ejercicios de la guía:}
-
-\foreach \x in {1,...,39} {
-		\input{./ejercicios-7/ej-\x-7.tex}
-	}
-
-
-\newpage % página nueva
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
-%=========================
-% Ejercicios extras, parciales, etc.
-%=========================
-\subsubsection*{Ejercicios extras:}
-
-\foreach \x in {1,...,4} {
-		\input{./ejercicios-7-extra/ej-extra-\x-7.tex}
-	}
+\input{../macros/encabezado-pie.tex}
+\input{../macros/indice.tex}
+\input{../macros/estructura-ejercicios.tex}
 
 \end{document}

@@ -1,4 +1,107 @@
-\ejercicio Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describit por
+% Gráficos
+
+\def\diecinuevei{
+	\begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+
+		\node[] (a) {$\bullet$};
+		\node[] at (a.west) {$a$};
+
+		\node[above right= of a] (b) {$\bullet$};
+		\node[] at (b.east) {$b$};
+
+		\node[below right= of b] (c) {$\bullet$};
+		\node[] at (c.east) {$c$};
+
+		\node[below= of a] (d) {$\bullet$};
+		\node[] at (d.west) {$d$};
+
+		\node[below= of c] (e) {$\bullet$};
+		\node[] at (e.west) {$e$};
+
+		\node[right= of d] (f) {$\bullet$};
+		\node[] at (f.west) {$f$};
+
+		\node[right= of c] (g) {$\bullet$};
+		\node[] at (g.north) {$g$};
+
+		\node[below= of g] (h) {$\bullet$};
+		\node[] at (h.south) {$h$};
+
+		% Universo
+		\node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+		\node[above left = 0.1cm of universo] {$A$};
+
+		% Aristas
+		\draw[->, bend left] (a.center) to (b.center);
+		\draw[->, bend left] (b.center) to (a.center);
+		\draw[->, bend right] (c.center) to (d.center);
+		\draw[->, loop above] (c) to (c);
+		\draw[->, loop below ] (f) to (f);
+		\draw[->, bend right] (c.center) to (h.center);
+		\draw[->, bend left] (e.center) to (c.center);
+		\draw[->, bend right] (h.center) to (g.center);
+	\end{tikzpicture}
+}
+
+% 19 ii
+\def\diecinueveiv{
+	\begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+
+		\node[] (a) {$\bullet$};
+		\node[] at (a.west) {$a$};
+
+		\node[above right= of a] (b) {$\bullet$};
+		\node[] at (b.east) {$b$};
+
+		\node[below right= of b] (c) {$\bullet$};
+		\node[] at (c.east) {$c$};
+
+		\node[below= of a] (d) {$\bullet$};
+		\node[] at (d.west) {$d$};
+
+		\node[below= of c] (e) {$\bullet$};
+		\node[] at (e.west) {$e$};
+
+		\node[right= of d] (f) {$\bullet$};
+		\node[] at (f.west) {$f$};
+
+		\node[right= of c] (g) {$\bullet$};
+		\node[] at (g.east) {$g$};
+
+		\node[below= of g] (h) {$\bullet$};
+		\node[] at (h.east) {$h$};
+
+		% Universo
+		\node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+		\node[above left = 0.1cm of universo] {$A$};
+
+		% Aristas
+		\draw[->, loop below] (a) to (a);
+		\draw[->, loop above ] (b) to (b);
+		\draw[->, loop above] (c) to (c);
+		\draw[->, loop below ] (d) to (d);
+		\draw[->, loop below] (e) to (e);
+		\draw[->, loop below] (f) to (f);
+		\draw[->, loop above] (g) to (g);
+		\draw[->, loop below ] (h) to (h);
+
+		\draw[->, bend left] (a.center) to (b);
+		\draw[->, bend left] (b.center) to (a);
+
+		\draw[->, bend right] (e.center) to (h);
+		\draw[->, bend right] (e.center) to (g);
+		\draw[->, bend right] (h.center) to (g);
+		\draw[->, bend right] (h.center) to (e);
+		\draw[->, bend right] (g.center) to (h);
+		\draw[->, bend right] (g.center) to (e);
+	\end{tikzpicture}
+}
+
+% fin gráficos
+
+
+\ejercicio 
+Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describit por
 extensión la relación en $A$ que representa y determinar si es \textit{reflexiva, simétrica, antisimétrica o transitiva}.
 \begin{enumerate}
 	\item  \textit{Reflexiva}: $(x, x) \en \relacion \paratodo x \en A$ o $x \relacion x.\, \paratodo x \en A$. Gráficamente,

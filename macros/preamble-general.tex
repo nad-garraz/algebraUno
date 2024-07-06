@@ -26,21 +26,27 @@
 \usepackage{skull} % símbolos de donde uso Skull
 \usepackage{soul} % Para tachar texto en text y math mode
 \usepackage{polynom} % para división de polinomios y mcd
-% \usepackage{lipsum} % dummy text
+\usepackage{fontawesome5} % fuentes "extras"
 
-% \usepackage{graphicx} % Necesario para poner imagenes
+\usepackage{fancyhdr} % Encabezados y pie de páginas
+% \usepackage{lipsum} % dummy text
 % \usepackage{caption} % Configuracion de figuras y tablas
+
 
 
 % para hacer los graficos tipo grafos
 \usetikzlibrary{shapes,arrows.meta, chains, matrix, calc, trees, positioning, fit}
-\usetikzlibrary{external,decorations.pathreplacing}
+\usetikzlibrary{external,decorations.pathreplacing,angles,quotes}
+
+% En general quiero que este paquete sea el último en importarse
+\usepackage{hyperref} % para que haya links navegables en el PDF
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Álgebra I. Por los alumnos.},
+    }
+\urlstyle{same}
 
 \setlength{\parindent}{0pt} % Para que no haya indentación en las nuevas líneas.
-
-% Definiciones y macros para que se me haga
-% más ameno el codeo.
-\input{../macros/definiciones.tex}
-
-% Para que no muestre el número en pie de página
-\pagestyle{empty} 

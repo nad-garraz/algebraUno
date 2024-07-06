@@ -1,10 +1,68 @@
+%Graficos
+\def\veinticuatro{
+	\begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+
+		\node[] (a) {$\bullet$};
+		\node[] at (a.north west) {$a$};
+
+		\node[below left = 1cm of a] (b) {$\bullet$};
+		\node[] at (b.south) {$b$};
+
+		\node[below right = 1cm of a] (f) {$\bullet$};
+		\node[] at (f.south) {$f$};
+
+		\node[above right = 1cm of a] (d) {$\bullet$};
+		\node[] at (d.west) {$d$};
+
+		\node[right=1cm of a] (c) {$\bullet$};
+		\node[] at (c.south) {$c$};
+
+		\node[right= of c] (e) {$\bullet$};
+		\node[] at (e.south) {$e$};
+
+
+		% Universo
+		\node[shape=ellipse, draw, black, fit={ (a) (b) (d) (f) (e)}] (universo) {};
+		\node[above left = 0.1cm of universo] {$A$};
+
+		% Aristas
+		\draw[->, loop above] (a) to (a);
+		\draw[->, loop left ] (b) to (b);
+		\draw[->, loop left] (c) to (c);
+		\draw[->, loop above ] (d) to (d);
+		\draw[->, loop right ] (e) to (e);
+		\draw[->, loop right ] (f) to (f);
+
+		\draw[->, bend left] (a.center) to (b);
+		\draw[->, bend left] (b.center) to (a);
+		\draw[->, bend left] (a.center) to (f);
+		\draw[->, bend left] (f.center) to (a);
+		\draw[->, bend left] (b.center) to (f);
+		\draw[->, bend left] (f.center) to (b);
+
+		\draw[->, bend right] (c.center) to (e);
+		\draw[->, bend right] (e.center) to (c);
+	\end{tikzpicture}
+}
+
+% fin gráficos
+
 \ejercicio
+
 Sea $A = \set{a, b, c, d, e, f}$. Dada la relación de equivalencia en $A$:
 \begin{align*}
-	\relacion = \set{(a, a), (b, b), (c, c), (d, d), (e, e), (f, f), (a, b), (b, a), (a, f), (f, a), (b, f), (f, b), (c, e), (e, c)}
+	\relacion = \set{(a, a), (b, b), (c, c), (d, d),
+		(e, e), (f, f), (a, b), (b, a), (a, f),
+		(f, a), (b, f), (f, b), (c, e), (e, c)}
 \end{align*}
-Hallar la clase $\clase{a}$ de $a$, la clase $\clase{b}$ de $b$, la clase $\clase{c}$ de $c$, la clase $\clase{d}$ de $d$, y la partición asociada a $\relacion$ \\
+Hallar la clase $\clase{a}$ de $a$,
+la clase $\clase{b}$ de $b$,
+la clase $\clase{c}$ de $c$,
+la clase $\clase{d}$ de $d$,
+y la partición asociada a $\relacion$ \\
+
 \veinticuatro
+
 $\to
 	\llave{rclclcl}{
 		\clase{a} & = & \set{a, b, f}  & = & \clase{b} & = & \clase{f} \\

@@ -121,7 +121,7 @@
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
     \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-	\section*{\theejercicio.}%
+    \section*{\theejercicio.\labelEjercicio{ej:\theejercicio}}%
 }
 
 % Label y refencia para ejercicio
@@ -149,6 +149,7 @@
 % Stackrel text
 \newcommand{\stacktext}[2]{ \stackrel{\text{#1}}{#2} }
 \def\eq?{\stackrel{\text{?}}}
+\def\eqDef{\stackrel{\text{Def}}}
 
 % Flecha con texto
 \NewDocumentCommand{\flecha}{m o}{%

@@ -1,19 +1,17 @@
 \input{../macros/preamble-general.tex}
 
-% Definiciones y macros para que se me haga
-% más ameno el codeo.
+% Definiciones y macros para que se me haga más ameno el codeo.
 \input{../macros/definiciones.tex}
 
 \begin{document}
 
-% IMPORTANTE
-% Estos valores son lo único referente a la guía en particular
+% IMPORTANTE: Estos valores son lo único referente a la guía en particular.
 \def\guia{4} % <-- El número de la guía
 \def\cantidadEjerciciosGuia{40}
 \def\cantidadEjerciciosExtras{8}   % <-- Modificar si se agrega un ejercicio EXTRA
 
-\input{../macros/encabezado-pie.tex}
-\input{../macros/indice.tex}
-\input{../macros/estructura-ejercicios.tex}
+\input{../macros/encabezado-pie.tex}        % <-- Inyecto código de encabezado y pie
+\input{../macros/indice.tex}                % <-- Inyecto código del índice y carátula
+\input{../macros/estructura-ejercicios.tex} % <-- Inyecto código teoría, ejercicios y ejercicio extra
 
 \end{document}

@@ -3,6 +3,92 @@ Determinar para cada $n \en \naturales$ el resto de dividir a $8^{3^n-2}$ por 20
 
 \separadorCorto
 
-Quiero encontrar $r_{20}(8^{3^n-2})$ entonces analizo congruecia.
+Quiero encontrar $r_{20}(8^{3^n-2})$ entonces analizo congruecia:\\
+$
+	\congruencia{8^{3^n-2}}{X}{20}
+	\flecha{quebrar}
+	\llave{l}{
+		\congruencia{8^{3^n-2}}{3^{3^n-2}}{5} \llamada1 \\
+		\congruencia{8^{3^n-2}}{0}{4} \to \paratodo n \en \naturales
+	}\\
+$
 
-\red{Pasar}
+Laburo con $\llamada1$:\\
+
+$
+	\congruencia{8^{3^n-2}}{ \ub{3^{3^n-2}}{    \conga5 3^{r_4(3^n-2)}\llamada2    } }{5} \\
+	\flecha{$\llamada2$}
+	3^{r_4(3^n-2)}
+	\flecha{$n$ par}[$n$ impar]
+	\llave{rl}{
+      \text{si $n$ par}   & 3^{r_4(3^n-2)} \underset{\llamada3}{\conga5} 3^{1-2} \conga5 \congruencia{3^3}{2}{5} \\
+		\text{si $n$ impar} & 3^1 \conga5 3 \ (5)
+	}
+	\quad
+	\begin{array}{|c|l|l|l|l|}
+		\hline
+		r_4(n)   & 0 & 1 & 2 & 3 \\ \hline
+		r_4(3^n) & 1 & 3 & 1 & 3 \\ \hline
+	\end{array} \llamada3
+$\\
+
+$
+	\llave{lll}{
+		\congruencia{8^{3^n-2}}{0}{4}\llamada4 & \text{ si } & \paratodo n \en naturales\\
+		\congruencia{8^{3^n-2}}{2}{5}\llamada5 & \text{ si } & \congruencia{n}{0}{2} \\
+		\congruencia{8^{3^n-2}}{3}{5}\llamada6 & \text{ si } & \congruencia{n}{1}{2}
+	}\\
+$
+
+Si $
+	\congruencia{n}{0}{2}
+	\flecha{$\llamada4$}[$\llamada5$]
+	\llave{l}{
+		8^{3^n-2} = 4j
+		\to
+		\congruencia{4j}{2}{5}
+		\sii
+		\congruencia{j}{3}{5}\\
+		\sii
+		j = 5k + 3
+		\entonces
+		8^{3^n-2} = 4(5k+3)
+		\sii
+		\boxed{
+			\congruencia{8^{3^n-2}}{12}{20}
+			\sii
+			\congruencia{n}{0}{2}.
+		} \Tilde
+	}
+$
+
+Si $
+	\congruencia{n}{1}{2}
+	\flecha{$\llamada4$}[$\llamada6$]
+	\llave{l}{
+		8^{3^n-2} = 4j
+		\to
+		\congruencia{4j}{3}{5}
+		\sii
+		\congruencia{j}{2}{5}\\
+		\sii
+		j = 5k + 2
+		\entonces
+		8^{3^n-2} = 4(5k+2)
+		\sii
+		\boxed{
+			\congruencia{8^{3^n-2}}{8}{20}
+			\sii
+			\congruencia{n}{1}{2}.
+		} \Tilde
+	}
+$\\
+
+Se concluye que
+\boxed{
+	r_{20}(8^{3^n-2}) = 12
+	\text{ si } n \text{ par y }
+	r_{20}(8^{3^n-2}) = 8
+	\text{ si } n \text{ impar  con }
+	n \en \naturales
+}

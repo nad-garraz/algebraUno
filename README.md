@@ -13,11 +13,12 @@ ir curando y modificando junto con las guías de nuevos cuatrimestres.
 Un apunte con sección _ejercicios de parciales_ que vaya creciendo cuatrimestre a cuatrimestre,
 *curados y escritos por el alumnado de álgebra 1*.
 
-¡Esto está para que cualquier individuo con ganas de contribuir pueda hacerlo!
+
+¡Esto está para que *cualquier individuo con ganas de contribuir pueda hacerlo*!
 
 
 # Algebra 1
-Algunos ejercicio de álgebra 1 en latex
+Algunos ejercicio de álgebra 1 en LaTeX
 Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
 
 # Estructura del repo
@@ -29,6 +30,7 @@ Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
 -   En la carpeta `macro`:
     - Ahí está el preambulo `preamble-general.tex` y algunos comandos redefinios para que sea más amena
     la lectura del código en `definiciones.tex`.
+    - Recientemente puse el índice, y el encabezado y pie de página.
 
 
 # Contribuir
@@ -59,5 +61,8 @@ pdflatex 5-sol.tex
 
 Podés usar el código como quieras siguiendo según [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 
-Una estrellita al repo es siempre bienvenida
+¡Una estrellita al repo es siempre bienvenida!
 (^_^)/
+
+
+_"Un Apunte para gobernarlos a todos, un Apunte para encontrarlos, Un Apunte para atraerlos a todos y promocionar inclusive en las tinieblas"_

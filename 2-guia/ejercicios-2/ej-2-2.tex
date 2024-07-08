@@ -1,2 +1,37 @@
 \ejercicio
-\hacer
+
+Escribir los dos primeros y los dos últimos términos de las expresiones siguientes\\
+
+Llamo $t_1$, $t_2$ a los primeros términos y $t_{m-1}$, $t_m$ a los últimos\\
+
+\begin{enumerate}[label=\roman*)]
+    \item $\sumatoria{i=6}{n}2(i - 5)$\\
+
+    $t_1 = 2(6 - 5) = 2 \quad t_2 = 2(7 - 5) = 4$\\
+
+    $t_{m-1} = 2((n - 1) - 5) = 2n - 12 \quad t_m = 2(n - 5) = 2n - 10$\\
+
+    \item $\sumatoria{i=n}{2n} \frac{1}{i(i+1)}$\\
+
+    $t_1 = \frac{1}{n(n + 1)} = \frac{1}{n^2 + n} \quad t_2 = \frac{1}{(n+1)((n+1) + 1)} = \frac{1}{n^2 + 3n + 1}$\\
+
+    $t_{m-1} = \frac{1}{(2n-1)(2n-1+1)} = \frac{1}{4n^2-2n} \quad t_m = \frac{1}{2n(2n+1)} = \frac{1}{4n^2 + 2n}$\\
+
+    \item $\sumatoria{i=1}{n} \frac{n + i}{2i}$\\
+
+    $t_1 = \frac{n + 1}{2} \quad t_2 = \frac{n + 2}{4}$\\
+
+    $t_{m-1} = \frac{n + (n-1)}{2(n-1)} = \frac{2n - 1}{2n - 2} \quad t_m = \frac{n + n}{2n} = \frac{2n}{2n} = 1$\\
+
+    \item $\sumatoria{i=1}{n^2} \frac{n}{i}$\\
+
+    $t_1 = n \quad t_2 = \frac{n}{2}$\\
+    
+    $t_{m-1} = \frac{n}{n^2 - 1} \quad t_m = \frac{n}{n^2} = \frac{1}{n}$\\
+
+    \item $\productoria{i=1}{n} \frac{n + i}{2i - 3}$\\
+
+    $t_1 = \frac{n + 1}{2 - 3} = - n - 1 \quad t_2 = \frac{n + 2}{4 - 3} = n + 2$\\
+    
+    $t_{m-1} = \frac{n + (n-1)}{2(n-1) - 3} = \frac{2n - 1}{2n - 5} \quad t_m = \frac{n + n}{2n - 3} = \frac{2n}{2n - 3}$\\
+\end{enumerate}

@@ -1,7 +1,25 @@
 \begin{enumerate}
-	\item $\paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}$
+	\item\label{refPropSumatoria-Productoria} Propiedades de la sumatoria y productoria:
 
-	\item $\paratodo n \en \naturales: \sumatoria{i = 0}{n} q^i =
+	\begin{multicols}{2}
+		\begin{itemize}
+			\item
+			$(\sumatoria{k=1}{n} a_k) + (\sumatoria{k=1}{n} b_k) = \sumatoria{k=1}{n} (a_k + b_k)$\\
+
+			\item Sea $c$ un número dado:\\
+			$\sumatoria{k=1}{n} (c \cdot a_k) = c \cdot \sumatoria{k=1}{n} a_k$\\
+
+			\item
+			$(\productoria{k=1}{n} a_k) \cdot (\productoria{k=1}{n} b_k) = \productoria{k=1}{n} (a_k b_k)$\\
+
+			\item Sea $c$ un número dado:\\
+			$\productoria{k=1}{n} (c \cdot a_k) = (\productoria{k=1}{n} c) \cdot (\productoria{k=1}{n} a_k) = c^n \cdot \productoria{k=1}{n} a_k$\\
+		\end{itemize}
+	\end{multicols}
+
+	\item\label{refSumaGauss} $\paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}$
+
+	\item\label{refSerieGeometrica} $\paratodo n \en \naturales: \sumatoria{i = 0}{n} q^i =
 		      1 + q + q^2 + \cdots  + q^{n-1} + q^n =
 		      \llave{lll}{
 			      n+1 & \text{si} & q = 1\\

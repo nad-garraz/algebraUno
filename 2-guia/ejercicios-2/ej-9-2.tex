@@ -1,2 +1,39 @@
 \ejercicio
-\hacer
+\begin{enumerate}[label=\roman*)]
+\item Sea $(a_n)_{n \in \mathbb{N}}$ una sucesión de números reales. Probar que $\displaystyle \sum^{n}_{i=1}(a_{i+1} - a_{i}) = a_{n+1} - a_{1}$.
+\item Calcular $\displaystyle \sum^{n}_{i=1} \frac{1}{i(i+1)}$ \ \ \ \ (Sugerencia: $\displaystyle \frac{1}{i(i+1)} = \frac{1}{i} - \frac{1}{i+1}$).
+\item Calcular $\displaystyle \sum^{n}_{i=1}\frac{1}{(2i-1)(2i+1)}$ \ \ \ \ (Sugerencia: calcular $\displaystyle \frac{1}{2i-1} - \frac{1}{2i+1}$).
+\end{enumerate}
+\begin{enumerate}[label=\roman*)]
+\item Sea $(a_n)_{n \in \mathbb{N}}$ una sucesión de números reales. Sea $n \in \mathbb{N}$ y
+\begin{align*}
+P(n): \sum^{n}_{i=1}(a_{i+1} - a_{i}) = a_{n+1} - a_{1}
+\end{align*}
+\begin{enumerate}[label=\arabic*)]
+\item Caso base, $ n = 1$:
+\begin{align*}
+P(1):& \sum^{1}_{i=1}(a_{i+1} - a_{i}) = a_{1+1} - a_{1} \\
+P(1):& \ a_{2} - a_{1} = a_{2} - a_{1} \\
+P(1):& \ V
+\end{align*}
+\item Paso inductivo. Sea $n \in \mathbb{N}$:
+\begin{enumerate}
+\item[HI.] $P(n): \ V$
+\item[TI.] $ P(n+1): \displaystyle \sum^{n+1}_{i=1}(a_{i+1} - a_{i}) = a_{n+2} - a_{1} $
+\end{enumerate}
+Desarrollo la TI:
+\begin{align*}
+P(n+1):& \sum^{n+1}_{i=1}(a_{i+1} - a_{i}) = a_{n+2} - a_{n+1} + \sum^{n}_{i=1}(a_{i+1} - a_{i}) \overset{\mathrm{HI}}{=} a_{n+2} - a_{n+1} + a_{n+1} - a_{1} \\
+P(n+1):& \sum^{n+1}_{i=1}(a_{i+1} - a_{i}) = a_{n+2} - a_{1} \\
+P(n+1):& \ V
+\end{align*}
+\end{enumerate}
+Tenemos que
+\begin{align*}
+P(1):& \ V \\
+P(n):& \ V \implies P(n+1):V
+\end{align*}
+y esto implica que $P(n): V \ \forall n \in \mathbb{N}$.
+\item \hacer
+\item \hacer
+\end{enumerate}

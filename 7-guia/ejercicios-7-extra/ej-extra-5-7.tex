@@ -1,0 +1,51 @@
+\ejercicio
+Sea $(f_n)_{(n\geq 1)}$ la sucesión de poliniomios en $\reales[X]$ definida como:
+$f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20$ y $f_{n+1} = (X + 2)^2 f'_n + 3 f_n$, para cada $n \en \naturales$.
+Probar que -2 es raíz doble de $f_n$ para todo $n \en \naturales$.
+
+\separadorCorto
+
+Por inducción en n:
+
+$q(n)$ = ''-2 es raíz doble de $f_n$'', $\paratodo n \en \naturales$
+
+\underline{Caso base} ¿$q(1)$ es V?
+
+$f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20$
+
+$f'_1 = 5X^4 + 12X^3 + 15X^2 + 22X$
+
+$f''_1 = 20X^3 + 36X^2 + 30X + 22$
+
+$f_1(-2) = 0$
+
+$f'_1(-2) = 0$
+
+$f''_1(-2) = -54 \neq 0$
+
+$\therefore mult(-2, f_1) = 2 \entonces -2$ es raíz doble de $f_1 \entonces q(1)$ es V
+
+\underline{Paso inductivo} ¿$q(n) \entonces q(n+1)$, $\paratodo n \en \naturales$?
+
+HI: -2 es raíz doble de $f_n$
+
+QPQ -2 es raíz doble de $f_{n+1} = (X + 2)^2 f'_n + 3f_n$
+
+-2 es raíz doble de $f_{n+1} \sii f_{n+1}(-2) = 0 \y f'_{n+1}(-2) = 0 \y f''_{n+1}(-2) \neq 0$
+
+$f_{n+1}(-2) = (-2+2)^2f'_n(-2)+3f_n = \ub{0f'n(-2)}{=0} + 3 f_n(-2) = 0$
+
+Por HI, se que $f_n(-2) = 0$ pues -2 es raíz múltiple de $f_n \entonces f_{n+1}(-2) = 3f_n(-2) = 3 \cdot 0 = 0 \entonces mult(-2, f_{n+1}) \geq 1$
+
+$f_{n+1}' = \ub{2(X+2)}{=2X+4}f'_n + (X+2)^2 f''_n + f'_n$
+
+$f_{n+1}'(-2) = \ub{2\ub{(-2+2)}{=0}f'_n}{=0} + \ub{\ub{(-2+2)}{=0}^2f''_n}{=0} + f'_n = f'_n \ub{=}{HI} 0$ pues se que -2 es raíz doble de $f_n \entonces -2$ es raíz de $f'_n \entonces mult(-2, f_{n+1}) \geq 2$
+
+$f''_{n+1} = 2f'_n + (2x+4)f''_n + 2(x+2) f''_n + (x+2)^2 f'''_n + f''_n$
+
+$f''_{n+1}(-2) = 2f'_n(-2) + \ub{(-4+4)}{=0}f''_n(-2) + 2\ub{(-2+2)}{=0} f''_n(-2) + \ub{(-2+2)^2}{=0} f'''n(-2) + f''n(-2) = 2f'_n(-2) + f''_n(-2)$
+
+Por HI, $f'_n(-2) = 0$ y $f''_n(-2) \neq 0 \therefore f_{n+1}''(-2) \neq 0 \entonces mult(-2, f_{n+1}) = 2 \entonces -2$ es raíz doble de $f_{n+1} \entonces (q(n) \entonces q(n+1), \paratodo n \en \naturales)$
+
+Luego, queda probado que -2 es raíz doble de $f \paratodo n \en \naturales$.
+

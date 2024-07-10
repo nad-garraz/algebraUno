@@ -1,5 +1,7 @@
 \ejercicio
-a) Determinar todos los valores de $n\en\naturales$ \textbf{(positivo)} para los cuales el polinomio
+\begin{enumerate}[label=\alph*)]
+\item
+Determinar todos los valores de $n\en\naturales$ \textbf{(positivo)} para los cuales el polinomio
 $$
 f=X^5 + \frac{n}{3}X^4 - \frac{8}{3}X^3 + \frac{11}{3}X^2 - X
 $$
@@ -29,13 +31,19 @@ $$
 $$
 
 Chequeo:\\
-$h(-1)=0 \iff n=-19\notin\naturales$ \\
-$h(1)=0 \iff n=-3\notin\naturales$ \\
-$h(-3)=0 \iff \fbox{n=5}\in\naturales$ \\
-$h(3)=0 \iff n=\frac{67}{9}\notin\naturales$ \\
+$
+\begin{array}{rcl}
+h(-1)=0 & \iff & n=-19 \notin \naturales \\
+h(1)=0  & \iff & n=-3 \notin \naturales \\
+h(-3)=0 & \iff & \fbox{n=5} \in \naturales \\
+h(3)=0  & \iff & n=\frac{67}{9} \notin \naturales \\
+\end{array}
+$ \\
+\\
 \textbf{Rta:} $n=5$ es el unico valor de $n\in\naturales$ para los cuales el polinomio $f$ tiene una raíz entera no nula.\\
 \\
-b) Para el o los valores hallados en el ítem (a), factorizar el polinomio $f$ obtenido como producto de irreducibles en $\racionales[X],\reales[X]$ y $\complejos[X]$ \\
+\item 
+Para el o los valores hallados en el ítem (a), factorizar el polinomio $f$ obtenido como producto de irreducibles en $\racionales[X],\reales[X]$ y $\complejos[X]$ \\
 \\
 \textbf{Solución:}\\
 Primero factorizo la raiz nula de de $f$ \\
@@ -52,14 +60,14 @@ $$
 \polylongdiv[style=D]{X^4 + \frac{5}{3}X^3 - \frac{8}{3}X^2 + \frac{11}{3}X - 1}{X^2 + \frac{8}{3}X - 1}
 $$
 Factorizo el polinomio cuadratico $X^2 + \frac{8}{3}X - 1$
-$$ \Delta = \sqrt{(-1)^2 - 4 \cdot 1 \cdot 1}=\sqrt{3}\cdot i $$
+$$ \Delta = (-1)^2 - 4 \cdot 1 \cdot 1=-3 $$
 $$ x_+ = \frac{1 + \sqrt 3 i}{2} \in\complejos \text{ y } x_- = \frac{1 - \sqrt 3 i}{2} \in\complejos $$
 
 \textbf{Rta:}\\
 $\therefore f = X(X+3)( X - \frac{1}{3} )( X - (\frac{1}{2} + \frac{\sqrt 3}{2}i) )( X - (\frac{1}{2} - \frac{\sqrt 3}{2}i) ) \in \complejos$ con todos sus factores de multiplicidad 1 y por lo tanto irreducibles. \\
 $\therefore f = X(X+3)( X - \frac{1}{3} )(X^2-X+1) \in \reales$ con 3 factores de multiplicidad 1 y 1 de multiplicidad 2 pero de raices complejas y por lo tanto irreducibles en $\reales$. \\
 $\therefore f = X(X+3)( X - \frac{1}{3} )(X^2-X+1) \in \racionales$ con 3 factores de multiplicidad 1 y 1 de multiplicidad 2 pero de raices complejas y por lo tanto irreducibles en $\racionales$. \\
-
+\end{enumerate}
 
 
 

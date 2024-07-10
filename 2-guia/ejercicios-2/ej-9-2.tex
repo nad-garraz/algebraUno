@@ -34,6 +34,30 @@ P(1):& \ V \\
 P(n):& \ V \implies P(n+1):V
 \end{align*}
 y esto implica que $P(n): V \ \forall n \in \mathbb{N}$.
-\item \hacer
-\item \hacer
+\item $\displaystyle \sum^{n}_{i=1} \frac{1}{i(i+1)} = \sum^{n}_{i=1} \left(\frac{1}{i}- \frac{1}{i+1}\right) = - \sum^{n}_{i=1} \left(\frac{1}{i+1}-\frac{1}{i} \right) \overset{Aux}{=} - \left(\frac{1}{n+1}-\frac{1}{1}\right) \\$ 
+$ \text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{i(i+1)}$}}  = \displaystyle - \left(\frac{1-(n+1)}{n+1}\right) = - \left(\frac{-n}{n+1}\right) = \frac{n}{n+1}$
+\subsubsection*{Auxiliar}
+Sea $\displaystyle a_n = \frac{1}{n}$, donde $n \in \mathbb{N}$. Queremos calcular $\displaystyle \sum^{n}_{i=1} \left(\frac{1}{i+1} - \frac{1}{i}\right)$.
+\begin{align*}
+\sum^{n}_{i=1} \left( \frac{1}{i+1} - \frac{1}{i}\right) =  \sum^{n}_{i=1} \left(a_{i+1}- a_{i} \right) \overset{9.i)}{=} a_{n+1} - a_1 = \frac{1}{n+1} - \frac{1}{1}  
+\end{align*}
+\item $\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)} \overset{Aux.1}{=} \sum^{n}_{i=1}\frac{1}{2}\left(\frac{1}{2i-1}-\frac{1}{2i+1} \right) = \frac{1}{2}\sum^{n}_{i=1}\left(\frac{1}{2i-1}-\frac{1}{2i+1-2+2} \right) \\
+\text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)}$}}\overset{\phantom{Aux.1}}{=} \frac{1}{2}\sum^{n}_{i=1}\left(\frac{1}{2i-1}-\frac{1}{2i+2-2+1} \right) = \frac{1}{2}\sum^{n}_{i=1}\left(\frac{1}{2i-1}-\frac{1}{2(i+1)-2+1} \right) \\
+\text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)}$}}\overset{\phantom{Aux.1}}{=} \frac{1}{2}\sum^{n}_{i=1}\left(\frac{1}{2i-1}-\frac{1}{2(i+1)-1} \right) = \frac{1}{2}\sum^{n}_{i=1}-\left(\frac{1}{2(i+1)-1} -\frac{1}{2i-1} \right) \\
+\text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)}$}}\overset{\phantom{Aux.1}}{=} -\frac{1}{2}\sum^{n}_{i=1}\left(\frac{1}{2(i+1)-1} -\frac{1}{2i-1} \right) \overset{Aux.2}{=} -\frac{1}{2}\left(\frac{1}{2(n+1)-1} -\frac{1}{2\cdot 1-1} \right) \\
+\text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)}$}}\overset{\phantom{Aux.1}}{=}-\frac{1}{2}\left(\frac{1}{2n+1} - 1 \right) =  -\frac{1}{2}\left(\frac{1-(2n+1)}{2n+1} \right) = -\frac{1}{2}\left(\frac{-2n}{2n+1} \right) \\
+\text{\phantom{$\displaystyle \sum^{n}_{i=1} \frac{1}{(2i-1)(2i+1)}$}}\overset{\phantom{Aux.1}}{=} \frac{n}{2n+1}$
+\subsubsection*{Auxiliar 1}
+Calculamos la sugerencia dada
+\begin{align*}
+\frac{1}{2i-1} - \frac{1}{2i+1} &= \frac{2i+1 - (2i-1)}{(2i-1)(2i+1)} = \frac{2i+1 - 2i+1}{(2i-1)(2i+1)}= \frac{2}{(2i-1)(2i+1)} \\
+\frac{2}{(2i-1)(2i+1)} &= \frac{1}{2i-1} - \frac{1}{2i+1} \\
+\frac{1}{(2i-1)(2i+1)} &= \frac{1}{2} \left( \frac{1}{2i-1} - \frac{1}{2i+1} \right)
+\end{align*}
+
+\subsubsection*{Auxiliar 2}
+Sea $\displaystyle a_n = \frac{1}{2n-1}$, donde $n \in \mathbb{N}$. Queremos calcular $\displaystyle \sum^{n}_{i=1} \left(\frac{1}{2(i+1)-1} - \frac{1}{2i-1}\right)$.
+\begin{align*}
+\sum^{n}_{i=1} \left( \frac{1}{2(i+1)-1} - \frac{1}{2i-1}\right) =  \sum^{n}_{i=1} \left(a_{i+1}- a_{i} \right) \overset{9.i)}{=} a_{n+1} - a_1 = \frac{1}{2(n+1)-1} - \frac{1}{2\cdot 1-1}  
+\end{align*}
 \end{enumerate}

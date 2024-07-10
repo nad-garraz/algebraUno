@@ -1,2 +1,58 @@
 \ejercicio
-\hacer
+
+\textit{(Suma de cuadrados y de cubos)} \quad Probar que para todo $n \en \naturales$ se tiene
+
+\begin{enumerate}[label=\roman*)]
+    \item $\sumatoria{i=1}{n} i^2 = \frac{n(n + 1)(2n + 1)}{6}$\\
+
+    $P(n): \text{\textquotedblleft} \sumatoria{i=1}{n} i^2 = \frac{n(n + 1)(2n + 1)}{6} \text{\textquotedblright} \paratodo n \en \naturales$\\
+
+    \underline{Caso Base}:\\
+
+    $
+        P(1) \text{Verdadero}
+        \sisolosi \sumatoria{i=1}{1} i^2 = \frac{1(1 + 1)(2 \cdot 1 + 1)}{6}
+        \sisolosi 1 = \frac{2 \cdot 3}{6}
+        \sisolosi 1 = 1 \Tilde
+    $\\
+
+    \underline{Paso Inductivo}: Sea $k \en \naturales$. Supongo $\HI{P(k)}$ Verdadero, quiero ver que $P(k + 1)$ Verdadero.
+
+    \begin{align*}
+        P(k + 1) \text{Verdadero}
+        &\sisolosi \sumatoria{i=1}{k + 1} i^2 = \frac{(k + 1)((k + 1) + 1)(2(k + 1) + 1)}{6}\\
+        &\sisolosi (\sumatoria{i=1}{k} i^2) + (k + 1)^2 = \frac{(k + 1)(k + 2)(2k + 3)}{6}\\
+        &\underset{\text{HI}}{\sisolosi} \frac{k(k + 1)(2k + 1)}{6} + (k + 1)^2 = \frac{(k + 1)(k + 2)(2k + 3)}{6}\\
+        &\sisolosi k(k + 1)(2k + 1) + 6(k + 1)^2 = (k + 1)(k + 2)(2k + 3)\\
+        &\sisolosi k(2k + 1) + 6(k + 1) = (k + 2)(2k + 3)\\
+        &\sisolosi 2k^2 + 7k + 6 = 2k^2 + 7k + 6 \Tilde
+    \end{align*}
+
+    Como se cumple tanto el caso base como el paso inductivo, por el principio de inducción $P(n)$ es verdadero $\paratodo n \en \naturales$.
+
+    \item $\sumatoria{i=1}{n} i^3 = \frac{n^2(n + 1)^2}{4}$\\
+
+    $P(n): \text{\textquotedblleft} \sumatoria{i=1}{n} i^3 = \frac{n^2(n + 1)^2}{4} \text{\textquotedblright} \paratodo n \en \naturales$\\
+
+    \underline{Caso Base}:\\
+
+    $
+        P(1): \sumatoria{i=1}{1} i^3 = \frac{1^2(1 + 1)^2}{4}
+        \sisolosi 1 = \frac{4}{4}
+        \sisolosi 1 = 1 \Tilde
+    $\\
+
+    \underline{Paso Inductivo}: Sea $k \en \naturales$. Supongo $\HI{P(k)}$ Verdadero, quiero ver que $P(k + 1)$ Verdadero.
+
+    \begin{align*}
+        P(k + 1) \text{Verdadero}
+        &\sisolosi \sumatoria{i=1}{k + 1} i^3 = \frac{(k + 1)^2((k + 1) + 1)^2}{4}\\
+        &\sisolosi (\sumatoria{i=1}{k} i^3) + (k + 1)^3 = \frac{(k + 1)^2(k + 2)^2}{4}\\
+        &\underset{\text{HI}}{\sisolosi} \frac{k^2(k + 1)^2}{4} + (k + 1)^3 = \frac{(k + 1)^2(k + 2)^2}{4}\\
+        &\sisolosi k^2(k + 1)^2 + 4(k + 1)^3 = (k + 1)^2(k + 2)^2\\
+        &\sisolosi k^2 + 4(k + 1) = (k + 2)^2\\
+        &\sisolosi k^2 + 4k + 4 = k^2 + 4k + 4 \Tilde
+    \end{align*}
+
+    Como se cumple tanto el caso base como el paso inductivo, por el principio de inducción $P(n)$ es verdadero $\paratodo n \en \naturales$.
+\end{enumerate}

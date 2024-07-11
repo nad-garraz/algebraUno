@@ -102,7 +102,7 @@
 \newcommand{\llamada}[1]{%
 	\stackrel{\textcolor{
 			\ifcase\numexpr#1 mod 6\relax
-				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or 
+				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
 			\fi
 		}
 		{\text{\FiveStar}^{#1}}%
@@ -114,23 +114,6 @@
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
 \def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
 
-% sección ejercicio con su respectivo formato y contador
-
-\newcounter{ejercicio}[section] % contador que se resetea en cada sección
-\renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
-\newcommand{\ejercicio}{%
-	\stepcounter{ejercicio}% incremento en uno
-    \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{\theejercicio.\labelEjercicio{ej:\theejercicio}}%
-}
-
-% Label y refencia para ejercicio
-% hay alguna forma más elegante de hacer esto?
-\newcommand{\labelEjercicio}[1]{
-	\addtocounter{ejercicio}{-1} % counter - 1
-	\refstepcounter{ejercicio} % referencia al anterior y luego + 1
-	\label{#1}}
-\newcommand{\refEjercicio}[1]{{ \bf\ref{#1}.}}
 
 
 
@@ -169,11 +152,11 @@
 }
 
 % Igual con texto
-\NewDocumentCommand{\Eq}{m o}{%
+\NewDocumentCommand{\igual}{m o}{%
 	\IfNoValueTF{#2}{%
-            \overset{\mathclap{\text{#1}}}=
+		\overset{\mathclap{\text{#1}}}=
 	}{
-            \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
+		\overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
 	}
 }
 
@@ -181,10 +164,45 @@
 % como el stackrel pero también se 
 % puede poner algo debajo
 \newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
-  \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
+	\overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
 }
 
 %Update time
 \def\update{
 	updated: \today
 }
+
+
+
+% sección ejercicio con su respectivo formato y contador
+
+\newcounter{ejercicio}[section] % contador que se resetea en cada sección
+\renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
+\newcommand{\ejercicio}{%
+	\stepcounter{ejercicio}% incremento en uno
+	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
+	\section*{\theejercicio.\labelEjercicio{ej:\theejercicio}}%
+}
+
+% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
+\newcommand{\labelEjercicio}[1]{
+	\addtocounter{ejercicio}{-1} % counter - 1
+	\refstepcounter{ejercicio} % referencia al anterior y luego + 1
+	\label{#1}}
+\newcommand{\refEjercicio}[1]{{ \bf\ref{#1}.}}
+
+%
+\newcounter{ejExtra}[section] % contador que se resetea en cada sección
+\renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
+\newcommand{\ejExtra}{%
+	\stepcounter{ejExtra}% incremento en uno
+	\titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
+	\section*{\theejExtra.\labelEjExtra{ej:\theejExtra}}%
+}
+
+% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
+\newcommand{\labelEjExtra}[1]{
+	\addtocounter{ejExtra}{-1} % counter - 1
+	\refstepcounter{ejExtra} % referencia al anterior y luego + 1
+	\label{#1}}
+\newcommand{\refEjExtra}[1]{{ \bf\ref{#1}.}}

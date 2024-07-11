@@ -159,6 +159,15 @@
 		\xrightarrow[\text{#2}]{\text{#1}}
 	}
 }
+% Flecha con texto
+\NewDocumentCommand{\Sii}{m o}{%
+	\IfNoValueTF{#2}{%
+		\xLeftrightarrow[]{\text{#1}}
+	}{
+		\xLeftrightarrow[\text{#2}]{\text{#1}}
+	}
+}
+
 
 % como el stackrel pero también se 
 % puede poner algo debajo

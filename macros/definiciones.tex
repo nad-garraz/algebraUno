@@ -181,7 +181,7 @@
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
 	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-	\section*{\theejercicio.\labelEjercicio{ej:\theejercicio}}%
+    \section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
@@ -197,7 +197,7 @@
 \newcommand{\ejExtra}{%
 	\stepcounter{ejExtra}% incremento en uno
     \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{{\color{orange}{\faIcon{fire}}}\theejExtra.\labelEjExtra{ej:\theejExtra}}%
+    \section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ej:\theejExtra}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?

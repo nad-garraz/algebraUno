@@ -196,8 +196,8 @@
 \renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
 \newcommand{\ejExtra}{%
 	\stepcounter{ejExtra}% incremento en uno
-	\titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
-	\section*{\theejExtra.\labelEjExtra{ej:\theejExtra}}%
+    \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
+    \section*{{\color{orange}{\faIcon{fire}}}\theejExtra.\labelEjExtra{ej:\theejExtra}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?

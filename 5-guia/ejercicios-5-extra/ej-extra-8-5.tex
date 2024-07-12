@@ -1,0 +1,85 @@
+\ejExtra
+
+Un coleccionista de obras de arte compró un lote compuesto por pinturas y dibujos.
+Cada pintura le costó 649 dólares y cada dibujo 132 dólares. Cuando el coleccionista llega
+a su casa no recuerda si gastó 9779 o 9780 dólares. Deducir cuánto le costó el lote y
+cuántas pinturas y dibujos compró.
+
+\separadorCorto
+
+Del enunciado se deduce que el coleccionista no sabe si gastó:\\
+$$
+\llave{c}{
+ 649P + 132D = 9779\\
+ \otext\\
+ 649P + 132D = 9780\\
+}
+$$
+
+Dos ecuaciones diofánticas que no pueden estar bien a la vez, porque el tipo gastó o 9779 o bien 9780,
+seguramente alguna no tenga solución. \textit{Let's see.}\\
+
+El $(\ub{649}{11 \cdot 59}:\ub{132}{2^2 \cdot 3 \cdot 11}) = 11$
+tiene que dividir al número independiente. En este caso $11 \noDivide 9780$ y $11 \divideA 9779$, 
+así que gastó un total de 9779 dólares.
+
+Lo que resta hacer es resolver la ecuación teniendo en cuenta que estamos trabajando con variables
+que modelan algo físico por lo que $P \geq 0$ y $D \geq 0\llamada1$.\\ 
+
+$$
+ 649P + 132D = 9779 \Sii{comprimizar} 59P + 12D = 889,
+ $$
+
+Para buscar la solución particular uso a \textit{Euclides}, dado que entre 2 números coprimos 
+siempre podemos escribir al número una como una combinación entera.\\
+
+$
+\llave{l}{
+59 = 4 \cdot 12 + 11\\
+12 = 1 \cdot 11 + 1
+}
+\to 
+1 = \green{12} - 1  \cdot \ub{11}{\blue{59} - 4 \cdot \green{12}} = 
+(-1) \cdot \blue{59} + 5\cdot \green{12}.
+$ Por lo que se obtiene que: \\
+$
+1 = (-1) \cdot 59 + 5 \cdot 12
+\flecha{$\times 889$}
+\ub{889 = (-889) \cdot 59 + 4445 \cdot 12}{\textit{Combineta entera buscada} \Tilde}
+\flecha{solución}[particular] (P,D)_\text{part} = (-889,4445).\\
+$
+
+La solución del homogéneo sale fácil. Sumo las soluciones y obtengo la solución general:
+$$
+(P,D)_{\blue{k}} = \blue{k} \cdot (12,-59) + (-889,4445)\quad \text{con } \blue{k} \en \enteros.
+$$
+\textit{Observación totalmente innecesaria, pero está buena:}
+Esa ecuación es una recta común y corriente. Si quiero puedo ahora encontrar algún punto más bonito, 
+para expresarla distinto, por ejemplo si $\blue{k} = 75 \entonces (P,D)_{\text{part}} = (11, 20)$,
+lo cual me permite reescribir a la solución general como:
+$$
+(P,D)_{\blue{h}} = \blue{h} \cdot (12,-59) + (11,20)\quad \text{con } \blue{h} \en \enteros.
+$$
+\textit{Fin de observación totalmente innecesaria, pero está buena.}\\
+
+La solución tiene que cumplir $\llamada1$ :\\
+$
+\llave{l}{
+        P = 12 \blue{h} + 11 \geq 0
+        \sisolosi
+        \blue{h} \geq -\frac{11}{12}
+        \Sii{$\blue{h} \en \enteros$}
+        \blue{h} \geq 0 \\ 
+        D = -59 \blue{h} + 20 \geq 0 
+        \sisolosi
+        \blue{h} \leq \frac{20}{59} 
+        \Sii{$\blue{h} \en \enteros$}
+        \blue{h} \leq 0  \\ 
+}
+ \sii \blue{h} = 0, \text{  Entonces: } (P,D) = (11,20) \Tilde\\
+$
+
+El coleccionista compró \textit{once} pinturas y \textit{veinte} dibujos.
+
+
+

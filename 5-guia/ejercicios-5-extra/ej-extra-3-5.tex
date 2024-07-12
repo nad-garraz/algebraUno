@@ -11,13 +11,13 @@ Expresar las soluciones mediante una única ecuación.
 Para que se cumpla que
 $(n^{433} + 7n + 91 : \ub{931}{7^2\cdot 19}) = \ub{133}{7\cdot 19}$
 deben ocurrir las siguientes condiciones:\\
-$
-	\llave{l}{
-		7 \divideA \expresion\\
-		19 \divideA \expresion\\
-		7^2 \noDivide \expresion\\
+$$
+	\llave{rcl}{
+		7 & \divideA  & \expresion\\
+		19  & \divideA & \expresion\\
+		7^2 & \noDivide &\expresion
 	}
-$\\
+$$
 
 \textit{Estudio la divisibilidad $7$: }\\
 Si
@@ -47,8 +47,10 @@ $
 	}$\\
 
 \textit{Conclusión divisibilidad $7$:}
-$$7 \divideA \expresion \sii \congruencia{n}{0}{7}$$
-\\
+$$
+	7 \divideA \expresion \sii \congruencia{n}{0}{7}
+$$
+
 
 \textit{Estudio la divisibilidad $7^2 = 49$: }\\
 Si
@@ -87,7 +89,7 @@ $
 		\congruencia{8n}{-15}{19}
 		\sii\\
 		\stackrel{\times 7}\sisolosi
-        \boxed{\congruencia{n}{10}{19}}\Tilde\llamada2\\
+		\boxed{\congruencia{n}{10}{19}}\Tilde\llamada2\\
 		% --
 		\text{(\magenta{rama  $19\divideA n$})\ }
 		\flecha{19 es primo}[$19 \divideA n$]
@@ -103,7 +105,7 @@ $$
 		\llamada1\congruencia{n}{0}{7}\\
 		\llamada2\congruencia{n}{10}{19}
 	}
-	\flecha{$7 \cop 19$}[hay solución por TCH]
+    \flecha{$7 \cop 19$ hay solución por}[THC \faIcon{cannabis}, digo TCHR]
 	\llave{l}{
 		\flecha{$\llamada2$}[en $\llamada1$]
 		n = 7 (19k + 10)= 133k + 70

@@ -1,19 +1,54 @@
 \ejExtra
-Se cumple que: $\frac{(2n)!}{n!^2} \leq (n+1)!, \, \paratodo n \en \naturales$?
-\begin{enumerate}
-	\item La proposición: $p(n): \frac{(2n)!}{n!^2} \leq (n+1)! $
 
-	\item Caso base: $p(n = 1)$ es Verdadera? $\flecha{evalúo}[$n = 1$] \frac{(2\cdot 1)!}{1!^2} = 2 \leq (1+1)! $\Tilde
+Probar para todo $n \en \naturales$ se cumple la siguiente desigualdad:
+$$
+	\frac{(2n)!}{(n!)^2} \leq (n+1)!
+$$
 
-	\item Mi \textbf{HI} es \textit{que vale}  $ \frac{(2h)!}{h!^2} \leq (h+1)! $
+\separador
+Se prueba usando el principio de inducción $\en \naturales$.\\
 
-	\item Quiero probar que $\frac{(2(h+1))!}{(h+1)!^2} \leq ((h+1)+1)!
-		      \flecha{acomodo}
-		      \frac{(2h + 2)!}{(h + 1)!^2} \leq (h+2)!$
+\textit{Proposición: }\\
+$$
+	p(n): \frac{(2n)!}{(n!)^2} \leq (n+1)!
+$$
 
-	\item Hay que hacer cosas para poder meter la \textbf{HI} en las  cuentas del punto anterior.\\
-	      Noto que: $\frac{(2h + 2)!}{(h + 1)!^2} =
-		      \frac{(2h + 2) \cdot (2h + 1) \cdot \blue{(2h)!}}{(h + 1)^2 \cdot \blue{h!^2}} \stacktext{HI}\leq
-		      \frac{(2h + 2) \cdot (2h + 1)}{(h + 1)^2 } \blue{(h+1)!} \leq (h+2)!$\\
-	      Probando esa última desigualdad se prueba lo buscado.
-\end{enumerate}
+\textit{Caso base: } Evalúo en $n=1$.
+
+$$
+	p(\blue{1}):
+	\frac{(2 \cdot \blue{1})!}{\blue{1}!^2} = 2 \leq (1+1)! \Tilde
+$$
+Se concluye que $p(1)$ es verdadera.
+
+\textit{Paso inductivo: }
+$$
+	p(k): \HI{\frac{(2k)!}{(k!)^2} \leq (k+1)!}
+$$ la supongo verdadera.\\
+Quiero probar que:
+$$
+	p(k+1): \frac{(2(k + \magenta{1}))!}{(k + \magenta{1})!^2} \leq (k + \magenta{1} + 1)!
+$$ también lo es.\\
+
+$$
+	\llave{c}{
+		\frac{(2k+2)!}{(k+1)!^2} \leq  (k+2)!\\
+		\Sii{abrir}[factorial]\\
+		\frac{(2k + 2) \cdot (2k + 1) \cdot \blue{(2k)!}}{(k + 1)^2 \cdot \blue{(k!)^2}}
+		\stacktext{HI}\leq
+		\frac{
+			\ob{
+				(2k + 2) \cdot (2k + 1)
+			}{ 4\cdot \cancel{(k+1)} (k + \frac{1}{2}) }
+		} {(k + 1)^{\cancel{2}} } \blue{(k + 1)!} =
+		\frac{
+			\ob{ 4\cdot (k + \frac{1}{2}) }{\frac{4(k+\frac{1}{2})}{k+1}
+				\stackrel{\llamada1}\leq \yellow{k+2}}
+		}{(k + 1)} (k+1)!
+		\leq \yellow{(k+2)} (k+1)! = (k+2)!\\
+		\boxed{\frac{(2(k+1))!}{(k+1)!^2} \leq  (k+2)!}
+	}\\
+$$
+$\llamada1$ se prueba fácil en 2 cuentas, queda como ejercicio para vos \href{https://github.com/nad-garraz/algebraUno}{\Large\faIcon{hands-wash}}.
+Es así que $p(1) p(k) y p(k+1)$ resultaron verdaderas y por el principio de inducción
+$p(n)$ también lo será $\paratodo n \en \naturales$.

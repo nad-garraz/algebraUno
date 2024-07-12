@@ -197,12 +197,13 @@
 \newcommand{\ejExtra}{%
 	\stepcounter{ejExtra}% incremento en uno
     \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ej:\theejExtra}}}%
+    \section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
 \newcommand{\labelEjExtra}[1]{
 	\addtocounter{ejExtra}{-1} % counter - 1
 	\refstepcounter{ejExtra} % referencia al anterior y luego + 1
-	\label{#1}}
+	\label{#1} % etiqueta para cada ejercicio extra
+    }
 \newcommand{\refEjExtra}[1]{{ \bf\ref{#1}.}}

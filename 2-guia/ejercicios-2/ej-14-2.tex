@@ -52,10 +52,14 @@ Probar que para todo $n \geq 3$ vale que:
 		      \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\Tilde}\\
 		      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
 		      \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 } \\
-		      d={k+1} \eqDef = d_k + k-1 \eqHI = \frac{k(k-3)}{2} + k-1 = \frac{k^2 - k - 2}{2} = \frac{(k-2)(k+1)}{2} \Tilde\\
+                d = {k+1} \igual{def} d_k + k-1
+                \igual{HI}
+                \frac{k(k-3)}{2} + k-1 =
+                \frac{k^2 - k - 2}{2} =
+                \frac{(k-2)(k+1)}{2} \Tilde\\
 		      }\\
 	      $
-	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$
+	      Como $p(3) \ytext p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
 
 	\item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.\\
 	      \begin{tikzpicture}[scale=0.9]
@@ -101,9 +105,10 @@ Probar que para todo $n \geq 3$ vale que:
 			      \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
 			      \textit{Hipótesis Inductiva: } \alpha_k = \pi(k-2) \entonces \alpha_{k+1} = \pi(k-1) \\
 			      \llaves{l}{
-				      \alpha_k \eqDef = \alpha_{k+1} - \pi\\
-				      \alpha_k \eqHI= \pi(k-2)\\
+				      \alpha_k \igual{def}  \alpha_{k+1} - \pi\\
+				      \alpha_k \igual{HI}  \pi(k-2)\\
 			      } \to \alpha_{k+1} = \pi(k-2) + \pi = \pi(k-1)\Tilde
 		      }$\\
-	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq3}$\\
+	      Como $p(3) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera
+          $\paratodo n \en \naturales_{\geq3}$\\
 \end{enumerate}

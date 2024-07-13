@@ -8,6 +8,7 @@
 \def\naturales{\mathbb N}
 \def\enteros{\mathbb Z}
 \def\racionales{\mathbb Q}
+\def\irracionales{\mathbb I}
 \def\complejos{\mathbb C}
 
 \def\K{\mathbb K} % cuerpo K
@@ -40,8 +41,7 @@
 \def\qvq{\text{ quiero ver que }}
 
 %funciones
-\def\imagen{\text{Im}}
-\def\dominio{$\text{Dom}$}
+\DeclareMathOperator{\Dom}{Dom}
 \def\comp{\circ}
 \def\inv{^{-1}}
 \def\infinito{\infty}
@@ -75,14 +75,15 @@
 \def\cop{\, \perp \, }
 
 % complejos
-\def\re{\mathrm{Re}}
-\def\im{\mathrm{Im}}
-\def\arg{\mathrm{arg}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+%\DeclareMathOperator{\arg}{arg}
 \def\conj{\overline}
 
 % Polinomios
-\newcommand{\cp}[1]{\text{cp}(#1)}
-\newcommand{\gr}[1]{\text{gr}(#1)}
+\DeclareMathOperator{\cp}{cp}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\mult}{mult}
 \newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
 \newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
 
@@ -92,29 +93,36 @@
 % =====
 \def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
-\newcommand{\hacer}{{\color{black!30!red}Hacer!}}
+\newcommand{\hacer}{
+        {\color{red!80!black}{\Large \faIcon{radiation} Falta hacerlo!}}\\
+		{\color{black!70!white}
+        \small Si querés mandarlo: Telegram $\to$ \href{https://t.me/+1znt2GV1i8cwMTNh}{\small\faIcon{telegram}},\\
+            o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-garraz/algebraUno}{\small \faIcon{github}}.
+		}
+}
+
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
 \def\Tilde{\quad\checkmark}
 \def\ytext{\text{ y }}
 \def\otext{\text{ o }}
 
-% asterisco para hacer llamadas de atención
+% Estrellita para hacer llamadas de atención, viene en divertidos colores
+% para coleccionar.
 \newcommand{\llamada}[1]{%
-	\stackrel{\textcolor{
-			\ifcase\numexpr#1 mod 6\relax
-				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
-			\fi
+	{\small{\textcolor{
+					\ifcase\numexpr#1 mod 6\relax
+						cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
+					\fi
+				}
+				{\text{\FiveStar}^{#1}}%
+			}%
 		}
-		{\text{\FiveStar}^{#1}}%
-	}{ }%
 }
 
 
-% separador\
+% separadores
 \def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
 \def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
-
-
 
 
 % Colores
@@ -125,33 +133,16 @@
 \newcommand{\yellow}[1]{\textcolor{YellowOrange}{#1}}
 \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
 
-% Conjuntos entre llaves
+% Conjuntos entre llaves y paréntesis
+% te ahorrás escribir los \left y \right, así dejando el código más legible.
 \newcommand{\set}[1] { \left\{ #1 \right\} }
 \newcommand{\parentesis}[1]{ \left( #1 \right) }
 
-% Stackrel text
+% Stackrel text. Es para ahorrarse ecribir el \text
 \newcommand{\stacktext}[2]{ \stackrel{\text{#1}}{#2} }
-\def\eq?{\stackrel{\text{?}}}
-\def\eqDef{\stackrel{\text{def}}}
 
-% Flecha con texto
-\NewDocumentCommand{\flecha}{m o}{%
-	\IfNoValueTF{#2}{%
-		\xrightarrow[]{\text{#1}}
-	}{
-		\xrightarrow[\text{#2}]{\text{#1}}
-	}
-}
-% Si solo si con texto
-\NewDocumentCommand{\Sii}{m o}{%
-	\IfNoValueTF{#2}{%
-		\xLeftrightarrow[]{\text{#1}}
-	}{
-		\xLeftrightarrow[\text{#2}]{\text{#1}}
-	}
-}
-
-% Igual con texto
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
 \NewDocumentCommand{\igual}{m o}{%
 	\IfNoValueTF{#2}{%
 		\overset{\mathclap{\text{#1}}}=
@@ -161,27 +152,51 @@
 }
 
 
-% como el stackrel pero también se 
-% puede poner algo debajo
+%=======================================================
+% Comandos con flechas extensibles.
+%=======================================================
+% *Flechita* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\flecha}{m o}{%
+	\IfNoValueTF{#2}{%
+		\xrightarrow[]{\text{#1}}
+	}{
+		\xrightarrow[\text{#2}]{\text{#1}}
+	}
+}
+% *Si solo si* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\Sii}{m o}{%
+	\IfNoValueTF{#2}{%
+		\xLeftrightarrow[]{\text{#1}}
+	}{
+		\xLeftrightarrow[\text{#2}]{\text{#1}}
+	}
+}
+
+%=======================================================
+% fin comandos con flechas extensibles.
+%=======================================================
+
+
+% como el stackrel pero también se puede poner algo debajo
 \newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
 	\overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
 }
 
 %Update time
 \def\update{
-	updated: \today
+	actualizado: \today
 }
 
 
-
+%=======================================================
 % sección ejercicio con su respectivo formato y contador
-
+%=======================================================
 \newcounter{ejercicio}[section] % contador que se resetea en cada sección
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
 	\stepcounter{ejercicio}% incremento en uno
 	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
+	\section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
@@ -196,8 +211,8 @@
 \renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
 \newcommand{\ejExtra}{%
 	\stepcounter{ejExtra}% incremento en uno
-    \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}}%
+	\titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
+	\section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
@@ -205,5 +220,9 @@
 	\addtocounter{ejExtra}{-1} % counter - 1
 	\refstepcounter{ejExtra} % referencia al anterior y luego + 1
 	\label{#1} % etiqueta para cada ejercicio extra
-    }
+}
 \newcommand{\refEjExtra}[1]{{ \bf\ref{#1}.}}
+
+%=======================================================
+% fin sección ejercicio con su respectivo formato y contador
+%=======================================================

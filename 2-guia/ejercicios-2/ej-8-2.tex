@@ -1,10 +1,11 @@
 \ejercicio
+
 Sea $a,\, b \en \reales$. Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$. Deducir la fórmula de la serie
-geométrica: para todo $a \neq 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.\\
+geométrica: para todo $a \distinto 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.\\
 $\llave{ l }{
 		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \Tilde\\
 		\text{Paso inductivo: } n = k  a^k - b^k = (a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} \entonces
-		a^{k+1} - b^{k+1} \eq?= (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
+        a^{k+1} - b^{k+1} \igual{?} (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
 		\llave{l}{
 			(a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i} =
 			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} +
@@ -14,7 +15,9 @@ $\llave{ l }{
 			b \cdot
 			\HI{
 				(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}
-			} + (a - b) a^k \eqHI= b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1}\Tilde
+        } + (a - b) a^k
+        \igual{HI}
+        b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1} \Tilde
 		}\\
 	}$\\
 Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1}{n} a^{i-1} = a^n - 1 \to\\

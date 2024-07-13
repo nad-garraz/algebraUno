@@ -57,39 +57,39 @@ $
 $\\
 
 $
-	\flecha{junto info}[TCR]
+    \flecha{junto info}[T\faIcon{cannabis}R]
 	\llave{l}{
 		\congruencia{n}{9}{12} \\
 		\congruencia{n}{5}{8}
 	}
-	\flecha{quiero divisores}[coprimos]
+    \Sii{quiero}[\textit{divisores coprimos}]
 	\llave{l}{
 		\congruencia{n}{1}{4} \blue{\Tilde} \\
 		\congruencia{n}{0}{3}  \\
 		\congruencia{n}{1}{4} \magenta{\Tilde}\blue{\Tilde}\\
 		\congruencia{n}{1}{2} \magenta{\Tilde}
 	}
-    \stackrel{:)}\sisolosi
-	\llave{l}{
-		\congruencia{n}{0}{3}  \\
-		\congruencia{n}{1}{4} \\
-		\congruencia{n}{1}{2}
-	}
-	\sii
+    \Sii{me quedo con el}[de mayor divisor]
 	\llave{l}{
 		\congruencia{n}{0}{3} \llamada1  \\
-		\congruencia{n}{1}{8} \llamada2\\
+		\congruencia{n}{5}{8} \llamada2\\
 	}\\
+    $
+
+    Ahora sí, tengo el sistema con \red{\textit{divisores coprimos}},
+    por TCHR tengo solución.\\
+
+    $
 	\flecha{de}[$\llamada1$]
-	n = 3k\llamada3 \Tilde
+	n = 3k \llamada3 \Tilde
 	\flecha{reemplazo}[en $\llamada2$]
-	\congruencia{3k}{1}{8}
-	\sii
-	\congruencia{k}{3}{8}
+	\congruencia{3k}{5}{8}
+    \Sii{$\times 3$}[$3 \cop 5$]
+	\congruencia{k}{7}{8}
     \sii
-    k = \yellow{8j + 3} \Tilde\\
+    k = \yellow{8j + 7} \Tilde\\
 	\flecha{reemplazo}[$k$ en $\llamada3$]
-	n = 3 (\yellow{8j+3}) = 24j + 9
+	n = 3 (\yellow{8j + 7}) = 24j + 21
 	\sii
-	\boxed{\congruencia{n}{9}{24}} \Tilde
+	\boxed{\congruencia{n}{21}{24}} \Tilde
 $

@@ -109,14 +109,14 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 % Estrellita para hacer llamadas de atención, viene en divertidos colores
 % para coleccionar.
 \newcommand{\llamada}[1]{
-	{\small{\textcolor{
-            \ifcase \numexpr#1 mod 6\relax
-						cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
-					\fi
-				}
-				{\text{\FiveStar}^{#1}}%
-			}%
-		}
+  {\small{\textcolor{
+          \ifcase \numexpr#1 mod 6\relax
+            cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
+          \fi
+        }
+        {\text{\FiveStar}^{#1}}%
+      }%
+    }
 }
 
 
@@ -144,11 +144,11 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 % Dado que muchas veces ponemos cosas sobre un signo '='
 %  acá está el comando para escribir \igual{arriba}[abajo] con texto!
 \NewDocumentCommand{\igual}{m o}{%
-	\IfNoValueTF{#2}{%
-		\overset{\mathclap{\text{#1}}}=
-	}{
-		\overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
-	}
+  \IfNoValueTF{#2}{%
+    \overset{\mathclap{\text{#1}}}=
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
+  }
 }
 
 
@@ -157,19 +157,19 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 %=======================================================
 % *Flechita* extensible con texto {arriba} y [abajo] 
 \NewDocumentCommand{\flecha}{m o}{%
-	\IfNoValueTF{#2}{%
-		\xrightarrow[]{\text{#1}}
-	}{
-		\xrightarrow[\text{#2}]{\text{#1}}
-	}
+  \IfNoValueTF{#2}{%
+    \xrightarrow[]{\text{#1}}
+  }{
+    \xrightarrow[\text{#2}]{\text{#1}}
+  }
 }
 % *Si solo si* extensible con texto {arriba} y [abajo] 
 \NewDocumentCommand{\Sii}{m o}{%
-	\IfNoValueTF{#2}{%
-		\xLeftrightarrow[]{\text{#1}}
-	}{
-		\xLeftrightarrow[\text{#2}]{\text{#1}}
-	}
+  \IfNoValueTF{#2}{%
+    \xLeftrightarrow[]{\text{#1}}
+  }{
+    \xLeftrightarrow[\text{#2}]{\text{#1}}
+  }
 }
 
 %=======================================================
@@ -179,12 +179,12 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 
 % como el stackrel pero también se puede poner algo debajo
 \newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
-	\overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
+  \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
 }
 
 %Update time
 \def\update{
-	actualizado: \today
+  actualizado: \today
 }
 
 
@@ -194,34 +194,43 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 \newcounter{ejercicio}[section] % contador que se resetea en cada sección
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
-	\stepcounter{ejercicio}% incremento en uno
-	\titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-	\section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
+  \stepcounter{ejercicio}% incremento en uno
+  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
+  \section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
 \newcommand{\labelEjercicio}[1]{
-	\addtocounter{ejercicio}{-1} % counter - 1
-	\refstepcounter{ejercicio} % referencia al anterior y luego + 1
-	\label{#1}}
+  \addtocounter{ejercicio}{-1} % counter - 1
+  \refstepcounter{ejercicio} % referencia al anterior y luego + 1
+  \label{#1}}
 \newcommand{\refEjercicio}[1]{{ \bf\ref{#1}.}}
 
-%
+\def\fueguito{{\color{orange}{\faIcon{fire}}}}
 \newcounter{ejExtra}[section] % contador que se resetea en cada sección
 \renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
 \newcommand{\ejExtra}{%
-	\stepcounter{ejExtra}% incremento en uno
-	\titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
-	\section*{\noindent{\color{orange}{\faIcon{fire}}}\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}}%
+  \stepcounter{ejExtra}% incremento en uno
+  \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
+  % Es como una sección. Le pongo un ícono, luego el número del ejercicio con la etiqueta para poder
+  % linkearlo en el índice u otro lugar.
+  % con \ref{ejExtra:{numero del ejercicio}} es que salto al ejercicio.
+  \section*{
+          \noindent\fueguito\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}
+  }
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
 \newcommand{\labelEjExtra}[1]{
-	\addtocounter{ejExtra}{-1} % counter - 1
-	\refstepcounter{ejExtra} % referencia al anterior y luego + 1
-	\label{#1} % etiqueta para cada ejercicio extra
+  \addtocounter{ejExtra}{-1} % counter - 1
+  \refstepcounter{ejExtra} % referencia al anterior y luego + 1
+  \label{#1} % etiqueta para cada ejercicio extra
 }
-\newcommand{\refEjExtra}[1]{{ \bf\ref{#1}.}}
+% Con esto llamos al ejercicio extra
+\newcommand{\refEjExtra}[1]{
+        {
+                \fueguito\bf\ref{#1}.}
+}
 
 %=======================================================
 % fin sección ejercicio con su respectivo formato y contador

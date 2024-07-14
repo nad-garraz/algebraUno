@@ -94,11 +94,11 @@
 \def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
 \newcommand{\hacer}{
-        {\color{red!80!black}{\Large \faIcon{radiation} Falta hacerlo!}}\\
-		{\color{black!70!white}
-        \small Si querés mandarlo: Telegram $\to$ \href{https://t.me/+1znt2GV1i8cwMTNh}{\small\faIcon{telegram}},\\
-            o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-garraz/algebraUno}{\small \faIcon{github}}.
-		}
+{\color{red!80!black}{\Large \faIcon{radiation} Falta hacerlo!}}\\
+{\color{black!70!white}
+\small Si querés mandarlo: Telegram $\to$ \href{https://t.me/+1znt2GV1i8cwMTNh}{\small\faIcon{telegram}},\\
+o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-garraz/algebraUno}{\small \faIcon{github}}.
+}
 }
 
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
@@ -108,9 +108,9 @@
 
 % Estrellita para hacer llamadas de atención, viene en divertidos colores
 % para coleccionar.
-\newcommand{\llamada}[1]{%
+\newcommand{\llamada}[1]{
 	{\small{\textcolor{
-					\ifcase\numexpr#1 mod 6\relax
+            \ifcase \numexpr#1 mod 6\relax
 						cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
 					\fi
 				}

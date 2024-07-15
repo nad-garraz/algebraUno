@@ -1,0 +1,160 @@
+\ejExtra
+% Macro local
+\def\F{\mathcal F}
+
+
+Sea
+$
+  \F = \set{h : \set{1,2,3,4} \to \set{1,2,\dots, 50} \ /\  h \text{ es inyectiva}}
+$.\\
+Definimos en $\F$ la relación $\relacion$ como
+$$
+  f \relacion g \quad \text{si y sólo si} \quad \# \parentesis{ \im(f) \diferencia \im(g) } = 0 \otext 4.
+$$
+\begin{enumerate}[label=\alph*)]
+  \item Analizar si $\relacion$ es una relación reflexiva, simétrica, antisimétrica y/o transitiva.
+
+  \item Sea
+        $f \en \F$
+        definida como $f(x) = x$ para $1 \leq x \leq 4$. Calcular cuántas funciones $g \en \F$
+        satisfacen $f \relacion g$
+\end{enumerate}
+
+\separadorCorto
+
+Observar que $f \en \F$ es una función que tiene un dominio con solo 4 elementos, es decir
+$$
+  \# \dom(f) = 4 \paratodo f \en \F,
+$$
+y dado que $f$ es inyectiva, todos los elementos de la imagen deben ser distintos, por lo tanto
+$$
+  \# \im(f) = 4 \paratodo f \en \F
+$$
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        \textit{Reflexiva: } Quiero ver que si $f \relacion f$.\\
+        Esto debe ser cierto, ya que
+        $A = \set{\im(f) \diferencia \im(f)} =
+          \vacio \ \ytext\  \# \vacio \igual! 0 \ \paratodo f \en \F.
+        $
+        $\relacion$ es reflexiva \Tilde\\
+
+        \textit{Simétrica: }Quiero ver que si $f \relacion g \entonces g \relacion f$.\\
+        Si tengo que $f \relacion g$, sé algo sobre sus conjuntos $\im$ ya que,
+        $$
+          \llave{ccc}{
+            \#\set{\im(f) \diferencia \im(g)} = 0 & \sisolosi & \im(f) \igual{$\llamada1$} \im(g) \\\
+            &\otext&\\
+            \#\set{\im(f) \diferencia \im(g)} = 4
+            &\sisolosi&
+            \im(f) \stackrel{\llamada2}\inter \im(g) = \vacio
+          }
+        $$
+        Entonces los conjuntos $\im(f)$ y $\im(g)$ están relacionados por un "$=$" y un "$\inter$",
+        dos operadores simétricos por lo tanto $\relacion$ es simétrica. \Tilde\\
+
+        \textit{Antisimétrica: } Quiero ver que si
+        $f \relacion g \entonces g \norelacion f$,
+        o también a veces está bueno pensarla la antisimetría como si
+        $f \relacion g \ytext g \relacion f \entonces f = g$. Bajo la sospecha de que la función no es antisimétrica
+        la segunda forma de pensarlo me ayuda a encontrar un \textit{contra}ejemplo.\\
+        $$
+          f
+          \to
+          \llave{l}{
+            f(1) = 1\\
+            f(2) = 2\\
+            f(3) = 3\\
+            f(4) = 4
+          }\quad\ytext\quad
+          g
+          \to
+          \llave{l}{
+            g(1) = 4\\
+            g(2) = 3\\
+            g(3) = 2\\
+            g(4) = 1
+          }
+        $$
+        $\llave{l}{
+            f \relacion g, \text{ sus imágenes cumplen } \llamada1\\
+            g \relacion f, \text{ sus imágenes cumplen } \llamada1
+          }
+        $, pero por como están definidas las funciones $f \distinto g$. $\relacion$ no es antisimétrica. $\skull$\\
+
+
+        \textit{Transitiva: } Quiero ver que si
+        $f \relacion g
+          \ytext
+          g \relacion h
+          \entonces
+          f \relacion h$.\\
+        Acá podemos encontrar un \textit{contra}ejemplo para mostrar que no es transitiva, saco de la galera 3 funciones,
+        $f, \,g \ytext h \en \F$\\
+        $$
+          f
+          \to
+          \llave{l}{
+            f(1) = 1\\
+            f(2) = 2\\
+            f(3) = 3\\
+            f(4) = 4
+          },\quad
+          g
+          \to
+          \llave{l}{
+            g(1) = 5\\
+            g(2) = 6\\
+            g(3) = 7\\
+            g(4) = 8
+          } \quad \ytext \quad
+          h
+          \to
+          \llave{l}{
+            h(1) = 1\\
+            h(2) = 2\\
+            h(3) = 9\\
+            h(4) = 10
+          }
+        $$
+
+        $\llave{l}{
+            f \relacion g, \text{ sus imágenes cumplen } \llamada2\\
+            g \relacion h, \text{ sus imágenes cumplen } \llamada2
+          }
+        $, pero
+        $f \norelacion h$ dado que:
+        $$
+          \set{\im(f) \diferencia \im(g)} = \set{3,4} \entonces \# \set{\im(f) \diferencia \im(g)} = 2 \distinto 0 \otext 4.
+        $$
+        $\relacion$ no es transitiva. $\skull$
+
+  \item
+        Para que $f$ y $g$ se relacionen se debe cumplir con $\llamada1$ o con $\llamada2$. En otras palabras necesito encontrar funciones
+        $g \en \F$ cuya imagen $\im(g) = \set{1,2,3,4}$ o su codominio sea $\ub{\cod = \set{5,6,\dots,49,50}}{\#\cod = 46}$.\\
+
+        \textit{Contar cuando $\im(g) = \set{1,2,3,4}$:}\\
+        Hago la \textit{inyección} de los 4 valores que puede tomar la función inyectiva $g$.\\
+        $$
+          \llave{r c c c c }{
+            g \to   &g(1) & g(2) & g(3) & g(4) \\
+            &\downarrow &\downarrow &\downarrow & \downarrow\\
+            \text{opciones}\to & \#4 & \#3 & \#2 & \#1
+          }
+        $$
+        Hay $4!$ permutaciones \Tilde\\
+
+        \textit{Contar cuando codominio sea $\cod = \set{5,6,\dots,,49,50}$}\\
+        Hago la \textit{inyección} de los 46 valores que puede tomar la función inyectiva $g$.\\
+        $$
+          \llave{r c c c c }{
+            g \to   &g(1) & g(2) & g(3) & g(4) \\
+            &\downarrow &\downarrow &\downarrow & \downarrow\\
+            \text{opciones}\to & \#46 & \#45 & \#44 & \#43
+          }
+        $$
+        Hay $\frac{46!}{42!}$ permutaciones \Tilde\\
+
+        Se concluye que hay un total de $\frac{46!}{42!}  + 4!$ funciones $g \en \F / f \relacion g$ \Tilde
+\end{enumerate}

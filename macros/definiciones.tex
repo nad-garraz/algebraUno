@@ -1,5 +1,6 @@
 % Definiciones y nuevos comandos:
 % =============
+% Conjuntos
 \def\partes{\mathcal P}
 \def\relacion{\,\mathcal{R}\,}
 \def\norelacion{\,\cancel{\relacion}\,}
@@ -16,6 +17,7 @@
 \def\vacio{\varnothing}
 \def\union{\cup}
 \def\inter{\cap}
+\def\diferencia{\ \setminus \ }
 \def\y{\land}
 \def\o{\lor}
 \def\neg{\sim}
@@ -32,7 +34,7 @@
 
 \def\existe{\,\exists\,}
 \def\noexiste{\,\nexists\,}
-\def\paratodo{\;\forall}
+\def\paratodo{\ \, \forall}
 \def\distinto{\neq}
 \def\en{\in}
 \def\talque{\;/\;}
@@ -41,7 +43,8 @@
 \def\qvq{\text{ quiero ver que }}
 
 %funciones
-\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\cod}{Cod}
 \def\comp{\circ}
 \def\inv{^{-1}}
 \def\infinito{\infty}

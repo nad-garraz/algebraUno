@@ -1,67 +1,43 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+
+  \begin{enumerate}[label=\roman*)]
+    \item
+          Sea $A = \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}$. Consideremos en $\partes(A)$ la relación de equivalencia dada
+          por el cardinal (es decir, la cantidad de elementos): Dos subconjuntos de $A$ están relacionados si y solo si
+          tienen la misma cantidad de elementos ¿Cuántas clases de equivalencia \textbf{distintas}
+          determina la relación? Hallar un representante par acada clase.
+
+    \item
+          En el conjunto de todos los subconjuntos finitos de $\naturales$, consideremos nuevamente la relación
+          de equivalencia dada por el cardinal: Dos subconjuntos finitos de $\naturales$ están relacionados
+          si y solo si tienen la misma cantidad de elementos ¿Cuántas clases de equivalencia
+          \textbf{distintas} determina la relación?
+          Hallar un representante para cada clase.
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item
-	      Sea $A = \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}$. Consideremos en $\partes(A)$ la relación de equivalencia dada
-	      por el cardinal (es decir, la cantidad de elementos): Dos subconjuntos de $A$ están relacionados si y solo si tienen la misma cantidad
-	      de elementos ¿Cuántas clases de equivalencia \textbf{distintas} determina la relación? Hallar un representante par acada clase.\\
-
-	      \separadorCorto
-
-	      $\partes(A) = \set{\vacio, \set{1}, \set{1,2}, \cdots, \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}$, el conjunto $\partes(A)$ tiene un total de
-	      $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.\\
-	      $\llave{lcl}{
-			      \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
-			      \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
-			      \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
-			      \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
-			      \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
-			      \vdots                            &\vdots  & \vdots\\
-			      \text{Conjuntos con 10 elementos: } & \clase{10} & \set{1,2,3,4,5,6,7,8,9,10} = A\\
-		      }$
-
-	\item
-	      En el conjunto de todos los subconjuntos finitos de $\naturales$, consideremos nuevamente la relación de equivalencia dada por el cardinal: Dos subconjuntos finitos
-	      de $\naturales$ están relacionados si y solo si tienen la misma cantidad de elementos ¿Cuántas clases de equivalencia \textbf{distintas} determina la relación?
-	      Hallar un representante para cada clase.\\
-
-	      \separadorCorto
-
-	      Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\\
-	      La relación determina $N+1$ \textit{clases de equivalencia} distintas.\\
-	      $\llave{lcl}{
-			      \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
-			      \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
-			      \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
-			      \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
-			      \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
-			      \vdots                            &\vdots  & \vdots\\
-			      \text{Conjuntos con 10 elementos: } & \clase{N} & \set{1,2,3,4, \cdots, N-1, N} \naturales_N\\
-		      }$
+  \item $\partes(A) = \set{\vacio, \set{1}, \set{1,2}, \cdots, \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}$, el conjunto $\partes(A)$ tiene un total de
+        $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.\par
+        $\llave{lcl}{
+            \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
+            \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
+            \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
+            \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
+            \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
+            \vdots                            &\vdots  & \vdots\\
+            \text{Conjuntos con 10 elementos: } & \clase{10} & \set{1,2,3,4,5,6,7,8,9,10} = A\\
+          }$
+  \item
+        Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\par
+        La relación determina $N+1$ \textit{clases de equivalencia} distintas.\par
+        $\llave{lcl}{
+            \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
+            \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
+            \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
+            \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
+            \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
+            \vdots                            &\vdots  & \vdots\\
+            \text{Conjuntos con 10 elementos: } & \clase{N} & \set{1,2,3,4, \cdots, N-1, N} \naturales_N\\
+          }$
 \end{enumerate}
-
-\noindent\separador
-
-\noindent\underline{\textit{Funciones}}\\
-
-Sean $A$ y  $B$ conjuntos, y sea $\relacion$ de $A$ en $B$. Se dice que
-$\relacion$ es una \textit{función} cuando todo elemento $x \en A$ está relacionado con algún
-$y \en B$, y este elemento $y$ es único. Es decir:\\
-
-$\llave{l}{
-		\paratodo x \en A, \existe! y \en B \talque x \relacion y\\
-		\paratodo x \en A, \existe y \en B \talque x\relacion y, \\
-		\text{si } y, z \en B \text{ son tales que } x \relacion y \text{ y } x \relacion z \entonces y = z.
-	}
-$
-\begin{itemize}
-	\item Dada $f:A\,(dominio) \to B\,(codominio)$ el conjunto \textit{imagen} es: $\im(f)= \set{y \en B : \existe x \en A \talque f(x) = y}$
-	\item \begin{itemize}
-		      \item \textit{inyectiva:} si $\forall x, x' \en A \text{ tales que } f(x) = f(x')$ se tiene que $ x = x'$
-		      \item \textit{sobreyectiva:} si $\forall y \en B, \existe x \en A \text{ tal que } f(x) = y.\: f\text{ es sobreyectiva si } \im(f) = B$
-		      \item \textit{biyectiva:} Cuando es inyectiva y sobreyectiva.
-	      \end{itemize}
-	\item $A, B, C$ conjuntos y $f: A \to B \to C,\, g: B \to C$ funciones. Entonces la \textit{composición} de $f$ con $g$, que se nota:\\
-	      $g \comp f = g\left(f(x)\right),\, \paratodo x \en A$, resulta ser una función de $A$ en $C$.
-	\item $f$ es biyectiva cuando: $f\inv : B \to A$ es la función que satisface que:\\
-	      $\paratodo y \en B: f\inv(y) = x \sisolosi f(x) = y$
-\end{itemize}

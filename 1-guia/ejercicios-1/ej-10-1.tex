@@ -1,29 +1,45 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Sean $p,\, q$ proposiciones. Verificar que las siguientes expresiones tienen la misma tabla de verdad para
+  concluir que son equivalentes:
+
+  \begin{enumerate}[label=\roman*)]
+          \item\label{10-1-i} $p \entonces q,
+            \qquad
+            \neg q \entonces \neg p, \qquad \neg p \o q \qquad \ytext \qquad  \neg (p \y \neg q)$.\par
+          Esto nos dice que podemos demostrar una afirmación de la forma $p \entonces q$ probando en su lugar
+          $\neg q \entonces \neg p$ (es decir \textit{demostrando el contrarrecíproco}), o probando $\neg (p \y \neg q)$ (esto
+          es una \textit{demostración por reducción al absurdo}).
+
+    \item $\neg(p \entonces q)\qquad \ytext \qquad \neg q$.
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item
-	      Sean p, q proposiciones. Verificar que las siguientes expresiones tienen la misma tabla de verdad para
-	      concluir que son equivalentes:
-	      \[
-		      \begin{array}{|c|c|c|c|c|c|c|c|}
-			      \hline
-			      p & q & \neg p & \neg q & p \entonces q & \neg q \entonces \neg p & \neg p \lor q & \neg(p \land \neg q) \\
-			      \hline  \hline
-			      V & V & F      & F      & V             & V                       & V             & V                    \\
-			      V & F & F      & V      & F             & F                       & F             & F                    \\
-			      F & V & V      & F      & V             & V                       & V             & V                    \\
-			      F & F & V      & V      & V             & V                       & V             & V                    \\
-			      \hline
-		      \end{array}
-	      \]
-	\item
-	      \[
-		      \begin{array}{|c|c|c|c|c|c|}
-			      \hline
-			      p & q & \neg q & p \entonces q & \neg (p \entonces q) & p\, \y \neg q \\ \hline  \hline
-			      V & V & F      & V             & F                    & F             \\
-			      V & F & V      & F             & V                    & V             \\
-			      F & V & F      & V             & F                    & F             \\
-			      F & F & V      & V             & F                    & F             \\ \hline
-		      \end{array}
-	      \]
+  \item
+        Sean p, q proposiciones. Verificar que las siguientes expresiones tienen la misma tabla de verdad para
+        concluir que son equivalentes:
+        \[
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline
+            p & q & \neg p & \neg q & p \entonces q & \neg q \entonces \neg p & \neg p \lor q & \neg(p \land \neg q) \\
+            \hline  \hline
+            V & V & F      & F      & V             & V                       & V             & V                    \\
+            V & F & F      & V      & F             & F                       & F             & F                    \\
+            F & V & V      & F      & V             & V                       & V             & V                    \\
+            F & F & V      & V      & V             & V                       & V             & V                    \\
+            \hline
+          \end{array}
+        \]
+  \item
+        \[
+          \begin{array}{|c|c|c|c|c|c|}
+            \hline
+            p & q & \neg q & p \entonces q & \neg (p \entonces q) & p\, \y \neg q \\ \hline  \hline
+            V & V & F      & V             & F                    & F             \\
+            V & F & V      & F             & V                    & V             \\
+            F & V & F      & V             & F                    & F             \\
+            F & F & V      & V             & F                    & F             \\ \hline
+          \end{array}
+        \]
 \end{enumerate}
+

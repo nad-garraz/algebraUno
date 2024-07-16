@@ -1,186 +1,190 @@
 % Gráficos
 
 \def\diecinuevei{
-	\begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+  \begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
 
-		\node[] (a) {$\bullet$};
-		\node[] at (a.west) {$a$};
+    \node[] (a) {$\bullet$};
+    \node[] at (a.west) {$a$};
 
-		\node[above right= of a] (b) {$\bullet$};
-		\node[] at (b.east) {$b$};
+    \node[above right= of a] (b) {$\bullet$};
+    \node[] at (b.east) {$b$};
 
-		\node[below right= of b] (c) {$\bullet$};
-		\node[] at (c.east) {$c$};
+    \node[below right= of b] (c) {$\bullet$};
+    \node[] at (c.east) {$c$};
 
-		\node[below= of a] (d) {$\bullet$};
-		\node[] at (d.west) {$d$};
+    \node[below= of a] (d) {$\bullet$};
+    \node[] at (d.west) {$d$};
 
-		\node[below= of c] (e) {$\bullet$};
-		\node[] at (e.west) {$e$};
+    \node[below= of c] (e) {$\bullet$};
+    \node[] at (e.west) {$e$};
 
-		\node[right= of d] (f) {$\bullet$};
-		\node[] at (f.west) {$f$};
+    \node[right= of d] (f) {$\bullet$};
+    \node[] at (f.west) {$f$};
 
-		\node[right= of c] (g) {$\bullet$};
-		\node[] at (g.north) {$g$};
+    \node[right= of c] (g) {$\bullet$};
+    \node[] at (g.north) {$g$};
 
-		\node[below= of g] (h) {$\bullet$};
-		\node[] at (h.south) {$h$};
+    \node[below= of g] (h) {$\bullet$};
+    \node[] at (h.south) {$h$};
 
-		% Universo
-		\node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-		\node[above left = 0.1cm of universo] {$A$};
+    % Universo
+    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+    \node[above left = 0.1cm of universo] {$A$};
 
-		% Aristas
-		\draw[->, bend left] (a.center) to (b.center);
-		\draw[->, bend left] (b.center) to (a.center);
-		\draw[->, bend right] (c.center) to (d.center);
-		\draw[->, loop above] (c) to (c);
-		\draw[->, loop below ] (f) to (f);
-		\draw[->, bend right] (c.center) to (h.center);
-		\draw[->, bend left] (e.center) to (c.center);
-		\draw[->, bend right] (h.center) to (g.center);
-	\end{tikzpicture}
+    % Aristas
+    \draw[->, bend left] (a.center) to (b.center);
+    \draw[->, bend left] (b.center) to (a.center);
+    \draw[->, bend right] (c.center) to (d.center);
+    \draw[->, loop above] (c) to (c);
+    \draw[->, loop below ] (f) to (f);
+    \draw[->, bend right] (c.center) to (h.center);
+    \draw[->, bend left] (e.center) to (c.center);
+    \draw[->, bend right] (h.center) to (g.center);
+  \end{tikzpicture}
 }
 
 % 19 ii
 \def\diecinueveiv{
-	\begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+  \begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
 
-		\node[] (a) {$\bullet$};
-		\node[] at (a.west) {$a$};
+    \node[] (a) {$\bullet$};
+    \node[] at (a.west) {$a$};
 
-		\node[above right= of a] (b) {$\bullet$};
-		\node[] at (b.east) {$b$};
+    \node[above right= of a] (b) {$\bullet$};
+    \node[] at (b.east) {$b$};
 
-		\node[below right= of b] (c) {$\bullet$};
-		\node[] at (c.east) {$c$};
+    \node[below right= of b] (c) {$\bullet$};
+    \node[] at (c.east) {$c$};
 
-		\node[below= of a] (d) {$\bullet$};
-		\node[] at (d.west) {$d$};
+    \node[below= of a] (d) {$\bullet$};
+    \node[] at (d.west) {$d$};
 
-		\node[below= of c] (e) {$\bullet$};
-		\node[] at (e.west) {$e$};
+    \node[below= of c] (e) {$\bullet$};
+    \node[] at (e.west) {$e$};
 
-		\node[right= of d] (f) {$\bullet$};
-		\node[] at (f.west) {$f$};
+    \node[right= of d] (f) {$\bullet$};
+    \node[] at (f.west) {$f$};
 
-		\node[right= of c] (g) {$\bullet$};
-		\node[] at (g.east) {$g$};
+    \node[right= of c] (g) {$\bullet$};
+    \node[] at (g.east) {$g$};
 
-		\node[below= of g] (h) {$\bullet$};
-		\node[] at (h.east) {$h$};
+    \node[below= of g] (h) {$\bullet$};
+    \node[] at (h.east) {$h$};
 
-		% Universo
-		\node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-		\node[above left = 0.1cm of universo] {$A$};
+    % Universo
+    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+    \node[above left = 0.1cm of universo] {$A$};
 
-		% Aristas
-		\draw[->, loop below] (a) to (a);
-		\draw[->, loop above ] (b) to (b);
-		\draw[->, loop above] (c) to (c);
-		\draw[->, loop below ] (d) to (d);
-		\draw[->, loop below] (e) to (e);
-		\draw[->, loop below] (f) to (f);
-		\draw[->, loop above] (g) to (g);
-		\draw[->, loop below ] (h) to (h);
+    % Aristas
+    \draw[->, loop below] (a) to (a);
+    \draw[->, loop above ] (b) to (b);
+    \draw[->, loop above] (c) to (c);
+    \draw[->, loop below ] (d) to (d);
+    \draw[->, loop below] (e) to (e);
+    \draw[->, loop below] (f) to (f);
+    \draw[->, loop above] (g) to (g);
+    \draw[->, loop below ] (h) to (h);
 
-		\draw[->, bend left] (a.center) to (b);
-		\draw[->, bend left] (b.center) to (a);
+    \draw[->, bend left] (a.center) to (b);
+    \draw[->, bend left] (b.center) to (a);
 
-		\draw[->, bend right] (e.center) to (h);
-		\draw[->, bend right] (e.center) to (g);
-		\draw[->, bend right] (h.center) to (g);
-		\draw[->, bend right] (h.center) to (e);
-		\draw[->, bend right] (g.center) to (h);
-		\draw[->, bend right] (g.center) to (e);
-	\end{tikzpicture}
+    \draw[->, bend right] (e.center) to (h);
+    \draw[->, bend right] (e.center) to (g);
+    \draw[->, bend right] (h.center) to (g);
+    \draw[->, bend right] (h.center) to (e);
+    \draw[->, bend right] (g.center) to (h);
+    \draw[->, bend right] (g.center) to (e);
+  \end{tikzpicture}
 }
 
 % fin gráficos
 
 
-\ejercicio 
-Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describit por
-extensión la relación en $A$ que representa y determinar si es \textit{reflexiva, simétrica, antisimétrica o transitiva}.
+\begin{enunciado}{\ejercicio}
+  Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describit por
+  extensión la relación en $A$ que representa y determinar si es \textit{reflexiva, simétrica, antisimétrica o transitiva}.
+\end{enunciado}
+
+Un poco de la teoría de esto:
 \begin{enumerate}
-	\item  \textit{Reflexiva}: $(x, x) \en \relacion \paratodo x \en A$ o $x \relacion x.\, \paratodo x \en A$. Gráficamente,
-	      cada elemento tiene que tener un bucle.
-	      \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
-		      \node[](a) {$\bullet$} edge [in=0,out=90,loop] ();
-		      \node[] at (a.west) {$x$};
-	      \end{tikzpicture}
+  \item  \textit{Reflexiva}: $(x, x) \en \relacion \paratodo x \en A$ o $x \relacion x.\, \paratodo x \en A$. Gráficamente,
+        cada elemento tiene que tener un bucle.
+        \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+          \node[](a) {$\bullet$} edge [in=0,out=90,loop] ();
+          \node[] at (a.west) {$x$};
+        \end{tikzpicture}
 
-	\item  \textit{Simétrica}: $(x, y) \en \relacion$, entonces el par $(y, x) \en \relacion$, también si $\paratodo x, y \en A, x\relacion y \entonces y \relacion x$.
-	      Gráficamente tiene que haber un ida y vuelta en cada elemento de la relación.
-	      \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
-		      \node[] (x) {$\bullet$};
-		      \node[] at (x.west) {$x$};
-		      \node[below right =0.2 of x] (y) {$\bullet$};
-		      \node[] at (y.south east) {$y$};
-		      \draw[->, bend left=1cm] (x.center) to (y);
-		      \draw[->, bend left=1cm] (y.center) to (x);
-	      \end{tikzpicture}
+  \item  \textit{Simétrica}: $(x, y) \en \relacion$, entonces el par $(y, x) \en \relacion$,
+        también si $\paratodo x, y \en A, x\relacion y \entonces y \relacion x$.
+        Gráficamente tiene que haber un ida y vuelta en cada elemento de la relación.
+        \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+          \node[] (x) {$\bullet$};
+          \node[] at (x.west) {$x$};
+          \node[below right =0.2 of x] (y) {$\bullet$};
+          \node[] at (y.south east) {$y$};
+          \draw[->, bend left=1cm] (x.center) to (y);
+          \draw[->, bend left=1cm] (y.center) to (x);
+        \end{tikzpicture}
 
-	\item  \textit{Antisimétrica}: $(x, y) \en \relacion$, con $x \distinto y$ entonces el par $(y, x) \notin \relacion$, también se puede pensar
-	      como $\paratodo x,y \en A, x\relacion y$ e $ y \relacion x \entonces x = y$. Gráficamente \textbf{no} tiene que haber ningún ida y vuelta en el gráfico.
-	      Solo en una dirección.
-	      \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
-		      \node[] (x) {$\bullet$};
-		      \node[] at (x.west) {$x$};
-		      \node[below right =0.2 of x] (y) {$\bullet$};
-		      \node[] at (y.south east) {$y$};
-		      \draw[->] (x.center) to (y.center);
-	      \end{tikzpicture}
-	\item  \textit{Transitiva}: Para toda terna $x, y, z \en A$ tales que $(x, y) \en \relacion$ e $(y,z) \en \relacion$, se tiene que $(x, z) \en \relacion$.
-	      Otra manera sería si $\paratodo x, y, z \en A$, $x \relacion y$ e $y \relacion z \entonces x\relacion z$. Gráficamente tiene que haber flecha directa
-	      entre las puntas de cualquier camino que vaya por más de dos nodos.
-	      \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
-		      \node[] (x) {$\bullet$};
-		      \node[] at (x.north east) {$x$};
-		      \node[below right = 0.6cm of x] (y) {$\bullet$};
-		      \node[] at (y.north east) {$y$};
-		      \node[below right = 0.6cm of y] (z) {$\bullet$};
-		      \node[] at (z.north east) {$z$};
+  \item  \textit{Antisimétrica}: $(x, y) \en \relacion$, con $x \distinto y$ entonces el par $(y, x) \notin \relacion$, también se puede pensar
+        como $\paratodo x,y \en A, x\relacion y$ e $ y \relacion x \entonces x = y$.
+        Gráficamente \textbf{no} tiene que haber ningún ida y vuelta en el gráfico. Solo en una dirección.
+        \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+          \node[] (x) {$\bullet$};
+          \node[] at (x.west) {$x$};
+          \node[below right =0.2 of x] (y) {$\bullet$};
+          \node[] at (y.south east) {$y$};
+          \draw[->] (x.center) to (y.center);
+        \end{tikzpicture}
 
-		      \draw[->, bend left] (x.center) to (y.center);
-		      \draw[->, bend left] (y.center) to (z.center);
-		      \draw[->,magenta, bend right]
-		      (x.center)
-		      to node[midway,below left] {atajo}
-		      (z.center);
-	      \end{tikzpicture}
+  \item  \textit{Transitiva}: Para toda terna $x, y, z \en A$ tales que $(x, y) \en \relacion$ e $(y,z) \en \relacion$,
+        se tiene que $(x, z) \en \relacion$.
+        Otra manera sería si $\paratodo x, y, z \en A$, $x \relacion y$ e $y \relacion z \entonces x\relacion z$.
+        Gráficamente tiene que haber flecha directa entre las puntas de cualquier camino que vaya por más de dos nodos.
+        \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+          \node[] (x) {$\bullet$};
+          \node[] at (x.north east) {$x$};
+          \node[below right = 0.6cm of x] (y) {$\bullet$};
+          \node[] at (y.north east) {$y$};
+          \node[below right = 0.6cm of y] (z) {$\bullet$};
+          \node[] at (z.north east) {$z$};
+
+          \draw[->, bend left] (x.center) to (y.center);
+          \draw[->, bend left] (y.center) to (z.center);
+          \draw[->,magenta, bend right]
+          (x.center)
+          to node[midway,below left] {atajo}
+          (z.center);
+        \end{tikzpicture}
 \end{enumerate}
 
 \begin{enumerate}[label=\roman*)]
 
-	\item
-	      \begin{minipage}{0.37\textwidth}
-		      \diecinuevei
-	      \end{minipage}
-	      \begin{minipage}{0.5\textwidth}
-		      \begin{itemize}
-			      \item No es reflexiva, porque no hay bucles en todos los vértices, en particular $a \norelacion a$.
-			      \item No es simétrica, porque $d \norelacion c$.
-			      \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
-			      \item No es transitiva, porque $c \relacion h$ y $h \relacion g$, pero $c \norelacion h$.
-		      \end{itemize}
-	      \end{minipage}
+  \item
+        \begin{minipage}{0.37\textwidth}
+          \diecinuevei
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \begin{itemize}
+            \item No es reflexiva, porque no hay bucles en todos los vértices, en particular $a \norelacion a$.
+            \item No es simétrica, porque $d \norelacion c$.
+            \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+            \item No es transitiva, porque $c \relacion h$ y $h \relacion g$, pero $c \norelacion h$.
+          \end{itemize}
+        \end{minipage}
 
-	\item \hacer
-
-	\item \hacer
-
-	\item
-	      \begin{minipage}{0.37\textwidth}
-		      \diecinueveiv
-	      \end{minipage}
-	      \begin{minipage}{0.5\textwidth}
-		      \begin{itemize}
-			      \item Reflexiva, porque hay bucles en todos los elementos de $A$.
-			      \item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.
-			      \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
-			      \item Es transitiva, porque hay \textit{atajos} en todas las relaciones de ternas.
-		      \end{itemize}
-	      \end{minipage}
+  \item \hacer
+  \item \hacer
+  \item
+        \begin{minipage}{0.37\textwidth}
+          \diecinueveiv
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \begin{itemize}
+            \item Reflexiva, porque hay bucles en todos los elementos de $A$.
+            \item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.
+            \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+            \item Es transitiva, porque hay \textit{atajos} en todas las relaciones de ternas.
+          \end{itemize}
+        \end{minipage}
 \end{enumerate}

@@ -1,25 +1,25 @@
 % Definiciones y nuevos comandos:def
 % =============
 % Conjuntos
-\def\partes{\mathcal P}
-\def\relacion{\,\mathcal{R}\,}
-\def\norelacion{\,\cancel{\relacion}\,}
-\def\universo{\mathcal U}
-\def\reales{\mathbb R}
-\def\naturales{\mathbb N}
-\def\enteros{\mathbb Z}
-\def\racionales{\mathbb Q}
-\def\irracionales{\mathbb I}
-\def\complejos{\mathbb C}
+\DeclareMathOperator{\partes}{\mathcal P}
+\DeclareMathOperator{\relacion}{\,\mathcal{R}\,}
+\DeclareMathOperator{\norelacion}{\,\cancel{\relacion}\,}
+\DeclareMathOperator{\universo}{\mathcal U}
+\DeclareMathOperator{\reales}{\mathbb R}
+\DeclareMathOperator{\naturales}{\mathbb N}
+\DeclareMathOperator{\enteros}{\mathbb Z}
+\DeclareMathOperator{\racionales}{\mathbb Q}
+\DeclareMathOperator{\irracionales}{\mathbb I}
+\DeclareMathOperator{\complejos}{\mathbb C}
 
 
-\def\K{\mathbb K} % cuerpo K
-\def\i{\text{i}}
-\def\vacio{\varnothing}
-\def\union{\cup}
-\def\inter{\cap}
-\def\diferencia{\ \setminus \ }
-\def\y{\land}
+\DeclareMathOperator{\K}{\mathbb K} % cuerpo K
+\DeclareMathOperator{\i}{\text{i}}
+\DeclareMathOperator{\vacio}{\varnothing}
+\DeclareMathOperator{\union}{\cup}
+\DeclareMathOperator{\inter}{\cap}
+\DeclareMathOperator{\diferencia}{\ \setminus \ }
+\DeclareMathOperator{\y}{\land}
 \def\o{\lor}
 \def\neg{\sim}
 
@@ -99,11 +99,11 @@
 \def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
 \newcommand{\hacer}{
-{\color{red!80!black}{\Large \faIcon{radiation} Falta hacerlo!}}\\
-{\color{black!70!white}
-\small Si querés mandarlo: Telegram $\to$ \href{https://t.me/+1znt2GV1i8cwMTNh}{\small\faIcon{telegram}},\\
-o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-garraz/algebraUno}{\small \faIcon{github}}.
-}
+  {\color{red!80!black}{\Large \faIcon{radiation} Falta hacerlo!}}\par
+  {\color{black!70!white}
+    \small Si querés mandarlo: Telegram $\to$ \href{https://t.me/+1znt2GV1i8cwMTNh}{\small\faIcon{telegram}},
+    o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-garraz/algebraUno}{\small \faIcon{github}}.
+  }\par
 }
 
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
@@ -126,8 +126,8 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 
 
 % separadores
-\def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
-\def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
+\def\separador{\rule{\linewidth}{0.4pt}\par}
+\def\separadorCorto{\rule{0.5\linewidth}{0.4pt}\par\addvspace{10pt}}
 
 
 % Colores
@@ -201,8 +201,8 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 \renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
 \newcommand{\ejercicio}{%
   \stepcounter{ejercicio}% incremento en uno
-  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-  \section*{\noindent\theejercicio.\clap{\labelEjercicio{ej:\theejercicio}}}%
+  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{1em}{}%
+  \section*{\theejercicio.}\labelEjercicio{ej:\theejercicio}
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
@@ -217,13 +217,11 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
 \renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
 \newcommand{\ejExtra}{%
   \stepcounter{ejExtra}% incremento en uno
-  \titleformat{\section}[runin]{\bfseries}{\theejExtra}{0em}{\vspace{40pt}\separador}[ ]%
+  \titleformat{\section}[runin]{\bfseries}{\theejExtra}{1em}{}%
   % Es como una sección. Le pongo un ícono, luego el número del ejercicio con la etiqueta para poder
   % linkearlo en el índice u otro lugar.
   % con \ref{ejExtra:{numero del ejercicio}} es que salto al ejercicio.
-  \section*{
-          \noindent\fueguito\theejExtra.\clap{\labelEjExtra{ejExtra:\theejExtra}}
-  }
+  \section*{\fueguito\theejExtra.}\labelEjExtra{ejExtra:\theejExtra}
 }
 
 % Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
@@ -231,13 +229,27 @@ o  mejor aún si querés subirlo en \LaTeX $\to$ \href{https://github.com/nad-ga
   \addtocounter{ejExtra}{-1} % counter - 1
   \refstepcounter{ejExtra} % referencia al anterior y luego + 1
   \label{#1} % etiqueta para cada ejercicio extra
+  \unskip
 }
 % Con esto llamos al ejercicio extra
 \newcommand{\refEjExtra}[1]{
-        {
-                \fueguito\bf\ref{#1}.}
+  {\fueguito\bf\ref{#1}.}
 }
 
 %=======================================================
 % fin sección ejercicio con su respectivo formato y contador
 %=======================================================
+
+\newenvironment{enunciado}[1]{ % Toma un parametro obligatorio: \ejExtra o \ejercicio 
+  \begin{minipage}{\textwidth}
+          \par
+    \vspace{5pt}
+    \separador % linea sobre el enunciado
+    #1
+    }% contenido
+    {\vspace{5pt}
+    \par
+    \separadorCorto % linea debajo del enunciado
+  \end{minipage}
+}
+

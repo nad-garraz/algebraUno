@@ -1,32 +1,32 @@
-\ejercicio
-Calcular
-\begin{multicols}{2}
-	\begin{enumerate}[label=\roman*)]
-		\item $ \sumatoria{i=1}{n} (4i + 1) $
+\begin{enunciado}{\ejercicio}
+  Calcular
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $ \sumatoria{i=1}{n} (4i + 1) $
+      \item $\sumatoria{i=6}{n} 2(i-5)$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-		\item $\sumatoria{i=6}{n} 2(i-5)$
-	\end{enumerate}
-\end{multicols}
-
-Para resolver estos ejercicios haremos uso de \ref{refPropSumatoria-Productoria} y \ref{refSumaGauss}.
+Para resolver estos ejercicios haremos uso la notas teóricas, en particular \ref{refPropSumatoria-Productoria} y \ref{refSumaGauss}.
 
 \begin{enumerate}[label=\roman*)]
-	\item 
-	$ \sumatoria{i=1}{n} (4i + 1)
-	= (\sumatoria{i=1}{n} 4i) + (\sumatoria{i=1}{n} 1)
-	= (4 \cdot \sumatoria{i=1}{n} i) + n
-	= 4 \cdot \frac{n(n+1)}{2} + n
-	= \boxed{2n^2 + 3n}
-	$\\
+  \item
+        $ \sumatoria{i=1}{n} (4i + 1)
+          = (\sumatoria{i=1}{n} 4i) + (\sumatoria{i=1}{n} 1)
+          = (4 \cdot \sumatoria{i=1}{n} i) + n
+          = 4 \cdot \frac{n(n+1)}{2} + n
+          = \boxed{2n^2 + 3n}
+        $\\
 
-	\item
-	$ \sumatoria{i=6}{n} 2(i-5)
-	= 2 \cdot \sumatoria{i=6}{n} (i - 5)
-	= 2 \cdot [(\sumatoria{i=6}{n} i) - (\sumatoria{i=6}{n} 5)]
-	= 2 \cdot [(\sumatoria{i=0}{n} i) - (\sumatoria{i=0}{5} i) - 5(n-5)]\\\\
-	= 2 \cdot (\frac{n(n+1)}{2} - \frac{5(5+1)}{2} - 5n + 25)
-	= 2 \cdot (\frac{n(n+1)}{2} - 5n + 10)
-	= n(n+1) - 10n + 20
-	= \boxed{n^2 - 9n + 20}
-	$
+  \item
+        $ \sumatoria{i=6}{n} 2(i-5)
+          = 2 \cdot \sumatoria{i=6}{n} (i - 5)
+          = 2 \cdot [(\sumatoria{i=6}{n} i) - (\sumatoria{i=6}{n} 5)]
+          = 2 \cdot [(\sumatoria{i=0}{n} i) - (\sumatoria{i=0}{5} i) - 5(n-5)]\\\\
+          = 2 \cdot (\frac{n(n+1)}{2} - \frac{5(5+1)}{2} - 5n + 25)
+          = 2 \cdot (\frac{n(n+1)}{2} - 5n + 10)
+          = n(n+1) - 10n + 20
+          = \boxed{n^2 - 9n + 20}
+        $
 \end{enumerate}

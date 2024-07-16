@@ -1,13 +1,41 @@
-\ejercicio Calcular \begin{enumerate}[label=\roman*)] \item $\sumatoria{i=0}{n}2^i$\\
-	      $ \sumatoria{i=0}{n}2^i \stackrel{q\neq1} = \frac{\red{2}^{n+1} - 1}{\red{2} - 1} = 2^{n+1} - 1 $
+\begin{enunciado}{\ejercicio}
+  Calcular
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $\sumatoria{i=0}{n} 2^i$
+      \item $\sumatoria{i=1}{n} q^i \quad q \en \reales$
+      \item $\sumatoria{i=0}{n} q^{2i}, \quad q \en \reales - \set{0}$
+      \item $\sumatoria{i=1}{2n} q^i \quad q \en \reales$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-	\item $\sumatoria{i=1}{n} q^i$\\
-	      $\sumatoria{i=1}{n} q^i = \red{-1 + 1} + \sumatoria{i=1}{n} q^i = \red{-1} + \sumatoria{i = \red{0}}{n} q^i =
-		      \llave{lll}{
-			      n + 1 \red{-1} = n & \text{si} & q = 1\\
-			      \frac{q^{n+1}-1}{q-1} \red{-1} = \frac{q^{n+1} - q}{q-1} & \text{si} & q \distinto 1\\
-		      }$
+\begin{enumerate}[label=\roman*)]
+  \item $\sumatoria{i=0}{n} 2^i
+          \igual{}[$q \distinto 1$]
+          \frac{\red{2}^{n+1} - 1}{\red{2} - 1} =
+          2^{n+1} - 1 $
 
-	\item \hacer
-	\item \hacer
+  \item $\sumatoria{i=1}{n} q^i =
+          \red{-1 + 1} + \sumatoria{i=1}{n} q^i =
+          \red{-1} + \sumatoria{i = \red{0}}{n} q^i =
+          \llave{lll}{
+            n + 1 \red{-1} = n & \text{si} & q = 1\\
+                \frac{q^{n+1}-1}{q-1} \red{-1} = \ub{\frac{q^{n+1} - q}{q-1}}{\llamada1 \sumatoria{k = \red{1}}{n} q^i} & \text{si} & q \distinto 1
+          }$
+
+  \item $\sumatoria{i=0}{n} q^{2i} =
+          \llave{l}{
+            = \ub{q^2 + q^4 + \cdots + (q^{n-1})^2 + q^{2n}}{\text{n elementos}} = n  \text{ si } q = \pm 1\\
+                = \ub{(q^2)^1 + (q^2)^2 + \cdots + (q^2)^{n-1} + (q^2)^n}{\text{n elementos}} \igual{$\scriptstyle\llamada1$}
+                \frac{(q^2)^{n+1} - q^2}{q^2 - 1}  \text{ si } q \distinto \pm 1
+          }
+          $
+  \item $
+          \sumatoria{i=1}{2n} q^i \igual{?}
+                \llave{l}{
+                        2n \text{ si } q = 1\\ 
+                        \frac{q^{2n-1} - q}{q-1} \text{ si } q \distinto 1
+                }
+        $
 \end{enumerate}

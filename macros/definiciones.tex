@@ -114,14 +114,12 @@
 % Estrellita para hacer llamadas de atención, viene en divertidos colores
 % para coleccionar.
 \newcommand{\llamada}[1]{
-  {\small{\textcolor{
+  \textcolor{
           \ifcase \numexpr#1 mod 6\relax
             cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
           \fi
         }
-        {\text{{\small\FiveStar}}^{#1}}%
-      }%
-    }
+        {\text{\FiveStar}^{\scriptscriptstyle#1}}%
 }
 
 

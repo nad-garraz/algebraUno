@@ -1,14 +1,13 @@
-\ejExtra
-
+\begin{enunciado}{\ejExtra}
 Probar para todo $n \en \naturales$ se cumple la siguiente desigualdad:
 $$
 	\frac{(2n)!}{(n!)^2} \leq (n+1)!
 $$
+\end{enunciado}
 
-\separadorCorto
-Se prueba usando el principio de inducción $\en \naturales$.\\
+Se prueba usando el principio de inducción $\en \naturales$.\par
 
-\textit{Proposición: }\\
+\textit{Proposición: }\par
 $$
 	p(n): \frac{(2n)!}{(n!)^2} \leq (n+1)!
 $$
@@ -24,15 +23,15 @@ Se concluye que $p(1)$ es verdadera.
 \textit{Paso inductivo: }
 $$
 	p(k): \HI{\frac{(2k)!}{(k!)^2} \leq (k+1)!}
-$$ la supongo verdadera.\\
+$$ la supongo verdadera.\par
 Quiero probar que:
 $$
 	p(k+1): \frac{(2(k + \magenta{1}))!}{(k + \magenta{1})!^2} \leq (k + \magenta{1} + 1)!
-$$ también lo es.\\
+$$ también lo es.\par
 
 $$
 	\llave{c}{
-		\frac{(2k+2)!}{(k+1)!^2} \leq  (k+2)!\\
+		\frac{(2k+2)!}{(k+1)!^2} \leq  (k+2)!
 		\Sii{abrir}[factorial]\\
 		\frac{(2k + 2) \cdot (2k + 1) \cdot \blue{(2k)!}}{(k + 1)^2 \cdot \blue{(k!)^2}}
 		\stacktext{HI}\leq
@@ -47,8 +46,9 @@ $$
 		}{(k + 1)} (k+1)!
 		\leq \yellow{(k+2)} (k+1)! = (k+2)!\\
 		\boxed{\frac{(2(k+1))!}{(k+1)!^2} \leq  (k+2)!}
-	}\\
+	}
 $$
-$\llamada1$ se prueba fácil en 2 cuentas, queda como ejercicio para vos \href{https://github.com/nad-garraz/algebraUno}{\Large\faIcon{hands-wash}}.
-Es así que $p(1) p(k) y p(k+1)$ resultaron verdaderas y por el principio de inducción
+$\llamada1$ se prueba fácil en 2 cuentas, queda como ejercicio para vos
+\href{https://github.com/nad-garraz/algebraUno}{\Large\faIcon{hands-wash}}.
+Es así que $p(1), p(k), \ytext p(k+1)$ resultaron verdaderas y por el principio de inducción
 $p(n)$ también lo será $\paratodo n \en \naturales$.

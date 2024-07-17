@@ -1,18 +1,22 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
 
 \begin{enumerate}[label=\roman*)]
-	\item ¿Cuántos subconjuntos de 4 elementos tiene el conjunto $\set{\foreach \i in {1,...,6}{ \i, }7} $
+	\item ¿Cuántos subconjuntos de 4 elementos tiene el conjunto
+            $\set{\foreach \j in {1,...,6}{ \j, }7} $
 	\item ¿ Y si se pide que 1 pertenezca al subconjunto?
 	\item ¿ Y si se pide que 1 no pertenezca al subconjunto?
 	\item ¿ Y si se pide que 1 o 2 pertenezca al subconjunto, pero no simultáneamente los dos?
 \end{enumerate}
 
-\separadorCorto
+\end{enunciado}
 
-El problema de tomar $k$ elementos de un conjunto de $n$ elementos se calcula con $\binom{n}{k} = \frac{n!}{k!(n-k)!}$
+El problema de tomar $k$ elementos de un conjunto de $n$ elementos se calcula con
+$\binom{n}{k} = \frac{n!}{k!(n-k)!}$
 
 \begin{enumerate}[label=\roman*)]
-	\item  $\binom{7}{4} = \frac{7!}{4!(7-4)!} = \frac{7\cdot \cancel{6} \cdot 5 \cdot \cancel{4!}}{\cancel{4!}(\cancel{3!})} = 35$
+	\item  $\binom{7}{4} =
+            \frac{7!}{4!(7-4)!} =
+                \frac{7\cdot \cancel{6} \cdot 5 \cdot \cancel{4!}}{\cancel{4!}(\cancel{3!})} = 35$
 
 	\item $\binom{6}{3} = \frac{6!}{3!\cdot 3!} = 20$.
 

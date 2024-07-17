@@ -1,14 +1,13 @@
-\ejExtra
-
+\begin{enunciado}{\ejExtra}
 Probar que, para todo $n \en \naturales$,
 $$ \sumatoria{k=1}{n+1} \frac{3}{n+k} \leq \frac{5}{2}.$$
-
-\separadorCorto
+\end{enunciado}
 
 \textit{Inducción: }
-$p(n): \sumatoria{k=1}{n+1} \frac{3}{n+k} \leq \frac{5}{2}  \paratodo n \en \naturales$\\
+$p(n): \sumatoria{k=1}{n+1} \frac{3}{n+k} \leq \frac{5}{2}
+\paratodo n \en \naturales$\par
 
-\textit{Caso base: $p(1)$:}\\
+\textit{Caso base: $p(1)$:}\par
 $
 	\sumatoria{k=1}{\magenta{1}+1} \frac{3}{\magenta{1} + k} =
 	\frac{3}{2} + \frac{3}{3} =
@@ -17,18 +16,22 @@ $
 	\frac{5}{2}
 	\to
 	p(1) \text{ Verdadera} \Tilde
-$\\
+$\par
 
-\textit{Paso inductivo: }\\
+\textit{Paso inductivo: }\par
 $
-	p(\magenta{j}): \sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq \frac{5}{2} \text{ Verdadera }
-	\entonces \text{ quiero probar que }
-	p(\magenta{j + 1}):
-	\sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} \leq \frac{5}{2} \text{ Verdadera }\\
+	p(\magenta{j}): \sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq
+    \frac{5}{2} \text{ Verdadera }
+	\entonces
+    \text{ quiero probar que } p(\magenta{j + 1}):
+	\sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} \leq
+    \frac{5}{2} \text{ Verdadera }
 $
 
-En los ejercicios donde la $n$ aparece adentro de la sumatoria, conviene abrirla para encontrar la \textit{hipótesis inductiva: }
-$\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq \frac{5}{2}$\\
+En los ejercicios donde la $n$ aparece adentro de la sumatoria,
+conviene abrirla para encontrar la
+\textit{hipótesis inductiva: }
+$\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} \leq \frac{5}{2}$\par
 
 $\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} =
 	\frac{3}{j+1} +
@@ -38,7 +41,7 @@ $\sumatoria{k=1}{\magenta{j} + 1} \frac{3}{\magenta{j} + k} =
 	\dots +
 	\frac{3}{2j} +
 	\frac{3}{2j+1} \Tilde
-$\\
+$\par
 
 $
 	\sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} =
@@ -86,4 +89,3 @@ $
 $
 
 Dado que $p(1),\, p(j), p(j+1)$ resultaron verdaderas por principio de inducción  también lo es $p(n) \paratodo n \en \naturales$.
-

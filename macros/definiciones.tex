@@ -14,7 +14,6 @@
 
 
 \DeclareMathOperator{\K}{\mathbb K} % cuerpo K
-\DeclareMathOperator{\i}{\text{i}}
 \DeclareMathOperator{\vacio}{\varnothing}
 \DeclareMathOperator{\union}{\cup}
 \DeclareMathOperator{\inter}{\cap}
@@ -115,11 +114,11 @@
 % para coleccionar.
 \newcommand{\llamada}[1]{
   \textcolor{
-          \ifcase \numexpr#1 mod 6\relax
-            cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
-          \fi
-        }
-        {\text{\FiveStar}^{\scriptscriptstyle#1}}%
+    \ifcase \numexpr#1 mod 6\relax
+      cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
+    \fi
+  }
+  {\text{\FiveStar}^{\scriptscriptstyle#1}}%
 }
 
 
@@ -149,7 +148,7 @@
 %  acá está el comando para escribir \igual{arriba}[abajo] con texto!
 \NewDocumentCommand{\igual}{m o}{
   \IfNoValueTF{#2}{
-          \overset{\mathclap{\text{#1}}}=
+    \overset{\mathclap{\text{#1}}}=
   }{
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
   }
@@ -158,7 +157,7 @@
 %  acá está el comando para escribir \igual{arriba}[abajo] con texto!
 \NewDocumentCommand{\mayorIgual}{m o}{
   \IfNoValueTF{#2}{
-          \overset{\mathclap{\text{#1}}}\geq
+    \overset{\mathclap{\text{#1}}}\geq
   }{
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\geq}
   }
@@ -167,7 +166,7 @@
 %  acá está el comando para escribir \igual{arriba}[abajo] con texto!
 \NewDocumentCommand{\menorIgual}{m o}{
   \IfNoValueTF{#2}{
-          \overset{\mathclap{\text{#1}}}\leq
+    \overset{\mathclap{\text{#1}}}\leq
   }{
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\leq}
   }
@@ -257,8 +256,8 @@
 %=======================================================
 
 \newenvironment{enunciado}[1]{ % Toma un parametro obligatorio: \ejExtra o \ejercicio 
+  \par
   \begin{minipage}{\textwidth}
-          \par
     \vspace{5pt}
     \separador % linea sobre el enunciado
     #1
@@ -268,4 +267,3 @@
     \separadorCorto % linea debajo del enunciado
   \end{minipage}
 }
-

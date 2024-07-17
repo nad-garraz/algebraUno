@@ -1,378 +1,378 @@
 \begin{enunciado}{\ejercicio}
-Probar que las siguientes desigualdades son verdaderas para todo $n \in \mathbb{N}$
-\begin{multicols}{2}
+  Probar que las siguientes desigualdades son verdaderas para todo $n \en \naturales$
+  \begin{multicols}{2}
     \begin{enumerate}[label=\roman*)]
-        \item $3^n + 5^n \leq 2^{n+2}$ 
-        \item $3^n \leq n^3$ 
-        \item $\displaystyle \sum_{i=1}^{n} \frac{n+i}{i+1} \leq 1 + n(n-1)$ 
-        \item $\displaystyle \sum_{i=1}^{2n} \frac{i}{2^i} \leq n$
-        \item $\displaystyle \sum_{i=1}^{2^n} \frac{1}{2i-1} > \frac{n+3}{4}$
-        \item $\displaystyle \sum_{i=1}^{n} \frac{1}{i!} \leq 2 - \frac{1}{2^{n-1}}$
-        \item $\displaystyle \prod_{i=1}^{n} \frac{4i-1}{n+i} \geq 1$
+      \item $3^n + 5^n \leq 2^{n+2}$
+      \item $3^n \leq n^3$
+      \item $ \sumatoria{i=1}{n} \frac{n+i}{i+1} \leq 1 + n(n-1)$
+      \item $ \sumatoria{i=1}{2n} \frac{i}{2^i} \leq n$
+      \item $ \sumatoria{i=1}{2^n} \frac{1}{2i-1} > \frac{n+3}{4}$
+      \item $ \sumatoria{i=1}{n} \frac{1}{i!} \leq 2 - \frac{1}{2^{n-1}}$
+      \item $ \productoria{i=1}{n} \frac{4i-1}{n+i} \geq 1$
     \end{enumerate}
-\end{multicols}
+  \end{multicols}
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-    \item $P(n): 3^n + 5^n \geq 2^{n+2},\ n \in \mathbb{N}$
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
-        \begin{align*}
-            P(1)&: 3^1 + 5^1 \geq 2^{1+2} \\
-            P(1)&: 8 \geq 8 \implies P(1): V
-        \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): 2^{n+3} \leq 3^{n+1} + 5^{n+1}$  
+  \item $P(n): 3^n + 5^n \geq 2^{n+2},\ n \en \naturales$
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : 3^1 + 5^1 \geq 2^{1+2}    \\
+                  P(1) & : 8 \geq 8 \entonces P(1): V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1): 2^{n+3} \leq 3^{n+1} + 5^{n+1}$
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                  2^{n+3}  & = 2 \cdot 2^{n+2} \igual{HI} 2 \cdot (3^n + 5^n) = 2 \cdot 3^n + 2 \cdot 5^n \leq
+                  3 \cdot 3^n + 5 \cdot 5^n = 3^{n+1} + 5^{n+1}                                                     \\
+                  2^{n+3}  & \leq 3^{n+1} + 5^{n+1}                                                                 \\
+                  \entonces & P(n+1): V
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad: 
-        \begin{align*}
-            2^{n+3} &= 2 \cdot 2^{n+2} \overset{HI}{=} 2 \cdot (3^n + 5^n) = 2 \cdot 3^n + 2 \cdot 5^n \leq
-            3 \cdot 3^n + 5 \cdot 5^n = 3^{n+1} + 5^{n+1} \\
-            2^{n+3} &\leq 3^{n+1} + 5^{n+1} \\
-           \implies &P(n+1): V
-        \end{align*}         
-    \end{enumerate}
-
-    Hemos probado el caso base y el paso inductivo. Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$.
+        Hemos probado el caso base y el paso inductivo. Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
 
 
-    \item $P(n): 3^n \geq n^3, \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
-        \begin{align*}
-            P(1)&: 3^1 \geq 1^3 \\ 
-            P(1)&: 3 \geq 1 \implies P(1): V
-        \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): 3^{n+1} \geq (n+1)^3$  
+  \item $P(n): 3^n \geq n^3, \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : 3^1 \geq 1^3              \\
+                  P(1) & : 3 \geq 1 \entonces P(1): V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1): 3^{n+1} \geq (n+1)^3$
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                           & 3^{n+1} = 3 \cdot 3^n \mayorIgual{HI} 3 \cdot n^3 \mayorIgual{Aux} (n+1)^3, \ n \geq 3 \\
+                           & 3^{n+1} \geq (n+1)^3, \ n \geq 3                                                                           \\
+                  \entonces & P(n+1): V, \ n \geq 3
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad:
+        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 3$. Como solo probamos el paso
+        inductivo para $n \geq 3$, deberiamos ver que $P(2)$ y $P(3)$ son verdaderas.
         \begin{align*}
-             &3^{n+1} = 3 \cdot 3^n \overset{\text{HI}}{\geq} 3 \cdot n^3 \overset{\text{Aux}}{\geq} (n+1)^3, \ n \geq 3 \\
-             &3^{n+1} \geq (n+1)^3, \ n \geq 3 \\
-            \implies &P(n+1): V, \ n \geq 3
+          P(2) & : 3^2 \geq 2^3 \entonces P(2): 9 \geq 9 \entonces P(2): V \\
+          P(3) & : 3^3 \geq 3^3 \entonces P(3): V
         \end{align*}
-    \end{enumerate}
+        Tenemos que
 
-    Hemos probado el caso base y el paso inductivo, este último para los $n \geq 3$. Como solo probamos el paso 
-    inductivo para $n \geq 3$, deberiamos ver que $P(2)$ y $P(3)$ son verdaderas.
-        \begin{align*}
-            P(2)&: 3^2 \geq 2^3 \implies P(2): 9 \geq 9 \implies P(2): V \\
-            P(3)&: 3^3 \geq 3^3 \implies P(3): V 
-        \end{align*}
-    Tenemos que 
+        $P(1): V \land \ P(2): V \land  P(3): V \\
+          \text{si } n \geq 3, \ P(n): V \entonces P(n+1): V$
 
-    $P(1): V \land \ P(2): V \land  P(3): V \\
-    \text{si } n \geq 3, \ P(n): V \implies P(n+1): V$ 
+        Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
 
-    Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$. 
-
-    \subsubsection*{Auxiliar}
-    $3n^3 \geq (n+1)^3 \Longleftrightarrow \sqrt[3]{3n^3} \geq \sqrt[3]{(n+1)^3} \Longleftrightarrow 
-    \sqrt[3]{3}n \geq n+1 \Longleftrightarrow \sqrt[3]{3}n - n \geq 1 \\
-    \Longleftrightarrow n(\sqrt[3]{3} - 1) \geq 1 \Longleftrightarrow \displaystyle n \geq \frac{1}{\sqrt[3]{3} - 1} 
-    \approx 2.6 \Longleftrightarrow n \geq 3$ \\
-    $\therefore 3n^3 \geq (n+1)^3 \Longleftrightarrow n \geq 3$
+        \subsubsection*{Auxiliar}
+        $3n^3 \geq (n+1)^3 \sisolosi \sqrt[3]{3n^3} \geq \sqrt[3]{(n+1)^3} \sisolosi
+          \sqrt[3]{3}n \geq n+1 \sisolosi \sqrt[3]{3}n - n \geq 1 \\
+          \sisolosi n(\sqrt[3]{3} - 1) \geq 1 \sisolosi  n \geq \frac{1}{\sqrt[3]{3} - 1}
+          \approx 2.6 \sisolosi n \geq 3$ \\
+        $\therefore 3n^3 \geq (n+1)^3 \sisolosi n \geq 3$
 
 
-    \item $P(n): \displaystyle \sum_{i=1}^{n} \frac{n+i}{1+i} \leq 1 + n(n-1), \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
-        \begin{align*}
-            P(1)&: \sum_{i=1}^{1} \frac{1+i}{1+i} \leq 1 + 1(1-1) \\
-            P(1)&: \frac{1+1}{1+1}\leq 1 \implies P(1): V
-        \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $\displaystyle \sum_{i=1}^{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n$ 
+  \item $P(n):  \sumatoria{i=1}{n} \frac{n+i}{1+i} \leq 1 + n(n-1), \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : \sumatoria{i=1}{1} \frac{1+i}{1+i} \leq 1 + 1(1-1) \\
+                  P(1) & : \frac{1+1}{1+1}\leq 1 \entonces P(1): V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $ \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n$
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                           & \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \frac{n+1+i}{1+i}
+                  = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \left(\frac{1}{1+i} + \frac{n+i}{1+i} \right)                           \\
+                           & = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \frac{1}{1+i} + \sumatoria{i=1}{n} \frac{n+i}{1+i}
+                  \menorIgual{Aux} \frac{2\cancelto{1}{(n+1)}}{\cancelto{1}{(n+1)}} + \sumatoria{i=1}{n} 1
+                  + \sumatoria{i=1}{n} \frac{n+i}{1+i} \igual{*}                                                               \\
+                           & \igual{*} 2 + n + \sumatoria{i=1}{n} \frac{n+i}{1+i} \menorIgual{HI} 2 + n + 1 + n(n-1)
+                  = 2 + n + 1 + n^2 - n \igual{**}                                                                         \\
+                           & \igual{**} 1 + n^2 + 2 \overset{(2 \leq n)}{\leq} 1 + n^2 + n = 1 + (n+1)n                    \\
+                  \entonces & \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n, \text{ si } n \geq 2                           \\
+                  \entonces & P(n+1): V,\text{ si } n \geq 2
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad:
+        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso
+        inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera.
         \begin{align*}
-            &\sum_{i=1}^{n+1} \frac{n+1+i}{1+i} = \frac{2(n+1)}{n+2} + \sum_{i=1}^{n} \frac{n+1+i}{1+i} 
-            = \frac{2(n+1)}{n+2} + \sum_{i=1}^{n} \left(\frac{1}{1+i} + \frac{n+i}{1+i} \right) \\
-            &= \frac{2(n+1)}{n+2} + \sum_{i=1}^{n} \frac{1}{1+i} + \sum_{i=1}^{n} \frac{n+i}{1+i} 
-            \overset{\text{Aux}}{\leq} \frac{2\cancelto{1}{(n+1)}}{\cancelto{1}{(n+1)}} + \sum_{i=1}^{n} 1 
-            + \sum_{i=1}^{n} \frac{n+i}{1+i} \overset{*}{=} \\
-            &\overset{*}{=} 2 + n + \sum_{i=1}^{n} \frac{n+i}{1+i} \overset{\text{HI}}{\leq} 2 + n + 1 + n(n-1) 
-            = 2 + n + 1 + n^2 - n \overset{**}{=}\\ 
-            &\overset{**}{=} 1 + n^2 + 2 \overset{(2 \leq n)}{\leq} 1 + n^2 + n = 1 + (n+1)n \\
-            \implies & \sum_{i=1}^{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n, \text{ si } n \geq 2 \\
-            \implies & P(n+1): V,\text{ si } n \geq 2                                                                                    
+          P(2) & : \sumatoria{i=1}{2} \frac{2+i}{1+i} \leq 1 + 2(2-1) \\
+          P(2) & : \frac{2+1}{1+1} + \frac{2+2}{1+2} \leq 3       \\
+          P(2) & : \frac{17}{6} \leq 3 \entonces P(2): V
         \end{align*}
-    \end{enumerate}
+        Tenemos que
 
-    Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso 
-    inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera.
-    \begin{align*}
-        P(2)&: \sum_{i=1}^{2} \frac{2+i}{1+i} \leq 1 + 2(2-1) \\
-        P(2)&: \frac{2+1}{1+1} + \frac{2+2}{1+2} \leq 3 \\
-        P(2)&: \frac{17}{6} \leq 3 \implies P(2): V
-    \end{align*}
-    Tenemos que
+        $P(1): V \land P(2): V \\
+          \text{si } n \geq 2, \ P(n): V \entonces P(n+1): V$
 
-    $P(1): V \land P(2): V \\
-    \text{si } n \geq 2, \ P(n): V \implies P(n+1): V$ 
+        Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
 
-    Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$.
-
-    \subsubsection*{Auxiliar}
-    Acotemos $1/(n+2)$
-    \begin{align*}
-        n+1 \leq n + 2 , \ \forall n \in \mathbb{N} \Longleftrightarrow \frac{1}{n+2} \leq \frac{1}{n+1}, 
-        \ \forall n \in \mathbb{N}
-    \end{align*}
-
-    Acotemos la sumatoria 
-    \begin{align*}
-        \frac{1}{1+i} \leq 1, \ \forall i \in \mathbb{N} \implies \sum_{i=1}^{n} \frac{1}{1+i} \leq \sum_{i=1}^{n} 1
-    \end{align*}
-
-    \item $P(n): \displaystyle \sum_{i=n}^{2n} \frac{i}{2^i} \leq n, \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
+        \subsubsection*{Auxiliar}
+        Acotemos $1/(n+2)$
         \begin{align*}
-            P(1)&: \sum_{i=1}^{2 \cdot 1} \frac{i}{2^i} \leq 1 \\
-            P(1)&: \frac{1}{2} + \frac{2}{4} \leq 1 \implies P(1): V
+          n+1 \leq n + 2 , \ \paratodo n \en \naturales \sisolosi \frac{1}{n+2} \leq \frac{1}{n+1},
+          \ \paratodo n \en \naturales
         \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): \displaystyle \sum_{i=n+1}^{2(n+1)} \frac{i}{2^i} \leq n+1$ 
+
+        Acotemos la sumatoria
+        \begin{align*}
+          \frac{1}{1+i} \leq 1, \ \paratodo i \en \naturales \entonces \sumatoria{i=1}{n} \frac{1}{1+i} \leq \sumatoria{i=1}{n} 1
+        \end{align*}
+
+  \item $P(n):  \sumatoria{i=n}{2n} \frac{i}{2^i} \leq n, \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : \sumatoria{i=1}{2 \cdot 1} \frac{i}{2^i} \leq 1       \\
+                  P(1) & : \frac{1}{2} + \frac{2}{4} \leq 1 \entonces P(1): V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1):  \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i} \leq n+1$
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                  \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i}          & = \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}}
+                  + \sumatoria{i=n+1}{2n} \frac{i}{2^i} = \frac{n}{2^n} - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}}
+                  + \frac{2n+1}{2^{2n+1}} + \sumatoria{i=n+1}{2n} \frac{i}{2^i}                                                                                        \\
+                                                               & = - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}} + \sumatoria{i=n}{2n} \frac{i}{2^i}
+                  = - \frac{2^{n+2}}{2^{n+2}}\frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2}{2}\frac{2n+1}{2^{2n+1}}
+                  + \sumatoria{i=n}{2n} \frac{i}{2^i}                                                                                                                  \\
+                                                               & = - \frac{4n 2^n}{2^{2n+2}} + \frac{2n+2}{2^{2n+2}} + \frac{4n+2}{2^{2n+2}}
+                  + \sumatoria{i=n}{2n} \frac{i}{2^i} = \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + \sumatoria{i=n}{2n} \frac{i}{2^i}
+                  \menorIgual{HI}                                                                                                                        \\
+                                                               & \menorIgual{HI} \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + n
+                  \menorIgual{Aux} 1 + n, \ n \geq 2                                                                                                     \\
+                  \entonces \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i} & \leq n + 1, \ n \geq 2 \entonces P(n+1): V, \ n \geq 2
+                \end{align*}
+
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad:
+        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso
+        inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera.
         \begin{align*}
-            \sum_{i=n+1}^{2(n+1)} \frac{i}{2^i} &= \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}} 
-            + \sum_{i=n+1}^{2n} \frac{i}{2^i} = \frac{n}{2^n} - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} 
-            + \frac{2n+1}{2^{2n+1}} + \sum_{i=n+1}^{2n} \frac{i}{2^i} \\
-            &= - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}} + \sum_{i=n}^{2n} \frac{i}{2^i} 
-            = - \frac{2^{n+2}}{2^{n+2}}\frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2}{2}\frac{2n+1}{2^{2n+1}} 
-            + \sum_{i=n}^{2n} \frac{i}{2^i} \\
-            &= - \frac{4n 2^n}{2^{2n+2}} + \frac{2n+2}{2^{2n+2}} + \frac{4n+2}{2^{2n+2}} 
-            + \sum_{i=n}^{2n} \frac{i}{2^i} = \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + \sum_{i=n}^{2n} \frac{i}{2^i} 
-            \overset{\text{HI}}{\leq} \\
-            &\overset{\text{HI}}{\leq} \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + n 
-            \overset{\text{Aux}}{\leq} 1 + n, \ n \geq 2 \\
-            \implies \sum_{i=n+1}^{2(n+1)} \frac{i}{2^i} &\leq n + 1, \ n \geq 2 \implies P(n+1): V, \ n \geq 2
+          P(2) & : \sumatoria{i=2}{2 \cdot 2} \frac{i}{2^i} \leq 2     \\
+          P(2) & : \frac{2}{4} + \frac{3}{8} + \frac{4}{16} \leq 2 \\
+          P(2) & : \frac{9}{8} \leq 2 \entonces P(2): V
         \end{align*}
 
-    \end{enumerate}
+        Tenemos que
 
-    Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso 
-    inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera. 
-    \begin{align*}
-        P(2)&: \sum_{i=2}^{2 \cdot 2} \frac{i}{2^i} \leq 2 \\
-        P(2)&: \frac{2}{4} + \frac{3}{8} + \frac{4}{16} \leq 2 \\
-        P(2)&: \frac{9}{8} \leq 2 \implies P(2): V
-    \end{align*}
-    
-    Tenemos que
+        $P(1): V \land P(2): V \\
+          \text{si } n \geq 2, \ P(n): V \entonces P(n+1): V$
 
-    $P(1): V \land P(2): V \\
-    \text{si } n \geq 2, \ P(n): V \implies P(n+1): V$ 
+        Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
 
-    Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$.
-
-    \subsubsection*{Auxiliar}
-    Acotemos el termino $-4n 2^n$
-    \begin{align*}
-        -4n 2^n \leq -4n \cdot 2 = -8n \implies -4n 2^n \leq -8n
-    \end{align*}
-
-    Usemos esto para acotar toda la fracción
-    \begin{align*}
-        \frac{-4n 2^n + 6n + 4}{2^{2n+2}} \leq \frac{-8n + 6n + 4}{2^{2n+2}} \leq \frac{-2n + 4}{2^{2n+2}}
-        \overset{(n \geq 2)}{\leq} \frac{1}{2^{2n+2}} \leq 1
-    \end{align*}
-    
-    Por último, veamos porque $-2n+4 \leq 1$
-    \begin{align*}
-        -2n + 4 &\leq 0 \Longleftrightarrow -2n \leq -4 \Longleftrightarrow n \geq \frac{-4}{-2} 
-        \Longleftrightarrow n \geq 2 \\
-        -2n + 4 &\leq 0, \text{ si } n \geq 2 \implies -2n + 4 \leq 1, \text{ si } n \geq 2
-    \end{align*}
-
-
-    \item $P(n): \displaystyle \sum_{i=1}^{2^n} \frac{1}{2i-1} > \frac{n+3}{4}, \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
+        \subsubsection*{Auxiliar}
+        Acotemos el termino $-4n 2^n$
         \begin{align*}
-            P(1)&: \sum_{i=1}^{2^1} \frac{1}{2i-1} > \frac{1+3}{4} \\
-            P(1)&: \frac{1}{1} + \frac{1}{3} > 1  \implies P(1): V
+          -4n 2^n \leq -4n \cdot 2 = -8n \entonces -4n 2^n \leq -8n
         \end{align*}
 
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): \displaystyle \sum_{i=1}^{2^{n+1}} \frac{1}{2i-1} > \frac{n+4}{4}$ 
+        Usemos esto para acotar toda la fracción
+        \begin{align*}
+          \frac{-4n 2^n + 6n + 4}{2^{2n+2}} \leq \frac{-8n + 6n + 4}{2^{2n+2}} \leq \frac{-2n + 4}{2^{2n+2}}
+          \overset{(n \geq 2)}{\leq} \frac{1}{2^{2n+2}} \leq 1
+        \end{align*}
+
+        Por último, veamos porque $-2n+4 \leq 1$
+        \begin{align*}
+          -2n + 4 & \leq 0 \sisolosi -2n \leq -4 \sisolosi n \geq \frac{-4}{-2}
+          \sisolosi n \geq 2                                                              \\
+          -2n + 4 & \leq 0, \text{ si } n \geq 2 \entonces -2n + 4 \leq 1, \text{ si } n \geq 2
+        \end{align*}
+
+
+  \item $P(n):  \sumatoria{i=1}{2^n} \frac{1}{2i-1} > \frac{n+3}{4}, \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : \sumatoria{i=1}{2^1} \frac{1}{2i-1} > \frac{1+3}{4} \\
+                  P(1) & : \frac{1}{1} + \frac{1}{3} > 1  \entonces P(1): V
+                \end{align*}
+
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1):  \sumatoria{i=1}{2^{n+1}} \frac{1}{2i-1} > \frac{n+4}{4}$
+                \end{enumerate}
+
+                Desarrollemos el lado derecho de la desigualdad:
+                \begin{align*}
+                  \frac{n+4}{4}          & = \frac{1}{4} + \frac{n+3}{4} \overset{\text{HI}}{<} \frac{1}{4} + \sumatoria{i=1}{2^n}
+                  \frac{1}{2i-1} = \frac{1}{4} + \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1} - \sumatoria{i=2^n + 1}{2^{n+1}}
+                  \frac{1}{2i-1} + \sumatoria{i=1}{2^n} \frac{1}{2i-1} \igual{*}                                                        \\
+                                         & \igual{*} \frac{1}{4} - \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1} + \sumatoria{i=1}{2^{n+1}}
+                  \frac{1}{2i-1} \overset{\text{Aux.1}}{<} 0 + \sumatoria{i=1}{2^{n+1}} \frac{1}{2i-1} = \sumatoria{i=1}{2^{n+1}}
+                  \frac{1}{2i-1}                                                                                                         \\
+                  \entonces \frac{n+4}{4} & < \sumatoria{i=1}{2^{n+1}} \frac{1}{2i-1} \entonces P(n+1):V
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado derecho de la desigualdad:
+        Hemos probado el caso base y el paso inductivo. Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
+
+        \subsubsection*{Auxiliar 1}
         \begin{align*}
-            \frac{n+4}{4} &= \frac{1}{4} + \frac{n+3}{4} \overset{\text{HI}}{<} \frac{1}{4} + \sum_{i=1}^{2^n} 
-            \frac{1}{2i-1} = \frac{1}{4} + \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} - \sum_{i=2^n + 1}^{2^{n+1}} 
-            \frac{1}{2i-1} + \sum_{i=1}^{2^n} \frac{1}{2i-1} \overset{*}{=} \\
-            &\overset{*}{=} \frac{1}{4} - \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} + \sum_{i=1}^{2^{n+1}} 
-            \frac{1}{2i-1} \overset{\text{Aux.1}}{<} 0 + \sum_{i=1}^{2^{n+1}} \frac{1}{2i-1} = \sum_{i=1}^{2^{n+1}} 
-            \frac{1}{2i-1} \\
-            \implies \frac{n+4}{4} &< \sum_{i=1}^{2^{n+1}} \frac{1}{2i-1} \implies P(n+1):V
+          \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1}          & = \frac{1}{2^{n+1}+1} + \frac{1}{2^{n+1}+3} + \dots
+          + \frac{1}{2^{n+1}-1} > \frac{1}{2^{n+2}} + \frac{1}{2^{n+2}} + \dots + \frac{1}{2^{n+2}}
+          \igual{*}                                                                                                                                                    \\
+                                                             & \igual{*} \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2^{n+2}} = \frac{1}{2^{n+2}} \sumatoria{i=2^n + 1}{2^{n+1}} 1
+          \igual{\tiny Aux.2}
+          \frac{1}{2^{n+2}} 2^n = \frac{\cancelto{1}{2^n}}{2^2\cancelto{1}{2^n}} = \frac{1}{4}                                                                              \\
+          \entonces \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1} & > \frac{1}{4}
+          \entonces -\sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1} < -\frac{1}{4}
+          \entonces \frac{1}{4} -\sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1} < 0
         \end{align*}
-    \end{enumerate}
 
-    Hemos probado el caso base y el paso inductivo. Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$.
-    
-    \subsubsection*{Auxiliar 1}
-    \begin{align*}
-        \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} &= \frac{1}{2^{n+1}+1} + \frac{1}{2^{n+1}+3} + \dots 
-        + \frac{1}{2^{n+1}-1} > \frac{1}{2^{n+2}} + \frac{1}{2^{n+2}} + \dots + \frac{1}{2^{n+2}} 
-        \overset{*}{=}\\
-        &\overset{*}{=} \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2^{n+2}} = \frac{1}{2^{n+2}} \sum_{i=2^n + 1}^{2^{n+1}} 1 
-        \overset{\text{Aux.2}}{=}
-        \frac{1}{2^{n+2}} 2^n = \frac{\cancelto{1}{2^n}}{2^2\cancelto{1}{2^n}} = \frac{1}{4} \\
-        \implies \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} &> \frac{1}{4} 
-        \implies -\sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} < -\frac{1}{4} 
-        \implies \frac{1}{4} -\sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1} < 0
-    \end{align*}
-    
-    \subsubsection*{Auxiliar 2}
+        \subsubsection*{Auxiliar 2}
 
-    Cantidad de sumandos en una sumatoria
-    \begin{align*}
-        \sum_{i=A}^{B}a_i = a_A + \dots + a_B \\
-        \# Elementos = \sum_{i=A}^{B}1 = B + 1 - A
-    \end{align*}
-
-    Calculemos la cantidad de sumandos en $\displaystyle \sum_{i=2^n + 1}^{2^{n+1}} \frac{1}{2i-1}$
-    \begin{align*}
-        B = 2^{n+1}, A = 2^n + 1 \implies &\# Elementos = B + 1 - A = 2^{n+1} + 1  - (2^n + 1) 
-        = 2 \cdot 2^n + 1 - 2^n -1 \\
-        \implies &\# Elementos = 2^n
-    \end{align*}
-
-
-    \item $P(n):\displaystyle \sum_{i=1}^{n} \frac{1}{i!} \leq 2 - \frac{1}{2^{n-1}}, \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
+        Cantidad de sumandos en una sumatoria
         \begin{align*}
-            P(1)&: \sum_{i=1}^{1} \frac{1}{i!} \leq 2 - \frac{1}{2^{1-1}} \\
-            P(1)&: \frac{1}{1} \leq 1 \implies P(1):V
+          \sumatoria{i=A}{B}a_i = a_A + \dots + a_B \\
+          \# Elementos = \sumatoria{i=A}{B}1 = B + 1 - A
         \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): \displaystyle \sum_{i=1}^{n+1} \frac{1}{i!} \leq 2 - \frac{1}{2^{n}}$
+
+        Calculemos la cantidad de sumandos en $ \sumatoria{i=2^n + 1}{2^{n+1}} \frac{1}{2i-1}$
+        \begin{align*}
+          B = 2^{n+1}, A = 2^n + 1 \entonces & \# Elementos = B + 1 - A = 2^{n+1} + 1  - (2^n + 1)
+          = 2 \cdot 2^n + 1 - 2^n -1                                                              \\
+          \entonces                          & \# Elementos = 2^n
+        \end{align*}
+
+
+  \item $P(n): \sumatoria{i=1}{n} \frac{1}{i!} \leq 2 - \frac{1}{2^{n-1}}, \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : \sumatoria{i=1}{1} \frac{1}{i!} \leq 2 - \frac{1}{2^{1-1}} \\
+                  P(1) & : \frac{1}{1} \leq 1 \entonces P(1):V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1):  \sumatoria{i=1}{n+1} \frac{1}{i!} \leq 2 - \frac{1}{2^{n}}$
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                  \sumatoria{i=1}{n+1} \frac{1}{i!}          & = \frac{1}{(n+1)!} + \sumatoria{i=1}{n} \frac{1}{i!} \menorIgual{HI}
+                  \frac{1}{(n+1)!} + 2 - \frac{1}{2^{n-1}} = \frac{1}{(n+1)!} + 2 - \frac{2}{2^{n}} \igual{*}                                             \\
+                                                         & \igual{*}  2 - \frac{1}{2^{n}} - \frac{1}{2^{n}} + \frac{1}{(n+1)!} \menorIgual{Aux}
+                  2 - \frac{1}{2^{n}} - \frac{1}{2^{n}} + \frac{1}{2^{n}} = 2 - \frac{1}{2^{n}}                                                                \\
+                  \entonces \sumatoria{i=1}{n+1} \frac{1}{i!} & \leq 2 - \frac{1}{2^{n}} \entonces P(n+1):V
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad:
-        \begin{align*}
-            \sum_{i=1}^{n+1} \frac{1}{i!} &= \frac{1}{(n+1)!} + \sum_{i=1}^{n} \frac{1}{i!} \overset{\text{HI}}{\leq}
-            \frac{1}{(n+1)!} + 2 - \frac{1}{2^{n-1}} = \frac{1}{(n+1)!} + 2 - \frac{2}{2^{n}} \overset{*}{=} \\
-            &\overset{*}{=}  2 - \frac{1}{2^{n}} - \frac{1}{2^{n}} + \frac{1}{(n+1)!} \overset{\text{Aux}}{\leq}
-            2 - \frac{1}{2^{n}} - \frac{1}{2^{n}} + \frac{1}{2^{n}} = 2 - \frac{1}{2^{n}} \\
-            \implies \sum_{i=1}^{n+1} \frac{1}{i!} &\leq 2 - \frac{1}{2^{n}} \implies P(n+1):V
-        \end{align*}
-    \end{enumerate}
+        Hemos probado el caso base y el paso inductivo. Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
 
-    Hemos probado el caso base y el paso inductivo. Concluimos que $\forall n \in \mathbb{N}, \ P(n): V$.
-    
-    \subsubsection*{Auxiliar}
-    \begin{align*}
-        \frac{1}{(n+1)!} \leq \frac{1}{2^n} \Longleftrightarrow 2^n \leq (n+1)!
-    \end{align*}
-    Probemos esto último usando inducción. Sea $Q(n): 2^n \leq (n+1)!, \ n \in \mathbb{N}$.
-
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
+        \subsubsection*{Auxiliar}
         \begin{align*}
-            Q(1)&: 2^1 \leq (1+1)! \\
-            Q(1)&: 2 \leq 2 \implies Q(1):V
+          \frac{1}{(n+1)!} \leq \frac{1}{2^n} \sisolosi 2^n \leq (n+1)!
         \end{align*}
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $Q(n): V$
-            \item[TI.] $Q(n+1): 2^{n+1} \leq (n+2)! $ 
+        Probemos esto último usando inducción. Sea $Q(n): 2^n \leq (n+1)!, \ n \en \naturales$.
+
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  Q(1) & : 2^1 \leq (1+1)!          \\
+                  Q(1) & : 2 \leq 2 \entonces Q(1):V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $Q(n): V$
+                  \item[TI.] $Q(n+1): 2^{n+1} \leq (n+2)! $
+                \end{enumerate}
+
+                Desarrollemos el lado izquierdo de la desigualdad:
+                \begin{align*}
+                  2^{n+1}          & = 2 \cdot 2^n \menorIgual{HI} 2 (n+1)! \overset{(2\leq n+2)}{\leq} (n+2)(n+1)! = (n+2)! \\
+                  \entonces 2^{n+1} & \leq (n+2)! \entonces Q(n+1):V
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado izquierdo de la desigualdad:
-        \begin{align*}
-            2^{n+1} &= 2 \cdot 2^n \overset{\text{HI}}{\leq} 2 (n+1)! \overset{(2\leq n+2)}{\leq} (n+2)(n+1)! = (n+2)! \\
-            \implies 2^{n+1} &\leq (n+2)! \implies Q(n+1):V
-        \end{align*}
-    \end{enumerate}
-    
-    Hemos probado el caso base y el paso inductivo. Concluimos que $\forall n \in \mathbb{N}, \ Q(n): V$.
-    
+        Hemos probado el caso base y el paso inductivo. Concluimos que $\paratodo n \en \naturales, \ Q(n): V$.
 
-    \item $P(n): \displaystyle \prod_{i=1}^{n}\frac{4i-1}{n+i} \geq 1, \ n \in \mathbb{N}$.
-    \begin{enumerate}[label=\arabic*)]
-        \item Caso base, $n = 1$:
-        \begin{align*}
-            P(1)&: \prod_{i=1}^{1}\frac{4i-1}{1+i} \geq 1 \\
-            P(1)&: \frac{3}{2} \geq 1 \implies P(1): V
-        \end{align*} 
-        \item Paso inductivo. Sea $n \in \mathbb{N}$:
-        \begin{enumerate}
-            \item[HI.] $P(n): V$
-            \item[TI.] $P(n+1): \displaystyle \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \geq 1 $ 
+
+  \item $P(n):  \productoria{i=1}{n}\frac{4i-1}{n+i} \geq 1, \ n \en \naturales$.
+        \begin{enumerate}[label=\arabic*)]
+          \item Caso base, $n = 1$:
+                \begin{align*}
+                  P(1) & : \productoria{i=1}{1} \frac{4i-1}{1+i} \geq 1 \\
+                  P(1) & : \frac{3}{2} \geq 1 \entonces P(1): V
+                \end{align*}
+          \item Paso inductivo. Sea $n \en \naturales$:
+                \begin{enumerate}
+                  \item[HI.] $P(n): V$
+                  \item[TI.] $P(n+1):  \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} \geq 1 $
+                \end{enumerate}
+
+                Desarrollemos el lado derecho de la desigualdad:
+                \begin{align*}
+                  1          & \menorIgual{HI} \productoria{i=1}{n} \frac{4i-1}{n+i} = \frac{4(n+1)-1}{4(n+1)-1} \cdot
+                  \frac{n + (n+1)}{n + (n+1)} \cdot \productoria{i=1}{n} \frac{4i-1}{n+i} \igual{*}                                 \\
+                             & \igual{*}\frac{n+(n+1)}{4(n+1)-1} \cdot
+                  \frac{4(n+1)-1}{n+(n+1)} \cdot \productoria{i=1}{n} \frac{4i-1}{n+i} = \frac{n+(n+1)}{4(n+1)-1} \cdot
+                  \productoria{i=1}{n+1} \frac{4i-1}{n+i} \igual{**}                                                                \\
+                             & \igual{**} \frac{2n+1}{4n+3} \cdot \productoria{i=1}{n+1} \frac{4i-1}{n+i} \cdot \frac{n+1+i}{n+1+i}
+                  = \frac{2n+1}{4n+3} \cdot \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} \cdot \frac{n+1+i}{n+i} \igual{***}           \\
+                             & \igual{***} \frac{2n+1}{4n+3} \cdot \productoria{i=1}{n+1} \frac{4i-1}{n+1+i}
+                  \productoria{i=1}{n+1}  \frac{n+1+i}{n+i} \igual{\tiny Aux.1} \frac{2n+1}{4n+3} \cdot
+                  \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} \cdot 2 =                                                                    \\
+                             & = 2 \cdot \frac{2n+1}{4n+3} \cdot \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} = \frac{4n+2}{4n+3} \cdot
+                  \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} \menorIgual{\tiny Aux.2} 1 \cdot
+                  \productoria{i=1}{n+1} \frac{4i-1}{n+1+i}                                                                              \\
+                  \entonces 1 & \leq \productoria{i=1}{n+1} \frac{4i-1}{n+1+i} \entonces P(n+1):V
+                \end{align*}
         \end{enumerate}
 
-        Desarrollemos el lado derecho de la desigualdad:
+        Hemos probado el caso base y el paso inductivo. Concluimos que $\paratodo n \en \naturales, \ Q(n): V$.
+
+        \subsubsection*{Auxiliar 1}
+        Recordemos la formula del factorial de $n$
         \begin{align*}
-            1 &\overset{\text{HI}}{\leq} \prod_{i=1}^{n}\frac{4i-1}{n+i} = \frac{4(n+1)-1}{4(n+1)-1} \cdot
-            \frac{n + (n+1)}{n + (n+1)} \cdot \prod_{i=1}^{n}\frac{4i-1}{n+i} \overset{*}{=} \\
-            &\overset{*}{=}\frac{n+(n+1)}{4(n+1)-1} \cdot
-            \frac{4(n+1)-1}{n+(n+1)} \cdot \prod_{i=1}^{n}\frac{4i-1}{n+i} = \frac{n+(n+1)}{4(n+1)-1} \cdot 
-            \prod_{i=1}^{n+1}\frac{4i-1}{n+i} \overset{**}{=} \\
-            &\overset{**}{=} \frac{2n+1}{4n+3} \cdot \prod_{i=1}^{n+1}\frac{4i-1}{n+i} \cdot \frac{n+1+i}{n+1+i}
-            = \frac{2n+1}{4n+3} \cdot \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \cdot \frac{n+1+i}{n+i} \overset{***}{=} \\
-            &\overset{***}{=} \frac{2n+1}{4n+3} \cdot \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} 
-            \prod_{i=1}^{n+1} \frac{n+1+i}{n+i} \overset{\text{Aux.1}}{=} \frac{2n+1}{4n+3} \cdot 
-            \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \cdot 2 = \\
-            &= 2 \cdot \frac{2n+1}{4n+3} \cdot \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} = \frac{4n+2}{4n+3} \cdot 
-            \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \overset{\text{Aux.2}}{\leq} 1 \cdot 
-            \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \\
-            \implies 1 &\leq \prod_{i=1}^{n+1}\frac{4i-1}{n+1+i} \implies P(n+1):V 
+          n! = \productoria{i=1}{n}  i = 1 \cdot 2 \dots n
         \end{align*}
-    \end{enumerate}
+        Veamos que pasa si sumamos una constante $k \en \naturales$ a la parte de la productoria
+        \begin{align*}
+          \productoria{i=1}{n}  (k + i) & = (k+1) \cdot (k+2) \dots (k+n) = \frac{1 \cdot 2 \dots k}{1 \cdot 2 \dots k}
+          (k+1) \cdot (k+2) \dots (k+n)                                                                                                   \\
+                                  & = \frac{1 \cdot 2 \dots k \cdot (k+1) \cdot (k+2) \dots (k+n)}{1 \cdot 2 \dots k} = \frac{(k+n)!}{k!} \\
+          \productoria{i=1}{n}  (k + i) & = \frac{(k+n)!}{k!}
+        \end{align*}
 
-    Hemos probado el caso base y el paso inductivo. Concluimos que $\forall n \in \mathbb{N}, \ Q(n): V$.
-    
-    \subsubsection*{Auxiliar 1}
-    Recordemos la formula del factorial de $n$
-    \begin{align*}
-        n! = \prod_{i=1}^{n} i = 1 \cdot 2 \dots n
-    \end{align*}
-    Veamos que pasa si sumamos una constante $k \in \mathbb{N}$ a la parte de la productoria
-    \begin{align*}
-        \prod_{i=1}^{n} (k + i) &= (k+1) \cdot (k+2) \dots (k+n) = \frac{1 \cdot 2 \dots k}{1 \cdot 2 \dots k} 
-        (k+1) \cdot (k+2) \dots (k+n) \\
-        &= \frac{1 \cdot 2 \dots k \cdot (k+1) \cdot (k+2) \dots (k+n)}{1 \cdot 2 \dots k} = \frac{(k+n)!}{k!} \\
-        \prod_{i=1}^{n} (k + i) &= \frac{(k+n)!}{k!}
-    \end{align*}
+        Calculemos $ \productoria{i=1}{n+1}  \frac{n+1+i}{n+i}$
+        \begin{align*}
+          \productoria{i=1}{n+1}  \frac{n+1+i}{n+i}          & = \frac{ \productoria{i=1}{n+1}  n+1+i}
+          { \productoria{i=1}{n+1}  n+i}
+          = \frac{\frac{(n+1 + n+1)!}{(n+1)!}}{ \frac{(n+n+1)!}{n!}}
+          = \frac{ \frac{(2n+2)!}{(n+1)!}}{ \frac{(2n+1)!}{n!}}                                                               \\
+                                                       & = \frac{(2n+2)!}{(n+1)!}: \frac{(2n+1)!}{n!} = \frac{(2n+2)!}{(n+1)!} \cdot \frac{n!}{(2n+1)!} \\
+                                                       & = \frac{(2n+2)(2n+1)!}{(n+1)n!} \cdot \frac{n!}{(2n+1)!}
+          = \frac{2(n+1)(2n+1)!}{(n+1)n!} \cdot \frac{n!}{(2n+1)!}                                                                                      \\
+                                                       & = 2 \frac{(n+1)(2n+1)!n!}{(n+1)(2n+1)!n!} = 2                                                  \\
+          \entonces \productoria{i=1}{n+1}  \frac{n+1+i}{n+i} & = 2
+        \end{align*}
 
-    Calculemos $\displaystyle \prod_{i=1}^{n+1} \frac{n+1+i}{n+i}$
-    \begin{align*}
-        \prod_{i=1}^{n+1} \frac{n+1+i}{n+i} &= \frac{\displaystyle \prod_{i=1}^{n+1} n+1+i}
-        {\displaystyle \prod_{i=1}^{n+1} n+i} 
-        = \frac{\displaystyle\frac{(n+1 + n+1)!}{(n+1)!}}{\displaystyle \frac{(n+n+1)!}{n!}}  
-        = \frac{\displaystyle \frac{(2n+2)!}{(n+1)!}}{\displaystyle \frac{(2n+1)!}{n!}} \\
-        &= \frac{(2n+2)!}{(n+1)!}: \frac{(2n+1)!}{n!} = \frac{(2n+2)!}{(n+1)!} \cdot \frac{n!}{(2n+1)!} \\ 
-        &= \frac{(2n+2)(2n+1)!}{(n+1)n!} \cdot \frac{n!}{(2n+1)!}
-        = \frac{2(n+1)(2n+1)!}{(n+1)n!} \cdot \frac{n!}{(2n+1)!} \\
-        &= 2 \frac{(n+1)(2n+1)!n!}{(n+1)(2n+1)!n!} = 2 \\
-        \implies \prod_{i=1}^{n+1} \frac{n+1+i}{n+i} &= 2
-    \end{align*}
-
-    \subsubsection*{Auxiliar 2}
-    \begin{align*}
-        2 \leq 3 \implies 4n + 2 \leq 4n + 3 \implies \frac{4n+2}{4n+3} \leq 1
-    \end{align*}
+        \subsubsection*{Auxiliar 2}
+        \begin{align*}
+          2 \leq 3 \entonces 4n + 2 \leq 4n + 3 \entonces \frac{4n+2}{4n+3} \leq 1
+        \end{align*}
 \end{enumerate}

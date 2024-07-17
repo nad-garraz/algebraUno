@@ -147,11 +147,29 @@
 
 % Dado que muchas veces ponemos cosas sobre un signo '='
 %  acá está el comando para escribir \igual{arriba}[abajo] con texto!
-\NewDocumentCommand{\igual}{m o}{%
-  \IfNoValueTF{#2}{%
-    \overset{\mathclap{\text{#1}}}=
+\NewDocumentCommand{\igual}{m o}{
+  \IfNoValueTF{#2}{
+          \overset{\mathclap{\text{#1}}}=
   }{
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
+  }
+}
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
+\NewDocumentCommand{\mayorIgual}{m o}{
+  \IfNoValueTF{#2}{
+          \overset{\mathclap{\text{#1}}}\geq
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\geq}
+  }
+}
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
+\NewDocumentCommand{\menorIgual}{m o}{
+  \IfNoValueTF{#2}{
+          \overset{\mathclap{\text{#1}}}\leq
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\leq}
   }
 }
 

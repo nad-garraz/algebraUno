@@ -118,13 +118,13 @@
       cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
     \fi
   }
-  {\text{\FiveStar}^{\scriptscriptstyle#1}}%
+  {\text{\FiveStar}^{\scriptscriptstyle#1}}
 }
 
 
 % separadores
-\def\separador{\rule{\linewidth}{0.4pt}\par}
-\def\separadorCorto{\rule{0.5\linewidth}{0.4pt}\par\addvspace{10pt}}
+\def\separador{\par\medskip\rule{\linewidth}{0.4pt}\par\medskip}
+\def\separadorCorto{\par\medskip\rule{0.5\linewidth}{0.4pt}\par\medskip}
 
 
 % Colores
@@ -195,7 +195,6 @@
 
 %=======================================================
 % fin comandos con flechas extensibles.
-%=======================================================
 
 
 % como el stackrel pero también se puede poner algo debajo
@@ -244,7 +243,6 @@
   \addtocounter{ejExtra}{-1} % counter - 1
   \refstepcounter{ejExtra} % referencia al anterior y luego + 1
   \label{#1} % etiqueta para cada ejercicio extra
-  \unskip
 }
 % Con esto llamos al ejercicio extra
 \newcommand{\refEjExtra}[1]{
@@ -256,14 +254,11 @@
 %=======================================================
 
 \newenvironment{enunciado}[1]{ % Toma un parametro obligatorio: \ejExtra o \ejercicio 
-  \par
+  \separador % linea sobre el enunciado
   \begin{minipage}{\textwidth}
-    \vspace{5pt}
-    \separador % linea sobre el enunciado
     #1
     }% contenido
-    {\vspace{5pt}
-    \par
-    \separadorCorto % linea debajo del enunciado
+    {
   \end{minipage}
+    \separadorCorto % linea debajo del enunciado
 }

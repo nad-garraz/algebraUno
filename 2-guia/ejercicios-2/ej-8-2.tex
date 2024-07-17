@@ -1,7 +1,10 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+Sea $a,\, b \en \reales$.
+        Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$.
+        Deducir la fórmula de la serie geométrica: para todo
+        $a \distinto 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.
+\end{enunciado}
 
-Sea $a,\, b \en \reales$. Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$. Deducir la fórmula de la serie
-geométrica: para todo $a \distinto 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.\\
 $\llave{ l }{
 		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \Tilde\\
 		\text{Paso inductivo: } n = k  a^k - b^k = (a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} \entonces

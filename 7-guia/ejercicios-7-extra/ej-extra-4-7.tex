@@ -1,13 +1,73 @@
-\ejExtra
-Factorizar como producto de polinomios irreducibles en $\racionales[X], \reales[X], \complejos[X]$ al polinomio
-$$
-f= X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15
-$$
-sabiendo $(f:X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15) \distinto 1$
+\begin{enunciado}{\ejExtra}
+  Factorizar como producto de polinomios irreducibles en
+  $\racionales[X], \reales[X], \complejos[X]$ al polinomio
 
-\separadorCorto
+  $$
+    f= X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15
+  $$
+  sabiendo $(f:X^4 - X^3 +6X^2  -5X +5) \distinto 1$
+
+\end{enunciado}
+
+Si el $(f:X^4 - X^3 +6X^2  -5X +5) \distinto 1$, esto nos da información
+sobre \textit{raíces comunes} entre $f$ y $X^4 - X^3 +6X^2  -5X +5$. Puedo hacer el algoritmo de Euclides para encontrar el MCD, con esa
+o esas raíces. El último resto no nulo hecho mónico será el MCD.par \medskip
 
 {\tiny
-\mcd{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^4 - X^3 +6X^2  -5X +5}
-}\\
-\hacer
+  \mcd{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^4 - X^3 +6X^2  -5X +5}
+}
+\medskip
+
+$(f:X^4 - X^3 +6X^2  -5X +5) = X^2 - X + 1$.
+Las raíces del MCD son $\alpha_{1,2} = \frac{1 \pm \magenta{w}}{2}$ con $\magenta{w}^2 = 3i $.
+$X^2 - X + 1 = (X - (\frac{1}{2}  - \frac{\sqrt{3}}{2} ))(X - (\frac{1}{2}  + \frac{\sqrt{3}}{2} ))\Tilde$\par
+Por definición de lo que es el MCD sabemos que
+$X^2 - X + 1 \divideA f$,
+haciendo la división bajamos el grado y seguimos buscando las raíces.
+\medskip
+
+{
+  \divPol{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^2 - X + 1}
+}
+\medskip
+
+Obtuvimos que $f = (X^2 - X + 1) \cdot (\magenta{X^3 + 3X^2 -5X - 15}) + 0$.
+Hermoso resultado, donde la hermosura se mide en su simpleza para ser factorizado.
+\underline{Sin} usar calculadora ni Guass ni ninguna cosa extraña podemos expresar a $f$ como:\par
+
+$$
+  f \igual{\red{!}} (X^2 - X + 1) \cdot \ub{\magenta{(X-\sqrt{5}) \cdot (X + \sqrt{5}) \cdot (X + 3)}}{X^3 + 3X^2 -5X - 15}
+$$
+
+\underline{Si todavía no viste como fue la factorización en \red!}
+te recomiendo que sigas mirando sin tocar calculadora ni ningún tipo de \textit{spoiler del pesado o pesada sabelotodo}
+que quizás tenés al lado y que no te deja tiempo para pensar. Es puro factoreo que debería salir a ojo.\par
+
+Ahora factorizamos en irreducibles, que son polinomios mónicos que  solo se dividen por
+sí mismos y por 1. Para tener una mejor explicación
+\hyperlink{7-teoria:irreducibles}{clickeá acá! Y vas a la teoría del apunte.}
+
+
+\textit{factorizaciones: }\par
+\boxed{
+  \begin{array}{rcl}
+    \racionales[X] & \to & f =  (\ob{X^2 - 5}{\en\racionales[X]}) \cdot
+    (\ob{X^2 - X + 1}{\en\racionales[X]}) \cdot
+    (\ob{X+3}{\en\racionales[X]})                                       \\
+    \reales[X]     & \to & f = (\ob{ X-\sqrt5}{\en \reales[X]}) \cdot
+    (\ob{ X + \sqrt5}{\en \reales[X]})  \cdot
+    (\ob{X^2 - X + 1}{\en\reales[X]}) \cdot
+    (\ob{X+3}{\en\reales[X]})                                           \\
+    \complejos[X]  & \to & f =
+    (\ob{X+3}{\en\complejos[X]}) \cdot
+    (\ob{X - \sqrt5}{\en \complejos[X]}) \cdot
+    (\ob{X + \sqrt5}{\en \complejos[X]}) \cdot
+    (\ob{X - (\frac{1}{2}  - \frac{\sqrt{3}}{2})}{\en \complejos[X]}) \cdot
+    (\ob{X - (\frac{1}{2}  + \frac{\sqrt{3}}{2})}{\en\complejos[X]})
+  \end{array}
+  }
+\Tilde
+
+
+
+

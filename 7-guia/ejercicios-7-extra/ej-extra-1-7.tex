@@ -1,88 +1,92 @@
-\ejExtra
+%==================
+% Macro Local:
+  \def\c{\textbf{c}}
+%==================
 
-\def\c{\textbf{c}}
+\begin{enunciado}{\ejExtra}
+  \begin{enumerate}[label=\alph*)]
+    \item Hallar todos los posibles $\c \en \reales,\, \c > 0$ tales que:
+          $$ f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + \c$$ tenga una raíz de argumento $\frac{3\pi}{2}$
+
+    \item Para cada valor de $\c$ hallado, factorizar $f$ en $\racionales[X],\, \reales[X]$ y $\complejos[X]$, sabiendo que tiene al menos una raíz doble.
+  \end{enumerate}
+
+\end{enunciado}
+
 \begin{enumerate}[label=\alph*)]
-	\item Hallar todos los posibles $\c \en \reales,\, \c > 0$ tales que:
-	      $$ f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + \c$$ tenga una raíz de argumento $\frac{3\pi}{2}$
+  \item
+        Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$\\
+        Voy a usar que:
+        $\llamada1
+          \llave{rcr}{
+            (-i)^2 & = &  -1\\
+            (-i)^3 & = &  i\\
+            (-i)^4 & = &  1\\
+            (-i)^5 & = &  -i\\
+            (-i)^6 & = &  -1
+          }$
 
-	\item Para cada valor de $\c$ hallado, factorizar $f$ en $\racionales[X],\, \reales[X]$ y $\complejos[X]$, sabiendo que tiene al menos una raíz doble.
-\end{enumerate}
+        $
+          f(r(-i)) =
+          (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4^3 + 4(r(-i))^2 + 48(r(-i)) + \c \stackrel{\llamada1}=\\
+          -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0
+          \sisolosi
+          \llave{l}{
+            \re : -r^6  - r^4  - 4r^2  + \c = 0 \entonces \c = r^6  + r^4  + 4r^2\\
+            \im : r(4r^4- 4 r^2- 48) = 0
+            \flecha{bicuadrática}[$r^2 = y$ y $r\en\reales_{> 0}$]
+            r^2 = 3
+          }
+        $
 
-\separadorCorto
-\begin{enumerate}[label=\alph*)]
-	\item
-	      Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$\\
-	      Voy a usar que:
-	      $\llamada1
-		      \llave{rcr}{
-			      (-i)^2 & = &  -1\\
-			      (-i)^3 & = &  i\\
-			      (-i)^4 & = &  1\\
-			      (-i)^5 & = &  -i\\
-			      (-i)^6 & = &  -1
-		      }$
-
-	      $
-		      f(r(-i)) =
-		      (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4^3 + 4(r(-i))^2 + 48(r(-i)) + \c \stackrel{\llamada1}=\\
-		      -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0
-		      \sisolosi
-		      \llave{l}{
-			      \re : -r^6  - r^4  - 4r^2  + \c = 0 \entonces \c = r^6  + r^4  + 4r^2\\
-			      \im : r(4r^4- 4 r^2- 48) = 0
-			      \flecha{bicuadrática}[$r^2 = y$ y $r\en\reales_{> 0}$]
-			      r^2 = 3
-		      }
-	      $
-
-	      Por lo tanto si
-	      $\c =
-		      r^6  + r^4  + 4r^2 =
-		      (r^2)^3  + (r^2)^2  + 4r^2
-		      \entonces
-		      \boxed{\c = 48}\Tilde
-	      $\\
-	      con raíces $\pm \sqrt{3}i$ dado que $f\en \racionales[X]$
+        Por lo tanto si
+        $\c =
+          r^6  + r^4  + 4r^2 =
+          (r^2)^3  + (r^2)^2  + 4r^2
+          \entonces
+          \boxed{\c = 48}\Tilde
+        $\\
+        con raíces $\pm \sqrt{3}i$ dado que $f\en \racionales[X]$
 
 
-	\item
+  \item
 
-	      Debe ocurrir que $(X - \sqrt{3}i))(X + \sqrt{3}i) = X^2 + 3 \divideA f$\\
-	      \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}\\
+        Debe ocurrir que $(X - \sqrt{3}i))(X + \sqrt{3}i) = X^2 + 3 \divideA f$\\
+        \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}\\
 
-	      $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$
-	      tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
-	      $
-		      q' = (4X^3 - 12X^2 - 8 X + 16)' =
-		      4(X^3 - 3X^2 - 2X + 4) = 0
-		      \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4$]
-		      q'(1) = 0 \text{, pero }
-              g(\magenta{1})\distinto 0 \entonces f(1) \distinto 0 \\
-		      \flecha{divido para}[bajar grado]
-	      $
-	      \divPol{X^3 - 3X^2 - 2X + 4}{X - 1}
-	      $\\
-		      g' = 4(X-1)\ub{(X^2 - 2X -4)}{ = h}
-		      \flecha{busco raíces}[de $h$]
-		      X^2 - 2X - 4 = 0
-		      \sisolosi
-              \alpha_{1,2} = 1 \pm \sqrt{5}\\
-		      h =
-              (X - (1 + \sqrt{5})) \cdot (X - (1 - \sqrt{5}) =
-              X^2 - 2X - 4
-	      $
-          Para calcular que $f(\alpha_1)= g(\alpha_1) = 0$ y comprobar que es una raíz doble, puedo hacer:
-          \divPol{X^4 - 4X^3 - 4X^2 + 16X + 16}{X^2 - 2X - 4} \checkmark
-          $g = h^2 =  (X^2 - 2X - 4)^2 \to \text{no la vi venir}$ \\
+        $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$
+        tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
+        $
+          q' = (4X^3 - 12X^2 - 8 X + 16)' =
+          4(X^3 - 3X^2 - 2X + 4) = 0
+          \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4$]
+          q'(1) = 0 \text{, pero }
+          g(\magenta{1})\distinto 0 \entonces f(1) \distinto 0 \\
+          \flecha{divido para}[bajar grado]
+        $
+        \divPol{X^3 - 3X^2 - 2X + 4}{X - 1}
+        $\\
+          g' = 4(X-1)\ub{(X^2 - 2X -4)}{ = h}
+          \flecha{busco raíces}[de $h$]
+          X^2 - 2X - 4 = 0
+          \sisolosi
+          \alpha_{1,2} = 1 \pm \sqrt{5}\\
+          h =
+          (X - (1 + \sqrt{5})) \cdot (X - (1 - \sqrt{5}) =
+          X^2 - 2X - 4
+        $
+        Para calcular que $f(\alpha_1)= g(\alpha_1) = 0$ y comprobar que es una raíz doble, puedo hacer:
+        \divPol{X^4 - 4X^3 - 4X^2 + 16X + 16}{X^2 - 2X - 4} \checkmark
+        $g = h^2 =  (X^2 - 2X - 4)^2 \to \text{no la vi venir}$ \\
 
 
-          \textit{factorizaciones: }\\
-          \boxed{
+        \textit{factorizaciones: }\\
+        \boxed{
           \llave{rcl}{
             \racionales[X] & \to & f = \parentesis{X^2 + 3} (X^2 + 3)(X^2 - 2X - 4)^2\\
             \reales[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X^2 - 2X - 4)^2\\
             \complejos[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X-3i)^2 (X+3i)^2
           }
         }\Tilde
-          
+
 \end{enumerate}

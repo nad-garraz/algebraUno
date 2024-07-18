@@ -81,8 +81,8 @@
 % complejos
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\im}{Im}
-%\DeclareMathOperator{\arg}{arg}
-\def\conj{\overline}
+\DeclareMathOperator{\argumento}{arg}
+\newcommand{\conj}[1]{\overline{#1}}
 
 % Polinomios
 \DeclareMathOperator{\cp}{cp}
@@ -190,6 +190,15 @@
     \xLeftrightarrow[]{\text{#1}}
   }{
     \xLeftrightarrow[\text{#2}]{\text{#1}}
+  }
+}
+
+% *Si solo si* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\Entonces}{m o}{%
+  \IfNoValueTF{#2}{%
+    \xRightarrow[]{\text{#1}}
+  }{
+    \xRightarrow[\text{#2}]{\text{#1}}
   }
 }
 

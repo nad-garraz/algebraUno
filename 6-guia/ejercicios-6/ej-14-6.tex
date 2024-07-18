@@ -1,11 +1,11 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
 Se define en $\complejos - \set{0}$ la relación $\relacion$ dada por $z \relacion w \sisolosi z \conj w \en \reales_{>0}$.
 \begin{enumerate}[label=\roman*)]
 	\item Probar que $\relacion$ es una relación de equivalencia.
 	\item Dibujar en le plano complejo la clase de equivalencia de $z = 1 + i$.
 \end{enumerate}
 
-\separadorCorto
+\end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
 	\item Dado un $z = r e^{i\theta}$, tengo que $z\en \reales_{>0} \sisolosi
@@ -26,14 +26,16 @@ Se define en $\complejos - \set{0}$ la relación $\relacion$ dada por $z \relaci
 				            z \relacion w = r s  e^{(\theta - \varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \\
 				            w \relacion v = r t  e^{(\varphi - \alpha )i} \sisolosi \varphi = 2k_2\pi + \alpha \\
 				            \entonces z \relacion v \sisolosi \theta =  2k_1\pi + \ub{\varphi}{2k_2\pi + \alpha} = 2\pi(k_1 + k_2) + \alpha = 2k_3\pi + \alpha \Tilde
-			            }$\\
+			            }$\par
 		            La relación $\relacion$ es de equivalencia.
 	      \end{itemize}
 
 	\item
 	      \begin{minipage}{0.7\textwidth}
-		      Tengo que el arg$( 1 + i) = \frac{\pi}{4}$. La clase  $\clase z$ estará formada por los $w \en \complejos$ tal que:
-		      \boxed{ w \relacion z \sisolosi \text{arg}(w) = \frac{1}{4}\pi}
+		      Tengo que el $\argumento(1+i) = \frac{\pi}{4}$.
+                  La clase  $\clase z$ estará formada
+                  por los $w \en \complejos$ tal que:
+		      \boxed{ w \relacion z \sisolosi \argumento(w) = \frac{1}{4}\pi}
 	      \end{minipage}
 	      \begin{minipage}{0.3\textwidth}
 		      \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]

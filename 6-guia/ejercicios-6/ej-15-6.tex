@@ -1,17 +1,18 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
 Se define la siguiente relación $\relacion$ en $G_{20}$:
-\[
+$$
   z\relacion w \sisolosi zw^9 \en G_2.
-\]
+$$
 \begin{enumerate}[label=\roman*)]
   \item Probar que $\relacion$ es una relación de equivalencia.
   \item Calcular la cantidad de elementos que hay en cada clase de equivalencia.
 \end{enumerate}
 
-\separadorCorto
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
   \item
-        \textit{Reflexividad: }\\
+        \textit{Reflexividad: }\par
         $ z = e^{i\frac{1}{10}\pi k_z}
           \entonces
           z \relacion z
@@ -22,9 +23,9 @@ Se define la siguiente relación $\relacion$ en $G_{20}$:
             1 & k_z \text{ par}\\
             -1 & k_z \text{ impar}\\
           } \Tilde
-        $\\
+        $\par
 
-        \textit{Simetría: }\\
+        \textit{Simetría: }\par
         $ z = e^{i\frac{1}{10}\pi k_z}
           \text{ y }  w = e^{i\frac{1}{10}\pi k_w} \en G_{20}.$
 
@@ -53,11 +54,11 @@ Se define la siguiente relación $\relacion$ en $G_{20}$:
               e^{i \frac{\pi}{10}(90k + 10k_w)} =
               e^{i (9k + k_w)\pi} =
               e^{i\blue{k'}\pi}\\
-            }$\\
+            }$\par
         $\boxed{z \relacion w \sisolosi w \relacion z}
-                \paratodo k,\,k_w \en \enteros \text{ con } \congruencia{k_z}{k_w}{10}\Tilde$\\
+          \paratodo k,\,k_w \en \enteros \text{ con } \congruencia{k_z}{k_w}{10}\Tilde$\par
 
-        \textit{Transitividad: }\\
+        \textit{Transitividad: }\par
         $ \llaves{l}{
             z = e^{i\frac{1}{10}\pi k_z}\\
             w = e^{i\frac{1}{10}\pi k_w}\\
@@ -65,9 +66,9 @@ Se define la siguiente relación $\relacion$ en $G_{20}$:
           } \en G_{20}
           \to
           \relacion$ es transitiva si:
-                $z \relacion w  \text{ y } w\relacion y
-                \entonces
-                z \relacion y\\
+        $z \relacion w  \text{ y } w\relacion y
+          \entonces
+          z \relacion y\\
           \llaves{l}{
             z \relacion w
             \sisolosi

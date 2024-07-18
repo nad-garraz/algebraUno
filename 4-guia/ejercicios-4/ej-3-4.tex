@@ -1,73 +1,125 @@
-\ejercicio Sean $a.\,b \en \enteros$.
+\begin{enunciado}{\ejercicio}
+  Sean $a.\,b \en \enteros$.
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que $a-b \divideA a^n - b^n$ para todo $n \en \naturales \ytext a \distinto b \en \enteros$
+    \item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \divideA a^n - b^n$.
+    \item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divideA a^n + b^n$.
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item Probar que $a-b \divideA a^n - b^n$ para todo $n \en \naturales \y a \distinto b \en \enteros$
-	\item Probar que si $n$ es un número natural par y $a \distinto -b$, entonces $a+b \divideA a^n - b^n$.
-	\item Probar que si $n$ es un número natural impar y $a \distinto -b$, entonces  $a+b \divideA a^n + b^n$.
-\end{enumerate}
-\separadorCorto
-%=============
-%Macro local
-\def\aMenosB{\stackrel{(a-b)}\congruente}
-\def\aMasB{\stackrel{(a-b)}\congruente}
-%FinMacro local
-%=============
-\begin{enumerate}[label=\roman*)]
-	\item  Si $a-b \divideA a^n - b^n \stackrel{def}\sisolosi \congruencia{a^n}{b^n}{a-b} \sisolosi
-		      \llaves{l}{
-			      \congruencia{a}{b}{a-b} \\
-			      \congruencia{a^2}{\ub{a}{\aMenosB b}\cdot b}{a-b} \to \congruencia{a^2}{b^2}{a-b} \\
-			      \quad\vdots\\
-			      \congruencia{a^n}{b^n}{a-b}
-		      }\\
-		      \to \congruencia{a^n}{b^n}{a-b} \sisolosi a-b \divideA a^n - b^n$
+  \item
+        \textit{Inducción: }\par
+        \textit{Proposición: }
+        $$p(n) : a-b \divideA a^n - b^n \paratodo n \en \naturales
+          \ytext a \distinto b \en \enteros$$
 
-	\item  Sé que $\congruencia{a}{-b}{a+b} \sisolosi
-		      \llaves{l}{
-			      \congruencia{a^2}{\ub{a}{\aMasB -b} \cdot b}{a+b} \flecha{propiedad}[congruencia] \congruencia{a^2}{(-1)^2 \cdot b^2}{a+b} \\
-			      \quad \vdots \quad \llamada{1}{\ot} \\
-			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \to
-			      \llaves{ll}{
-				      \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
-				      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
-			      }\llamada{2}{}\\
-		      }\\
-		      \llamada{2}{}
-		      \boxed{
-			      \llave{l}{
-				      \text{Con $n$ par: }  \congruencia{a^n}{ b^n}{a+b} \entonces a+b \divideA a^n - b^n  \\
-				      \text{Con $n$ impar: }  \congruencia{a^n}{ - b^n}{a+b} \entonces a+b \divideA a^n + b^n
-			      }
-		      }
-	      $
+        \textit{Caso Base: }
+        $$
+          p(1): a - b \divideA a^{\blue1} - b^{\blue1},$$
+        $p(1)$ es verdadera. \Tilde\par
 
-	      $\llamada{1}{}
-		      \textit{Inducción:}\\
-		      \llave{l}{
-			      p(n)\ :\ \magenta{\congruencia{a}{-b}{a+b}} \entonces
-			      \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.\\
-			      \textit{Caso base: }\\
-			      p(1)\ :\
-			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
-			      \entonces
-			      \magenta{\congruencia{a}{-b}{a+b}} \text{ Verdadero}.\\
-			      \textit{Hipótesis inductiva: }\\
-			      p(k)\ V \entonces p(k+1)\ V? \\
-			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}
-			      \entonces
-			      \magenta{\congruencia{a}{-b}{a+b}} \entonces \congruencia{a^{k+1}}{(-1)^{k+1}\cdot b^{k+1}}{a+b} \\
-			      \text{Parto de } p(k):\\
-			      \llave{l}{
-				      \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}\\
-				      \flecha{multiplico}[por $a$]
-				      \congruencia{a\cdot a^k}{(-1)^k\cdot \ub{a}{\aMasB -b}\cdot b^k}{a+b}\\
-				      \flecha{y acomodo}
-				      \congruencia{a^{k+1}}{(-1)^{k+1} \cdot b^{k+1}}{a+b} \Tilde
-			      }
-		      }
-	      $
-	      \\
-	      Como $p(1),\ p(k),\ p(k+1)$ son verdaderas por principio de inducción lo es también $p(n) \paratodo n \en \naturales$
+        \textit{Paso inductivo:}\par
+        Asumo que $p(\blue{k}): a-b \divideA a^{\blue k} - b^{\blue k}$ es verdadera
+        $\entonces$ quiero probar que
+        $p(\blue{k + 1}) : a-b \divideA a^{\blue{k + 1}} - b^{\blue{k + 1}}$
+        también lo sea.
+
+        $$
+          \llave{l}{
+            a - b \divideA a^k -b^k\\
+            a - b \divideA a^k -b^k
+          }
+          \Entonces{$\times \magenta{a}$}[$\times \magenta{b}$]
+          \llave{l}{
+          a - b \divideA a^{k+1} - ab^k\\
+          a - b \divideA ba^k -b^{k+1}
+          }
+          \Entonces{$+$}
+          \llave{l}{
+            a - b \divideA a^{k+1} - b^{k+1}.\\
+          }\Tilde
+        $$
+
+        Como $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas por el principio de
+        inducción $p(n)$ también lo es.
+
+  \item  Sé que
+        $$
+          a+b \divideA a+b
+          \Sii{def}
+          \congruencia{a}{-b}{a+b}
+        $$
+        Multiplicando la ecuación de congruencia por $\magenta{a}$ sucesivas
+        veces me formo:\par
+        $
+          \llave{rcl}{
+            \magenta{a} \cdot a = a^2
+            &\conga{a+b}&
+            \magenta{a} \cdot (-b)
+            \conga{a+b}
+            (-1)^2 b \\
+            \quad &\vdots& \quad \ot\llamada{1}\\
+            a^n &\conga{a+b}& (-1)^n \cdot b^n
+            \to
+            \llave{ll}{
+              \congruencia{a^n}{ b^n}{a+b} & \text{con n par}  \\
+              \congruencia{a^n}{(-1)^n \cdot b^n}{a+b}   & \text{con n impar} \\
+            }
+          }\\
+          \boxed{
+            \llave{rccl}{
+              \text{Con $n$ par: } & \congruencia{a^n}{b^n}{a+b} &\entonces& a+b \divideA a^n - b^n  \\
+              \text{Con $n$ impar: }  &\congruencia{a^n}{- b^n}{a+b}& \entonces& a+b \divideA a^n + b^n
+            }
+          }
+        $\par
+
+        \textit{$\llamada1$Inducción:}
+        $$
+          p(n) : \magenta{\congruencia{a}{-b}{a+b}}
+          \entonces
+          \congruencia{a^n}{(-1)^n \cdot b^n}{a+b} \paratodo n \en \naturales.
+        $$
+
+        \textit{Caso base: }
+        $$
+          p(1) :
+          \magenta{\congruencia{a}{-b}{a+b}}
+          \entonces
+          \congruencia{a^1}{(-1)^1\cdot b^1}{a+b}
+        $$
+        $p(1)$ es verdadera.\par
+
+        \textit{Paso inductivo: }\par
+        $
+          \begin{array}{c}
+            p(\blue{k}) : \congruencia{a}{-b}{a+b}
+            \entonces
+            \congruencia{a^{\blue{k}}}{(-1)^{\blue{k}} \cdot b^{\blue k}}{a+b}
+            \text{ asumo verdadera para algún } k \en \enteros                           \\
+            \entonces                                          \text{quiero probar que } \\
+            p(\blue{k+1}) : \congruencia{a}{-b}{a+b}
+            \entonces
+            \congruencia{a^{\blue{k+1}}}{(-1)^{\blue{k}} \cdot b^{\blue k}}{a+b}
+          \end{array}\\
+          \text{Partiendo de } p(\blue{k}):
+          \llave{c}{
+            \congruencia{a}{-b}{a+b}
+            \entonces
+            \congruencia{a^k}{(-1)^k\cdot b^k}{a+b}\\
+            \Entonces{multiplico}[por $\yellow{a}$]\\
+            \yellow a \cdot a^k =
+            \congruencia{a^{k+1}}{(-1)^k\cdot \ub{\yellow a}{ \conga{a+b} -b} \cdot b^k}{a+b}\\
+            \entonces\\
+            \congruencia{a^{k+1}}{(-1)^{k+1} \cdot b^{k+1}}{a+b}
+            \sisolosi
+            a + b \divideA a^{k+1} - (-1)^{k+1} b^{k+1} \Tilde
+          }
+        $
+        \\
+        Como $p(1),\ p(k),\ p(k+1)$ son verdaderas por principio de inducción lo es también $p(n) \paratodo n \en \naturales$
 
 
-	\item hecho en el anterior.
+  \item Hecho en el anterior {\Large\faIcon{hands-wash}}.
 \end{enumerate}

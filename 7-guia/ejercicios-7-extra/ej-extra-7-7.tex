@@ -1,0 +1,74 @@
+\begin{enunciado}{\ejExtra}
+        Determinar un polinomio $f \en \racionales[X]$ de grado mínimo que satisfaga 
+        simultáneamente:\par
+
+\begin{enumerate}[label=$\scriptscriptstyle\blacksquare$]
+	\item $f$ es mónico,
+    \item $\gr(f:2X^3-5X^2-20X +11) = 2$
+    \item $f$ tiene una raíz $z \en G_3$ con $z \distinto 1$, que es doble,
+	\item $f(0) = 33$;
+\end{enumerate}
+\end{enunciado}
+
+El dato de
+    $\gr(f:\ub{2X^3-5X^2-20X +11}{g}) = 2$ indica que $f$ tiene 2 raíces en común con $g$, 
+    puede ser una doble o dos simples. Dado que nos piden que sea de grado mínimo
+    habrá que tener cuidado cual elegir.\par
+    Calculemos las posibles raíces de $g$ usando \textit{lema de gauss}:
+    Posibles raíces serán los cocientes de los divisores de 11 y los de 2.
+    $\divset{11}{\pm1,\pm11}, \divset{2}{\pm1,\pm2}$:
+    $\set{\pm 1,\pm\frac{1}{2},\pm 11, \pm\frac{11}{2}}$.
+    Probando esos valores encuentro que $g(\frac{1}{2}) = 0$ y ninguna de las
+    otras funcionó. Le bajamos el grado con el algoritmo de división a $g$.
+$$
+    \divPol{2X^3 - 5X^2 - 20X + 11}{X - \frac{1}{2}}
+$$
+    $g = (X-\frac{1}{2})\cdot(\ub{2X^2 - 4X -22}{h}) + 0 $, buscamos raíces de $h$:\par
+
+    $$\alpha_{+,-} =
+    \frac{4 \pm 8\sqrt{3}}{4} =
+    1 \pm 2\sqrt{3} =
+    \llave{l}{
+            1 + 2\sqrt{3} \\
+            1 - 2\sqrt{3} \\
+    }
+    $$
+
+    Entonces: 
+    $f$ tiene 2 raíces en común con 
+    $g = (X - \frac{1}{2})(X - (1+2\sqrt{3})) (X - (1-2\sqrt{3})) $. Dado que 
+    $f \en \racionales[X]$  voy a seleccionar las raíces $ \en \irracionales$ por
+    la condiciónde grado mínimo.\bigskip
+
+    Con la condición que dice que $f$ tiene una raíz $z \en G_3$ con $z \distinto 1$,
+    que es doble, no nos dejan muchas opciones. $G_3$ tiene tres raíces, solución
+    de $w^3 = 1$, dado que por enunciado no puede ser 1, entonces solo quedan.
+    $\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ \green{(si no te acordás como encontrar raíces de la
+    familia $G_n$ te dejo el ejercicio \refEjercicio{ej:12}) que se hacen las cuentas.}
+    Ok, tengo esas dos $\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ ¿Cuál elijo? cualquiera nos
+    sirve, porque, \textit{nuevamente}, como $f en \racionales[X]$ si agarro una raíz compleja
+    también necesito su conjugado complejo, lo mismo que antes.\par
+
+Hasta el momento tenemos:\par
+$$
+f =
+\ob{(X - (1+2\sqrt{3})) (X - (1-2\sqrt{3}))}{X^2 - 2X - 11}
+\ub{(X - (\frac{1}{2} + \frac{\sqrt{3}}{2}))^{2^{\llamada1}}
+(X - (\frac{1}{2} - \frac{\sqrt{3}}{2}))^{2^{\llamada1}}}{(X^2 - X + 1)^2} =
+(X^2 - 2X - 11)(X^2 - X + 1)^2
+$$
+
+$\llamada1$ Si es doble una de las complejas, también debe serlo su conjugado, porque
+$f\en \racionales[X]$.\bigskip
+
+Nos queda cumplir que $f(0) = 33$, si bien ahora $f(0) = -11$. Acá tenemos que tener en cuenta
+la primera condición. $f$ es mónico así que tenemos que proponer otro factor en $\racionales[X]$
+el candidato es $(X-3)$, dado que en 0 vale $-3$ y así $f(0) = -11\cdot -3 = 33$.\par
+
+El $f \en\racionales[X]$ que cumple lo pedido:
+$$
+\boxed{f = (X^2 - 2X - 11)(X^2 - X + 1)^2(X-3)}
+$$
+
+
+

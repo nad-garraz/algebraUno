@@ -130,7 +130,7 @@
 
 \begin{enunciado}{\ejercicio}
   \begin{enumerate}[label=\roman*)]
-          \item\label{12-itemi}
+    \item\label{12-itemi}
           Decidir si las siguientes proposiciones son verdaderas o falsas, justificando debidamente:
           \begin{multicols}{2}
             \begin{enumerate}[label=\alph*)]
@@ -144,11 +144,11 @@
             \end{enumerate}
           \end{multicols}
 
-  \item Negar las proposiciones anteriores, y en cada caso verificar que la proposición negada tiene el valor de verdad
+    \item Negar las proposiciones anteriores, y en cada caso verificar que la proposición negada tiene el valor de verdad
           opuesto al de la original.
 
-  \item Reescribir las proposiciones \ref{12-item1} y \ref{12-item2} del item \ref{12-itemi} utilizando las equivalencias del ejercicio
-          \ref{ej:10} \ref{10-1-i}
+    \item Reescribir las proposiciones \ref{12-item1} y \ref{12-item2} del item \ref{12-itemi}
+          utilizando las equivalencias del ejercicio \ref{ej:10}\ref{10-1-i}
   \end{enumerate}
 \end{enunciado}
 
@@ -175,15 +175,15 @@
                 La proposición es verdadera. Si $x > 3 \entonces x^2 > 9 \flecha{en}[particular] x^2 > 9 > 4 \entonces x^2 > 4$
 
           \item Si $n$ es un natural terminado en 4, entonces $n$ es par.\par
-                      \red{hacer}
+                \red{hacer}
 
           \item Si $z$ es un número real, entonces $z \en \complejos$.\par
                 Están proponiendo que dado
-                        $z \en \reales \entonces z \en \complejos$.
-                        Dado que 
-                        $\reales \subseteq \complejos =
-                        \set{a \en \reales,\, b\en \reales \talque a + i b}$,
-                        con $i^2 = -1$
+                $z \en \reales \entonces z \en \complejos$.
+                Dado que
+                $\reales \subseteq \complejos =
+                  \set{a \en \reales,\, b\en \reales \talque a + i b}$,
+                con $i^2 = -1$
                 Por lo tanto para $b = 0$, podría generar todo $\reales$.
         \end{enumerate}
 
@@ -205,7 +205,7 @@
                 La proposición es verdadera, el único $m \en \naturales$ que cumple eso es el $m = 1$.
 
           \item $\existe x \en \reales,\, x \leq 3 \entonces x^2 \leq 4$.\par
-                La proposición es falsa. Dado dos conjunto:\\
+                La proposición es falsa. Dado dos conjunto:\par
                 \[
                   \llaves{c}{
                     \magenta{A = \set{x \en \reales \talque x \leq 3}} \par
@@ -214,27 +214,27 @@
                 \]
 
           \item \red{hacer}
-                      
+
 
           \item Si $z$ no es un número real, entonces $z \notin \complejos$.\par
                 La proposición es falsa. Están proponiendo que dado $z \notin \reales \entonces z \notin \complejos$.
-                        Si $z = i$, se prueba lo contrario.
+                Si $z = i$, se prueba lo contrario.
                 Dado que $i \notin \reales$, pero  $i \en \complejos$
         \end{enumerate}
 
 
-  \item 
-        $
+  \item
+        $$
           \begin{array}{|c|c|c|c|}
             \hline
-            p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \to \Tilde                  \\
+            p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \Tilde                  \\
             \hline
-            \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \to \Tilde                  \\
+            \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \Tilde                  \\
             \hline
-            \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \igual{?} \universo \to \Tilde                \\
+            \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \igual{?} \universo \Tilde                \\
             \hline
-            \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \igual{?} \vacio^c = \universo \to \Tilde \\
+            \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \igual{?} \vacio^c = \universo \Tilde \\
             \hline
           \end{array}
-        $
+        $$
 \end{enumerate}

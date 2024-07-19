@@ -1,83 +1,122 @@
-\noindent\textit{\underline{Divisibilidad}}
-\ejercicio
-Decidir si las siguientes afirmaciones son verdaderas $\paratodo a,\, b,\, c \en \enteros$:\\
-Calcular
-\begin{enumerate}[label=\roman*)]
-	\item $a \cdot b \divideA c \entonces a \divideA c$ \ y \ $b \divideA c$ \\
-	      \separadorCorto
+\textit{\underline{Divisibilidad}}\par
 
-	      $\llave{l}{
-			      c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \divideA c \Tilde\\
-			      c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \divideA c\Tilde
-		      }$
+\begin{enunciado}{\ejercicio}
+  Decidir si las siguientes afirmaciones son verdaderas
+  $\paratodo a,\, b,\, c \en \enteros$
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item $a \cdot b \divideA c \entonces a \divideA c  \ytext  b \divideA c$
+      \item $4 \divideA a^2 \entonces 2 \divideA a $
+      \item $2 \divideA a \cdot b \entonces 2 \divideA a  \otext 2 \divideA b$
+      \item $9 \divideA a\cdot b \entonces 9 \divideA a   \otext  9 \divideA b$
+      \item $a \divideA b + c \entonces a \divideA b  \otext  a \divideA c$
+      \item $a \divideA c \ytext b \divideA c \entonces a \cdot b \divideA c$
+      \item $a \divideA b \entonces a \leq b$
+      \item $a \divideA b \entonces |a| \leq |b|$
+      \item $a \divideA b + a^2 \entonces a \divideA b$
+      \item $a \divideA b \entonces a^n \divideA b^n, \paratodo n \en \naturales$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-	\item $4 \divideA a^2 \entonces 2 \divideA a $\\
-	      \separadorCorto
+\begin{enumerate}[label=\alph*)]
+  \item $a \cdot b \divideA c \entonces a \divideA c$ \ y \ $b \divideA c$\par
+        $\llave{l}{
+            c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \divideA c \Tilde\\
+            c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \divideA c\Tilde
+          }$
 
-	      $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \divideA 2
-		      \flecha{si $a\cdot b \divideA c$}[$\entonces a \divideA c \y b \divideA c$]
-		      a \divideA 2 \Tilde$
+  \item $4 \divideA a^2 \entonces 2 \divideA a $\par
+        $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \divideA 2
+          \flecha{si $a\cdot b \divideA c$}[$\entonces a \divideA c \y b \divideA c$]
+          a \divideA 2 \Tilde$
 
-	\item $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$\\
-	      \separadorCorto
+  \item $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$\par
+        Si $2 \divideA a \cdot b \entonces
+          \llaves{c}{
+            a \text{ tiene que ser } par \\
+            \o \\
+            b \text{ tiene que ser } par \\
+          } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$.
 
-	      Si $2 \divideA a \cdot b \entonces
-		      \llaves{c}{
-			      a \text{ tiene que ser } par \\
-			      \o \\
-			      b \text{ tiene que ser } par \\
-		      } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$.
+  \item $9 \divideA a\cdot b \entonces 9 \divideA a  $ \ o \ $9 \divideA b$\par
+        Si $a = 3 \y b = 3$, se tiene que $9 \divideA 9$, sin embargo $9 \noDivide 3$
 
-	\item $9 \divideA a\cdot b \entonces 9 \divideA a  $ \ o \ $9 \divideA b$\\
-	      \separadorCorto
+  \item $a \divideA b + c \entonces a \divideA b $ \ o \  $a \divideA c$\par
+        $12 \divideA 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
 
-	      Si $a = 3 \y b = 3$, se tiene que $9 \divideA 9$, sin embargo $9 \noDivide 3$
+  \item
+        \separadorCorto
+        \hacer
+  \item
+        \separadorCorto
+        \hacer
+  \item
+        \separadorCorto
+        \hacer
+  \item $a \divideA b + a^2 \entonces a \divideA b$\par
+        $  a \divideA b + a^2
+          \entonces
+          b + a^2 = k \cdot a
+          \flecha{acomodo}
+          b = (k - a) \cdot a = h \cdot a
+          \entonces
+          a | b \Tilde$\par
+        $ \flecha{también puedo}[decir si:]
+          \llaves{l}{
+            a \divideA a^2 \\
+            a \divideA b - a^2
+          } \flecha{por}[propiedad]
+          a \divideA (b - a^2) + (a^2) = b \entonces a \divideA b \Tilde $
 
-	\item $a \divideA b + c \entonces a \divideA b $ \ o \  $a \divideA c$\\
-	      \separadorCorto
+  \item $a \divideA b \entonces a^n \divideA b^n, \paratodo n \en \naturales$\par
+        Pruebo por inducción.
+        $$
+          p(n)  :  a \divideA b \entonces a^n \divideA b^n
+        $$
 
-	      $12 \divideA 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
+        \textit{Caso base: }
+        $$
+          n = 1 \entonces a \divideA b \entonces a^1 \divideA b^1 \Tilde
+        $$
 
-	\item
-	      \separadorCorto
-	      \hacer
-	\item
-	      \separadorCorto
-	      \hacer
-	\item
-	      \separadorCorto
-	      \hacer
-	\item $a \divideA b + a^2 \entonces a \divideA b$\\
-	      \separadorCorto
+        $p(1)$ resulta verdadera.\par
 
-	      $  a \divideA b + a^2 \entonces b + a^2 = k \cdot a \flecha{acomodo} b = (k - a) \cdot a = h \cdot a \entonces a | b \Tilde$\\
-	      $ \flecha{también puedo}[decir si:]
-		      \llaves{l}{
-			      a \divideA a^2 \\
-			      a \divideA b - a^2
-		      } \flecha{por}[propiedad] a \divideA (b - a^2) + (a^2) = b \entonces a \divideA b \Tilde $
+        \textit{Paso inductivo: }\par
+        Asumo $\ub{p(h): a \divideA b \entonces a^h \divideA b^h}{\text{\purple{hipótesis inductiva}}}$
+        verdadera $\entonces$ quiero ver que $p(h+1): a \divideA b \entonces a^{h+1} \divideA b^{h+1}$\par
+        Parto de la \purple{hipótesis inductiva} y voy llegar a $p(k+1)$. Si:
+        $$
+          a \divideA b
+          \Entonces{\purple{HI}}
+          a^k \divideA b^k
+          \sii
+          a^k \cdot c = b^k
+          \Sii{$\times b$}
+          b \cdot a^k \cdot c = b^{k+1}
+          \Sii{$a \divideA b$}[$a \cdot d = b$]
+          a \cdot d \cdot a^k \cdot c =
+          a^{k+1} \cdot (cd) = b^{k+1}\\
+          \sii
+          a^{k+1} \divideA b^{k+1}.
+        $$
+        Como $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
+        es verdadera $\paratodo n \en \naturales.$\medskip
 
-
-	\item $a \divideA b \entonces a^n \divideA b^n, \paratodo n \en \naturales$\\
-	      \separadorCorto
-
-	      Pruebo por inducción. $p(n)\  :\  a \divideA b \entonces a^n \divideA b^n $\\
-	      $
-		      \llave{l}{
-			      \text{Caso base: } n = 1 \entonces a|b \entonces a^1 \divideA b^1 \Tilde\\
-			      \text{Paso inductivo: } \paratodo h \en \naturales, p(h) \ V \entonces p(h+1)\ V?\\
-			      \text{Si } a \divideA b \entonces a^k \divideA b^k  \entonces a^k \cdot c = b^k
-			      \flecha{multiplico por}[$b$ M.A.M]
-			      b \cdot a^k \cdot c = b^{k+1}
-			      \flecha{$a\divideA b$}[$a \cdot d = b$]
-			      a\cdot d \cdot a^k \cdot c =  a^{k+1}\cdot(cd) = b^{k+1}\\
-			      \flecha{concluyendo}[que] a^{k+1} \divideA b^{k+1} \text{como quería mostrarse.}
-		      }
-	      $ Como $p(1) \y p(k) \y p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
-	      es verdadera $\paratodo n \en \naturales$\\
-	      \textit{Este resultado es importante y se va a ver en muchos ejercicios.\\
-		      $a \divideA b \entonces a^n \divideA b^n \sisolosi
-			      \congruencia{b}{0}{a} \entonces \congruencia{b^n}{\ub{0}{\stackrel{(a^n)}\congruente a^n}}{a^n} \sisolosi \congruencia{b^n}{a^n}{a^n}$}
-
-
+        \textit{Este resultado es importante y se va a ver en muchos ejercicios:}
+        $$
+          a \divideA b \entonces a^n \divideA b^n \sisolosi
+          \congruencia{b}{0}{a}
+          \entonces
+          \congruencia{b^n}{0}{a^n}
+          \Sii{$0 \conga{a^n} a^n$}
+          \congruencia{b^n}{a^n}{a^n}
+        $$
+        $$
+          \boxed{
+            a \divideA b
+            \entonces
+            \congruencia{b^n}{a^n}{a^n}
+          }
+        $$
 \end{enumerate}

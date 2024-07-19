@@ -1,23 +1,23 @@
 %Graficos
 \def\veinticuatro{
-  \begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine]
 
     \node[] (a) {$\bullet$};
     \node[] at (a.north west) {$a$};
 
-    \node[below left = 1cm of a] (b) {$\bullet$};
+    \node[below left=1cm of a] (b) {$\bullet$};
     \node[] at (b.south) {$b$};
 
-    \node[below right = 1cm of a] (f) {$\bullet$};
+    \node[below right=1cm of a] (f) {$\bullet$};
     \node[] at (f.south) {$f$};
 
-    \node[above right = 1cm of a] (d) {$\bullet$};
+    \node[above right=1cm of a] (d) {$\bullet$};
     \node[] at (d.west) {$d$};
 
     \node[right=1cm of a] (c) {$\bullet$};
     \node[] at (c.south) {$c$};
 
-    \node[right= of c] (e) {$\bullet$};
+    \node[right=1cm of c] (e) {$\bullet$};
     \node[] at (e.south) {$e$};
 
 
@@ -69,5 +69,8 @@ $\to
     \clase{c} & = & \set{c, e}     & = & \clase{e} &   & \\
     \clase{d} & = & \set{d}        &   &         &   & \\
   }$\par
-La partición asociada a $\relacion:\,  \set{\set{d}, \set{c,e}, \set{a, b, f}} = \set{\clase{d}, \clase{b}, \clase{a}}$.
-
+La partición asociada a
+$\relacion:\,
+  \set{\set{d},
+    \set{c,e},
+    \set{a, b, f}} = \set{\clase{d}, \clase{b}, \clase{a}}$.

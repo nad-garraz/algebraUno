@@ -263,11 +263,12 @@
 %=======================================================
 
 \newenvironment{enunciado}[1]{ % Toma un parametro obligatorio: \ejExtra o \ejercicio 
-  \separador % linea sobre el enunciado
+        \par
   \begin{minipage}{\textwidth}
+  \separador % linea sobre el enunciado
     #1
     }% contenido
     {
-  \end{minipage}
     \separadorCorto % linea debajo del enunciado
+  \end{minipage}
 }

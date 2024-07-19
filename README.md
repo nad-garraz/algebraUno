@@ -22,8 +22,9 @@ _curados y escritos por el alumnado de álgebra 1_.
 Algunos ejercicio de álgebra 1 en LaTeX
 Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
 
-## Las guías cocinadas:
+## Las guías cocinadas, sin necesidad de compilar:
 En cada directorio _i-guia_ vas a encontrar el archivo *_i-sol.pdf_* que no es otra cosa que la última actualización de la guía _i-ésima_. _Sin necesidad de compilar nada_
+Las guías son largas, usá los links para mejor navegación que hay en el índice y en el pie de página.
 
 ## Estructura del repo
 
@@ -46,6 +47,7 @@ En cada directorio _i-guia_ vas a encontrar el archivo *_i-sol.pdf_* que no es o
 ## Contribuir
 
 Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo. Ahí podés comentarnos por el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) o mail así lo solucionamos y aumentamos la calidad del trabajo.
+Si sabés un poco de LaTeX, ya vas a estar bien, porque hay muchísimos ejercicios con los comandos para que copies y pegues.
 
 _Para contribuir al código directamente debés:_
 

@@ -43,9 +43,9 @@ $$
     Con la condición que dice que $f$ tiene una raíz $z \en G_3$ con $z \distinto 1$,
     que es doble, no nos dejan muchas opciones. $G_3$ tiene tres raíces, solución
     de $w^3 = 1$, dado que por enunciado no puede ser 1, entonces solo quedan.
-    $\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ \green{(si no te acordás como encontrar raíces de la
+    $-\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ \green{(si no te acordás como encontrar raíces de la
     familia $G_n$ te dejo el ejercicio \refEjercicio{ej:12}) que se hacen las cuentas.}
-    Ok, tengo esas dos $\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ ¿Cuál elijo? cualquiera nos
+    Ok, tengo esas dos $-\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ ¿Cuál elijo? cualquiera nos
     sirve, porque, \textit{nuevamente}, como $f en \racionales[X]$ si agarro una raíz compleja
     también necesito su conjugado complejo, lo mismo que antes.\par
 
@@ -53,9 +53,9 @@ Hasta el momento tenemos:\par
 $$
 f =
 \ob{(X - (1+2\sqrt{3})) (X - (1-2\sqrt{3}))}{X^2 - 2X - 11}
-\ub{(X - (\frac{1}{2} + \frac{\sqrt{3}}{2}))^{2^{\llamada1}}
-(X - (\frac{1}{2} - \frac{\sqrt{3}}{2}))^{2^{\llamada1}}}{(X^2 - X + 1)^2} =
-(X^2 - 2X - 11)(X^2 - X + 1)^2
+\ub{(X - (-\frac{1}{2} + \frac{\sqrt{3}}{2}))^{2^{\llamada1}}
+(X - (-\frac{1}{2} - \frac{\sqrt{3}}{2}))^{2^{\llamada1}}}{(X^2 + X + 1)^2} =
+(X^2 - 2X - 11)(X^2 + X + 1)^2
 $$
 
 $\llamada1$ Si es doble una de las complejas, también debe serlo su conjugado, porque
@@ -68,7 +68,7 @@ Hay que proponer otro factor en $\racionales[X]$, que al evaluar de el número q
 
 El $f \en\racionales[X]$ que cumple lo pedido:
 $$
-\boxed{f = (X^2 - 2X - 11)(X^2 - X + 1)^2(X-3)}
+\boxed{f = (X^2 - 2X - 11)(X^2 + X + 1)^2(X-3)}
 $$
 
 

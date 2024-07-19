@@ -1,22 +1,19 @@
 \begin{enunciado}{\ejExtra}
-
-  Sea $(f_n)_{(n\geq 1)}$ la sucesión de poliniomios en $\reales[X]$ definida como:
+  Sea $(f_n)_{(n\geq 1)}$ la sucesión de poliniomios en $\reales[X]$ definida como:\par
   $$
-    f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20 \ytext f_{n+1} =
-    (X + 2)^2 f'_n + 3 f_n, \text{ para cada } n \en \naturales.
-  $$
+    f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20 \ytext f_{n+1} = (X + 2)^2 f'_n + 3 f_n, \text{ para cada } n \en \naturales.
+  $$\par
   Probar que $-2$ es raíz doble de $f_n$ para todo $n \en \naturales$.
-
 \end{enunciado}
 
 No caer en la \red{\textit{trampilla}$^{\skull}$} de olvidar que para que una raíz de $f$ sea doble, i.e.  $\mult(-2;f) \red{\igual{!}} 2$
 debe ocurrir lo \textit{"obvio"}, $f(-2) = f'(-2) = 0$ y también que $\red{f^{''}(-2) \distinto 0}$. Si olvidamos esto último
-solo probaríamos que la $\mult(-1;f) \geq 2$ y tendríamos el ejercicio mal \red{$\skull$}.\\
+solo probaríamos que la $\mult(-1;f) \geq 2$ y tendríamos el ejercicio mal \red{$\skull$}.\par
 
 
 \textit{Por inducción en $n$: } $q(n): $ "$-2$ es raíz doble de $f_n,\, \paratodo n \en \naturales$"
 
-\textit{\underline{Caso base:}} ¿$q(1)$ es V?\\
+\textit{\underline{Caso base:}} ¿$q(1)$ es V?\par
 $
   \llave{lcl}{
     f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20&
@@ -33,7 +30,7 @@ $
   }
 $
 
-$\therefore \mult(-2; f_1) = 2 \entonces -2$ es raíz doble de $f_1 \entonces q(1)$ es V \Tilde\\
+$\therefore \mult(-2; f_1) = 2 \entonces -2$ es raíz doble de $f_1 \entonces q(1)$ es V \Tilde\par
 
 \underline{\textit{Paso inductivo:}} ¿Si $q(k) \text{ verdadera } \entonces q(k+1) \text{ también lo es}$, $\paratodo k \en \naturales$?
 
@@ -47,46 +44,45 @@ $f_k
   }
 $
 
-QPQ dado $k \en \naturales,\, q(k+1):$ $-2$ es raíz doble de $f_{k+1} \igual{def} (X + 2)^2 f'_k + 3f_k$:\\
+QPQ dado $k \en \naturales,\, q(k+1):$ $-2$ es raíz doble de $f_{k+1} \igual{def} (X + 2)^2 f'_k + 3f_k$:\par
 
-\textit{Derivar:}\\
+\textit{Derivar:}\par
 $
   \llave{l}{
   f_{k+1} \igual{def} (X + 2)^2 f'_k + 3f_k\\
   f'_{k+1}  = 2(X+2)f'_k + (X+2)^2 f^{''}_k + f'_k\\
   f^{''}_{k+1}  = 2f'_k + (2x+4)f^{''}_k + 2(x+2) f^{''}_k + (x+2)^2 f^{'''}_k + f^{''}_k
   }
-$\\
+$ \medskip
 
-\textit{Evaluar en $-2$:}\\
+\textit{Evaluar en $-2$:}\par
 $
-  \llave{lll}{
-  f_{k+1}(-2) \igual{?} 0
-  &\sii&
-  f_{k+1}(-2) = \cancel{(-2 + 2)}^2 \cdot f'_k(-2) + 3f_k(-2) =
-  0^2 f'_k(-2) + 3 f_k(-2)=
-  3 f_k(-2) \igual{$\llamada1$}
-  0 \Tilde \vspace{10pt} \\
+  \begin{array}{lll}
+    f_{k+1}(-2) \igual{?} 0
+     & \sii &
+    f_{k+1}(-2) = \cancel{(-2 + 2)}^2 f'_k(-2) + 3f_k(-2) =
+    0^2 f'_k(-2) + 3 f_k(-2)=
+    3 f_k(-2) \igual{$\llamada1$}
+    0 \Tilde \vspace{10pt}                             \\
+    f'_{k+1}(-2) \igual{?} 0
+     & \sii &
+    f_{k+1}'(-2) =
+    2\cancel{(-2 + 2)}f'_k(-2) + \cancel{(-2 + 2)}^2 f^{''} + f'_k(-2) =
+    f'_k(-2) \igual{$\llamada2$} 0 \Tilde\vspace{10pt} \\
+    f^{''}_{k+1}(-2) \taa{?}{}\distinto 0
+     & \sii &
+    \llave{l}{
+    {f^{''}_{k+1}(-2) = 2f'_k(-2) +
+    2\cancel{(-2+2)}f^{''}_k(-2) +
+    2\cancel{(-2+2)} f^{''}_k(-2) } +                  \\
+    + \cancel{(-2+2)}^2 f^{'''}_k(-2) +
+    f^{''}_k(-2) = 2\ob{f'_k(-2)}{= 0 \llamada2} + \ob{f^{''}_k(-2)}{\distinto 0 \llamada3}
+    \distinto 0 \Tilde
+    }
+  \end{array}
+$
 
-  f'_{k+1}(-2) \igual{?} 0
-  &\sii&
-  f_{k+1}'(-2) =
-  2\cancel{(-2 + 2)}f'_k(-2) + \cancel{(-2 + 2)}^2 f^{''} + f'_k(-2) =
-  f'_k(-2) \igual{$\llamada2$} 0 \Tilde\vspace{10pt}\\
-  f^{''}_{k+1}(-2) \igual{?} \distinto 0
-  &\sii&
-  \llave{l}{
-  {f^{''}_{k+1}(-2) = 2f'_k(-2) +
-  2\cancel{(-2+2)}f^{''}_k(-2) +
-  2\cancel{(-2+2)} f^{''}_k(-2) +
-  \cancel{(-2+2)}^2 f^{'''}_k(-2) +}\\
-  + f^{''}_k(-2) = 2\ob{f'_k(-2)}{= 0 \llamada2} + \ob{f^{''}_k(-2)}{\distinto 0 \llamada3}
-  \distinto 0 \Tilde
-  }
-  }
-$\\
-
-$\therefore \mult(-2; f_{k+1}) = 2 \entonces -2$ es raíz doble de $f_{k+1} \entonces q(k+1)$ es V \Tilde\\
+$\therefore \mult(-2; f_{k+1}) = 2 \entonces -2$ es raíz doble de $f_{k+1} \entonces q(k+1)$ es V \Tilde
 
 Como $q(1),\, q(k)$ y $q(k+1)$ resultaron verdaderas, por principio de inducción $q(n)$ también lo es $\paratodo n \en \naturales$.
 

@@ -1,16 +1,18 @@
-\ejercicio
-Si se sabe que cada unidad de un cierto producto $A$ cuesta $39$ pesos y que cada unidad de un cierto
-producto $B$ cuesta 48 pesos, ¿cuántas unidades de cada producto se pueden comprar gastando exactamente
-135 pesos?
+\begin{enunciado}{\ejercicio}
+  Si se sabe que cada unidad de un cierto producto $A$ cuesta $39$ pesos y que cada unidad de un cierto
+  producto $B$ cuesta 48 pesos, ¿cuántas unidades de cada producto se pueden comprar gastando exactamente
+  135 pesos?
+\end{enunciado}
 
-\separadorCorto
-
-$
-	\llave{l}{
-		A \geq 0 \y B \geq 0 \text{. Dado que son productos \faIcon{brain}.}\\
-		(A:B) = 3 \entonces 39A + 28B = 135
-		\flecha{coprimizar}
-		13A + 16B = 45\\
-		\text{ A ojo } \to (A,B) = (1,2)
-	}
-$
+Armo diofántica con enunciado, tengo en cuenta que
+$A \geq 0 \ytext B \geq 0$, dado que son productos {\color{pink}{\faIcon{brain}}}.
+$$
+  \llave{c}{
+    39A + 28B = 135\\
+    \Sii{coprimizar}[$(A:B) = 3$]\\
+    13\blue{A} + 16\green{B} = 45,\,\\
+    \text{tiene solución, ya que $\ub{(13:16)}{ = 1} \divideA 45$}\\
+    \flecha{sale a ojo}\\
+    \boxed{(\blue{A},\green{B}) = (\blue{1},\green{2})}
+  }
+$$

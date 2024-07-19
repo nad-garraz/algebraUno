@@ -77,6 +77,7 @@
 \newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{\mathclap{#2}} }
 \newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{\mathclap{#2}} }
 \def\cop{\, \perp \, }
+\def\nocop{\, \not\perp \, }
 
 % complejos
 \DeclareMathOperator{\re}{Re}
@@ -113,18 +114,34 @@
 % Estrellita para hacer llamadas de atención, viene en divertidos colores
 % para coleccionar.
 \newcommand{\llamada}[1]{
-  \textcolor{
-    \ifcase \numexpr#1 mod 6\relax
-      cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or
-    \fi
-  }
-  {\text{\FiveStar}^{\scriptscriptstyle#1}}
+  \begingroup% Scope para la variable colortemp
+  \ifcase \numexpr#1 mod 6\relax
+    \def\colortemp{cyan}
+  \or
+    \def\colortemp{magenta}
+  \or
+    \def\colortemp{OliveGreen}
+  \or
+    \def\colortemp{YellowOrange}
+  \or
+    \def\colortemp{Cerulean}
+  \or
+    \def\colortemp{Violet}
+  \or
+    \def\colortemp{Purple}
+  \fi
+  \textcolor{\colortemp}{\text{\FiveStar}^{\scriptscriptstyle#1}}
+  \endgroup
 }
 
 
 % separadores
-\def\separador{\par\medskip\rule{\linewidth}{0.4pt}\par\medskip}
-\def\separadorCorto{\par\medskip\rule{0.5\linewidth}{0.4pt}\par\medskip}
+\newcommand{\separador}{
+  \par\noindent\rule{\linewidth}{0.4pt}\par
+}
+\newcommand{\separadorCorto}{
+  \par\noindent\rule{0.5\linewidth}{0.4pt}\par
+}
 
 
 % Colores
@@ -212,8 +229,8 @@
 }
 
 %Update time
-\def\update{
-  actualizado: \today
+\def\update{\tiny
+  {\today\ @ \currenttime}
 }
 
 
@@ -262,13 +279,15 @@
 % fin sección ejercicio con su respectivo formato y contador
 %=======================================================
 
-\newenvironment{enunciado}[1]{ % Toma un parametro obligatorio: \ejExtra o \ejercicio 
-        \par
-  \begin{minipage}{\textwidth}
-  \separador % linea sobre el enunciado
+\newenvironment{enunciado}[1]{% Toma un parametro obligatorio: \ejExtra o \ejercicio 
+  \par
+  \noindent
+  \begin{minipage}{\linewidth}
+    \separador % linea sobre el enunciado
     #1
     }% contenido
     {
     \separadorCorto % linea debajo del enunciado
-  \end{minipage}
+    \par
+  \end{minipage}\par
 }

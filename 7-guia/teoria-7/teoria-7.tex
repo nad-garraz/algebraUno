@@ -4,58 +4,94 @@
 \begin{itemize}
   \item \textit{Operaciones: }
         \begin{itemize}
-          \item[$+:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \polGen{b}$\\
-                $\entonces f + g = \sumatoria{i=0}{n} (a_i + b_i) X^i \en \K[X]$
+          \item[$+:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \polGen{b}$\par
+                $$
+                  \entonces f + g = \sumatoria{i=0}{n} (a_i + b_i) X^i \en \K[X]
+                $$
           \item[$\cdot:$] Sean $f,g \en \K[X]$ con $f = \polGen{a}$ y $g = \sumatoria{j=0}{m} b_j X^j$\\
                 $\entonces f \cdot g = \sumatoria{k=0}{n+m} (\sumatoria{i+j=k}{} a_i \cdot b_j) X^k \en \K[X]$
         \end{itemize}
-  \item $(\K[X],+,\cdot) \text{ es un anillo conmutativo } \to f\cdot(g+h) = f\cdot g + f\cdot h,\, \paratodo f,\,g,\,h \en \K[X]$
 
-  \item \textit{Algoritmo de división}: $f,g \en \K[X]$ no nulos, existen únicos $q$ y $R \en \K[X]$ tal que $f = q\cdot g + R$
-        con $\gr(R) < \gr(f)$ o $R = 0$
+  \item \textit{Algoritmo de división}:\par
+        $f, g \en \K[X]$ no nulos, existen únicos $q$ y $R \en \K[X]$ tal que
+        $$
+          f = q \cdot g + R
+        $$
+        con $\gr(R) < \gr(f)$ o $R = 0$.
 
-  \item $\alpha$ es raíz de $f \sisolosi X - \alpha \divideA f \sisolosi f = q \cdot ( X - \alpha)$
+  \item \textit{Raíz de un Polinomio:}\par
+        $$
+          \alpha \text{ es raíz de } f \sisolosi X - \alpha \divideA f \sisolosi f = q \cdot ( X - \alpha)
+        $$
 
-  \item \textit{Máximo común divisor: } Polinomio mónico de mayor grado que divide a ambos polinomios en $\K[X]$
+  \item \textit{Máximo común divisor:}\par
+
+        Polinomio, $(f:g) \en \K[X]$, \textit{mónico} de mayor grado que divide a ambos polinomios en $\K[X]$
         y vale el algoritmo de Euclides.
-        \begin{itemize}
-          \item $(f:g) \divideA f$ y $(f:g) \divideA g$
+        \begin{itemize}[label = \tiny \faIcon{meh}]
+          \item $(f:g) \divideA f \quad \ytext \quad (f:g) \divideA g$
 
-          \item $f = (f:g)\cdot k_f$ y $g = (f:g)\cdot k_g$ con $k_f$ y $k_g$ en $\K[X]$
+          \item $f = (f:g) \cdot k_f \quad \ytext \quad g = (f:g) \cdot k_g \quad \text{con} \quad k_f \quad \ytext \quad  k_g$ en $\K[X]$
 
           \item Dos polinomios son coprimos si $(f:g) = 1 \sisolosi f \distinto g$
         \end{itemize}
 
-  \item \textit{Raíces múltiples: }\\
+  \item \textit{Raíces múltiples:}\par
         Sea $f \en \K[x]$ no nulo, y sea $\alpha \en \K$. Se dice que:
-        \begin{itemize}
-          \item $\alpha$ es raíz \underline{múltiple} de $f \sii f = (x - \alpha)^2 q$ para algún $q \en \K[X]$
+        \begin{itemize}[label=\tiny \faIcon{meh}]
+          \item Cuando $f$ tiene una raíz múltiple:
+                $$
+                  \begin{array}{c}
+                    \alpha\text{ es raíz \textit{múltiple} de } f \sisolosi f = (X - \alpha)^2 q \\
+                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X] \quad \ytext \quad \magenta{ q(\alpha) = 0}.
+                  \end{array}
+                $$
 
-          \item $\alpha$ es raíz \underline{simple} de $f \sii x - \alpha \divideA f$ en $\K[X]$,
-                pero $(X - \alpha)^2 \noDivide f$ en $\K[X] \sii f = (X - \alpha) q$
-                para algún $q \en \K[X]$ tal que $q(\alpha) \distinto 0$.
+          \item Cuando la raíz \textit{no} es múltiple, es \textit{simple} cuando:
+                $$
+                  \begin{array}{c}
+                    \alpha \text{ es raíz \textit{simple} de } f \sisolosi (X - \alpha) \divideA f
+                    \ytext (X - \alpha)^2 \taa{\red{!!}}{}\noDivide f \\
+                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X] \quad \ytext \quad \magenta{ q(\alpha) \distinto 0}.
+                  \end{array}
+                $$
+                Prestale atención a los \red{!} porque sino la vas a cagar.
 
           \item Sea $m \en \naturales_0$. Se dice que $\alpha$ es raíz de multiplicidad (exactamente)
-                $m$ de $f$, y se nota $\mult(\alpha;f) = m \sisolosi (X - \alpha)^m \divideA f$,
-                pero $(x - \alpha)^{m+1} \noDivide f$.\\
-                O equivalentemente, $f = (X - \alpha)^m q$ con $q \en \K[X]$,
-                pero $q(\alpha) \distinto 0$
+                $m$ de $f$, y se nota:
+                $$
+                  \mult(\alpha;f) = m \sisolosi (X - \alpha)^m \divideA f,
+                $$
+                y también
+                $$
+                  (X - \alpha)^{m+1} \noDivide f.
+                $$
 
-          \item Sea $f \en \K[X]$ no nulo $\mult(\alpha; f) \leq \gr(f)$:
+                O equivalentemente,
+                $$
+                  f = (X - \alpha)^m q \quad \text{con} \quad q \en \K[X], \quad \ytext \quad \magenta{q (\alpha) \distinto 0}.
+                $$
 
-          \item Sean $f$, $g \en \K[X]$ no ambos nulos, y $\alpha \en \K
-                  \entonces f(\alpha) = f(\alpha) = 0 \sii (f:g)(\alpha) = 0$
-        \end{itemize}
+          \item \textit{Raíces y MCD:}\par
+                Sean $f$, $g \en \K[X]$ no ambos nulos, y $\alpha \en \K$:
+                \red{Esta se usa bastante}.
+                $$
+                  \entonces f(\alpha) = g(\alpha) = 0 \sii (f:g)(\alpha) = 0
+                $$
 
-  \item Vale que $\alpha$ es raíz múltiple de $f \sisolosi f(\alpha) = 0$ y $f'(\alpha) = 0 \sisolosi \alpha$
-        es raíz de $(f:f'),\, X - \alpha \divideA (f:f')$
-        \begin{itemize}
-          \item $
-                  \mult(\alpha,f) = m
-                  \sisolosi
-                  f(\alpha) = 0$ y $\mult(\alpha;f') = m-1$
+          \item $\alpha$ es raíz múltiple de $f$ si y solo si:
+                $$
+                  f(\alpha) = 0 \quad \ytext \quad f'(\alpha) =
+                  0 \sisolosi \alpha \text{ es raíz de } (f:f') \sisolosi X - \alpha \divideA (f:f')
+                $$
+          \item La multiplicidad $m$ de una raíz, será $m-1$ en la derivada:
+                $$
+                  \mult(\alpha,f) = m \sisolosi f(\alpha) = 0  \ytext  \mult(\alpha;f') = m-1
+                $$
 
-          \item $\mult(\alpha;f) = m \sisolosi
+
+          \item Relación entre la multiplicidad de una raíz de $f$ y sus derivadas: \par
+                $\mult(\alpha;f) = m \sisolosi
                   \llave{rl}{
                     \mult(\alpha;f)\geq m     &
                     \llaveInv{c}{
@@ -63,14 +99,23 @@
                       \vdots\\
                       f^{(m-1)}(\alpha) = 0
                     }\\
+                    \hline
                     \mult(\alpha;f) = m     &
-                    \llaveInv{c}{
-                      f^{(m)}\alpha) \distinto 0
+                    \llaveInv{r}{
+                      \  f^{(m)}(\alpha) \distinto 0 \magenta{\text{ la $m$-ésima derivada no se anula.}}
                     }
                   }$
+                Todo ese quilombo de cosas lo que dice es por ejemplo, que si tenés una raíz $\alpha$ de $f$
+                \textbf{triple} entonces la \textbf{tercera derivada} \red{NO PUEDE SER 0}, $f^{'''}(\alpha) \taa{\red{!!}}{}\distinto 0$.\par
+                Pero tanto la función, su primera y segunda derivada DEBEN SER 0,
+                $
+                  f(\alpha) \igual{\red{!!}}
+                  f'(\alpha) \igual{\red{!!}}
+                  f^{''}(\alpha) \igual{\red{!!}} 0
+                $
         \end{itemize}
 
-\item \hypertarget{7-teoria:irreducibles}{Polinomios irreducibles}:\par
+  \item \hypertarget{7-teoria:irreducibles}{Polinomios irreducibles}:\par
         Sea $f \en K[X]$
         \begin{itemize}
           \item

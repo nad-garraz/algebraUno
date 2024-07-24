@@ -1,6 +1,8 @@
 \begin{enunciado}{\ejExtra}
   Sea
-  $$ \F = \set{h : \set{1,2,3,4} \to \set{1,2,\dots, 50} \ /\  h \text{ es inyectiva}} $$.
+  $$
+    \F = \set{h : \set{1,2,3,4} \to \set{1,2,\dots, 50} \ /\  h \text{ es inyectiva}}. $$
+
   Definimos en $\F$ la relación $\relacion$ como
   $$
     f \relacion g \quad \text{si y sólo si} \quad \# \parentesis{ \im(f) \diferencia \im(g) } = 0 \otext 4.
@@ -26,56 +28,55 @@ $$
 
 \begin{enumerate}[label=\alph*)]
   \item
-        \textit{Reflexiva: } Quiero ver que si $f \relacion f$.\\
+        \textit{Reflexiva: } Quiero ver que si $f \relacion f$.\par
         Esto debe ser cierto, ya que
         $A = \set{\im(f) \diferencia \im(f)} =
-          \vacio \ \ytext\  \# \vacio \igual! 0 \ \paratodo f \en \F.
-        $
-        $\relacion$ es reflexiva \Tilde\\
+          \vacio \ytext \# \vacio \igual{\red{!}} 0 \ \paratodo f \en \F.
+          \relacion$ es reflexiva \Tilde\par
 
-        \textit{Simétrica: }Quiero ver que si $f \relacion g \entonces g \relacion f$.\\
+        \textit{Simétrica: }Quiero ver que si $f \relacion g \entonces g \relacion f$.\par
         Si tengo que $f \relacion g$, sé algo sobre sus conjuntos $\im$ ya que,
-        $$
+        \[
           \llave{ccc}{
-            \#\set{\im(f) \diferencia \im(g)} = 0 & \sisolosi & \im(f) \igual{$\llamada1$} \im(g) \\\
-            &\otext&\\
-            \#\set{\im(f) \diferencia \im(g)} = 4
-            &\sisolosi&
-            \im(f) \stackrel{\llamada2}\inter \im(g) = \vacio
+          \#\set{\im(f) \diferencia \im(g)} = 0 & \sisolosi & \im(f) \igual{$\llamada1$} \im(g) \\
+                                                & \otext    &                                   \\
+          \#\set{\im(f) \diferencia \im(g)} = 4
+                                                & \sisolosi &
+          \im(f) \stackrel{\llamada2}\inter \im(g) = \vacio
           }
-        $$
+        \]
         Entonces los conjuntos $\im(f)$ y $\im(g)$ están relacionados por un "$=$" y un "$\inter$",
-        dos operadores simétricos por lo tanto $\relacion$ es simétrica. \Tilde\\
+        dos operadores simétricos por lo tanto $\relacion$ es simétrica. \Tilde\par
 
         \textit{Antisimétrica: } Quiero ver que si
         $f \relacion g \entonces g \norelacion f$,
         o también a veces está bueno pensarla la antisimetría como si
         $f \relacion g \ytext g \relacion f \entonces f = g$. Bajo la sospecha de que la función no es antisimétrica
-        la segunda forma de pensarlo me ayuda a encontrar un \textit{contra}ejemplo.\\
+        la segunda forma de pensarlo me ayuda a encontrar un \textit{contra}ejemplo.\par
         $$
           f
           \to
           \llave{l}{
-            f(1) = 1\\
-            f(2) = 2\\
-            f(3) = 3\\
-            f(4) = 4
-          }\quad\ytext\quad
+          f(1) = 1 \\
+          f(2) = 2 \\
+          f(3) = 3 \\
+          f(4) = 4
+          }\ytext
           g
           \to
           \llave{l}{
-            g(1) = 4\\
-            g(2) = 3\\
-            g(3) = 2\\
-            g(4) = 1
+          g(1) = 4 \\
+          g(2) = 3 \\
+          g(3) = 2 \\
+          g(4) = 1
           }
         $$
-        $\llave{l}{
-            f \relacion g, \text{ sus imágenes cumplen } \llamada1\\
-            g \relacion f, \text{ sus imágenes cumplen } \llamada1
-          }
-        $, pero por como están definidas las funciones $f \distinto g$. $\relacion$ no es antisimétrica. $\skull$\\
 
+        $\llave{l}{
+          f \relacion g, \text{ sus imágenes cumplen } \llamada1 \\
+          g \relacion f, \text{ sus imágenes cumplen } \llamada1
+          }
+        $, pero por como están definidas las funciones $f \distinto g$. $\relacion$ no es antisimétrica. $\skull$\par
 
         \textit{Transitiva: } Quiero ver que si
         $f \relacion g
@@ -84,37 +85,37 @@ $$
           \entonces
           f \relacion h$.\\
         Acá podemos encontrar un \textit{contra}ejemplo para mostrar que no es transitiva, saco de la galera 3 funciones,
-        $f, \,g \ytext h \en \F$\\
+        $f, \,g \ytext h \en \F$\par
         $$
           f
           \to
           \llave{l}{
-            f(1) = 1\\
-            f(2) = 2\\
-            f(3) = 3\\
-            f(4) = 4
+          f(1) = 1 \\
+          f(2) = 2 \\
+          f(3) = 3 \\
+          f(4) = 4
           },\quad
           g
           \to
           \llave{l}{
-            g(1) = 5\\
-            g(2) = 6\\
-            g(3) = 7\\
-            g(4) = 8
-          } \quad \ytext \quad
+          g(1) = 5 \\
+          g(2) = 6 \\
+          g(3) = 7 \\
+          g(4) = 8
+          }  \ytext
           h
           \to
           \llave{l}{
-            h(1) = 1\\
-            h(2) = 2\\
-            h(3) = 9\\
-            h(4) = 10
+          h(1) = 1 \\
+          h(2) = 2 \\
+          h(3) = 9 \\
+          h(4) = 10
           }
         $$
 
         $\llave{l}{
-            f \relacion g, \text{ sus imágenes cumplen } \llamada2\\
-            g \relacion h, \text{ sus imágenes cumplen } \llamada2
+          f \relacion g, \text{ sus imágenes cumplen } \llamada2 \\
+          g \relacion h, \text{ sus imágenes cumplen } \llamada2
           }
         $, pero
         $f \norelacion h$ dado que:
@@ -125,29 +126,29 @@ $$
 
   \item
         Para que $f$ y $g$ se relacionen se debe cumplir con $\llamada1$ o con $\llamada2$. En otras palabras necesito encontrar funciones
-        $g \en \F$ cuya imagen $\im(g) = \set{1,2,3,4}$ o su codominio sea $\ub{\cod = \set{5,6,\dots,49,50}}{\#\cod = 46}$.\\
+        $g \en \F$ cuya imagen $\im(g) = \set{1,2,3,4}$ o su codominio sea $\ub{\cod = \set{5,6,\dots,49,50}}{\#\cod = 46}$.\par
 
-        \textit{Contar cuando $\im(g) = \set{1,2,3,4}$:}\\
-        Hago la \textit{inyección} de los 4 valores que puede tomar la función inyectiva $g$.\\
+        \textit{Contar cuando $\im(g) = \set{1,2,3,4}$:}\par
+        Hago la \textit{inyección} de los 4 valores que puede tomar la función inyectiva $g$.\par
         $$
           \llave{r c c c c }{
-            g \to   &g(1) & g(2) & g(3) & g(4) \\
-            &\downarrow &\downarrow &\downarrow & \downarrow\\
-            \text{opciones}\to & \#4 & \#3 & \#2 & \#1
+          g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
+                             & \downarrow & \downarrow & \downarrow & \downarrow \\
+          \text{opciones}\to & \#4        & \#3        & \#2        & \#1
           }
         $$
-        Hay $4!$ permutaciones \Tilde\\
+        Hay $4!$ permutaciones \Tilde\par
 
-        \textit{Contar cuando codominio sea $\cod = \set{5,6,\dots,,49,50}$}\\
-        Hago la \textit{inyección} de los 46 valores que puede tomar la función inyectiva $g$.\\
+        \textit{Contar cuando codominio sea $\cod = \set{5,6,\dots,,49,50}$}\par
+        Hago la \textit{inyección} de los 46 valores que puede tomar la función inyectiva $g$.\par
         $$
           \llave{r c c c c }{
-            g \to   &g(1) & g(2) & g(3) & g(4) \\
-            &\downarrow &\downarrow &\downarrow & \downarrow\\
-            \text{opciones}\to & \#46 & \#45 & \#44 & \#43
+          g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
+                             & \downarrow & \downarrow & \downarrow & \downarrow \\
+          \text{opciones}\to & \#46       & \#45       & \#44       & \#43
           }
         $$
-        Hay $\frac{46!}{42!}$ permutaciones \Tilde\\
+        Hay $\frac{46!}{42!}$ permutaciones \Tilde\par
 
         Se concluye que hay un total de $\frac{46!}{42!}  + 4!$ funciones $g \en \F / f \relacion g$ \Tilde
 \end{enumerate}

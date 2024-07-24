@@ -1,30 +1,41 @@
 \begin{enunciado}{\ejercicio}
-        Encontrar fórmulas que describen las partes rayadas de los siguientes diagramas de Venn, utilizando
-        únicamente intersecciones, uniones y complementos.
+  Encontrar fórmulas que describen las partes rayadas de los siguientes diagramas de Venn, utilizando
+  únicamente intersecciones, uniones y complementos.
 
-\begin{multicols}{3}
-  \begin{enumerate}[label=\roman*)]
-    \item
-          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
-            \fillOnlyA
-            \fillBCapCNotA
-            \fillACapCNotB
-          \end{venndiagram3sets}
+  \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillOnlyA
+              \fillBCapCNotA
+              \fillACapCNotB
+            \end{venndiagram3sets}
 
-    \item
-          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
-            \fillOnlyA
-            \fillOnlyC
-          \end{venndiagram3sets}
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillOnlyA
+              \fillOnlyC
+            \end{venndiagram3sets}
 
-    \item
-          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
-\fillACapBNotC
-\fillACapCNotB
-\fillCCapBNotA
-          \end{venndiagram3sets}
-  \end{enumerate}
-\end{multicols}
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillACapBNotC
+              \fillACapCNotB
+              \fillCCapBNotA
+            \end{venndiagram3sets}
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
 
-\hacer
+\begin{multicols}{2}
+  \begin{enumerate}[label=(\alph*)]
+    \item $(A \inter B^c) \union (A^c \inter B \inter C)$
+
+    \item $
+            \green{(A \triangle C)} \inter B^c
+            \igual{\red{!}}
+            \green{(A \union C) \inter (A \inter C)^c} \inter B^c $
+
+    \item $((A \inter B) \union (B \inter C) \union (A \inter C)) \inter (A \inter B \inter C)^c $
+  \end{enumerate}
+\end{multicols}

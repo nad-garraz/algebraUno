@@ -29,9 +29,9 @@
         Polinomio, $(f:g) \en \K[X]$, \textit{mónico} de mayor grado que divide a ambos polinomios en $\K[X]$
         y vale el algoritmo de Euclides.
         \begin{itemize}[label = \tiny \faIcon{meh}]
-          \item $(f:g) \divideA f \quad \ytext \quad (f:g) \divideA g$
+          \item $(f:g) \divideA f \ytext (f:g) \divideA g$
 
-          \item $f = (f:g) \cdot k_f \quad \ytext \quad g = (f:g) \cdot k_g \quad \text{con} \quad k_f \quad \ytext \quad  k_g$ en $\K[X]$
+          \item $f = (f:g) \cdot k_f  \ytext  g = (f:g) \cdot k_g \quad \text{con} \quad k_f  \ytext   k_g$ en $\K[X]$
 
           \item Dos polinomios son coprimos si $(f:g) = 1 \sisolosi f \distinto g$
         \end{itemize}
@@ -43,7 +43,7 @@
                 $$
                   \begin{array}{c}
                     \alpha\text{ es raíz \textit{múltiple} de } f \sisolosi f = (X - \alpha)^2 q \\
-                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X] \quad \ytext \quad \magenta{ q(\alpha) = 0}.
+                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X]  \ytext  \magenta{ q(\alpha) = 0}.
                   \end{array}
                 $$
 
@@ -52,7 +52,7 @@
                   \begin{array}{c}
                     \alpha \text{ es raíz \textit{simple} de } f \sisolosi (X - \alpha) \divideA f
                     \ytext (X - \alpha)^2 \taa{\red{!!}}{}\noDivide f \\
-                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X] \quad \ytext \quad \magenta{ q(\alpha) \distinto 0}.
+                    f = (X - \alpha)\cdot q,\ \text{ con } q \en \K[X]  \ytext  \magenta{ q(\alpha) \distinto 0}.
                   \end{array}
                 $$
                 Prestale atención a los \red{!} porque sino la vas a cagar.
@@ -69,7 +69,7 @@
 
                 O equivalentemente,
                 $$
-                  f = (X - \alpha)^m q \quad \text{con} \quad q \en \K[X], \quad \ytext \quad \magenta{q (\alpha) \distinto 0}.
+                  f = (X - \alpha)^m q \quad \text{con} \quad q \en \K[X],  \ytext  \magenta{q (\alpha) \distinto 0}.
                 $$
 
           \item \textit{Raíces y MCD:}\par
@@ -81,7 +81,7 @@
 
           \item $\alpha$ es raíz múltiple de $f$ si y solo si:
                 $$
-                  f(\alpha) = 0 \quad \ytext \quad f'(\alpha) =
+                  f(\alpha) = 0  \ytext  f'(\alpha) =
                   0 \sisolosi \alpha \text{ es raíz de } (f:f') \sisolosi X - \alpha \divideA (f:f')
                 $$
           \item La multiplicidad $m$ de una raíz, será $m-1$ en la derivada:

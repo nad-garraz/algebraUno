@@ -1,95 +1,95 @@
-\ejExtra
-Sea $z = \frac{\sqrt{3}}{2} - \frac{1}{2}i$. Hallar todos los $n \en \naturales$ que cumplen simultáneamente
-las siguientes condiciones:
-\begin{itemize}
-	\item $8 \divideA 3n + |z^3|$
-	\item $\arg(z^{7n+6}) = \arg(i)$
-\end{itemize}
-
-\separadorCorto
+\begin{enunciado}{\ejExtra}
+  Sea $z = \frac{\sqrt{3}}{2} - \frac{1}{2}i$. Hallar todos los $n \en \naturales$ que cumplen simultáneamente
+  las siguientes condiciones:
+  \begin{itemize}
+    \item $8 \divideA 3n + |z^3|$
+    \item $\arg(z^{7n+6}) = \arg(i)$
+  \end{itemize}
+\end{enunciado}
 
 $\llave{l}{
-		|z| = 1\\
-		\theta_z = \frac{11}{6}\pi
-	}
-	\to z = |z|e^{\theta_z i} =
-	e^{i\frac{11}{6}\pi}
-	\entonces
-	z^3 = e^{i\frac{11}{2}\pi} = -1
-	\sii |z^3| = 1
+  |z| = 1 \\
+  \theta_z = \frac{11}{6}\pi
+  }
+  \to z = |z|e^{\theta_z i} =
+  e^{i\frac{11}{6}\pi}
+  \entonces
+  z^3 = e^{i\frac{11}{2}\pi} = -1
+  \sii |z^3| = 1
 $
 
+\textit{Primera condición: }\par
 $
-	\flecha{primera}[condición]
-	8 \divideA 3n + |z^3| = 3n + 1
-	\sii
-	3n + 1 = 8k
-	\sii
-	\congruencia{3n + 1}{0}{8}
-	\sii
-	\congruencia{3n}{7}{8}
-	\sii
-	{\congruencia{9n}{21}{8}}
-	\sii
-	\congruencia{n}{5}{8}  \Tilde
-$\\
+  8 \divideA 3n + |z^3| = 3n + 1
+  \Sii{def}
+  3n + 1 = 8k
+  \Sii{def}
+  \congruencia{3n + 1}{0}{8}
+  \sii
+  \congruencia{3n}{7}{8}
+  \Sii{$\times 3$}[$(\Leftarrow) 3 \cop 8$]
+  {\congruencia{9n}{21}{8}}
+  \sii
+  \congruencia{n}{5}{8}  \Tilde
+$\par
+
+\textit{Segunda condición: }\par
+$
+  \arg(z^{7n+6}) = \arg(i)
+  \sii
+  \parentesis{e^{i\frac{11}{6}\pi}}^{7n+6} = e^{i\frac{\pi}{2}}
+  \sii
+  e^{i\frac{77}{6}\pi + 11 \pi} =
+  e^{i\frac{\pi}{2}}
+  \sii
+  \frac{77}{6}n\pi + 11 \pi = \frac{\pi}{2} + \magenta{2k\pi}\\
+  \flecha{despejo}[$n$]
+  \frac{77}{6}n + 11 = \frac{1}{2} + 2k
+  \sii
+  77n = -63 + 12k
+  \Sii{def}
+  \congruencia{77n}{-63}{12}
+  \sii
+  \congruencia{5n}{-3}{12}
+  \Sii{\red{!} \quad $\times 5$}[$(\Leftarrow) 5 \cop 12$]
+  \congruencia{n}{9}{12} \Tilde
+$\par
 
 $
-	\flecha{segunda}[condición]
-	\arg(z^{7n+6}) = \arg(i)
-	\sii
-	\parentesis{e^{i\frac{11}{6}\pi}}^{7n+6} = e^{i\frac{\pi}{2}}
-	\sii
-	e^{i\frac{77}{6}\pi + 11 \pi} =
-	e^{i\frac{\pi}{2}}
-	\sii
-	\frac{77}{6}n\pi + 11 \pi = \frac{\pi}{2} + \magenta{2k\pi}\\
-	\flecha{despejo}[$n$]
-	\frac{77}{6}n + 11 = \frac{1}{2} + 2k
-	\sii
-	77n = -63 + 12k
-	\sii
-	\congruencia{77n}{-63}{12}
-	\sii
-	\congruencia{5n}{-3}{12}
-	\sii
-	\congruencia{n}{9}{12} \Tilde
-$\\
+  \flecha{junto info}[T\faIcon{cannabis}R]
+  \llave{l}{
+  \congruencia{n}{9}{12} \\
+  \congruencia{n}{5}{8}
+  }
+  \Sii{quiero}[\textit{divisores coprimos}]
+  \llave{l}{
+  \congruencia{n}{1}{4} \blue{\Tilde}                 \\
+  \congruencia{n}{0}{3}                               \\
+  \congruencia{n}{1}{4} \magenta{\Tilde}\blue{\Tilde} \\
+  \congruencia{n}{1}{2} \magenta{\Tilde}
+  }
+  \Sii{me quedo con el}[de mayor divisor]
+  \llave{l}{
+  \congruencia{n}{0}{3} \llamada1 \\
+  \congruencia{n}{5}{8} \llamada2 \\
+  }
+$
+\par
+
+Ahora sí, tengo el sistema con \red{\textit{divisores coprimos}},
+por TCHR tengo solución.\par
 
 $
-    \flecha{junto info}[T\faIcon{cannabis}R]
-	\llave{l}{
-		\congruencia{n}{9}{12} \\
-		\congruencia{n}{5}{8}
-	}
-    \Sii{quiero}[\textit{divisores coprimos}]
-	\llave{l}{
-		\congruencia{n}{1}{4} \blue{\Tilde} \\
-		\congruencia{n}{0}{3}  \\
-		\congruencia{n}{1}{4} \magenta{\Tilde}\blue{\Tilde}\\
-		\congruencia{n}{1}{2} \magenta{\Tilde}
-	}
-    \Sii{me quedo con el}[de mayor divisor]
-	\llave{l}{
-		\congruencia{n}{0}{3} \llamada1  \\
-		\congruencia{n}{5}{8} \llamada2\\
-	}\\
-    $
-
-    Ahora sí, tengo el sistema con \red{\textit{divisores coprimos}},
-    por TCHR tengo solución.\\
-
-    $
-	\flecha{de}[$\llamada1$]
-	n = 3k \llamada3 \Tilde
-	\flecha{reemplazo}[en $\llamada2$]
-	\congruencia{3k}{5}{8}
-    \Sii{$\times 3$}[$3 \cop 5$]
-	\congruencia{k}{7}{8}
-    \sii
-    k = \yellow{8j + 7} \Tilde\\
-	\flecha{reemplazo}[$k$ en $\llamada3$]
-	n = 3 (\yellow{8j + 7}) = 24j + 21
-	\sii
-	\boxed{\congruencia{n}{21}{24}} \Tilde
+  \flecha{de}[$\llamada1$]
+  n = 3k \llamada3 \Tilde
+  \flecha{reemplazo}[en $\llamada2$]
+  \congruencia{3k}{5}{8}
+  \Sii{$\times 3$}[$(\Leftarrow) 3 \cop 5$]
+  \congruencia{k}{7}{8}
+  \sii
+  k = \yellow{8j + 7} \Tilde\\
+  \flecha{reemplazo}[$k$ en $\llamada3$]
+  n = 3 (\yellow{8j + 7}) = 24j + 21
+  \sii
+  \boxed{\congruencia{n}{21}{24}} \Tilde
 $

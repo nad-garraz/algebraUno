@@ -1,44 +1,46 @@
 Voy a estar usando:
 \begin{enumerate}[label=(\alph*)]
-	\item $A \union B = B \union A \to \text{Conmuta}$
-	\item $A \inter B = B \inter A \to \text{Conmuta}$
-	\item $(A \union B)^c = A^c \inter B^c \to \text{De Morgan 1}$
-	\item $(A \inter B)^c = A^c \union B^c \to \text{De Morgan 2}$
-	\item $A \inter(B \union C) = (A \inter B) \union (A \inter C) \to \text{Distributiva 1}$
-	\item $A \union(B \inter C) = (A \union B) \inter (A \union C) \to \text{Distributiva 2}$
-	\item $A - B = A \inter B^c$
-	\item $A \triangle B =
-		      \begin{cases}
-			      (A - B) \union (B - A)             \\
-			      (A \union B) \inter (A \inter B)^c \\
-			      (A \inter B^c) \union (B \inter A^c)
-		      \end{cases}
-	      $
-	\item $A^c = \set{x \en \universo \talque x \notin A}$
-	\item
-	      \def\subconjuntoYequivalente{
-	      \begin{array}{|c|}
-			      A \subseteq B \\
-			      \hline
-			      A^c \union B
-		      \end{array}
-            }
+  \item $A \union B = B \union A \to \text{Conmuta}$
+  \item $A \inter B = B \inter A \to \text{Conmuta}$
+  \item $(A \union B)^c = A^c \inter B^c \to \text{De Morgan 1}$
+  \item $(A \inter B)^c = A^c \union B^c \to \text{De Morgan 2}$
+  \item $A \inter(B \union C) = (A \inter B) \union (A \inter C) \to \text{Distributiva 1}$
+  \item $A \union(B \inter C) = (A \union B) \inter (A \union C) \to \text{Distributiva 2}$
+  \item $A - B = A \diferencia B = A \inter B^c$
+  \item $A \triangle B =
+          \begin{cases}
+            (A - B) \union (B - A)             \\
+            (A \union B) \inter (A \inter B)^c \\
+            (A \inter B^c) \union (B \inter A^c)
+          \end{cases}
+        $
+  \item $A^c = \set{x \en \universo \talque x \notin A}$
+  \item
+        \def\subconjuntoYequivalente{
+          \begin{array}{|c|}
+            A \subseteq B \\
+            \hline
+            A^c \union B
+          \end{array}
+        }
 
-	      \[
-		      \begin{array}{|c|c|c|c|c|c|c|c|}
-			      \hline
-			      x \en A & x \en B & x \en A^c & x \en A \inter B & x \en A \union B & x \en \subconjuntoYequivalente & x \en A \triangle B & A - B \\
-			      \hline
-			      V       & V       & F         & V                & V                & V                              & F                   & F     \\
-			      V       & F       & F         & F                & V                & F                              & V                   & V     \\
-			      F       & V       & V         & F                & V                & V                              & V                   & F     \\
-			      F       & F       & V         & F                & F                & V                              & F                   & F     \\
-			      \hline
-		      \end{array}
-	      \]
-	\item
-	      \emph{Cuando para probar $p \entonces q$ se prueba en su lugar $\neg q \entonces \neg p$ se dice que es una demostración
-		      por contrarrecíproco, mientras que cuando se prueba en su lugar que suponer que vale $p \land \neg q$
-		      lleva a una contradicción, se dice que es una demostración por reducción al absurdo.}
+        \[
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline
+            x \en A & x \en B & x \en A^c & x \en A \inter B & x \en A \union B & x \en \subconjuntoYequivalente & x \en A \triangle B & A - B \\
+            \hline
+            V       & V       & F         & V                & V                & V                              & F                   & F     \\
+            V       & F       & F         & F                & V                & F                              & V                   & V     \\
+            F       & V       & V         & F                & V                & V                              & V                   & F     \\
+            F       & F       & V         & F                & F                & V                              & F                   & F     \\
+            \hline
+          \end{array}
+        \]
+  \item
+        Cuando para probar $p \entonces q$ se prueba en su lugar $\neg q \entonces \neg p$ se dice que es
+        una \textit{demostración
+          por contrarrecíproco}.\par
+        Cuando para probar $p \entonces q$ se prueba en su lugar $p \land \neg q$ para llegar así
+        a una contradicción, se dice que es una demostración por reducción al absurdo.
 
 \end{enumerate}

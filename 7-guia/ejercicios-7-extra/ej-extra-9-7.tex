@@ -1,9 +1,68 @@
 \begin{enunciado}{\ejExtra}
-        Hallar $f \en \racionales[X]$ de grado mínimo tal que cumpla las siguientes condiciones
-	\begin{itemize}
-		\item $f$ comparte una raíz con $X^3 - 3X^2 + 7X -5$
-        \item $X+3-\sqrt{2} \divideA f$,
-        \item $1-2 i$ es raíz de $f$ y $f'(X-2i) = 0$
-	\end{itemize}
+  Hallar $f \en \racionales[X]$ de grado mínimo tal que cumpla las siguientes condiciones
+  \begin{itemize}
+    \item $f$ comparte una raíz con $X^3 - 3X^2 + 7X -5$
+    \item $X+3-\sqrt{2} \divideA f$,
+    \item $1-2 i$ es raíz de $f$ y $f'(X-2i) = 0$
+  \end{itemize}
 \end{enunciado}
-\hacer
+
+Vamos con la primera. Si dos polinomios , $f$ y $g = X^3 - 3X^2 + 7X -5$, comparten raíz
+buscamos raíces de $g$ con el \hyperlink{teoria-7:lema-gauss}{\textit{lema de Gauss}} de donde
+tomaremos las raíces que nos sirvan para construir nuestro $f$ \textit{mónico y de grado mínimo}:
+$A = \set{\pm 1, \pm 5}$, con $\alpha = 1 \entonces g(1) = 0 \Tilde$.\par
+Como $\alpha = 1$ es raíz, entonces $X-1 \divideA g$:
+
+$$
+  \divPol{X^3 - 3X^2 + 7X -5}{X-1}
+$$
+
+$g = (X - 1) \cdot (X^2 -2X + 5)$, busco raíces del cociente $X^2 - 2X + 5$, usando resolvente
+$$
+  r_{+,-} = \frac{2 \pm w}{2}, \text{ con } w^2 = -16 \to
+  \llave{l}{
+    r_+ = 1 + 2i \\
+    r_- = 1 - 2i.
+  }
+$$
+
+Finalmente,
+
+$$
+g
+\igual{$\llamada1$}
+(X - 1) \cdot \ub{(X - (1+2i)) \cdot (X - (1-2i))}{X^2 -2X + 5} \Tilde,
+$$
+
+antes de elegir cuales de estas raíces serán comunes a $f$
+
+es recomendable estudiar las otras condiciones del enunciado.\par\medskip
+
+$X + 3 - \sqrt{2} = X - (-3 + \sqrt{2}) \divideA f$, por lo que $(-3 + \sqrt{2})$ es una raíz de $f$ y dado que
+$f \en \racionales[X]$ también \red{debe estar} el conjugado irracional $-3 - \sqrt{2}$.
+
+$$
+  \llave{c}{
+    X - (-3 + \sqrt{2}) \divideA f \\
+    \ytext                         \\
+    X - (-3 - \sqrt{2}) \divideA f
+  }
+  \Sii{\red{!}}
+  X^2 + 6X + 7 \divideA f \Tilde.
+$$
+
+La tercera condición tiene \textit{mucha data}. Nos da una raíz compleja de $f$, por lo cual también tendremos
+su conjugado complejo porque $f \en \racionales[X]$.
+
+Esa raíz es una de las que está en  $ g \llamada1$.\par
+
+El dato de $f'$, también nos indica que la multiplicidad de $1 - 2i$ como 
+raíz es por lo menos 2, ya que $f'(1 - 2i) = 0$, y porlo tanto $\mult(1 + 2i;f)$ también será por lo menos 2. \par\medskip
+
+Tenemos todo para armar a $f$:
+
+$$
+f =  (X^2 - 2X + 5)^2 \cdot (X^2 + 6X + 7) \Tilde
+$$
+
+

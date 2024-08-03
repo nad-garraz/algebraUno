@@ -24,7 +24,7 @@
           \alpha \text{ es raíz de } f \sisolosi X - \alpha \divideA f \sisolosi f = q \cdot ( X - \alpha)
         $$
 
-  \item \textit{Máximo común divisor:}\par
+  \item \hypertarget{teoria-7:mcd}{\textit{Máximo común divisor:}}\par
 
         Polinomio, $(f:g) \en \K[X]$, \textit{mónico} de mayor grado que divide a ambos polinomios en $\K[X]$
         y vale el algoritmo de Euclides.
@@ -36,7 +36,7 @@
           \item Dos polinomios son coprimos si $(f:g) = 1 \sisolosi f \distinto g$
         \end{itemize}
 
-\item \hypertarget{teoria:raicesMultiples}{\textit{Raíces múltiples:}}\par
+  \item \hypertarget{teoria-7:raicesMultiples}{\textit{Raíces múltiples:}}\par
         Sea $f \en \K[x]$ no nulo, y sea $\alpha \en \K$. Se dice que:
         \begin{itemize}[label=\tiny \faIcon{meh}]
           \item Cuando $f$ tiene una raíz múltiple:
@@ -89,18 +89,17 @@
                   \mult(\alpha,f) = m \sisolosi f(\alpha) = 0  \ytext  \mult(\alpha;f') = m-1
                 $$
 
-
           \item Relación entre la multiplicidad de una raíz de $f$ y sus derivadas: \par
                 $\mult(\alpha;f) = m \sisolosi
                   \llave{rl}{
-                    \mult(\alpha;f)\geq m     &
+                    \mult(\alpha;f)\geq m &
                     \llaveInv{c}{
                       f(\alpha) = 0\\
                       \vdots\\
                       f^{(m-1)}(\alpha) = 0
-                    }\\
+                    } \\
                     \hline
-                    \mult(\alpha;f) = m     &
+                    \mult(\alpha;f) = m   &
                     \llaveInv{r}{
                       \  f^{(m)}(\alpha) \distinto 0 \magenta{\text{ la $m$-ésima derivada no se anula.}}
                     }
@@ -113,9 +112,17 @@
                   f'(\alpha) \igual{\red{!!}}
                   f^{''}(\alpha) \igual{\red{!!}} 0
                 $
+
+          \item \hypertarget{teoria-7:lema-gauss}{\textit{Lema de Gauss:}}\par
+                Sea $f = a_nX^n + \cdots + a_0 \en \enteros[X]$ con $a_0 \distinto 0.$ \red{Si $\frac{\alpha}{\beta} \en \racionales[X]$ es una raíz
+                  racional de $f$}, con $\alpha \ytext \beta \en \enteros$ coprimos, entonces $\alpha \divideA a_0 \ytext \beta \divideA a_n$.\par
+
+                El \textit{Lema de Gauss} implica que en el conjunto de fracciones irreducibles $\frac{\alpha}{\beta}$ están \red{todas} las raíces
+                racionales de $f$.
+
         \end{itemize}
 
-  \item \hypertarget{7-teoria:irreducibles}{Polinomios irreducibles}:\par
+  \item \hypertarget{teoria-7:irreducibles}{Polinomios irreducibles}:\par
         Sea $f \en K[X]$
         \begin{itemize}
           \item

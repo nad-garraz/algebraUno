@@ -1,0 +1,77 @@
+\begin{enunciado}{\ejExtra}
+  Hallar una fórmula cerrada para
+  $$
+    \sumatoria{k=1}{n} \frac{k}{(k+1)!} \,.
+  $$
+  Probar su validez usando inducción.
+\end{enunciado}
+
+Probando números viendo de encontrar un patrón:
+$$
+  \llave{l}{
+    n = \magenta{1} \to \sumatoria{k = 1}{\magenta{1}} \frac{k}{(k+1)!} = \green{\frac{1}{2}}                                                  \\
+    n = \magenta{2} \to \sumatoria{k = 1}{\magenta{2}} \frac{k}{(k+1)!} = \green{\frac{1}{2}} + \frac{1}{3} = \blue{\frac{5}{6}}   \\
+    n = \magenta{3} \to \sumatoria{k = 1}{\magenta{3}} \frac{k}{(k+1)!} = \blue{\frac{5}{6}} + \frac{1}{8} = \yellow{\frac{23}{24}} \\
+    n = \magenta{4} \to \sumatoria{k = 1}{\magenta{4}} \frac{k}{(k+1)!} = \yellow{\frac{23}{24}} + \frac{1}{30} = \frac{119}{120}
+  }
+$$
+Es notable que una potencial fórmula cerrada sería:
+$$
+  (a_n)_{n \geq 1} = \frac{(n+1)! - 1}{ (n + 1)!}.
+$$
+
+Inducción para probar la fórmula.
+$$
+  p(n):
+  \sumatoria{k=1}{n} \frac{k}{(k+1)!} =
+  \frac{(n+1)! - 1}{ (n + 1)!}
+  \quad \paratodo n \en \naturales
+$$
+
+\textit{Caso base:}\par
+$$
+  p(\magenta{1}):
+  \sumatoria{k = 1}{\magenta{1}} \frac{k}{(k+1)!} =
+  \green{\frac{1}{2}} = \frac{(\magenta{1}+1)! - 1}{(\magenta{1} + 1)!} =\green{\frac{1}{2}}   \Tilde
+$$
+p(1) es verdadera.\medskip
+
+\textit{Paso inductivo:}\par
+$$
+  \text{asumo que }
+  p(\blue{j}):
+  \ob{\displaystyle
+  \sumatoria{k=1}{\blue{j}} \frac{k}{(k+1)!} =
+  \frac{(\blue{j}+1)! - 1}{ (\blue{j} + 1)!}
+  }{\text{\purple{hipótesis inductiva}}}
+  \quad \text{para algún } j  \en \naturales, \text{ es verdadera.}
+$$
+entonces, quiero ver que
+$$
+  p(\green{j+1}):
+  \sumatoria{k=1}{\green{j+1}} \frac{k}{(k+1)!} =
+  \frac{(\green{j+1} + 1)! - 1}{ (\green{j + 1} + 1)!}
+  \quad \text{también es verdadera.}
+$$
+\par\medskip
+
+$$
+\textstyle
+  \sumatoria{k=1}{\green{j+1}} \frac{k}{(k+1)!}
+  \igual{\red{!}}
+  \sumatoria{k=1}{\green{j}} \frac{k}{(k+1)!} + \frac{j + 1}{ (j + 2)!}
+  \igual{\purple{HI}}
+  \purple{\frac{(j+1)! - 1}{ (j + 1)!}} + \frac{j + 1}{ (j + 2)!}
+  \igual{\red{!!!}}
+  \frac{(j+2)! - (j+2) + j + 1}{(j+2)!} = 
+  \frac{(j+2)! - 1}{(j+2)!}.
+$$\par
+
+Por lo tanto $p(j+1)$ es verdadera.\par
+Si te quedaste pedaleando en el \red{!!!}, multipliqué y dividí por
+\textit{algo} en el primer término, para tener mismo denominador y bla, bla, listo \faIcon{hands-wash}.\par\bigskip
+
+Dado que $p(1), p(j) \ytext p(j+1)$ son verdaderas por el principio de inducción, $p(n)$ también lo es para todo $n \en \naturales$.
+
+
+

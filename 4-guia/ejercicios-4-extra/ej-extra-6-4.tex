@@ -1,41 +1,42 @@
-\ejExtra
-Sean $a$, $b \en \enteros$ tal que $(a:b) = 6$. Hallar todos los $d = (2a + b : 3a - 2b)$ y dar un ejemplo en cada caso.\\
-\separadorCorto
+\begin{enunciado}{\ejExtra}
+  Sean $a$, $b \en \enteros$ tal que $(a:b) = 6$.
+  Hallar todos los $d = (2a + b : 3a - 2b)$ y dar un ejemplo en cada caso.
+\end{enunciado}
 
 Conviene \textit{coprimizar}: $(a:b) = 6 \sisolosi
-	\llaves{l}{
-		a = 6A\\
-		b = 6B
-	}$ con $(A:B) \llamada{1}= 1$\\
+  \llaves{l}{
+    a = 6A\\
+    b = 6B
+  }$ con $(A:B) \llamada{1}= 1$\\
 $d =
-	(2\cdot 6A + 6B : 3\cdot 6A - 2\cdot 6B) =
-	(6\cdot( 2 \cdot A + B) : 6\cdot (3\cdot A - 2\cdot B)) =
-	6 \cdot \ub{(2A + B : 3A - 2B)}{D}\\
-	\to d \llamada{2}= 6 D \flecha{busco divisores}[comunes]
-	\llave{l}{
-		D \divideA 2A + B \\
-		D \divideA 3A - 2B \\
-	} \flecha{operaciones}[$\dots$]
-	\llave{l}{
-		D \divideA 7B \\
-		D \divideA 7A \\
-	}\entonces
-	D = (7A:7B) =7 \cdot (A:B) \llamada{1}= 7$  \\
+  (2\cdot 6A + 6B : 3\cdot 6A - 2\cdot 6B) =
+  (6\cdot( 2 \cdot A + B) : 6\cdot (3\cdot A - 2\cdot B)) =
+  6 \cdot \ub{(2A + B : 3A - 2B)}{D}\\
+  \to d \llamada{2}= 6 D \flecha{busco divisores}[comunes]
+  \llave{l}{
+    D \divideA 2A + B  \\
+    D \divideA 3A - 2B \\
+  } \flecha{operaciones}[$\dots$]
+  \llave{l}{
+    D \divideA 7B \\
+    D \divideA 7A \\
+  }\entonces
+  D = (7A:7B) =7 \cdot (A:B) \llamada{1}= 7$  \\
 Por lo tanto $D \en \divsetP{7}{1,7}$, pero yo quiero encontrar ejemplos de $a$ y $b$:\\
 $\llamada{2}\to
-	\llave{c}{
-		d = 6 \cdot 7 = 42
-		\llave{ll}{
-			\text{Si:} & A = 2 \to a = 12\\
-			& B = 3 \to b = 18\\
-			\multicolumn{2}{l}{(7:0)\entonces D = 7 \to d = (42:0) = \ub{42}{6\cdot D}}
-		}\\
+  \llave{c}{
+    d = 6 \cdot 7 = 42
+    \llave{ll}{
+      \text{Si:} & A = 2 \to a = 12 \\
+                 & B = 3 \to b = 18 \\
+      \multicolumn{2}{l}{(7:0)\entonces D = 7 \to d = (42:0) = \ub{42}{6\cdot D}}
+    } \\
 
-		\magenta{\o} \\
-		d = 6 \cdot 1 = 6
-		\llave{ll}{
-			\text{Si:} & A = 0 \to a = 0\\
-			& B = 1 \to b = 6\\
-			\multicolumn{2}{l}{(1:-2) \entonces D = 1 \to d = (6:-12) = \ub{6}{6\cdot D}}
-		}
-	}$
+    \magenta{\o}                              \\
+    d = 6 \cdot 1 = 6
+    \llave{ll}{
+      \text{Si:} & A = 0 \to a = 0 \\
+                 & B = 1 \to b = 6 \\
+      \multicolumn{2}{l}{(1:-2) \entonces D = 1 \to d = (6:-12) = \ub{6}{6\cdot D}}
+    }
+  }$

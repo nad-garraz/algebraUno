@@ -18,29 +18,29 @@
   \item A la hora de divisibilidad \textit{los signos no importan:}\par
         $$
           \llave{rcl}{
-            d \divideA a &\sisolosi& -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))\\
-            d \divideA a &\sisolosi& d \divideA -a \text{ (pues } a = k \cdot d \sisolosi (-a) = (-k) \cdot d)
+            d \divideA a & \sisolosi & -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))  \\
+            d \divideA a & \sisolosi & d \divideA -a \text{ (pues } a = k \cdot d \sisolosi (-a) = (-k) \cdot d)
           }
           \entonces \boxed{d \divideA a \sisolosi |d| \,\divideA\, |a|}
         $$
 
   \item Propiedades súper útiles para justificar los cálculos en los ejercicios:\par
         $$\llave{l}{
-            d \divideA a \ytext d \divideA b \entonces d \divideA a \pm b\\
-            d \divideA a \entonces d \divideA c \cdot a, \paratodo c \en \enteros\\
-            d \divideA a \Sii{\red{!!}} d^n \divideA a^n \paratodo n \en \naturales\\
+            d \divideA a \ytext d \divideA b \entonces d \divideA a \pm b                         \\
+            d \divideA a \entonces d \divideA c \cdot a, \paratodo c \en \enteros                 \\
+            d \divideA a \Sii{\red{!!}} d^n \divideA a^n \paratodo n \en \naturales \\
           }$$
         $$
           \text{\red{Error recurrente: }} d \divideA a \cdot b \not\entonces
           \llave{c}{
-            d \divideA a\\
-            \otext\\
+            d \divideA a \\
+            \otext       \\
             d \divideA b
           }. \text{ Por ejemplo } 6 \divideA 3 \cdot 4
           \text{ pero }
           \llave{c}{
             6 \noDivide 3 \\
-            \text{ni}\\
+            \text{ni}     \\
             6 \noDivide 4
           }
         $$
@@ -51,7 +51,7 @@
 \begin{itemize}[label=$\scriptscriptstyle\blacksquare$]
   \item \textit{Definición congruencia: }\par
         $$\llave{l}{
-            \textit{'$a$' es congruente a '$b$' módulo '$d$'} \text{ si }   d \divideA a-b. \quad \text{ Notación } \boxed{\congruencia{a}{b}{d}}\\
+            \textit{'$a$' es congruente a '$b$' módulo '$d$'} \text{ si }   d \divideA a-b. \quad \text{ Notación } \boxed{\congruencia{a}{b}{d}} \\
             \congruencia{a}{b}{d} \sisolosi d \divideA a-b
           }
         $$
@@ -59,8 +59,8 @@
   \item Sumar ecuaciones de congruencia \textit{de mismo módulo}, conserva la congruencia: \par
         $$
           \llave{c}{
-            \congruencia{a_1}{b_1}{d}\\
-            \vdots\\
+            \congruencia{a_1}{b_1}{d} \\
+            \vdots                    \\
             \congruencia{a_n}{b_n}{d}
           }
           \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
@@ -68,8 +68,8 @@
   \item Multiplicar ecuacioines de congruencia \textit{de mismo módulo}, conserva la congruencia: \par
         $$
           \llave{c}{
-            \congruencia{a_1}{b_1}{d}\\
-            \vdots\\
+            \congruencia{a_1}{b_1}{d} \\
+            \vdots                    \\
             \congruencia{a_n}{b_n}{d}
           }
           \entonces \congruencia{a_1 \cdots a_n}{a_b \cdots b_n}{d}
@@ -78,8 +78,8 @@
         $$
           n \  \text{ecuaciones}
           \llave{c}{
-            \congruencia{a}{b}{d}\\
-            \vdots\\
+            \congruencia{a}{b}{d} \\
+            \vdots                \\
             \congruencia{a}{b}{d}
           }
           \entonces \boxed{\congruencia{a^n}{b^n}{d}}
@@ -95,7 +95,7 @@
         $r \text{(resto)} \en \enteros$ tales que:
         $$
           \llave{l}{
-            a =  q \cdot d + r,\\
+            a =  q \cdot d + r, \\
             \text{con } 0 \leq r < |d|.
           }
         $$
@@ -113,7 +113,6 @@
         $$
           r_d(a) = 0 \sisolosi d \divideA a \sisolosi \congruencia{a}{0}{d}
         $$
-
 
   \item El resto es único:
         $$
@@ -150,7 +149,6 @@
           \congruencia{a \cdot b}{r_d(a) \cdot r_d(b)}{d}
         $$
 \end{itemize}\bigskip
-
 
 %%%%%% Macro local
 \def\mcd{(a:b)}
@@ -230,7 +228,7 @@
           c \divideA a \ytext d \divideA a \ytext c \cop d \Sii{\red{!!}} c\cdot d \divideA a
         $$
         Al ser $c$ y $d$ coprimos, pienso a $a$ como un número cuya factorización tiene a $c$, $d$ y la coprimicidad hace que en la factorización
-                aparezca $c \cdot d$. {\tiny(no sé, así lo piensa mi {\color{pink}\faIcon{brain}})}.
+        aparezca $c \cdot d$. {\tiny(no sé, así lo piensa mi {\color{pink}\faIcon{brain}})}.
 
   \item Sean $a, b, d \en \enteros$ con $d \distinto 0$. Entonces:
         \[
@@ -245,12 +243,12 @@
                 $$
                   p \divideA a\cdot b \entonces p \divideA a \quad \otext\quad p \divideA b
                 $$
-          \item \textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores $\to$}\par
+          \item\hypertarget{teoria4:priProductos}{\textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores $\to$}}\par
                 Sean $a_1,\dots, a_n \en \enteros$:\par
                 \begin{center}
                   $
                     \llave{l}{
-                      p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n.\\
+                      p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n. \\
                       p \divideA a^n \entonces p \divideA a.
                     }$
                 \end{center}
@@ -258,7 +256,7 @@
           \item Si $a \en \enteros$, $p$ primo:\par
                 \begin{center}
                   $\llave{l}{
-                      (a:p) = 1 \sisolosi p \noDivide a\\
+                      (a:p) = 1 \sisolosi p \noDivide a \\
                       (a:p) = p \sisolosi p \divideA a
                     }$
                 \end{center}
@@ -269,7 +267,7 @@
                 su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:\par
                 $$
                   \llave{c}{
-                  \text{Si } m \divideA n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
+                    \text{Si } m \divideA n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
                   \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\, 1\leq i \leq k\\
                   \text{ y hay } \\
                   (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
@@ -279,16 +277,16 @@
           \item Sean $a$ y $b \en \enteros$ no nulos, con
                 $$
                   \llave{l}{
-                  a = \pm p_1^{m_1}\cdots p_r^{m_r} \text{ con } m_1,\cdots, m_r \en \enteros_0\\
+                    a = \pm p_1^{m_1}\cdots p_r^{m_r} \text{ con } m_1,\cdots, m_r \en \enteros_0\\
                   b = \pm p_1^{n_1}\cdots p_r^{n_r} \text{ con } n_1,\cdots, n_r \en \enteros_0\\
                   \llave{l}{
-                  \entonces \mcd = p_1^{min\set{m_1,n_1}}\cdots p_r^{min\set{m_r,n_r}}\\
+                    \entonces \mcd = p_1^{min\set{m_1,n_1}}\cdots p_r^{min\set{m_r,n_r}}\\
                   \entonces [a:b] = p_1^{max\set{m_1,n_1}}\cdots p_r^{max\set{m_r,n_r}}
                   }
                   }
                 $$
 
-          \item Sean $a, d \en\enteros$ con $d \distinto 0$ y sea $n \en \naturales$. Entonces
+          \item\hypertarget{teoria4:exponentes} Sean $a, d \en\enteros$ con $d \distinto 0$ y sea $n \en \naturales$. Entonces
                 $$
                   d \divideA a \sisolosi d^n \divideA a^n.
                 $$

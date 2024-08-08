@@ -1,36 +1,41 @@
-\ejExtra
+\begin{enunciado}{\ejExtra}
+  Hallar el menor $n \en \naturales$ tal que:\par
+  \begin{enumerate}[label=\roman*)]
+    \item $(n : 2528) = 316$
+    \item $n$ tiene exáctamente 48 divisores positivos
+    \item $27 \noDivide n$
+  \end{enumerate}
+\end{enunciado}
 
-Hallar el menor $n \en \naturales$ tal que:
-
-\begin{enumerate}[label=\roman*)]
-	\item $(n:2528) = 316 $
-	\item $n$ tiene exáctamente 48 divisores positivos
-	\item $27 \noDivide n$
-\end{enumerate}
-
-\separadorCorto
+Analizo los números:
+$$
+  \llave{l}{
+    \flecha{factorizo}[2528] 2528 = 2^5 \cdot 79 \Tilde \\
+    \flecha{factorizo}[316] 316 = 2^2 \cdot 79 \Tilde   \\
+    \flecha{reescribo}[condición] (n:2^5 \cdot 79) = 2^2 \cdot 79
+  }
+  \flecha{quiero}[encontrar] n = 2^{\alpha_2} \cdot 3^{\alpha_3} \cdot 5^{\alpha_5} \cdot 7^{\alpha_7} \cdots 79^{\alpha_79} \cdots .\\
+$$
 
 $
-	\llave{l}{
-		\flecha{factorizo}[2528] 2528 = 2^5 \cdot 79 \Tilde\\
-		\flecha{factorizo}[316] 316 = 2^2 \cdot 79 \Tilde\\
-		\flecha{reescribo}[condición] (n:2^5 \cdot 79) = 2^2 \cdot 79
-	}\\
-	\flecha{quiero}[encontrar] n = 2^{\alpha_2} \cdot 3^{\alpha_3} \cdot 5^{\alpha_5} \cdot 7^{\alpha_7} \cdots 79^{\alpha_79} \cdots .\\
-	\flecha{como} (n:2^5 \cdot 79) = 2^2 \cdot 79
-	\flecha{tengo}[que]
-	\llave{ll}{
-		\alpha_2 = 2, & \text{dado que $2^2 \cdot 79 \divideA n$. \blue{Recordar que busco el menor $n$!}.}\\
-		\alpha_{79} \geq 1, & \text{Al igual que antes.} \\
-		\flecha{notar}[que] \alpha_3 < 3 &  \text{ si no } 3^3 = 27 \divideA n
-	}\\
-	\flecha{la estrategia sigue con}[el primo más chico que haya]
-	\llave{l}{
-		48 = \ub{(\alpha_2 + 1)}{2 + 1} \cdot (\alpha_3 + 1) \cdots\\
-		48 = 3 \cdot (\alpha_3 + 1) \cdots\\
-		16 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots \ub{(\alpha_{79} + 1)}{=2\text{ quiero el menor}} \cdots \\
-		8 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots \\
-		8 = \ub{(\alpha_3 + 1)}{=2} \cdot \ub{(\alpha_5 + 1)}{=2} \cdot \ub{(\alpha_7 + 1)}{=2} \cdot 1 \cdots 1 \\
-	}
+  \flecha{como} (n:2^5 \cdot 79) = 2^2 \cdot 79
+  \flecha{tengo}[que]
+  \llave{ll}{
+    \alpha_2 = 2,                    & \text{dado que $2^2 \cdot 79 \divideA n$. \blue{busco el menor $n$!}.} \\
+    \alpha_{79} \geq 1,              & \text{Al igual que antes.}                                        \\
+    \flecha{notar}[que] \alpha_3 < 3 & \text{ si no } 3^3 = 27 \divideA n
+  }
 $
+
+La estrategia sigue con el primo más chico que haya:\par
+$$
+  \llave{l}{
+    48 = \ub{(\alpha_2 + 1)}{2 + 1} \cdot (\alpha_3 + 1) \cdots                                                                             \\
+    48 = 3 \cdot (\alpha_3 + 1) \cdots                                                                                                      \\
+    16 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots \ub{(\alpha_{79} + 1)}{=2\text{ quiero el menor}} \cdots \\
+    8 = (\alpha_3 + 1) \cdot (\alpha_5 + 1) \cdot (\alpha_7 + 1) \cdots                                                                     \\
+    8 = \ub{(\alpha_3 + 1)}{=2} \cdot \ub{(\alpha_5 + 1)}{=2} \cdot \ub{(\alpha_7 + 1)}{=2} \cdot 1 \cdots 1                                \\
+  }
+$$
+
 El $n$ que cumple lo pedido sería $n = 2^2 \cdot 3^1 \cdot 5^1 \cdot 7^1 \cdot 79^1$

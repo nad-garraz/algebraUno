@@ -1,6 +1,6 @@
 \textit{Divisibilidad:}
 \begin{itemize}
-  \item Definición divisibilidad:
+  \item Definición divisibilidad y notación:
         $$
           \begin{array}{c}
             \text{$d$ divide a $a$} \Sii{es lo mismo}[que decir] \text{$a$ es un múltiplo entero de $d$} \\
@@ -8,20 +8,20 @@
           \end{array}
         $$
 
-  \item Conjunto de divisores de a:
+  \item Conjunto de divisores de $a$:
         $$
-          \divset{-a}{-|a|,\dots,-1,1,\dots,|a|}.
+          \divset{a}{-|a|,\dots,-1,1,\dots,|a|}.
         $$
 
   \item $d \divideA 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
 
-  \item A la hora de divisibilidad \textit{los signos no importan:}\par
+  \item A la hora de laburar con la divisibilidad \textit{``los signos no importan'':}\par
         $$
           \llave{rcl}{
             d \divideA a & \sisolosi & -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))  \\
             d \divideA a & \sisolosi & d \divideA -a \text{ (pues } a = k \cdot d \sisolosi (-a) = (-k) \cdot d)
           }
-          \entonces \boxed{d \divideA a \sisolosi |d| \,\divideA\, |a|}
+          \Entonces{corta} \boxed{d \divideA a \sisolosi |d| \,\big|\, |a|}
         $$
 
   \item Propiedades súper útiles para justificar los cálculos en los ejercicios:\par
@@ -184,10 +184,12 @@
                 $$
         \end{itemize}
 
-  \item \textit{Algoritmo de Euclides}: Para encontrar el $(a:b)$ con números feos. Hay que saber hacer esto. Fin.
+  \item \textit{Algoritmo de Euclides}:
+        Para encontrar el $(a:b)$ con números o expresiones feas. Hay que saber hacer esto. Fin.
         \red{¡Se usa de acá hasta el final de la materia!}.\par
 
-  \item \textit{Combinacion Entera}: Otra herramienta gloriosa que sale de hacer \textit{Euclides}.
+  \item \textit{Combinacion Entera}: Otra herramienta gloriosa que sale de hacer \textit{Euclides}. Por ejemplo
+        se usa cuando no se ve a ojo una solución en ecuaciones diofánticas.
         \red{¡Se usa de acá hasta el final de la materia!}.\par
         Sean $a,b \en \enteros$ no ambos nulos, entonces $\existe s,\ t \en \enteros$ tal que $\mcd = \cz$.
         \begin{itemize}[label=\tiny\faIcon{atom}]
@@ -203,6 +205,7 @@
           \item Si un número es una combinación entera de $a$ y $b$ entonces es un múltiplo del MCD.
         \end{itemize}
 \end{itemize}
+
 \bigskip
 
 \textit{Coprimos: }

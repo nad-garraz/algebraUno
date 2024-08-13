@@ -1,21 +1,82 @@
-Voy a estar usando:
-\begin{enumerate}[label=(\alph*)]
-  \item $A \union B = B \union A \to \text{Conmuta}$
-  \item $A \inter B = B \inter A \to \text{Conmuta}$
-  \item $(A \union B)^c = A^c \inter B^c \to \text{De Morgan 1}$
-  \item $(A \inter B)^c = A^c \union B^c \to \text{De Morgan 2}$
-  \item $A \inter(B \union C) = (A \inter B) \union (A \inter C) \to \text{Distributiva 1}$
-  \item $A \union(B \inter C) = (A \union B) \inter (A \union C) \to \text{Distributiva 2}$
-  \item $A - B = A \diferencia B = A \inter B^c$
-  \item $A \triangle B =
-          \begin{cases}
-            (A - B) \union (B - A)             \\
-            (A \union B) \inter (A \inter B)^c \\
-            (A \inter B^c) \union (B \inter A^c)
-          \end{cases}
-        $
-  \item $A^c = \set{x \en \universo \talque x \notin A}$
+\textit{Básicos sobre conjuntos y coso: }
+\begin{itemize}[label={\tiny\faIcon{smile}}]
+  \item \textit{ Las uniones e intersecciones de conjuntos conmutan:}
+        $$
+          \begin{array}{c}
+            A \union B = B \union A \\
+            A \inter B = B \inter A
+          \end{array}
+        $$
+
   \item
+        \textit{De Morgan Law's: }
+        $$
+          \begin{array}{c}
+            (A \union B)^c = A^c \inter B^c \to \text{De Morgan 1} \\
+            (A \inter B)^c = A^c \union B^c \to \text{De Morgan 2}
+          \end{array}
+        $$
+
+  \item \textit{Distribución de la intersección en una unión y alverre: }
+        $$
+          \begin{array}{c}
+            A \yellow{\inter} (B \union C) = (A \yellow{\inter} B) \union (A \yellow{\inter} C) \\
+            A \cyan{\union} (B \inter C) = (A \cyan{\union} B) \inter (A \cyan{\union} C)
+          \end{array}
+        $$
+        \begin{center}
+          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillACapB
+            \fillACapC
+          \end{venndiagram3sets}
+          \begin{venndiagram3sets}[shade=cyan, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillA
+            \fillBCapC
+          \end{venndiagram3sets}
+        \end{center}
+
+  \item \textit{Diferencias en sus varios colores, sabores y notaciones: }
+        $$
+          \begin{array}{c}
+            A - B
+            \Sii{idem}[notación]
+            A \diferencia B
+            \Sii{idem}[notación]
+            A \inter B^c
+          \end{array}
+          \
+        $$
+        \begin{center}
+          \begin{venndiagram2sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+          \end{venndiagram2sets}
+        \end{center}
+
+  \item \textit{Diferencia simétrica: }\par
+        $$
+          A \triangle B =
+          \llave{lcl}{
+            (A - B)        & \union      & (B - A)                                                     \\
+            (A \union B)   & \inter      & (A \inter B)^c                                              \\
+            (A \union B)   & \diferencia & (A \inter B)  \to \text{mi favorita \faIcon{meh}} \\
+            (A \inter B^c) & \union      & (B \inter A^c)
+          }
+        $$
+
+        \begin{center}
+          \begin{venndiagram2sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+            \fillBNotA
+          \end{venndiagram2sets}
+        \end{center}
+
+  \item \textit{Complemento:}\par
+        $$
+          A^c = \set{x \en \universo \talque x \notin A}
+        $$
+
+\item \hypertarget{teoria-1:tablasDeVerdad}{\textit{Tablas de verdad: }}
+        %%%MACRO
         \def\subconjuntoYequivalente{
           \begin{array}{|c|}
             A \subseteq B \\
@@ -23,7 +84,10 @@ Voy a estar usando:
             A^c \union B
           \end{array}
         }
+        %%%END MACRO
 
+En las tablas de verdad que un elemento esté en un conjunto, $x \en A$ es equivalente a decir que la proposición $A$ es verdadera.
+        En mi cabeza es más fácil recordar las tablas en conjuntos que en ... lo otro.
         \[
           \begin{array}{|c|c|c|c|c|c|c|c|}
             \hline
@@ -36,11 +100,11 @@ Voy a estar usando:
             \hline
           \end{array}
         \]
-  \item
+
         Cuando para probar $p \entonces q$ se prueba en su lugar $\neg q \entonces \neg p$ se dice que es
         una \textit{demostración
           por contrarrecíproco}.\par
         Cuando para probar $p \entonces q$ se prueba en su lugar $p \land \neg q$ para llegar así
         a una contradicción, se dice que es una demostración por reducción al absurdo.
 
-\end{enumerate}
+\end{itemize}

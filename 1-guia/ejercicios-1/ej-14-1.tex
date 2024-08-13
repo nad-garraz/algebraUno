@@ -4,10 +4,7 @@
   \begin{multicols}{2}
     \begin{enumerate}[label=\roman*)]
       \item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$
-
-      \item $A - (B - C) = (A-B) \union (A \inter C)$\\
-            $(A - B) \union (A \inter C) = A \inter [(A \inter B^c) \union C] = A \inter [(A \union C) \inter (B^c \union C)] =\\
-              A \inter (B^c \union C) = A \union(B-C)^c = A - (B - C)$
+      \item $A - (B - C) = (A-B) \union (A \inter C)$
       \item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$
       \item $(A \inter C ) - B = (A - B) \inter C$
       \item $A \subseteq B \entonces A \triangle B = B \inter A^c$
@@ -19,14 +16,39 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item  \hacer
-  \item $(A - B) \union (A \inter C) =
+  \item
+        Voy a usar tablas con los resultados que hay \hyperlink{teoria-1:tablasDeVerdad}{en las tablas de verdad acá.}
+        $$
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline
+            A & B & C & B \triangle C & A \inter B & A \inter C & A \inter (B \triangle C) & (A \inter B) \triangle (A \inter C) \\
+            \hline  \hline
+            V & V & V & F             & V          & V          & \magenta{F}              & \magenta{F}                         \\
+            V & V & F & V             & V          & F          & \magenta{V}              & \magenta{V}                         \\
+            \hline
+            V & F & V & V             & F          & V          & \magenta{V}              & \magenta{V}                         \\
+            V & F & F & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+            F & V & V & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            F & V & F & V             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+            F & F & V & V             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            F & F & F & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+          \end{array}
+        $$
+
+  \item Este sale sin tablas:
+        $$
+          \scriptstyle
+          (A - B) \union (A \inter C) =
           A \inter [(A \inter B^c) \union C] =
           A \inter [(A \union C) \inter (B^c \union C)] =
           A \inter (B^c \union C) =
           A \union(B-C)^c =
           A - (B - C)
-                $
+        $$
+
   \item  \Hacer
   \item  \Hacer
   \item  \Hacer

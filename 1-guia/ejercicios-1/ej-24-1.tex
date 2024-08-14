@@ -25,19 +25,20 @@
     \node[above left = 0.1cm of universo] {$A$};
 
     % Aristas
-    \draw[->, loop above] (a) to (a);
-    \draw[->, loop left ] (b) to (b);
+    \draw[magenta, ->, loop above] (a) to (a);
+    \draw[magenta, ->, loop left ] (b) to (b);
     \draw[->, loop left] (c) to (c);
-    \draw[->, loop above ] (d) to (d);
     \draw[->, loop right ] (e) to (e);
-    \draw[->, loop right ] (f) to (f);
+    \draw[magenta, ->, loop right ] (f) to (f);
 
-    \draw[->, bend left] (a.center) to (b);
-    \draw[->, bend left] (b.center) to (a);
-    \draw[->, bend left] (a.center) to (f);
-    \draw[->, bend left] (f.center) to (a);
-    \draw[->, bend left] (b.center) to (f);
-    \draw[->, bend left] (f.center) to (b);
+    \draw[OliveGreen, ->, loop above ] (d) to (d);
+
+    \draw[magenta, ->, bend left] (a.center) to (b);
+    \draw[magenta, ->, bend left] (b.center) to (a);
+    \draw[magenta, ->, bend left] (a.center) to (f);
+    \draw[magenta, ->, bend left] (f.center) to (a);
+    \draw[magenta, ->, bend left] (b.center) to (f);
+    \draw[magenta, ->, bend left] (f.center) to (b);
 
     \draw[->, bend right] (c.center) to (e);
     \draw[->, bend right] (e.center) to (c);
@@ -64,9 +65,9 @@
 \veinticuatro
 $\to
   \llave{rclclcl}{
-    \clase{a} & = & \set{a, b, f}  & = & \clase{b} & = & \clase{f} \\
-    \clase{c} & = & \set{c, e}     & = & \clase{e} &   & \\
-    \clase{d} & = & \set{d}        &   &         &   & \\
+    \magenta{\clase{a}} & = & \set{a, b, f} & = & \clase{b} & = & \clase{f} \\
+    \blue{\clase{c}}    & = & \set{c, e}                    & = & \clase{e} &   &           \\
+    {\textcolor{OliveGreen}{\clase{d}}} & = & \set{d}        &   &         &   & \\
   }$\par
 La partición asociada a
 $\relacion:\,

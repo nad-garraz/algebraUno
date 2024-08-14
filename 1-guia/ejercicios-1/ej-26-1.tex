@@ -2,15 +2,83 @@
   Sean $P = \partes(\set{1,2,3,4,5,6,7,8,9,10})$
   el conjunto de partes de $\set{1,\dots, 10}$ y $\relacion$ la relación en $P$ definida por:
   $$
-    A \relacion B \sisolosi (A \triangle B) \sisolosi \inter \set{1,2,3} = \vacio
+    A \relacion B \sisolosi (A \triangle B) \inter \set{1,2,3} = \vacio
   $$
   \begin{enumerate}[label=\roman*)]
 
     \item  Probar que $\relacion$ es una relación de equivalencia y decidir si es antisimétrica
-          (\textit{\underline{Sugerencia:}} usar adecuadamente el ejercicio \textbf{14iii})).
+          (\textit{\underline{Sugerencia:}} usar adecuadamente el ejercicio \textbf{14\ref{ej-14-1:itemiii}})).
     \item Hallar la clase de equivalencia de $A = \set{1,2,3}$.
   \end{enumerate}
-
 \end{enunciado}
 
-\hacer
+\begin{enumerate}[label=\roman*)]
+
+  \item
+        Para probar que es una relación de equivalencias hay que probar que sea \textit{reflexiva, simétrica y transitiva}.
+        La sugerencia que nos dan es:
+        $$
+          A \triangle B \subseteq (A \triangle C) \union (B \triangle C)
+        $$
+        \textit{Reflexiva: ¿$A \relacion A$? }
+        $$
+          A \relacion A \sisolosi (A \triangle A) = \vacio \inter \set{1,2,3} = \vacio \Tilde
+        $$
+        Por lo tanto la realción $\relacion$ es reflexiva.
+
+        \textit{Simétrica: ¿$A \relacion B \entonces B \relacion A$?}
+        $$
+          A \relacion B \sisolosi \ub{(A \triangle B)}{ = B \triangle A} \inter \set{1,2,3} = \vacio
+        $$
+        Como la diferencia simétrica es conmutativa, $A
+          triangle B = B \triangle A$ se tiene que la relación $\relacion$ es simétrica también.
+
+        \textit{Transitiva: ¿$A \relacion B \ytext B \relacion C \entonces A \relacion C$?}
+        $$
+          \llave{l}{
+            A \relacion B \sisolosi (A \triangle B) \inter \set{1,2,3} = \vacio \Tilde \\
+            B \relacion C \sisolosi (B \triangle C) \inter \set{1,2,3} = \vacio \Tilde
+          }
+        $$
+
+        Acá uso la \magenta{sugerencia}.\par
+
+        Si el conjunto $\set{1,2,3}$ no está ni en $A \triangle B$ ni en $B \triangle C$, en particular
+        tampoco está en $(A \triangle B) \union (B \triangle C)$.\par
+        Sabemos que $\magenta{(A \triangle C) \subseteq (A \triangle B) \union (B \triangle C)}$, es decir que $(A \triangle C)$
+        es un subconjunto de un conjunto que \underline{no} tiene al conjunto $\set{1,2,3}$. Se concluye que
+        $$
+          (A \inter B) \inter \set{1,2,3} = \vacio.
+        $$
+        La relación $\relacion$ es transitiva.\par
+
+        Como la relación es \textit{reflexiva, simétrica  y transitiva} es de equivalencia.
+
+  \item
+        La clase de equivalencia de $A = \set{1,2,3}$ va a estar formada por $A$ y por todos los conjuntos $X \en P$
+        que cumplan
+        $$
+          (\set{1,2,3} \triangle X) \inter \set{1,2,3} = \vacio
+        $$
+        Resulta que cerca de la sugerencia dada del \refEjercicio{ej:14}\ref{ej-14-1:itemiii}, está el ejercicio
+        \refEjercicio{ej:14}\ref{ej-14-1:itemi}, donde se muestra que la intersección ($\inter$) es distributiva
+        con la diferencia simétrica ($\triangle$). Con eso puedo reescribir la condición de más arriba como:
+        $$
+          (\set{1,2,3} \triangle X) \inter \set{1,2,3}
+          \igual{\red{!}}
+          \set{1,2,3} \triangle (X \inter \set{1,2,3}).
+        $$
+        Si te perdiste en el \red{!}, \textit{escribilo y miralo fuerte}. La condición para que $X \relacion \set{1,2,3}$ queda:
+        $$
+          \set{1,2,3} \triangle (X \inter \set{1,2,3}) = \vacio,
+        $$
+        que, en mi opinión, está más fácil de leer. Para que una diferencia simétrica entre 2 conjuntos
+        resulte en vacío, necesito que los conjuntos sean iguales. Por lo tanto quiero los conjuntos $X$ tales que:
+        $$
+          X \inter \set{1,2,3} = \set{1,2,3}.
+        $$
+        La clase $\clase{A}$:
+        $$
+          \clase{A} = \set{X \en P \big/ \set{1,2,3} \subseteq X } = \set{1,2,3} \union \partes\set{4,5,6,7,8,9,10} \Tilde
+        $$
+\end{enumerate}

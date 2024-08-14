@@ -1,4 +1,4 @@
-\textit{Básicos sobre conjuntos y coso: }
+\hypertarget{teoria-1:basicos-conjuntos}\textit{Básicos sobre conjuntos y coso: }
 \begin{itemize}[label={\tiny\faIcon{smile}}]
   \item \textit{ Las uniones e intersecciones de conjuntos conmutan:}
         $$
@@ -75,7 +75,7 @@
           A^c = \set{x \en \universo \talque x \notin A}
         $$
 
-\item \hypertarget{teoria-1:tablasDeVerdad}{\textit{Tablas de verdad: }}
+  \item \hypertarget{teoria-1:tablasDeVerdad}{\textit{Tablas de verdad: }}
         %%%MACRO
         \def\subconjuntoYequivalente{
           \begin{array}{|c|}
@@ -86,7 +86,7 @@
         }
         %%%END MACRO
 
-En las tablas de verdad que un elemento esté en un conjunto, $x \en A$ es equivalente a decir que la proposición $A$ es verdadera.
+        En las tablas de verdad que un elemento esté en un conjunto, $x \en A$ es equivalente a decir que la proposición $A$ es verdadera.
         En mi cabeza es más fácil recordar las tablas en conjuntos que en ... lo otro.
         \[
           \begin{array}{|c|c|c|c|c|c|c|c|}
@@ -107,4 +107,61 @@ En las tablas de verdad que un elemento esté en un conjunto, $x \en A$ es equiv
         Cuando para probar $p \entonces q$ se prueba en su lugar $p \land \neg q$ para llegar así
         a una contradicción, se dice que es una demostración por reducción al absurdo.
 
+  \item \hypertarget{teoria-1:relaciones}{\textit{Relaciones $\relacion$:}}
+        \begin{enumerate}[label=\tiny\faIcon{poop}]
+          \item  \textit{Reflexiva}: $(x, x) \en \relacion \paratodo x \en A$ o $x \relacion x.\, \paratodo x \en A$. Gráficamente,
+                cada elemento tiene que tener un bucle.
+                \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+                  \node[](a) {$\bullet$} edge [in=0,out=90,loop] ();
+                  \node[] at (a.west) {$x$};
+                \end{tikzpicture}
+
+          \item  \textit{Simétrica}: $(x, y) \en \relacion$, entonces el par $(y, x) \en \relacion$,
+                también si $\paratodo x, y \en A, x\relacion y \entonces y \relacion x$.
+                Gráficamente tiene que haber un ida y vuelta en cada elemento de la relación.
+                \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+                  \node[] (x) {$\bullet$};
+                  \node[] at (x.west) {$x$};
+                  \node[below right =0.2 of x] (y) {$\bullet$};
+                  \node[] at (y.south east) {$y$};
+                  \draw[->, bend left=1cm] (x.center) to (y);
+                  \draw[->, bend left=1cm] (y.center) to (x);
+                \end{tikzpicture}
+
+          \item  \textit{Antisimétrica}: $(x, y) \en \relacion$, con $x \distinto y$ entonces el par $(y, x) \notin \relacion$, también se puede pensar
+                como $\paratodo x,y \en A, x\relacion y$ e $ y \relacion x \entonces x = y$.
+                Gráficamente \textbf{no} tiene que haber ningún ida y vuelta en el gráfico. Solo en una dirección.
+                \begin{tikzpicture}[baseline=-10, >=Latex, draw=Aquamarine]
+                  \node[] (x) {$\bullet$};
+                  \node[] at (x.west) {$x$};
+                  \node[below right =0.2 of x] (y) {$\bullet$};
+                  \node[] at (y.south east) {$y$};
+                  \draw[->] (x.center) to (y.center);
+                \end{tikzpicture}
+
+          \item  \textit{Transitiva}: Para toda terna $x, y, z \en A$ tales que $(x, y) \en \relacion$ e $(y,z) \en \relacion$,
+                se tiene que $(x, z) \en \relacion$.
+                Otra manera sería si $\paratodo x, y, z \en A$, $x \relacion y$ e $y \relacion z \entonces x\relacion z$.
+                Gráficamente tiene que haber flecha directa entre las puntas de cualquier camino que vaya por más de dos nodos.
+                \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine]
+                  \node[] (x) {$\bullet$};
+                  \node[] at (x.north east) {$x$};
+                  \node[below right = 0.6cm of x] (y) {$\bullet$};
+                  \node[] at (y.north east) {$y$};
+                  \node[below right = 0.6cm of y] (z) {$\bullet$};
+                  \node[] at (z.north east) {$z$};
+
+                  \draw[->, bend left] (x.center) to (y.center);
+                  \draw[->, bend left] (y.center) to (z.center);
+                  \draw[->,magenta, bend right]
+                  (x.center)
+                  to node[midway,below left] {atajo}
+                  (z.center);
+                \end{tikzpicture}
+        \end{enumerate}
+  \item
+        \begin{itemize}[label=\tiny\faIcon{poo}]
+          \item \textit{Relación de equivalencia}: La relación debe ser reflexiva, simétrica y transitiva.
+          \item \textit{Relación de orden}: La relación debe ser reflexiva, antisimétrica y transitiva.
+        \end{itemize}
 \end{itemize}

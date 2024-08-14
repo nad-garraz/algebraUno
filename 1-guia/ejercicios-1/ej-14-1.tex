@@ -16,7 +16,7 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item
+  \item\label{ej-14-1:itemi}
         Voy a usar tablas con los resultados que hay \hyperlink{teoria-1:tablasDeVerdad}{en las tablas de verdad acá.}
         $$
           \begin{array}{|c|c|c|c|c|c|c|c|}
@@ -39,19 +39,44 @@
         $$
 
   \item Este sale sin tablas:
+        Tratá de hacerlo con estas propiedades, \hyperlink{teoria-1:basicos-conjuntos}{(notas teóricas acá)}:
+        \begin{enumerate}[label=\arabic*)]
+          \item Notación de diferencia
+          \item Distributivas
+          \item DeMorgan
+        \end{enumerate}
+
         $$
           \scriptstyle
-          (A - B) \union (A \inter C) =
-          A \inter [(A \inter B^c) \union C] =
-          A \inter [(A \union C) \inter (B^c \union C)] =
-          A \inter (B^c \union C) =
-          A \union(B-C)^c =
-          A - (B - C)
+          (A - B) \union (A \inter C)
+          \igual{\red!}[]
+          \cyan{[(A \inter B^c) \union A ]} \inter [ (A \inter B^c) \union C]
+          \igual{\red{!!}}[]
+          \cyan{A} \inter (A \union C) \inter (B^c \union C)
+          \igual{\red{!!!}}[]
+          A \inter (\magenta{B \inter C^c})^c =
+          A \inter (\magenta{B - C})^c
+          \igual{\red{!}}
+          A - (B - C) \Tilde
         $$
+
+  \item\label{ej-14-1:itemiii} Unos diagramas de Venn porque sino parece cuentoso:\par
+        \begin{center}
+          $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$:\par
+          \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+            \fillBNotA
+          \end{venndiagram3sets}
+          $\taa{\Tilde}{}{\subseteq}$
+          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+            \fillBNotC
+            \fillCNotA
+          \end{venndiagram3sets}
+        \end{center}
 
   \item  \Hacer
   \item  \Hacer
   \item  \Hacer
-  \item  \Hacer
-  \item  \Hacer
+  \item  Mirando el item \ref{ej-14-1:itemi} sale solo. Dado que $X \triangle \vacio \igual{\red{!}} X$
 \end{enumerate}

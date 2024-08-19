@@ -8,24 +8,23 @@
            |___/
 ```
 
-## Idea
+## Las guías resueltas:
 
-Si bien hay muchos buenos apuntes por ahí. La idea es que en este repo haya un apunte _vivo_, uno que se pueda
-ir curando y modificando junto con las guías de nuevos cuatrimestres.
+En cada directorio `i-guia` vas a encontrar el archivo `i-sol.pdf` que no es otra cosa que la última actualización de la guía `i-ésima`. _Sin necesidad de compilar nada_.
+Los archivos son largos como para andar scrolleando todo el tiempo, *usá* los `links`, que para algo los puse. Así que en el índice, pie de página y referencias podés hacer doble click para saltar
+y algún que otro _easter egg_.
+
+_¡Una estrellita 🌟 al repo es siempre bienvenida!_
+`^_^/`
+
+
+# Idea
+Si bien hay muchos buenos apuntes por ahí. La idea es que en este repo haya un apunte _dinámico_, uno que se pueda
+ir curando y modificando junto con las guías de nuevos cuatrimestres. Vas a tener que laburar!
 Un apunte con sección _ejercicios de parciales_ que vaya creciendo y mejorando cuatrimestre a cuatrimestre,
 _curados y escritos por el alumnado de álgebra 1_.
 
 ¡Esto está para que _cualquier individuo con ganas de contribuir pueda hacerlo_!
-
-## Algebra 1
-
-Algunos ejercicio de álgebra 1 en LaTeX
-Están bien los ejercicios?... eso no lo sé, _it's part of the fun_
-
-## Las guías resueltas:
-
-En cada directorio _i-guia_ vas a encontrar el archivo _*i-sol.pdf*_ que no es otra cosa que la última actualización de la guía _i-ésima_. _Sin necesidad de compilar nada_.
-Los archivos son largos como para andar scrolleando todo el tiempo, usá los `links`, que para algo los puse. Así que en el índice, pie de página y referencias podés hacer doble click para saltar.
 
 ## Estructura del repo
 
@@ -69,8 +68,10 @@ $ pdflatex 5-sol.tex
 ```
 
 Eso debería actualizar el archivo `5-sol.pdf` con los cambios que hubieras realizado.
+Luego tenés que hacer una pull request para actualizar el repositorio con tu aporte!
 
-- Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos. La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_.
+- Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos.
+La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_, porque yo ya hice mi parte y me da paja mantener esto sin ayuda.
 
 Podés usar el código como quieras siguiendo según [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 

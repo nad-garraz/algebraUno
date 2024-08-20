@@ -12,7 +12,6 @@
 \DeclareMathOperator{\irracionales}{\mathbb I}
 \DeclareMathOperator{\complejos}{\mathbb C}
 
-
 \DeclareMathOperator{\K}{\mathbb K} % cuerpo K
 \DeclareMathOperator{\vacio}{\varnothing}
 \DeclareMathOperator{\union}{\cup}
@@ -30,7 +29,6 @@
 
 \def\clase{\overline}
 \def\ord{\text{ord}}
-
 
 \def\existe{\,\exists\,}
 \def\noexiste{\,\nexists\,}
@@ -92,14 +90,13 @@
 \newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
 \newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
 
-
 % =====
 % Miscelanea
 % =====
 \def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
 \newcommand{\hacer}{
-        {\color{red!80!black}{\faIcon{flushed}... hay que hacerlo! \faIcon{sad-cry}}}\par
+  {\color{red!80!black}{\faIcon{flushed}... hay que hacerlo! \faIcon{sad-cry}}}\par
   {\color{black!70!white}
     \small Si querés mandarlo: Telegram $\to$ \href{\dirTelegram}{\small\faIcon{telegram}},
     o  mejor aún si querés subirlo en \LaTeX $\to$ \href{\dirRepo}{\small \faIcon{github}}.
@@ -134,7 +131,6 @@
   \endgroup
 }
 
-
 % separadores
 \newcommand{\separador}{
   \par\noindent\rule{\linewidth}{0.4pt}\par
@@ -142,7 +138,6 @@
 \newcommand{\separadorCorto}{
   \par\noindent\rule{0.5\linewidth}{0.4pt}\par
 }
-
 
 % Colores
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -190,7 +185,6 @@
   }
 }
 
-
 %=======================================================
 % Comandos con flechas extensibles.
 %=======================================================
@@ -223,7 +217,6 @@
 %=======================================================
 % fin comandos con flechas extensibles.
 
-
 % como el stackrel pero también se puede poner algo debajo
 \newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
   \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
@@ -234,6 +227,22 @@
   {\today\ @ \currenttime}
 }
 
+% Contributors
+\newcommand{\aporte}[2]{
+  #1\ #2
+}
+
+\newenvironment{aportes}{
+\vspace{10pt}
+  \tt\footnotesize
+  Visitá los repos y estrellalos \yellow{\FiveStar}! Gracias por tu aporte:
+\vspace{-10pt}
+  \begin{multicols}{3}
+  \begin{itemize}[label={\tiny\yellow{\faIcon{medal}}}]
+      }{
+    \end{itemize}
+  \end{multicols}
+}
 
 %=======================================================
 % sección ejercicio con su respectivo formato y contador

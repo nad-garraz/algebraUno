@@ -3,6 +3,7 @@
 \end{enunciado}
 
 Prueba que la hago por absurdo, \hyperlink{teoria-1:absurdo}{mirá la lógica en en apunte.}
+
 \begin{itemize}
   \item[$\magenta{\entonces}$)] Quiero probar que:
         $$
@@ -30,8 +31,9 @@ Prueba que la hago por absurdo, \hyperlink{teoria-1:absurdo}{mirá la lógica en
         Entonces el conjunto $\set{x}$ también tiene que estar en $\partes(B)$.\par
 
         \textit{Nota que puede ser útil:}\par
-        ¿Cuál es el absurdo? Terminá lo que falta de esta parte de la demostración sin ver como sigue y después comparás.
-        Ya está casi terminado, pero juntar los cables con esta info te obliga a entender lo que se está intentando hacer.
+        ¿Cuál es el absurdo? Terminá lo que falta de esta parte de la demostración sin ver
+        como sigue y después comparás. \href{\justDoIt}{\faIcon{jedi}\faIcon{hand-sparkles}\faIcon{jedi}}
+        Ya está casi terminado, pero juntar los cables con esta info te obliga a entender lo que se está intentando hacer.\par
         \textit{Fin nota que puede ser útil:}\par
 
         Si el conjunto de un elemento $\set{x}$ está en $\partes(B)$ entonces por la definición
@@ -42,18 +44,33 @@ Prueba que la hago por absurdo, \hyperlink{teoria-1:absurdo}{mirá la lógica en
           \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}\Tilde
         $$
 
-  \item[$\magenta{\Leftarrow}$)]
-        $\qvq A \subseteq B
-          \entonces
-          \partes(A) \subseteq \partes(B),\\
-          \paratodo S \en \partes(A)
-          \sisolosi
-          S \subseteq A
-          \stacktext{hip}\subseteq B
-          \entonces
-          S \en \partes(B).\\
-          \to
-          \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$ \Tilde
+  \item[$\magenta{\Leftarrow}$)] Quiero probar que:
+        $$
+          \ub{A \subseteq B}{\text{\purple{hipótesis}}} \magenta{\entonces} \partes(A) \subseteq \partes(B)
+        $$
+        Le pongo nombre $S$ a los elementos de $\partes(A)$. Todo elemento $S \taa{\llamada2}{}\en \partes(A)$
+        es un conjunto que cumple que $S \subseteq A$ por la definición del conjunto $\partes(A)$.
+        Si todo elemento $S$ cumple que $S \subseteq A$ por \purple{hipótesis} también tiene que estar en $B$.
+
+        \textit{Nota que puede ser útil:} click acá\par
+        Terminá lo que falta de esta parte de la demostración sin ver como sigue y después comparás
+        .\par
+        \textit{Fin nota que puede ser útil:}\par\medskip
+
+        $$
+          S \en B \Entonces{def} S \en \partes(B).
+        $$
+
+        Entonces en $\llamada2$ dije que los $S$ forman al conjunto $\partes(A)$, y si todos los $S$ están en $\partes(B)$ entonces:
+
+        $$
+          \partes(A) \subseteq \partes(B)
+        $$
+
+        Queda demostrado que:\par
+        $$
+          \boxed{ A \subseteq B \entonces \partes(A) \subseteq \partes(B) } \Tilde
+        $$
 \end{itemize}
 
 % Contribuciones

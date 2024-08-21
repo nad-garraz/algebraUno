@@ -48,7 +48,35 @@
   \item
     \textit{Proposición: } $ p(n) \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} - 1 \paratodo n \en \naturales$\par 
     \textit{Caso base: }   $p(1) : \sumatoria{i=1}{1} \frac{i2^i}{(i + 1)(i+2)} = \frac{1*2^1}{(1+1)(1+2)} = \frac{2}{6} = \frac{1}{3} = \frac{2^2 - 3}{1 + 2} \entonces p(1) $ es verdadera$ \Tilde$ \par
-    \textit{Paso inductivo: } \text{Asumo }$p(n)$
+    \textit{Paso inductivo: } \text{Asumo }$p(n) : \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} -1 \text{ como verdadera.}$\\
+
+    $
+    \entonces
+    p(n+1) : \text{quiero ver que }
+    \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1 \text{ también lo sea.}$\\
+
+    $
+    \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)} 
+    = \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} + \frac{i2^{n+1}}{((n+1) + 1)((n+1)+2)}
+    \igual{\magenta{HI}} \frac{2^{n+1}}{n+2} -1 + \frac{i2^{n+1}}{((n+1) + 1)((n+1)+2)}$\\
+
+    $\text{Si } \frac{2^{n+1}}{n+2} -1 + \frac{i2^{n+1}}{((n+1) + 1)((n+1)+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1\entonces 
+    \text{ sera verdadero}$\\
+    
+    
+    \begin{subequations}
+      \begin{align*}
+        \frac{2^{n+1}}{n+2} -1 + \frac{(n+1)2^{n+1}}{(n+ 2)(n+ 3)} &= \frac{2^{n+2}}{n+3} - 1   \\
+        (n + 3) \frac{2^{n+1}}{n+2} + \frac{(n+1)2^{n+1}}{(n+ 2)} &= 2^{n+2}   \\
+        (n + 3)2^{n+1} + (n+1)2^{n+1} &= 2^{n+2} (n+2)    \\
+        (n + 3) + (n+1) &= 2 (n+2)  \\
+        2n + 4 &= 2 (n+2)   \\
+        2n + 4 &= 2n + 4  \\
+        0 &= 0 
+      \end{align*}
+    \end{subequations} 
+
+
   \item
         $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
         $\llave{l}{

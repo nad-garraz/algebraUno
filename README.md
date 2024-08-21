@@ -15,7 +15,7 @@ Los archivos son largos como para andar scrolleando todo el tiempo, *usá* los `
 y algún que otro _easter egg_.
 
 _¡Una estrellita 🌟 al repo es siempre bienvenida!_
-`^_^/`
+`(^_^)/`
 
 
 # Idea
@@ -73,7 +73,7 @@ Luego tenés que hacer una pull request para actualizar el repositorio con tu ap
 - Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos.
 La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_, porque yo ya hice mi parte y me da paja mantener esto sin ayuda.
 
-Podés usar el código como quieras siguiendo según [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
+Podés usar el código como quieras siguiendo esta licencia: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 
 _"Un Apunte para gobernarlos a todos, un Apunte para encontrarlos, Un Apunte para atraerlos a todos y hasta en la tinieblas promocionar"_
 

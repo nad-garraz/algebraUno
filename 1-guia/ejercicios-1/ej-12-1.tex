@@ -174,8 +174,22 @@
           \item $\paratodo x \en \reales,\, x > 3 \entonces x^2 > 4$.\par
                 La proposición es verdadera. Si $x > 3 \entonces x^2 > 9 \flecha{en}[particular] x^2 > 9 > 4 \entonces x^2 > 4$
 
-          \item Si $n$ es un natural terminado en 4, entonces $n$ es par.\par
-                  \hacer
+          \item $n \en \naturales$, cuyo último dígito es 4. Entonces hay un $m \en \naturales_{\geq 0}$ con su último dígito 0 tal que
+                $$
+                  n = m + 4.
+                $$
+                Si un número tiene 0 como último dígito, debe ser múltiplo de 10, es decir
+                $m = 10 \cdot m'$ con $m' \en \naturales_{\geq 0} $. Por lo que se puede escribir a $n$ como:
+                $$
+                  n = \green{10} \cdot m' + \magenta{4} =
+                  \green{2 \cdot 5} \cdot m' + \magenta{2 \cdot 2} =
+                  2 \cdot (5 m' + 2) =
+                  2 \cdot m^{''},
+                $$ con $m^{''} \en \naturales_{\geq 2}$.
+                $$
+                  n = 2m^{''}.
+                $$
+                Si un natural termina con 4, es par. La proposición es verdadera.
 
           \item Si $z$ es un número real, entonces $z \en \complejos$.\par
                 Están proponiendo que dado
@@ -213,15 +227,15 @@
                   } \to \doceiiE
                 \]
 
-          \item \hacer
-
+          \item \textit{Si $n$ es un natural que no termina en 4 entonces no es par}.\par
+                Un contraejemplo bastaría para probar que esto es falso: El número 12. No termina con el
+                número cuatro y es par, ya que $12 = 2\cdot 6$.
 
           \item Si $z$ no es un número real, entonces $z \notin \complejos$.\par
                 La proposición es falsa. Están proponiendo que dado $z \notin \reales \entonces z \notin \complejos$.
                 Si $z = i$, se prueba lo contrario.
                 Dado que $i \notin \reales$, pero  $i \en \complejos$
         \end{enumerate}
-
 
   \item
         $$
@@ -238,3 +252,11 @@
           \end{array}
         $$
 \end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+  \item \aporte{https://www.instagram.com/juaanparajo}{Juan Parajó \instagram}
+\end{aportes}

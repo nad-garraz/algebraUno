@@ -75,7 +75,7 @@ La idea es que te capacites para poder _vos también mantener el repo vivo y act
 
 Podés usar el código como quieras siguiendo esta licencia: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 
-_"Un Apunte para gobernarlos a todos, un Apunte para encontrarlos, Un Apunte para atraerlos a todos y hasta en la tinieblas promocionar"_
+_"Un Apunte para gobernarlos a todos, un Apunte para encontrarlos, Un Apunte para atraerlos a todos y en la tinieblas atraparlos"_
 
 _¡Una estrellita 🌟 al repo es siempre bienvenida!_
 `(^_^)/`

@@ -8,7 +8,11 @@
           \partes(A) = \set{B : B \subseteq A} \text{ o también } B \en \partes{A} \sisolosi B \subseteq A.
         $$
         Por ejemplo: Si $A = \set{1,2,3}$, $\partes(A) = \set{\vacio, \set{1},\set{2},\set{3},\set{1,2}, \set{1,3}, \set{2,3},\set{1,2,3}}$
-
+  \item \textit{ Las uniones  ($\union$) e intersecciones $\inter$:}
+        \begin{itemize}[label={\tiny\faIcon{meh}}]
+                \item $A \union B = \set{x \en U : x \en A \otext x \en B}$
+                \item $A \inter B = \set{x \en U : x \en A \ytext x \en B}$
+        \end{itemize}
   \item \textit{ Las uniones e intersecciones de conjuntos conmutan:}
         $$
           \begin{array}{c}
@@ -65,8 +69,8 @@
         $$
           A \triangle B =
           \llave{lcl}{
-            (A - B)        & \union      & (B - A)                                                     \\
-            (A \union B)   & \inter      & (A \inter B)^c                                              \\
+            (A - B)        & \union      & (B - A)                                                      \\
+            (A \union B)   & \inter      & (A \inter B)^c                                               \\
             (A \union B)   & \diferencia & (A \inter B)  \to \text{mi favorita \faIcon{meh}} \\
             (A \inter B^c) & \union      & (B \inter A^c)
           }
@@ -118,6 +122,71 @@
         \hypertarget{teoria-1:absurdo}{\textit{Probar por absurdo:}}
         Cuando para probar $p \entonces q$ se prueba en su lugar $p \land \neg q$ para llegar así
         a una contradicción, se dice que es una demostración por reducción al absurdo.
+
+  \item \hypertarget{teoria-1:productoCartesiano}{\textit{Producto cartesiano}}:\par
+        $$
+          A \times B := \set{(x,y) : x\en A, y \en B}.
+        $$
+
+        Si tenés $n$ conjuntos:
+        $$
+          A_1 \times \cdots \times A_n := \set{(x_1,\dots,x_n): x_1 \en A_1, x_2 \en A_2 \cdots, x_n \en A_n}.
+        $$
+
+        Parece interesante nota que un punto $z \not\en A \times B$ no implica que esté en $A^c \times B^c$:
+        $$
+          (A \times B)^c \text{ no es lo mismo que } (A^c \times B^c)
+        $$
+        \begin{center}
+          \begin{tikzpicture}[every node/.style={color=black,font={\tiny}}]
+            \draw[thin, -latex, gray] (-1,0) -- (3,0) node[below] {$U$};
+            \draw[thin, -latex, gray] (0, -1) -- (0,3) node[left] {$V$};
+            % Conjunto A
+            \draw[dashed, magenta] (-0.5, -1 ) -- (-0.5,3) node[left] {};
+            \draw[dashed, magenta] (1.5, -1 ) -- (1.5,3) node[left] {};
+            \draw[ultra thick, magenta] (-0.5, 0) -- (1.5,0) node[midway, below] {$A$};
+
+            % Conjunto B
+            \draw[dashed, blue] (-1,0.5  ) -- (3,0.5) node[left] {};
+            \draw[dashed, blue] (-1,2.5  ) -- (3,2.5) node[left] {};
+            \draw[ultra thick, blue] (0, 0.5) -- (0,2.5) node[midway, left] {$B$};
+
+            \filldraw[opacity=0.2, red] (-0.5,0.5) rectangle (1.5,2.5) node (rectangulo) [midway] {};
+            \node (conjunto) at (rectangulo.center) {\tiny\blue{$A \times B$}};
+
+            \fill[purple] (0.5, 3.2) circle (1pt) node[above] {\purple{$z$}};
+          \end{tikzpicture}
+          \begin{tikzpicture}[every node/.style={color=black,font={\tiny}}]
+            \draw[thin, -latex, gray] (-1,0) -- (3.4,0) node[below] {$U$};
+            \draw[thin, -latex, gray] (0, -1) -- (0,3.4) node[left] {$V$};
+
+            % Conjunto A^c
+            \draw[dashed, magenta] (-0.5, -1 ) -- (-0.5,3) node[left] {};
+            \draw[dashed, magenta] (1.5, -1 ) -- (1.5,3) node[left] {};
+            \draw[ultra thick, magenta] (-0.5, 0) -- (-2,0) node[midway, below]{};
+            \draw[ultra thick, magenta] (1.5, 0) -- (3,0) node[midway, below]{};
+
+            % Conjunto B^c
+            \draw[dashed, blue] (-2,0.5  ) -- (3,0.5) node[left] {};
+            \draw[dashed, blue] (-2,2.5  ) -- (3,2.5) node[left] {};
+            \draw[ultra thick, blue] (0, 2.5) -- (0,3.3) node[midway, left] {};
+            \draw[ultra thick, blue] (0, 0.5) -- (0,-1) node[midway, left] {};
+
+            % Shading notA and notB intersection
+            \filldraw[opacity=0.2, red] (-2,-1) rectangle (-0.5,0.5);
+            \filldraw[opacity=0.2, red] (-2,2.5) rectangle (-0.5,3.3);
+            \filldraw[opacity=0.2, red] (1.5,-1) rectangle (3,0.5);
+            \filldraw[opacity=0.2, red] (1.5,2.5) rectangle (3,3.3);
+
+            \node at (-1.2, -0.75) {\tiny\red{$A^c \inter B^c$}};
+            \node at (2.25, -0.75) {\tiny\red{$A^c \inter B^c$}};
+            \node at (-1.2, 2.75) {\tiny\red{$A^c \inter B^c$}};
+            \node at (2.25, 2.75) {\tiny\red{$A^c  \inter B^c$}};
+
+            \fill[purple] (0.5, 3.2) circle (1pt) node[above] {\purple{$z$}};
+
+          \end{tikzpicture}
+        \end{center}
 
   \item \hypertarget{teoria-1:relaciones}{\textit{Relaciones $\relacion$:}}\par
         \begin{itemize}[label=\tiny\faIcon{yin-yang}]

@@ -16,17 +16,15 @@
 
     \node[below right = .5 of 2] (puntos) {$\vdots$};
 
-    \node[below left = .5 of puntos] (45) {$\bullet$};
-    \node[] at (45.west) {$45$};
+    \node[below left = .5 of puntos] (46) {$\bullet$};
+    \node[] at (46.west) {$46$};
 
-    \node[right = of 45] (47) {$\bullet$};
+    \node[right = of 46] (47) {$\bullet$};
     \node[] at (47.east) {$47$};
 
-    \node[below right =.5 of 45] (46) {$\bullet$};
-    \node[] at (46.east) {$46$};
 
     % Universo
-    \node[shape=ellipse, draw, black, fit={ (1) (92) (45) (47) (46)}] (universo) {};
+    \node[shape=ellipse, draw, black, fit={ (1) (92) (46) (47)}] (universo) {};
     \node[above left = 0.1cm of universo] {$A$};
 
     % Aristas
@@ -36,17 +34,15 @@
     \draw[->, loop below] (2) to (2);
     \draw[->, loop below ] (91) to (91);
 
-    \draw[->, loop below] (45) to (45);
+    \draw[->, loop below] (46) to (46);
     \draw[->, loop below ] (47) to (47);
-
-    \draw[->, loop below ] (46) to (46);
 
     \draw[->, bend left] (1.center) to (92);
     \draw[->, bend left] (92.center) to (1);
     \draw[->, bend left] (2.center) to (91);
     \draw[->, bend left] (91.center) to (2);
-    \draw[->, bend left] (45.center) to (47);
-    \draw[->, bend left] (47.center) to (45);
+    \draw[->, bend left] (46.center) to (47);
+    \draw[->, bend left] (47.center) to (46);
   \end{tikzpicture}
 }
 
@@ -112,8 +108,7 @@
               \clase{1}  & = & \clase{92} & = & \set{1, 92}  \\
               \clase{2}  & = & \clase{91} & = & \set{2, 91}  \\
               \vdots     &   & \vdots     &   & \vdots       \\
-              \clase{45} & = & \clase{47} & = & \set{45, 47} \\
-              \clase{46} & = & \set{46}
+              \clase{46} & = & \clase{47} & = & \set{46, 47} \\
             }$\par
           Hay entonces 46 clases. $A = \set{\clase{1},\, \clase{2},\, \dots,\, \clase{45},\, \clase{46}}$
         \end{minipage}

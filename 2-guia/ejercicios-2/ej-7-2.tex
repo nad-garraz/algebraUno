@@ -126,33 +126,49 @@
         \end{subequations}
 
   \item
-        $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
-        $\llave{l}{
-            \text{Primer caso } n = 1 \to
-            \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
-            1 + a^{2^0} = \magenta{1 + a} =
-            \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
-          \magenta{1 + a} \Tilde \\
-          \text{Paso inductivo } n = k \to
+        $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\par
+
+        \textit{Caso Base}:
+        $$
+          p(1) :
+          \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
+          1 + a^{2^0} = \magenta{1 + a} =
+          \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
+          \magenta{1 + a} \Tilde
+        $$
+        Por lo cual $p(1)$ resultó ser verdadera.
+
+        \textit{Paso inductivo :}
+        $$
+          p(k): \text{ Asumo que }
+          \ub{
           \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
-          \frac{1-a^{2^k}}{1-a} \entonces
-          n = k+1 \to  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) \igual{?}
-          \frac{1 - a^{2^{k+1}}}{1-a}\\
-          \llave{l}{
-            \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) =
-            \HI{
-              \productoria{i=1}{k} ( 1 + a^{2^k} )
-            } \cdot
-            \kmasuno{
-              1 + a^{2^{i-1}}
-            }  =
-            \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k}
-          \flecha{diferencia}[de cuadrados]
-          \frac{1 - ( a^{2^k})^2}{1-a} =\\
+          \frac{1-a^{2^k}}{1-a}
+          }{\purple{\text{hipótesis inductiva}}}
+          \text{ es verdadera. }
+        $$
+        Entonces quiero ver que:
+        $$
+          p(k+1) :  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) = \frac{1 - a^{2^{k+1}}}{1-a}
+        $$
+
+        también lo sea.\par
+        Arranco de $p(k+1)$ y usando la \purple{hipótesis inductiva} trato de llegar
+        al valor esperado:
+        $$
+          \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} )
+          \igual{\red{!}}
+          (1 + a^{2^k}) \cdot \productoria{i=1}{k}( 1 + a^{2^{i-1}} )
+          \igual{\purple{HI}}
+          (1 + a^{2^k}) \cdot
+          \frac{1-a^{2^k}}{1-a}
+          \igual{\red{!!}}
+          \frac{1 - ( a^{2^k})^2}{1-a} =
           \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\Tilde
-          }
-          }
-        $
+        $$
+        Si te quedaste pedaleando en los \red{!}, pensá en \textit{diferencia de cuadrados}, \textit{propidades de potencias} y coso \faIcon{hands-wash}.\par
+        Esto muetra que $p(k+1)$ también es verdadera.\par
+        Como $p(1),\, p(k) \ytext p(k+1)$ son verdaderas por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.
 
   \item
         $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\par
@@ -176,8 +192,8 @@
           \end{array}
         $$
         \textit{Nota que puede ser de utilidad:}
-        Esta productoria tiene a la $n$ en el término general. Cuando pasa esto en el ejercicio, abrir la sumatoria
-        para acomodar los factores y así formar la HI, suele ser el camino a seguir.\par
+        Esta productoria tiene a la $n$ en el término general. Cuando pasa esto en el ejercicio, abrir la productoria
+        para acomodar los factores y así formar la HI, suele ser el camino a seguir, \red{ojo con modificar el término general}.\par
         \textit{Fin nota que puede ser de utilidad}
 
         $$

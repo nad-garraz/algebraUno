@@ -1,0 +1,125 @@
+\begin{enunciado}{\ejExtra}
+  Probar que para todo $n \en \naturales$
+  $$
+    \productoria{i=1}{n} \frac{i!}{i+n} \geq \frac{1}{10}.
+  $$
+\end{enunciado}
+
+Ejercicio de inducción que tiene una productoria o sumatoria y una $n$ en el término general.
+Si hiciste los ejercicios anteriores, sabés que hay que atacar el problema \textit{abriendo la productoria}.\bigskip
+
+\textit{Proposición:}
+$$
+  p(n):
+  \productoria{i=1}{n} \frac{i!}{i+n} \geq \frac{1}{10} \quad \paratodo n \en \naturales
+$$
+\textit{Caso base}
+$$
+  p(1):
+  \productoria{i=1}{1} \frac{i!}{i+1}  = \frac{1}{2} \geq \frac{1}{10} \Tilde
+$$
+El caso $p(1)$ resulta verdadero.\bigskip
+
+\textit{Paso inductivo: }
+
+Asumo que
+
+$$
+  p(\blue{k}) :
+  \ub{
+    \productoria{i=1}{\blue{k}} \frac{i!}{i+\blue{k}} \geq \frac{1}{10}}{\text{\purple{hipótesis inductiva}}} \Tilde
+$$
+
+es verdadero para algún $k \en \enteros$. Y quiero probar que:
+
+$$
+  p(\blue{k+1}) :
+  \productoria{i=1}{\blue{k+1}} \frac{i!}{i+\blue{k+1}} \geq \frac{1}{10}
+$$
+también lo sea.\par
+
+Empiezo abriendo las productorias para estudiar los factores, uno por uno:
+$$
+  \begin{array}{l}
+    \productoria{i=1}{\blue{k}} \frac{i!}{i+\blue{k}} =
+    \frac{1!}{k+1} \cdot
+    \frac{2!}{k+2} \cdots
+    \frac{(k-2)!}{2k-2} \cdot
+    \frac{(k-1)!}{2k-1} \cdot
+    \frac{k!}{2k}
+  \end{array}
+$$
+
+$$
+  \begin{array}{l}
+    \productoria{i=1}{\blue{k+1}} \frac{i!}{i+\blue{k+1}} =
+    \frac{1!}{k+2} \cdot
+    \frac{2!}{k+3} \cdots
+    \frac{(k-2)!}{2k-1} \cdot
+    \frac{(k-1)!}{2k} \cdot
+    \frac{k!}{2k+1} \cdot
+    \frac{(k+1)!}{2k+2}
+  \end{array}
+$$
+
+Con esos resultados hay que ver que todos los factores \textit{corridos} de la
+productoria hasta $\blue{k}$ están ahí escondidos en la productoria de $\blue{k+1}$.
+Tomate un tiempo para acomodar y hacer aparecer la \purple{hipótesis inductiva}.\par
+Queda como corriendo los numeradores un lugar a la izquierda, no?
+
+$$
+  \begin{array}{rcl}
+    \productoria{i=1}{\blue{k+1}} \frac{i!}{i+\blue{k+1}}
+     & =               &
+    \ob{\magenta{\frac{k+1}{k+1}}}{1} \cdot
+    \frac{1!}{k+2} \cdot
+    \frac{2!}{k+3} \cdots
+    \frac{(k-2)!}{2k-1} \cdot
+    \frac{(k-1)!}{2k} \cdot
+    \frac{k!}{2k+1} \cdot
+    \frac{(k+1)!}{2k+2} = \\
+     & \igual{\red{!}} &
+    \frac{1!}{\magenta{k+1}} \cdot
+    \frac{2!}{k+2} \cdot
+    \frac{3!}{k+3} \cdots
+    \frac{(k-2)!}{2k-2} \cdot
+    \frac{(k-1)!}{2k-1} \cdot
+    \frac{k!}{2k} \cdot
+    \frac{(k+1)!}{2k+1} \cdot
+    \frac{\magenta{k+1}}{2k+2}
+  \end{array}
+$$
+
+Oka, mismo truco viejo de siempre. Acomodar y multiplicar por un 1 disfrazado de cosas útiles.
+Ahora nos sacamos un montón de términos con la \purple{hipótesis inductiva} y luego acotamos.
+$$
+  \begin{array}{rcl}
+    \productoria{i=1}{\blue{k+1}} \frac{i!}{i+\blue{k+1}}
+     & \taa{\purple{\text{HI}}}{}{\geq} &
+    \frac{1}{10} \cdot \frac{(k+1)!}{2k+1} \cdot \frac{k+1}{2k+2}
+    =
+    \frac{1}{20} \cdot \frac{(k+1)!}{2k+1}
+    \taa{\red{!}}{}\geq
+    \frac{1}{20} \cdot \frac{(k+1)!}{2k+\magenta{2}} =
+    \frac{1}{40} \cdot k!
+    \taa{\red{!}}{}\geq
+          \frac{1}{10} \quad \paratodo k \en \naturales_{> 2}
+  \end{array}
+$$
+
+$$
+  \productoria{i=1}{\blue{k+1}} \frac{i!}{i+\blue{k+1}} \geq \frac{1}{10} \quad \paratodo k \en \naturales_{> 2}
+$$
+
+Y dado que
+$$
+  p(2):
+  \productoria{i=1}{2} \frac{i!}{i+2}  = \frac{1}{3} \cdot \frac{1}{2} = \frac{1}{6} \geq \frac{1}{10} \Tilde
+$$
+es verdadera la acotación que hicimos nos sirve.
+
+\bigskip
+
+Es así que $p(1), p(2), p(k), \text{ y } p(k+1)$ resultaron verdaderas y por el principio de inducción
+$p(n)$ también lo será $\paratodo n \en \naturales$.
+

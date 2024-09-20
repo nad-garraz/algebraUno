@@ -1,36 +1,45 @@
 \begin{enunciado}{\ejercicio}
-Sea $A = \set{n \in \naturales : n \leq 20}$.
-        Calcular la cantidad de subconjuntos $B \subseteq A$ que cumplen
-        las siguientes condiciones:
-\begin{enumerate}[label=\roman*)]
-	\item $B$ tiene 10 elementos y contiene exactamente 4 múltiplos de 3.
-	\item $B$ tiene 5 elementos y no hay dos elementos de $B$ cuya suma sea impar.
-\end{enumerate}
+  Sea $A = \set{n \in \naturales : n \leq 20}$.
+  Calcular la cantidad de subconjuntos $B \subseteq A$ que cumplen
+  las siguientes condiciones:
+  \begin{enumerate}[label=\roman*)]
+    \item $B$ tiene 10 elementos y contiene exactamente 4 múltiplos de 3.
+    \item $B$ tiene 5 elementos y no hay dos elementos de $B$ cuya suma sea impar.
+  \end{enumerate}
 
 \end{enunciado}
 
 El conjunto $A = \set{\foreach \k in {1,...,19}{\k, }20}$\par
 \begin{enumerate}[label=\roman*)]
-	\item
-	      $ \flecha{multiplos}[de 3] C =
-                \set{3, 6, 9, 12, 15, 18}$,
-                agarro 4 elementos del conjunto $C$ y luego 6 de los restantes del conjunto $A$ sin contar
-	      el múltiplo de 3 que ya usé.\par
-	      $\llave{l}{
-			      \binom{6}{4} \cdot \binom{9}{6} =
-                  \frac{\cancel{6!}}{4! 2!} \cdot \frac{9!}{\cancel{6!} 3!}
-                  \flecha{simplificando}
-                  9 \cdot 4 \cdot 7 \cdot 5 = 1260  \\
-			      \red{Verificar y preguntar por la justificación.}
-		      }$
+  \item
+        $ \flecha{multiplos}[de 3] C =
+          \set{3, 6, 9, 12, 15, 18}$,
+        agarro 4 elementos del conjunto $C$ y luego 6 de los restantes del conjunto $A$ sin contar
+        el múltiplo de 3 que ya usé.\par
+        $\llave{l}{
+            \binom{6}{4} \cdot \binom{9}{6} =
+            \frac{\cancel{6!}}{4! 2!} \cdot \frac{9!}{\cancel{6!} 3!}
+            \flecha{simplificando}
+            9 \cdot 4 \cdot 7 \cdot 5 = 1260
+          }$
 
-	\item
-	      La condición de que la suma \textit{no sea impar} implica que todos los elementos
-                deben ser par o todos impar.\par
-	      $\llave{l}{
-			      \flecha{todos}[pares]   \set{2,4,6,8,10,12,14,16,18, 20}
-                  \flecha{10 elementos}[quiero 5] \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252\\
-			      \flecha{todos}[impares] \set{1,3,5,9,11,13,15,17,19} \flecha{9 elementos}[quiero 5]
-                  \binom{9}{5} = \frac{9!}{5!\cdot 4!} = 126
-		      }$
+  \item
+        La condición de que la suma \textit{no sea impar} implica que todos los elementos
+        deben ser par o todos impar.\par
+        $\llave{l}{
+            \flecha{todos}[pares]   \set{2,4,6,8,10,12,14,16,18, 20}
+            \flecha{10 elementos}[quiero 5]
+            \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252 \\
+            \flecha{todos}[impares] \set{1,3,5,7,9,11,13,15,17,19}
+            \flecha{10 elementos}[quiero 5]
+            \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252 \\
+          }$
 \end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{https://www.instagram.com/jjean.gibert}{Jean Gibert \instagram}
+\end{aportes}

@@ -1,0 +1,50 @@
+\begin{enunciado}{\ejExtra}
+  Calcular $(a\cdot b^2 : 3a^2 + 3b^2) $ para cada par de enteros $a$ y $b$ tales que $(a:b) = 3$.
+\end{enunciado}
+Hay que \textit{comprimizar}, \textit{encontrar posibles divisores}, \textit{interpretar resultado}.
+
+\textit{Coprimizar:} \par
+$$
+  (a:b) = 3 \sii (\frac{a}{3}: \frac{b}{3}) = 1 \Sii{$a=3A$}[$b=3B$] (A:B) = 1 \sii A \cop B.
+$$
+
+\textit{Reemplazo y acomodo:}
+$$
+  d = (a\cdot b^2 : 3a^2 + 3b^2)
+  \Sii{\red{!}}
+  d =  27(A \cdot B^2 : A^2 + B^2)
+  \Sii{d = 27D }
+  D =  (A \cdot B^2 : A^2 + B^2)
+  \text{ con } A \cop B
+$$
+
+Dado que $D$ es el mcd, tiene que cumplir que:
+
+$$
+  \llave{l}{
+    D \divideA A \cdot B^2 \\
+    D \divideA A^2 + B^2
+  }
+  \flecha{\red{!!}}
+  \llave{l}{
+    D \divideA A^3 \\
+    D \divideA B^4
+  }
+$$
+Oka, ahí en el \red{!!} hice lo de siempre: Multiplique una fila por $A$ o $B$ y resté y coso.\par
+Lo que nos queda es algo muy parecido a lo que pasó en el ejercicio \hyperlink{ejExtra:4-12-coprimos}{éste{\tiny(click)}}.
+\medskip
+
+\textit{Interpretación:}\par
+Tenemos que $D$ por su condición de divisor común debe dividir a dos número \textit{coprimos}, dado que si $A \cop B$ también sucede que $A^3 \cop B^4$,
+because \textit{primos and shit}, y bueh, ¿Puede ser eso posible?.. Sí! Cuando $D = 1$. \par
+Entonces:
+$$
+  D = 1 \entonces d = 27 \text{ para cada par } (a,b) \en \enteros \big/ (a:b) = 3
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

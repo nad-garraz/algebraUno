@@ -1,3 +1,123 @@
 \begin{enunciado}{\ejercicio}
-\hacer
+  Sea $\F = \set{f: \set{1,\dots,10} \to \set{1,\dots.10} \big/ f \text{ es una función \textbf{biyectiva}}}$, y sea $\relacion$ la relación
+  en $\F$ definida por
+  $$
+    f \relacion g \sisolosi \existe n \en \set{1,\dots, 10}\big/ f(n) = 1 \textbf{\ytext} g(n) = 1.
+  $$
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que $\relacion$ es una relación de equivalencia. ¿Es antisimétrica?
+    \item Sea $Id: \set{1, \dots, 10} \to \set{1,\dots, 10}$ la función identidad, o sea, $Id(n) = n, \paratodo n \en \set{1,\dots, 10}.$ Dar
+          tres elementos \textbf{distintos} de la clase de equivalencia de $Id$.
+  \end{enumerate}
+
+  \medskip
+
+  \textbf{\underline{Importante:}} Al exhibir una función es indispensable definirla en \textbf{todos} lso elementos de su dominio.
+
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item Las funciones biyectivas agarran todos los elementos del conjunto de partida y lo mandan esos elementos a un elemento del conjudo de salida uno a uno.
+        Son inyectivas y sobreyectivas.
+
+        \bigskip
+
+        \textit{Reflexiva:}\par
+        Quiero ver que $f \relacion f$. Como $f$ es biyectiva y $n \en \ub{\set{1,\dots,10}}{ \subseteq \dom(f)}$, por lo que para algún $n$
+        tiene que cumplir $f(n) = 1$.
+        $\relacion$ es reflexiva.
+
+        \bigskip
+
+        \textit{Simétrica:}\par
+        Quiero ver que si $f \relacion g \entonces g \relacion f$. Es trivial en este caso, porque la conjunción, el ''\textbf{y}'', de la relación
+        es conmutativo, por lo tanto:
+        $$
+          f \relacion g \entonces g \relacion f
+        $$
+        $\relacion$ es simétrica.
+
+        \bigskip
+
+        \textit{Transitiva:}\par
+        Quiero ver que si $f \relacion g \ytext g \relacion h \entonces f \relacion h$. Es similar al caso anterior. Por hipótesis, las relaciones
+        $f\relacion g$ y $g\relacion h$ dicen que existen $n_1, n_2, n_3 \en \set{1,\dots,10}$ tales que $f(n_1) = g(n_2) = h(n_3) = 1$.
+        Así que $f \relacion h$
+        $\relacion$ es transitiva.
+
+        Como la relación es \textit{reflexiva}, \textit{simétrica}, \textit{transitiva} es una relación de equivalencia.
+        \bigskip
+
+        \textit{Antisimétrica:} \par
+        Quiero ver que si $f \relacion g$ con $f\neq g$ entonces $g\norelacion f$. Acá es donde donde el \textbf{\underline{Importante}} del enunciado
+        cobra relevancia, porque si vamos a \textit{mostrar una función de contraejemplo }, tiene que estar definida de forma correcta, en este
+        caso tenemos que mandar todos los elementos de $\set{1,\dots,10}$ a todos los valores de $\set{1,\dots,10}$ uno a uno.
+        $$
+          \begin{array}{rclrl}
+            f(\blue{1}) & = & g(\blue{1}) & = & 1 \\
+            f(2)        & = & g(2)        & = & 2 \\
+            f(3)        & = & g(3)        & = & 3 \\
+            f(4)        & = & g(4)        & = & 4 \\
+            f(5)        & = & g(5)        & = & 5
+          \end{array} \quad
+          \begin{array}{rclcl}
+            f(6)            & = & g(6)            & = & 6  \\
+            f(7)            & = & g(7)            & = & 7  \\
+            f(8)            & = & g(8)            & = & 8  \\
+            f(\magenta{9})  & = & g(\magenta{10}) & = & 9  \\
+            f(\magenta{10}) & = & g(\magenta{9})  & = & 10
+          \end{array}
+        $$
+        Las funciones son distintas $f \distinto g$ y $f \relacion g$, pero $g \relacion f$, por lo cual no se cumple al condición de la antisimetría.\par
+        $\relacion$ no es antisimétrica.
+
+  \item Los elementos de $\F$ que se relacionan entre sí, forman un conjunto denominado: \textit{clase}. Esta clase se puede
+        llamar clase de "\textit{cualquiera de los elementos}", por ejemplo si $f_1,f_2,f_3,\dots,Id$ están relacionadas se puede decir que:
+        $$
+          \clase{f_1} = \set{f_1,f_2,f_3,\dots,Id} \otext \clase{f_2} = \set{f_1,f_2,f_3,\dots,Id} \otext \clase{Id} = \set{f_1,f_2,f_3,\dots,Id}
+        $$
+        Así que hay que definir 3 funciones que estén relacionadas con la función $Id$. Hay que hacerlo para todos los elementos como en el inciso
+        de antisimetría...
+        $$
+          \begin{array}{rcl}
+            f_1(\blue{1}) & = & 1 \\
+            f_1(2)        & = & 2 \\
+            f_1(3)        & = & 3 \\
+            f_1(4)        & = & 4 \\
+            f_1(5)        & = & 5
+          \end{array} \quad
+          \begin{array}{rcl}
+            f_1(6)            & = & 6            \\
+            f_1(7)            & = & 7            \\
+            f_1(8)            & = & 8            \\
+            f_1(\magenta{9})  & = & \magenta{10} \\
+            f_1(\magenta{10}) & = & \magenta{9}
+          \end{array} \qquad
+          \begin{array}{rcl}
+            f_2(\blue{1}) & = & 1 \\
+            f_2(2)        & = & 2 \\
+            f_2(3)        & = & 3 \\
+            f_2(4)        & = & 4 \\
+            f_2(5)        & = & 5
+          \end{array} \quad
+          \begin{array}{rcl}
+            f_2(6)            & = & 6            \\
+            f_2(7)            & = & 7            \\
+            f_2(\magenta{8})  & = & \magenta{10} \\
+            f_2(9)            & = & 9            \\
+            f_2(\magenta{10}) & = & \magenta{8}
+          \end{array}
+        $$
+
+        Y la $f_3$ te la dejo a vos. Las funciones son \textbf{distintas} y están relacionadas con la $Id$ porque usan el mismo $n$ (en este caso $n=\blue{1}$) para cumplir
+        $f_1(\blue{1}) = f_2(\blue{1}) = f_2(\blue{1}) = Id(\blue{1}) = 1\Tilde$\par
+
+        Nada que ver, pero ¿Cuántos elementos tiene la clase de equivalencia de $Id$? $\to \#\clase{Id} \igual{\red{?}} 9!$
+\end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

@@ -1,78 +1,97 @@
 \textit{\underline{Raíces de un número complejo: }}
-\begin{itemize}
-	\item Sean $z, w \en \complejos -\set{0}$, $z = re^{\theta i}$ y $w = se^{\varphi i }$ con $r,\, s \en \reales_{>0}$
-	      y $\theta,\, \varphi \en \reales$.\\ Entonces $z = w \sisolosi
-		      \llave{l}{
-			      r = s\\
-			      \theta = \varphi + 2 k\pi,\ \text{para algún } k \en \enteros
-		      }$
-	\item raíces $n$-esimas: $w^n = z
-		      \to
-		      \llave{l}{
-		      s^n = r \\
-		      \varphi \cdot n = \theta + 2 k \pi \quad\to \text{para algún $k\en \enteros$}\\
-		      \text{$n$ raíces distintas} \to w_k=se^{\varphi_k i}, \text{ donde } s = \sqrt{r} \text{ y }
-		      \varphi_k = \frac{\theta}{n} + \frac{2k\pi}{n} = \frac{\theta + 2k\pi}{n}
-		      }$
+
+\begin{itemize}[label= \tiny \faIcon{meh}]
+  \item Sean $z, w \en \complejos -\set{0}$, $z = r_z e^{\theta_z i}$ y $w = r_w e^{\theta_w i }$ con $r_z,\, s_w \en \reales_{>0}$
+        y $\theta_z,\, \theta_w \en \reales$.\par
+        Entonces $z = w
+          \Sii{\red{!!}}
+          \llave{l}{
+          r_z = r_w \\
+          \theta_z = \theta_w + 2 k \pi,\ \text{para algún } k \en \enteros
+          }$
+  \item raíces $n$-esimas: $w^n = z
+          \Sii{\red{!!}}
+          \llave{l}{
+          (r_w)^n = r_z \\
+          \theta_w \cdot n = \theta_z + 2 k \pi \quad \text{para algún $k\en \enteros$}
+          }$\par
+        De donde se obtendrán $n$ raíces distintas:
+        $$
+          w_k = z_w e^{\theta_{w_k} i}, \text{ donde } r_w = \sqrt[n]{r_z} \ytext
+          \theta_{w_k} = \frac{\theta_z}{n} + \frac{2k\pi}{n} = \frac{\theta_z + 2k\pi}{n}
+        $$
+        \red{Entender bien como sacar raíces $n$-ésimas es importantísimo para toda la guía de complejos y la próxima de polinomios}.
 \end{itemize}
+
+\underline{\textit{Grupos $G_n$:}}
+
+\begin{itemize}[label=\color{gray} \tiny \faIcon{smile}]
+\item $G_n = \set{w \en \complejos / w^n = 1} = \set{e^{\frac{2k \pi}{n} i}\ :\ 0\leq k \leq n-1}$
+%==========================
+% Macro para reducir los gráficos
+\newcommand{\unitcircle}[1]{
+  \begin{tikzpicture}[baseline=0, scale=1, every node/.style={font=\tiny}]
+    \draw[ultra thin,->,gray] (-1.5,0) -- (1.8,0) node[below] {Re};
+    \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
+    \draw[ultra thin] (0,0) circle (1);
+    \foreach \x in {0,...,#1} {
+        \ifnum \x < #1 {
+              \filldraw (\x*360/#1:0.8) node {$\x$};
+              \filldraw (\x*360/#1:1) circle (1pt);
+              \filldraw (\x*360/#1:1.4) node {$e^{i \frac{2\pi}{#1} \cdot \x}$};
+              \draw[thick, Cerulean] (\x*360/#1:1) -- ({(\x+1)*360/#1}:1);
+            }
+        \fi
+      }
+  \end{tikzpicture}
+}
+% Fin macros
+%================================
+
+\begin{multicols}{2}
+  \begin{enumerate}[label={($n$=\arabic*)}]
+    \item $w = 1$
+    \item $w = \pm 1$
+    \item \unitcircle{3}
+    \item \unitcircle{4}
+    \item \unitcircle{5}
+    \item \unitcircle{6}
+    \item \unitcircle{7}
+    \item \unitcircle{8}
+    \item \unitcircle{9}
+    \item \unitcircle{10}
+  \end{enumerate}
+\end{multicols}
+Notar que:
 \begin{itemize}
-	\item $G_n = \set{w \en \complejos / w^n = 1} = \set{e^{\frac{2k \pi}{n} i}\ :\ 0\leq k \leq n-1}$
+  \item Si $n$ es par el grupo tiene al $-1$.
+  \item Toda raíz compleja tiene a su conjugado complejo.
+  \item Para ir de un punto a otro, se lo múltiplica por $e^{i \theta}$ eso \textit{rota} al número en $\theta$
+        respecto al origen.
+\end{itemize}
 
-	\item $(G_n, \cdot)$ es un grupo abeliano, o conmutativo.
-	      \begin{itemize}
-		      \item $\paratodo w, z \en G_n, w z = z  w \text{ y } z m \en G_n$.
+\item $(G_n, \cdot)$ es un grupo abeliano, o conmutativo.
+\begin{itemize}
+  \item $\paratodo w, z \en G_n, w z = z  w \text{ y } z m \en G_n$.
 
-		      \item $1 \en G_n,\ w \cdot 1 = 1 \cdot w = w \qquad \paratodo w \en G_n$.
+  \item $1 \en G_n,\ w \cdot 1 = 1 \cdot w = w \qquad \paratodo w \en G_n$.
 
-		      \item $w \en G_n \entonces \existe w^{-1} \en G_n,\ w \cdot w^{-1} = w^{-1}\cdot w = 1$
-		            \begin{itemize}
-			            \item $\conj w \en G_n,\ w \cdot \conj w = |w|^2 = 1 \entonces \conj w = w^{-1}$
-		            \end{itemize}
-	      \end{itemize}
-	\item \textit{Propiedades: $w \en G_n$}
-	      \begin{itemize}
-		      \item $m \en \enteros$ y $n \divideA m \entonces w^m = 1$.
+  \item $w \en G_n \entonces \existe w^{-1} \en G_n,\ w \cdot w^{-1} = w^{-1}\cdot w = 1$
+        \begin{itemize}
+          \item $\conj w \en G_n,\ w \cdot \conj w = |w|^2 = 1 \entonces \conj w = w^{-1}$
+        \end{itemize}
+\end{itemize}
 
-		      \item $\congruencia{m}{m'}{n} \entonces w^m = w^{m'}\quad (w^m = w^{r_n(m)})$
+\item \textit{Propiedades: $w \en G_n$}
+\begin{itemize}
+  \item $m \en \enteros$ y $n \divideA m \entonces w^m = 1$.
 
-		      \item $n \divideA m \sisolosi G_n \subseteq G_m$
+  \item $\congruencia{m}{m'}{n} \entonces w^m = w^{m'}\quad (w^m = w^{r_n(m)})$
 
-		      \item $G_n \inter G_m = G_{(n:m)}$
+  \item $n \divideA m \sisolosi G_n \subseteq G_m$
 
-		      \item Si $(G, \cdot)$ es un grupo y $\#G = n$ decimos que $G$ siempre es cíclico si
-		            $\existe w\en G / G = \set{1,w, w^2,\dots, w^{n-1}}$\\
-		            \begin{itemize}
-			            \item \textit{Observación: } $G_n$ es un grupo cíclico, ej, $w_1 = e^\frac{2\pi i}{n} \to (w_1)^k = w_k$\\
-			                  $\to$ las potencias de $w_1$ generan todo $G_n = \set{1, w_1, w_1^2,\dots,w_1^{n-1}}$
-		            \end{itemize}
+  \item $G_n \inter G_m = G_{(n:m)}$
 
-		      \item $w$ es raíz $n-$ésima primitiva de 1 si:
-		            $G_n = \set{1,w,w^2,\dots,w^{n-1}} =
-			            \set{w^k\ :\ 0\leq k \leq n-1}$\\
-		            Ejemplo: $i, -i$ son primitivas de $G_4 = \set{1,i,-1,-i} = \set{i^k\ :\ 0 \leq k \leq 3}$, pero 1 y -1 no son raíces primitivas de $G_4$.
-	      \end{itemize}
-	\item \textit{Definición: }
-	      Sea $w$ una raíz primitiva de orden $n$ (el orden de
-	      $w \en G_n,\, \text{ord}(w) = \text{min}\set{k \en \naturales / w^k = 1}$)
-	      \begin{itemize}
-		      \item $w^m = 1 \sisolosi n \divideA m$
-		      \item \textit{Observación: } Si $w \en G_n \entonces \ord(w) \divideA n$
-	      \end{itemize}
-	\item La suma de las raíces $n$-ésimas de 1 da:
-	      $\sumatoria{k=0}{n-1}w_1^k = \frac{w_1^n -1}{w_1 -1} = 0$ pues $w_1 \distinto 1$
-	\item El producto de las raíces $n$-ésimas de 1 da:
-	      $\productoria{k=0}{n-1} w_1^k = w_1^{0+1+\dots + n-1} =
-		      w_1^{\frac{n(n-1)}{2}} =
-		      \llave{rl}{
-			      1 & \text{si $n$ es impar}\\
-			      -1 & \text{si $n$ es par}
-		      }$
-	\item Sea $w \en G_n$ primitiva. Entonces
-	      \begin{itemize}
-		      \item $w^k \text{ es primitiva } \sisolosi k \cop n $
-		      \item $w_k = e^{\frac{2k\pi}{n}i}$ es primitiva $\sisolosi k \cop n$
-		      \item En particular para $n = p$ primo: $w_k$ es primitiva para $1\leq k < p$ o sea si
-		            $w \en G_p$ y $w \distinto 1$, entonces $w$ es primitiva
-	      \end{itemize}
-	\item $w$ es raíz primitiva de $G_n$ y $k \divideA n \entonces w^k$ es primitiva de $G_\frac{n}{k}$
+  \item La suma de una raíz $w$ de $G_n$:
+        $\sumatoria{k=0}{n-1}w^k = \frac{w^n -1}{w -1} = 0$ si $w \distinto 1$
 \end{itemize}

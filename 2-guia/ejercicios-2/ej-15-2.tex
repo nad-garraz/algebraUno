@@ -1,17 +1,103 @@
 \separador
-\textit{Recurrencia}
-\ejercicio
+\textit{Recurrencia}\par
+
+\begin{enunciado}{\ejercicio}
+  \begin{enumerate}[label=\roman*)]
+    \item
+          Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por
+          $$
+            a_1 = 2 \ytext a_{n+1} = 2 n a_n+ 2^{n+1}n!,\, \paratodo n \en \naturales
+          $$
+          Probar que $a_n = 2^n n!$.
+
+    \item
+          Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por
+          $$
+            a_1 = 0 \ytext a_{n+1} = a_n + n(3n + 1),\, \paratodo n \en \naturales
+          $$
+          Probar que $a_n = n^2 (n-1)$.
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item
-	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
-	      $a_1 = 2$ y $a_{n+1} = 2 n a_n+ 2^{n+1}n!,\, \paratodo n \en \naturales$.\\
-	      Probar que $a_n = 2^n n!$.\\
-	      \magenta{Hecho en cuaderno, pasar}
+  \item
+        Inducción. \textit{Proposición: }
+        $$
+          p(n) : a_n = 2^n n! \quad \paratodo n \en \naturales
+        $$
 
-	\item
-	      Sea $(a_n)_{n\ en \naturales}$ la sucesión de números reales definida recursivamente por:\\
-	      $a_1 = 0$ y $a_{n+1} = a_n + n(3n + 1),\, \paratodo n \en \naturales$\\
-	      Probar que $a_n = n^2 (n-1)$.\\
-	      \magenta{Hecho en cuaderno, pasar}
+        \textit{Caso base: }
+        $$
+        p(\magenta1) :
+        \llave{l}{
+        a_{\magenta1} \igual{def} 2 = 2^{\magenta1} \cdot \magenta1! \Tilde \\
+            a_{\magenta1 + 1} = a_2 \igual{def} 2 \cdot \magenta1 \cdot a_{\magenta1} + 2^{\magenta1 + 1}\magenta1! =
+            8
+            \igual!
+            2^2 \cdot 2 \Tilde.
+          }
+        $$
+        \par Resulta que $p(1)$ es verdadera.\medskip
 
+        \textit{Paso inductivo: }
+        $$
+          p(\blue{k}):
+          \ub{ a_{\blue k} = 2^{\blue k} \blue k! }{\textit{\purple{hipótesis inductiva}}}
+        $$
+        asumo verdadera para algún $k \en \enteros$ entonces quiero que
+        $$
+          p(\blue{k} + 1) : a_{\blue k + 1} = 2^{\blue k + 1}  (\blue k + 1)!
+        $$
+        también lo sea.
+        $$ a_{\blue{k} + 1} \igual{def}
+          2 \blue{k} \cdot a_{\blue k} + 2^{\blue k + 1} \blue k! \igual{\purple{HI}}
+          2k \cdot \purple{2^k k!} +  2^{k + 1} k! = 2^{k+1}k!(k + 1) \igual{\red{!}} 2^{k+1}(k+1)! \Tilde
+        $$
+        Resulta que $p(k+1)$ también es verdadera.\medskip
+
+        Como $p(1),p(k) \ytext p(k+1)$ son verdaderas, por el principio de inducción también lo es
+        $p(n) \paratodo n \en \naturales$
+
+  \item
+        Inducción. \textit{Proposición: }
+        $$
+          p(n) : a_n = n^2(n-1) \quad \paratodo n \en \naturales
+        $$
+        \textit{Caso base: }
+        $$
+          p(\magenta1) :
+          \llave{l}{
+            a_{\magenta1} \igual{def} 0 = 1^2 \cdot (\magenta1 - 1) \Tilde \\
+            a_{\magenta1 + 1} = a_2
+            \igual{def}
+            a_{\magenta1} + \magenta1 (3\cdot \magenta1 + 1) =
+            4 = 2^2 \cdot (2 - 1) \Tilde.
+          }
+        $$
+        Resulta que $p(1)$ es verdadera.\medskip
+
+        \textit{Paso inductivo: }
+        $$
+          p(\blue{k}): \ub{ a_{\blue k} =
+            \blue k^2 (\blue{k} - 1) }{\textit{\purple{hipótesis inductiva}}}
+        $$
+        asumo verdadera para algún $k \en \enteros \entonces$, enteonces quiero ver que\par
+        $$
+          p(\blue{k} + 1) : a_{\blue k + 1} =
+          (\blue k + 1)^2 (\blue{k} + 1 - 1) =
+          \blue{k} (\blue k + 1)^2
+        $$
+        también lo sea.
+        $$
+          a_{\blue{k} + 1} \igual{def}
+          a_{\blue k} + \blue k (3\blue k + 1)
+          \igual{\purple{HI}}
+          \purple{k^2 (k - 1)} + 3 k^2 + k = k^3 + 2k^2 + k
+          \igual{!}
+          k(k+1)^2 \Tilde
+        $$
+        Resulta que $p(k+1)$ también es verdadera.\medskip
+
+        Como $p(1), p(k) \ytext p(k+1)$ son verdaderas, por el principio de inducción también lo es
+        $p(n) \paratodo n \en \naturales$
 \end{enumerate}

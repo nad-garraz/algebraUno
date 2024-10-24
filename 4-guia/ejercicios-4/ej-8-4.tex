@@ -1,47 +1,41 @@
-\textit{\underline{Algoritmo de División}}:\\
-\ejercicio
-Calcular el cociente y el resto de la división de $a$ por $b$ en los casos:\\
+\textit{\underline{Algoritmo de División}}:\par
 
-% definiciones locales
-\begin{enumerate}[label=\roman*)]
-	\begin{minipage}{0.5\linewidth}
-		\item $a =133,\quad b = -14.$
-		\item $a =13,\quad b = 111.$
-		\item $a =3b+7,\quad b \distinto 0.$
-	\end{minipage}
-	\begin{minipage}{0.5\linewidth}
-		\item $a = b^2 - 6,\quad b \distinto 0.$
-		\item $a = n^2 + 5,\quad b = n+2 \ (n \en \naturales).$
-		\item $a = n + 3,\quad = n^2 + 1 \ (n \en \naturales).$
-	\end{minipage}
-\end{enumerate}
+\begin{enunciado}{\ejercicio}
+  Calcular el cociente y el resto de la división de $a$ por $b$ en los casos:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item $a =133,\quad b = -14.$
+      \item $a =13,\quad b = 111.$
+      \item $a =3b+7,\quad b \distinto 0.$
+      \item $a = b^2 - 6,\quad b \distinto 0.$
+      \item $a = n^2 + 5,\quad b = n+2 \ (n \en \naturales).$
+      \item $a = n + 3,\quad = n^2 + 1 \ (n \en \naturales).$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-\separadorCorto
-
-\begin{enumerate}[label=\roman*)]
-	\item $133 : (-14) \entonces 133 = \blue{(-9)} \cdot (-14) + \magenta{7}  $
-	\item $ $
-	\item $a = 3b + 7 \to
-		      \text{me interesa: }\to
-		      \llaves{l}{
-			      |b| \leq |a| \Tilde\\
-			      0 \leq \magenta{r} < |b| \Tilde \\
-		      } \to\\ $
-
-	      $ \to
-		      \llave{l}{
-			      \text{Si: } |b| > 7 \to (\blue{q},\magenta{r}) = (3,7)\\
-			      \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)\\
-			      \footnotesize
-			      \begin{array}{|l|l|l|l|l|l|l|l|}
-				      \hline
-				      (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
-				      (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
-				      \hline
-			      \end{array}
-		      }
-	      $
-
-	\item $a = b^2 - 6,\quad b \distinto 0.$\\
-	      \separadorCorto
+\begin{enumerate}[label=\alph*)]
+  \item $133 : (-14) \entonces 133 = \blue{(-9)} \cdot (-14) + \magenta{7}$
+  \item $ $
+  \item $a = 3b + 7 \to
+          \text{me interesa: }\to
+          \llaves{l}{
+            |b| \leq |a| \Tilde\\
+            0 \leq \magenta{r} < |b| \Tilde \\
+          } \to $\par
+        $ \to
+          \llave{l}{
+            \text{Si: } |b| > 7 \to (\blue{q},\magenta{r}) = (3,7)\\
+            \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)\\
+            \footnotesize
+            \begin{array}{|l|l|l|l|l|l|l|l|}
+              \hline
+              (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
+              (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
+              \hline
+            \end{array}
+          }
+        $
+  \item $a = b^2 - 6,\quad b \distinto 0.$
+          \hacer
 \end{enumerate}

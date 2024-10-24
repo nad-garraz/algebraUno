@@ -1,0 +1,98 @@
+\begin{enunciado}{\ejExtra}
+  \begin{enumerate}[label=\alph*)]
+    \item
+          Determinar todos los valores de $n\en\naturales$ \textbf{(positivo)} para los cuales el polinomio
+          $$
+            f=X^5 + \frac{n}{3}X^4 - \frac{8}{3}X^3 + \frac{11}{3}X^2 - X
+          $$
+          tiene una raíz \textbf{entera} no nula.
+    \item
+          Para el o los valores hallados en el ítem (a), factorizar el polinomio $f$ obtenido como producto de irreducibles en $\racionales[X],\reales[X]$ y $\complejos[X]$
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        Determinar todos los valores de $n\en\naturales$ \textbf{(positivo)} para los cuales el polinomio
+        $$
+          f=X^5 + \frac{n}{3}X^4 - \frac{8}{3}X^3 + \frac{11}{3}X^2 - X
+        $$
+        tiene una raíz \textbf{entera} no nula.\medskip
+
+        \textbf{Solución:}\par
+        Limpiando los denominadores de $f$ se obtiene el polinomio $g$ con las mismas raíces:
+        $$
+          g=3X^5 + nX^4 - 8X^3 + 11X^2 - 3X= X(\ub{3X^4 + nX^3 - 8X^2 + 11X - 3}{h})
+        $$
+        Por enunciado ignoramos la raiz nula y utilizando el Lema de Gauss buscamos las raíces racionales de
+        $$
+          h=3X^4 + nX^3 - 8X^2 + 11X - 3
+        $$
+        Aquí, $a_0=-3$ y $a_n=3$\par
+        $$
+          \text{Div}(a_0)=\text{Div}(a_n)=\{\pm1,\pm3\}
+        $$
+
+        Como busco raíces enteras, las busco en el conjunto:
+
+        $$
+          \{ \pm1,\pm3 \}
+        $$
+
+        Chequeo:
+        $$
+          \begin{array}{rcl}
+            h(-1)=0 & \iff & n=-19 \notin \naturales          \\
+            h(1)=0  & \iff & n=-3 \notin \naturales           \\
+            h(-3)=0 & \iff & \fbox{n=5} \en \naturales        \\
+            h(3)=0  & \iff & n=\frac{67}{9} \notin \naturales
+          \end{array}
+        $$
+        \textbf{Rta:} $n=5$ es el único valor de $n\en\naturales$ para los cuales el polinomio $f$ tiene una raíz entera no nula.\par
+  \item
+        Para el o los valores hallados en el ítem (a), factorizar el polinomio $f$
+        obtenido como producto de irreducibles en $\racionales[X],\reales[X]$ y $\complejos[X]$ \par
+
+        \textbf{Solución:}\par
+
+        Primero factorizo la raiz nula de de $f$ \par
+        $$
+          f=X^5 + \frac{5}{3}X^4 - \frac{8}{3}X^3 + \frac{11}{3}X^2 - X =
+          X(X^4 + \frac{5}{3}X^3 - \frac{8}{3}X^2 + \frac{11}{3}X - 1)
+        $$
+        Se, por el item (a), que $-3$ es una de las raíces racionales de $f$.
+        Busco otras posibles raiíces racionales en el polinomio $h$ (con $n=5$)
+        obtenido en el item (a) en el conjunto $\{ \pm\frac{1}{3} \}$ \par
+        $h(-\frac{1}{3})=-\frac{208}{27}$ \par
+        $h(\frac{1}{3})=0 \implies \frac{1}{3}$ es una raiz racional de f. \par
+
+        Factorizo el polinomio $f$ diviendolo por el producto de las dos raíces
+        encontradas $(X+3)\cdot(X-\frac{1}{3}) = X^2 + \frac{8}{3} - 1$
+        $$
+          \divPol{X^4 + \frac{5}{3}X^3 - \frac{8}{3}X^2 + \frac{11}{3}X - 1}{X^2 + \frac{8}{3}X - 1}
+        $$
+        Factorizo el polinomio cuadrático $X^2 + \frac{8}{3}X - 1$
+        $$ \Delta = (-1)^2 - 4 \cdot 1 \cdot 1=-3 $$
+        $$ x_+ = \frac{1 + \sqrt 3 i}{2} \en\complejos \text{ y } x_- = \frac{1 - \sqrt 3 i}{2} \en\complejos $$
+
+        \textbf{Rta:}\par
+        $\therefore f = X(X+3)( X - \frac{1}{3} )( X - (\frac{1}{2} + \frac{\sqrt 3}{2}i) )( X - (\frac{1}{2} - \frac{\sqrt 3}{2}i) ) \en \complejos$
+        con todos sus factores de multiplicidad 1 y por lo tanto \hyperlink{teoria-7:irreducibles}{irreducibles}. \par
+        $\therefore f = X(X+3)( X - \frac{1}{3} )(X^2-X+1) \en \reales$
+        con 3 factores de multiplicidad 1 y 1 de multiplicidad 2 pero de raíces complejas
+        y por lo tanto \hyperlink{teoria-7:irreducibles}{irreducibles} en $\reales$. \par
+        $\therefore f = X(X+3)( X - \frac{1}{3} )(X^2-X+1) \en \racionales$
+        con 3 factores de multiplicidad 1 y 1 de multiplicidad 2 pero de raíces complejas
+        y por lo tanto \hyperlink{teoria-7:irreducibles}{irreducibles} en $\racionales$.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+

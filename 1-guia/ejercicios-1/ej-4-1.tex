@@ -1,11 +1,38 @@
-\ejercicio
-Subconjuntos: $A = \set{1, -2, 7, 3}$, $B = \set{1, \set{3}, 10}$, $C = \set{-2,\set{1,2,3},3}$,\\
-Conjunto referencial: $V = \set{1,\set{3}, -2,7, 10, \set{1,2,3},3}$, hallar:
+\begin{enunciado}{\ejercicio}
+  Dados los subconjuntos: $A = \set{1, -2, 7, 3}$, $B = \set{1, \set{3}, 10}$ y $C = \set{-2,\set{1,2,3},3}$
+  del conjunto referencial: $V = \set{1,\set{3}, -2,7, 10, \set{1,2,3},3}$, hallar
 
-\begin{multicols}{2}
-	\begin{enumerate}[label=(\roman*)]
-		\item $A \inter (B \triangle C)$
-		\item $(A \inter B) \triangle (A \inter C)$
-		\item $A^c \inter B^c \inter C^c$
-	\end{enumerate}
-\end{multicols}
+  \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item $A \inter (B \triangle C)$
+      \item $(A \inter B) \triangle (A \inter C)$
+      \item $A^c \inter B^c \inter C^c$
+    \end{enumerate}
+  \end{multicols}
+
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item $B \triangle C = \set{ -2, 1, 3, 10, \set{1,2,3}, \set{3}}$
+        $$
+          A \inter (B \triangle C) = \set{-2,1,3}
+        $$
+
+  \item $A \inter B = \set{1} \ytext (A \inter C)  = \set{-2,3}$
+        $$
+          (A \inter B) \triangle (A \inter C) = \set{-2,1 ,3}
+        $$
+
+  \item $A^c = \set{10, \set{1,2,3},\set{3}}, \quad B^c = \set{-2, 7, 3, \set{1,2,3}} \ytext C^c = \set{1,\set{3}, 7, 10}$
+        $$
+          A^c \inter B^c \inter C^c = \vacio
+        $$
+\end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %\aporte{url}{nombre icono}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+  \item \aporte{https://www.instagram.com/fransureda_}{Francisco Sureda \instagram}
+  \item \aporte{https://www.instagram.com/juaanparajo}{Juan Parajó \instagram}
+\end{aportes}

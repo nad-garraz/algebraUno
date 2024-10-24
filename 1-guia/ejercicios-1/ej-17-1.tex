@@ -1,55 +1,75 @@
 \def\diecisietei{
-	\begin{tikzpicture}[scale=0.5, >=Latex, draw=Aquamarine]
-		%A vértices
-		\node (1a) {$\bullet$};
-		\node[] at (1a.west) {1};
-		\node[below=of 1a] (2a) {$\bullet$};
-		\node[] at (2a.west) {2};
-		\node[below=of 2a] (3a) {$\bullet$};
-		\node[] at (3a.west) {3};
-		\node[shape=ellipse, draw, black, minimum size=2cm,fit={(1a) (3a)}] {};
+  \begin{tikzpicture}[scale=0.7, >=Latex, draw=Aquamarine, transform shape]
+    %A vértices
+    \node (1a) {$\bullet$};
+    \node[] at (1a.west) {1};
+    \node[below=of 1a] (2a) {$\bullet$};
+    \node[] at (2a.west) {2};
+    \node[below=of 2a] (3a) {$\bullet$};
+    \node[] at (3a.west) {3};
 
-		%B vértices
-		\node[right=2cm of 1a] (1b) {$\bullet$};
-		\node[] at (1b.east) {1};
-		\node[below=of 1b] (3b) {$\bullet$};
-		\node[] at (3b.east) {3};
-		\node[below=of 3b] (5b) {$\bullet$};
-		\node[] at (5b.east) {5};
-		\node[below=of 5b] (7b) {$\bullet$};
-		\node[] at (7b.east) {7};
-		\node[shape=ellipse, draw, black, minimum size=2cm,fit={(1b) (7b)}] {};
+    %B vértices
+    \node[right=2cm of 1a] (1b) {$\bullet$};
+    \node[] at (1b.east) {1};
+    \node[below right=of 1b] (3b) {$\bullet$};
+    \node[] at (3b.east) {3};
+    \node[below left=of 3b] (5b) {$\bullet$};
+    \node[] at (5b.east) {5};
+    \node[below right=of 5b] (7b) {$\bullet$};
+    \node[] at (7b.east) {7};
 
-		% Elipses
-		\node[below=1cm of 3a] {$A$};
-		\node[below=1.2cm of 7b] {$B$};
+    % Elipses
+    \node[shape=ellipse, draw, black, minimum size=2cm,fit={(1a) (3a)}] {};
+    \node[shape=ellipse, draw, black, minimum size=2cm,fit={(1b) (3b) (7b)}] {};
+    \node[below=1cm of 3a] {$A$};
+    \node[below=1.2cm of 7b] {$B$};
 
-		% Aristas
-		\draw[->, bend left] (1a) to (1b);
-		\draw[->, bend right] (1a) to (3b);
-		\draw[->, bend right] (1a) to (7b);
-		\draw[->, bend right] (3a) to (1b);
-		\draw[->, bend right] (3a) to (5b);
-	\end{tikzpicture}
+    % Aristas
+    \draw[->, bend left] (1a) to (1b);
+    \draw[->, bend right] (1a) to (3b);
+    \draw[->, bend right] (1a) to (7b);
+    \draw[->, bend right] (3a) to (1b);
+    \draw[->, bend right] (3a) to (5b);
+  \end{tikzpicture}
 }
 
+\separador
+\underline{\textit{Relaciones}}
+Definición de Relación, $\relacion$:
+\begin{center}
+  \fbox{
+    \parbox{.9\textwidth}{
+      Sean $A$ y $B$ conjuntos. Una \textit{relación $\relacion$ de $A$ en $B$}
+      es un subconjunto cualquiera $\relacion$ del producto cartesiano $A \times B$. Es decir $\relacion$
+      de $A$ en $B$ si $\relacion \en \partes(A \times B)$.
+    }
+  }
+\end{center}
 
+\begin{enunciado}{\ejercicio}
+  Sean $A = \set{1, 2, 3}$ y $B = \set{1, 3, 5, 7}$. Verificar las siguientes
+  relaciones de $A$ y $B$ y en caso afirmativo graficarlas por medio de un diagrama
+  con flechas de $A$ en $B$ y por medio de puntos en el producto cartesiano $A \times B$.
+\end{enunciado}
+\begin{enumerate}[label=\roman*)]
+  \item
+        \begin{minipage}{1\textwidth}
+          \begin{minipage}{0.5\textwidth}
+            $\relacion = \set{(1,1), (1,3), (1,7), (3,1), (3,5)}$
+          \end{minipage}
+          \begin{minipage}{0.25\textwidth}
+            \diecisietei
+          \end{minipage}
+        \end{minipage}
 
-\ejercicio
-Sean $A = \set{1, 2, 3}$ y $B = \set{1, 3, 5, 7}$. Verificar las siguientes
-relaciones de $A$ y $B$ y en caso afirmativo graficarlas por medio de un diagrama
-con flechas de $A$ en $B$ y por medio de puntos en el producto cartesiano $A \times B$.
+  \item $\relacion =
+          \set{(1,1), (1,3), (2,7), (3,2), (3,5)}
+          \to
+          3 \relacion 2 \notin \partes(A \times B) $
 
-\begin{multicols}{2}
-	\begin{enumerate}[label=\roman*)]
-		\item $\relacion = \set{(1,1), (1,3), (1,7), (3,1), (3,5)}\\
-			      \diecisietei $
+  \item $\relacion = \set{(1,1), (2,7), (3,7)}$
+        \Hacer
 
-		\item $\relacion = \set{(1,1), (1,3), (2,7), (3,2), (3,5)}\\
-			      \to 3 \relacion 2 \notin \partes(A \times B) $
-
-		\item $\relacion = \set{(1,1), (2,7), (3,7)}\hacer$
-
-		\item $\relacion = \set{(1,3), (2,1), (3,7)}\hacer$
-	\end{enumerate}
-\end{multicols}
+  \item $\relacion = \set{(1,3), (2,1), (3,7)}$
+        \Hacer
+\end{enumerate}

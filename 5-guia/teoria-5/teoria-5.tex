@@ -1,123 +1,103 @@
 \def\MCD{(a:b)}
 
+\textit{Diofánticas:}
 \begin{itemize}
-	\item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \y b \distinto 0$ y sea
-	      $S = \set{ (x,y) \en \enteros^2 : aX + bY = C }$.\\
-	      Entonces $S \distinto \vacio \sisolosi (a:b) \divideA c$
-	      % \sisolosi
-	      %  \ub{A}{\frac{a}{\MCD}} x + \ub{B}{\frac{b}{\MCD}} y = \ub{C}{\frac{c}{(a:b)}} \en \enteros$,
-	      % \text{también tiene solución para $x$ y $y$.}
 
-	\item Las soluciones al sistema: $S = \set{(x,y) \en \enteros^2 \text{ con }
-			      \llaves{l}{
-				      x = x_0 + kb'\\
-				      y = y_0 + kb'
-			      }
-			      , k \en \enteros}
-	      $
+  \item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \ytext b \distinto 0$ y sea
+        $$\boxed{
+            S = \set{ (x,y) \en \enteros^2 : aX + bY = c } \entonces
+            S \distinto \vacio \sisolosi (a:b) \divideA c}
+        $$
+        \red{¡Coprimizar siempre que se pueda!: } Las soluciones de $S$ son las mismas que las de $S$ coprimizado.
+        $$
+          \boxed{
+            aX + bY = c
+            \Sii{$a' = \frac{a}{(a:b)} \ytext  b' = \frac{b}{(a:b)}$}[$ c' = \frac{c}{(a:b)}$]
+            a'X + b'Y = c'
+          }
+        $$
 
-	\item $\congruencia{aX}{c}{b}$  con  $ a,\, b \distinto 0$ tiene solución $\sisolosi \MCD \divideA c$ tiene solución $\sisolosi \MCD \divideA c$. En ese caso, coprimizando:
-\end{itemize}
+  \item Las solución general del sistema S coprimizado :
+        $$\boxed{
+            S = \set{(x,y) \en \enteros^2 : (x,y) =
+              \ub{(x_0, y_0)}{\text{Solución particular}} + k \cdot \ob{(-b', a')}{\text{Solución homogéneo}}
+              \text{ con } , k \en \enteros}
+          }$$
+\end{itemize}\bigskip
 
-\textit\underline{Ecuaciones de congruencia}
-
+\textit{Ecuaciones de congruencia: }
 \begin{itemize}
-	\item Algoritmo de solución:
-	      \begin{enumerate}[label=\arabic*)]
-		      \item reducir $a,\, c$ módulo $m$. Podemos suponer $0 \leq a, c < m$
-		      \item tiene solución $\sisolosi (a:m) \divideA c$. Y en ese caso coprimizo:
-		            \[
-			            \congruencia{aX}{c}{m} \sisolosi \congruencia{a'X}{c'}{m},\ \text{ con } a' = \frac{a}{(a:m)},\, m' = \frac{m}{(a:m)} \text{ y } c' = \frac{c}{(a:m)}
-		            \]
-		      \item   Ahora que $a' \cop m'$, puedo limpiar los factores comunes entre
-                $a'$ y $c'$ (los puedo simplificar)
-		            \[
-                      \congruencia{a'X}{c'}{m'}
-                      \sisolosi
-                      \congruencia{a''X}{c''}{m'}
-                      \text{ con }
-                      a'' = \frac{a'}{(a':c')} \text{ y } c'' = \frac{c'}{(a':c')}
-		            \]
-		      \item Encuentro una solución particular $X_0$ con $ 0\leq X_0 < m'$ y tenemos
-		            \[
-			            \congruencia{aX}{c}{m} \sisolosi \congruencia{X}{X_0}{m'}
-		            \]
-	      \end{enumerate}
+  \item $\congruencia{aX}{c}{b}$  con  $ a,\, b \distinto 0$\par
+        \red{¡Coprimizar siempre que se pueda!:} Las soluciones de la ecuación original son las mismas que las de la ecuación coprimizada.
+        $$
+          \boxed{
+            \congruencia{aX}{c}{b}
+            \Sii{$a' = \frac{a}{(a:b)} \ytext  b' = \frac{b}{(a:b)}$}[$ c' = \frac{c}{(a:b)}$]
+            \congruencia{a'X}{c'}{b'}
+          }
+        $$
 
-\end{itemize}
+  \item Ojo con el "$\sisolosi$": Si vas a multiplicar la ecuación por algún número $\purple{d}$ y se te ocurre poner un $\sisolosi$
+        conectando la operación justificá así:
+        $$
+          \boxed{
+            \congruencia{aX}{c}{b}
+            \Sii{}[$ \purple{d} \cop b$]
+            \congruencia{\purple{d}aX}{\purple{d}c}{b}
+          }
+        $$
+        Porque si $d \nocop b$ \red{no vale la vuelta $(\Leftarrow)$} en el "$\sisolosi$", y la cagás.
 
-\textit\underline{Ecuaciones de congruencia}
-Sean $m_1,\dots m_n \en \enteros$ \underline{coprimos dos a dos} ($\paratodo i \distinto j$, se tiene $m_i \cop m_j$). \\
-Entonces, dados $c_1,\dots, c_n \en \enteros$ cualesquiera, el sistema de ecuaciones de congruencia.
-\[
-	\llave{c}{
-		\congruencia{X}{c_1}{m_1}\\
-		\congruencia{X}{c_2}{m_2}\\
-		\vdots\\
-		\congruencia{X}{c_n}{m_n}
-	}
-\]
 
-es equivalente al sistema (tienen misma soluciones)
+  \item Si te ponés a hacer cuentas en $\congruencia{aX}{c}{b}$
+        \textit{sin que} $a \cop b$,
+        \underline{la vas a cagar}. Yo te avisé \faIcon{hands-wash}.
+\end{itemize}\bigskip
 
-\[
-	\congruencia{X}{x_0}{m_1\cdot m_2 \cdots m_n}
-\]
-para algún $x_0$ con $0\leq x_0 < m_1\cdot m_2 \cdots m_n$
-
-\textit{\underline{Pequeño teorema de Fermat}}
+\textit{Sistemas de ecuaciones de congruencia: \href{\superIdol}{Teorema chino del resto}}
 \begin{itemize}
-	\item Sea $p$ primo, y sea $a \en \enteros$. Entonces:
-	      \begin{enumerate}[label=\arabic*.)]
-		      \item $ \congruencia{a^p}{a}{p} $
-		      \item $ p \noDivide a \entonces \congruencia{a^{p-1}}{1}{p} $
-	      \end{enumerate}
-	\item Sea $p$ primo, entonces $ \paratodo a \en \enteros$ tal que $ p \noDivide a$ se tiene:
-	      \[
-		      \congruencia{a^n}{a^{r_{p-1}(n)}}{p} ,\, \paratodo n \en \naturales
-	      \]
-	\item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ub{(a:p) = 1}{a \cop p}$, y sea  $d \en \naturales$ con $d \leq p-1$
-	      el mínimo tal que:
-	      \[
-		      \congruencia{a^d}{1}{p} \entonces d \divideA (p-1)
-	      \]
-\end{itemize}
+  \item
+        Sean $m_1,\dots m_n \en \enteros$ \underline{\red{coprimos dos a dos}}, es decir que $\paratodo i \distinto j$, se tiene $m_i \cop m_j$,
+        entonces, dados $c_1,\dots, c_n \en \enteros$ cualesquiera, el sistema de ecuaciones de congruencia
+        $$
+          \llave{c}{
+            \congruencia{X}{c_1}{m_1}\\
+            \congruencia{X}{c_2}{m_2}\\
+            \vdots\\
+            \congruencia{X}{c_n}{m_n}
+          } \leftrightsquigarrow
+          \congruencia{X}{\magenta{x_0}}{m_1\cdot m_2 \cdots m_n},
+        $$
+        tiene solución y esa solución, $\magenta{x_0}$ cumple $0 \leq \magenta{x_0} < m_1\cdot m_2 \cdots m_n$.
+\end{itemize}\bigskip
 
-
-\textit{\underline{Aritmética modular:}}
-
-% Macro local
-\newcommand{\moduloN}[1]{\enteros/_{#1\enteros}}
-% Fin macro local
-
+\textit{Pequeño teorema de Fermat}
 \begin{itemize}
-	\item Sea $n \en \naturales, n\geq2$\\
-	      $
-		      \moduloN{n} = \set{\clase{0},\clase{1},\cdots, \clase{n-1} }\\
-		      \clase{a},\clase{b} \en \moduloN n:
-		      \llave{l}{
-			      \clase{a} \clase{+} \clase{b} := \overline{r_n(a+b)} \\
-			      \clase{a} \clase{\cdot} \clase{b} := \overline{r_n(a\cdot b)}
-		      }
-	      $
-	\item Sea $p$ primo, en $\moduloN{p}$ todo elemento no nulo tiene inverso multiplicativo,
-	      análogamente a $\enteros$.\\
-	      Si $m \en \naturales$ es compuesto,
+  \item Sea $p$ primo, y sea $a \en \enteros$. Entonces:
+        \begin{enumerate}[label=\arabic*)]
+          \item $ \congruencia{a^p}{a}{p} $
+          \item $ p \noDivide a \entonces \congruencia{a^{p-1}}{1}{p} $
+        \end{enumerate}
 
-	      \begin{itemize}
-		      \item \textit{No todo} $\clase{a} \en \moduloN{m}$ con $\clase{a} \distinto \clase{0}$ es inversible.
+  \item Sea $p$ primo, entonces $ \paratodo a \en \enteros$ tal que $ p \noDivide a$ se tiene:
+        $$
+          \boxed{
+            \congruencia{a^n}{a^{r_{\red{p-1}}(n)}}{p} ,\, \paratodo n \en \naturales
+          }
+        $$
+        Amigate con ésta porque se usa mucho. Marco el \red{$p-1$} en rojo, porque por alguna razón uno se olvida.
 
-		      \item $\existe \clase{a}, \clase{b} \en \moduloN{m}$ con $\clase{a}, \clase{b} \distinto 0$ tal que
-		            $\clase{a}\cdot \clase{b} = \clase{0}$
+  \item Sea $a \en \enteros$ y $p > 0$ primo tal que $\ob{(a:p) = 1}{p \noDivide a}$, y sea
+        $\purple{d} \en \naturales$ con $\purple{d} \leq p - 1$
+        el mínimo tal que:
+        $$
+          \boxed{
+            \congruencia{a^{\purple{d}}}{1}{p} \entonces \purple{d} \divideA (p-1)
+          }
+        $$
+                Atento a esto que en algún que otro ejercicio uno encuentra un valor usando PTF, pero eso no quiere
+                decir que no haya \underline{otro valor menor}! Que habrá que encontrar con otro método.\par
 
-		      \item Inv$(\moduloN m) = \set{\clase{a} \en \set{\clase{0},\clase{1},\dots, \clase{m-1}}}$ tales que
-		            $a \cop m$
-	      \end{itemize}
-	\item Si $m = p$, con $p$ primo, todo elemento no nulo de $\moduloN p$ tiene inverso:
-	      \begin{itemize}
-		      \item Inv$(\moduloN p) = \set{\clase{1},\dots, \clase{p-1}}$.
-		      \item  \underline{$p$ primo $\entonces \moduloN p$ es un cuerpo.}
-              \item en $\moduloN{p}:\ (\clase{a} + \clase{b})^p = \clase{a}^p + \clase{b}^p $
-	      \end{itemize}
-
+                \textit{Nota:} Cuando $p$ es primo y $a$ un entero cualquiera, será obvio o no, pero: \boxed{p \noDivide a \sii p \cop a}.
+                Se usan indistintamente.
 \end{itemize}

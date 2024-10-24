@@ -1,0 +1,131 @@
+\begin{enunciado}{\ejExtra}
+  \begin{enumerate}[label=\alph*)]
+    \item
+          Determinar todos los $f \en \reales[X]$ mónicos de grado mínimo tales que cumplan:
+          \begin{itemize}
+            \item $f$ contiene entre sus raíces al menos una raíz cúbica de la unidad,
+            \item $X^2 + 1 \divideA (f:f')$,
+            \item $f$ tiene al menos 2 raíces enteras,
+            \item $f(1) = -12$,
+          \end{itemize}
+
+    \item Con el polinomio $f$ hallado expresar factorización en irreducibles en $\racionales[X], \reales[X] \ytext \complejos[X]$.
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        Arrancando con la primera condición, tenemos al menos a una de las $w$ tales que:\par
+        $
+          w^3 = 1
+          \sii
+          \llave{l}{
+            w_1 = 1                   \llamada1                    \\
+            w_2 = -\frac{1}{2} + \frac{\sqrt{3}}{2}i \\
+            w_3 = -\frac{1}{2} - \frac{\sqrt{3}}{2}i
+          }.$
+        \par\medskip
+
+        Si no te acordás como calcular las raíces, mirá el ejercicio \ref{ej:12}, donde se resuelve algo casi idéntico.
+
+        Como el polinomio \textit{debe ser de grado mínimo} y tiene coeficientes en $\reales$ hay que elegir con \underline{cuidado}. Lo mejor es ver el resto
+        de las condiciones para no hacer \textit{cagadas}. {\color{lightgray}\tiny(¡spoiler alert: Elegí el $1$ si sos picante!)}
+        \par\bigskip
+
+        De la segunda condición sacamos que:
+        $$
+          X^2 + 1 = (X - i)\cdot(X+i) \divideA (f:f')
+          \sii
+          \llaves{c}{
+            X^2 + 1 \divideA f
+            \sii
+            \llave{c}{
+              (X - i) \divideA f \\
+              \ytext             \\
+              (X + i) \divideA f
+            }  \\
+            \ytext              \\
+            X^2 + 1 \divideA f'
+            \sii
+            \llave{c}{
+              (X - i) \divideA f' \\
+              \ytext              \\
+              (X + i) \divideA f'
+            } \\
+          }
+          \sii
+          \llave{c}{
+            (X - i)^2 \divideA f \\
+            \ytext               \\
+            (X + i)^2 \divideA f \\
+          }
+        $$
+
+        Si no entendés el porqué de eso mirate \hyperlink{teoria-7:raicesMultiples}{esto de las notas teóricas}, para tener contexto.
+        Básicamente si $\alpha$ es una raíz de $f$ y también de $f'$, entoences es una raíz \textit{por lo menos} doble de $f$.\par\bigskip
+
+        En el tercer punto, nos dicen que tiene al menos 2 raíces en $\enteros$. ¿Una de esas podría ser el 1 que obtuvimos como raíz de $G_3$?,
+        Dejame que lo piense.
+
+        En el último punto tenemos que cumplir que al evaluar en nuestro polinomio $f$ en 1, eso nos dé $-12$. Y es acá donde nos damos cuenta de que
+        no podemos elegir a $1\llamada1$ para que sea raíz de $f$\red{!!}
+        Y dado que $f \en \reales[X]$ tenemos que elegir entonces \underline{ambas}
+        $\llave{l}{
+            w_2 = -\frac{1}{2} + \frac{\sqrt{3}}{2}i \\
+            w_3 = -\frac{1}{2} - \frac{\sqrt{3}}{2}i
+          }.$
+        Propongo:
+        $$
+          \begin{array}{rcl}
+            f & =                   &
+            (X - (-1 - \frac{\sqrt{3}}{2}i) )
+            (X - (-1 + \frac{\sqrt{3}}{2}i) )
+            (X - i)^2
+            (X + i)^2
+            (X - \magenta{a})
+            (X - \magenta{b})         \\
+              & \igual{$\llamada2$} &
+            (X^2 + X + 1)
+            (X^2 + 1)^2
+            (X - \magenta{a})
+            (X - \magenta{b})
+            ,
+          \end{array}
+        $$
+        con $\magenta{a}$ y $\magenta{b}$ a determinar, de manera tal de cumplir las últimas dos condiciones: \textit{ambas} enteras y $f(1) = -12$.
+        $$
+          f(1) = -12
+          \Sii{$\llamada2$}
+          12 \cdot (1 - \magenta{a})(1 - \magenta{b}) = -12
+          \sisolosi
+          (1 - \magenta{a})(1 - \magenta{b}) = -1
+          \Sii{$\magenta{a} \ytext \magenta{b}$}[$\en \enteros$]
+          \magenta{a} = 2 \ytext \magenta{b} = 0.
+        $$
+        Esas serían las candidatas a raíces enteras, obteniendo así un único polinomio
+        $$
+          f =
+          (X^2 + X + 1)
+          (X^2 + 1)^2
+          (X - 2)
+          (X - 0) =
+          X
+          (X - 2)
+          (X^2 + X + 1)
+          (X^2 + 1)^2
+        $$
+        mónico y de grado mínimo que cumple las condiciones pedidas.
+
+  \item La definición de polinomio irreducible \hyperlink{teoria-7:irreducibles}{está acá}.\par
+        $$
+          \boxed{
+            \begin{array}{rcl}
+              \racionales[X] & \to & f = X (X - 2) (X^2 + X + 1) (X^2 + 1)^2                                         \\
+              \reales[X]     & \to & f = X (X - 2) (X^2 + X + 1) (X^2 + 1)^2                                         \\
+              \complejos[X]  & \to & f = X (X-2) (X - (-1 - \frac{\sqrt{3}}{2}i) ) (X - (-1 + \frac{\sqrt{3}}{2}i) )
+              (X - i)^2 (X + i)^2
+            \end{array}
+          }
+        $$
+        Notar que en $\racionales$ y en $\reales$ las factorizaciones son iguales, dado que no hay raíces irracionales.
+\end{enumerate}

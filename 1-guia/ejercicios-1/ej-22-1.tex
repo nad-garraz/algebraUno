@@ -1,83 +1,148 @@
-\ejercicio En cada uno de los siguientes casos determinar si la relación $\relacion $ en $A$ es reflexiva, simétrica,
-antisimétrica, transitiva, de equivalencia o de orden.
+\def\veintidosi{
+  \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine,scale=0.7, transform shape]
 
-\begin{enumerate}
-	\item \textit{Relación de equivalencia}: La relación debe ser reflexiva, simétrica y transitiva.
-	\item \textit{Relación de orden}: La relación debe ser reflexiva, antisimétrica y transitiva.
-\end{enumerate}
+    \node[] (1) {$\bullet$};
+    \node[] at (1.west) {$1$};
+
+    \node[above right= of 1] (2) {$\bullet$};
+    \node[] at (2.east) {$2$};
+
+    \node[below right= of 2] (3) {$\bullet$};
+    \node[] at (3.east) {$3$};
+
+    \node[below= of 1] (4) {$\bullet$};
+    \node[] at (4.west) {$4$};
+
+    \node[right= of 2] (5) {$\bullet$};
+    \node[] at (5.west) {$5$};
+
+    % Universo
+    \node[shape=ellipse, draw, black, fit={ (1) (2) (3) (4)}] (universo) {};
+    \node[above left = 0.1em of universo] {$A$};
+
+    % Aristas
+    \draw[->, loop below] (1) to (1);
+    \draw[->, loop left] (2) to (2);
+    \draw[->, loop above] (3) to (3);
+    \draw[->, loop above] (4) to (4);
+    \draw[->, loop right] (5) to (5);
+
+    \draw[->, bend right] (1.center) to (2);
+    \draw[->, bend right] (1.center) to (3);
+    \draw[->, bend right] (1.center) to (5);
+
+    \draw[->, bend left] (2.center) to (5);
+  \end{tikzpicture}
+}
+% fin gráficos
+\begin{enunciado}{\ejercicio}
+  En cada uno de los siguientes casos determinar si la relación $\relacion $ en $A$ es reflexiva, simétrica,
+  antisimétrica, transitiva, de equivalencia o de orden.
+  \begin{enumerate}[label=\roman*)]
+    \item $A = \set{1,2,3,4,5}, \relacion = \set{(1,1), (2,2), (3,3), (4,4), (5,5), (1,2), (1,3), (2,5), (1,5)}$
+    \item $A = \naturales,\, \relacion = \set{(a,b) \en \naturales \times \naturales \big/ a+b \text{ es par} }.$
+    \item $A = \enteros,\, \relacion = \set{(a,b) \en \enteros \times \enteros \big/ |a| \leq |b| }.$
+    \item $A = \enteros,\, \relacion$ definida por $a \relacion b \sii b \text{ es múltiplo de } a$.
+    \item $A = \partes(\reales),\, \relacion$ definida por $X \relacion Y \sii X \inter \set{1,2,3} \subseteq Y \inter \set{1,2,3}$.
+    \item $A = \partes(\set{n \en \naturales \talque n \leq 30})$, $\relacion$ definida por $X \relacion Y \sisolosi 2 \notin X \inter Y^c$
+    \item $A = \naturales \times \naturales,\, \relacion$ definida por $(a,b) \relacion (c,d) \sisolosi bc$ es múltiplo de $ad$.
+  \end{enumerate}
+
+\end{enunciado}
+
+Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de relaciones}.
 
 \begin{enumerate}[label=\roman*)]
-	\item  $A = \set{1,2,3,4,5}, \relacion = {(1,1), (2,2), (3,3), (4,4), (5,5), (1,2), (1,3), (2,5), (1,5)}$\\
-	      \begin{enumerate}
-		      \item[R:] Es reflexiva, porque hay bucles en todos los elementos de $A$.
-		      \item[S:] No es simétrica, dado que existe $(1, 5)$, pero no $(5, 1)$
-		      \item[AS:] Es antisimétrica. No hay ningún par que tenga la vuelta, excepto los casos $x \relacion x$.
-		      \item[T:] Es transitiva. La terna 1, 2, 5 es transitiva.
-	      \end{enumerate}
-	      La relación es R, AS y T, por lo tanto es una \textit{relación de orden}.
+  \item Haciendo un gráfico en estos ejercicios de pocos elementos sale fácil.\par
 
-	\item \hacer
+        \begin{minipage}{0.60\textwidth}
+          \textit{Reflexiva:}\par
+          Es reflexiva, porque hay bucles en todos los elementos de $A$.
 
-	\item \hacer
-	\item \hacer
-	\item \hacer
-	\item $A = \partes(\set{n \en \naturales \talque n \leq 30})$, $\relacion$ definida por $X \relacion Y \sisolosi 2 \notin X \inter Y^c$\\
-	      $\begin{array}{|c|c|c|c|c|c|}
-			      \hline
-			      2 \en X     & 2 \en Y     & 2 \en Y^c   & 2 \en X^c   & 2 \notin X \inter Y^c & 2 \notin Y \inter X^c \\ \hline  \hline
-			      \magenta{V} & \magenta{V} & \magenta{F} & \magenta{F} & \magenta{V}           & \magenta{V}           \\
-			      \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{F}              & \cyan{V}              \\
-			      \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{V}              & \cyan{F}              \\
-			      \magenta{F} & \magenta{F} & \magenta{V} & \magenta{V} & \magenta{V}           & \magenta{V}           \\ \hline
-		      \end{array}$.\\
-	      \begin{enumerate}
-		      \item[R:]
-		            La relación es reflexiva ya que para que un elemento $X$ esté relacionado con sí mismo debe ocurrir
-		            que $X \relacion X \sisolosi 2 \notin X \inter X^c$, es decir $2 \notin \vacio$, lo cual es siempre cierto.
+          \textit{Simétrica:}\par
+          No es simétrica, dado que existe $(1, 5)$, pero no $(5, 1)$
 
-		      \item[S:]
-		            La relación no es simétrica. Se puede ver con la \cyan{segunda y tercera} fila de la tabla con un contraejemplo.
-		            $X = \set{1}$ y $Y = \set{2},\, X,Y \subseteq A$, $X \relacion Y$, pero $Y \norelacion X$,
+          \textit{Anti-Simétrica:}\par
+          Es antisimétrica. No hay ningún par que tenga la vuelta, excepto los casos $x \relacion x$.
 
-		      \item[AS:]
-		            La relación no es antisimétrica. Se puede ver con la \magenta{primera o cuarta} fila tabla con un contraejempl
-		            con un contraejemplo. Si $X = \set{1,2}$ e $Y = \set{2,3} \entonces X \relacion Y$ y además $Y \relacion X$
-		            con  $X \distinto Y$.
+          \textit{Transitiva:}\par
+          Es transitiva. La terna 1, 2, 5 es transitiva.
+          La relación es R, AS y T, por lo tanto es una \textit{relación de orden}.
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+          \quad  \veintidosi
+        \end{minipage}
 
-		      \item[T:]
-		            Es transitiva. Si bien no es lo más fácil de explicar, se puede ver en la tabla que para tener 2 relaciones
-		            en una terna $X, Y, Z$ no se puede llegar nunca al caso de la segunda fila de la tabla, donde se lograría que
-		            $X \norelacion Z$
-	      \end{enumerate}
+  \item \hacer
 
-	\item $A = \naturales \times \naturales,\, \relacion$ definida por $(a,b) \relacion (c,d) \sisolosi bc$ es múltiplo de $ad$.
-	      \begin{enumerate}
-		      \item[R:] $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$, se concluye que sí es reflexiva.
-		      \item[S:]
-		            $ \llave{l}{
-				            (a,b) \relacion (c,d) \sisolosi bc \llamada{1}= k\cdot ad \\
-				            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \llamada{1}= h\cdot k \cdot ad = k'ad
-			            }$.\\
-		            con  $k'=1$ se cumple la igualdad. La relación es simétrica.
-		      \item[AS:] Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que
-		            $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
-		            la relación no es antisimétrica.
-		      \item[T:]$
-			            \llave{l}{
-				            (a,b) \relacion (c,d) \sisolosi bc \llamada{1}= k\cdot ad \\
-				            (c,d) \relacion (e,f) \sisolosi de \llamada{1}= h\cdot cf \\
-				            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{be = k'\cdot af}\\
-				            \flecha{multiplico}[M.A.M.]
-				            \llaves{l}
-				            {
-					            bc \llamada{1}= k\cdot ad \\
-					            de \llamada{1}= h\cdot cf
-				            } \flecha{y}[acomodo]
-				            be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to
-				            \magenta{be \stackrel{\Tilde}= k' \cdot af}.
-			            }$\\
-		            Se concluye que la relación es transitiva.
-	      \end{enumerate}
-	      Con esos resultados se puede decir que $\relacion$ en $A$ es de \textit{equivalencia}.
+  \item \hacer
+  \item \hacer
+  \item \hacer
+  \item $
+          A =
+          \partes(\set{n \en \naturales \talque n \leq 30})$, $\relacion$ definida por $X \relacion Y \sisolosi 2 \notin X \inter Y^c
+        $\par
+        $$
+          \begin{array}{|c|c|c|c|c|c|}
+            \hline
+            2 \en X     & 2 \en Y     & 2 \en Y^c   & 2 \en X^c   & 2 \notin X \inter Y^c & 2 \notin Y \inter X^c \\ \hline  \hline
+            \magenta{V} & \magenta{V} & \magenta{F} & \magenta{F} & \magenta{V}           & \magenta{V}           \\
+            \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{F}              & \cyan{V}              \\
+            \cyan{F}    & \cyan{V}    & \cyan{F}    & \cyan{V}    & \cyan{V}              & \cyan{F}              \\
+            \magenta{F} & \magenta{F} & \magenta{V} & \magenta{V} & \magenta{V}           & \magenta{V}           \\ \hline
+          \end{array}$$.
+
+        \textit{Reflexiva:}\par
+        La relación es reflexiva ya que para que un elemento $X$ esté relacionado con sí mismo debe ocurrir
+        que $X \relacion X \sisolosi 2 \notin X \inter X^c$, es decir $2 \notin \vacio$, lo cual es siempre cierto.
+
+        \textit{Simétrica:}\par
+        La relación no es simétrica. Se puede ver con la \cyan{segunda y tercera} fila de la tabla con un contraejemplo.
+        $X = \set{1}$ y $Y = \set{2},\, X,Y \subseteq A$, $X \relacion Y$, pero $Y \norelacion X$,
+
+        \textit{Anti-Simétrica:}\par
+        La relación no es antisimétrica. Se puede ver con la \magenta{primera o cuarta} fila tabla con un contraejempl
+        con un contraejemplo. Si $X = \set{1,2}$ e $Y = \set{2,3} \entonces X \relacion Y$ y además $Y \relacion X$
+        con  $X \distinto Y$.
+
+        \textit{Transitiva:}\par
+        Es transitiva. Si bien no es lo más fácil de explicar, se puede ver en la tabla que para tener 2 relaciones
+        en una terna $X, Y, Z$ no se puede llegar nunca al caso de la segunda fila de la tabla, donde se lograría que
+        $X \norelacion Z$
+
+  \item
+        \textit{Reflexiva:}\par
+        $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$, se concluye que sí es reflexiva.
+
+        \textit{Simétrica:}
+        $$
+          \llave{l}{
+            (a,b) \relacion (c,d) \sisolosi bc \igual{$\llamada1$} k\cdot ad \\
+            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \igual{$\llamada1$} h\cdot k \cdot ad = k'ad,
+          }
+        $$
+        con  $k'=1$ se cumple la igualdad. La relación es simétrica.
+        \textit{Anti-Simétrica:}\par
+        Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que
+        $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
+        la relación no es antisimétrica.
+
+        \textit{Transitiva:}
+        $$
+          \llave{l}{
+            (a,b) \relacion (c,d) \sisolosi bc \igual{$\llamada1$} k\cdot ad \\
+            (c,d) \relacion (e,f) \sisolosi de \igual{$\llamada1$} h\cdot cf \\
+            \qvq (a,b) \relacion (e,f) \sisolosi \magenta{be = k'\cdot af}   \\
+            \flecha{multiplico}[M.A.M.]
+            \llaves{l}
+            {
+              bc \igual{$\llamada1$} k\cdot ad \\
+              de \igual{$\llamada1$} h\cdot cf
+            } \flecha{y}[acomodo]
+            be \cdot \cancel{cd} = k \cdot h \cdot af \cdot \cancel{cd} \to
+            \magenta{be \igual{\Tilde} k' \cdot af}.
+          }$$
+        Se concluye que la relación es transitiva.
+        Con esos resultados se puede decir que $\relacion$ en $A$ es de \textit{equivalencia}.
 
 \end{enumerate}

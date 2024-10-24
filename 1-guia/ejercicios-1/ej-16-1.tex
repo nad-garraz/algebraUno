@@ -1,23 +1,58 @@
-\ejercicio Sean $A, B$ y $C$ conjuntos. Probar que:
+\begin{enunciado}{\ejercicio}
+  Sean $A, B$ y $C$ conjuntos. Probar que:
+  \begin{enumerate}[label=\roman*)]
+    \item $(A \union B) \times C = (A \times C) \union (B \times C)$
+    \item $(A \inter B) \times C = (A \times C) \inter (B \times C)$
+    \item $(A - B) \times C = (A \times C) - (B \times C)$
+    \item $(A \triangle B) \times C = (A \times C) \triangle (B \times C)$
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item $(A \union B) \times C = (A \times C) \union (B \times C)$
-	\item $(A \inter B) \times C = (A \times C) \inter (B \times C)$
-	\item $(A - B) \times C = (A \times C) - (B \times C)$
-	\item $(A \triangle B) \times C = (A \times C) \triangle (B \times C)$
+  \item
+        Para demostrar igualdad de conjuntos habría que probar la doble inclusión, es decir:
+
+        $$
+          \begin{array}{l}
+            (A \union B) \times C \magenta{\subseteq} (A \times C) \union (B \times C) \\
+            (A \times C) \union (B \times C) \magenta{\subseteq} (A \union B) \times C
+          \end{array}
+        $$
+        O bien si podemos conectar los pasos con "$\sisolosi$". En este caso se usa el de los "$\sisolosi$" y mucho
+        de las \hyperlink{teoria-1:conjuntos-basicos}{definiciones que podés ver acá en las notas teóricas}:\par
+        Sea el par $(x,y)$
+        $$
+          \begin{array}{c}
+            (x,y) \en (A \union B) \times C)
+            \Sii{def prod.}[Cartesiano]
+            x \en (A \union B) \ytext y \en C
+            \Sii{def}[$\union$]
+            (x \en A \otext x \en  B  )\ytext x \en C
+          \end{array}
+        $$
+        Si está en $A$ o en $B$ y seguro está en $C$, entonces $x$ tiene que estar en $A \inter C$ o bien en $B \inter C$,
+        que no es otra cosa que distribuir el "y" con el "o":
+        $$
+          \Sii{distribución}
+          (x \en A  \ytext x \en C) \otext (x \en  B \ytext x \en C)
+          \Sii{\red{!}}
+          (x,y) \en (A \times C) \otext (x,y) \en (B\times C)
+        $$
+        Ese paso del \red{!} es la definición de producto cartesiano como al principio y se concluye que:
+        $$
+          (A \union B) \times C \igual{\magenta{\Tilde}}
+          (A \times C) \union (B\times C)
+        $$
+  \item \hacer
+  \item \hacer
+  \item \hacer
 \end{enumerate}
 
 
-\noindent\separador
-
-\underline{\textit{Relaciones}}
-
-Definción de Relación, $\relacion$:
-\begin{center}
-	\fbox{
-		\parbox{.9\textwidth}{
-			Sean $A$ y $B$ conjuntos. Una \textit{relación $\relacion$ de $A$ en $B$}
-			es un subconjunto cualquiera $\relacion$ del producto cartesiano $A \times B$. Es decir $\relacion$
-			de $A$ en $B$ si $\relacion \en \partes(A \times B)$.
-		}
-	}
-\end{center}
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{https://github.com/koopardo}{Marcos Zea \github}
+\end{aportes}

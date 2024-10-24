@@ -1,4 +1,17 @@
 %=========================
+%  Disclaimer y QR
+%=========================
+
+\input{../macros/disclaimer.tex}
+
+\newpage
+
+\input{../macros/qr.tex}
+
+\newpage
+
+
+%=========================
 % Un poco de teoría
 %=========================
 \subsubsection*{\hypertarget{teoria-\guia}{Notas teóricas:}}
@@ -12,18 +25,27 @@
 \subsubsection*{Ejercicios de la guía:}
 
 \foreach \x in {1,...,\cantidadEjerciciosGuia} { % cantidad de ejercicios de la guía
-		\input{./ejercicios-\guia/ej-\x-\guia.tex}
+		\IfFileExists{./ejercicios-\guia/ej-\x-\guia.tex}{
+			\input{./ejercicios-\guia/ej-\x-\guia.tex}
+		}{
+			\typeout{¡Atención! El archivo ./ejercicios-\guia/ej-\x-\guia.tex no está.
+            Revisar variable: 'cantidadEjerciciosGuia` en \guia-sol.tex}
+		}
 	}
 
 \newpage % página nueva
 
-\setcounter{ejercicio}{0} % Reset el counter de \ejercicio
 %=========================
 % Ejercicios extras, parciales, etc.
 %=========================
 
-\subsubsection*{\hypertarget{extras-\guia}{Ejercicios extras:}}
+\subsubsection*{\hypertarget{extras-\guia}{{\Large\color{orange}{\faIcon{fire}}} Ejercicios extras:}}
 
 \foreach \x in {1,...,\cantidadEjerciciosExtras} { % cantidad de ejercicios extras
-		\input{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}
+		\IfFileExists{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}{
+			\input{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}
+		}{
+			\typeout{¡Atención! El archivo ./ejercicios-\guia-extra/ej-extra-\x-\guia.tex no está.
+             Revisar variable: 'cantidadEjerciciosExtras' en \guia-sol.tex}
+		}
 	}

@@ -1,3 +1,4 @@
+*.bak*
 *.out
 *.aux
 *.log

@@ -1,27 +1,80 @@
-\ejercicio
-Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi A \subseteq B$
-\begin{itemize}
-	\item[$\entonces$)] Pruebo por absurdo. Supongo que $A \nsubseteq B \entonces \exists x \en A \talque x \notin B$.\\
-	      Si $x \en A
-          \entonces
-          \set{x} \en \partes(A)
-		      \flecha{hipótesis}[$\partes(A) \subseteq \partes(B)$]
-              \set{x} \en \partes(B)
-		      \entonces
-              x \en B .$ Absurdo $\skull$.\\
-	      $\to \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}$\Tilde
+\begin{enunciado}{\ejercicio}
+  Sean $A$ y $B$ conjuntos, Probar que $\partes(A) \subseteq \partes(B) \sisolosi A \subseteq B$
+\end{enunciado}
 
-	\item[$\Leftarrow$)]
-	      $\qvq A \subseteq B
-          \entonces
-          \partes(A) \subseteq \partes(B),\\
-		      \paratodo S \en \partes(A)
-              \sisolosi
-              S \subseteq A
-              \stacktext{hip}\subseteq B
-              \entonces
-              S \en \partes(B).\\
-		      \to
-              \boxed{A \subseteq B \entonces \partes(A) \subseteq \partes(B) }$ \Tilde
+Prueba que la hago por absurdo, \hyperlink{teoria-1:absurdo}{mirá la lógica en en apunte.}
+
+\begin{itemize}
+  \item[$\magenta{\entonces}$)] Quiero probar que:
+        $$
+          \ub{\partes(A) \subseteq \partes(B)}{\purple{\text{hipótesis}}}  \magenta{\entonces} \ub{A \subseteq B}{\text{tesis}}
+        $$
+        Pruebo por absurdo. \underline{Niego} la tesis, la \purple{hipótesis} sigue valiendo.\par
+
+        Supongo que:
+        $$
+          A \nsubseteq B \Sii{def}[\red{!}] \existe x \en A \text{ tal que } x \taa{\llamada1}{}\notin B.
+        $$
+        Y lo que intento es llegar a una \red{contradicción}, es decir me gustaría que pase algo que \red{contradiga}
+        la \purple{hipótesis}.\par
+        Según mi supuesto:
+        $$
+          x \en A
+          \Entonces{def de}[partes]
+          \set{x} \en \partes(A).
+        $$
+        Peeeeeero\red{!!} por \purple{hipótesis}:
+        $$
+          \partes(A) \subseteq \partes(B)
+        $$
+
+        Entonces el conjunto $\set{x}$ también tiene que estar en $\partes(B)$.\par
+
+        \textit{Nota que puede ser útil:}\par
+        ¿Cuál es el absurdo? Terminá lo que falta de esta parte de la demostración sin ver
+        como sigue y después comparás. \href{\justDoIt}{\faIcon{jedi}\faIcon{hand-sparkles}\faIcon{jedi}}
+        Ya está casi terminado, pero juntar los cables con esta info te obliga a entender lo que se está intentando hacer.\par
+        \textit{Fin nota que puede ser útil:}\par
+
+        Si el conjunto $\set{x}$ está en $\partes(B)$ entonces por la definición
+        del conjunto de partes el elemento $x$ tiene que estar en $B$.\par
+        Esto es un absurdo, porque arranqué diciendo en $\llamada1$ que $x \notin B$ y ahora que $x \en B$. Absurdo $\skull$.\par
+        Como mi supuesto resulto falso, debido a la lógica que está en las \hyperlink{teoria-1:absurdo}{notas teóricas sobre mostrar por absurdo} concluyo que:
+        $$
+          \boxed{\partes(A) \subseteq \partes(B) \entonces A \subseteq B}\Tilde
+        $$
+
+  \item[$\magenta{\Leftarrow}$)] Quiero probar que:
+        $$
+          \ub{A \subseteq B}{\text{\purple{hipótesis}}} \magenta{\entonces} \partes(A) \subseteq \partes(B)
+        $$
+        Le pongo nombre $S$ a los elementos de $\partes(A)$. Todo elemento $S \taa{\llamada2}{}\en \partes(A)$
+        es un conjunto que cumple que $S \subseteq A$ por la definición del conjunto $\partes(A)$.
+        Si todo elemento $S$ cumple que $S \subseteq A$ por \purple{hipótesis} también tiene que estar en $B$.
+
+        \textit{Nota que puede ser útil:}\par
+        Terminá lo que falta de esta parte de la demostración sin ver como sigue y después comparás
+        .\par
+        \textit{Fin nota que puede ser útil:}\par\medskip
+
+        $$
+          S \en B \Entonces{def} S \en \partes(B).
+        $$
+
+        Entonces en $\llamada2$ dije que los $S$ forman al conjunto $\partes(A)$, y si todos los $S$ están en $\partes(B)$ entonces:
+
+        $$
+          \partes(A) \subseteq \partes(B)
+        $$
+
+        Queda demostrado que:\par
+        $$
+          \boxed{ A \subseteq B \entonces \partes(A) \subseteq \partes(B) } \Tilde
+        $$
 \end{itemize}
 
+% Contribuciones
+\begin{aportes}
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

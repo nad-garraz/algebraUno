@@ -1,39 +1,65 @@
-\ejercicio\label{extra: \guia}
-Probar la propiedad distributiva: $X \inter (Y \union Z) = (X \inter Y) \union (X \inter Z)$\\
-
-\separadorCorto
+\begin{enunciado}{\ejExtra}
+  Probar la propiedad distributiva: $X \inter (Y \union Z) = (X \inter Y) \union (X \inter Z)$
+\end{enunciado}
 
 Tengo que hacer una doble inclusión:
-$\to \begin{cases}
-		1) & X \inter (Y \union Z) \subseteq (X \inter Y) \union (X \inter Z) \\
-		2) & (X \inter Y) \union (X \inter Z) \subseteq X \inter (Y \union Z)
-	\end{cases}$
 
-\begin{enumerate}[label=\arabic*)]
-	\item
-	      $x \en X \inter (Y \union Z)$ quiere decir que $x \en X$ y
-	      $\llaves{c}{
-			      x \en Y \\
-			      \o      \\
-			      x \en Z
-		      } $.
-	      Por lo tanto $\to
-		      \llaves{c}{
-			      x \en X \inter Y\\
-			      \o \\
-			      x \en X \inter Z
-		      }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \Tilde.\\
-
-	\item
-	      Ahora hay que probar la vuelta. Uso razonamiento análogo.
-	      $x \en (X \inter Y) \union (X \inter Z)$, por lo que $x \en X$ y
-	      $
-		      \llaves{c}{
-			      x \en X \inter Y \blue{\flecha{dado que}[$Y \subseteq Y \union Z$] x \en X \inter (Y \union Z) }\\
-			      \o               \\
-			      x \en X \inter Z \blue{\flecha{dado que}[$Z \subseteq Y \union Z$] x \en X \inter (Y \union Z)}
-		      }$.
-	      Lo que quiere decir \blue{que $x \en X \inter (Y \union Z)$ \Tilde}\\
-	      \red{¿Estoy suponiendo cosas que debería demostrar, me estoy salteando pasos?}\\
-	      \blue{Para que la solución quede más creíble usé que $S \subseteq S \union T$ fue el dealbreaker. }
+\begin{enumerate}[label=\magenta{\arabic*)}]
+  \item  $X \inter (Y \union Z) \subseteq (X \inter Y) \union (X \inter Z)$
+  \item  $X \inter Y) \union (X \inter Z) \subseteq X \inter (Y \union Z)$
 \end{enumerate}
+
+\begin{enumerate}[label=\magenta{\arabic*)}]
+  \item
+        $x \en X \inter (Y \union Z)$ quiere decir que $x \en X$ y
+        $\llaves{c}{
+            x \en Y \\
+            \text{o bien}      \\
+            x \en Z
+          } $.
+        Por lo tanto
+        $\to
+          \llaves{c}{
+            x \en X \inter Y\\
+            \text{o bien}      \\
+            x \en X \inter Z
+          }$, lo que equivale a $x \en (X \inter Y) \union (X \inter Z)$ \Tilde.
+
+  \item
+        Ahora hay que probar la vuelta. Uso razonamiento análogo:\par
+
+        $$
+          x \en (X \inter Y) \union (X \inter Z)
+          \entonces x \en X
+          \quad y \quad
+          \llave{c}{
+            x \en X \inter Y \\
+            \otext           \\
+            x \en X \inter Z
+          }$$
+        Pero teniendo en cuenta que:
+        $$
+          \llave{c}{
+            Y \subseteq Y \union Z \\
+            \text{ y que }         \\
+            Z \subseteq Z \union Y,
+          }
+          \Entonces{\red{!!}}
+          \llave{c}{
+            x \en X \inter (Y \union Z) \\
+            \text{ o bien }             \\
+            x \en X \inter (Z \union Y)
+
+          }\entonces x \en X \inter (Y \union Z)
+        $$
+        En \red{!!} uso algo "obvio" pero que me sirve para seguir bien donde está $x$: Resalto que si un elemento está en
+        $Y$ seguro va a estar en la unión de $Y$ con lo que sea.
+
+\end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

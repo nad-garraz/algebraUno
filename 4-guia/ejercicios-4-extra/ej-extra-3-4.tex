@@ -1,43 +1,74 @@
-\ejercicio
-Sabiendo que $(a:b) = 5$. Probar que $(3ab: a^2 + b^2) = 25$
+\begin{enunciado}{\ejExtra}
+  Sabiendo que $(a:b) = 5$. Probar que $(3ab: a^2 + b^2) = 25$
+\end{enunciado}
 
-\separadorCorto
+Arranco \textit{comprimizando: }\par
+$$
+  \llave{l}{ a = 5c \\
+    b = 5d
+  }
+  \entonces
+  (3ab : a^2 + b^2) = 25
+  \Sii{coprimizar}[\red{!}]
+  (3 cd : c^2 + d^2) = 1
+$$
+Esto último nos dice que las expresiones $3cd$ y $c^2 + d^2$ son coprimas entre
+sí, en otras palabras, que \textit{no hay ningún p primo} que divida ambas expresiones
+a la vez.\par
+Pruebo por absurdo que no existe $p$ primo que divida a ambas expresiones, es decir
+que no existe un $p$, tal que $(3cd : c^2 + d^2) = p$.
+Supongo que $\existe p$ primo tal que:
+$$
+  p \divideA 3 \cdot c \cdot d
+  \sii
+  \llave{cc}{
+    p \divideA 3 & \llamada1 \\
+    \otext       &           \\
+    p\divideA c  & \llamada2 \\
+    \otext       &           \\
+    p\divideA d  & \llamada3
+  }
+$$
 
-Coprimizar:
-$
-	\llave{l}{
-		c = \frac{a}{5}\\
-		d = \frac{b}{5}\\
-	}
-	\to
-	(a:b) = 5 \cdot \ub{(c:d)}{1} = 5\\
-	\to
-	\llave{l}{
-		\flecha{según}[enunciado]
-		25  = (3ab : a^2 + b^2) \flecha{reemplazo} 25 = 25 \cdot \ub{(3 cd : c^2 + d^2)}{1}
-	}\\
-	\flecha{Voy a probar}[que] (3cd : c^2 + d^) = 1.\\
-	\flecha{Supongo que}[no lo fuera] \existe p \to
-	\llave{l}{
-		p \divideA (3cd : c^2 + d^2) \to
-		\llave{l}{
-			p \divideA 3cd \to
-			\llave{l}{
-				p \divideA 3  \to p = 3
-				\flecha{tabla}[$r_3(c^2 + d^2)$]
-				\llave{lll}{
-					0 & \text{si} & \ub{\congruencia{c,d}{0}{3}}{\magenta{noup! }(c:d) = 1} \\
-					\neq 0 & \text{si} & \text{ otro caso}
-				}\\
-				p \divideA c \to
-				\llave{l}{
-					\flecha{como} p \divideA c^2 + d^2 \entonces p \divideA d^2 \to \ub{p \divideA d}{\magenta{noup! } (c:d) = 1} \\
-				}\\
-				p \divideA d \to \magenta{noup! idem}\\
-			}
-			\\
-			p \divideA c^2 + d^2
-		}
-	}
-$\\
-Si ningún primo $p$ divide a $(3cd : c^2 + d^2) \entonces (3cd : c^2 + d^2) = 1$
+Si ocurre que $p \divideA 3 \sii p = 3$. Quiero entonces ver si $3 \divideA c^2 + d^2 \sii c^2 + d^2 \conga3 0$. Hago
+una tabla para estudiar esa última ecuación:
+$$
+  \begin{array}{|c||c|c|c|}
+    \hline
+    r_3(c)         & 0 & 1 & 2 \\ \hline
+    r_3(d)         & 0 & 1 & 2 \\ \hline
+    r_3(c^2 + d^2) & 0 & 2 & 2 \\ \hline
+  \end{array}
+$$
+
+De la tabla concluímos que para que $c^2 + d^2 \conga3 0$ debe ocurrir que:
+$c \conga3 0$ y también que $d \conga3 0$, es decir que tanto $c$ como $d$ sean
+múltiplos de 3. Esto es una contradicción, ya que \red{no puede} ocurrir porque $(c:d) = 1$. Por
+lo tanto no puede ser que $\llamada1 p \divideA 3$ \par \medskip
+
+Si ocurre ahora que $\llamada2 p \divideA c$, estudio a ver si también $p \divideA c^2 + d^2$:
+$$
+  \llave{l}{
+    p \divideA c \\
+    p \divideA c^2 + d^2
+  }
+  \Entonces{}[$F_2 - c \cdot F_1 \to F_2$]
+  \llave{l}{
+    p \divideA c \\
+    p \divideA d^2 \Sii{$p$}[primo] p \divideA d
+  }
+$$
+
+Entonces si $p \divideA c$ y también $p \divideA c^2 + d^2$ debe ocurrir que
+$p \divideA d$. Nuevamente contraticción ya que \red{no puede ocurrir} debido a que $(c:d) = 1$.\par \medskip
+
+El caso $\llamada3$ es lo mismo que el caso $\llamada2$.\par
+
+Se concluye entonces que $(3cd : c^2 + d^2) = 1$ con $(c:d) = 1$.
+Así probando que $(3ab : a^2 + b^2) = 25$ con
+$\llave{l}{
+  a = 5c \\
+  b = 5d
+}$
+
+

@@ -1,0 +1,77 @@
+\begin{enunciado}{\ejExtra}
+  Sea $(a_n)_{n\en\naturales}$ la sucesión de números reales definida por $a_1 = 3, a_2 = 6$, y para $n \geq 1$,
+  $$
+    a_{n+2} = \frac{2n + 3}{7} (a_{n+1} + 2a_n)
+  $$
+  Probar que $a_n > 2^n \paratodo n \en \naturales$
+\end{enunciado}
+
+Sucesiones definidas por recurrencia e inducción.
+
+\textit{Proposición:}
+Quiero probar que
+$$
+  p(n) : a_n > 2^n \paratodo n \en \naturales
+$$
+
+\textit{Casos base:}
+
+$$
+  \begin{array}{l}
+    p(\blue{1}) : a_1 = 3 > 2^{\blue{1}} = 2 \to a_1 > 2^1 \\
+    p(\blue{2}) : a_2 = 6 > 2^{\blue{2}} = 4 \to a_2 > 2^2 \\
+  \end{array}
+$$
+
+Los casos base $p(1), p(2)$ resultaron verdaderos. \bigskip
+
+\textit{Paso inductivo:}
+Asumo como verdadero para algún $k \en \naturales$:
+$$
+  \begin{array}{c}
+    p(\blue{k}) : \ub{ a_{\blue{k}} > 2^{\blue{k}} }{\purple{\text{hipótesis inductiva}}} \\
+    p(\blue{k+1}) : \ub{a_{\blue{k+1}} > 2^{\blue{k+1}}}{\purple{\text{hipótesis inductiva}}}
+  \end{array}
+$$
+
+Entonces quiero probar que:
+
+$$
+  p(\blue{k+2}) : a_{\blue{k+2}} > 2^{\blue{k+2}}
+$$
+también lo sea.
+
+Usando la definición:
+
+$$
+  a_{\blue{k+2}}
+  \igual{def}
+  \frac{2k+3}{7} \cdot (a_{k+1} + 2 \cdot a_k)
+  \taa{\purple{\text{HI}}}{}>
+  \frac{2k+3}{7} \cdot (2^{k+1} + 2 \cdot 2^k)
+  =
+  \frac{2k+3}{7} \cdot (2^{k+2})
+$$
+Por lo tanto se tiene que:
+$$
+  a_{k+2} > \frac{2k+3}{7} \cdot (2^{k+2}) \geq 2^{k+2} \quad \paratodo k \en \naturales_{\geq 2}
+$$
+
+Es así que se cumple $p(k+2) \paratodo k \en \naturales_{\geq 2}$
+
+El caso que faltaría es con $k = 1$
+
+$$
+  p(3): a_{1 + 2} = a_3 \igual{def} \frac{5}{7} (6 + 6) = \frac{60}{7}  > 2^3 = 8 \to a_3 > 2^3
+$$
+
+también se cumple.
+
+Dado que $p(1), p(2), p(3), p(k), p(k+1) \ytext p(k+2)$ son todas verdaderas, por principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.
+
+% Contribuciones
+%\begin{aportes}
+%  %% iconos : \github, \instagram, \tiktok, \linkedin
+%  %\aporte{url}{nombre icono}
+%  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+%\end{aportes}

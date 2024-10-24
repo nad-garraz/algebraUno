@@ -1,10 +1,41 @@
-\ejercicio
-$\flecha{del}[gráfico] (C \inter B) - A) \union (A - B) =\\
-	\flecha{uso que}[$A - B = A \inter B^c$] = (C \inter B \inter A^c) \union (A \inter B^c) \stackrel{\blue{*}}{=}\\
-	\flecha{distributiva} C \union (A \inter B^c) \inter B \union (A \inter B^c) \inter A^c \union (A \inter B^c) =\\
-	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (B \union B^c) \inter (A^c \union A) \inter (A^c \union B^c)=\\
-	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter \universo \inter \universo \inter (A^c \union B^c)=\\
-	= (C \union A) \inter (C \union B^c) \inter (B \union A) \inter (A^c \union B^c)=\\
-	= C \inter C \union C \inter B^c \union A\inter C \union A \inter B^c ... \\
-	= C \union C \inter B^c \union A\inter C \union A \inter B^c \\
-$
+\begin{enunciado}{\ejercicio}
+  Encontrar fórmulas que describen las partes rayadas de los siguientes diagramas de Venn, utilizando
+  únicamente intersecciones, uniones y complementos.
+
+  \begin{multicols}{3}
+    \begin{enumerate}[label=(\alph*)]
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillOnlyA
+              \fillBCapCNotA
+              \fillACapCNotB
+            \end{venndiagram3sets}
+
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillOnlyA
+              \fillOnlyC
+            \end{venndiagram3sets}
+
+      \item
+            \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+              \fillACapBNotC
+              \fillACapCNotB
+              \fillCCapBNotA
+            \end{venndiagram3sets}
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
+
+\begin{multicols}{2}
+  \begin{enumerate}[label=(\alph*)]
+    \item $(A \inter B^c) \union (A^c \inter B \inter C)$
+
+    \item $
+            \green{(A \triangle C)} \inter B^c
+            \igual{\red{!}}
+            \green{(A \union C) \inter (A \inter C)^c} \inter B^c $
+
+    \item $((A \inter B) \union (B \inter C) \union (A \inter C)) \inter (A \inter B \inter C)^c $
+  \end{enumerate}
+\end{multicols}

@@ -1,25 +1,34 @@
-\ejercicio
-Hallar todos los $n \en \naturales$ tales que:
-\begin{enumerate}[label=\roman*)]
-	\item $3n - 1 \divideA n+7$\\
-	      \separadorCorto
+\begin{enunciado}{\ejercicio}
+  Hallar todos los $n \en \naturales$ tales que:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item $3n - 1 \divideA n+7$
+      \item $3n -2 \divideA 5n - 8$
+      \item $2n+1 \divideA n^2 + 5$
+      \item $n-2 \divideA n^3 - 8$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-	      Busco eliminar la $n$ del \textit{miembro} derecho.\\
-	      $\llaves{l}{
-			      3n - 1 \divideA n + 7
-			      \flecha{$a|c \entonces$}[$a \divideA k\cdot c$]
-			      3n - 1 \divideA \red{3} \cdot (n+7) = 3n + 21\\
-			      \flecha{$a \divideA b \y a \divideA c$}[$\entonces a \divideA b \pm c$]
-			      3n-1 \divideA 3n + 21 - (3n -1) = 22
-		      } \to 3n - 1 \divideA 22\\
-		      \flecha{busco $n$}[para que] \frac{22}{3n-1} \en \divset{22}{1\pm1, \pm2, \pm11, \pm22} \flecha{probando} n \en \set{1,4} \Tilde$
-	\item
-	\item
-
-	\item $n-2 \divideA n^3 - 8$ \\
-	      \separadorCorto
-
-	      $\flecha{$a \divideA b$}[$\entonces a \divideA k \cdot b$]
-		      n-2 \divideA \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $ Esto va a dividir para todo $n \distinto 2$\\
-
+\begin{enumerate}[label=\alph*)]
+  \item $3n - 1 \divideA n+7$\par
+        Busco eliminar la $n$ del \textit{miembro} derecho.\par
+        $\llaves{l}{
+            3n - 1 \divideA n + 7
+            \flecha{$a \divideA c \entonces$}[$a \divideA k \cdot c$]
+            3n - 1 \divideA \red{3} \cdot (n+7) = 3n + 21\\
+            \flecha{$a \divideA b \ytext a \divideA c$}[$\entonces a \divideA b \pm c$]
+            3n-1 \divideA 3n + 21 - (3n -1) = 22
+          } \to 3n - 1 \divideA 22\\
+          \flecha{busco $n$}[para que]
+          \frac{22}{3n-1} \en \divset{22}{\pm1, \pm2, \pm11, \pm22}
+          \flecha{probando}
+          n \en \set{1,4} \Tilde
+        $
+  \item
+  \item
+  \item $n-2 \divideA n^3 - 8$ \par
+        $\flecha{$a \divideA b$}[$\entonces a \divideA k \cdot b$]
+          n-2 \divideA \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $
+        Esto va a dividir para todo $n \distinto 2$
 \end{enumerate}

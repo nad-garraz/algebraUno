@@ -1,0 +1,78 @@
+\begin{enunciado}{\ejExtra}
+        \hypertarget{ejExtra:4-12-coprimos}{Determinar} para cada par $(a,b) \en \enteros^2$ tal que $(a:b) = 7 $ el valor de
+  $$
+    (a^2b^4 : 7^5(-a + b)).
+  $$
+\end{enunciado}
+
+\textit{Coprimizar: }
+$$
+  d = (a^2b^4 : 7^5(-a + b)) \Sii{$a = 7A$}[$b = 7B$] 7^6 \cdot (A^2B^4 : B - A ) \sii d = 7^6\cdot D
+$$
+
+$$
+  \llave{l}{
+    D \divideA A^2 B^4 \\
+    D \divideA B - A \Sii{def} \congruencia{B}{A}{D}\llamada1
+  }
+$$
+
+$$
+  \llave{l}{
+    D \divideA A^2 B^4 \Sii{$\llamada1$} \boxed{\congruencia{B^6}{0}{D}} \\
+    \text{ y también }                                                 \\
+    D \divideA A^2 B^4 \Sii{$\llamada1$} \boxed{\congruencia{A^6}{0}{D}}
+  }
+$$
+
+El resultado dice que $D \divideA A^6$ y que $D \divideA B^6$ lo cual está \underline{complicado} porque $A$ y $B$
+son coprimos, por lo tanto $A^6$ y $B^6$ también y
+$(A^6 : B^6) \igual{$\llamada2$} 1 = D$ .\par
+$\llamada2$ la factorización en primos lo muestra, mismos factores elevados a la 6, no puede cambiar
+la coprimisimilitubilidad. \bigskip
+
+Creo que hay que justificar con algo más, pero no sé, con algo de primos? Bueh, algo así:\par
+
+Si $D \divideA A^6$ entonces la \textit{descomposición en primos} de $D = p_1^{\purple{i_d}} \cdots p_n^{\purple{j_d}}$
+tiene que tener solo factores de la \textit{descomposición en primos} de
+$A^6 = p_1^{\blue{i}} \cdots p_n^{\blue{j}} \cdot p_{n+1}^{\blue{k}} \cdots p_m^{\blue{l}}$ con los exponentes de los
+factores de $D\, (\purple{i_d}, \purple{j_d},\dots),$  menores o iguales a los exponentes de
+$A^6\, (\blue{i}, \blue{j}, \dots)$ de manera que al dividir:
+$$
+  \frac{A^6}{D}
+  =
+  \frac{
+  p_1^{\blue i} \cdots p_n^{\blue j} \cdot p_{n+1}^{\blue k}  \cdots  p_m^{\blue l}
+  }
+  {
+  p_1^{\purple{i_d}} \cdots p_n^{\purple{j_d}} \cdot p_{n+1}^{\purple{k_d}}  \cdots  p_m^{\purple{l_d}}
+  }
+  =
+  \frac{
+  p_1^{     \ob{ \blue i - \purple{i_d}} {0 \menorIgual{\red{!} } }} \cdots
+  p_n^{     \ob{ \blue j - \purple{j_d}} {0 \menorIgual{\red{!} } }} \cdot
+  p_{n+1}^{ \ob{ \blue k - \purple{k_d}} {0 \menorIgual{\red{!} } }} \cdots
+  p_{m}^{   \ob{ \blue l - \purple{l_d}} {0 \menorIgual{\red{!} } }}
+  }
+  {
+  \red 1
+  },
+$$
+
+es decir que se cancele todo de manera que quede un \red{1} en el denominador.
+Eso es que $D \divideA A^6$ ni más ni menos.\par
+
+Y sí, \textit{muy rico todo}, pero esa cantinela es la misma para $D \divideA B^6$, \red{pero} la
+\textit{descomposición en primos} de $B^6$ tiene los $p_i$ \textbf{distintos} a los de $A^6$, porque
+\red{¡}$(A^6:B^6) = 1$\red{!} y ahí llegamos al \underline{absurdo}. $D$ no puede dividir a ambos
+a la vez, \red{porque son coprimos {\small\faIcon{brain}} }, a menos que $D = 1$ \Tilde.
+
+$$
+  D = 1 \entonces \boxed{d = 7^6}, \text{ para cada } (a,b) \en \enteros^2 \Big / (a:b) = 7
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

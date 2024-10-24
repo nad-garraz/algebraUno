@@ -1,0 +1,106 @@
+\ejExtra
+Determinar todos los $a \en \enteros$ que satisfacen simultáneamente
+$$
+  \llave{l}{
+    \congruencia{3a}{12}{24} \\
+    \congruencia{a}{10}{30}  \\
+    \congruencia{20a}{50}{125}
+  }
+$$
+\separadorCorto
+
+Ejercicio de sistema de ecuaciones de congreuencias. Los divisores no son coprimos 2 a 2,
+así que hay que coprimizar y quebrar y analizar lo que queda.\\
+Recordar que siempre que se pueda hay que \textit{\underline{comprimizar}}:
+$$
+  \llave{l}{
+    \congruencia{3a}{12}{24}
+    \sisolosi
+    \congruencia{a}{4}{8}   \\
+    \congruencia{a}{10}{30} \\
+    \congruencia{20a}{50}{125}
+    \sisolosi
+    \congruencia{4a}{10}{25}
+    \Sii{$\times 6$}[para $(\Leftarrow)\; 6 \cop 25$]
+    \congruencia{24a}{60}{25}
+    \sii
+    \congruencia{a}{15}{25}
+  }
+$$
+
+$$
+  \llave{l}{
+    \congruencia{3a}{12}{24} \\
+    \congruencia{a}{10}{30}  \\
+    \congruencia{20a}{50}{125}
+  }
+  \leftrightsquigarrow
+  \llave{l}{
+    \congruencia{a}{4}{8}   \\
+    \congruencia{a}{10}{30} \\
+    \congruencia{a}{15}{25}
+  }
+$$
+Todavía no tenemos los divisores coprimos 2 a 2. Ahora \textit{\underline{quebramos}}:
+$$
+  \llave{l}{
+    \congruencia{a}{4}{8}\magenta{\Tilde}            \\
+    \congruencia{a}{10}{30}
+    \leftrightsquigarrow
+    \llave{l}{
+      \congruencia{a}{0}{2} \magenta{\Tilde} \\
+      \congruencia{a}{1}{3}                  \\
+      \congruencia{a}{0}{5}\blue{\Tilde}     \\
+    } \\
+    \congruencia{a}{15}{25} \blue{\Tilde}
+  }
+$$
+Observamos que todo es compatible.
+El \magenta{\checkmark} es porque $2 \divideA 8$ y $4 \conga2 0$.
+El \blue{\checkmark} sale de $5 \divideA 25$ y $15 \conga5 0$.
+Me quedo con las ecuaciones de \textit{mayor divisor}, dado
+que sino obtendría soluciones de más.
+$$
+  \llave{l}{
+    \congruencia{a}{4}{8}   \\
+    \congruencia{a}{10}{30} \\
+    \congruencia{a}{15}{25}
+  }
+  \leftrightsquigarrow
+  \llave{l}{
+    \congruencia{a}{4}{8} \llamada1 \\
+    \congruencia{a}{1}{3} \llamada2 \\
+    \congruencia{a}{15}{25} \llamada3
+  }
+$$
+
+Ahora logramos tener el sistema con los divisores coprimos 2 a 2.
+Por \href{\chinito}{teorema chino del resto} este sistema va a tener una solución particular
+$
+  x_0 \text{ con }  0 \leq x_0 < \ub{3 \cdot 8 \cdot 25}{600}
+$\par
+
+$
+  \llave{l}{
+    \flecha{de}[$\llamada1$]
+    a = 8 \magenta{k} + 4
+    \flecha{reemplazo a $a$}[en $\llamada2$]
+    \congruencia{8\magenta{k}+4}{1}{3}
+    \sii
+    \congruencia{\magenta{k}}{0}{3}
+    \sii
+    \magenta{k} = 3\green{j}     \\
+    \flecha{reemplazo \magenta{$k$}}[en $a = 8\magenta{k} + 4$]
+    a = 24\green{j} + 4
+    \flecha{reemplazo a $a$}[en $\llamada3$]
+    \congruencia{24\green{j} + 4}{15}{25}
+    \sii
+    \congruencia{\green{j}}{14}{25}
+    \sii
+    \green{j} = 25\yellow{h} +14 \\
+    \flecha{reemplazo \green{$j$}}[en $a = 24\green{j} + 4$]
+    a = 600\yellow{h} + 340
+    \sii
+    \boxed{\congruencia{a}{340}{600}} \Tilde
+  }
+$

@@ -1,40 +1,79 @@
 \ejercicio
 \begin{enumerate}[label=\roman*)]
-	\item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
-	\item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
-	\item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
+  \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
+  \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
+  \item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
 \end{enumerate}
 
 \separadorCorto
 
 \begin{enumerate}[label=\roman*)]
-	\item
-	      $\frac{b+4}{a} + \frac{5}{b} =
-		      \frac{b^2 + 4b + 5a}{ab}
-		      \flecha{quiero que}
-		      ab \divideA \frac{b^2 + 4b + 5a}{ab}\\
-		      \flecha{por}[coprimitusibilidad]
-		      \llave{l}{
-			      a | b^2 + 4b +5a \\
-			      b | b^2 + 4b +5a \\
-		      } \to
-		      \llave{l}{
-			      a | b^2 + 4b  \\
-			      b | 5a \\
-		      } \flecha{es seguro que $b\noDivide a$}[debe dividr a 5]
-		      \llave{l}{
-			      a | b\cdot(b+4)  \\
-			      b | 5 \\
-		      }
-	      $\\
-	      Seguro tengo que $b = \set{\pm1, \pm5} \to$ pruebo valores de $b$ y veo que valor de $a$ queda:\\
-	      $\llave{l}{
-			      b = 1 \to (a\divideA 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)} \\
-			      b = -1 \to (a \divideA -3,1) \to \set{(\pm 1, -1).(\pm 3,1)} \\
-			      b = 5 \to (a \divideA 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
-			      b = -5 \to (a \divideA 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
-		      }$
+  \item
+        $\frac{b+4}{a} + \frac{5}{b} =
+          \frac{b^2 + 4b + 5a}{ab}
+          \flecha{quiero que}
+          ab \divideA b^2 + 4b + 5a\\
+          \flecha{por}[coprimitusibilidad]
+          \llave{l}{
+            a | b^2 + 4b +5a \\
+            b | b^2 + 4b +5a \\
+          } \to
+          \llave{l}{
+            a | b^2 + 4b \\
+            b | 5a       \\
+          } \flecha{es seguro que $b\noDivide a$}[debe dividr a 5]
+          \llave{l}{
+            a | b\cdot(b+4) \\
+            b | 5           \\
+          }
+        $\\
+        Seguro tengo que $b \en \set{\pm1, \pm5} \to$ pruebo valores de $b$ y veo que valor de $a$ queda:\\
+        $\llave{l}{
+            b = 1 \to (a\divideA 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)}                                     \\
+            b = -1 \to (a \divideA -3,1) \to \set{(\pm 1, -1).(\pm 3,1)}                                 \\
+            b = 5 \to (a \divideA 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
+            b = -5 \to (a \divideA 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
+          }$
 
-	\item \Hacer
-	\item \hacer
+  \item \Hacer
+
+  \item
+        $$
+          \frac{2a + 3}{a+1} + \frac{a+2}{4} = \frac{a^2 + 11a + 14}{4a+4} \llamada{1}
+        $$
+
+        Para que $\frac{a^2 + 11a + 14}{4a+4} \en \enteros$ debe ocurrir que
+
+        $$
+          4a + 4 \divideA a^2 + 11a + 14
+        $$
+        Busco eliminar la a del lado derecho:
+        $$
+          \llave{l}{
+            4a + 4 \divideA a^2 + 11a + 14 \\
+            4a + 4 \divideA 4a + 4
+          }
+          \flecha{\red{!}}
+          \llave{l}{
+            4a + 4 \divideA 16 \\
+            4a + 4 \divideA 4a + 4
+          }
+        $$
+        Las cuentas del \red{!} te las dejo a vos. \par
+        $4a+4$ tiene que dividir a 16, por lo tanto mis posibles valores serán $\set{\pm1,\pm2,\pm4,\pm8,\pm16}$.\par
+
+        Teniendo en cuenta que $4a + 4 \en \enteros$ y también que $a \en \enteros$, quedan como únicos posibles valores:
+        $$
+          \begin{array}{c}
+            4 \magenta{(-5)} + 4 = \blue{-16} \Tilde \\
+            4 \magenta{(-2)} + 4 = \blue{-4} \Tilde  \\
+          \end{array}
+        $$
+        reemplazando esos valores de $a$ en $\llamada1$ se obtiene tiene valor $-1 \en \enteros$.
 \end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

@@ -9,7 +9,7 @@
 \usepackage[T1]{fontenc} % tildes
 \usepackage[utf8]{inputenc} % Para poder escribir con tildes en el editor.
 \usepackage[english]{babel} % Para cortar las palabras en silabas, creo.
-\usepackage[ddmmyyyy]{datetime}
+\usepackage[ddmmyy]{datetime}
 \usepackage{amsmath} % Soporte de mathmatics
 \usepackage{mathtools} % Más herramientas para matemáctica
 \usepackage{amssymb} % fuentes de mathmatics
@@ -28,6 +28,13 @@
 \usepackage{polynom} % para división de polinomios y mcd
 \usepackage{fontawesome5} % fuentes "extras"
 \usepackage{venndiagram} % Para los diagramas de Venn
+\usepackage{qrcode} % genera código qr
+\usepackage{xspace}% para control de espacios en macros
+%\usepackage{listings} % Escribir código
+
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage{algorithmicx}
 
 \usepackage{fancyhdr} % Encabezados y pie de páginas
 % \usepackage{lipsum} % dummy text
@@ -44,11 +51,16 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=OliveGreen,
-    pdftitle={Álgebra I - Resuelta, sueltísima.},
+    %filecolor=magenta,
+    urlcolor=OliveGreen!90!black,
+    pdftitle={Apunté Único de Álgebra I},
     pdfauthor={Por los alumnos y exalumnos de Álgebra I}
     }
 \urlstyle{same}
 
 \setlength{\parindent}{0pt} % Para que no haya indentación en las nuevas líneas.
+
+%% Info SOCIAL
+\def\dirRepo{https://github.com/nad-garraz/algebraUno}
+\def\dirTelegram{https://t.me/+1znt2GV1i8cwMTNh}
+\newcommand{\dirGuia}[1]{\dirRepo/blob/main/#1-guia/#1-sol.pdf}

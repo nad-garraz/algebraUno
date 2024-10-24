@@ -1,0 +1,95 @@
+\begin{enunciado}{\ejExtra}
+  Calcular, para cada $n \en \naturales$, el resto de dividir por 18 a
+  $$
+    6 \cdot 35^n + 73^{3021} + \sumatoria{k=1}{n}3^k \cdot k!
+  $$
+\end{enunciado}
+
+Simplifiquemos esa expresión espantosa calculando el $r_{18}$ y aplicando las propiedades:
+$$
+  \begin{array}{rcl}
+    r_{18} (6 \cdot 35^n + 73^{3021} + \sumatoria{k=1}{n}3^k \cdot k!   )
+                                                         & \igual{\red{!}}         &
+    r_{18} (6 \cdot (-1)^n + 1^{3021} + r_{18}(\sumatoria{k=1}{n}3^k \cdot k!))      \\
+                                                         & \igual{$\llamada1$}     &
+    \llave{ll}{
+    r_{18} (6 + r_{18}(\sumatoria{k=1}{n}3^k \cdot k!))  & \text{ si $n$ es par}     \\
+    r_{18} (-6 + r_{18}(\sumatoria{k=1}{n}3^k \cdot k!)) & \text{ si $n$ es impar}
+    }
+  \end{array}
+$$
+
+La para está ahora en calcular: $r_{18}(\sumatoria{k=1}{n} 3^k \cdot k!)$
+
+Dado que tiene un 3 ahí dando vueltas y que la $k!$ en algún momento tendrá el factor $6 = 3! = 2 \cdot 3$,
+es esperable que el término general de la sumatoria sea un múltiplo de 18.\par
+
+Acomodo la expresión:
+
+$$
+  r_{18}( \sumatoria{k=1}{n} 3^k \cdot k!) =
+  r_{18} (3 + \sumatoria{k=\magenta{2}}{n}3^k \cdot k!)
+  \igual{$\llamada2$}
+  3 + r_{18}(\sumatoria{k=2}{n} 3^k \cdot k!)
+$$
+
+A ojo se puede ver que $r_{18}(\sumatoria{k=2}{n} 3^k \cdot k!) = 0 \paratodo n \en \naturales_{\geq 2}$
+Pero como no sabemos si el que nos corrige está de mal humor probemos eso por inducción:\par\medskip
+Quiero probar que:
+$$
+ p(n) : r_{18}(\sumatoria{k=2}{n} 3^k \cdot k!) = 0 \paratodo n \en \naturales_{\geq 2}
+$$
+
+\textit{Caso base:}
+$$
+  p(2) : r_{18}(\sumatoria{k=2}{2} 3^k \cdot k!) = r_{18} (3^2 \cdot 2) = 0
+$$
+Por lo que el caso $p(2)$ es verdadero.
+
+\textit{Paso inductivo:}
+Asumo que para algún $k \geq 2$
+$$
+  p(\blue{h}) : \ub{ r_{18}(\sumatoria{k=2}{\blue{h}} 3^k \cdot k!) = 0 }{\text{\purple{hipótesis inductiva}}}
+$$
+
+es verdadero. Y quiero probar que:
+
+$$
+  p(\blue{h+1}) : r_{18}(\sumatoria{k=2}{\blue{h+1}} 3^k \cdot k!) = 0
+$$
+también lo sea.\par
+
+Partiendo de $p(h+1)$
+$$
+  \begin{array}{rcl}
+    r_{18}(\sumatoria{k=2}{h+1} 3^k \cdot k!) & =                   &
+          r_{18}\bigl(\sumatoria{k=2}{\magenta{h}} 3^k \cdot k! + 3^{h+1} \cdot (h+1)!\bigr)           \\
+                                              & \igual{\purple{HI}} &
+          r_{18}\bigl(3^{h+1} \cdot (h+1)!\bigr)                                             \\
+                                              & \igual{\red{!}}     &
+    r_{18}\bigl(3 \cdot \magenta{6} \cdot 3^h \cdot \frac{(h+1)!}{\magenta{3!}}\bigr) \\
+                                              & =                   & 0
+  \end{array}
+$$
+Ahí en el \red{!} me las arreglé para que aparezca el 18 que hace que el resto de 0. Debe haber otras formas
+de hacerlo, tenés licencia para dibujar.\par
+
+Como $p(2), p(h) \ytext p(h+1)$ resultaron verdaderas, por  criterio de inducción $p(n)$ también lo es para todo
+$n \en \naturales_{\geq 2}$
+
+Volviendo a $\llamada2$
+$$
+  r_{18}( \sumatoria{k=1}{n} 3^k \cdot k!) = 3
+$$
+
+por lo tanto en $\llamada1$
+
+$$
+  \begin{array}{rcl}
+    r_{18} (6 \cdot 35^n + 73^{3021} + \sumatoria{k=1}{n}3^k \cdot k!   )
+                                       & =                       & \llave{ll}{
+    r_{18} (6 + 3)  = 9                & \text{ si $n$ es par}                 \\
+    r_{18} (-6 + 3) \igual{\red{!}} 15 & \text{ si $n$ es impar}
+    }
+  \end{array}
+$$

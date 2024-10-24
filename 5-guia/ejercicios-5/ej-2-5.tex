@@ -1,33 +1,33 @@
-\ejercicio
-Determinar todos los $(a,b)$ que simultáneamente $4 \divideA a,\, 8 \divideA b \y 33a + 9b = 120$.
+\begin{enunciado}{\ejercicio}
+  Determinar todos los $(a,b)$ que simultáneamente $4 \divideA a,\, 8 \divideA b \y 33a + 9b = 120$.
+\end{enunciado}
 
-\separadorCorto
 
-Si $(33:9) \divideA 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divideA 120$\Tilde\\
+Si $(33:9) \divideA 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divideA 120$\Tilde\par
 $
-	\llave{l}{
-		4 \divideA a \to a = 4k_1\\
-		8 \divideA b \to b = 8k_2
-	}
-	\flecha{meto en}[$33a + 9b = 120$]
-	132 k_1 + 72 k_2 = 120
-	\flecha{$(132:72) = 12 \divideA 120$}[coprimizo]
-	11 k_1 + 6 k_2 = 10$ \\
+  \llave{l}{
+    4 \divideA a \to a = 4k_1\\
+    8 \divideA b \to b = 8k_2
+  }
+  \flecha{meto en}[$33a + 9b = 120$]
+  132 k_1 + 72 k_2 = 120
+  \flecha{$(132:72) = 12 \divideA 120$}[coprimizo]
+  11 k_1 + 6 k_2 = 10$ \par
 
-\noindent Busco solución particular con algo parecido a Euclides:\\
+Busco solución particular con Euclides:\par
 $\llaves{l}{
-		11 = 6 \cdot 1 + 5 \\
-		6 = 5 \cdot 1 + 1 \Tilde \\
-	}
-	\flecha{escribo al 1 como}[combinación entera de \blue{11} y \blue{6}]
-	1 =  \blue{11} \cdot -1 + \blue{6} \cdot -2
-	\flecha{solución}[particular]
-	10 = \blue{11}\cdot(\ub{-10}{k_1})   + \blue{6} \cdot \ub{20}{k_2} \\
+    11 = 6 \cdot 1 + 5 \\
+    6 = 5 \cdot 1 + 1 \Tilde \\
+  }
+  \flecha{1 como combinación}[entera de \blue{11} y \blue{6}]
+  1 =  \blue{11} \cdot -1 + \blue{6} \cdot -2
+  \flecha{solución}[particular]
+  10 = \blue{11}\cdot(\ub{-10}{k_1})   + \blue{6} \cdot \ub{20}{k_2}
 $
-Para $11 k_1 + 6 k_2 = 10$ tengo la solución general $(k_1, k_2) = (-10 + (-6)k, 20 + 11k)$ con $k \en \enteros$\\
-Pero quiero los valores de $a$ y $b$:\\
-La solución general será $\boxed{(a,b) = (4k_1, 8k_2) = (-40 + 24 k, 160 + (-88)k)}$\\
 
-\noindent Otra respuesta con solución a ojo menos falopa, esta recta es la misma que la anterior:\\
-$(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8} $\\
+Para $11 k_1 + 6 k_2 = 10$ tengo la solución general $(k_1, k_2) = (-10 + (-6)k, 20 + 11k)$ con $k \en \enteros$\par
+Pero quiero los valores de $a$ y $b$:\par
+La solución general será $\boxed{(a,b) = (4k_1, 8k_2) = (-40 + 24 k, 160 + (-88)k)}$\par
 
+\noindent Otra respuesta con solución a ojo menos falopa, esta recta es la misma que la anterior:\par
+$(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8} $

@@ -1,47 +1,45 @@
-\ejercicio
-Sabiendo que el resto de la división de un entero 
-$a$ por 18 es 5, calcular el resto de:
+\begin{enunciado}{\ejercicio}
+  Sabiendo que el resto de la división de un entero
+  $a$ por 18 es 5, calcular el resto de:
+  \begin{enumerate}[label=\alph*)]
+    \item la división de $a^2 -3a +11$ por 18.
+    \item la división de $a$ por 3.
+    \item la división de $4a+1$ por 9.
+    \item la división de $7a^2 + 12$ por 28.
+  \end{enumerate}
+\end{enunciado}
 
-\begin{enumerate}[label=\roman*)]
-	\item la división de $a^2 -3a +11$ por 18.
-	\item la división de $a$ por 3.
-	\item la división de $4a+1$ por 9.
-	\item la división de $7a^2 + 12$ por 28.
-\end{enumerate}
+\begin{enumerate}[label=\alph*)]
+  \item $r_{18}(a) =
+          r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) =
+          r_{18}(21) = 3 $
 
-\separadorCorto
+        \separadorCorto
 
-\begin{enumerate}[label=\roman*)]
-	\item $r_{18}(a) =
-		      r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) =
-		      r_{18}(21) = 3 $
+  \item $
+          \llaves{l}{
+            a = 3 \cdot q + r_3(a)\\
+            6 \cdot a = 18 \cdot q + \ub{\green{6 \cdot r_3(a)}}{r_{18}(6a)}\\
+          } \to
+          r_{18}(6a) = r_{18}( r_{18}(6) \cdot r_{18}(a) ) = r_{18}(30) = 12\\
+          \entonces \green{6 \cdot r_3(a)} = r_{18}(6a) \to  r_3(a) = 2
+        $
+        \separadorCorto
 
-	      \separadorCorto
+  \item $r_9(4a+1) = \ub{r_9(4 \cdot r_9(a) + 1)}{\blue{*1}} \to\\
+          a = 18 \cdot q + 5 = 9 \cdot \ub{( 9 \cdot q)}{q'} + \ub{5}{r_9(a)}
+          \flecha{\blue{*1}}
+          r_9(a) = r_9(21) = 3
+        $
 
-	\item $
-		      \llaves{l}{
-			      a = 3 \cdot q + r_3(a)\\
-			      6 \cdot a = 18 \cdot q + \ub{\green{6 \cdot r_3(a)}}{r_{18}(6a)}\\
-		      } \to
-		      r_{18}(6a) = r_{18}( r_{18}(6) \cdot r_{18}(a) ) = r_{18}(30) = 12\\
-		      \entonces \green{6 \cdot r_3(a)} = r_{18}(6a) \to  r_3(a) = 2
-	      $
-	      \separadorCorto
-
-	\item $r_9(4a+1) = \ub{r_9(4 \cdot r_9(a) + 1)}{\blue{*1}} \to\\
-		      a = 18 \cdot q + 5 = 9 \cdot \ub{( 9 \cdot q)}{q'} + \ub{5}{r_9(a)}
-		      \flecha{\blue{*1}}
-		      r_9(a) = r_9(21) = 3
-	      $
-
-	\item
-	      $r_{28}(7a^2 + 12) = r_{28}(7 \cdot r_{28}(a)^2 + 12) \flecha{¿qué es} r_{28}(a)$\\
-	      $\llave{l}{
-			      a = 18 \cdot q + 5 \flecha{busco algo}[para el 28]\\
-			      14 \cdot a = \ub{252 \cdot q}{28 \cdot 9\cdot q } + 70
-			      \flecha{corrijo según}[condición resto]
-			      28 \cdot 9\cdot q + \ub{2\cdot28 +14}{70} = 28\cdot (9\cdot q + 2) + 14  \Tilde\\
-			      \flecha{por lo}[tanto] 14a = 28\cdot q' + 14 \entonces \congruencia{14\cdot a}{14}{28} \sisolosi  \congruencia{a}{1}{28}
-		      }$\\
-	      Ahora que sé que $r_{28}(a) = 1$ sale que $r_{28}(7a^2 + 12) = r_{28}(7 \cdot \ub{r_{28}(a)^2}{1} + 12) = r_{28}(19)=19 \Tilde$
+  \item
+        $r_{28}(7a^2 + 12) = r_{28}(7 \cdot r_{28}(a)^2 + 12) \flecha{¿qué es} r_{28}(a)$\\
+        $\llave{l}{
+            a = 18 \cdot q + 5 \flecha{busco algo}[para el 28]\\
+            14 \cdot a = \ub{252 \cdot q}{28 \cdot 9\cdot q } + 70
+            \flecha{corrijo según}[condición resto]
+            28 \cdot 9\cdot q + \ub{2\cdot28 +14}{70} = 28\cdot (9\cdot q + 2) + 14  \Tilde\\
+            \flecha{por lo}[tanto] 14a = 28\cdot q' + 14 \entonces \congruencia{14\cdot a}{14}{28} \sisolosi  \congruencia{a}{1}{28}
+          }$\\
+        Ahora que sé que $r_{28}(a) = 1$ sale que $r_{28}(7a^2 + 12) = r_{28}(7 \cdot \ub{r_{28}(a)^2}{1} + 12) = r_{28}(19)=19 \Tilde$
 \end{enumerate}

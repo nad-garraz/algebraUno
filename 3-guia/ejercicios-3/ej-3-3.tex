@@ -1,1 +1,12 @@
-\ejercicio\hacer
+\ejercicio
+
+Dados subconjuntos finitos $A, B, C$ de un conjunto referencial $V$, calcular $\#(A \union B \union C)$\\
+en términos de los cadinales de $A, B, C$ y sus intersecciones.
+
+\begin{align*}
+    \#(A \union B \union C) &= \#(A \union (B \union C)\\
+    &= \#A + \#(B \union C) - \#(A \inter (B \union C))\\
+    &= \#A + \#B + \#C - \#(B \inter C) - \#[(A \inter B) \union (A \inter C)]\\
+    &= \#A + \#B + \#C - \#(B \inter C) - [\#(A \inter B) + \#(A \inter C) - \#(A \inter B \inter C)]\\
+    & = \#A + \#B + \#C - \#(B \inter C) - \#(A \inter B) - \#(A \inter C) + \#(A \inter B \inter C)
+\end{align*}

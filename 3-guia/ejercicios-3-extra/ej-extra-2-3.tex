@@ -1,0 +1,71 @@
+\ejExtra
+
+Sea
+$\F = \set{f: \set{1,2,3,4,5} \to \set{1,2,3,4,5,6,7,8,9}}$ .
+
+\begin{enumerate}[label=\alph*)]
+  \item Determinar cuántas funciones
+        $f \en \F$ satisfacen $\# \set{x \en \dom(f)\ / \ f(x) = 9} = 2.$
+
+  \item Determinar cuántas funciones
+        $f \en \F$ satisfacen $\#\im(f) = 4$
+\end{enumerate}
+
+\separadorCorto
+
+
+Observo que $\#\dom(f) = 5$ y $\#\cod(f) = 9$.
+
+\begin{enumerate}[label=\alph*)]
+  \item  Quiero contar cuántas cosas hay con esta pinta:
+        $\llamada1
+          \begin{array}{ccccc}
+            f(1)       & f(2)           & f(3)            & f(4)       & f(5)            \\
+            \downarrow & \downarrow     & \downarrow      & \downarrow & \downarrow      \\
+            \blue{9}   & \yellow{\beta} & \yellow{\gamma} & \blue{9}   & \yellow{\delta}
+          \end{array}.
+        $\\
+        A partir de ese ejemplo puedo pensar que quiero que haya 2 valores de $x$, cualesquiera, que vayan a
+        parar al \blue{9} y el resto de los números, $\yellow{\beta}$, $\yellow{\gamma}$ y $\yellow{\delta}$
+        tiene que ir a parar a algo que sea $\distinto 9$.\\
+        Lo primero que calculo es de cuántas maneras distintas puedo agarrar 2 $x$ de entre las 5 que tengo
+        para usar del conjunto de partida de las $f$:
+        $\binom{5}{2} = \frac{5!}{2!3!} = 10$, entonces tengo 10 situaciones de la pinta de $\llamada1$ donde para
+        cada una de esas situaciones los número que no van al 9 pueden ir a parar a cualquier valor del 1 al 8. Por lo tanto
+        $\begin{array}{c|cccccc}
+                                       & f(1)       & f(2)           & f(3)            & f(4)       & f(5)            &                            \\
+                                       & \downarrow & \downarrow     & \downarrow      & \downarrow & \downarrow      &                            \\
+                                       & \blue{9}   & \yellow{\beta} & \yellow{\gamma} & \blue{9}   & \yellow{\delta} &                            \\
+            \text{posibles valores}\to & \#1        & \#8            & \#8             & \#1        & \#8             & \to 8^3 \text{ funciones}.
+          \end{array}\\
+        $
+        Eso es solo para el caso con lo \blue{9} en esos lugares en particular. Tengo 10 de esos caso. Por lo que la
+        \boxed{\text{cantidad de funciones total va a ser: } 10 \cdot 8^3}
+
+
+  \item Parecido al anterior. Voy a contar cosas con la pinta:
+        $\llamada2
+          \begin{array}{ccccc}
+            f(1)            & f(2)           & f(3)            & f(4)            & f(5)            \\
+            \downarrow      & \downarrow     & \downarrow      & \downarrow      & \downarrow      \\
+            \purple{\alpha} & \yellow{\beta} & \yellow{\gamma} & \purple{\alpha} & \yellow{\delta}
+          \end{array},
+        $\\
+        con $\purple{\alpha} \distinto \green{\beta} \distinto\green{\gamma} \distinto \green{\delta}$, para que $\im(f) = 4$.
+        En un razonamiento análogo a lo hecho antes, tengo 2 valores iguales ($\purple\alpha$), que pueden estar en cualquier
+        lugar de los 5 que hay eso, \textit{nuevamente}: $\binom{5}{2} = \frac{5!}{2!3!} = 10\llamada3$,
+        elijo los posibles valores, pero a diferencia del caso anterior teniendo en cuenta de \underline{no} repetir.\\
+
+        $\begin{array}{c|cccccc}
+                                       & f(1)            & f(2)           & f(3)            & f(4)                       & f(5)            &                                            \\
+                                       & \downarrow      & \downarrow     & \downarrow      & \downarrow                 & \downarrow      &                                            \\
+                                       & \purple{\alpha} & \yellow{\beta} & \yellow{\gamma} & \purple{\alpha}            & \yellow{\delta} &                                            \\
+            \text{posibles valores}\to & \#9             & \#8            & \#7             & \#1{\scriptstyle\llamada4} & \#6             & \to 9\cdot8\cdot7\cdot6 \text{ funciones}.
+          \end{array}
+        $
+
+        El valor en $\llamada4$ es 1, porque una vez seleccionado un $\purple{\alpha}$ el otro \textit{solo puede valer lo mismo},
+        bueno, porque son la misma letra, ¿no?. Entonces en esas posiciones en particular hay
+        $9\cdot8\cdot 7\cdot6 = \frac{9!}{5!}$, y al igual que antes hay$_{\llamada3}$ 10 de esas configuraciones así que la
+        \boxed{\text{cantidad de funciones total va a ser: } 10 \cdot \frac{9!}{5!} = \frac{10!}{5!}}
+\end{enumerate}

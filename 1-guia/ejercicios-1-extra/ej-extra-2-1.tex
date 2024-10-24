@@ -1,8 +1,6 @@
-\ejercicio
+\begin{enunciado}{\ejExtra}
 Probar la propiedad $(A \inter B)^c = A^c \union B^c$.
-
-
-\separadorCorto
+\end{enunciado}
 
 Tengo que hacer una doble inclusión
 $\to \begin{cases}
@@ -12,7 +10,7 @@ $\to \begin{cases}
 $
 \begin{enumerate}[label=\arabic*)]
 	\item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $\\
-	      Por hipótesis $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B
+	      Por hipótesis $x \en (A \inter B)^c  \Sii{def}  x \notin A \o x \notin B
 		      \entonces x \en A^c \o x \en B^c \entonces x \en A^c \union B^c$\\
 	      $\begin{array}{|c|c|c|c|}
 			      \hline
@@ -24,10 +22,10 @@ $
 		      \end{array}
 	      $
 
-	      \blue{Uso la tabla para ver la definición $x \en (A \inter B)^c \stacktext{def}{\sisolosi} x \notin A \o x \notin B$}
+	      \blue{Uso la tabla para ver la definición $x \en (A \inter B)^c  \Sii{def}  x \notin A \o x \notin B$}
 
 	\item Pruebo por absurdo. Si $\paratodo x \en A^c \union B^c \entonces x \en (A \inter B)^c$\\
-	      \green{Supongo} que $ x \notin (A \inter B)^c \stacktext{def}{\sisolosi} x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
+	      \green{Supongo} que $ x \notin (A \inter B)^c  \Sii{def}  x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
 		      \llaves{c}{
 			      x \notin A\\
 			      \o \\

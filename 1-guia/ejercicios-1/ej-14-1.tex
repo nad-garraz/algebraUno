@@ -1,14 +1,82 @@
-\ejercicio Sean $A$, $B$ y $C$ subconjuntos de un conjunto referencial $\universo$. Probar que:
+\begin{enunciado}{\ejercicio}
+
+  Sean $A$, $B$ y $C$ subconjuntos de un conjunto referencial $\universo$. Probar que:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$
+      \item $A - (B - C) = (A-B) \union (A \inter C)$
+      \item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$
+      \item $(A \inter C ) - B = (A - B) \inter C$
+      \item $A \subseteq B \entonces A \triangle B = B \inter A^c$
+      \item $A \subseteq C \sisolosi B^c \subseteq A^c$
+      \item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$
+    \end{enumerate}
+  \end{multicols}
+
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$
+  \item\label{ej-14-1:itemi}
+        Voy a usar tablas con los resultados que hay \hyperlink{teoria-1:tablasDeVerdad}{en las tablas de verdad acá.}
+        $$
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline
+            A & B & C & B \triangle C & A \inter B & A \inter C & A \inter (B \triangle C) & (A \inter B) \triangle (A \inter C) \\
+            \hline  \hline
+            V & V & V & F             & V          & V          & \magenta{F}              & \magenta{F}                         \\
+            V & V & F & V             & V          & F          & \magenta{V}              & \magenta{V}                         \\
+            \hline
+            V & F & V & V             & F          & V          & \magenta{V}              & \magenta{V}                         \\
+            V & F & F & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+            F & V & V & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            F & V & F & V             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+            F & F & V & V             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            F & F & F & F             & F          & F          & \magenta{F}              & \magenta{F}                         \\
+            \hline
+          \end{array}
+        $$
 
-	\item $A - (B - C) = (A-B) \union (A \inter C)$\\
-	      $(A - B) \union (A \inter C) = A \inter [(A \inter B^c) \union C] = A \inter [(A \union C) \inter (B^c \union C)] =\\
-		      A \inter (B^c \union C) = A \union(B-C)^c = A - (B - C)$
+  \item Este sale sin tablas:
+        Tratá de hacerlo con estas propiedades, \hyperlink{teoria-1:basicos-conjuntos}{(notas teóricas acá)}:
+        \begin{enumerate}[label=\arabic*)]
+          \item Notación de diferencia
+          \item Distributivas
+          \item DeMorgan
+        \end{enumerate}
 
-	\item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$ \Hacer
-	\item $(A \inter C ) - B = (A - B) \inter C$
-	\item $A \subseteq B \entonces A \triangle B = B \inter A^c$
-	\item $A \subseteq C \sisolosi B^c \subseteq A^c$
-	\item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$
+        $$
+          \scriptstyle
+          (A - B) \union (A \inter C)
+          \igual{\red!}[]
+          \cyan{[(A \inter B^c) \union A ]} \inter [ (A \inter B^c) \union C]
+          \igual{\red{!!}}[]
+          \cyan{A} \inter (A \union C) \inter (B^c \union C)
+          \igual{\red{!!!}}[]
+          A \inter (\magenta{B \inter C^c})^c =
+          A \inter (\magenta{B - C})^c
+          \igual{\red{!}}
+          A - (B - C) \Tilde
+        $$
+
+  \item\label{ej-14-1:itemiii} Unos diagramas de Venn porque sino parece cuentoso:\par
+        \begin{center}
+          $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$:\par
+          \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+            \fillBNotA
+          \end{venndiagram3sets}
+          $\taa{\Tilde}{}{\subseteq}$
+          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillANotB
+            \fillBNotC
+            \fillCNotA
+          \end{venndiagram3sets}
+        \end{center}
+
+  \item  \Hacer
+  \item  \Hacer
+  \item  \Hacer
+  \item  Mirando el item \ref{ej-14-1:itemi} sale solo. Dado que $X \triangle \vacio \igual{\red{!}} X$
 \end{enumerate}

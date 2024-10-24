@@ -1,1 +1,84 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Sea $(a_n)_{n\en\naturales}$ la sucesión definida por
+  $$
+    a_1 = 2 \ytext a_{n+1} = 4a_n - 2\frac{(2n)!}{(n+1)!n!} \quad (n \en \naturales)
+  $$
+
+  Probar que $a_n = \binom{2n}n$.
+\end{enunciado}
+
+Ejercicio falopa si lo hay. Sale por inducción y rezándole a Dios para no caer en un infierno de cuentas
+si uno va por el lugar equivocado.
+
+\textit{Proposición:}
+$$
+  p(n) : a_n = \binom{2n}{n}.
+$$
+
+\textit{Casos base:}
+$$
+  \begin{array}{rcl}
+    p(1) & : & a_1 \igual{def} 2 = \binom{2}{1} \Tilde                                                  \\
+         &   & a_2 \igual{def} 4a_1 - 2 \frac{(2n)!}{(1+1)! 1!} \igual{\red{!}} 6 = \binom{4}{2} \Tilde
+  \end{array}
+$$
+
+Resulta que $p(1)$ es verdadera.
+
+\textit{Paso inductivo:}
+Voy a asumir como verdaderaa a
+$$
+  p(\blue{k}) : \underbrace{a_{\blue{k}} = \binom{2\blue{k}}{\blue{k}}}_{\text{\purple{hipótesis inductiva}}}
+$$
+para algún $\blue{k} \en \enteros$.\par
+
+Ahora quiero probar que:
+
+$$
+  p(k+1) : a_{k+1} = \binom{2(k+1)}{k+1}
+$$
+
+La idea es escribir la definición, meter la \purple{HI}, y como siempre, rezar para que
+se acomode todo y que aparezca lo que queresmos que aparezca.
+Voy a escribir la expresión:
+$$
+  a_{k+1}
+  \igual{def}
+  4a_k - 2 \frac{(2k)!}{(k+1)! k!}
+$$
+para masajearla y llegar a algo como esto:
+$$
+  a_{k+1} =
+  \binom{2(k+1)}{k+1}
+  \igual{def}
+  \frac{(2k + 2)!}{(k+1)! (k+1)!}
+$$
+
+$$
+  \begin{array}{rcl}
+    a_{k+1}
+     & \igual{def}      &
+    4a_k - 2 \frac{(2k)!}{(k+1)! k!}
+    \igual{\purple{HI}}
+    4 \purple{\binom{2k}{k}} - 2 \frac{(2k)!}{(k+1)! k!} =
+    4 \frac{(2k)!}{k!\cdot k!}  - 2 \frac{(2k)!}{(k+1)! k!} =
+    4 \frac{(2k)!}{k!\cdot k!}  - 2 \frac{(2k)!}{(k+1)! k!} \\
+     & \igual{\red{!!}} &
+    2  \frac{(2k)!}{k!\cdot k!} \cdot (2 - \frac{1}{k+1})=
+    2  \frac{(2k)!}{k!\cdot k!} \cdot (\frac{2k +1}{k+1})
+    \igual{\red{!!!}}
+    \frac{(2k + 2)!}{(k+1)! (k+1)!}
+    \igual{def}
+    \binom{2(k+1)}{k+1}
+  \end{array}
+$$
+Oka, qué carajo pasó en el \red{!!!} y en el \red{!!}, lo de siempre, factores comunes, sacar algún factor del factorial y coso. En el \red{!!!} multipliqué
+y dividí por algo y \textit{mirá fuerte a ese $2$ que está adelante de todo {\tiny \faIcon[regular]{smile-wink}}}, para que se alineen los planetas \href{\mindExplosion}{\faIcon{user-astronaut}}.\bigskip
+
+Por lo tanto $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas. Por el principio de inducción $p(n)$ también es verdadera $\paratodo n \en \naturales$.
+
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

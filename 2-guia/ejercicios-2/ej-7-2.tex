@@ -1,86 +1,246 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Probar que para todo $n \en \naturales$ se tiene
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $\sumatoria{i=1}{n} (-1)^{i + 1} i^2 = \frac{(-1)^{n+1} n (n+1)}{2}$
+      \item $\sumatoria{i=1}{n} (2i+1)3^{i - 1} = n3^n$
+      \item $\sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} - 1$
+      \item $\productoria{i=1}{n} (1 + a^{2^{i-1}}) = \frac{1 - a^{2^n}}{1 - a},\ a \en \reales - \set{1}$
+      \item $\productoria{i=1}{n} \frac{n + i}{2i - 3} = 2^n(1-2n)$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item $\llave{ l }{
-			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} (-1)^{i+1} i^2 = (-1)^2 \cdot 1 = 1 \Tilde\\
-			      \text{Paso inductivo }
-			      \llave{ l }{
-				      n = k \to \sumatoria{1}{k} (-1)^{i+1} i^2 = (-1)^{k+1} \frac{k(k+1)}{2} \\
-				      \entonces\\
-				      n = k+1 \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 \eq?= (-1)^{(k+1)+1} \frac{(k+1)(k+2)}{2}\\
-				      \to \sumatoria{1}{k+1}  (-1)^{i+1} i^2 =
-				      \HI{
-					      \sumatoria{1}{k} (-1)^{i+1} i^2
-				      } +
-				      \kmasuno{
-					      (-1)^{k+2} (k+1)^2
-				      } =\\
-				      (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2 \flecha{acomodar}[fáctor cómun] (-1)^k (k+1)\left[ -\frac{k}{2} + (k+1) \right] =\\
-				      (-1)^k (k+1)\frac{(k+2)}{2} \Tilde
-			      }
-		      }\\ \to
-		      \boxed{\sumatoria{i=1}{n} (-1)^{i+1} i^2 = (-1)^{n+1} \frac{n(n+1)}{2}}
-	      $
 
-	\item
-	      \hacer
+  \item
+        \textit{Proposición: }
+        $$
+          p(n) : \sumatoria{i = 1}{n} (-1)^{i + 1} i^2 = \frac{(-1)^{n+1} n (n+1)}{2} \paratodo n \en \naturales
+        $$
 
-	\item
-	      \hacer
+        \textit{Caso base: }
+        $$
+          p(\magenta{1}) : \sumatoria{i = 1}{\magenta{1}} (-1)^{i+1} i^2 =
+          (-1)^2 \cdot 1 = 1
+          \igual{\red{!}}
+          \frac{(-1)^{\magenta{1}+1} \magenta{1} (\magenta{1} + 1)}{2} = 1  \Tilde
+        $$
+        $p(1)$ resulta ser verdadera.
 
-	\item
-	      $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\\
-	      $\llave{l}{
-		      \text{Primer caso } n = 1 \to
-		      \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
-		      1 + a^{2^0} = \magenta{1 + a} =
-		      \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
-		      \magenta{1 + a} \Tilde \\
-		      \text{Paso inductivo } n = k \to
-		      \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
-		      \frac{1-a^{2^k}}{1-a} \entonces
-		      n = k+1 \to  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) \eq?=
-		      \frac{1 - a^{2^{k+1}}}{1-a}\\
-		      \llave{l}{
-		      \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) =
-		      \HI{
-			      \productoria{i=1}{k} ( 1 + a^{2^k} )
-		      } \cdot
-		      \kmasuno{
-			      1 + a^{2^{i-1}}
-		      }  =
-		      \frac{1-a^{2^k}}{1-a} \cdot 1 + a^{2^k}
-		      \flecha{diferencia}[de cuadrados]
-		      \frac{1 - ( a^{2^k})^2}{1-a} =\\
-		      \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\Tilde
-		      }
-		      }
-	      $
+        \textit{Paso inductivo: } Asumo que
+        $$
+          p(\blue{k}): \ub{\sumatoria{1}{\blue{k}} (-1)^{i+1} i^2 = (-1)^{\blue{k}+1} \frac{\blue{k}(\blue{k}+1)}{2}}{\text{\purple{hipótesis inductiva}}}
+        $$
+        es verdadera. Entonces quiero ver que:
+        $$
+          p(\blue{k+1}): \sumatoria{1}{\blue{k+1}}  (-1)^{i+1} i^2 = (-1)^{(\blue{k+1})+1} \frac{(\blue{k+1})(\blue{k+1} + 1)}{2}.
+        $$
+        también lo sea.\par
 
+        Para probar arranco de $p(\blue{k+1})$ y en medio uso la \purple{hipótesis inductiva} para resolver:
+        $$
+          \scriptstyle
+          \sumatoria{i=1}{k+1}  (-1)^{i+1} i^2 =
+          \sumatoria{i=1}{k} (-1)^{i+1} i^2 + (-1)^{k+2} (k+1)^2
+          \igual{\purple{HI}}[\purple{!}]
+          (-1)^{k+1} \frac{k(k+1)}{2} + (-1)^k (-1)^2 (k+1)^2
+          \igual{\red{!!!}}
+          (-1)^k (k+1)\frac{(k+2)}{2} \Tilde
+        $$
 
+        Por lo tanto p(k+1) resulta ser verdadera también.\par
+        Si te quedaste ahí pedaleando en el aire en el \red{!!!} es solo acomodar la expresión, nada raro, algún factor común, $\ub{(-1)^2 = 1}{\text{\tiny \faIcon{meh-rolling-eyes}}}$ y coso... \href{\justDoIt}{power!}.
+        Si lo hago yo es puro spoiler y no ganás nada.
 
-	\item
-	      $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\\
-	      En este ejercicio conviene abrir la productoria y acomodar los factores. Por inducción:\\
-	      $\llave{l}{
-			      p(n):\ \productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)  \\
-			      \textit{Caso Base: } p(1) \text{ V?} \to \productoria{i=1}{1} \frac{1+i}{2i-3} = \frac{1+1}{2 \cdot 1 - 3} = 2^1 (1 - 2\cdot 1) = -2\\
-			      \textit{Paso inductivo: Supongo } p(k) \text{ Verdadero } \flecha{quiero ver}[que] p(k+1) \text{ Verdadero para algún } k \en \naturales.\\
-			      \textit{Hipótesis inductiva: Supongo } \productoria{i=1}{k} \frac{k+i}{2i-3} = 2^k (1 -2k), \qvq   \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = 2^{k+1} (1 -2(k+1))\\
+        Dado que $p(1),\, p(k),\, p(k+1)$ resultaron verdaderas, por criterio de inducción también lo es $p(n) \en \naturales$
 
-			      \llave{l}{
-				      \productoria{i=1}{k} \frac{k+i}{2i-3} = \frac{k+1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k+3}{2 \cdot 3 - 3} \cdots \frac{2k}{2 \cdot k - 3} = 2^k(1 - 2k)\\
-				      \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} = \frac{k+2}{2 \cdot 1 - 3} \cdot \frac{k+3}{2 \cdot 2 - 3} \cdots \frac{k+1 + (k-1)}{2(k-1) - 3} \cdot \frac{k+1 + k}{2k - 3}\cdot \frac{k+1 + (k+1)}{2(k + 1) - 3} \\
-				      \flecha{Masajear: multiplico por $1 = \frac{\cyan{k+1}}{\cyan{k+1}}$}[corro los denominadores una fracción hacia $\leftarrow$]
-				      \frac{\cyan{k+1}}{\cyan{k+1}} \cdot \frac{1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{1} = \\
-				      \flecha{acomodo para que}[aparezca la HI]
-				      \HI{
-					      \textstyle \frac{\cyan{k+1}}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3} \cdot \frac{2k + 1}{2(k+1) - 3}
-				      }  \cdot \frac{2k+2}{\cyan{k+1}} =\\
-				      = 2^k (1 -2k) \cdot \frac{2k + 1}{2(k+1) - 3}  \cdot \frac{2k+2}{\cyan{k+1}} = 2^k \cancel{(1 - 2k)} \cdot \frac{2k + 1}{(-1)\cancel{(1 - 2k)}}  \cdot \frac{2\cancel{(k + 1)}}{\cancel{\cyan{k + 1}}} = 2^{k+1}(-1)(2k + 1)=\\
-				      = 2^{k+1} \parentesis{1 - 2(k+1)} \Tilde
+  \item
+        \textit{Proposición: }
+        $$
+          p(n) : \sumatoria{i=1}{n} (2i+1)3^{i - 1} = n3^n \paratodo n \en \naturales
+        $$
 
-			      }
-		      }$
-	      Como $p(1)$ es verdadero y $p(k)$ es verdadero y $p(k+1)$ también lo es, por el principio de inducción $p(n)$ es verdadera $\paratodo n\en \naturales $
+        \textit{Caso base: }
+        $$
+          p(\magenta{1}) : \sumatoria{i=1}{\magenta{1}} (2i+1)3^{i - 1} = (2 \cdot \magenta{1} + 1)\cdot 3^{\magenta{1} - 1}=3
+          \igual{\red!}
+          \magenta{1}\cdot3^{\magenta{1}}=3
+        $$
+        $p(1)$  resulta ser verdadera \par
+
+        \textit{Paso inductivo: } Asumo que
+        $$
+          \ub{p(\blue{k}):  \sumatoria{i=1}{n} (2i+1)3^{i - 1} = \blue{k}3^{\blue{k}}}{\text{\purple{hipótesis inductiva}}}
+        $$
+        es verdadera. Entonces quiero ver que
+        $$
+          p(\blue{k+1}):
+          \sumatoria{1}{\blue{k+1}}(2i+1)3^{i - 1} = (\blue{k+1})3^{\blue{k+1}}
+        $$
+        también lo sea.\par
+
+        Muy parecido al ejercicio anterior:
+        $$
+          \sumatoria{i=1}{k+1} (2i+1)3^{i - 1} = \sumatoria{i=1}{k} (2i+1)3^{i - 1} + (2(k+1) + 1)3^{(k+1) - 1}
+          \igual{\purple{HI}}[\red{!}]
+          k3^k + 3^k (2k + 3)
+          \igual{\red{!!!}}
+          (k+1) \cdot 3^{k+1}
+        $$
+        Y sí, en el \red{!!!} hay más cuentas. Pero ya a esta altura te vas dando cuenta de que la parte de \textit{inducción} no
+        estaría siendo el desafío, sino que (en estos ejercicios) son las cuentas, por eso \underline{mirá fijo las cuentas} y dale tiempo  a tu \rosa{\faIcon{brain}} para que
+        encuentre el factor común etc \href{\justDoIt}{¡Curtite, vieja!}.
+        Las cuentas son en gran medida lo que complica los parciales, no tanto los temas.\par
+
+        Dado que $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el criterio de inducción también lo es $p(n) \en \naturales$
+
+  \item
+        \textit{Proposición: } $ p(n) \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} - 1 \paratodo n \en \naturales$\par
+        \textit{Caso base: }   $p(1) : \sumatoria{i=1}{1} \frac{i2^i}{(i + 1)(i+2)} = \frac{1*2^1}{(1+1)(1+2)} = \frac{2}{6} = \frac{1}{3} = \frac{2^2 - 3}{1 + 2} \entonces p(1) $ es verdadera$ \Tilde$ \par
+        \textit{Paso inductivo: } \text{Asumo }$p(n) : \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} -1 \text{ como verdadera.}$\\
+
+        $
+          \entonces
+          p(n+1) : \text{quiero ver que }
+          \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1 \text{ también lo sea.}$\\
+
+        $
+          \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)}
+          = \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} + \frac{(n+1)2^{n+1}}{((n+1) + 1)((n+1)+2)}
+          \igual{\magenta{HI}} \frac{2^{n+1}}{n+2} -1 + \frac{(n+1) 2^{n+1}}{((n+1) + 1)((n+1)+2)}$\\
+
+        $\text{Si } \frac{2^{n+1}}{n+2} -1 + \frac{(n+1)2^{n+1}}{((n+1) + 1)((n+1)+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1\entonces
+          \text{ sera verdadero}$\\
+
+        \begin{subequations}
+          \begin{align*}
+            \frac{2^{n+1}}{n+2} -1 + \frac{(n+1)2^{n+1}}{(n+ 2)(n+ 3)} & = \frac{2^{n+2}}{n+3} - 1 \\
+            (n + 3) \frac{2^{n+1}}{n+2} + \frac{(n+1)2^{n+1}}{(n+ 2)}  & = 2^{n+2}                 \\
+            (n + 3)2^{n+1} + (n+1)2^{n+1}                              & = 2^{n+2} (n+2)           \\
+            (n + 3) + (n+1)                                            & = 2 (n+2)                 \\
+            2n + 4                                                     & = 2 (n+2)                 \\
+            2n + 4                                                     & = 2n + 4                  \\
+            0                                                          & = 0
+          \end{align*}
+        \end{subequations}
+
+  \item
+        $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\par
+
+        \textit{Caso Base}:
+        $$
+          p(1) :
+          \productoria{i=1}{1} ( 1 + a^{2^{i-1}} ) =
+          1 + a^{2^0} = \magenta{1 + a} =
+          \frac{1-a^{2^1}}{1 - a} = \frac{(1-a)(1+a)}{1-a} =
+          \magenta{1 + a} \Tilde
+        $$
+        Por lo cual $p(1)$ resultó ser verdadera.
+
+        \textit{Paso inductivo :}
+        $$
+          p(k): \text{ Asumo que }
+          \ub{
+          \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
+          \frac{1-a^{2^k}}{1-a}
+          }{\purple{\text{hipótesis inductiva}}}
+          \text{ es verdadera. }
+        $$
+        Entonces quiero ver que:
+        $$
+          p(k+1) :  \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} ) = \frac{1 - a^{2^{k+1}}}{1-a}
+        $$
+
+        también lo sea.\par
+        Arranco de $p(k+1)$ y usando la \purple{hipótesis inductiva} trato de llegar
+        al valor esperado:
+        $$
+          \productoria{i=1}{k+1} ( 1 + a^{2^{i-1}} )
+          \igual{\red{!}}
+          (1 + a^{2^k}) \cdot \productoria{i=1}{k}( 1 + a^{2^{i-1}} )
+          \igual{\purple{HI}}
+          (1 + a^{2^k}) \cdot
+          \frac{1-a^{2^k}}{1-a}
+          \igual{\red{!!}}
+          \frac{1 - ( a^{2^k})^2}{1-a} =
+          \frac{1 - a^{2 \cdot 2^k}}{1-a} = \frac{1 - a^{2^{k+1}}}{1-a}\Tilde
+        $$
+        Si te quedaste pedaleando en los \red{!}, pensá en \textit{diferencia de cuadrados}, \textit{propidades de potencias} y coso \faIcon{hands-wash}.\par
+        Esto muetra que $p(k+1)$ también es verdadera.\par
+        Como $p(1),\, p(k) \ytext p(k+1)$ son verdaderas por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.
+
+  \item
+        $\productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)$\par
+        En este ejercicio conviene abrir la productoria y acomodar los factores. Por inducción:\par
+        $$
+          p(n):\ \productoria{i=1}{n} \frac{n+i}{2i-3} = 2^n (1 -2n)
+        $$
+
+        \textit{Caso Base: }
+        $$
+          p(1) : \productoria{i=1}{1} \frac{1+i}{2i-3} = \frac{1+1}{2 \cdot 1 - 3} = 2^1 (1 - 2\cdot 1) = -2
+        $$
+
+        \textit{Paso inductivo: }
+        $$
+          \begin{array}{c}
+            p(\blue{k}): \ob{\productoria{i=1}{\blue{k}} \frac{\blue{k}+i}{2i-3} = 2^{\blue{k}} (1 -2\blue{k})}{\purple{\text{hipótesis inductiva}}}
+            \text{ asumo verdadera para algún }\blue{k} \en \naturales \\
+            \flecha{quiero}[ver que] p(\blue{k}+1): \productoria{i=1}{\blue{k}+1} \frac{\blue{k}+1+i}{2i-3} = 2^{\blue{k}+1} (1 -2(\blue{k}+1)
+            \text{ también lo sea para algún } \blue{k} \en \naturales.
+          \end{array}
+        $$
+        \textit{Nota que puede ser de utilidad:}
+        Esta productoria tiene a la $n$ en el término general. Cuando pasa esto en el ejercicio, abrir la productoria
+        para acomodar los factores y así formar la HI, suele ser el camino a seguir, \red{ojo con modificar el término general}.\par
+        \textit{Fin nota que puede ser de utilidad}
+
+        $$
+          \begin{array}{l}
+            \productoria{i=1}{k} \frac{k+i}{2i-3} =
+            \frac{k+1}{2 \cdot 1 - 3} \cdot \frac{k+2}{2 \cdot 2 - 3} \cdot \frac{k+3}{2 \cdot 3 - 3} \cdots \frac{2k}{2 \cdot k - 3} =
+            \purple{2^k(1 - 2k)} \\
+
+            \productoria{i=1}{k+1} \frac{k+1+i}{2i-3} =
+            \frac{\red{k+2}}{\red{2 \cdot 1 - 3}} \cdot
+            \frac{k+3}{2 \cdot 2 - 3} \cdots
+            \frac{k+1 + (k-1)}{2(k-1) - 3} \cdot
+            \frac{k+1 + k}{2k - 3} \cdot
+            \frac{\ob{\scriptstyle k+1 + (k+1)}{\red{2k+2}}}{\red{2(k + 1) - 3}}
+            \igual{$\llamada1$}
+            \frac{1}{\red{2 \cdot 1 - 3}} \cdot
+            \frac{\red{k+2}}{2 \cdot 2 - 3} \cdot
+            \frac{k + 3}{2 \cdot 3 - 3} \cdots
+            \frac{2 k}{2k - 3} \cdot
+            \frac{2k + 1}{\red{2(k+1) - 3}}  \cdot
+            \frac{\red{2k+2}}{1} \\
+            \igual{$\llamada2$}
+            \ub{
+              \frac{\cyan{k+1}}{2 \cdot 1 - 3} \cdot
+              \frac{k+2}{2 \cdot 2 - 3} \cdot
+              \frac{k + 3}{2 \cdot 3 - 3} \cdots \frac{2 k}{2k - 3}}{\purple{\text{hipótesis inductiva}} } \cdot \frac{2k + 1}{2(k+1) - 3}
+            \cdot \frac{2k+2}{\cyan{k+1}}
+            \igual{\purple{HI}}
+            \purple{2^k (1 - 2k)}\cdot \frac{2k + 1}{2(k+1) - 3} \cdot \frac{2k+2}{k+1}
+            \igual{\red{!}}
+            2^{k+1} (1 - 2(k+1)) \Tilde
+          \end{array}
+        $$
+
+        En $\llamada1$ Corro los denominadores un lugar hacia la izquierda. Pinto con \red{rojo}
+        las fracciones de los bordes solo para ayuda visual.\par
+        En $\llamada2$ multiplico por $1 = \cyan{\frac{k+1}{k+1}}$ y lo ubico en los lugares
+        \textit{apropiados} para que me aparezca la \purple{hipótesis inductiva}.\par
+        Si te preguntás qué pasó en "\red{!}", eso son cuentas, \textit{simplificá}, \textit{factorizá} y yo
+        que sé, que te dejo a vos, por mi parte yo \href{\dirRepo}{\Large\faIcon{hands-wash}}.\medskip
+
+        Como $p(1),\, p(k) \ytext p(k+1)$ son verdaderas por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.
 \end{enumerate}
 
+% Contribuciones
+\begin{aportes}
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/misProyectosPropios}{Iñaki Frutos \github}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

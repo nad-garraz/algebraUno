@@ -1,21 +1,23 @@
-% Definiciones y nuevos comandos:
+% Definiciones y nuevos comandos:def
 % =============
-\def\partes{\mathcal P}
-\def\relacion{\,\mathcal{R}\,}
-\def\norelacion{\,\cancel{\relacion}\,}
-\def\universo{\mathcal U}
-\def\reales{\mathbb R}
-\def\naturales{\mathbb N}
-\def\enteros{\mathbb Z}
-\def\racionales{\mathbb Q}
-\def\complejos{\mathbb C}
+% Conjuntos
+\DeclareMathOperator{\partes}{\mathcal P}
+\DeclareMathOperator{\relacion}{\,\mathcal{R}\,}
+\DeclareMathOperator{\norelacion}{\,\cancel{\relacion}\,}
+\DeclareMathOperator{\universo}{\mathcal U}
+\DeclareMathOperator{\reales}{\mathbb R}
+\DeclareMathOperator{\naturales}{\mathbb N}
+\DeclareMathOperator{\enteros}{\mathbb Z}
+\DeclareMathOperator{\racionales}{\mathbb Q}
+\DeclareMathOperator{\irracionales}{\mathbb I}
+\DeclareMathOperator{\complejos}{\mathbb C}
 
-\def\K{\mathbb K} % cuerpo K
-\def\i{\text{i}}
-\def\vacio{\varnothing}
-\def\union{\cup}
-\def\inter{\cap}
-\def\y{\land}
+\DeclareMathOperator{\K}{\mathbb K} % cuerpo K
+\DeclareMathOperator{\vacio}{\varnothing}
+\DeclareMathOperator{\union}{\cup}
+\DeclareMathOperator{\inter}{\cap}
+\DeclareMathOperator{\diferencia}{\ \setminus \ }
+\DeclareMathOperator{\y}{\land}
 \def\o{\lor}
 \def\neg{\sim}
 
@@ -28,10 +30,9 @@
 \def\clase{\overline}
 \def\ord{\text{ord}}
 
-
 \def\existe{\,\exists\,}
 \def\noexiste{\,\nexists\,}
-\def\paratodo{\;\forall}
+\def\paratodo{\ \, \forall}
 \def\distinto{\neq}
 \def\en{\in}
 \def\talque{\;/\;}
@@ -40,8 +41,9 @@
 \def\qvq{\text{ quiero ver que }}
 
 %funciones
-\def\imagen{\text{Im}}
-\def\dominio{$\text{Dom}$}
+\DeclareMathOperator{\dom}{Dom}
+\DeclareMathOperator{\cod}{Cod}
+\def\F{\mathcal F}
 \def\comp{\circ}
 \def\inv{^{-1}}
 \def\infinito{\infty}
@@ -62,77 +64,80 @@
 \newcommand{\HI}[1]{\underbrace{#1}_{\text{HI}}}
 
 % % enteros
-\def\divideA{\, | \,}
+\def\divideA{\, \big| \,}
 \def\noDivide{\centernot\divideA}
 \def\congruente{\, \equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
 \newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \;(#3)}
-\newcommand{\conga}[1]{\stackrel{(#1)}{\congruente}}
+\newcommand{\conga}[1]{\stackrel{\mathclap{(#1)}}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
-\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{#2} }
-\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{#2} }
+\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{\mathclap{#2}} }
+\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{\mathclap{#2}} }
 \def\cop{\, \perp \, }
+\def\nocop{\, \not\perp \, }
 
 % complejos
-\def\re{\mathrm{Re}}
-\def\im{\mathrm{Im}}
-\def\arg{\mathrm{arg}}
-\def\conj{\overline}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\argumento}{arg}
+\newcommand{\conj}[1]{\overline{#1}}
 
 % Polinomios
-\newcommand{\cp}[1]{\text{cp}(#1)}
-\newcommand{\gr}[1]{\text{gr}(#1)}
+\DeclareMathOperator{\cp}{cp}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\mult}{mult}
 \newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
 \newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
-
 
 % =====
 % Miscelanea
 % =====
 \def\ot{\leftarrow}
 \newcommand{\estabien}{{\color{blue} Consultado, está bien. \checkmark}}
-\newcommand{\hacer}{{\color{black!30!red}Hacer!}}
+\newcommand{\hacer}{
+  {\color{red!80!black}{\faIcon{flushed}... hay que hacerlo! \faIcon{sad-cry}}}\par
+  {\color{black!70!white}
+    \small Si querés mandarlo: Telegram $\to$ \href{\dirTelegram}{\small\faIcon{telegram}},
+    o  mejor aún si querés subirlo en \LaTeX $\to$ \href{\dirRepo}{\small \github}.
+  }\par
+}
+
 \newcommand{\Hacer}{{\color{black!30!red}\Large Hacer!}}
 \def\Tilde{\quad\checkmark}
-\def\ytext{\text{ y }}
-\def\otext{\text{ o }}
+\def\ytext{\quad\text{y}\quad}
+\def\otext{\quad\text{o}\quad}
 
-% asterisco para hacer llamadas de atención
-\newcommand{\llamada}[1]{%
-	\stackrel{\textcolor{
-			\ifcase\numexpr#1 mod 6\relax
-				cyan\or magenta\or OliveGreen\or YellowOrange\or Cerulean\or Violet\or Purple\or 
-			\fi
-		}
-		{\text{\FiveStar}^{#1}}%
-	}{ }%
+% Estrellita para hacer llamadas de atención, viene en divertidos colores
+% para coleccionar.
+\newcommand{\llamada}[1]{
+  \begingroup% Scope para la variable colortemp
+  \ifcase \numexpr#1 mod 6\relax
+    \def\colortemp{cyan}
+  \or
+    \def\colortemp{magenta}
+  \or
+    \def\colortemp{OliveGreen}
+  \or
+    \def\colortemp{YellowOrange}
+  \or
+    \def\colortemp{Cerulean}
+  \or
+    \def\colortemp{Violet}
+  \or
+    \def\colortemp{Purple}
+  \fi
+  \textcolor{\colortemp}{\text{\FiveStar}^{\scriptscriptstyle#1}}
+  \endgroup
 }
 
-
-% separador\
-\def\separador{\noindent\rule{\linewidth}{0.4pt}\\}
-\def\separadorCorto{\noindent\rule{0.5\linewidth}{0.4pt}\\}
-
-% sección ejercicio con su respectivo formato y contador
-
-\newcounter{ejercicio}[section] % contador que se resetea en cada sección
-\renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
-\newcommand{\ejercicio}{%
-	\stepcounter{ejercicio}% incremento en uno
-    \titleformat{\section}[runin]{\bfseries}{\theejercicio}{0em}{\vspace{40pt}\separador}[ ]%
-    \section*{\theejercicio.\labelEjercicio{ej:\theejercicio}}%
+% separadores
+\newcommand{\separador}{
+  \par\noindent\rule{\linewidth}{0.4pt}\par
 }
-
-% Label y refencia para ejercicio
-% hay alguna forma más elegante de hacer esto?
-\newcommand{\labelEjercicio}[1]{
-	\addtocounter{ejercicio}{-1} % counter - 1
-	\refstepcounter{ejercicio} % referencia al anterior y luego + 1
-	\label{#1}}
-\newcommand{\refEjercicio}[1]{{ \bf\ref{#1}.}}
-
-
+\newcommand{\separadorCorto}{
+  \par\noindent\rule{0.5\linewidth}{0.4pt}\par
+}
 
 % Colores
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -141,32 +146,180 @@
 \newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
 \newcommand{\yellow}[1]{\textcolor{YellowOrange}{#1}}
 \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\rosa}[1]{\textcolor{pink}{#1}}
+\newcommand{\transparente}[1]{\color[rgb]{1,1,1,0.5}{#1}}
 
-% Conjuntos entre llaves
+% Conjuntos entre llaves y paréntesis
+% te ahorrás escribir los \left y \right, así dejando el código más legible.
 \newcommand{\set}[1] { \left\{ #1 \right\} }
 \newcommand{\parentesis}[1]{ \left( #1 \right) }
 
-% Stackrel text
+% Stackrel text. Es para ahorrarse ecribir el \text
 \newcommand{\stacktext}[2]{ \stackrel{\text{#1}}{#2} }
-\def\eq?{\stackrel{\text{?}}}
-\def\eqDef{\stackrel{\text{Def}}}
 
-% Flecha con texto
-\NewDocumentCommand{\flecha}{m o}{%
-	\IfNoValueTF{#2}{%
-		\xrightarrow[]{\text{#1}}
-	}{
-		\xrightarrow[\text{#2}]{\text{#1}}
-	}
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
+\NewDocumentCommand{\igual}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{\text{#1}}}=
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}=}
+  }
+}
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
+\NewDocumentCommand{\mayorIgual}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{\text{#1}}}\geq
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\geq}
+  }
+}
+% Dado que muchas veces ponemos cosas sobre un signo '='
+%  acá está el comando para escribir \igual{arriba}[abajo] con texto!
+\NewDocumentCommand{\menorIgual}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{\text{#1}}}\leq
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\leq}
+  }
 }
 
-% como el stackrel pero también se 
-% puede poner algo debajo
-\newcommand{\taa}[3]{
+%=======================================================
+% Comandos con flechas extensibles.
+%=======================================================
+% *Flechita* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\flecha}{m o}{%
+  \IfNoValueTF{#2}{%
+    \xrightarrow[]{\text{#1}}
+  }{
+    \xrightarrow[\text{#2}]{\text{#1}}
+  }
+}
+% *Si solo si* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\Sii}{m o}{%
+  \IfNoValueTF{#2}{%
+    \xLeftrightarrow[]{\text{#1}}
+  }{
+    \xLeftrightarrow[\text{#2}]{\text{#1}}
+  }
+}
+
+% *Si solo si* extensible con texto {arriba} y [abajo] 
+\NewDocumentCommand{\Entonces}{m o}{%
+  \IfNoValueTF{#2}{%
+    \xRightarrow[]{\text{#1}}
+  }{
+    \xRightarrow[\text{#2}]{\text{#1}}
+  }
+}
+
+%=======================================================
+% fin comandos con flechas extensibles.
+
+% como el stackrel pero también se puede poner algo debajo
+\newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
   \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
 }
 
 %Update time
-\def\update{
-	updated: \today
+\def\update{\tiny
+  {\today\ @ \currenttime}
 }
+
+% Contributors
+\newcommand{\aporte}[2]{
+  \href{#1}{#2}
+}
+
+\newenvironment{aportes}{
+  \vspace{10pt}
+  \begin{minipage}{1\linewidth}
+    \tt\footnotesize
+    Dale las gracias y un poco de amor \rosa{\faIcon{heart}} a los que contribuyeron!
+    Gracias por tu aporte:
+    \vspace{-10pt}
+    \begin{multicols}{3}
+      \begin{itemize}[label={\tiny\yellow{\faIcon{medal}}}]
+        }{
+      \end{itemize}
+    \end{multicols}
+  \end{minipage}
+}
+
+%=======================================================
+% sección ejercicio con su respectivo formato y contador
+%=======================================================
+\newcounter{ejercicio}[section] % contador que se resetea en cada sección
+\renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
+\newcommand{\ejercicio}{%
+  \stepcounter{ejercicio}% incremento en uno
+  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{1em}{}%
+  \section*{\theejercicio.}\labelEjercicio{ej:\theejercicio}
+}
+
+% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
+\newcommand{\labelEjercicio}[1]{
+  \addtocounter{ejercicio}{-1} % counter - 1
+  \refstepcounter{ejercicio} % referencia al anterior y luego + 1
+  \label{#1}}
+\newcommand{\refEjercicio}[1]{{\bf\ref{#1}.}}
+
+\def\fueguito{{\color{orange}{\faIcon{fire}}}}
+\newcounter{ejExtra}[section] % contador que se resetea en cada sección
+\renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
+\newcommand{\ejExtra}{%
+  \stepcounter{ejExtra}% incremento en uno
+  \titleformat{\section}[runin]{\bfseries}{\theejExtra}{1em}{}%
+  % Es como una sección. Le pongo un ícono, luego el número del ejercicio con la etiqueta para poder
+  % linkearlo en el índice u otro lugar.
+  % con \ref{ejExtra:{numero del ejercicio}} es que salto al ejercicio.
+  \section*{\fueguito\theejExtra.}\labelEjExtra{ejExtra:\theejExtra}
+}
+
+% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
+\newcommand{\labelEjExtra}[1]{
+  \addtocounter{ejExtra}{-1} % counter - 1
+  \refstepcounter{ejExtra} % referencia al anterior y luego + 1
+  \label{#1} % etiqueta para cada ejercicio extra
+}
+% Con esto llamos al ejercicio extra
+\newcommand{\refEjExtra}[1]{
+  {\fueguito\bf\ref{#1}.}
+}
+
+%=======================================================
+% fin sección ejercicio con su respectivo formato y contador
+%=======================================================
+
+\newenvironment{enunciado}[1]{% Toma un parametro obligatorio: \ejExtra o \ejercicio 
+  \par
+  \noindent
+  \begin{minipage}{\linewidth}
+    \separador % linea sobre el enunciado
+    #1
+    }% contenido
+    {
+    \separadorCorto % linea debajo del enunciado
+    \par
+  \end{minipage}\par
+}
+
+%%% (☞⌐▀͡ ͜ʖ͡▀ )☞ Yo mama
+\def\superIdol{https://www.youtube.com/watch?v=DKpaKHUlyBY}
+\def\videosTeresa{https://www.youtube.com/@AlgebraIC-gu7oc/videos}
+\def\videosPracticas{https://www.youtube.com/playlist?list=PLEtdiZTXB5c5e9BOcqbnROTHevanNfz6U}
+\def\justDoIt{https://www.youtube.com/watch?v=ZXsQAXx_ao0}
+\def\dontWorryAboutAThing{https://www.youtube.com/watch?v=4k2PJFPu57Y}
+\def\zanguango{https://www.youtube.com/watch?v=Uzcl2gNL3zg&t=10s}
+\def\chinito{https://www.youtube.com/watch?v=ebz4xuPf-is}
+\def\neverGonnaGiveYouUp{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
+\def\mindExplosion{https://www.youtube.com/watch?v=9CS7j5I6aOc}
+
+%%% Iconos más usados
+\def\github{\faIcon{github}}
+\def\instagram{\faIcon{instagram}}
+\def\tiktok{\faIcon{tiktok}}
+\def\linkedin{\faIcon{linkedin}}
+\def\youtube{\faIcon{youtube}}

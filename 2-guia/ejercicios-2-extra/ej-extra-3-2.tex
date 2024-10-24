@@ -1,0 +1,84 @@
+%Macro local
+\def\h{\magenta h}
+
+\begin{enunciado}{\ejExtra}
+  Probar que
+  $$
+    \sumatoria{k = 1}{n} (2k-1)^2 \geq \frac{(2n-1)^3}{6} \quad
+    \paratodo n \en \naturales.
+  $$
+\end{enunciado}
+
+Ejercicio de inducción. Voy a probar que la preposición
+$
+  p(n) :
+  \sumatoria{k = 1}{n} (2k-1)^2 \geq \frac{(2n-1)^3}{6}
+$ sea verdadera para todos los naturales.\par
+
+\textit{Caso base: }
+$p(\blue1): \sumatoria{k = 1}{\blue1} (2k-1)^2  =
+  (2\cdot \blue1 - 1)^2 = 1
+  \geq
+  \frac{(2 \cdot \blue1 - 1)^3}{6} =
+  \frac{1}{6}$.
+por lo tanto $p(1)$ es verdadera \Tilde\par
+
+\textit{Paso inductivo: }\par
+Asumo $p(\h)$ verdadera, entonces quiero probar que $p(\magenta{h+1})$ también lo sea. En este caso:
+$$
+  p(\h) :
+  \sumatoria{k = 1}{\h} (2k-1)^2 \geq \frac{(2\h-1)^3}{6}
+$$ para algún $h \en \enteros$. Ésta será nuestra \textit{hipótesis inductiva}: HI.\par
+
+Quiero probar que:
+
+$$
+  \sumatoria{k = 1}{\magenta{h + 1}} (2k-1)^2 \geq \frac{(2(\magenta{h+1})-1)^3}{6} = \frac{(2h+1)^3}{6},
+$$
+
+sea verdadera para algún $h \en \enteros$.\par
+$
+  \sumatoria{k = 1}{\magenta{h+1}} (2k-1)^2 =
+  \sumatoria{k = 1}{\magenta h} (2k-1)^2 + (2(\magenta{h+1}) - 1) =
+  \sumatoria{k = 1}{\magenta h} (2k-1)^2 + (2\h +1)^2
+$\par
+
+\textit{Nota innecesaria pero que quizás aporta: }\par
+Lo que acabamos de hacer recién nos deja la HI regalada.
+Pero atento que esto \underline{solo} suele funcionar cuando \underline{no}  tenemos a la '$n$'
+en el término principal de la sumatoria. Después de hacerte éste, mirá el \refEjExtra{ejExtra:2}\par
+\textit{Fin nota innecesaria pero que quizás aporta}.\par
+
+$
+  \sumatoria{k = 1}{\magenta{h+1}} (2k-1)^2 =
+  \sumatoria{k = 1}{\h} (2k-1)^2 + (2\h +1)^2 \stackrel{HI} \geq
+  \ub{
+    \frac{(2\h-1)^3}{6} + (2\h + 1)^2
+    \geq
+    \frac{(2h+1)^3}{6}
+  }
+  {
+    \mathclap{\text{Si ocurre esto, $p(h+1)$ será verdadera}}
+  }
+  \Sii{$\times 6$}
+  (2h-1)^3 + 6(2h + 1)^2
+  \geq
+  (2h+1)^3\\
+  \Sii{distribuyo}[a morir]
+  \cancel{8 h^3} + \cancel{12 h^2} + 30 h + 5
+  \geq
+  \cancel{8 h^3} + \cancel{12 h^2} + 6 h + 1
+  \sii
+  24h + 4
+  \stackrel{\Tilde}\geq
+  0\quad \paratodo h \en \naturales\\
+  \entonces
+  \sumatoria{k = 1}{h+1}(2k-1)^2 \geq \frac{(2h+1)-1)^3}{6},
+$
+concluyéndose que $p(h+1)$ también es verdadera.\medskip
+
+Como tanto $p(1), p(h) \ytext p(h+1)$ resultaron verdaderas, por el principio de inducción se tiene que
+$p(n)$ es verdadera para todo $n \en \naturales$.
+
+
+

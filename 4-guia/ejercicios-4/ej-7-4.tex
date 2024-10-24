@@ -1,44 +1,97 @@
-\ejercicio
-\begin{enumerate}[label=\roman*)]
-	\item $99 \divideA 10^{2n} + 197$
-	\item $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}$
-	\item $56 \divideA 13^{2n} + 28n^2 - 84n -1$
-	\item $256 \divideA 7^{2n} + 208n - 1$
+\begin{enunciado}{\ejercicio}
+  Proba que las siguientes afirmaciones son vedaderas para todo $n \en \naturales.$
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item $99 \divideA 10^{2n} + 197$
+      \item $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}$
+      \item $56 \divideA 13^{2n} + 28n^2 - 84n -1$
+      \item $256 \divideA 7^{2n} + 208n - 1$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item $99 \divideA 10^{2n} + 197 \Sii{def}
+          \congruencia{10^{2n} + 197}{0}{99} \to
+          \congruencia{10^{2n} + 198}{1}{99} \to
+          \congruencia{10^{2n} + \ub{198}{\conga{99} 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
+          \llave{l}{
+            \flecha{sé}[que] \congruencia{100}{1}{99} \sisolosi \congruencia{100^2}{\ub{100}{ \conga{99} 1 }}{99} \to
+            \congruencia{100^2}{1}{99} \sisolosi \dots \sisolosi \congruencia{100^n}{1}{99} \\
+          }
+        $\par
+        Se concluye que  $99 \divideA 10^{2n} + 197 \sisolosi 99 \divideA \ub{100 - 1}{99}$
+
+  \item
+        $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
+          \Sii{def}
+          \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
+          \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
+          \congruencia{\ub{9 \cdot 5^{2n}}{\conga9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9}\\
+          \flecha{simplifico}[y acomodo]
+          \congruencia{2^{4n}}{5^{2n}}{9} \to
+          \congruencia{16^n}{25^n}{9}
+          \flecha{simetría}[congruencia]
+          \congruencia{25^n}{16^n}{9}
+          \flecha{$25\conga9 16$}
+          \congruencia{25}{16}{9} =
+          \congruencia{9}{0}{9}\\
+        $
+        Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
+
+  \item \hacer
+
+  \item  Hermoso ejercicio en el que sin fe en el todo poderoso Gauss sencillamente uno tira la toalla.\par
+        Sale por inducción:\par
+        \textit{Quiero ver que:}
+        $$
+          p(n) : 256 \divideA 49^n + 208n - 1
+        $$
+
+        O en notación de congruencia:
+
+        $$
+          p(n) : \congruencia{49^n + 208n - 1}{0}{256}
+        $$
+
+        \textit{Caso base:}
+        $$
+          p(1) : 256 \divideA 49^1 + 208 \cdot 1 - 1 \Tilde
+        $$
+        Por lo tanto $p(1)$ resulta verdadera.
+
+        \textit{Paso inductivo:}\par
+        Uso la notación de congruencia de acá en adelante, porque es mucho más cómodo.
+        Supongo que:
+        $$
+          p(k) : \ub{\congruencia{49^k + 208 \cdot k - 1}{0}{256}}{\purple{\text{hipótesis inductiva}}}
+          \quad \paratodo k \en \enteros
+        $$
+        es  una proposición verdadera.
+        Entonces quiere probar que:\par
+        $$
+          p(k+1) : \congruencia{49^{k+1} + 208 \cdot (k+1) - 1}{0}{256},
+        $$
+        también sea verdadera. Arranco del paso $(k+1)$ y haciendo un poco de \textit{matemagia}:
+        $$
+          \begin{array}{rcl}
+            49^{k+1} + 208 \cdot (k+1) - 1 & =                           & 49 \cdot 49^k + 208k + 208 - 1 \taa{(256)}{\purple{\text{HI}}}\equiv  49 \cdot (-208k + 1) + 208k + 208 - 1 \\
+                                           & \conga{256}                 & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49                                                   \\
+                                           & \taa{(256)}{\red{!!}}\equiv & 48 k + 49 - 48k - 49 = 0 \Tilde
+          \end{array}
+        $$
+        En \red{!!} y gracias a Gauss $\congruencia{2352}{48}{256}$ ¿Casualidad? No sé y no me importa.\par
+
+        Dado que $\congruencia{49^{k+1} + 208 \cdot (k+1) - 1}{0}{256}$, la proposición $p(k+1)$ resultó verdadera.\par\bigskip
+
+        Dado que $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas, por principio de inducción $p(n)$ también lo es para todo $n \en \naturales$.
+
 \end{enumerate}
 
-\separadorCorto
-\begin{enumerate}[label=\roman*)]
-	\item $99 \divideA 10^{2n} + 197 \stackrel{def}{\sisolosi}
-		      \congruencia{10^{2n} + 197}{0}{99} \to
-		      \congruencia{10^{2n} + 198}{1}{99} \to
-		      \congruencia{10^{2n} + \ub{198}{\conga{99} 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
-		      \llave{l}{
-			      \flecha{sé}[que] \congruencia{100}{1}{99} \sisolosi \congruencia{100^2}{\ub{100}{ \conga{99} 1 }}{99} \to
-			      \congruencia{100^2}{1}{99} \sisolosi \dots \sisolosi \congruencia{100^n}{1}{99}\\
-			      \red{¿Tengo que demostrar ese renglón por inducción o con "propiedad de congruencia" funciona?}
-		      }
-	      $\\
-	      Se concluye que  $99 \divideA 10^{2n} + 197 \sisolosi 99 \divideA \ub{100 - 1}{99}$
-
-
-	\item
-	      $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
-		      \stackrel{def}{\sisolosi}
-		      \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
-		      \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
-		      \congruencia{\ub{9 \cdot 5^{2n}}{\conga9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9}\\
-		      \flecha{simplifico}[y acomodo]
-		      \congruencia{2^{4n}}{5^{2n}}{9} \to
-		      \congruencia{16^n}{25^n}{9}
-		      \flecha{simetría}[congruencia]
-		      \congruencia{25^n}{16^n}{9}
-		      \flecha{$25\conga9 16$}
-		      \congruencia{25}{16}{9} =
-		      \congruencia{9}{0}{9}\\
-	      $
-	      Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
-
-	\item \hacer
-	\item \hacer
-\end{enumerate}
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}
 

@@ -1,0 +1,109 @@
+\begin{enunciado}{\ejExtra}
+	Sea $X$ el conjunto de todas las funciones de $\set{1,2,3,4,5,6,7,8}$ en $\set{0,1}$. Se define la relación $\relacion$ en $X$ como:
+	$$
+		f \relacion g \sisolosi f(1) + g(3) = f(3) + g(1).
+	$$
+	\begin{enumerate}[label=\alph*)]
+		\item Probar que $\relacion$ es una relación de equivalencia. ¿Es $\relacion$ antisimétrica?
+		\item Calcular la cantidad de clases de equivalencia de $\relacion$ y exhibir un representante de cada una de ellas.
+	\end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+	\item
+	      Para probar que $\relacion$ es una relación de equivalencia, hay que probar que sea \textit{reflexiva}, \textit{simétrica} y \textit{transitiva}.
+	      \hyperlink{teoria-1:prop-relaciones}{Click acá para la 'teoría' de que son esas cosas}\par
+
+	      \bigskip
+
+	      Las funciones toman todos los valores que hay en el conjunto del dominio y tienen que mandar ese valor a alguno de los dos valores que están
+	      en el conjunto del codominio. Podemos observar que la imagen de la función será $\set{0}, \set{1} \otext \set{0,1}$.
+
+	      \textit{Reflexiva:} En este caso se cumple de forma trivial.
+	      $$
+		      f \relacion f \sisolosi f(1) + f(3) = f(3) + f(1)
+	      $$
+
+
+	      \textit{Simétrica:}
+	      Quiero ver que si $f \relacion g \entonces g \relacion f$.\par Resulta parecido al anterior dado que la igualdad no cambia al conmutar las funciones
+	      $$
+		      \begin{array}{l}
+			      f \relacion g \sisolosi \magenta{f(1) + g(3) = g(1) + f(3)} \\
+			      g \relacion f \sisolosi g(1) + f(3) = f(1) + g(3) \sisolosi \magenta{f(1) + g(3) = g(1) + f(3)}
+		      \end{array}
+	      $$
+
+
+	      \textit{Transitiva:}
+	      Quiero ver que si
+	      $$f \relacion g \ytext g \relacion h \entonces f \relacion h.$$
+
+	      Partiendo de las hipótesis de estas relaciones:
+	      $$
+		      \begin{array}{l}
+			      f \relacion g \sisolosi f(1) + g(3) \igual{$\llamada1$} g(1) + f(3) \\
+			      g \relacion h \sisolosi g(1) + h(3) \igual{$\llamada2$} h(1) + g(3) \\
+		      \end{array}
+	      $$
+
+	      Despejando de $\llamada2$ y reemplazando en $\llamada1$:
+	      $$
+		      g(1) \igual{$\llamada2$} \blue{h(1) + g(3) - h(3)} \Entonces{$\llamada1$} f(1) + g(3) = (\blue{h(1) + g(3) - h(3)}) + f(3)
+		      \sii
+		      \ub{f(1) + h(3) = h(1) + f(3)}{f \relacion h}
+	      $$
+
+	      \textit{Antisimétrica:}
+	      Puedo armar un ejemplo para ver si es antisimétrica. Cuando se define una función hay que definirla entera y no solo la parte que me interesa!
+	      Voy a armar un par de funciones que $(f,g)$ con $f \distinto g$ y $f \relacion g$ y que además  $g \relacion f$. Eso sería suficiente para
+	      mostrar que la función no es antisimétrica
+	      $$
+		      \llave{rcl}{
+			      f(1) &=& 0 \\
+			      f(2) &=& \magenta{0} \\
+			      f(3) &=& 0 \\
+			      f(4) &=& 0 \\
+			      \vdots &=& \vdots \\
+			      f(8) &=& 0 \\
+		      }\ytext
+		      \llave{rcl}{
+			      g(1) &=& 0 \\
+			      g(2) &=& \magenta{1} \\
+			      g(3) &=& 0 \\
+			      g(4) &=& 0 \\
+			      \vdots &=& \vdots \\
+			      g(8) &=& 0
+		      }
+	      $$
+	      La función no es antisimétrica.
+
+
+	\item
+	      En este ejercicio hay 2 clases. Una que tiene:
+
+          $$
+          \llave{l}{
+                  f(1) = 0\\
+                  f(3) = 0 
+          }
+          \llave{l}{
+                  f(1) = 1\\ 
+                  f(3) = 1 
+          }
+          $$
+          y otra con imagenes distintas
+          $$
+          \llave{l}{
+                  f(1) = 1\\
+                  f(3) = 0 
+          }
+          \llave{l}{
+                  f(1) = 0\\ 
+                  f(3) = 1 
+          }
+          $$
+\end{enumerate}
+
+
+

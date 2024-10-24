@@ -1,41 +1,61 @@
-\ejercicio
+\begin{enunciado}{\ejExtra}
+	Determinar lso posibles valores de $d = (a^2 - 2a -5: a-1)$ para $a \en \enteros$. Exhibir un valor de $a$
+	correspondiente a cada uno de los valores de $d$ hallados.
+\end{enunciado}
 
-Estudiar los valores parar \textbf{todos} los $a \en \enteros$ de $(a^3 + 1 : a^2 - a + 1)$.\\
 
-\separadorCorto
+Parecido a cosas que ya se hicieron en otros ejercicios. Simplificamos si se puede con Euclides y después con tabla de restos
+filtramos los máximos común divisores que quedaron.\par \bigskip
 
-Primero hay que notar que el lado $a^2-a+1$ es siempre impar ya que:\\
-$\llaves{l}{
-		(2k-1)^2 - (2k -1) + 1 \conga2 (-1)^2 -1 + 1 \conga2 1\\
-		(2k)^2 - (2k) +1 \conga2 (0)^2 - 0 + 1\conga2 1.
-	}$ Por lo tanto 2 no puede ser un divisor de ambas expresiones  y si $2 \noDivide A \entonces 2 \cdot k \noDivide A$ tampoco.\\
-Se ve fácil contrarecíproco: $\ub{2k}{par} \divideA A \entonces 2 \divideA A$. Porque existe un $k$ tal que
-$2 \cdot c \cdot k = A \entonces 2 \cdot (c\cdot k) = A.$\\
-Ahora cuentas para simplificar la expresión y encontrar número del lado derecho.\\
-$
-	\llave{l}{
-		d \divideA  a^3 + 1\\
-		d \divideA  a^2 -a +1
-	}
-	\to d \divideA 30
-	\to\divsetP{d}{1,2,3,5,6,10,15,30}
-	\flecha{por lo de antes}[no hay divisores pares] \divsetP{d}{1,3,5,15}\\
-	\flecha{hacer tabla de restos}[empezar por los números chicos]
-	\llaves{ccc}{
-		r_3(a^3 + 1) = 0 & \text{ si }& \congruencia{a}{2}{3}\\
-		\y& &\\
-		r_3(a^2 -a + 1) = 0 & \text{ si } & \congruencia{a}{2}{3}
-	}
-	\to
-	\llaves{cc}{
-		r_5(a^3 + 1) \distinto 0 & \paratodo a \en \enteros\\
-	}
-$.\\
-Luego si  $5 \noDivide (a^3 + 1 : a^2 - a + 1) \entonces \ub{15}{5\cdot 3} \noDivide (a^3 + 1 : a^2 - a + 1)
-	\flecha{se achica el}[conjunto de divisores] \divsetP{d}{1,3}\\
-	d = \llave{ccc}{
-		3 & \text{ si } & \congruencia{a}{2}{3}\\
-		1 & \text{ si } & \congruencia{a}{1 \o 2}{3}\\
-	}
-$
+\textit{Euclides con División de polinomios}
+$$
+	\divPol{X^2 - 2X -5}{X-1}
+$$
+
+Que en el resto quede un número es una excelente noticia, podemos reescribir al mcd:
+
+$$
+	d = (a^2 - 2a -5: a-1) = (a-1 : -6)
+$$
+
+Con ese resultado y dado que $d  \divideA a - 1$ y también $d\divideA 6$:
+
+$$
+	d \en \set{1, 2, 3, 6}
+$$
+
+Tabla de restos para ver para que valores de $a$ se divide la expresión $a-1$
+
+$$
+	\begin{array}{|r|cc|}
+		\hline
+		r_2(a)     & 0 & 1           \\ \hline
+		r_2(a - 1) & 1 & \magenta{0} \\ \hline
+	\end{array}
+	\quad
+	\begin{array}{|r|ccc|}
+		\hline
+		r_3(a)     & 0 & 1           & 2 \\ \hline
+		r_3(a - 1) & 2 & \magenta{0} & 1 \\ \hline
+	\end{array}
+	\quad
+	\begin{array}{|r|cccccc|}
+		\hline
+		r_6(a)     & 0 & 1           & 2 & 3 & 4 & 5 \\ \hline
+		r_6(a - 1) & 5 & \magenta{0} & 1 & 2 & 3 & 4 \\ \hline
+	\end{array}
+$$\par
+
+Ahora hay que elegir un valor $a$ de forma tal que $d$ sea un valor que cumpla con los resultados.\par
+
+Hay que tener cuidado, porque los conjuntos de $a$ que salen de la tabla de restos no son disjuntos.
+
+Los siguientes valores salen a ojímetro:
+$$
+	\begin{array}{c}
+		\text{si } a = 5 \entonces d = 2 \\
+		\text{si } a = 4 \entonces d = 3 \\
+		\text{si } a = 7 \entonces d = 6
+	\end{array}
+$$
 

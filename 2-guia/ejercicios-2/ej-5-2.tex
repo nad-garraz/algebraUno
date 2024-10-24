@@ -1,19 +1,35 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Probar que, $\paratodo n \en \naturales,\, \sumatoria{i = 1}{n} (2i - 1) = n^2$:
+
+  \begin{enumerate}[label=\roman*)]
+    \item Contando de dos maneras la cantidad total de cuadraditos del diagrama. (\red{hacer diagrama})
+
+    \item Usando la suma aritmética (o suma de Gauss).
+
+    \item Usando el principio de inducción.
+  \end{enumerate}
+\end{enunciado}
+
 \begin{enumerate}[label=\roman*)]
-	\item
-	      \hacer
+  \item
+  \item $\ub{s = \frac{n(n+1)}{2} = \sumatoria{1}{n} i }{Gauss}
+          \to
+          \sumatoria{i = 1}{n} 2i -1 =
+          2 \sumatoria{i = 1}{n} i - \sumatoria{1}{n} 1 =
+          2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \Tilde $
 
-	\item $\underbrace{S = \frac{N(N+1)}{2} = \sumatoria{1}{N} i }_{Gauss} \to \sumatoria{1}{n} 2i -1 = 2 \sumatoria{1}{n}i - \sumatoria{1}{n} 1 = 2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \Tilde $
-
-	\item $
-		      \llaves{ l }{
-			      \text{Primer caso } n = 1 \to \sumatoria{1}{1} 2i -1 = 1 = 1^2 \Tilde\\
-			      \text{Paso inductivo } n = h \to \sumatoria{1}{k} 2i -1 = k^2 \Tilde \entonces \sumatoria{1}{k+1} 2i -1 \stackrel{\green{?}}= (k+1)^2\\
-			      \sumatoria{1}{k+1} 2i -1 =
-			      \HI{
-				      \sumatoria{1}{k} 2i -1
-			      } + \kmasuno{
-				      2(k+1) -1
-			      } = k^2 + 2k + 1 = (k+1)^2 \green{\Tilde}
-		      } \to \boxed{\sumatoria{i = 1}{n} (2i - 1) = n^2}$
+  \item \textit{Proposición: }\par
+        $p(n):  \sumatoria{i = 1}{n} (2i - 1) = n^2 \paratodo n \en \naturales$\par
+        \textit{Caso base : } $p(1) : \sumatoria{i = 1}{1} 2i -1 = 1 = 1^2  \entonces p(1) $  es verdadera. \Tilde\par
+        \textit{Paso inductivo: } $p(h) : \sumatoria{i = 1}{h} 2i -1 = k^2
+                \text{ verdadera con }h \en \enteros 
+          \entonces
+          \text{ quiero ver que }
+          \sumatoria{i=1}{h+1} 2i -1 \igual{?} (h+1)^2.\\
+          \sumatoria{i=1}{h+1} 2i -1 =
+          \sumatoria{i=1}{h} (2i - 1) + 2(h+1) -1
+          \igual{\magenta{HI}}
+          \magenta{h^2} + 2h + 1 = (h+1)^2 \Tilde
+        $\par
+        Dado que $p(1),\, p(h),\, p(h+1)$ resultaron verdaderas, por criterio de inducción también lo es $p(n) \en \naturales$
 \end{enumerate}

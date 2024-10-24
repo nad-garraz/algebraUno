@@ -1,0 +1,149 @@
+\begin{enunciado}{\ejExtra}
+  \textbf{(recuperatorio 1er C. 24)}\par
+  Se define en $\enteros$ la relación $\relacion$ dada por
+  $$
+    n \relacion m \sisolosi 10 \divideA n^2 + 4m^2 + m - 6n.
+  $$
+  \begin{enumerate}[label=\alph*)]
+    \item Probar que
+          $n \relacion m \sisolosi 5 \divideA n^2 -m^2 + m -n \ytext \congruencia{n}{m}{2}$.
+
+    \item Probar que $\relacion$ es una relación de equivalencia.
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        \begin{itemize}
+          \item[\red{$(\entonces)$}]
+                $$
+                  n \relacion m
+                  \Sii{def}
+                  \congruencia{\magenta{n^2 + 4m^2 + m - 6n}}{0}{10}
+                $$
+                Si la expresión es divible por 10, debe ser divisible por 2 y también por 5:
+                $$
+                  \llave{l}{
+                    \magenta{n^2 + 4m^2 + m - 6n} \taa{}{\red{!}}{\conga5}
+                    \congruencia{n^2 - m^2 + m - n}{0}{5 }\Tilde \\
+                    \magenta{n^2 + 4m^2 + m - 6n} \conga2 n^2 + m \taa{}{\red{!!}}{\conga2}
+                    \congruencia{n+m}{0}{2} \sii \congruencia{n}{m}{2} \Tilde
+                  }
+                $$
+                Si no ves lo que pasó en $\red{!!}$ pensá en la paridad de un número y su cuadrado.\par
+
+                Por lo tanto si
+                $$
+                  n \relacion m
+                  \red{\quad\entonces\quad}
+                  5 \divideA n^2 -m^2 + m -n \ytext \congruencia{n}{m}{2}
+                $$
+
+          \item[\red{$(\Leftarrow)$}]
+                $$
+                  \congruencia{n^2 -m^2 + m -n}{0}{5}
+                  \sii
+                  \congruencia{\magenta{n^2 + 4m^2 + m - 6n}}{0}{5}
+                  \sii
+                  5 \divideA\magenta{n^2 + 4m^2 + m - 6n} \Tilde
+                $$
+                Ahora uso la información de $\congruencia{n}{m}{2} $
+                $$
+                  \text{Si }\congruencia{n}{m}{2}
+                  \entonces
+                  \magenta{n^2 + 4m^2 + m - 6n}
+                  \taa{}{\red{!}}{\conga2}
+                  \congruencia{ 5 \ub{m (m - 1)}{\text{par\red{!}}}}{0}{2}
+                  \sisolosi
+                  2 \divideA \magenta{n^2 + 4m^2 + m - 6n}\Tilde
+                $$\par
+                Por lo tanto si
+                $$
+                  n \relacion m
+                  \red{\quad\Leftarrow\quad}
+                  5 \divideA n^2 -m^2 + m -n \ytext \congruencia{n}{m}{2}
+                $$
+        \end{itemize}
+
+  \item No es casualidad que en el punto anterior tuvieramos una \textit{redefinición} de la
+        relación $\relacion$:
+        $$
+          n \relacion m \sisolosi
+          \llave{l}{
+            \congruencia{n^2 -m^2 + m -n}{0}{5} \\
+            \ytext                              \\
+            \congruencia{n}{m}{2}.
+          }
+        $$
+        En esa forma es mucho más fácil mostrar lo que sigue porque la relación
+        queda definida en función de congruencias que \textit{\underline{ya son relaciones de equivalencias}}.
+        Para mostrar la relación de equivalencia, hay que probar que es
+        reflexiva, simétrica y transitiva.\par
+
+        \textit{Reflexiva: } Si $ n \relacion n \sisolosi
+          \llave{l}{
+            \congruencia{n^2 -n^2 + n -n = 0}{0}{5} \Tilde \\
+            \ytext                                         \\
+            \congruencia{n}{n}{2} \Tilde.
+          }
+        $
+        \par
+        La relación es \textit{reflexiva}. \par
+
+        \textit{Simétrica: }
+        Si $ n \relacion m \entonces m \relacion n$, para algún par $n$, $m$.
+        \par
+        Si $n \relacion m \entonces
+          \llave{l}{
+            \congruencia{n^2 -m^2 + m -n}{0}{5}
+            \Entonces{$m \relacion n$}
+            \congruencia{m^2 -n^2 + n - m = -(n^2 -m^2 + m -n)}{0}{5} \Tilde \\
+            \ytext                                                           \\
+            \congruencia{n}{m}{2}
+            \Entonces{$m \relacion n$}
+            \congruencia{m}{n}{2}\Tilde
+          }
+        $\par
+        La relación es \textit{simétrica}
+
+        \textit{Transitiva: }
+        Quiero ver que si:
+        $n \relacion m \ytext m \relacion j \entonces n \relacion j$\par
+        Si
+        $$n \relacion m \sii
+          \llave{l}{
+            \congruencia{n^2 -m^2 + m -n}{0}{5} \\
+            \ytext                              \\
+            \congruencia{n}{m}{2}
+          }
+          \ytext
+          m \relacion j \sii
+          \llave{l}{
+            \congruencia{m^2 -j^2 + j -m}{0}{5} \llamada1 \\
+            \ytext                                        \\
+            \congruencia{m}{j}{2} \llamada2
+          }
+        $$
+
+        entonces
+
+        $$
+          \left.
+          \begin{array}{c}
+            \congruencia{n^2 \magenta{- m^2 + m} - n}{0}{5}
+            \Sii{$\llamada1$}[\red{!}]
+            \congruencia{n^2 \magenta{- j^2 + j} - n}{0}{5}
+            \\
+            \ytext \\
+            \congruencia{n}{m}{2}
+            \Sii{$\llamada2$}
+            \congruencia{n}{j}{2}
+          \end{array}
+          \right\}
+          \entonces
+          \boxed{
+            n \relacion j}
+        $$\par
+        La relación es \textit{transitiva}.\par
+        Como la relación resultó ser \textit{reflexiva, simétrica y transitiva,} entonces es de equivalencia. Fin.
+\end{enumerate}

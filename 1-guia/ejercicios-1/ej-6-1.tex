@@ -1,20 +1,34 @@
-\ejercicio
-i)
-\begin{venndiagram3sets}
-	\fillCCapANotB
-	\fillOnlyC
-\end{venndiagram3sets}
-ii)
-\begin{venndiagram3sets}
-	\fillOnlyB
-	\fillOnlyC
-	\fillCCapBNotA
-\fillOnlyA
-	
-\end{venndiagram3sets}
-iii)
-\begin{venndiagram3sets}
-	\fillA
-	\fillOnlyB
-	\fillOnlyC
-\end{venndiagram3sets}
+\begin{enunciado}{\ejercicio}
+  Sean A,B y C conjuntos. Representar en un diagrama de Venn
+  \begin{enumerate}[label=\roman*)]
+    \item $(A \union B^c) \inter C$
+    \item $A \triangle (B \union C)$
+    \item $A \union (B \triangle C)$
+  \end{enumerate}
+\end{enunciado}
+
+\begin{multicols}{3}
+  \begin{enumerate}[label=\roman*)]
+    \item
+          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillCCapANotB
+            \fillOnlyC
+          \end{venndiagram3sets}
+
+    \item
+          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillOnlyB
+            \fillOnlyC
+            \fillCCapBNotA
+            \fillOnlyA
+          \end{venndiagram3sets}
+
+
+    \item
+          \begin{venndiagram3sets}[shade=gray!20!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillA
+            \fillOnlyB
+            \fillOnlyC
+          \end{venndiagram3sets}
+  \end{enumerate}
+\end{multicols}

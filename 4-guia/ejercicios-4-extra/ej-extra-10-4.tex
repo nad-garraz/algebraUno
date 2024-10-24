@@ -1,0 +1,72 @@
+\begin{enunciado}{\ejExtra}
+  Sea $(a_n)_{n \en \naturales}$ la sucesión dada por recurrencia:
+  $$
+    \llave{l}{
+      a_1 = 30, \\
+      a_2 = 16, \\
+      a_{n + 2} =  24 a_{n+1} + 65^n a_n + 96 n^4 \quad \paratodo n \geq 1.
+    }
+  $$
+  Probar que $\congruencia{a_n}{3^n - 5^n}{32}, \quad \paratodo n \geq 1$.
+\end{enunciado}
+
+Ejercicio intimidante a primera vista. Acomodemos un poco el enunciado así hacemos inducción.\par
+Estoy buscando el módulo 32, $a_{n+2}$ queda más amigable: $\llamada1 a_{n+2} \conga{32} 24a_{n+1} + a_n$ \Tilde
+
+\textit{Inducción: }\par
+$$
+  p(n) : \congruencia{a_n}{3^n - 5^n}{32} \quad \paratodo n \en \naturales
+$$
+
+\textit{Casos base:}\par
+$$
+  \llave{lll}{
+    p(1) : \congruencia{a_1}{3 - 5}{32}     & \sisolosi & \congruencia{a_1}{30}{32}\Tilde \quad p(1) \text{ resultó verdadera.} \\
+    p(2) : \congruencia{a_2}{3^2 - 5^2}{32} & \sisolosi & \congruencia{a_2}{16}{32}\Tilde \quad p(2) \text{ resultó verdadera.}
+  }
+$$
+
+\textit{Pasos inductivos:}\par
+Para algún $k \en \enteros$:
+$$
+  \llave{rll}{
+    p(k) :   & \ob{\congruencia{a_k}{3^k - 5^k}{32}}{\text{\purple{hipótesis inductiva}}} & \quad \text{ Se asume verdadera.}         \\
+    p(k+1) : & \ub{\congruencia{a_{k+1}}{3^{k+1} - 5^{k+1}}{32}}{\text{\purple{también hipótesis inductiva}}} & \quad \text{ También se asume verdadera.}
+  }
+$$
+
+Y queremos probar entonces que:
+
+$$
+  p(k+2) : \congruencia{a_{k+2}}{3^{k+2} - 5^{k+2}}{32}
+$$
+
+Arranco con la definición de la sucesión que se cocinó un poco en $\llamada1$:
+
+$$
+  a_{k+2}
+  \igual{def}
+  24 a_{k+1} + 65^k a_k + 96 k^4
+  \taa{(32)}{\purple{HI}}\congruente
+  24 (\purple{3^{k+1} - 5^{k+1}}) + \purple{3^k - 5^k}
+  \igual{\red{!!}}
+  73 \cdot 3^k - 121 \cdot 5^k
+  \conga{32}
+  9 \cdot 3^k - 25 \cdot 5^k =
+  3^{k+2} - 5^{k+2}.\checkmark
+$$
+
+Si te quedaste picando en \red{!!}, seguí mirando ese paso, porque son cuentas que tenés que poder
+\textit{encontrar} mirando fijo el tiempo que sea necesario. Por mi parte \faIcon{hands-wash}.\medskip
+
+Y así fue como comprobamos que el enunciado ladraba pero no mordía.\medskip
+
+Como $p(1),\, p(2),\, p(k),\, p(k+1) \ytext p(k+2)$ son verdaderas, por el principio de inducción
+también lo será $p(n) \paratodo \en \naturales$.
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

@@ -60,20 +60,36 @@
           A - (B - C) \Tilde
         $$
 
-  \item\label{ej-14-1:itemiii} Unos diagramas de Venn porque sino parece cuentoso:\par
-        \begin{center}
-          $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$:\par
-          \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
-            \fillANotB
-            \fillBNotA
-          \end{venndiagram3sets}
-          $\taa{\Tilde}{}{\subseteq}$
-          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
-            \fillANotB
-            \fillBNotC
-            \fillCNotA
-          \end{venndiagram3sets}
-        \end{center}
+  \item\label{ej-14-1:itemiii} Opción 1, con diagramas de Venn:\par
+    \begin{center}
+      $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$:\par
+      \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+        \fillANotB
+        \fillBNotA
+      \end{venndiagram3sets}
+      $\taa{\Tilde}{}{\subseteq}$
+      \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+        \fillANotB
+        \fillBNotC
+        \fillCNotA
+      \end{venndiagram3sets}
+    \end{center}
+  
+    Opción 2, para probar que un conjunto es subconjunto de otro me alcanza con probar que para cualquier elemento de $\universo$, si pertenece al primero entonces pertenece al segundo. \\
+    Luego, Q.P.Q. $x \in A \triangle B \entonces x \in (A \triangle C) \union (B \triangle C), \paratodo x \in \universo$ \\
+    $x \in A \triangle B \stackrel{\text{def}}{\sii} \underbrace{(x \in A \y x \notin B)}_I \o \underbrace{(x \notin A \y x \in B)}_{II}$ \\
+    $x \in (A \triangle C) \union (B \triangle C) \stackrel{\text{def}}{\sii} ((x \in A \y x \notin C) \o (x \notin A \y x \in C)) \o ((x \in B \y x \notin C) \o (x \notin B \y x \in C))$\\
+    $\sii (x \in A \y x \notin C) \o (x \notin A \y x \in C) \o (x \in B \y x \notin C) \o (x \notin B \y x \in C)$\\
+
+    Se que $x \in A \triangle B \entonces I \o II$. Separo en casos, \\
+    $\begin{cases}
+      \text{Si }I\text{ es Verdadero, }I \stackrel{\textcolor{orange}*}{\entonces} (x \in A \y x \notin C) \o (x \notin B \y x \in C) \entonces x \in (A \triangle C) \union (B \triangle C) \\
+      \text{Si }II\text{ es Verdadero, }II \stackrel{\textcolor{orange}*}{\entonces} (x \notin A \y x \in C) \o (x \in B \y x \notin C) \entonces x \in (A \triangle C) \union (B \triangle C) \\
+      \text{Si }I \y II\text{ es Verdadero, }I \y II \entonces I \stackrel{\text{idem}}{\entonces} x \in (A \triangle C) \union (B \triangle C)
+    \end{cases}$ \\
+    $\therefore x \in A \triangle B \entonces x \in (A \triangle C) \union (B \triangle C)$, como quería probar. \\
+    {\textcolor{orange}*} Observo que $(\text{Verdadero} \y p) \o (\text{Verdadero } \y \neg p)$ es una tautología.
+
 
   \item  \Hacer
   \item  \Hacer

@@ -38,7 +38,14 @@
         $\par
         Hay distribución entre la resta y una diferencias simétrica.
 
-\item \hacer
-\item \red{hacer}
-\item \red{hacer}
+\item Es falsa, lo demuestro por contraejemplo. Sean $A = C = \{1\}, B = \emptyset$, luego \\
+$(A \inter B) \triangle C = \emptyset \triangle A = A$ pero \\
+$(A \triangle C) \inter (B \triangle C) = (A \triangle A) \inter (B \triangle A) = \emptyset \inter A = \emptyset \neq A$ \\
+$\therefore (A \inter B) \triangle C \neq (A \triangle C) \inter (B \triangle C)$
+\item Es verdadera. Supongo que $C \subseteq A$, Q.P.Q $B \inter C \subseteq (A \triangle B)^c$ \\
+$(A \triangle B)^c = ((A \union B) \inter (A \inter B)^c)^c = (A^c \inter B^c) \union (A \inter B)$ \\
+$B \inter C \stackrel{C \subseteq A}{\subseteq} B \inter A = A \inter B \subseteq (A \inter B) \union (A^c \inter B^c) = (A \triangle B)^c$
+\item $\text{$\Rightarrow$)} A \triangle B = \emptyset \entonces (A - B) \union (B - A) = \emptyset \entonces A - B = \emptyset \y B - A = \emptyset$ 
+$\entonces A \subseteq B \y B \subseteq A \entonces A = B$ \\
+$\text{$\Leftarrow$)} A = B \entonces A \triangle B = A \triangle A = \emptyset$
 \end{enumerate}

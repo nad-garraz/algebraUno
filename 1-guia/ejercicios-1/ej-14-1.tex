@@ -8,7 +8,7 @@
       \item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$
       \item $(A \inter C ) - B = (A - B) \inter C$
       \item $A \subseteq B \entonces A \triangle B = B \inter A^c$
-      \item $A \subseteq C \sisolosi B^c \subseteq A^c$
+      \item $A \subseteq B \sisolosi B^c \subseteq A^c$
       \item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$
     \end{enumerate}
   \end{multicols}
@@ -90,9 +90,12 @@
     $\therefore x \in A \triangle B \entonces x \in (A \triangle C) \union (B \triangle C)$, como quería probar. \\
     {\textcolor{orange}*} Observo que $(\text{Verdadero} \y p) \o (\text{Verdadero } \y \neg p)$ es una tautología.
 
-
-  \item  \Hacer
-  \item  \Hacer
-  \item  \Hacer
-  \item  Mirando el item \ref{ej-14-1:itemi} sale solo. Dado que $X \triangle \vacio \igual{\red{!}} X$
+  \item $(A \inter C) - B = (A \inter C) \inter B^c = (A \inter B^c) \inter C = (A-B) \inter C$
+  \item  \text{$\Rightarrow$)} Sup que $A \subseteq B$ \\
+  $A \triangle B = \overbrace{A - B}^{= \emptyset \text{ pues }A \subseteq B} \union B - A = B - A = B \inter A^c$ \\
+  $\text{$\Leftarrow$)}A \triangle B = B \inter A^c \sii A \triangle B = B - A \sii A - B \union B - A = B - A$ \\
+  $\sii A - B \subseteq B - A$, pero $A - B$ y $B - A$ son disjuntos $\entonces A - B = \emptyset \entonces A \subseteq B$
+  \item \text{$\Rightarrow$)} Sup que $A \subseteq B$. Si $x \in A \entonces x \in B$ y por contrarecíproco, si $x \notin B \entonces x \notin A \entonces B^c \subseteq A^c$ \\
+  $\text{$\Leftarrow$)}$ Es análogo.
+  \item Mirando el item \ref{ej-14-1:itemi} sale solo. Dado que $X \triangle \vacio \igual{\red{!}} X$
 \end{enumerate}

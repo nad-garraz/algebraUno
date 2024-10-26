@@ -11,8 +11,16 @@
 ## Las guías resueltas:
 
 En cada directorio `i-guia` vas a encontrar el archivo `i-sol.pdf` que no es otra cosa que la última actualización de la guía `i-ésima`. _Sin necesidad de compilar nada_.
-Los archivos son largos como para andar scrolleando todo el tiempo, *usá* los `links`, que para algo los puse. Así que en el índice, pie de página y referencias podés hacer doble click para saltar
-y algún que otro _easter egg_.
+Los archivos son largos como para andar scrolleando todo el tiempo, *usá* los `links`, que para algo los puse.
+Así que en el índice, pie de página y referencias podés hacer doble click para saltar y algún que otro _easter egg_.
+
+- [Guía 1](https://github.com/nad-garraz/algebraUno/blob/main/1-guia/1-sol.pdf)
+- [Guía 2](https://github.com/nad-garraz/algebraUno/blob/main/2-guia/2-sol.pdf)
+- [Guía 3](https://github.com/nad-garraz/algebraUno/blob/main/3-guia/3-sol.pdf)
+- [Guía 4](https://github.com/nad-garraz/algebraUno/blob/main/4-guia/4-sol.pdf)
+- [Guía 5](https://github.com/nad-garraz/algebraUno/blob/main/5-guia/5-sol.pdf)
+- [Guía 6](https://github.com/nad-garraz/algebraUno/blob/main/6-guia/6-sol.pdf)
+- [Guía 7](https://github.com/nad-garraz/algebraUno/blob/main/7-guia/7-sol.pdf)
 
 _¡Una estrellita 🌟 al repo es siempre bienvenida!_
 `(^_^)/`

@@ -1,1 +1,113 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  \begin{enumerate}[label=\roman*)]
+    \item Sabiendo que los restos de la división de un entero $a$ por 6, 10 y 8 son 5, 3 y 5 respectivamente, hallar los posibles restos
+          de la división de $a$ por 480.
+
+    \item Hallar el menor entero positivo $a$ tal que el resto de la división de $a$ por 21 e 13 y el resto de la división de $6a$ por
+          15 es 9.
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item  Nos dicen que:
+        $$
+          \llave{l}{
+            \congruencia{a}{5}{6}  \\
+            \congruencia{a}{3}{10} \\
+            \congruencia{a}{5}{8}
+          }
+        $$
+
+        Dado que nos divisores no son coprimos, no se puede aplicar el TCH. Hay que quebrar.
+
+        $$
+          \llave{lcl}{
+            \congruencia{a}{5}{6} \vspace{5pt}
+             & \leftrightsquigarrow &
+            \llave{l}{
+              \congruencia{a}{2}{3} \\
+              \congruencia{a}{1}{2}
+            }
+            \\
+            \congruencia{a}{3}{10} \vspace{5pt}
+             & \leftrightsquigarrow &
+            \llave{l}{
+              \congruencia{a}{3}{5} \\
+              \congruencia{a}{1}{2}
+            }
+            \\
+            \congruencia{a}{5}{8} \vspace{5pt}
+             & \leftrightsquigarrow &
+            \llave{l}{
+              \congruencia{a}{1}{2} \\
+              \congruencia{a}{1}{2} \\
+              \congruencia{a}{1}{2}
+            }
+          }
+        $$
+        La \textit{buena} es que el sistema es compatible, dado que no tenemos restos distintos
+        para un mismo cálculo. La cosa es ahora \textit{¿cuáles agarro?}.
+        Hay que pensar que queremos divisores \textit{coprimos} y tener soluciones de más.
+        Esto último de \textit{no tener soluciones de más} es la razón por la cual nos quedamos con
+        $\congruencia{a}{5}{8}$ y no con $\congruencia{a}{1}{2}$, porque en lo que a \textit{coprimisidad} respecta
+        nada cambia, pero hay muchas soluciones de $\congruencia{a}{1}{2}$ que no están en $\congruencia{a}{5}{8}$.
+
+        La cosa quedaría así:
+        $$
+          \llave{l}{
+            \congruencia{a}{5}{6}  \\
+            \congruencia{a}{3}{10} \\
+            \congruencia{a}{5}{8}
+          }
+          \leftrightsquigarrow
+          \llave{l}{
+            \congruencia{a}{2}{3} \llamada1 \\
+            \congruencia{a}{3}{5}\llamada2  \\
+            \congruencia{a}{5}{8} \llamada3
+          }
+        $$
+        Por \href{\chinito}{Teorema Chino} el sistema tiene solución.
+        Ahora es despejar, reemplazar y coso.
+
+        $$
+          \llamada1
+          a = 3\yellow{j} + 2
+          \flecha{reemplazo}[en $\llamada2$\red{!}]
+          \congruencia{\yellow{j}}{2}{5}
+          \Sii{def} \yellow{j} = 5\blue{k} + 2
+        $$
+        $$
+          \flecha{reemplazo}[en $a$]
+          a = 3(5\blue{k} +2) + 2 = 15 \blue{k} + 8
+          \flecha{reemplazo}[en $\llamada3$\red{!}]
+          \congruencia{\blue{k}}{3}{8}
+          \Sii{def} \blue{k} = 8\magenta{i} + 3
+        $$
+        $$
+          \flecha{reemplazo}[en $a$]
+          a = 15 (8\magenta{i} + 3) + 8 = 120 \magenta{i} + 53 \sisolosi \congruencia{a}{53}{120}
+        $$
+
+        Bueh, sacamos que los posibles valores de $a$ son $\congruencia{a}{53}{120}$, muy rico todo, pero
+        nos pidieron los valores de restos:
+        $$
+          \congruencia{a}{X}{480}
+        $$
+        Y dado que $a = 120 \magenta{i} + 53$:
+        $$
+          r_{480}(a) \en
+          \set{53, 173, 293, 413}
+        $$
+        valores para $\magenta{i} = 0, 1, 2, 3$ respectivamente. Cumplen condición de resto, listo ganamos. Te mando un beso
+        grande \faIcon[regular]{kiss}.
+
+  \item \hacer
+
+\end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

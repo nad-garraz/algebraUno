@@ -5,90 +5,113 @@ $(a^{1081}+ 3a + 17 : 105) = 35$\\
 \separadorCorto
 
 $ (\ub{a^{1081}+ 3a + 17}{m} : \ub{105}{3\cdot 5 \cdot 7})  = \ub{35}{5 \cdot 7}
-	\flecha{debe ocurrir}[que]
-	\llave{c}{
-		5 \divideA m\\
-        \text{y}\\
-		7 \divideA m\\
-        \text{y}\\
-		3 \noDivide m
-	}\\
-	5 \divideA m
-	\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
-	\to
-	\llave{cl}{
-		\text{si} & 5 \divideA a \to \congruencia{2}{0}{5}
-		\entonces \noCongruencia{a}{0}{5} \\
-        \text{o}\\
-		\text{si} & 5 \noDivide a
-		\flecha{$a^{1081} = a (a^4)^{270}$}[5 primo y $5 \noDivide a$]
-		\congruencia{a + 3a + 2}{0}{5}
-        \entonces
-        \boxed{\congruencia{a}{2}{5}}\\
-	}
-	\\
-	7 \divideA m
-	\to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
-	\to
-	\llave{cl}{
-		\text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \entonces \noCongruencia{a}{0}{7}\\
-        \text{o}\\
-		\text{si} & 7 \noDivide a
-		\flecha{$a^{1081} = a (a^6)^{180}$}[7 primo y $7 \noDivide a$]
-		\congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}
-        \entonces
-        \boxed{\congruencia{a}{1}{7}} \\
-	}
-	\\
-	3 \noDivide m
-	\to \noCongruencia{a^{1081} + \ub{3}{=0}a + \ub{17}{\conga{3} 2}}{0}{3}
-	\to
-	\llave{ll}{
-		\text{si} & 3 \divideA a 
-        \to
-        \noCongruencia{2}{0}{3} \entonces \congruencia{a}{0}{3} \\
-        \text{o}\\
-		\text{si} & 3 \noDivide a
-		\flecha{$a^{1081} = a (a^2)^{540}$}[3 primo y $3 \noDivide a$]
-		\noCongruencia{a + 2}{0}{3}
-        \entonces
-        \llave{l}{
-        \noCongruencia{a}{1}{3}\\
-        \noCongruencia{a}{0}{3}\\
-        }
-        \entonces
-        \boxed{\congruencia{a}{2}{3}}\\
-	}
+  \flecha{debe ocurrir}[que]
+  \llave{c}{
+    5 \divideA m \\
+    \text{y}     \\
+    7 \divideA m \\
+    \text{y}     \\
+    3 \noDivide m
+  }\\
+  5 \divideA m
+  \to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{5} 2}}{0}{5}
+  \to
+  \llave{cl}{
+    \text{si} & 5 \divideA a \to \congruencia{2}{0}{5}
+    \entonces \noCongruencia{a}{0}{5}                  \\
+    \text{o}                                           \\
+    \text{si} & 5 \noDivide a
+    \flecha{$a^{1081} = a (a^4)^{270}$}[5 primo y $5 \noDivide a$]
+    \congruencia{a + 3a + 2}{0}{5}
+    \entonces
+    \boxed{\congruencia{a}{2}{5}}                     \\
+  }
+  \\
+  7 \divideA m
+  \to \congruencia{a^{1081}+ 3a + \ub{17}{\conga{7} 3}}{0}{7}
+  \to
+  \llave{cl}{
+    \text{si} & 7 \divideA a \to \congruencia{3}{0}{7} \entonces \noCongruencia{a}{0}{7} \\
+    \text{o}                                                                             \\
+    \text{si} & 7 \noDivide a
+    \flecha{$a^{1081} = a (a^6)^{180}$}[7 primo y $7 \noDivide a$]
+    \congruencia{a + 3a + 3}{0}{7} \to \congruencia{4a}{-3}{7}
+    \entonces
+    \boxed{\congruencia{a}{1}{7}}                                                       \\
+  }
+  \\
+  3 \noDivide m
+  \to \noCongruencia{a^{1081} + \ub{3}{=0}a + \ub{17}{\conga{3} 2}}{0}{3}
+  \to
+  \llave{ll}{
+    \text{si} & 3 \divideA a
+    \to
+    \noCongruencia{2}{0}{3} \entonces \congruencia{a}{0}{3} \\
+    \text{o}                                                \\
+    \text{si} & 3 \noDivide a
+    \flecha{$a^{1081} = a (a^2)^{540}$}[3 primo y $3 \noDivide a$]
+    \noCongruencia{a + 2}{0}{3}
+    \entonces
+    \llave{l}{
+      \noCongruencia{a}{1}{3} \\
+      \noCongruencia{a}{0}{3} \\
+    }
+    \entonces
+    \boxed{\congruencia{a}{2}{3}}                          \\
+  }
 $\\
+
 Las condiciones marcan 2 sistemas:\\
 \begin{minipage}{0.5\textwidth}
-	\centering
-	$
-		\llave{l}{
-			\congruencia{a}{2}{5} \\
-			\congruencia{a}{1}{7} \\
-			\congruencia{a}{0}{3}
-		}
-		\to \boxed{\congruencia{a}{22}{105} }
-	$
+  \centering
+  $
+    \llave{l}{
+      \congruencia{a}{2}{5} \\
+      \congruencia{a}{1}{7} \\
+      \congruencia{a}{0}{3}
+    }
+    \to \boxed{\congruencia{a}{57}{105} }
+  $
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
-	\centering
-	$\llave{l}{
-			\congruencia{a}{2}{5} \\
-			\congruencia{a}{1}{7} \\
-			\congruencia{a}{2}{3}
-		}
-		\to \boxed{\congruencia{a}{92}{105} }
-	$
+  \centering
+  $\llave{l}{
+      \congruencia{a}{2}{5} \\
+      \congruencia{a}{1}{7} \\
+      \congruencia{a}{2}{3}
+    }
+    \to \boxed{\congruencia{a}{92}{105} }
+  $
 \end{minipage}
 Veo que para el conjunto de posibles $a$
-$\llaves{c}{
-		a = 105k_1 + 22 \\
-		o \\
-		a = 105k_2 + 92
-	}\flecha{calculo}[$\conga{70}$]$
-$\congruencia{a}{22}{35}\\
-\flecha{quiero los restos}[pedidos del enunciado]
-r_{70}(a) = \set{22, 57}$, 
-valores de $a$ que cumplan condición de $r_{70}(a)$ \Tilde
+$$
+  \llave{c}{
+    a = 105k_1 + 57 \llamada1 \\
+    \otext                    \\
+    a = 105k_2 + 92 \llamada2
+  }
+$$
+Con los valores de $a$ hallados, calculo el resto 70, $r_{70}(a)$:
+$$
+  \flecha{$\conga{70}$}
+  \llave{l}{
+    \llamada1 \congruencia{a}{57}{35} \\
+    \llamada2 \congruencia{a}{22}{35}
+  }
+$$
+
+Los restos pedidos:
+$$
+  r_{70}(a) = \set{22, 57}
+$$
+
+
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\neverGonnaGiveYouUp}{Nacho \youtube}
+\end{aportes}
+

@@ -1,22 +1,50 @@
-\ejercicio
-Hallar el resto de la división de $a$ por $p$ en los casos.
+\begin{enunciado}{\ejercicio}
+  Hallar el resto de la división de $a$ por $p$ en los casos.
+  \begin{enumerate}[label=\alph*)]
+    \item $a = 71^{22283},\, p=11$
+    \item $a = 5 \cdot 7^{2451} + 3 \cdot 65^{2345} - 23 \cdot 8^{138}, \, p = 13$
+  \end{enumerate}
+\end{enunciado}
 
-\separadorCorto
-\begin{enumerate}[label=\roman*)]
-	\item $a = 71^{22283},\, p=11$
+\begin{enumerate}[label=\alph*)]
+  \item
+        Rescribo: $22283 = 22280 + 3$ y notar que el $r_{10}(22280) = 0$
+        $$
+          a = 71^{22283} =
+          71^{22280 + 3} =
+          71^{22280} \cdot 71^3
+          \taa{PTF}{\red{!}}\congruente 71^3 \ (11) \sii \congruencia{a}{5^3 \congruente 4}{11}
+        $$
+        Por lo tanto:
+        $$
+          r_{11}(a) = 4
+        $$
 
-	      \separadorCorto
-	      $a = 71^{22283} = 71^{10 \cdot 2228 +2 + 1} = \ub{(71^{10})^{2228}}{\stackrel{11 \noDivide p}{\congruente} 1^{2228}\ (11)} \cdot 71^2 \cdot 71^1 \congruente 71^3 \ (11) \to \congruencia{a}{5^3}{11} $\Tilde\\
-	      Usando corolario con $p$ primo y $p \cop 71$,  $\to \congruencia{71^{22283}}{71^{r_{10}(22283)}}{11} \congruente 71^3 \ (11) \to  \congruencia{a}{5^3}{11} \Tilde$
+  \item
+        Acomodo un poco la expresión, pensando en el PTF. Los exponentes tienen que quedar lindos para encontrar los restos de $p-1$
+        $$
+          \begin{array}{l}
+            \congruencia{a}{5 \cdot 7^{2448 + 3} + 0 - 10 \cdot 8^{132 + 6}}{13}
+            \Sii{PTF}[\red{!}]
+            \congruencia{a}{5 \cdot 7^3 - 10 \cdot 8^6}{13}
+            \Sii{\red{!!}}
+            \congruencia{a}{5 \cdot 5 - 23 \cdot 12}{13}
+          \end{array}
+        $$
+        \textit{\faIcon{calculator} Nota que puede ser de interés:}\par
+        Con la calculadora salen fácil los cálculos, pero está bueno poder calcularlos a mano masajeando las potencias, onda
+        $8^6 = 64^3 \conga{13} (-1)^3 = -1 \conga{13} 12$\par
+        \textit{\faIcon{calculator} Fin Nota que puede ser de interés.}
 
-	\item $a = 5 \cdot 7^{2451} + 3 \cdot 65^{2345} - 23 \cdot 8^{138}, \, p = 13$
-
-	      \separadorCorto
-	      $\congruencia{a}{5 \cdot 7^{204 \cdot 12 + 3} + 3 \cdot 8^{11 \cdot 12 + 6}}{13}
-		      \to
-		      \congruencia{a}{5 \cdot (7^{12})^{204} \cdot 7^3 + 3 \cdot (8^{12})^{11} \cdot 8^6}{13}\\
-		      \flecha{$p \noDivide 7$}[$p \noDivide 8$]
-		      \congruencia{a}{5\cdot 7^3 + 3 \cdot 8^6 }{13}
-		      \to
-		      \congruencia{a}{5\cdot(- 6^3 + 3 \cdot 5^5)}{13} $ \red{consultar}
+        Un par de cuentas y calcular congruencia y queda:
+        $$
+          \congruencia{a}{9}{13}
+        $$
 \end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

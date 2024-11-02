@@ -1,21 +1,55 @@
-\ejercicio
-Resolver en $\enteros$ la ecuación de congruencia $\congruencia{7X^{45}}{1}{46}$.
+\begin{enunciado}{\ejercicio}
+  Resolver en $\enteros$ la ecuación de congruencia $\congruencia{7X^{45}}{1}{46}$.
 
-\separadorCorto
-$\congruencia{7X^{45}}{1}{46}
-	\flecha{multiplico por}[13]
-	\congruencia{91X^{45}}{13}{46}
-	\to \congruencia{X^{45}}{-13}{46}
-	\to \congruencia{X^{45}}{33}{46}\\
-	\to
-	\llave{l}{
-		\congruencia{X^{45}}{33}{23} \to\congruencia{X^{45}}{10}{23}
-		\flecha{23 primo y $23\noDivide X$}[$\congruencia{X^{22}}{1}{23}$]
-		X^{22} X^{22} X^{1} \conga{23} \congruencia{X}{10}{23}\\
+\end{enunciado}
+Acomodo un poco la ecuación que esta fea:
+$$
+  \congruencia{7X^{45}}{1}{46}
+  \Sii{$13 \cop 46$}
+  \congruencia{91X^{45}}{13}{46}
+  \Sii{\red{!}}
+  \congruencia{X^{45}}{33}{46}
+$$
 
-		\congruencia{X^{45}}{10}{2} \to  \congruencia{X^{45}}{0}{2}
-		\flecha{$X$ multiplicado por}[si mismo impar veces]
-		\congruencia{X}{0}{2}\\
-	}
-$\\
-La ecuación de congruencia \boxed{\congruencia{X}{10}{46}} cumple las condiciones encontradas.
+La idea es quebrar para poder el PTF:
+
+$$
+  \flecha{quiebro}[\red{!}]
+  \llave{l}{
+    \congruencia{X^{45}}{10}{23}
+    \Sii{$23\noDivide X$}[\red{!!!}]
+    X^{22} X^{22} X^1 \taa{(23)}{\text{PTF}}{\congruente} \congruencia{X}{10}{23} \\
+
+    \congruencia{X^{45}}{1}{2} \Sii{$X^{45}$ es impar}[entonces X también]
+    \congruencia{X}{1}{2}                                                                    \\
+  }
+$$
+
+En el \red{!!!} acomodo $X^{45}$ para poder usar el PTF y $\congruencia{X^{22}}{X^0}{23}$
+
+Se tiene hasta el momento:
+$$
+  \congruencia{7X^{45}}{1}{46}
+  \leftrightsquigarrow
+  \llave{l}{
+    \congruencia{X}{10}{23} \\
+    \congruencia{X}{1}{2}
+  }
+$$
+
+Sacar de acá, meter allá y coso:
+
+$$
+  X = 23\magenta{k} + 10 \conga2 \magenta{k} \congruente 1\ (2) \Sii{def} \magenta{k} = 2\yellow{j} + 1
+$$
+Por lo tanto:
+$$
+X = 23(2\yellow{j} +1 ) + 10 = 46 \yellow{j} + 33 \Sii{def} \congruencia{X}{33}{46}
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

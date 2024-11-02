@@ -1,3 +1,52 @@
 \begin{enunciado}{\ejercicio}
-  \hacer
+  Hallar todos los $p \en \naturales$ que satisfacen:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\alph*)]
+      \item  $2p \divideA 38^{2p^2 -p -1} + 3p + 171$
+      \item  $3p \divideA 5^{p-1} + 3^{p^2+2} + 833$
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item Para poder usar PTF tengo que tener un primo en el divisor, quiebro:
+        $$
+          \begin{array}{c}
+            \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{2p}
+            \leftrightsquigarrow
+            \llave{l}{
+            \congruencia{p}{1}{2} \llamada1 \\
+              \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{p} \llamada2
+            }
+          \end{array}
+        $$
+
+        $$
+          \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{p}
+          \sii
+          \llave{l}{
+            \Sii{si $p \divideA 38$}[$\entonces p = 19$]
+            \congruencia{ 38^{2p^2 -p -1} + 3p + 171 \conga{19} 0}{\blue{0}}{p} \llamada3 \\
+            \Sii{PTF}[$p \noDivide 38$ \red{!!}]
+            \congruencia{38^{\red{0}} + 0 + 171 = \ub{172}{2^2 \cdot 43}}{\blue{0}}{p} \llamada4
+          }
+        $$
+
+        Cálculo para hacer el PTF:
+        $$
+          \polyset{vars=p}
+          \divPol{2p^2 - p - 1}{p-1}
+        $$
+
+        Después de hacer todo eso, sacamos de $\llamada1$ que $p$ es impar. De $\llamada3$ obtenemos que un posible valor sería $p = 19$ y
+                luego del caso $p \noDivide 38$ sale que debe ocurrir que $172 \conga{p} 0$, y dado que $p$ tiene que ser impar, $p = 43$.
+
+        \item \hacer
+\end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

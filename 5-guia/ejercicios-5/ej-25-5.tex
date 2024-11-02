@@ -1,1 +1,103 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Hallar los posibles restos de dividir a un entero $a$ por 44 sabiendo que $(a^{760} + 11a + 10 : 88) = 2$.
+\end{enunciado}
+
+$88 = 2^3 \cdot 11$, y dado que el MCD es 2, podemos inferir que:
+$$
+  \llave{rlc}{
+    2  & \divideA  & a^{760} + 11a + 10 \llamada1 \vspace{4pt} \\
+    4  & \noDivide & a^{760} + 11a + 10 \llamada2 \vspace{4pt} \\
+    11 & \noDivide & a^{760} + 11a + 10 \llamada3
+  }
+$$
+
+Vamos a buscar info sobre $a$. De $\llamada1$ tenemos que:
+$$
+  \congruencia{a^{760} + 11a + 10 \congruente a^{760} + a }{0}{2}
+  \sii
+  \llave{lll}{
+    \text{si } \congruencia{a}{0}{2} & \entonces & \congruencia{\magenta{0}^{760} + \magenta{0}}{0}{2}               \\
+    \text{si } \congruencia{a}{1}{2} & \entonces & \congruencia{\magenta{1}^{760} + \magenta{1} \congruente 0}{0}{2}
+  }
+$$
+
+De donde no sacamos nada relevante respecto de $a$, dado que $a$ podría ser par o impar, que es lo mismo que decir que $a$ puede
+ser cualquier número \faIcon[regular]{meh}.\par\medskip
+
+Ahora estudio $\llamada2$ para distintos valores de $a$. Vamos a poder usar PTF? NO, porque 4 no es primo chequea la teoría \hyperlink{teoria-5:PTF}{acá}:
+
+$$
+  \congruencia{a^{760} + 11a + 10 \congruente a^{760} - a + 2 }{\blue{0}}{4}
+  \sii
+  \llave{lll}{
+    \text{si } \congruencia{a}{0}{4} & \entonces & \congruencia{2}{\blue{0}}{4}                                                                                      \\
+    \text{si } \congruencia{a}{1}{4} & \entonces & \congruencia{2}{\blue{0}}{4}                                                                                      \\
+    \text{si } \congruencia{a}{2}{4} & \entonces & \congruencia{2^{760} = (2^2)^{380} \conga4 0}{\blue{0}}{4} \\
+    \text{si } \congruencia{a}{3}{4} & \entonces & \congruencia{3^{760} - 1 \conga4 (-1)^{760} - 1 = 0}{\blue{0}}{4}
+  }
+$$
+
+Qué se concluye de esa cosa? Tenemos que $4  \noDivide a^{760} + 11a + 10$, entonces elijo los valores de $a$ que justamente logren eso:
+$$
+  \congruencia{a}{0}{4}
+  \otext
+  \congruencia{a}{1}{4}
+$$
+
+Misma historia con $\llamada3$, y si estás despierto todavía, finalmente vamos a poder usar el PTF, porque 11 es un número primo (\hyperlink{teoria-5:PTF}{teoria acá}):
+$$
+  \congruencia{a^{760} + 11a + 10 \congruente a^{760} - 1 }{\blue{0}}{11}
+  \sii
+  \llave{lll}{
+    \text{si } 11 \divideA a  & \entonces                              & \congruencia{-1}{\blue{0}}{11}                                     \\
+    \text{si } 11 \noDivide a & \Entonces{PTF}[\red{!}] & \congruencia{a^{r_{10}(760)} - 1 = 0 }{\blue{0}}{4}
+  }
+$$
+Como en el caso anterior voy a elegir el conjunto de los $a$ que haga que $11 \noDivide a^{760} + 11a + 10 $. En este caso me quedo con los $a$ que cumplen:
+$$
+  11 \divideA a \Sii{def} \congruencia{a}{0}{11}
+$$
+
+Con estos resultados puedo formar 2 sistemas:
+$$
+  \llamada4
+  \llave{l}{
+    \congruencia{a}{0}{4} \\
+    \congruencia{a}{0}{11}
+  }
+  \ytext
+  \llamada5
+  \llave{l}{
+    \congruencia{a}{1}{4} \\
+    \congruencia{a}{0}{11}
+  }
+$$
+Por \href{\chinito}{TCH} los sistemas tienen solución, porque los divisores son coprimos 2 a 2.
+
+El sistema $\llamada4$ sale fácil \boxed{\congruencia{a}{0}{44}}
+
+El sistema $\llamada5$:
+$$
+  \begin{array}{c}
+    \congruencia{a}{1}{4}
+    \Sii{def}
+    a = 4\blue{k} + 1                                 \\
+    \congruencia{4\blue{k} + 1}{0}{11}
+    \Sii{$11 \cop 3$}[\red{!!}]
+    \congruencia{\blue{k}}{8}{11}
+    \Sii{def}
+    \blue{k} = 11\magenta{j} + 8                      \\
+    a = 4(11\magenta{j} + 8) + 1 = 44\magenta{j} + 33 \\
+    \boxed{\congruencia{a}{33}{44}}
+  \end{array}
+$$
+
+Los posibles restos que nos pedían son 0 y 33.
+
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

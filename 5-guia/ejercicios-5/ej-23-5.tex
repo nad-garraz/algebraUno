@@ -1,71 +1,106 @@
-\ejercicio
-Hallar todos los divisores positivos de $5^{140} = 25^{70}$ que sean congruentes
-a 2 módulo 9 y 3 módulo 11.
+\begin{enunciado}{\ejercicio}
+  Hallar todos los divisores positivos de $5^{140} = 25^{70}$ que sean congruentes
+  a 2 módulo 9 y 3 módulo 11.
+\end{enunciado}
 
-\separadorCorto
+Escribiendo el enunciado en ecuaciones queda algo así:
 
-Quiero que ocurra algo así:
-$\llave{l}{
-		\congruencia{25^{70}}{0}{d} \to \congruencia{5^{140}}{0}{d}  \\
-		\congruencia{d}{2}{9} \\
-		\congruencia{d}{3}{11}
-	}$.
-De la primera ecuación queda que el divisor $d = 5^\alpha$ con $\alpha$ compatible
+$$
+  \llave{l}{
+    \congruencia{25^{70}}{0}{d} \sii \congruencia{5^{140}}{0}{d} \\
+    \congruencia{d}{2}{9}                                                                                    \\
+    \congruencia{d}{3}{11}.
+  }
+$$
+De la primera ecuación queda que el divisor $d = \magenta{5^\alpha}$ con $\alpha$ compatible
 con las otras ecuaciones.
-$\to
-	\llave{l}{
-		\congruencia{5^\alpha}{2}{9} \\
-		\congruencia{5^\alpha}{3}{11}
-	}$\\
+$$
+  \llave{l}{
+    \congruencia{5^{140}}{0}{ \magenta{5^\alpha}} \\
+    \congruencia{\magenta{5^\alpha}}{2}{9} \llamada1                   \\
+    \congruencia{\magenta{5^\alpha}}{3}{11} \llamada2
+  }
+$$
 
-$\to \text{Busco periodicidad en los restos de las exponenciales $5^{\text{¿}\alpha?} \congruente 1$: }\\
-	\flecha{Busco}[$5^{a} \conga{d} 1$]
-	\llave{l}{
-		\congruencia{5^\alpha}{2}{9} \\
-		\congruencia{5^3}{-1}{9}
-		\sii
-		\congruencia{5^6}{1}{9}
-		\sii
-		5^{6k+r_6(\alpha)} = (\ob{5^6}{\conga9 1})^k 5^{r_6(\alpha)}.\\
-        \text{Busco, posibles valores para $r_6(\alpha)$: }
-		\begin{array}{|l|l|l|l|l|l|l|}
-			\hline
-			r_6(\alpha)   & 0 & 1 & 2 & 3 & 4 & 5       \\ \hline
-			r_9(5^\alpha) & 1 & 5 & 7 & 8 & 4 & \red{2} \\ \hline
-		\end{array}\\
-		\flecha{por lo}[tanto] \text{para que }
-		\congruencia{5^\alpha}{2}{9}
-		\sii
-		\boxed{\congruencia{\alpha}{5}{6}}\Tilde \\
+Estudio la periodicidad que aparece al calcular los restos de las exponenciales. ¿Para qué valor de $\alpha$ tendré $5^{\alpha} \congruente 1$?.
+Empiezo con $\llamada1$. Notar que:
+$$
+  \congruencia{5^3}{-1}{9}
+  \Sii{\red{!}}
+  \congruencia{5^6}{1}{9}
+$$
+Este último resultado me dice que como mucho hay 6 posibles valores distintos para $r_9(5^\alpha)$. Dado que escribiendo \textit{genérica, pero convenientemente}
+el exponente tengo:
+$$
+  5^{6k+r_6(\alpha)} = (5^6)^k \cdot 5^{r_6(\alpha)} \conga9 5^{r_6(\alpha)}                                \\
+$$
+Dados que los valores del conjunto $r_6(\alpha)$ son solo $\set{0,1,2,3,4,5}$, calculo a mano los posibles resultados de $\llamada1$:
+$$
+  \begin{array}{|l|l|l|l|l|l|l|}
+    \hline
+    r_{\red{6}}(\alpha) & 0 & 1 & 2 & 3 & 4 & 5       \\ \hline
+    r_9(5^\alpha)       & 1 & 5 & 7 & 8 & 4 & \red{2} \\ \hline
+  \end{array}
+$$
+Concluyo que:
+$$
+  \congruencia{\magenta{5^\alpha}}{2}{9}  \sii \congruencia{\alpha}{5}{6}                     \\
+$$
 
-		\separadorCorto
+\bigskip
 
-		\congruencia{5^\alpha}{3}{11}
-		\flecha{fermateo en búsqueda de }[periodicidad 11 es primo, $11\noDivide 5$]
-		\congruencia{\green{5^{10}}}{1}{11}\\
-        \text{El PTF no me asegura que no haya un $\alpha < 10$ que también cumpla $\congruencia{5^\alpha}{1}{11}$}\\
-		\begin{array}{|l|l|l|l|l|l|l|l|l|l|l|}
-			\hline
-			r_{10}(\alpha)   & 0 & 1 & 2       & 3 & 4 & 5        \\ \hline
-			r_{11}(5^\alpha) & 1 & 5 & \red{3} & 4 & 9 & \cyan{1} \\ \hline
-		\end{array}\\
-		\flecha{por lo tanto hay}[periodicidad de 5] \text{Se obtiene enteonces: }\\
-		\congruencia{5^\alpha}{3}{11}
-		\sii
-		\boxed{\congruencia{\alpha}{2}{5}} \Tilde
-	}$\\
-El sistema
-$\llave{l}{
-		\congruencia{\alpha}{5}{6} \\
-		\congruencia{\alpha}{2}{5}
-	}$
- 6 y 5 son coprimos, se resuelve para $\congruencia{\alpha}{17}{30}$ y además $0<\alpha \leq 140$ lo que se
-cumple para $\alpha = 30k + 17 =
-	\llaves{lcr}{
-		17  &  \text{ si } & k = 0\\
-		 47 &  \text{ si } & k = 1 \\
-		77 &  \text{ si } & k = 2 \\
-		107 &  \text{ si } & k = 3 \\
-		137 &  \text{ si } & k = 4 \\
-	} \to$
-    \boxed{\divsetP{25^{70}}{ 5^{17}, 5^{47}, 5^{77}, 5^{107}, 5^{137} }}
+El estudio de $\llamada2$ es un poco más feliz, porque 11 es primo y podemos usar PTF, entonces se encuentra la periodicidad de los restos de
+la exponencial más rápido:
+$$
+  \congruencia{5^\alpha}{3}{11}
+  \Entonces{$11 \noDivide 5$}[PTF, con $\alpha=10$]
+  \congruencia{5^{\green{10}} \taa{\red{!}}{}{\congruente} 5^{r_{10}(10)}}{1}{11}
+$$
+Con ese resultado uno se tienta a repetir lo que se hizo para $\llamada1$, pero ahí está \textit{la trampa del ejercicio}.
+El PTF nos da un resultado, pero no quiere decir que no haya otro de valor menor. Es decir que puede haber un $\alpha < 10$ tal que
+cumpla que $5^\alpha \conga{11} 1$. Veamos si eso es así:
+$$
+  \begin{array}{|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+    r_{10}(\alpha)   & 0 & 1 & 2       & 3 & 4 & 5        & \dots \\ \hline
+    r_{11}(5^\alpha) & 1 & 5 & \red{3} & 4 & 9 & \cyan{1} & \dots \\ \hline
+  \end{array}                                       \\
+$$
+y sí, estaba ese número ahí para molestar. De no haber encontrado ese \cyan{1} ahí, se \ul{hubieran perdido soluciones}.
+Para que se cumpla $\llamada2$:
+$$
+  \congruencia{\magenta{5^\alpha}}{3}{11}  \sii \congruencia{\alpha}{2}{5}                     \\
+$$
+
+Los valores de $\alpha$ deben cumplir el sistema:
+
+$$
+  \llave{l}{
+    \congruencia{\alpha}{5}{6} \\
+    \congruencia{\alpha}{2}{5},
+  }
+$$
+
+con 6 y 5 coprimos hay solución por \href{\chinito}{TCH}. La solución: $\congruencia{\alpha}{17}{30}$ y además $0 < \alpha \leq 140$ (si no vuela todo por los aires)
+lo que se cumple para:
+$$
+  \alpha = 30k + 17 =
+  \llave{lcr}{
+    17  & \text{ si } & k = 0 \\
+    47  & \text{ si } & k = 1 \\
+    77  & \text{ si } & k = 2 \\
+    107 & \text{ si } & k = 3 \\
+    137 & \text{ si } & k = 4
+  }
+$$
+Finalmente los divisores porsitivos pedidos del enunciado son:
+$$
+  \boxed{\divsetP{25^{70}}{ 5^{17}, 5^{47}, 5^{77}, 5^{107}, 5^{137} }}
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

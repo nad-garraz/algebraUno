@@ -26,15 +26,15 @@ Estudio la periodicidad que aparece al calcular los restos de las exponenciales.
 Empiezo con $\llamada1$. Notar que:
 $$
   \congruencia{5^3}{-1}{9}
-  \Sii{\red{!}}
+  \Sii{\red{!}}[$(\Leftarrow)\ 5^3\perp9$]
   \congruencia{5^6}{1}{9}
 $$
-Este último resultado me dice que como mucho hay 6 posibles valores distintos para $r_9(5^\alpha)$. Dado que escribiendo \textit{genérica, pero convenientemente}
-el exponente tengo:
+Este último resultado me dice que como mucho hay 6 posibles valores distintos para $r_9(5^\alpha)$ y eso se ve fácil escribiendo \textit{genérica, pero convenientemente},
+el exponente:
 $$
   5^{6k+r_6(\alpha)} = (5^6)^k \cdot 5^{r_6(\alpha)} \conga9 5^{r_6(\alpha)}                                \\
 $$
-Dados que los valores del conjunto $r_6(\alpha)$ son solo $\set{0,1,2,3,4,5}$, calculo a mano los posibles resultados de $\llamada1$:
+Los valores del conjunto $r_6(\alpha)$ son solo $\set{0,1,2,3,4,5}$, calculo a mano los posibles resultados de $\llamada1$:
 $$
   \begin{array}{|l|l|l|l|l|l|l|}
     \hline
@@ -49,11 +49,11 @@ $$
 
 \bigskip
 
-El estudio de $\llamada2$ es un poco más feliz, porque 11 es primo y podemos usar PTF, entonces se encuentra la periodicidad de los restos de
+El estudio de $\llamada2$ es un poco más feliz, porque 11 es primo y podemos usar PTF (\hyperlink{teoria-5:PTF}{teoría acá}), entonces se encuentra la periodicidad de los restos de
 la exponencial más rápido:
 $$
   \congruencia{5^\alpha}{3}{11}
-  \Entonces{$11 \noDivide 5$}[PTF, con $\alpha=10$]
+  \Entonces{$11 \noDivide 5$}[PTF, con $\alpha=\green{10}$]
   \congruencia{5^{\green{10}} \taa{\red{!}}{}{\congruente} 5^{r_{10}(10)}}{1}{11}
 $$
 Con ese resultado uno se tienta a repetir lo que se hizo para $\llamada1$, pero ahí está \textit{la trampa del ejercicio}.
@@ -98,9 +98,6 @@ $$
   \boxed{\divsetP{25^{70}}{ 5^{17}, 5^{47}, 5^{77}, 5^{107}, 5^{137} }}
 $$
 
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
   \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
 \end{aportes}

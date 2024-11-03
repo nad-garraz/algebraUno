@@ -1,21 +1,41 @@
-\ejercicio
-Resolver en $\enteros$ las siguientes eecuaciones de congruencia:
-
-\separadorCorto
+\begin{enunciado}{\ejercicio}
+  Resolver en $\enteros$ las siguientes eecuaciones de congruencia:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $\congruencia{2^{194}X}{7}{97}$
+      \item $\congruencia{5^{86}X}{3}{89}$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item $\congruencia{2^{194}X}{7}{97}$
+  \item Hay que \textit{toquetear} ese exponente feo, para que sea algo útil para usar
+        PTF con ese 97 que está en el divisor.\par
+        Propiedades de exponente:
+        $$
+          2^{194} \igual{\red{!}} (2^2)^{97} = 4^{97}
+        $$
+        La ecuación queda:
+        $$
+          \begin{array}{l}
+            \congruencia{4^{97} X}{7}{97}
+            \Sii{$97 \noDivide 4  $}[PTF]
+            \congruencia{4X}{7}{97}
+            \Sii{$24 \cop 97  $}[\red{!!}]
+            \congruencia{X}{-168}{97}
+            \sii
+            \congruencia{X}{26}{97}
+          \end{array}
+        $$
 
-	      \separadorCorto
-	      $\flecha{$2 \cop 97$}  2^{194} = (2^{96})^{2} \cdot 2^2 \congruente 4\ (97)
-		      \to
-		      \congruencia{4X}{7}{97}
-		      \flecha{$\times 24$}
-		      \congruencia{-X}{\ub{168}{\conga{97} 71}}{97}
-		      \flecha{$-71 \conga{97} 26$} \congruencia{X}{26}{97} $\Tilde
+  \item
+        Hay que pensar como podemos modificar la ecuación para aplicar PTF:
+        $$
+          \congruencia{5^{86}X}{3}{89}
+          \Sii{$89 \cop 5^2$}[\red{!}]
+          \congruencia{5^{88}X}{75}{89}
+          \Sii{$89 \noDivide 5$}{}
+          \congruencia{X}{75}{89}
+        $$
 
-	\item $\congruencia{5^{86}X}{3}{89}$\\
-
-	      \separadorCorto
-	      \hacer
 \end{enumerate}

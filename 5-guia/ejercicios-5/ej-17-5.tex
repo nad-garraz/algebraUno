@@ -1,63 +1,63 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Probar que para todo $a\en \enteros$ vale
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $728 \divideA a^{27} - a^3$
+      \item $\frac{2a^7}{35} + \frac{a}{7} - \frac{a^3}{5}  \en \enteros$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
 
-Probar que para todo $a\en \enteros$ vale
 \begin{enumerate}[label=\roman*)]
-	\item $728 \divideA a^{27} - a^3$
-	\item $\frac{2a^7}{35} + \frac{a}{7} - \frac{a^3}{5}  \en \enteros$
-\end{enumerate}
-
-\separadorCorto
-
-\begin{enumerate}[label=\roman*)]
-	\item $728 = 2^3 \cdot 7 \cdot 13$ \\
-	      Pruebo congruencia con $2^3$, 7 y 13.\\
-	      $ 728 \divideA a^{27} - a^3
-		      \entonces\\
-		      \llave{l}{
-			      2 \divideA a^{27} - a^3
-                  \flecha{$2\noDivide a$} 
-                  \congruencia{(\ub{a}{\conga2 1})^{27} - (\ub{a}{\conga2 1})^3}{0}{2}
-			      \entonces 2 \divideA a^{27} - a^3 \\
-			      8 \divideA a^{27} - a^3
-			      \sii
-			      \llave{l}{
-				      \congruencia{(2k)^{27} - (2k)^3}{0}{8}
-				      \sii
-				      \congruencia{2^3 \cdot (\ub{2^3}{ \conga8 0})^8 \cdot k^{27} - \ub{2^3}{\conga8 0} \cdot k^3}{0}{8}\Tilde
-				      \\
-				      3 \divideA a^{27} - a^3
-				      \sii
-				      \congruencia{3^{27} - 3^3}{0}{8}
-				      \sii
-				      \congruencia{(\ub{3^2}{\conga8 1})^{13} \cdot 3 - \ub{3^2}{\conga8 1} \cdot 3}{0}{8} \Tilde
-				      \\
-				      5 \divideA a^{27} - a^3
-				      \sii
-				      \congruencia{5^{27} - 5^3}{0}{8}
-				      \sii
-				      \congruencia{(\ub{5^2}{\conga8 1})^{13} \cdot 5 - \ub{5^2}{\conga8 1} \cdot 5}{0}{8} \Tilde
-				      \\
-				      7 \divideA a^{27} - a^3
-				      \sii
-				      \congruencia{7^{27} - 7^3}{0}{8}
-				      \sii
-				      \congruencia{(\ub{7}{\conga8 1})^{27} - \ub{7^3}{\conga8 1}}{0}{8} \Tilde
-			      }
-			      \\
-			      7 \divideA a^{27} - a^3
-			      \sii
-			      \congruencia{a^{27}-a^3}{0}{7}
-			      \flecha{7 primo}[caso $7 \noDivide a$]
-			      \congruencia{a^{27}-a^3}{0}{7}
-			      \sii
-			      \congruencia{a^3 - a^3}{0}{7} \Tilde \\
-			      13 \divideA a^{27} - a^3
-			      \sii
-			      \congruencia{a^{27} - a^3}{0}{13}
-			      \flecha{13 primo}[caso $13 \noDivide a$]
-			      \congruencia{a^{27}-a^3}{0}{13}
-			      \sii
-			      \congruencia{a^3 - a^3}{0}{13} \Tilde \\
-		      }
-	      $
+  \item $728 = 2^3 \cdot 7 \cdot 13$ \\
+        Pruebo congruencia con $2^3$, 7 y 13.\\
+        $ 728 \divideA a^{27} - a^3
+          \entonces\\
+          \llave{l}{
+            2 \divideA a^{27} - a^3
+            \flecha{$2\noDivide a$}
+            \congruencia{(\ub{a}{\conga2 1})^{27} - (\ub{a}{\conga2 1})^3}{0}{2}
+            \entonces 2 \divideA a^{27} - a^3     \\
+            8 \divideA a^{27} - a^3
+            \sii
+            \llave{l}{
+              \congruencia{(2k)^{27} - (2k)^3}{0}{8}
+              \sii
+              \congruencia{2^3 \cdot (\ub{2^3}{ \conga8 0})^8 \cdot k^{27} - \ub{2^3}{\conga8 0} \cdot k^3}{0}{8}\Tilde
+              \\
+              3 \divideA a^{27} - a^3
+              \sii
+              \congruencia{3^{27} - 3^3}{0}{8}
+              \sii
+              \congruencia{(\ub{3^2}{\conga8 1})^{13} \cdot 3 - \ub{3^2}{\conga8 1} \cdot 3}{0}{8} \Tilde
+              \\
+              5 \divideA a^{27} - a^3
+              \sii
+              \congruencia{5^{27} - 5^3}{0}{8}
+              \sii
+              \congruencia{(\ub{5^2}{\conga8 1})^{13} \cdot 5 - \ub{5^2}{\conga8 1} \cdot 5}{0}{8} \Tilde
+              \\
+              7 \divideA a^{27} - a^3
+              \sii
+              \congruencia{7^{27} - 7^3}{0}{8}
+              \sii
+              \congruencia{(\ub{7}{\conga8 1})^{27} - \ub{7^3}{\conga8 1}}{0}{8} \Tilde
+            }
+            \\
+            7 \divideA a^{27} - a^3
+            \sii
+            \congruencia{a^{27}-a^3}{0}{7}
+            \flecha{7 primo}[caso $7 \noDivide a$]
+            \congruencia{a^{27}-a^3}{0}{7}
+            \sii
+            \congruencia{a^3 - a^3}{0}{7} \Tilde  \\
+            13 \divideA a^{27} - a^3
+            \sii
+            \congruencia{a^{27} - a^3}{0}{13}
+            \flecha{13 primo}[caso $13 \noDivide a$]
+            \congruencia{a^{27}-a^3}{0}{13}
+            \sii
+            \congruencia{a^3 - a^3}{0}{13} \Tilde \\
+          }
+        $
 \end{enumerate}

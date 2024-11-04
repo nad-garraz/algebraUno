@@ -1,67 +1,124 @@
-\ejercicio
-
-%Macro local
 \def\sumLocal{\sumatoria{i=1}{1759}}
-% fin macro local
+\begin{enunciado}{\ejercicio}
+  %Macro local
+  % fin macro local
+  Hallar el resto de la división de:
+  \begin{enumerate}[label=\roman*)]
+    \item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70
+    \item $\sumLocal i^{42}$ por 56
+  \end{enumerate}
+\end{enunciado}
 
-Hallar el resto de la división de:
 \begin{enumerate}[label=\roman*)]
-	\item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70
-	\item $\sumLocal i^{42}$ por 56
+  \item \hacer
+
+  \item Calcular el resto pedido equivale a resolver la ecuación de equivalencia:
+        $$
+          \congruencia{X}{\sumLocal i^{42}}{56}
+        $$
+        que será aún más simple si quiebro en la forma:
+        $$\llave{l}{
+            \congruencia{X}{\sumLocal i^{42}}{7} \llamada1 \\
+            \congruencia{X}{\sumLocal i^{42}}{8} \llamada2
+          }
+        $$
+        Primero estudio $\llamada1$. Acomodo la sumatoria, voy a abrirla y separar
+        los términos \textit{convenientemente}:
+        $$
+          \sumLocal i^{42} = 1^{42} + 2^{42} + 3^{42}  + \cdots 1759^{42}
+        $$
+        Le calculo el módulo 7 a todos los términos y obtengo:
+        $$
+          \begin{array}{c}
+            \scriptstyle
+            \sumLocal i^{42} \conga7
+            1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 0^{42} +
+            1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 0^{42} +
+            1^{42} + 2^{42} +3^{42} + 4^{42} + 5^{42} \dots \\
+          \end{array}
+        $$
+        La sumatoria tiene un total de 1759 términos, que se puede agrupar en
+        $1759 = 251\cdot \blue{7}  + \purple{2}$.
+
+        $$
+          \begin{array}{c}
+            \sumLocal i^{42} \conga7 251 \cdot \bigl(
+            \blue{1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 0^{42}}\bigr) +
+            \bigl(\purple{1^{42} + 2^{42}}\bigr)
+          \end{array}
+        $$
+        $$
+          \begin{array}{c}
+            \Sii{7 primo y $7 \noDivide i$}[PTF en cada término] \\
+            \sumLocal i^{42} \conga7 251 \cdot
+            \bigl( 1 + 1 + 1 + 1 + 1 + 1 + 0\bigr) + \bigl(1 + 1 \bigr) =
+            251 \cdot  6 + 2 \conga7 3
+          \end{array}
+        $$
+        Encontramos entonces que $\llamada1$:
+        $$
+          \congruencia{X}{3}{7}
+        $$
+
+        Ahora se labura la expresión $\llamada2$. Es la misma idea de antes, pero cuidado que como 8 no es primo, no
+        se puede usar el PTF. Haciendo lo mismo de antes, abriendo la sumatoria y aplicando el módulo 8 a cada término:
+        $$
+          \begin{array}{c}
+            \scriptstyle
+            \sumLocal i^{42} \conga8
+            1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42} + 0^{42} +
+            1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42} + 0^{42} +
+            1^{42} + 2^{42} +3^{42} + 4^{42} + 5^{42} \dots \\
+          \end{array}
+        $$
+
+        La sumatoria tiene un total de 1759 términos, que se puede agrupar en
+        $1759 = 219\cdot \blue{8}  + \purple{7}$.
+        $$
+          \sumLocal i^{42} \conga8 219 \cdot \bigl(
+          \blue{1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42} +0^{42}}\bigr) +
+          \bigl(\purple{1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42}}\bigr)
+        $$
+        Para analizar los términos a mano, se puede jugar con el exponente, buscando que el cálculo quede simple:
+        $$
+          \llave{l}{
+            2^{42} = (2^3)^{14}\conga8 0                  \\
+            4^{42} = (2^3)^{14} \cdot (2^3)^{14}\conga8 0 \\
+            6^{42} = (2^3)^{14} \cdot 3^{42} \conga8 0
+          } \quad
+          \llave{l}{
+            1^{42} = 1                             \\
+            3^{42} = (3^2)^{21} \conga8 1^{21} = 1 \\
+            5^{42} = (5^2)^{21} \conga8 1^{21} = 1 \\
+            7^{42} = (7^2)^{21} \conga8 1^{21} = 1
+          }
+        $$
+
+        $$
+          \sumLocal i^{42} \conga8 219 \cdot \bigl(
+          \blue{1 + 0 + 1 + 0 + 1 + 0 + 1 +0}\bigr) +
+          \bigl(\purple{1 + 0 + 1 + 0 + 1 + 0 + 1}\bigr) =
+          219 \cdot 4 + 4 = 880 \conga8 0
+        $$
+        Encontramos entonces que $\llamada2$:
+        $$
+          \congruencia{X}{0}{8}
+        $$
+
+        Para resolver el ejercicio solo falta resolver el sistema que queda de juntar los resultados de $\llamada1$ y $\llamada2$:
+        $$
+          \llave{l}{
+            \congruencia{X}{3}{7} \\
+            \congruencia{X}{0}{8}
+          }
+        $$
+        tiene solución por \href{\chinito}{TCH}, dado que 8 y 7 son coprimos. La solución da
+        $\congruencia{X}{24}{56}$, por lo tanto el \textit{resto pedido}:
+        $$
+          r_{56}\parentesis{\sumLocal i^{42}} = 24
+        $$
 \end{enumerate}
 
-\separadorCorto
-
-\begin{enumerate}[label=\roman*)]
-	\item \hacer
-
-	\item Calcular el resto pedido equivale a resolver la ecuaición de equivalencia:\\
-	      $ \congruencia{X}{\sumLocal i^{42}}{56} $ que será aún más simple en la forma:
-	      $\llave{l}{
-			      \congruencia{X}{\sumLocal i^{42}}{7}\\
-			      \congruencia{X}{\sumLocal i^{42}}{8}
-		      }\\
-		      \text{Primerlo estudio la ecuación de módulo 7: }\\
-		      \llave{l}{
-                \congruencia{\sumLocal i^{42}}{X}{7} \llamada{1}
-
-			      \flecha{7 es primo, uso \magenta{Fermat}}[si $p \noDivide i \to i^{42} = \congruencia{(i^6)^7}{1}{7}$]
-			      \sumLocal i^{42} = \sumLocal (i^6)^7
-			      \flecha{$251 \cdot 7 + 2 = 1759$}\\
-			      \sumLocal (i^6)^7 \conga7 251 \cdot \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7 + (5^6)^7 + (6^6)^7 + (7^6)^7} + \parentesis{(1^6)^7 + (2^6)^7 + (3^6)^7 + (4^6)^7}\\
-			      \sumLocal (i^6)^7 \magenta{\conga7 } 251 \cdot \parentesis{1 + 1 + 1 + 1 + 1 + 1 + 0} + \parentesis{1 + 1 + 1 + 1} =
-			      251 \cdot  6 + 4 \conga7 3\\
-                  \flecha{$\llamada{1}$ }
-                  \boxed{\congruencia{X}{3}{7}}\\
-		      }$\\
-	      Ahora se labura el módulo 8.\\
-
-	      $\llave{l}
-		      {
-			      \congruencia{\sumLocal i^{42}}{X}{8}
-			      \flecha{8 no es primo}[no uso Fermat]
-			      \text{Analizo a mano}
-			      \flecha{$219 \cdot 8 + 7 = 1759$}
-			      \congruencia{X}{\sumLocal i^{42}}{8} \conga8
-			      \\
-			      \conga8 219 \cdot \ub{(1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42} + 0^{42})}{\text{8 términos: } r_8(i^{42}) = (r_8(i))^{42} }
-			      + (1^{42} + 2^{42} + 3^{42} + 4^{42} + 5^{42} + 6^{42} + 7^{42}) \\
-			      \to
-			      \llaves{l}{
-				      2^{42} = (2^3)^{14}\conga8 0\\
-				      4^{42} = (2^3)^{14} \cdot (2^3)^{14}\conga8 0\\
-				      6^{42} = (2^3)^{14} \cdot 3^{42} \conga8 0\\
-				      1^{42} = 1\\
-				      3^{42} = (3^2)^{21} \conga8 1^{21} = 1\\
-				      5^{42} = (5^2)^{21} \conga8 1^{21} = 1\\
-				      7^{42} = (7^2)^{21} \conga8 1^{21} = 1
-			      }\\
-			      \flecha{reemplazo}[esa en]
-			      \sumLocal i^{42} \conga8 219 \cdot 4 + 4  = 880 \conga8 0 \to \boxed{\congruencia{X}{0}{8}}\\
-		      }$\\
-	      El sistema
-	      $\llave{l}{
-			      \congruencia{X}{3}{7} \\
-			      \congruencia{X}{0}{8} \\
-		      }$ tiene solución $\congruencia{X}{24}{56}$, por lo tanto el \textit{resto pedido}: \boxed{ r_{56}\parentesis{\sumLocal i^{42}} = 24}
-\end{enumerate}
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

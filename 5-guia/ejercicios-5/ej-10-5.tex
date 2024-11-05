@@ -33,32 +33,56 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item
-        $
+  \item Hay que resolver el sistema de ecuaciones de congruencia. Tengo
+        divisores coprimos 2 a 2, así que por el \href{\chinito}{teorema
+          chino del resto} hay solución:
+        $$
           \llave{ll}{
             \congruencia{a}{3}{10} & \llamada1 \\
             \congruencia{a}{2}{7}  & \llamada2 \\
             \congruencia{a}{5}{9}  & \llamada3 \\
           }
-        $\\
-        El sistema tiene solución dado que 10, 7 y 9 son coprimos dos a dos. Resuelvo:\\
-        $\flecha{Arranco}[ en $\llamada1$]
-          a = 10k + 3 \conga{7}
-          3k + 3 \conga{\llamada2}
-          2\ (7)
-          \flecha{usando que}[$3\cop 7$] \congruencia{k}{2}{7}
-          \to k = 7q + 2.\\
-          \flecha{actualizo}[$a$]
-          a = 10 \cdot \ub{(7q + 2)}{k} + 3 = 70 q + 23 \conga9
-          7q \conga{\llamada3}
-          5\ (9)
-          \flecha{usando que}[$7\cop 9$] \congruencia{q}{0}{9}
-          \to q = 9j\\
-          \flecha{actualizo}[$a$]
-          a = 70 \ub{(9j)}{q} + 23 = 680j + 23 \to \boxed{\congruencia{a}{23}{630}} \Tilde
-        $\\
-        La solución hallada es la que el Teorema \href{\chinito}{chino} del Resto me garantiza que tengo en el
-        intervalo $[0, 10\cdot 7 \cdot 9)$
+        $$
+        El sistema tiene solución dado que 10, 7 y 9 son coprimos dos a dos. Resuelvo empezando por $\llamada1$ despejando
+        y reemplazando en las demás ecuaciones:
+        $$
+          \congruencia{a}{3}{10}
+          \Sii{def}
+          a = 10\blue{k} + 3 \conga{7}
+        $$
+        Reemplazo ahora en $\llamada2$:
+        $$
+          \congruencia{10 \blue{k} +3}{2}{7}
+          \sii
+          \congruencia{3\blue{k}}{6}{7}
+          \Sii{$3 \cop 7$}
+          \congruencia{\blue{k}}{2}{7}
+          \Sii{def}
+          \blue{k} = 7\yellow{j} + 2
+        $$
+        Reemplazo el valor de $\blue{k}$ en $a$:
+        $$
+          a = 10 \cdot ( 7\yellow{j} + 2) + 3 = 70 \yellow{j} + 23
+        $$
+        Y ahora reemplazo el valor de $a$ en $\llamada3$:
+        $$
+          \congruencia{70 \yellow{j} + 23}{5}{9}
+          \sii
+          \congruencia{7 \yellow{j}}{0}{9}
+          \Sii{$7 \cop 9$}
+          \congruencia{\yellow{j}}{0}{9}
+          \Sii{def}
+          \yellow{j} = 9\purple{h}
+        $$
+        \textit{Máquina de hacer chorizos}
+        y ahora reemplazo el valor de $\yellow{j}$ en $a$:
+        $$
+          a = 70(9\purple{h}) + 23 = 630 \purple{h} + 23
+          \Sii{def}
+          \congruencia{a}{23}{630}
+        $$
+                El TCH nos \textit{aseguraba} una solución en el 
+                intervalo $[0, 630)$ \Tilde
 
   \item \hacer
 

@@ -1,11 +1,11 @@
 \begin{enunciado}{\ejercicio}
-  \begin{enumerate}[label=\roman*)]
-    \item Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$
-    \item Sea $w \en G_{11}$, $w \distinto 1$. Calcular $\re\parentesis{\sumatoria{k=0}{60}w^k}$.
-  \end{enumerate}
+    \begin{enumerate}[label=\alph*)]
+      \item Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$
+      \item Sea $w \en G_{11}$, $w \distinto 1$. Calcular $\re\parentesis{\sumatoria{k=0}{60}w^k}$.
+    \end{enumerate}
 \end{enunciado}
 
-\begin{enumerate}[label=\roman*)]
+\begin{enumerate}[label=\alph*)]
   \item Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$
 
         Sé que si $w \en G_{36} \entonces
@@ -34,8 +34,8 @@
         \separadorCorto
         Sé que si $w \en G_{11} \entonces
           \llave{l}{
-            w^{11} = 1 \\
-            \sumatoria{k=0}{10} w^k = 0\\
+            w^{11} = 1                  \\
+            \sumatoria{k=0}{10} w^k = 0 \\
             11 \text{ es impar} \entonces -1 \not \en G_{11}
           }$\par
         Como $w \distinto 1$ no calculo caso particular para la suma.
@@ -51,7 +51,7 @@
         $\par
 
         También voy a usar que si $w \en G_{11}
-                \entonces \conj{w}^k = w^{r_{11}(-k)}$\par
+          \entonces \conj{w}^k = w^{r_{11}(-k)}$\par
         $\re\parentesis{\sumatoria{k=0}{60}w^k} = \frac{\sumatoria{k=0}{60}w^k + \sumatoria{k=0}{60} \conj w^k}{2}
           \igual{$\llamada1$}
           \frac{w^0 + w^1 + w^2 + w^3 + w^4 + w^5 + \conj w^0 + \conj w^1 + \conj w^2 + \conj w^3 + \conj w^4 + \conj w^5}{2} =\\

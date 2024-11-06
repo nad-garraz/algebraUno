@@ -1,24 +1,23 @@
-%10
-\ejercicio
-Hallar todos los $n \en \naturales$ para los cuales la ecuación $z^n + i\conj z^2 = 0$,
-tenga exactamente 6 soluciones y resolver en ese caso.
+\begin{enunciado}{\ejercicio}
+  Hallar todos los $n \en \naturales$ para los cuales la ecuación $z^n + i\conj z^2 = 0$,
+  tenga exactamente 6 soluciones y resolver en ese caso.
+\end{enunciado}
 
-\separadorCorto
 $\flecha{acomodo la }[ecuación]
-	z^n = -i\conj z^2
-	\flecha{$r = |z|$, expreso todo}[en notación exponencial]
-	\llaves{l}{
-		z^n = r^n e^{n  \theta i} \\
-		\conj z^2 = r^2 e^{-2\theta i} \\
-		-i = e^{\frac{3}{2}\pi}
-	}\checkmark\\
-	\flecha{reescribo ecuación con}[notación exponencial]
-	r^n e^{n \theta i} = r^2 e^{(\frac{3}{2}\pi - 2\theta)i}
-	\sisolosi
-	\llaves{l}{
-		n \theta =\frac{3}{2}\pi - 2\theta  + \magenta{2k\pi}\quad (k \en \enteros)\\
-		r^n = r^2 \to r^2 (r^{n-2} - 1) = 0
-	}$\\
+  z^n = -i\conj z^2
+  \flecha{$r = |z|$, expreso todo}[en notación exponencial]
+  \llaves{l}{
+    z^n = r^n e^{n  \theta i} \\
+    \conj z^2 = r^2 e^{-2\theta i} \\
+    -i = e^{\frac{3}{2}\pi}
+  }\checkmark\\
+  \flecha{reescribo ecuación con}[notación exponencial]
+  r^n e^{n \theta i} = r^2 e^{(\frac{3}{2}\pi - 2\theta)i}
+  \sisolosi
+  \llaves{l}{
+    n \theta =\frac{3}{2}\pi - 2\theta  + \magenta{2k\pi}\quad (k \en \enteros)\\
+    r^n = r^2 \to r^2 (r^{n-2} - 1) = 0
+  }$\\
 
 \textit{La ecuación de $r$: }\\
 $r = 0$ aporta una solución trivial para cualquier $n \en \naturales$.\\
@@ -27,16 +26,16 @@ $n = 2$ es un valor que daría una solución para cada $r \en \reales_{\geq 0}$.
 
 \textit{La ecuación de $\theta$: }\\
 $\flecha{$r = 1$}[$n$ libre] (n + 2)\theta = (\frac{3}{2} + 2k) \pi
-	\flecha{$n+2 \distinto 0$}[$\paratodo n \en \naturales$]
-	\theta = \frac{1}{n+2}(\frac{3}{2} + 2k) \pi
-	\flecha{$n = 3$\red{ Cómo justificar esto elegantemente?}}[5 porciones de $2k\pi$]
-	\theta = \frac{3 + 4k}{10} \pi
+  \flecha{$n+2 \distinto 0$}[$\paratodo n \en \naturales$]
+  \theta = \frac{1}{n+2}(\frac{3}{2} + 2k) \pi
+  \flecha{$n = 3$\red{ Cómo justificar esto elegantemente?}}[5 porciones de $2k\pi$]
+  \theta = \frac{3 + 4k}{10} \pi
 $\\
 \textit{Las 6 soluciones para $n = 3$: }\\
 $z^n + i\conj z^2 = 0 \sisolosi
-	\llave{l}{
-		n = 3\\
-		z = 0,\, \text{ cuando } r = 0\\
-		\text{ o }\\
-		z_k = e^{\theta_k i} \text{ con } \theta_k = \frac{3 + 4k}{10} \pi ,\, k\en [0,4]
-	}$
+  \llave{l}{
+    n = 3                          \\
+    z = 0,\, \text{ cuando } r = 0 \\
+    \text{ o }                     \\
+    z_k = e^{\theta_k i} \text{ con } \theta_k = \frac{3 + 4k}{10} \pi ,\, k\en [0,4]
+  }$

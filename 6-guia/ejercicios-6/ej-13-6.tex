@@ -10,8 +10,8 @@
   Probar que para todo $n \en \naturales$ vale que
   $z_n =
     \llave{ll}{
-      e^{\frac{2\pi}{6}i}  & \text{si $n$ impar}\\
-      e^{-\frac{2\pi}{6}i}  & \text{si $n$ par}
+      e^{\frac{2\pi}{6}i}  & \text{si $n$ impar} \\
+      e^{-\frac{2\pi}{6}i} & \text{si $n$ par}
     }$. Concluir que $z_n \en G_6$ para todo $n \en \naturales$.
 \end{enunciado}
 
@@ -20,21 +20,21 @@
   $p(n) :
     z_n =
     \llave{ll}{
-      e^{\frac{2\pi}{6}i}  & \text{si $n$ impar}\\
-      e^{-\frac{2\pi}{6}i}  & \text{si $n$ par}
+      e^{\frac{2\pi}{6}i}   & \text{si $n$ impar} \\
+      e^{-\frac{2\pi}{6}i} & \text{si $n$ par}
     } \paratodo n \en \naturales$ \par
 
   \textit{Caso base: }\par
 
   $\llave{l}{
-      p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = 1 -\frac{1}{2} + i \frac{\sqrt{3}}{2} = \frac{1}{2} + i \frac{\sqrt{3}}{2} =  e^{\frac{\pi}{3}i} \Tilde\\
+      p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = 1 -\frac{1}{2} + i \frac{\sqrt{3}}{2} = \frac{1}{2} + i \frac{\sqrt{3}}{2} =  e^{\frac{\pi}{3}i} \Tilde \\
       p(2) : z_2 = \conj{ 1 + z_1^2} = \conj{ 1 + e^{\frac{2\pi}{3}i} } = 1 + e^{-\frac{2\pi}{3}i} = e^{-\frac{\pi}{3}i} \Tilde
     }$\par
 
   \textit{Paso inductivo: }\par
 
   $\llave{l}{
-      p(2k) : z_{2k} = e^{-\frac{\pi}{3}i} \text{ Verdadero } \entonces p(2k+2) \  \text{¿Verdadero?}\\
+      p(2k) : z_{2k} = e^{-\frac{\pi}{3}i} \text{ Verdadero } \entonces p(2k+2) \  \text{¿Verdadero?} \\
       p(2k+1) : z_{2k+1} = e^{\frac{\pi}{3}i} \text{ Verdadero } \entonces p(2k+3) \  \text{¿Verdadero?}
     }$\par
 

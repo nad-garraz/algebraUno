@@ -1,3 +1,95 @@
 \begin{enunciado}{\ejercicio}
-        \hacer
+  Hallar, cuando existan, todos los $f \en \complejos[X]$ tales que:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $f^2 = Xf + X + 1$,
+      \item $f^2 - Xf = - X^2 + 1$,
+      \item $(X+1)f^2 = X^6 + Xf$,
+      \item $f \distinto 0 \ytext f^3 = \gr(f) \cdot X^2f$.
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item
+        La ecuación se tiene que cumplir para todo valor de $X$, así que no es cuestión de buscar algún valor para el que la igualdad se cumpla.
+        Acomodo la ecuación:
+        $$
+          f^2 = Xf + X + 1
+          \Sii{\red{!}}
+          (f-1) \cdot (f + 1) = X \cdot (f - 1)
+          \Sii{\red{!}}
+          (f+1) \cdot (f - (X+1)) = 0
+        $$
+        Eso último es una igualación de polinomios, donde el polinomio del miembro derecho es $g=0$. Entonces, para que
+        se cumpla esa igualdad para todo valor de $X$, el miembro derecho también tiene que ser 0 para todo valor de $X$.
+        Eso ocurre cuando:
+        $$
+          f = -1 \otext f = X + 1
+        $$
+
+  \item Mirando la ecuación se puede calcular el grado que debería tener $f$:
+        \begin{enumerate}[label=\tiny\faIcon{calculator}$_{\arabic*}$)]
+          \item ¿Puede ser $\gr(f) = 0$?
+                $$
+                  f = k \entonces k^2 - X \cdot k = -X^2 + 1,
+                $$
+                No cierra el tema del grado. Para que un polinomio sea igual a otro, estos deben tener igual grado.
+          \item ¿Puede ser $\gr(f) = 1$?
+                $$
+                  f = bX + c \entonces b^2X + 2bcX + c^2 - bX^2 + Xc = -X^2 + 1,
+                $$
+                en el miembro izquierdo se cancelan los términos cuadráticos, por lo que nuevamente no voy a poder tener un polinomios iguales
+                en ambos miembros de la ecuación.
+
+          \item ¿Puede ser $\gr(f) = 2$?
+                $$
+                  f = aX^2 + bX + c \Entonces{\red{!}} (aX^2 + b^2X + c)^2  - X(aX^2 + bX + c) = -X^2 + 1,
+                $$
+                Acá nos queda el miembro izquierdo con $\gr(4)$ y el izquierdo con $\gr(2)$, así que no hay $f$, \textit{bla, bla, bla}.
+
+          \item ¿Puede ser $\gr(f) \geq 3?$. Diría que no por razones muy interesantes.
+
+        \end{enumerate}
+
+  \item En este caso se puede ver que el miembro izquierdo va a tener siempre grado impar. Para que el miembro derecho tenga grado impar,
+        necesito que $f$ sea algo que cancele el $X^6$
+        $$
+          \gr((X+1)\cdot f^2) = \gr(X\cdot (X^5 + f))
+          \sii
+          \gr(X+1) + \gr(f^2) = \gr(X) \cdot \gr(X^5 + f)
+          \Sii{\red{!}}
+          2 \cdot \gr(f) =\gr(X^5 + f)
+        $$
+        Analizamos la última ecuación para distintos grados:
+        $$
+          \begin{array}{c}
+            \gr(f) > 5 \entonces \gr(X^5 + f) = 5 \llamada1    \\
+            \gr(f) = 5 \entonces \gr(X^5 + f) \leq 5 \llamada2 \\
+            \gr(f) > 5 \entonces \gr(X^5 + f) = \gr(f) \llamada3
+          \end{array}
+        $$
+        Entonces no tenemos un valor para el grado de $f$ en el que haya un balance en la ecuación, porque:
+        Para el caso $\llamada1$ el miembro derecho tiene un valor par
+        así que descartado.\par
+        Para el caso $\llamada2$ el miembro derecho tiene un grado igual a 10 así que descartado.\par
+        Y por último para el caso $\llamada3$ el miembro derecho tiene un grado del doble que el polinomio del miembro izquierdo.\par
+
+  \item Si $f \distinto 0$:
+        $$
+          f^3 = \gr(f) \cdot X^2f
+          \Sii{\red{!}}
+          f^2 = \gr(f) \cdot X^2
+          \Sii{\red{!!}}
+          \gr(f) = 2\cdot \gr(X) = 2
+        $$
+       Entonces $\gr(f) = 2$. Para que cumpla la ecuación $f = 2 X^2$ 
+\end{enumerate}
+
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

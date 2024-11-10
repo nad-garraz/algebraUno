@@ -1,43 +1,60 @@
 \begin{enunciado}{\ejercicio}
-Hallar todos los $z \en \complejos$ tales que $3z^5 + 2|z|^5 + 32 = 0$
+  Hallar todos los $z \en \complejos$ tales que $3z^5 + 2|z|^5 + 32 = 0$
 \end{enunciado}
 
-$3 z^5 + 2|z|^5 +32 = 0
-	\sii
-	\ub{3z^5}{\en \complejos} = \ub{-2|z|^5- 32}{\en \reales}
-	\sisolosi
-	\llaves{l}{
-		\re(3z^5) =  -2|z|^5 - 32\\
-		\im(3z^5) =  0
-	} \Tilde$\\
+Para que se cumpla la igualdad entre 2 números complejos, \textit{las partes reales y imaginarias}
+deben ser iguales:
+$$
+  3 z^5 + 2|z|^5 +32 = 0
+  \sii
+  \ub{3z^5}{\en \complejos} = \ub{-2|z|^5- 32}{\en \reales}
+  \Sii{\red{!}}
+  \llaves{l}{
+    \re(3z^5) =  -2|z|^5 - 32\\
+    \im(3z^5) =  0
+  }
+$$
 
-\textit{De la ecuación de la parte imaginaria: }\\
-$\llave{l}{
-		\im(3z^5) = 3 \cdot \frac{z^5 - \conj z^5}{2} = 0
-		\sisolosi
-		z^5 = \conj z^5
-		\sisolosi
-		|z|^5 e^{5 \theta i} = |z|^5 e^{-5 \theta i}
-		\sisolosi
-		\llave{l}{
-			5 \theta = -5 \theta + \magenta{2k\pi}\\
-			\to \boxed{\theta_k = \frac{1}{5}k\pi} \text{ con } k \en [0,4]
-		}
-	}$\\
+\textit{De la ecuación de la parte imaginaria: }
+{\tiny(Es útil recordar que $z = \re(z) + i\im(z) \entonces \im(z) = \frac{z - \conj{z}}{2}$)}
+$$
+  \im(3z^5) = 3 \cdot \frac{z^5 - \conj z^5}{2} = 0
+  \sisolosi
+  z^5 = \conj z^5
+  \sisolosi
+  |z|^5 e^{5 \theta i} = |z|^5 e^{-5 \theta i}
+  \Sii{\red{!}}[$2k\pi$]
+  \llave{l}{
+    5 \theta = -5 \theta + \magenta{2k\pi} \\
+    \Sii{\red{!}}[$\llamada1$] \theta_k = \frac{1}{5}k\pi \text{ con } k \en [0,4]
+  }
+$$
 
-\textit{De la ecuación de la parte real: }\\
-$\llave{l}{
-		\re(3z^5) = 3 \cdot \frac{z^5 + \conj z^5}{2} =
-		3 \cdot \frac{|z|^5 e^{5\theta i} + |z|^5 e^{-5\theta i}}{2} =
-		3|z|^5 \cos(5\theta) =  -2|z|^5 - 32 \sii\\
-		\sii
-		|z|^5(3\cos(5\theta) + 2) = -2^5
-		\flecha{evaluando}[en $\theta_k$]
-		|z|^5(3\cos(k\pi) + 2) = -2^5
-		\llave{cl}{
-			\flecha{$k$}[par]     & 0 < |z|^5(3 + 2) \distinto -2^5 \quad \skull\\
-			\flecha{$k$}[impar]   & |z|^5(-3 + 2) = -2^5 \sii |z| = 2
-		}
-	}\\
-	\to$
-\boxed{z_k = 2 e^{\theta_k i}} con $\theta_k = \frac{1}{5}k\pi \text{ con } k \en [0,4]$
+\textit{De la ecuación de la parte real: }
+{\tiny(Es útil recordar que si $z = \re(z) + i\im(z)$, entonces se puede expresar $\re(z) = \frac{z + \conj{z}}{2}$)}
+$$
+  \begin{array}{l}
+    \re(3z^5) = 3 \cdot \frac{z^5 + \conj z^5}{2} =
+    3 \cdot \frac{|z|^5 e^{5\theta i} + |z|^5 e^{-5\theta i}}{2} =
+    3|z|^5 \cos(5\theta) =  -2|z|^5 - 32 \sii                          \\
+    \sii
+    |z|^5(3\cos(5\theta) + 2) = -2^5
+    \flecha{evaluando}[en $\theta_k \llamada1$]
+    |z|^5(3\cos(k\pi) + 2) = -2^5
+    \llave{cl}{
+    \flecha{$k$}[par]   & 0 < |z|^5(3 + 2) \distinto -2^5 \quad \skull \\
+    \flecha{$k$}[impar] & |z|^5(-3 + 2) = -2^5 \sii |z| = 2
+    }
+  \end{array}
+$$
+Finalmente:
+$$
+  z_k = 2 e^{\theta_k i} \quad \text{ con  $ \theta_k = \frac{1}{5}k\pi \ytext k \en [0,4]$}
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

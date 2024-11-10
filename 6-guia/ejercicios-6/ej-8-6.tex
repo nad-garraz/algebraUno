@@ -1,3 +1,65 @@
 \begin{enunciado}{\ejercicio}
-  \hacer
+  Hallara en cada caso las raíces $n$-ésimas de $z \en \complejos$:
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $z =  8,\ n = 6$
+      \item $z = -4,\ n = 3$
+      \item $z = -1 + i,\ n = 7$
+      \item $z = (2-2i)^{12},\ n = 6$
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
+
+Ejercicio importante. La raíz $n$-ésima de $z$ es el número que multiplicado por sí mismo $n$ veces me da $z$:
+$$
+  w^n = z,
+$$
+es decir que quiero encontrar $w$. Siempre va a haber tantas soluciones como $n$.
+
+\begin{enumerate}[label=\roman*)]
+  \item Dado un número \textit{genérico} $w = r\cdot e^{\theta i}$, lo visto con la info del enunciado:
+        $$
+          w^6 = w = \big( r\cdot e^{\theta i} \big)^6 = r^6 \cdot e^{6\theta i} \llamada1
+        $$
+        Ahora hago lo mismo con el otro número $z = 8$:
+        $$
+          z = 8 \cdot e^{0 i} = 8 \llamada2
+        $$
+        Una vez con todo escrito en forma exponencial, es igualar prestar atención a la periodicidad del argumento y listo:
+        $$
+          \begin{array}{c}
+            w^6 = z
+            \Sii{$\llamada1$}[$\llamada2$]
+            r^6 \cdot e^{6\theta i} = 8
+            \Sii{\red{!}}
+            \llave{l}{
+            r^6 = 8 \sii r = \sqrt[6]{8} = \sqrt{2} \\
+              6\theta \igual{\red{!}} 0 + 2k\pi \sii \theta_k = \frac{1}{3}k \pi
+            }
+          \end{array}
+        $$
+        Con eso concluímos que las raíces son de la forma:
+        $$
+          w_k = \sqrt{2} \cdot e^{i\frac{1}{3}k \pi} \text{ con } k \en [0,5]
+        $$
+
+  \item Mismo procedimiento, te tiro una pista: Los números negativos tienen argumento $\pi$, así que en notación exponencial:
+        $$
+          -4 = 4\cdot e^{\pi i}
+        $$
+
+  \item En notación exponencial $z$, que está en segundo cuadrante:
+        $$
+          z = -1 + i  = \sqrt{2} \cdot e^{\frac{3}{4} \pi i}
+        $$
+
+  \item En notación exponencial $z$ se calcula primero con la base:
+        $$
+                z = (2 - 2i)^{12} =
+                \big(2\sqrt{2} \cdot e^{\frac{7}{4} \pi i}\big)^{12} =
+                2^{18}\cdot e^{21 \pi i}
+                \igual{\red{!}}
+                2^{18}\cdot e^{\pi i}
+        $$
+\end{enumerate}
+

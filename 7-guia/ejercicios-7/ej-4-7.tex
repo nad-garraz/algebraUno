@@ -1,45 +1,41 @@
-\begin{enunciado}{\ejercicio}
-
-  \labelEjercicio{ej:cong} % Etiqueta para referenciar el ejercicio
+\begin{enunciado}{\ejercicio\labelEjercicio{ej:cong}}
+   % Etiqueta para referenciar el ejercicio
 
   Hallar el cociente y el resto de la división de $f$ por $g$ en los casos
 
   \begin{enumerate}[label=\roman*)]
     \item $f = 5X^4 + 2X^3 - X + 4$ y $g = X^2 + 2$ en $\racionales[X],\,\reales[X],\,\complejos[X]$,
-
     \item $f = 4X^4 + X^3 - 4$ y $g = 2X^2 + 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$ y $(\enteros/7\enteros)[X]$,
-
-    \item\label{item}
-          $f = X^n - 1$ y $g = X - 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$ y $(\enteros/p\enteros)[X]$
+    \item $f = X^n - 1$ y $g = X - 1$ en $\racionales[X],\,\reales[X],\,\complejos[X]$ y $(\enteros/p\enteros)[X]$
   \end{enumerate}
-
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item \divPol{5X^4 + 2X^3 - X + 4}{X^2 + 2} \\
+  \item \divPol{5X^4 + 2X^3 - X + 4}{X^2 + 2} \par
 
         Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$
 
-  \item \divPol{4X^4 + X^3 - 4}{2X^2 + 1} \\
+  \item \divPol{4X^4 + X^3 - 4}{2X^2 + 1} \par
 
-        Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$\\
+        Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$\par
         En $\enteros/p\enteros\
           \to
           4X^4 + X^3 -4 = (2X^2 + 1) \cdot \ub{(2X^2 + 4X + 6)}{q[X]} + \ub{(3X + 4)}{r[X]}$
 
-  \item Después de hacer un par iteraciones en la división asoma la idea de que:\\
-        $ X^n - 1 = (X-1) \cdot \ub{\sumatoria{j=0}{n-1} X^j}{q[X]} + \ub{0}{r[X]}$, \qquad\qquad{\tiny(que es la geométrica con $X \distinto 1$)}\\
-        \textit{Inducción: } Quiero probar que $p(n): X^n - 1 = (X-1) \cdot \sumatoria{j=0}{n-1} X^j  \ \paratodo n \en \naturales$\\
+  \item Después de hacer un par iteraciones en la división asoma la idea de que:
+
+        $ X^n - 1 = (X-1) \cdot \ub{\sumatoria{j=0}{n-1} X^j}{q[X]} + \ub{0}{r[X]}$, \qquad\qquad{\tiny(que es la geométrica con $X \distinto 1$)}\par
+        \textit{Inducción: } Quiero probar que $p(n): X^n - 1 = (X-1) \cdot \sumatoria{j=0}{n-1} X^j  \ \paratodo n \en \naturales$\par
 
         \textit{Caso base: } $p(\magenta1):
           X^{\magenta1} - 1 = (X - 1) \ub{\sumatoria{j=0}{\magenta1 - 1} X^j}{X^0 = 1}
           \entonces
-          p(\magenta1)$ es Verdadero \Tilde\\
+          p(\magenta1)$ es Verdadero \Tilde\par
 
-        \textit{Paso inductivo: }\\
+        \textit{Paso inductivo: }\par
         $p(k): \ub{X^k - 1 = (X-1) \cdot \sumatoria{j=0}{k-1}X^j}{\green{HI}} \text{ es Verdadera}
           \stackrel{?}\entonces
-          p(k+1): X^{k+1} - 1 = (X-1) \cdot \sumatoria{j=0}{k}X^j \text{ es Verdadera}$\\
+          p(k+1): X^{k+1} - 1 = (X-1) \cdot \sumatoria{j=0}{k}X^j \text{ es Verdadera}$\par
 
         $ (X-1) \cdot \sumatoria{j=0}{k} X^j =
           (X-1) \cdot (\sumatoria{j=0}{\blue{k-1}} X^j + X^{\blue{k}} ) =
@@ -51,3 +47,11 @@
         será verdadera $p(n) \paratodo n \en \naturales$
 
 \end{enumerate}
+
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

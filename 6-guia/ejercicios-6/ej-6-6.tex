@@ -9,7 +9,27 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
-  \item  \hacer
+  \item  Multiplico y divido por el conjugado complejo para sacar la parte imaginaria del denominador:
+        $$
+          z \igual{$\llamada1$} \left(\frac{1 + \sqrt{3} i }{1 - i} \right)^{17} \igual{\red{!}}
+          \left(\frac{1 + \sqrt{3} i }{(1 - i)}\cdot \frac{1+i}{1+i} \right)^{17} =
+          \left( \frac{(1 + \sqrt{3} i) \cdot (1+i) }{2} \right)^{17} =             \\
+        $$
+        Ahora paso eso a notación exponencial y acomodo usando propiedades de exponentes:
+        $$
+          \begin{array}{c}
+            \llave{c}{
+            1 + \sqrt{3}i = 2 \cdot e^{\frac{\pi}{3}i}     \\
+              1 + i = \sqrt{2} \cdot e^{\frac{1}{4}\pi i}
+            }                                              \\
+            \left( \frac{(1 + \sqrt{3} i) \cdot (1+i) }{2} \right)^{17} =
+            \left( \frac{{2 \cdot e^{\frac{\pi}{3}i} } \cdot \sqrt{2} e^{\frac{\pi}{4}i}}{2} \right)^{17} =
+            2^{\frac{17}{2}} \cdot  e^{\frac{119}{12}\pi i}  \igual{\red{!}}
+            2^{\frac{17}{2}} \cdot  e^{-\frac{1}{12}\pi i} \\
+            \llamada1 z =  2^{\frac{17}{2}}  \cos(\frac{1}{12} \pi) - i 2^{\frac{17}{2}} \sin(\frac{1}{12} \pi)
+          \end{array}
+        $$
+        Un espanto. Pero bueh, $\frac{1}{12}\pi = 15^\circ$
 
   \item \hacer
 \end{enumerate}

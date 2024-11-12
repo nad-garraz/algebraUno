@@ -161,10 +161,10 @@ De $\llamada1$ 3 es un posible MCD, tengo que ver si $3^2$ o $3^3$ también divi
 
 \textit{Estudio la divisibilidad $9$ en $a = 3k$ por $\llamada4$:}\\
 $ 9 \divideA (3k)^{97} - 36
-	\sisolosi
-	\congruencia{3k^{97}}{0}{9}
-	\sisolosi
-    \congruencia{3 \cdot (3^2)^{48}\cdot k^{97}}{0}{9}
+    \Sii{def}
+    \congruencia{(3k)^{97}}{0}{9}
+    \Sii{\red{!}}
+    \congruencia{3^2 \cdot 3^{95}\cdot k^{97}}{0}{9}
     \sisolosi
 	\congruencia{0}{0}{9}\Tilde \paratodo k \en \enteros 
 $\\
@@ -181,9 +181,18 @@ $ 27 \divideA (3k)^{97} - 36
     \congruencia{3 \cdot (3^3)^{32} \cdot k^{97}}{9}{27}
     \sisolosi
     \congruencia{0}{9}{27} 
-$\\
+$
 
-\textit{Conclusión divisilidad 27: }\\
-Si $\congruencia{a}{0}{3} \entonces 27 \noDivide a^{97} - 36$\\
+\textit{Conclusión divisilidad 27: }
+
+Si $\congruencia{a}{0}{3} \entonces 27 \noDivide a^{97} - 36$
 
 \magenta{Finalmente: el mcd es 9} 
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+	\item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+\end{aportes}

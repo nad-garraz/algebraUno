@@ -116,13 +116,13 @@ $ 5 \divideA a^{97} - 36
 		\entonces
 		\noCongruencia{a^{97}}{1}{5}
 	}
-$\\
+$
 
-\textit{Conclusión divisilidad 5: }\\
+\textit{Conclusión divisilidad 5: }\par
 \boxed{5 \noDivide a^{97} - 36\quad \paratodo a \en \enteros \to} el MCD no puede tener un 5 en su factorización. \\\
 
 
-\textit{Estudio la divisibilidad $3$ (sujeto a $\llamada2$ y $\llamada3$):}\\
+\textit{Estudio la divisibilidad $3$ (sujeto a $\llamada2$ y $\llamada3$):}\par
 
 $ 3 \divideA a^{97} - 36
 	\sisolosi
@@ -149,17 +149,17 @@ $ 3 \divideA a^{97} - 36
 		\entonces
 		\congruencia{a^{97}}{0}{3}
 	}
-$\\
+$
 
-\textit{Conclusión divisilidad 3: }\\
+\textit{Conclusión divisilidad 3: }\par
 \boxed{3 \divideA a^{97} - 36
 	\sisolosi
 	\congruencia{a}{0}{3}
-\llamada4}\\
+\llamada4}
 
 De $\llamada1$ 3 es un posible MCD, tengo que ver si $3^2$ o $3^3$ también dividen.\\
 
-\textit{Estudio la divisibilidad $9$ en $a = 3k$ por $\llamada4$:}\\
+\textit{Estudio la divisibilidad $9$ en $a = 3k$ por $\llamada4$:}\par
 $ 9 \divideA (3k)^{97} - 36
     \Sii{def}
     \congruencia{(3k)^{97}}{0}{9}
@@ -177,8 +177,8 @@ $\\
 $ 27 \divideA (3k)^{97} - 36
 	\sisolosi
     \congruencia{(3k)^{97}}{9}{27}
-	\sisolosi
-    \congruencia{3 \cdot (3^3)^{32} \cdot k^{97}}{9}{27}
+    \Sii{\red{!}}
+    \congruencia{3^3 \cdot 3^{94} \cdot k^{97}}{9}{27}
     \sisolosi
     \congruencia{0}{9}{27} 
 $

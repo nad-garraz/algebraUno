@@ -1,6 +1,6 @@
 \begin{enunciado}{\ejercicio}
   Hallar todos los $n \en \naturales$ tales que
-  \begin{enumerate}[label=\alph*)]
+  \begin{enumerate}[label=\roman*)]
     \item $(\sqrt3 -i)^n = 2^{n-1}(-1 + \sqrt3 i)$
     \item $(-\sqrt3 + i)^n \cdot \parentesis{\frac{1}{2} + \frac{\sqrt3}{2}i}$ es un número real negativo.
     \item $\text{arg}((-1+i)^{2n}) = \frac{\pi}{2}$ y $\text{arg}((1-\sqrt3 i)^{n-1}) = \frac{2}{3}\pi$
@@ -53,23 +53,89 @@
         $$
 
   \item
-        Un número real negativo tendrá un arg$(z) = \pi$\\
-        $\ub{(-\sqrt3 + i)^n}{2^ne^{i\frac{5}{6}\pi n}} \cdot \ub{\parentesis{\frac{1}{2} + \frac{\sqrt3}{2}i}}{e^{\frac{\pi}{3}i}} =
-          2^ne^{i(\frac{5}{6}n + \frac{1}{3}) \pi} \to \theta = (\frac{5}{6}n + \frac{1}{3}) \pi $\\
-        $\flecha{$\theta = \pi + 2k\pi$}
-          \cancel\pi \frac{5}{6}n + \frac{\cancel\pi}{3} = \cancel\pi + 2k\cancel\pi
-          \flecha{acomodo}[congruencia]
+        Un número real $z$ negativo tiene un arg$(z) = \pi $. Ataco el ejercicio parecido al
+        anterior en la parte de los exponentes, donde está el argumento:\par
+
+        $$
+          \begin{array}{rcl}
+            (-\sqrt3 + i)^n                   & = & 2^n \cdot e^{i\frac{5}{6}\pi n} \\
+            (\frac{1}{2} + \frac{\sqrt3}{2}i) & = & e^{\frac{\pi}{3}i}
+          \end{array}
+        $$
+        El enunciado queda como:
+        $$
+          (-\sqrt3 + i)^n \cdot \parentesis{\frac{1}{2} + \frac{\sqrt3}{2}i} = 2^n \cdot e^{i (\frac{5}{6}n + \frac{1}{3})\pi }
+        $$
+        Ahora, \textit{sin olvidar la periodicidad}, tengo que pedir que el argumento de esa expresión sea $\pi$:
+        $$
+          (\frac{5}{6}n + \frac{1}{3})\pi = \pi + \magenta{2k\pi}
+          \sii
+          \frac{5}{6}n + \frac{1}{3} = 1 + 2k
+          \sii
+          5n = 4 + 12k\llamada1
+        $$
+        En $\llamada1$ quedo una ecuación para resolver para $n \en \enteros$:
+        $$
+          \llamada1
+          5n = 4 + 12k
+          \Sii{def}
           \congruencia{5n}{4}{12}
-          \flecha{multiplico}[por 5]
-          \boxed{\congruencia{n}{8}{12}} $
+          \sii
+          \congruencia{n}{8}{12}
+        $$
+        Finalmente los valores de $n$ buscados para que la expresión sea un número negativo:
+        $$
+          \congruencia{n}{8}{12}
+        $$
 
-  \item $\text{arg}((-1+i)^{2n}) = \frac{\pi}{2}$ y $\text{arg}((1-\sqrt3 i)^{n-1}) = \frac{2}{3}\pi$
-
+  \item Arranco pasando las expresiones del enunciado a notación exponencial:
+        $$
+          \begin{array}{rcl}
+            (-1 + i)^{2n}        & = & 2^n \cdot e^{i\frac{3}{2}\pi n} \llamada1          \\
+            (1 - \sqrt3 i)^{n-1} & = & 2^{n-1}\cdot e^{i \frac{5}{3}\pi (n-1) } \llamada2
+          \end{array}
+        $$
+        De $\llamada1$ igualando a $\frac{\pi}{2}$, sin olvidar la \textit{periodicidad} del argumento:
+        $$
+          \frac{3}{2} \pi n = \frac{\pi}{2} + \magenta{2k\pi}
+          \sii
+          3 n = 1 + 4k
+          \Sii{def}
+          \congruencia{3n}{1}{4}
+          \sii
+          \congruencia{n}{3}{4} \llamada3
+        $$
+        De $\llamada2$ igualando a $\frac{2}{3}\pi$, nuevamente sin olvidar la \textit{periodicidad} del argumento:
+        $$
+          \frac{5}{3} \pi (n-1) = \frac{2}{3}\pi + \magenta{2k\pi}
+          \sii
+          5 n - 5 = 2 + 6k
+          \sii
+          5 n = 7 + 6k
+          \Sii{def}
+          \congruencia{5n}{7}{6}
+          \Sii{\red{!}}
+          \congruencia{n}{5}{6} \llamada4
+        $$
+        Podemos observar que con los resultados de $\llamada3$ y $\llamada4$ esto se convirtió en un ejercicio del \href{\chinito}{TCHR}:
+        $$
+          \llave{l}{
+            \congruencia{n}{3}{4} \\
+            \congruencia{n}{5}{6}
+          }
+          \taa{\red{!}}{}\leftrightsquigarrow
+          \llave{l}{
+            \congruencia{n}{3}{4} \\
+            \congruencia{n}{2}{3}
+          }
+        $$
+        Resolviendo ese sistema, los valores de $n$ buscados:
+        $$
+          \congruencia{n}{11}{12}
+        $$
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
   \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
 \end{aportes}

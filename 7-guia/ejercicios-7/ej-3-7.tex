@@ -79,13 +79,31 @@
         $$
           f^3 = \gr(f) \cdot X^2f
           \Sii{\red{!}}
-          f^2 = \gr(f) \cdot X^2
-          \Sii{\red{!!}}
-          \gr(f) = 2\cdot \gr(X) = 2
+          f \cdot (f^2 - \gr(f)X^2) = 0
         $$
-       Entonces $\gr(f) = 2$. Para que cumpla la ecuación $f = 2 X^2$ 
+        Como por enunciado $f \distinto 0$, para que el miembro izquierdo sea 0, necesitamos que:
+        $$
+          (f^2 - \gr(f)X^2) = 0 \sii \gr(f^2) = \gr\big( \gr(f) \cdot X^2 \big) = 2 \sii 2\gr(f) = 2 \sii \gr(f) = 1
+        $$
+        Entonces $\gr(f) = 1 \entonces f = aX$, evalúo en la ecuación del enunciado para averiguar el valor de $a$:
+        $$
+          a^3 \cdot X^3 = 1 \cdot X^2\cdot aX = aX^3
+          \sii
+          a\cdot(a^2 - 1)X^3 = 0
+          \Sii{si $f\distinto 0 $}[$\entonces a\distinto 0$]
+          \llave{l}{
+            a = 1  \\
+            \ytext \\
+            a = -1
+          }
+        $$
+        Por lo tanto los polinomios $f$ que cumplen son:
+        $$
+          f = -X
+          \ytext
+          f = X
+        $$
 \end{enumerate}
-
 
 % Contribuciones
 \begin{aportes}

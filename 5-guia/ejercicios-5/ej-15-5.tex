@@ -1,12 +1,27 @@
 \begin{enunciado}{\ejercicio}
   Hallar el resto de la división de $a$ por $p$ en los casos.
   \begin{enumerate}[label=\alph*)]
+    \item $a = 33^{1427}, \, p =5$
     \item $a = 71^{22283},\, p=11$
     \item $a = 5 \cdot 7^{2451} + 3 \cdot 65^{2345} - 23 \cdot 8^{138}, \, p = 13$
   \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
+  \item Escribo como ecuación de congruencia:
+        $$
+          \congruencia{33^{1427}}{3^{1427}}{5}
+        $$
+        Dado que 5 es primo puedo usar el PTF, notar que $r_4(1427) = 3 $
+        $$
+          \congruencia{33^{1427}}{3^{1427}}{5}
+          \Sii{PTF}
+          \congruencia{3^{1427}}{3^3}{5} \ytext 3^3 = 27 \conga5 2
+        $$
+                Por lo tanto:
+                $$
+                r_5(33^{1427}) = 2
+                $$
   \item
         Rescribo: $22283 = 22280 + 3$ y notar que el $r_{10}(22280) = 0$
         $$

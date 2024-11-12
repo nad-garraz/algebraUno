@@ -3,39 +3,73 @@
   tenga exactamente 6 soluciones y resolver en ese caso.
 \end{enunciado}
 
-$\flecha{acomodo la }[ecuación]
+Pasar todo a notación exponencial:
+$$
+  z^n + i \conj z^2 = 0
+  \sii
   z^n = -i\conj z^2
-  \flecha{$r = |z|$, expreso todo}[en notación exponencial]
+  \sii
   \llaves{l}{
     z^n = r^n e^{n  \theta i} \\
     \conj z^2 = r^2 e^{-2\theta i} \\
     -i = e^{\frac{3}{2}\pi}
-  }\checkmark\\
-  \flecha{reescribo ecuación con}[notación exponencial]
+  }
+  \sii
   r^n e^{n \theta i} = r^2 e^{(\frac{3}{2}\pi - 2\theta)i}
-  \sisolosi
-  \llaves{l}{
-    n \theta =\frac{3}{2}\pi - 2\theta  + \magenta{2k\pi}\quad (k \en \enteros)\\
-    r^n = r^2 \to r^2 (r^{n-2} - 1) = 0
-  }$\\
+$$
+Esa ecuación se resuelve como siempre igualando los módulos y los argumentos, \textit{sin olvidar la periodicidad} de éste último:
+$$
+  \llave{rcl}{
+    r^n      & = & r^2 \sii r^2 (r^{n-2} - 1) = 0 \llamada1                                                       \\
+    n \theta & = & \frac{3}{2}\pi - 2\theta  + \magenta{2k\pi} \sii (n+2)\theta = (\frac{3}{2} + 2k)\pi \llamada2
+  }
+$$
+\textit{La ecuación de $r \llamada1$: }\par
+Analizo para cuales valores de $r$ y de $n$ se cumple la ecuación:
+\begin{enumerate}[label={\tiny\faIcon{calculator}}]
+  \item $r = 0$ Aporta una solución trivial para cualquier $n \en \naturales$ en la ecuación $z^n + i \conj z^2 = 0$. Pero solo habría una solución $z = 0$
+        necesito encontrar otras 5.
 
-\textit{La ecuación de $r$: }\\
-$r = 0$ aporta una solución trivial para cualquier $n \en \naturales$.\\
-$r = 1$ es un comodín que me deja usar cualquier $n$ para jugar con la ecuación de $\theta$.\\
-$n = 2$ es un valor que daría una solución para cada $r \en \reales_{\geq 0}$. \underline{No sirve} porque necesito solo 6 soluciones.\\
+  \item $\blue{r = 1}$ serviría. Quiere decir que voy a poder encontrar solución en $\llamada1$ que me deja usar cualquier $n$ para jugar con la ecuación de $\theta \llamada2$.
 
-\textit{La ecuación de $\theta$: }\\
-$\flecha{$r = 1$}[$n$ libre] (n + 2)\theta = (\frac{3}{2} + 2k) \pi
-  \flecha{$n+2 \distinto 0$}[$\paratodo n \en \naturales$]
+  \item $n = 2$ no sirve. Si bien cumple $\llamada1$ es un valor que daría una solución para cada $r \en \reales_{\geq 0}$. Pero tengo que tener solo 6 soluciones.
+\end{enumerate}
+
+\textit{La ecuación de $\theta \llamada2$: }\par
+Por lo analizado antes, juego con $\blue{r = 1}$, eso no impone de momento ninguna condición sobre $n$:
+$$
+  (n + 2)\theta = (\frac{3}{2} + 2k) \pi
+  \Sii{\red{!!}}[$\paratodo n \en \naturales_{\distinto 2}$]
   \theta = \frac{1}{n+2}(\frac{3}{2} + 2k) \pi
-  \flecha{$n = 3$\red{ Cómo justificar esto elegantemente?}}[5 porciones de $2k\pi$]
-  \theta = \frac{3 + 4k}{10} \pi
-$\\
-\textit{Las 6 soluciones para $n = 3$: }\\
-$z^n + i\conj z^2 = 0 \sisolosi
-  \llave{l}{
-    n = 3                          \\
-    z = 0,\, \text{ cuando } r = 0 \\
-    \text{ o }                     \\
-    z_k = e^{\theta_k i} \text{ con } \theta_k = \frac{3 + 4k}{10} \pi ,\, k\en [0,4]
-  }$
+$$
+Y ahora surge la pregunta: ¿Qué onda esto? Necesitamos 6 soluciones según el enunciado, pero a no olvidar que ya tenemos una solución proporcionada
+por el $r = 0$. Así que ahora laburo el $\theta$ para que me de 5 soluciones y así tener 6 en total. Pido entonces $n=3$, para partir en 5 y obtener
+de esta forma 5 valores para $\theta_k \en [0, 2\pi)$:
+$$
+  \theta_k =
+  \frac{1}{5} \cdot \frac{3 + 4k}{2} \pi
+  \sii
+  \theta_k =
+  \frac{3 + 4k}{10} \pi
+  \quad \text{ con } k \en \set{0,1,2,3, 4}
+$$
+Finalmente para que la ecuación falopa esa tenga únicamente 6 soluciones, necesito que $\red{n = 3}$:
+$$
+  z^n + i\conj z^2 = 0
+  \Sii{$\red{n = 3}$ para tener}[solo 6 soluciones]
+  \llave{ll}{
+    z = 0                                      & \text{ con } r = 0 \\
+    z_{k=0} = e^{i \frac{3}{10}\pi } & \text{ con } r = 1 \\
+    z_{k=1} = e^{i \frac{7}{10}\pi } & \text{ con } r = 1 \\
+    z_{k=2} = e^{i \frac{11}{10}\pi } & \text{ con } r = 1 \\
+    z_{k=3} = e^{i \frac{15}{10}\pi } & \text{ con } r = 1 \\
+    z_{k=4} = e^{i \frac{19}{10}\pi } & \text{ con } r = 1
+  }
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

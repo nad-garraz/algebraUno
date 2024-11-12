@@ -8,16 +8,49 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \begin{minipage}{0.7\textwidth}
-    \item $(\sqrt3 -i)^n = 2^{n-1}(-1 + \sqrt3 i)$ \\
-    \separadorCorto
-    $(\sqrt3 -i)^n = 2^n e^{i\frac{11}{12}\pi n} = 2^{n+1}\cdot 2e^{i \frac{2}{3} \pi}\\
-      \to
-      \llave{l}{
-        2^n = 2^n \\
-        \frac{11}{12}\pi n = \frac{2}{3}\pi + 2k \pi \to 11n = 8+8k \flecha{8(k+1)} \boxed{\congruencia{n}{0}{8}}
-      }$
-  \end{minipage}
+
+  \item Para resolver las ecuaciones en números complejos con exponentes, en general, es más
+        fácil resolver en notación exponencial.
+        El miembro izquierdo queda:
+        $$
+          (\sqrt{3} - i)^n =
+          \big( 2 \cdot e^{i \frac{11}{6}\pi} \big)^n =
+          2^n \cdot e^{i \frac{11}{6}\pi n}
+        $$
+        El miembro derecho queda:
+        $$
+          2^{n-1}(-1 + \sqrt{3} i) =
+          2^{n-1} \cdot (2 \cdot e^{\frac{2}{3}})=
+          2^n\cdot e^{i\frac{2}{3}\pi}
+        $$
+        Ahora la igualdad de los números se dará cuando sus módulos y argumentos sean iguales:
+        $$
+          2^n \cdot e^{i \frac{11}{6}\pi n} = 2^n\cdot e^{i\frac{2}{3}\pi}
+          \sii
+          \llave{l}{
+            2^n = 2^n  \Tilde \\
+            \frac{11}{6}\pi n = \frac{2}{3}\pi + \magenta{2k \pi}
+            \sii
+            11 n = 4 + 12k \llamada1
+          }
+        $$
+        En $\llamada1$ quedó una ecuación para despejar $n$ que es un número entero:
+        $$
+          \llamada1
+          11 n = 4 + 12k
+          \Sii{def}
+          \congruencia{11 n}{4}{12}
+          \sii
+          \congruencia{-n}{4}{12}
+          \sii
+          \congruencia{n}{-4}{12}
+          \sii
+          \congruencia{n}{8}{12}
+        $$
+        Finalmente los valores de $n$ buscados para que la ecuación se cumpla son:
+        $$
+          \congruencia{n}{8}{12}
+        $$
 
   \item
         Un número real negativo tendrá un arg$(z) = \pi$\\

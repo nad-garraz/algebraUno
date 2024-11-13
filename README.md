@@ -43,7 +43,7 @@ _curados y escritos por el alumnado de álgebra 1_.
   - `i-sol.tex`: Archivo que se debe compilar para obtener el archivo `i-sol.pdf` que uno quiera ver. En este se inyecta todo el código que está en los directorios, `teoria-i`, `ejercicios-i`, `ejercicios-i-extra`
   - directorio `teoria-i`: Contiene a `teoria-i.tex`
   - directorio `ejercicios-i`: Contiene los ejercicios de la _i-ésima_ guía. Se nombran `ej-j-i.tex` con `j`, el número del ejercicio e `i` el de la guía.
-  - directorio `ejercicios-i-extra`: Contiene los ejercicios extras, de clase y/o parciales de los temas de la _i-ésima_ guía. Se nombran `ej-extra-j-i.tex` con `j`, el número del ejercicio e `i` el de la guía.
+  - directorio `ejercicios-i-extra`: Contiene los ejercicios de parciales de los temas de la _i-ésima_ guía. Se nombran `ej-extra-j-i.tex` con `j`, el número del ejercicio e `i` el de la guía.
 
 - En la carpeta `macros`:
   - Ahí están los archivos necesarios para compilar los ejercicios.

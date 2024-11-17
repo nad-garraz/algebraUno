@@ -115,7 +115,7 @@ $$
   \congruencia{0}{0}{9}
 $$
 
-Se concluye que la expresión $a^{97} - 36$ es divisible por 9 para alguno de los valores de $a$ permitidos. De esa manera descarta 
+Se concluye que la expresión $a^{97} - 36$ es divisible por 9 para alguno de los valores de $a$ permitidos. De esa manera descarta
 que el 3 pueda ser MCD.\par \bigskip
 
 \textit{\underline{Divisibilidad por 27}. ¿Es la expresión $a^{97} - 36$ divisible por 27 para alguno de los valores de $a$ permitidos?}:
@@ -140,9 +140,22 @@ Hasta el momento obtuvimos que $\set{9}$ es el único MCD posible. Falta analiza
 
 Encuentro que si:
 $$
-  a = 4 \entonces (-31:135) = 1
+  a = 4
+  \entonces
+  \congruencia{4^{97} - 36}{0}{3}
+  \sii
+  \congruencia{1}{0}{3}
 $$
-y $a =4$ es un valor permitido por $\blue{\congruencia{a}{4}{5} }$ y $\blue{\congruencia{a}{1}{3} }$. Concluyendo así que el 1 es otro posible valor
+Entonces $a = 4$ es un valor de $a$ para el cual el MCD no es divisible por 3, por lo que:
+$$
+  (4^{97} -36 : 135) = 1.
+$$
+De esta formar $a =4$ es un valor permitido por $\blue{\congruencia{a}{4}{5} }$ y $\blue{\congruencia{a}{1}{3} }$.
+Concluyendo así que el 1 es \underline{otro} posible valor para el MCD.\par
+Posibles valores:
+$$
+  \text{MCD} \en \set{1, 9}
+$$
 
 % Contribuciones
 \begin{aportes}

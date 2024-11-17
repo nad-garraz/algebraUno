@@ -7,19 +7,27 @@
   Expresar la solución como una única ecuación de congruencia.
 \end{enunciado}
 
-Como $w = e^{\frac{\pi}{18} i} \distinto \pm 1
+Dado que:
+$$
+  w = e^{\frac{1}{18} \pi i}
+  \sii
   \llave{l}{
-  w^3 \distinto \pm 1 \\
-  w^4 \distinto \pm 1
-  }$, puedo usar Gauss para las sumas.
+    w^3 = e^{\frac{1}{6} \pi i} \distinto  1 \\
+    w^4 = e^{\frac{2}{9} \pi i} \distinto  1
+  },
+$$
+puedo usar la serie geométrica.
 
 $$
+  \sumatoria{k=0}{5n+1}w^{3k} =
+  \sumatoria{k=0}{5n+1}(w^3)^k =
+  \frac{(w^3)^{5n+2} - 1}{w^3 - 1} = 0
+  \sii
+  (w^3)^{5n+2} = 1.
+$$
+Queda una ecuación para encontrar $w$:
+$$
   \begin{array}{c}
-    \sumatoria{k=0}{5n+1}w^{3k} =
-    \sumatoria{k=0}{5n+1}(w^3)^k =
-    \frac{(w^3)^{5n+2} - 1}{w^3 - 1} = 0
-    \sii
-    (w^3)^{5n+2} = 1 \\
     (w^3)^{5n+2} = 1
     \Sii{laburo}[exponente]
     \frac{15n + 6}{18}\pi = 2k\pi
@@ -28,15 +36,18 @@ $$
     \Sii{def}
     \congruencia{5n}{10}{12}\llamada1
   \end{array}
-$$\par
-
+$$
+Y tenemos una ecuación. Ahora calculamos la otra sumatoria:
+$$
+  \sumatoria{k=0}{4n+6}w^{4k} =
+  \sumatoria{k=0}{4n+6}(w^4)^k =
+  \frac{(w^4)^{4n+7} - 1}{w^4 - 1} = 0
+  \sii
+  (w^4)^{4n+7} = 1 \\
+$$
+Igual que antes, busco los $w$ que satisfacen:
 $$
   \begin{array}{c}
-    \sumatoria{k=0}{4n+6}w^{4k} =
-    \sumatoria{k=0}{4n+6}(w^4)^k =
-    \frac{(w^4)^{4n+7} - 1}{w^4 - 1} = 0
-    \sii
-    (w^4)^{4n+7} = 1 \\
     (w^4)^{4n+7} = 1
     \Sii{laburo}[exponente]
     \frac{16n + 28}{18}\pi = 2k\pi
@@ -46,25 +57,35 @@ $$
     \congruencia{4n}{2}{9}\llamada2
   \end{array}
 $$
-\par
-
-$\begin{array}{c} \llamada1 \\
+Con la segunda ecuación armo sistema y \href{\chinito}{TCH}:
+$$
+  \begin{array}{c}
+    \llamada1 \\
     \llamada2
   \end{array}
   \llave{l}{
-  \congruencia{n}{2}{12} \\
-  \congruencia{n}{5}{9}
-  }\to
-  \llave{l}{
-  \congruencia{n}{2}{3} \\
-  \congruencia{n}{2}{4} \\
-  \congruencia{n}{2}{3}
+    \congruencia{n}{2}{12} \\
+    \congruencia{n}{5}{9}
   }
-  \flecha{Sistema compatible}[me quedo con $\congruencia{n}{5}{9} $]
+  \leftrightsquigarrow
   \llave{l}{
-  \congruencia{n}{2}{4} \\
-  \congruencia{n}{5}{9}
+    \congruencia{n}{2}{3} \\
+    \congruencia{n}{2}{4} \\
+    \congruencia{n}{2}{3}
   }
-  \flecha{$9 \cop 4$ hay}[solución por TCR]
+  \taa{\red{!}}{}\leftrightsquigarrow
+  \llave{l}{
+    \congruencia{n}{2}{4} \\
+    \congruencia{n}{5}{9}
+  }
+  \flecha{$9 \cop 4$ hay}[solución por \href{\chinito}{TCR}]
   \boxed{\congruencia{n}{14}{36}} \Tilde
-$
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+  \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+\end{aportes}

@@ -20,50 +20,76 @@
           =
           X^2 - 2X - 1
         $$
-        Por lo tanto $X^2 - 2X - 1$ será un factor de $f \en \racionales[X]$.
+        Por lo tanto:
+        $$
+          X^2 - 2X - 1
+        $$
+        será un factor de $f \en \racionales[X]$.
 
-  \item Si
-        $X(X-2)^2 \divideA (f:f')
-          \entonces
+  \item Para el requerimiento $X(X-2)^2 \divideA (f:f')$:
+        $$
+          X(X-2)^2 \divideA (f:f')
+          \Sii{def}
+          (f:f') = X(X-2)^2 \cdot q,
+        $$
+        de donde se deduce que \underline{por lo menos} {\tiny(dado que no conoce $q$ y tampoco importa ahora)}:
+        $$
           \llave{l}{
             \alpha_3 = 0
-            \text{ raíz simple de $f'$}
+            \text{ es por lo menos raíz simple de $f'$}
             \entonces
-            \text{ raíz doble de $f$} \\
+            \text{ es por lo menos raíz doble de $f$} \\
             \alpha_4 = 2
-            \text{ raíz simple de $f'$}
+            \text{ es por lo menos raíz doble de $f'$}
             \entonces
-            \text{ raíz doble de $f$}
-          }
-        $
-        Por lo tanto $X^2(X-2)^3$ serán factores de $f$.
-
-  \item Si $(f:X^3 - 1) \distinto 1$ quiere decir que por lo menos alguna de las 3 raíces de:\\
-        $
-          X^3 - 1 =
-          (X-1)\cdot (X - (-\frac{1}{2} + \frac{\sqrt{3}}{2}))\cdot (X - (-\frac{1}{2} - \frac{\sqrt{3}}{2}))$
-        tiene que aparecer en la factorización de $f$. Pero
-        parecido al item i) si tengo una raíz compleja, también necesito el conjugado complejo, para que no me queden
-        coeficientes de $f$ en complejos,\\
-        $ X^3 - 1 = (X-1) \cdot (X^2 + X +1)$, me quedaría con el \textit{factor de menor grado} si eso no \textit{rompe} otras condiciones.\\
-
-        Por lo tanto $(X-1)$ o $(X^2 + X +1)$ aparecerá en la factorización de $f$.
-
-  \item $f(-1) = 27$. Hasta el momento:\\
+            \text{ es por lo menos raíz triple de $f$}
+          }.
         $$
-          \llave{l}{
-            \magenta{f_1} = (X^2 - 2X - 1)\cdot (X-2)^3 \cdot X^2 \cdot (X^2 + X + 1) \to \magenta{f_1}(-1) = 2 \cdot (-27) \cdot 1 \cdot 1 = -54 \\
-            \blue{f_2} = (X^2 - 2X - 1)\cdot (X-2)^3 \cdot X^2 \cdot (X-1) \to \blue{f_2}(-1) =  2 \cdot (-27) \cdot 1 \cdot (-2) = 108
-          },
+
+        Por lo tanto como en los ejercicios estos piden \textit{menor grado}:
         $$
-        ninguno cumple la condición iv).
+          X^2(X-2)^3
+        $$
+        también serán factores de $f \en \racionales[X]$.
+
+  \item Si $(f:X^3 - 1) \distinto 1$ quiere decir que \underline{por lo menos} alguna de las 3 raíces de:\par
+        $$
+          X^3 - 1
+          \igual{\red{!}}
+          (X-1)\cdot (X - (-\frac{1}{2} + \frac{\sqrt{3}}{2} i))\cdot (X - (-\frac{1}{2} - \frac{\sqrt{3}}{2} i))
+        $$
+        tiene que aparecer en la factorización de $f$.\par
+
+        Parecido al item i) si tengo una raíz compleja, también necesito el conjugado complejo de la raíz, para que no me queden
+        coeficientes de $f$ con componente imaginaria:
+        $$
+          X^3 - 1 = (X-1) \cdot (X^2 + X +1),
+        $$
+        a priori me quedaría con el \textit{factor de menor grado} siempre que eso no \textit{rompa} otras condiciones, pero todavía no tomo
+        la decisión \faIcon[regular]{meh}.
+
+        Por lo tanto:
+        $$
+          (X-1) \otext (X^2 + X +1)
+        $$
+        ya veremos cual, aparecerá en la factorización de $f \en \racionales[X]$.
+
+\item $f(-1) = 27$. Hasta el momento juntando los resultados tengo 2 candidatos $\magenta{f_1}$ y $\blue{f_2}$:
+        $$
+          \begin{array}{lcl}
+            \magenta{f_1} = (X^2 - 2X - 1)\cdot (X-2)^3 \cdot X^2 \cdot (X^2 + X + 1) & \to & \magenta{f_1}(-1) = 2 \cdot (-27) \cdot 1 \cdot 1 = -54  \\
+            \blue{f_2} = (X^2 - 2X - 1)\cdot (X-2)^3 \cdot X^2 \cdot (X-1)            & \to & \blue{f_2}(-1) =  2 \cdot (-27) \cdot 1 \cdot (-2) = 108,
+          \end{array}
+        $$
+        ninguno es el 27 que quiero, así que hay que hacer algo más.
 \end{enumerate}
-Para encontrar \textit{un} polinomio que cumpla lo pedido tomaría el $\blue{f_2}$ que tiene \red{menor grado} de los dos y lo multiplicaría por:
+
+Para encontrar \textit{un} polinomio \textbf{mónico} que cumpla lo pedido tomaría el $\blue{f_2}$ que tiene \red{menor grado} de los dos y lo multiplicaría por:
 $$
   f = \blue{f_2} \cdot \yellow{(X - a)} \quad \text{con} \quad a \en \racionales
 $$
 
-de manera que:
+de manera que pueda elegir el $a$ para cumplir lo que quiero:
 $$
   f(-1) = \blue{f_2}(-1) \cdot \yellow{(X - a)}  = 108 \cdot (-1 - a) = 27 \sii a = -\frac{5}{4}
 $$
@@ -74,8 +100,8 @@ así cumpliendo todas las condiciones.
 
 % Contribuciones
 \begin{aportes}
-	%% iconos : \github, \instagram, \tiktok, \linkedin
-	%\aporte{url}{nombre icono}
-	\item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
-	\item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
 \end{aportes}

@@ -1,0 +1,63 @@
+\begin{enunciado}{\ejExtra}
+	Hallar todos los $a \en \enteros$ tales que $(855 : a^{126} + 15) = 5$
+\end{enunciado}
+
+Como $855 = 5\cdot 3^2 \cdot 19$, hay que pedir que:
+$$
+	\begin{array}{l}
+		\congruencia{a^{126} + 15}{0}{5}  \llamada1  \\
+		\noCongruencia{a^{126} + 15}{0}{3} \llamada2 \\
+		\noCongruencia{a^{126} + 15}{0}{19}\llamada3
+	\end{array}
+$$
+
+Resulta que $\llamada1$ vale para:
+$$
+	\congruencia{a}{0}{5}
+$$
+
+$\llamada2$ vale para:
+$$
+	\congruencia{a}{1}{3}
+	\otext
+	\congruencia{a}{2}{3}
+$$
+y por último $\llamada3$ vale para:
+$$
+\paratodo a \en \enteros
+$$
+
+lo cual es bueno porque los siguientes sistemas quedan más fáciles.
+
+\bigskip
+
+Resolver los sistemas \textit{que ya tienen divisores coprimos} nos da la solución:
+$$
+\llamada4
+\llave{l}{
+ \congruencia{a}{0}{5}  \\
+ \congruencia{a}{1}{3}
+}
+\ytext
+\llamada5
+\llave{l}{
+ \congruencia{a}{0}{5}  \\
+ \congruencia{a}{2}{3}
+}
+$$
+nos devuelve los posibles valores que puede tomar $a$ para que se cumpla lo pedido:
+$$
+\llamada4
+\congruencia{a}{10}{15} 
+\otext
+\llamada5
+\congruencia{a}{5}{15} 
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}
+

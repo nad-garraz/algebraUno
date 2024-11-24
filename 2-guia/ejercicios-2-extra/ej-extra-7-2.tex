@@ -1,0 +1,69 @@
+\begin{enunciado}{\ejExtra}
+  Probar que, para todo $n \en \naturales$,
+  $$
+    \sumatoria{i=1}{n}(n-i)2^{i-1} = 2^n -n -1.
+  $$
+\end{enunciado}
+Ejercicio de inducción \text{\small \rosa{\faIcon[regular]{meh-rolling-eyes}}}.
+
+Queremos probar nuestras proposición $p(n)$:
+$$
+  p(n) : \sumatoria{i=1}{n}(n-i)2^{i-1} = 2^n - n -1 \quad \paratodo k \en \enteros
+$$
+
+\textit{Caso base  ¿$p(1)$ es verdadera?:}
+$$
+  p(\blue{1}) : \sumatoria{i=1}{\blue{1}}(\blue{1} - i)2^{i-1} = 0 =  2^{\blue{1}} - \blue{1} -1
+$$
+Por lo tanto $p(1)$ resulta verdadera.
+
+\textit{Paso inductivo:}
+
+Se asume que para algún $k\en \enteros$
+$$
+  p(\blue{k}) : \ub{
+  \sumatoria{i=1}{\blue{k}}(\blue{k} - i)2^{i-1} =  2^{\blue{k}} - \blue{k} - 1
+  }{\purple{\text{hipótesis inductiva}}}
+$$
+
+es verdadera. Y queremos probar que:
+
+$$
+  p(\blue{k+1}) : \sumatoria{i=1}{\blue{k+1}}(\blue{k+1}-i)2^{i-1} =  2^{\blue{k+1}} - (\blue{k+1}) - 1 = 2^{k+1} - k - 2
+$$
+también lo sea.
+
+Empenzando con $p(k+1)$. Acomodamos y vemos de hacer aparecer la \purple{hipótesis inductiva}:
+$$
+  \begin{array}{rcl}
+    \sumatoria{i=1}{\blue{k+1}}(\blue{k+1}-i)2^{i-1} & \igual{\red{!!}}           & \sumatoria{i=1}{k}(k-i)2^{i-1} + \sumatoria{i=1}{k} 2^{i-1} + 0 \\
+                                                     & \igual{\purple{\text{HI}}} & \purple{2^k - k - 1} +  \sumatoria{i=1}{k} 2^{i-1}
+  \end{array}
+$$
+En el \red{!!} saqué el término $k+1$ y después agrupé de manera conveniente para separar las sumatorias. Nos queda ahora esa sumatoria que no es
+otra cosa que una querida y odiada \textit{serie geométrica}, esa que no te acordás, que si empieza en 0 o en 1,
+pero \hyperlink{2-teoria:geometrica}{acá tenés la fórmulita y coso en la teoría}.
+$$
+  \sumatoria{i=1}{k} 2^{i-1} \igual{\red{!}}
+  \frac{1}{2} \cdot \sumatoria{i=1}{k} 2^i =
+  \frac{1}{2} \cdot \frac{2^{k+1} - 2}{2 - 1}
+  \igual{\red{!}}
+  2^k - 1
+$$
+Por lo tanto con ese resultado:
+$$
+  \begin{array}{rcl}
+    \sumatoria{i=1}{\blue{k+1}}(\blue{k+1}-i)2^{i-1} & \igual{\red{!!}} & \purple{2^k - k - 1} + 2^k - 1 =  2^{k+1} - k - 2
+  \end{array}
+$$
+Por lo tanto $p(k+1)$ también es verdadera.
+
+\bigskip
+
+Se demostró que $p(1), p(k) \ytext p(k+1)$ son verdaderas y por el principio de inducción $p(n)$ también lo es $\paratodo n \en \naturales$.
+
+
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+\end{aportes}

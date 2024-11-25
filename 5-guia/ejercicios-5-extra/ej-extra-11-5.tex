@@ -1,0 +1,106 @@
+\begin{enunciado}{\ejExtra}
+  Hallar \textbf{todos} los $p \en \naturales$ primos tales que
+  $$
+    p \divideA 15^{2p-2} + 7^{p+3} + 174
+    \sii
+    15^{2p-2} + 7^{p+3} + 174.
+  $$
+\end{enunciado}
+
+Teniendo en cuenta que $174 = 3 \cdot 2 \cdot 29$
+$$
+  \begin{array}{rcl}
+    p \divideA 15^{2p-2} + 7^{p+3} + 3 \cdot 2 \cdot 29
+     & \sii &
+    \congruencia{15^{2p-2} + 7^{p+3} +3 \cdot 2 \cdot 29}{0}{p}
+  \end{array}
+$$
+
+Viendo esa expresión tengo ciertos $p$ primos de interés que no me dejan aplicar PTF para toda la expresión. Estos serían:
+$$
+  p \en \set{2, 3, 5, 7, 29}
+$$
+
+Hago PTF con $p$ genérico que no divide a ninguno de ese conjunto para ver que sale:
+
+\textit{Caso $p \notin\set{2, 3, 5, 7, 29}$}:\par
+$$
+  \congruencia{15^{2p-2} + 7^{p+3} +3 \cdot 2 \cdot 29}{0}{p}
+  \Sii{PTF}
+  \congruencia{15^2 + 7^4 + 3 \cdot 2 \cdot 29}{0}{p}
+  \sii
+  \congruencia{2800}{0}{p}
+  \sii
+  \congruencia{2^4 \cdot 5^3}{0}{p}
+$$
+
+En el cálculo consideré que $p$ no era ni 2 ni 5. Arranco a analizar con cada uno de los  $p \en \set{2, 3, 5, 7, 29}$:
+
+\begin{enumerate}[label={\tiny \magenta{\faIcon[regular]{gamepad}}}]
+  \item
+        \textit{Caso $p = 29$}:\par
+        $$
+          \congruencia{15^{56} + 7^{32} }{0}{29}
+          \Sii{PTF}
+          \congruencia{15^{0} + 7^{4} }{0}{29}
+          \sii
+          \congruencia{7^{4}}{0}{29}
+          \sii
+          \congruencia{23}{0}{29}
+        $$
+        $p = 29$ \underline{no cumple}.
+
+  \item
+        \textit{Caso $p = 7$}:\par
+        $$
+          \congruencia{1^{12} + 174}{0}{7}
+          \sii
+          \congruencia{7}{0}{7}
+          \sii
+          \congruencia{0}{0}{7} \blue{\Tilde}
+        $$
+        $p = 7$ \fcolorbox{orange}{white}{cumple}.
+
+  \item
+
+        \textit{Caso $p = 5$}:\par
+        $$
+          \congruencia{ 2^8 + 4}{0}{5}
+          \sii
+          \congruencia{5}{0}{5}
+          \sii
+          \congruencia{0}{0}{5} \blue{\Tilde}
+        $$
+        $p = 5$ \fcolorbox{orange}{white}{cumple}.
+
+  \item
+        \textit{Caso $p = 3$}:\par
+        $$
+          \congruencia{1^6}{0}{3}
+          \sii
+          \congruencia{0}{0}{5}
+        $$
+        $p = 3$ \underline{no cumple}.
+
+  \item
+        \textit{Caso $p = 2$}:\par
+        $$
+          \congruencia{1^0 + 1^5}{0}{2}
+          \sii
+          \congruencia{0}{0}{2} \blue{\Tilde}
+        $$
+        $p = 2$ \fcolorbox{orange}{white}{cumple}.
+\end{enumerate}
+
+Hay 3 números \textit{primos} que cumplen lo pedido.
+
+\bigskip
+
+El resultado sería:
+$$
+  p \en \set{2, 5, 7}
+$$
+
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

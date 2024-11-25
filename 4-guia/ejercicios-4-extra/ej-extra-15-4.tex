@@ -1,0 +1,82 @@
+\begin{enunciado}{\ejExtra}
+  Sean $a,\,b \en \enteros$ tales que $(a:b) = 1$. Calcular los posibles valores de $(a^2+3b^2 : 2a^2 + 11b^2)$
+  y dar un ejemplo para cada uno de ellos.
+\end{enunciado}
+
+Si $d = (a^2+3b^2 : 2a^2 + 11b^2)$ entonces deber suceder:
+$$
+  \llave{l}{
+    d \divideA a^2 + 3b^2 \\
+    d \divideA 2a^2 + 11b^2
+  }
+  \Sii{$F_2 - 2 F_1 \to F_2 $}
+  \llave{l}{
+    d \divideA a^2 + 3b^2 \\
+    \blue{d \divideA 5b^2}
+  }
+  \ytext
+  \llave{l}{
+    d \divideA a^2 + 3b^2 \\
+    d \divideA 2a^2 + 11b^2
+  }
+  \Sii{$ 11 F_1 - 3 F_2 \to F_2 $}
+  \llave{l}{
+    d \divideA a^2 + 3b^2 \\
+    \blue{d \divideA 5a^2}
+  }
+$$
+De esta forma queda que el MCD:
+$$
+  d = (5a^2 : 5b^2)
+  \sii
+  d = 5(a^2 : b^2)
+  \sii
+  d = 5(a : b)^2
+  \Sii{$a \cop b$}
+  d = 5
+$$
+
+Si el \textit{máximo común divisor} de
+$(a^2+3b^2 : 2a^2 + 11b^2)$ es 5, los valores que puede \textit{potencialmente} tomar la expresión son:
+$$
+  \set{1, 5}
+$$
+
+\textit{División por 5:}
+
+$$
+  \begin{array}{|c|c|c|c|c|c|}
+    \hline
+    r_5(a)   & 0 & 1 & 2 & 3 & 4 \\ \hline
+    r_5(a^2) & 0 & 1 & 4 & 4 & 1 \\ \hline
+  \end{array}
+  \ytext
+  \begin{array}{|c|c|c|c|c|c|}
+    \hline
+    r_5(b)    & 0 & 1 & 2 & 3 & 4 \\ \hline
+    r_5(3b^2) & 0 & 3 & 2 & 2 & 3 \\ \hline
+  \end{array}
+  \ytext
+  \fcolorbox{orange}{white}{$
+      \begin{array}{|c|c|c|c|c|c|}
+        \hline
+        r_5(a^2 + 3b^2) & 0 & 4 & 1 & 1 & 4 \\ \hline
+      \end{array}
+    $}
+$$
+Ese resultado dice que para que suceda que $ 5 \divideA a^2 + 3b^2$ se requiere que:
+$$
+  \congruencia{a}{0}{5}
+  \ytext
+  \congruencia{b}{0}{5}
+$$
+Peeeeeero, por enunciado $(a:b) = 1$ así que se concluye que no hay par de $(a,b)$ con $a\cop b$ tal que $ 5 \divideA a^2 + 3b^2$.
+
+\bigskip
+
+Así que el único valor que puede tomar la expresión $(a^2+3b^2 : 2a^2 + 11b^2)$ es 1.
+
+\begin{aportes}
+  \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

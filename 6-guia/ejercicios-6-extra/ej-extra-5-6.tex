@@ -1,0 +1,81 @@
+\begin{enunciado}{\ejExtra}
+  Sea
+  $$
+    z = \big(4\sqrt{2} + 4\sqrt{2}i\big)^a \big(8+8\sqrt{3}i\big)^b
+  $$
+  se pide:
+  \begin{enumerate}[label=\alph*)]
+    \item Sabiendo que $\arg(z) = \arg(-i)$, hallar el resto de dividir a $3a + 4b$ por 24
+    \item Determinar todas las parejas de números enteros $(a,b)$ tales que cumplen lo anterior, y además
+          $$
+            2^{10} < |z| < 2 ^{25}
+          $$
+  \end{enumerate}
+  \underline{Sugerencia:} Use, sin demostrar, que $2^x < 2^y < 2^z \sii x < y < z.$
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        Acomodo $z$:
+        $$
+          \begin{array}{rcl}
+            z & =               & \big(4\sqrt{2} + 4\sqrt{2}i\big)^a \big(8+8\sqrt{3}i\big)^b             \\
+              & =               & (4\sqrt{2} ( 1 + i ))^a \cdot (8(1 + \sqrt{3}))^b                       \\
+              & =               & 8^a 16^b  e^{a \cdot \frac{\pi}{4} i} \cdot e^{b \cdot \frac{\pi}{3} i} \\
+              & \igual{\red{!}} & 2^{3a + 4b} \cdot e^{i (\frac{a}{4}  +  \frac{b}{3} ) \pi}
+          \end{array}
+        $$
+        Entonces si $\arg(z) = \arg(-i)$:
+        $$
+          (\frac{a}{4}  +  \frac{b}{3} ) \pi = \frac{3}{2} \pi + \blue{2k\pi}
+          \Sii{\red{!}}
+          \fcolorbox{orange}{white}{$3a  +  4b = 18 + 24k$}
+        $$
+        Esté resultado es literalmente la expresión de un número dividido por 24 con su resto:
+        $$
+          r_{24}(3a+4b) = 18 \quad \text{con} \quad 0\leq 18 < 24
+        $$
+
+  \item
+        Condición sobre el $|z|$:
+        $$
+          |z| = 2^{3a+4b}
+          \quad\land\quad
+          2^{10} < |z| < 2 ^{25}
+          \sii
+          10 < 3a+4b < 25 \llamada1
+        $$
+        Por otro lado tengo:
+        $$
+          \congruencia{3a + 4b}{18}{24}
+          \Sii{def}
+          3a + 4b = 24k + 18 \llamada2.
+        $$
+        Reemplazo $\llamada2$ en $\llamada1$:
+        $$
+          10 < 24k + 18 < 25
+          \sii
+          -8 < 24k < 7
+          \sii
+          k = 0.
+        $$
+        Por lo tanto tengo:
+        $$
+          3a + 4b = 18
+        $$
+        Para encontrar los pares resuelvo la diofántica {\tiny (a ojo en este caso, sino usar euclides)}:
+        $$
+          (a,b)_{particular} = (2,3) \ytext (a,b)_{homogeneo} = (-4,3)
+        $$
+        La solución general final con todos los pares queda:
+        $$
+          \begin{array}{rcl}
+            (a,b)_{general} & = & k\cdot (-4,3) +  (2,3)                     \\
+                            & = & (-4 + 2k, 3 + 3k) \paratodo k \en \enteros
+          \end{array}
+        $$
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

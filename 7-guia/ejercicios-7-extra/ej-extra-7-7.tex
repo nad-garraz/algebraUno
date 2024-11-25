@@ -15,21 +15,34 @@ $\gr\ob{(f:\ub{2X^3-5X^2-20X +11}{g})}{d} = 2$ indica que hay un polinomio,
 $d$, con $\gr(d) = 2$ que cumple que
 $
   \llave{l}{
-    d \divideA f\\
-    d \divideA g
+    d \divideA f \\
+    d \divideA 2X^3-5X^2-20X +11
   } \text{ entonces,}\, f
-$ tiene 2 raíces en común con $g$, puede ser una doble o dos simples. Dado que nos piden que sea de grado mínimo
+$ tiene 2 raíces en común con $g$. Estás raíces pueden ser una doble o dos simples. Dado que nos piden que sea de grado mínimo
 habrá que tener \textit{cuidado} cual elegir para no violar ninguna condición.\par
-Calculemos las posibles raíces de $g$ usando \textit{lema de gauss}:
+
+\medskip
+
+Calculemos las posibles raíces de $g$ usando \textit{lema de gauss}:\par
 Posibles raíces serán los cocientes de los divisores de 11 y los de 2.
-$\divset{11}{\pm1,\pm11}, \divset{2}{\pm1,\pm2}$:
-$\set{\pm 1,\pm\frac{1}{2},\pm 11, \pm\frac{11}{2}}$.
+$$
+  \divset{11}{\pm1,\pm11}, \divset{2}{\pm1,\pm2}:
+$$
+$$
+  \set{\pm 1,\pm\frac{1}{2},\pm 11, \pm\frac{11}{2}}.
+$$
+
 Probando esos valores encuentro que $g(\frac{1}{2}) = 0$ y ninguna de las
 otras funcionó. Le bajamos el grado con el algoritmo de división a $g$.
 $$
   \divPol{2X^3 - 5X^2 - 20X + 11}{X - \frac{1}{2}}
 $$
-$g = (X-\frac{1}{2})\cdot(\ub{2X^2 - 4X -22}{h}) + 0 $, buscamos raíces de $h$:\par
+
+Hasta el momento:
+$$
+  g = (X-\frac{1}{2}) \cdot (2X^2 - 4X -22) + 0,
+$$
+buscamos raíces de $2X^2 - 4X -22$:\par
 
 $$\alpha_{+,-} =
   \frac{4 \pm 8\sqrt{3}}{4} =
@@ -43,19 +56,28 @@ $$
 Entonces:
 $f$ tiene 2 raíces en común con
 $g = (X - \frac{1}{2})(X - (1+2\sqrt{3})) (X - (1-2\sqrt{3})) $. Dado que
-$f \en \racionales[X]$  voy a seleccionar las raíces $ \en \irracionales$ por
-la condiciónde grado mínimo.\bigskip
+$f \en \racionales[X]$  voy a seleccionar las raíces que tienen número irracionales por
+la condiciónde grado mínimo. Recordar que si $f \en \racionales[X]$ tiene una raíz con números irracionales,
+también debe estar su conjugado irracional.
+
+\bigskip
 
 Con la condición que dice que $f$ tiene una raíz $z \en G_3$ con $z \distinto 1$,
 que es doble, no nos dejan muchas opciones. $G_3$ tiene tres raíces, solución
-de $w^3 = 1$, dado que por enunciado no puede ser 1, entonces solo quedan.
-$-\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ \green{(si no te acordás como encontrar raíces de la
+de $w^3 = 1$, dado que por enunciado no puede ser 1, entonces solo quedan:
+$$
+  -\frac{1}{2} \pm \frac{\sqrt{3}}{2}i
+$$
+(\blue{Si no te acordás como encontrar raíces de la
   familia $G_n$ te dejo el ejercicio \refEjercicio{ej:12}) que se hacen las cuentas.}
-Ok, tengo esas dos $-\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ ¿Cuál elijo? cualquiera nos
-sirve, porque, \textit{nuevamente}, como $f en \racionales[X]$ si agarro una raíz compleja
+
+\bigskip
+
+Ok, tengo esas dos raíces: $-\frac{1}{2} \pm \frac{\sqrt{3}}{2}i$ ¿Cuál elijo? ¡Cualquiera
+sirve! Porque, \textit{nuevamente {\tiny \faIcon[regular]{meh-rolling-eyes}}}, como $f en \racionales[X]$ si agarro una raíz compleja
 también necesito su conjugado complejo, lo mismo que antes.\par
 
-Hasta el momento tenemos:\par
+Hasta el momento tenemos:
 $$
   \begin{array}{c}
     f =
@@ -70,14 +92,15 @@ $\llamada1$ Si es doble una de las complejas, también debe serlo su conjugado, 
 $f\en \racionales[X]$.\bigskip
 
 Nos queda cumplir que $f(0) = 33$, si bien ahora $f(0) = -11$. Acá tenemos que tener en cuenta
-la primera condición. $f$ es \textit{mónico}, así que no podemos corregir el valor con coeficiente independiente.
+la primera condición. $f$ es \textit{mónico}, así que no podemos corregir el valor poniendo un coeficiente principal.
+
 Hay que proponer otro factor en $\racionales[X]$, que al evaluar de el número que al multiplicarse con $-11$ nos dé
 33. El candidato es $(X-3)$, dado que en 0 vale $-3$ y así $f(0) = (-11) \cdot (-3) = 33$ como queremos.\par
 
+\bigskip
+
 El $f \en\racionales[X]$ que cumple lo pedido:
 $$
-  \boxed{f = (X^2 - 2X - 11)(X^2 + X + 1)^2(X-3)}
+  \fcolorbox{orange}{white}{$f = (X^2 - 2X - 11)(X^2 + X + 1)^2(X-3)$}
 $$
-
-
 

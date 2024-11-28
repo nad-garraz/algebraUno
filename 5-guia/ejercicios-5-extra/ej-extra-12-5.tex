@@ -1,0 +1,85 @@
+\begin{enunciado}{\ejExtra}
+	Determinar todos los primos $p \en \naturales$ que satisfacen que:
+	$$
+		5p \divideA 6^{p-1} + 10^{p^2} + 119
+	$$
+\end{enunciado}
+Si $ 5p \divideA 6^{p-1} + 10^{p^2} + 119$ entonces:
+$$
+	p \divideA 6^{p-1} + 10^{p^2} + 119
+$$
+y ahí puedo sacar info sobre $p$:
+$$
+	p \divideA 6^{p-1} + 10^{p^2} + 119
+	\Sii{def}[\red{!}]
+	\congruencia{6^{p-1} + 10^{p^2} + 119}{0}{p}
+$$
+Las factorizaciones en primos de los números del ejercicio:
+$$
+	\congruencia{(2\cdot 3)^{p-1} + (2 \cdot 5)^{p^2} + 17 \cdot 3^2}{0}{p} \llamada1
+$$
+
+Si $p = 2$ en $\llamada1$:
+$$
+	\congruencia{0 + 0 + 1}{0}{2}
+$$
+$p = 2$, no sirve $\llamada2$
+
+Si $p = 3$ en $\llamada1$:
+$$
+	\congruencia{0 + 1 + 0}{0}{3}
+$$
+$p = 3$, tampoco sirve.
+
+Si $p = 5$ en $\llamada1$:
+$$
+	\congruencia{1 + 0 -1}{0}{5}
+$$
+\fcolorbox{orange}{white}{$p = 5$, sí sirve.} $\llamada3$
+
+Si $p = 17$ en $\llamada1$:
+$$
+	\congruencia{6^0 + 10^1}{0}{17}
+$$
+$p = 17$, tampoco sirve.
+
+\bigskip
+
+Hago el caso con $p$ genérico $\llamada1$:
+$$
+	\congruencia{6^{p-1} + 10^{p^2} + 119}{0}{p}
+	\Sii{PTF}
+	\congruencia{6^0 + 10^1 + 119}{0}{p}
+	\sii
+	\congruencia{130}{0}{p}
+	\sii
+	\congruencia{2 \cdot 5 \cdot 13}{0}{p}
+$$
+De $\llamada2$ y $\llamada3$ sé que el 2 no sirve pero el 5 sí. Agrego el 13 que también funciona.
+
+Todo muy lindo, ahora quiero ver si
+$$
+	\begin{array}{rcl}
+		5 \cdot 5 \divideA 6^{p-1} + 10^{p^2} + 119
+		 & \sii   &
+		\congruencia{6^{24} + 10^{624} + 19}{0}{25}
+		\Sii{PTF}
+		\congruencia{6^0 + 10^1 + 19 \conga{25} 5}{0}{25} \red{\skull}
+		\\
+		 & \ytext & \\
+		5 \cdot 13 \divideA 6^{p-1} + 10^{p^2} + 119
+		 & \sii   &
+		\congruencia{6^{64} + 10^{4225} + 54}{0}{65}
+		\Sii{PTF}
+		\congruencia{6^0 + 10^1 + 54 \conga{65} 0}{0}{25} \red{\Tilde}
+	\end{array}
+$$
+Se concluye de esta forma que el único $p$ primo que cumple que
+$5p \divideA 6^{p-1} + 10^{p^2} + 119$ es \fcolorbox{orange}{white}{$p = 13$}
+
+
+% Contribuciones
+\begin{aportes}
+	%% iconos : \github, \instagram, \tiktok, \linkedin
+	\item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

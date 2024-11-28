@@ -1,0 +1,40 @@
+\begin{enunciado}{\ejExtra}
+  Determinar todos los primos $p$  positivos tales que el polinomio
+  $$
+    f = p X^3 - X^2 + 13X - 1
+  $$
+  tenga al menos una raíz racional positiva. Para cada valor de $p$ hallado, factorizar $f$ como producto de polinomios irreducibles en
+  $\racionales[X],\,\reales[X] \ytext \complejos[X]$.
+\end{enunciado}
+El \hyperlink{teoria-7:lema-gauss}{lema de Gauss} dice que las raíces racionales que el polinomio puede tener, tienen que estar en el
+conjunto:
+$$
+  \set{\pm 1, \pm \frac{1}{13}}
+$$
+
+Si $p$ tiene que ser primo y positivo entonces $p = 13$:
+$$
+  \begin{array}{rcl}
+    f = 13 X^3 - X^2 + 13X - 1 & = & 13 X \cdot (X^2 - 1) - (X^2 - 1)                      \\
+                               & = & (13 X - 1) \cdot (X^2 - 1)                            \\
+                               & = & 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1)
+  \end{array}
+$$
+Todo lindo las raíces:
+$$
+  f = 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1) = 0
+  \sii
+  \llave{rcl}{
+    X_1 & = & \frac{1}{13} \\
+    X_2 & = & 1            \\
+    X_3 & = & -1           \\
+  }
+$$
+Y factorizado en $\racionales[X],\, \reales[X] \ytext \complejos[X]$ queda.
+$$
+  f = 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1)
+$$
+
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

@@ -1,12 +1,14 @@
 %==================
 % Macro Local:
-  \def\c{\textbf{c}}
+\def\c{\textbf{c}}
 %==================
 
 \begin{enunciado}{\ejExtra}
   \begin{enumerate}[label=\alph*)]
     \item Hallar todos los posibles $\c \en \reales,\, \c > 0$ tales que:
-          $$ f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + \c$$ tenga una raíz de argumento $\frac{3\pi}{2}$
+          $$
+            f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + \c
+          $$ tenga una raíz de argumento $\frac{3\pi}{2}$
 
     \item Para cada valor de $\c$ hallado, factorizar $f$ en $\racionales[X],\, \reales[X]$ y $\complejos[X]$, sabiendo que tiene al menos una raíz doble.
   \end{enumerate}
@@ -17,76 +19,109 @@
   \item
         Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$\\
         Voy a usar que:
-        $\llamada1
+        $$\llamada1
           \llave{rcr}{
-            (-i)^2 & = &  -1\\
-            (-i)^3 & = &  i\\
-            (-i)^4 & = &  1\\
-            (-i)^5 & = &  -i\\
-            (-i)^6 & = &  -1
-          }$
+            (-i)^2 & = & -1 \\
+            (-i)^3 & = & i  \\
+            (-i)^4 & = & 1  \\
+            (-i)^5 & = & -i \\
+            (-i)^6 & = & -1
+          }$$
 
-        $
-          f(r(-i)) =
-          (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4^3 + 4(r(-i))^2 + 48(r(-i)) + \c \stackrel{\llamada1}=\\
-          -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0
-          \sisolosi
-          \llave{l}{
-            \re : -r^6  - r^4  - 4r^2  + \c = 0 \entonces \c = r^6  + r^4  + 4r^2\\
-            \im : r(4r^4- 4 r^2- 48) = 0
-            \flecha{bicuadrática}[$r^2 = y$ y $r\en\reales_{> 0}$]
-            r^2 = 3
-          }
-        $
+        Evalúo $f(r(-i))$:
 
-        Por lo tanto si
-        $\c =
-          r^6  + r^4  + 4r^2 =
-          (r^2)^3  + (r^2)^2  + 4r^2
-          \entonces
-          \boxed{\c = 48}\Tilde
-        $\\
-        con raíces $\pm \sqrt{3}i$ dado que $f\en \racionales[X]$
+        $$
+          \begin{array}{rcl}
+            f(r(-i)) & =                   & (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4 r^3i + 4(r(-i))^2 + 48(r(-i)) + \c \\
+                     & \igual{$\llamada1$} & -r^6 + 4r^5i - r^4 + 4 r^3i - 4r^2 - 48ri + \c = 0
+          \end{array}
+        $$
 
+        Esta expresión va a ser 0 cuando su parte imaginaria y su parte real sean ambas 0:
+        $$
+          \begin{array}{c}
+            f(r(-i))  =   -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0 \\
+            \sisolosi                                                        \\
+            \llave{l}{
+              \im(f(r(-i))): 4r(r^4 +  r^2 - 12) = 0
+              \Sii{$r \en \reales$}[$r > 0$]
+            r = \sqrt{3} \llamada2                                           \\
+              \re(f(r(-i))) : -r^6  - r^4  - 4r^2  + \c = 0
+              \Sii{$\llamada2$}[$r = \sqrt{3}$] \fcolorbox{orange}{white}{\c = 48}
+            }
+          \end{array}
+        $$
 
+        Por lo tanto con ese $\c = 48$:
+        $$
+          f = X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48
+        $$
+        y las raíces que tiene este polinomio son:
+        $$
+          \begin{array}{rcrcr}
+            \alpha_1 & = & \sqrt{3} \cdot e^{i\frac{3}{2}\pi}  & = & -\sqrt{3}i \\
+            \alpha_2 & = & \sqrt{3} \cdot e^{-i\frac{3}{2}\pi} & = & \sqrt{3}i
+          \end{array}
+        $$
+        Apareció el conjugado de la raíz dado que que $f \en \racionales[X]$
   \item
 
-        Debe ocurrir que $(X - \sqrt{3}i))(X + \sqrt{3}i) = X^2 + 3 \divideA f$\\
-        \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}\\
+        Debe ocurrir que $(X - \sqrt{3}i)(X + \sqrt{3}i) = X^2 + 3 \divideA f$
+        $$
+          \divPol{X^6 - 4X^5 - X^4 + 4X^3 + 4X^2 + 48X + 48}{X^2 + 3}
+        $$
 
-        $f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{q}$ como $f$
-        tiene al menos una raíz doble puedo ver las raíces de la derivada de $q$:\\
-        $
-          q' = (4X^3 - 12X^2 - 8 X + 16)' =
-          4(X^3 - 3X^2 - 2X + 4) = 0
-          \flecha{Posibles raíces, Gauss :(}[$\pm1,\pm2,\pm4$]
-          q'(1) = 0 \text{, pero }
-          g(\magenta{1})\distinto 0 \entonces f(1) \distinto 0 \\
-          \flecha{divido para}[bajar grado]
-        $
-        \divPol{X^3 - 3X^2 - 2X + 4}{X - 1}
-        $\\
-          g' = 4(X-1)\ub{(X^2 - 2X -4)}{ = h}
-          \flecha{busco raíces}[de $h$]
-          X^2 - 2X - 4 = 0
-          \sisolosi
-          \alpha_{1,2} = 1 \pm \sqrt{5}\\
-          h =
-          (X - (1 + \sqrt{5})) \cdot (X - (1 - \sqrt{5}) =
-          X^2 - 2X - 4
-        $
-        Para calcular que $f(\alpha_1)= g(\alpha_1) = 0$ y comprobar que es una raíz doble, puedo hacer:
-        \divPol{X^4 - 4X^3 - 4X^2 + 16X + 16}{X^2 - 2X - 4} \checkmark
-        $g = h^2 =  (X^2 - 2X - 4)^2 \to \text{no la vi venir}$ \\
+        Hasta el momento $f$ queda:
+        $$
+          f = (X^2 + 3)\ub{(X^4 - 4X^3 - 4X^2 + 16X + 16)}{g}
+        $$
+        como $f$ tiene al menos una raíz doble la busco en las raíces de la derivada de $g$:\par
+        $$
+          \begin{array}{rcl}
+            g' & = & (4X^3 - 12X^2 - 8 X + 16)' \\
+               & = & 4(X^3 - 3X^2 - 2X + 4) = 0 \\
+          \end{array}
+        $$
+        Con el lema de Gauss se que las posibles raíces de $g'$ están en:
+        $$
+          \set{\pm1,\pm2,\pm4}
+        $$
+        Probando encuentro que  $g'(1) = 0$, pero $q(\magenta{1}) \distinto 0 \entonces f(1) \distinto 0$. Si $X=1$ no es raíz de g,
+        continúo bajándole el grado a $g'$ para buscar otras raíces:
+        $$
+          \divPol{X^3 - 3X^2 - 2X + 4}{X - 1}
+        $$
+        Con este resultado se puede escribir a $g'$ como:
+        $$
+          g' = 4(X-1)(X^2 - 2X -4)
+        $$
+        De la parte cuadrática salen 2 raíces de $g'$:
+        $$
+          \begin{array}{c}
+            \alpha_{1,2} = 1 \pm \sqrt{5} \\
+            X^2 - 2X -4 = (X - (1 + \sqrt{5}))(X - (1 - \sqrt{5}))
+          \end{array}
+        $$
+        {\tiny(debería comprobar que no son raíces de $g''$, pero no tengo ganas).}
 
+        Compruebo que sean también raíces de $g$:
+        $$
+          \divPol{X^4 - 4X^3 - 4X^2 + 16X + 16}{X^2 - 2X -4}
+        $$
+        Dado que el resto dio 0 $alpha_{1,2}$ son raíces de $g$ y como son raíces de $g'$ entonces son raíces dobles de $g$, y de $f$.
 
-        \textit{factorizaciones: }\\
-        \boxed{
-          \llave{rcl}{
-            \racionales[X] & \to & f = \parentesis{X^2 + 3} (X^2 + 3)(X^2 - 2X - 4)^2\\
-            \reales[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X^2 - 2X - 4)^2\\
-            \complejos[X] & \to & f = (X - (1 + \sqrt{5})) (X - (1 - \sqrt{5})) (X-3i)^2 (X+3i)^2
+        Notar que viendo el cociente de esa última división quizás podría haber visto el caso de factoreo a ojo, pero bueh, no pasó.
+
+        \textit{Factorizaciones: }
+        \begin{center}
+          \fcolorbox{orange}{white}{
+            $
+              \begin{array}{rcl}
+                \racionales[X] & \to & f = (X^2 + 3) \cdot (X^2 - 2X - 4)^2                                                               \\
+                \reales[X]     & \to & f = (X^2 + 3) \cdot (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2                           \\
+                \complejos[X]  & \to & f =  (X-\sqrt{3}i) \cdot (X+\sqrt{3}i) \cdot  (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2
+              \end{array}
+            $
           }
-        }\Tilde
-
+        \end{center}
 \end{enumerate}

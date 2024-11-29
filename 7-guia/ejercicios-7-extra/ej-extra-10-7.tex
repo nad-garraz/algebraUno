@@ -7,33 +7,47 @@
   $\racionales[X],\,\reales[X] \ytext \complejos[X]$.
 \end{enunciado}
 El \hyperlink{teoria-7:lema-gauss}{lema de Gauss} dice que las raíces racionales que el polinomio puede tener, tienen que estar en el
-conjunto:
+conjunto de los divisores del \textit{coeficiente principal} $p$ y el \textit{termino independiente} $-1$:
 $$
-  \set{\pm 1, \pm \frac{1}{13}}
+  \set{\pm 1,\pm \frac{1}{2},\pm \frac{1}{3},\pm \frac{1}{5},\pm \frac{1}{7}, \dots, \pm \frac{1}{p}}
+$$
+Ahora hay que hacer cuentas para todos los primos y ver cuál funciona, \textit{nah, mentira}.
+Si $\frac{1}{p}$ es raíz entonces hay que dividir {\tiny ($p^{-1} = \frac{1}{p}$, boludeces, no!)}:
+$$
+  \divPol{pX^3 - X^2 + 13X -1}{X-\frac{1}{p}}
+$$
+Y a esto hay que pedirle que el \magenta{resto sea 0}, porque $\frac{1}{p}$ es raíz racional:
+$$
+  -1 + \frac{13}{p} = 0 \sii p = 13
 $$
 
-Si $p$ tiene que ser primo y positivo entonces $p = 13$:
+Si $p$ tiene que ser primo y positivo entonces $p = 13$, usando el resultado de la división:
 $$
   \begin{array}{rcl}
-    f = 13 X^3 - X^2 + 13X - 1 & = & 13 X \cdot (X^2 - 1) - (X^2 - 1)                      \\
-                               & = & (13 X - 1) \cdot (X^2 - 1)                            \\
-                               & = & 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1)
+    f = 13 X^3 - X^2 + 13 X - 1 & = & 13 (X - \frac{1}{13}) \cdot (X^2 + 1)             \\
+                                & = & 13 (X - \frac{1}{13}) \cdot (X - i) \cdot (X + i) \\
   \end{array}
 $$
 Todo lindo las raíces:
 $$
-  f = 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1) = 0
-  \sii
   \llave{rcl}{
     X_1 & = & \frac{1}{13} \\
-    X_2 & = & 1            \\
-    X_3 & = & -1           \\
+    X_2 & = & i            \\
+    X_3 & = & -i           \\
   }
 $$
 Y factorizado en $\racionales[X],\, \reales[X] \ytext \complejos[X]$ queda.
-$$
-  f = 13\cdot(X - \frac{1}{13}) \cdot (X - 1) \cdot (X + 1)
-$$
+\begin{center}
+  \fcolorbox{orange}{white}{
+    $
+      \begin{array}{rcl}
+        \racionales[X]:\quad f & = & 13\cdot(X - \frac{1}{13}) \cdot (X^2 + 1)             \\
+        \reales[X]:\quad f     & = & 13\cdot(X - \frac{1}{13}) \cdot (X^2 + 1)             \\
+        \complejos[X]:\quad f  & = & 13\cdot(X - \frac{1}{13}) \cdot (X - i) \cdot (X + i)
+      \end{array}
+    $
+  }
+\end{center}
 
 \begin{aportes}
   \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}

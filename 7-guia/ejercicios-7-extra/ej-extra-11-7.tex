@@ -1,0 +1,125 @@
+\begin{enunciado}{\ejExtra}
+  Hallar todos los $k \en \racionales$ para los cuales el polinomio $f = X^6 + kX^3 + 25 \en \racionales[X]$
+  tiene al menos una raíz compleja múltiple. Para cada uno de los valores de $k$ hallados, factorizar $f$
+  en $\complejos[X], \reales[X] \ytext \racionales[X]$.
+\end{enunciado}
+Antes de empezar este ejercicio, estaría bueno que hagas un minuto de silencio por los que rindieron este examen...
+
+\bigskip
+\textit{1 minuto después}
+\bigskip
+
+Si $f$ tiene raíces múltiples, busco raíces en su derivada, $f'$:
+$$
+  f'(r)= 0 \sii f' = 6r^5 + 3kr^2 = 0 \sii 3r^2 \cdot (2r^3 + k) = 0 \sii k = -2r^3
+$$
+Entonces para el valor de una raíz $r$, tengo lo que tiene que valer $k$. Como tengo raíces múltiples, meto a $r$ y el valor
+de $k$ encontrado en $f$:
+$$
+  f(r) = 0
+  \Sii{$k=-2r^3$}
+  r^6 -2r^6+ 25 = 0
+  \sii
+  \fcolorbox{orange}{white}{$r^6 = 25$}
+$$
+
+Ese último resultado es $G_6$ con módulo $\sqrt[3]{5}$:
+$$
+  r_q = \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \quad\text{ con } \quad q \en [0,5]
+$$
+
+Estos valores son las raíces de $f$, pero hay que ver para cuál valor de $k$:
+$$
+  k = -2(r_q)^3
+  \sii
+  \llave{rcccr}{
+    \text{si $q$ par}   & \entonces & -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \big)^3 & = & -10 \\
+    \text{si $q$ impar} & \entonces & -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \big)^3 & = & 10
+  }
+$$
+
+Por lo tanto hay 2 valores posibles para $k$:
+$$
+  k \en \set{-10, 10}
+$$
+Tengo entonces que factorizar 2 polinomios $f$:
+$$
+  f_{-10} = X^6 - 10X^3 + 25
+  \ytext
+  f_{10} = X^6 + 10X^3 + 25
+$$
+
+\textit{Factorizo $f_{-10}$:}\par
+\begin{center}
+  Recordar que \blue{$(X - z)(X- \conj{z}) = X^2 - 2\re(z)X + |z|^2$}:
+\end{center}
+
+El valor $k = -10$ tiene las raíces con $q$ par:
+$$
+  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{2}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{4}{3}\pi} } =
+  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot (- \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot (- \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
+$$
+Que cosa horrible esto:
+$$
+  \bigg(X - \sqrt[3]{5} \cdot \Big(- \frac{1}{2} + i\frac{\sqrt{3}}{2}\Big)\bigg)
+  \cdot
+  \bigg(X - \sqrt[3]{5} \cdot \Big(- \frac{1}{2} - i\frac{\sqrt{3}}{2}\Big)\bigg)
+  =
+  \blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2}
+$$
+
+\begin{center}
+  \fcolorbox{orange}{white}{
+    $
+      \begin{array}{rcl}
+begin{-10} & =               & X^6 - 10X^3 + 25                                                                            \\
+                & \igual{\red{!}} & (X^3 - 5)^2  \en \racionales[X]                                                             \\
+                & \igual{\red{!}} & \Big((X - \sqrt[3]{5}) \cdot (\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
+        \Big(X - \sqrt[3]{5}\Big)^2 \cdot \Big(\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]       \\
+                & \igual{\red{!}} &
+        \Big(X - \sqrt[3]{5}\Big)^2 \cdot
+        \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} - i\frac{\sqrt{3}}{2}\big)\Big)^2 \cdot
+        \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} + i\frac{\sqrt{3}}{2}\big)\Big)^2 \en \complejos[X]
+     begin{array}
+    $
+  }
+\end{center}
+
+\bigskip
+
+\textit{Factorizo $f_{10}$:}\par
+
+El valor $k = 10$ tiene las raíces con $q$ impar:
+$$
+  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{1}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{5}{3}\pi} } =
+  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot ( \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot ( \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
+$$
+Esto es igual de horrible, pero solo hay que cambiar un par de signos a lo de antes:
+$$
+  \bigg(X - \sqrt[3]{5} \cdot \Big( \frac{1}{2} + i\frac{\sqrt{3}}{2}\Big)\bigg)
+  \cdot
+  \bigg(X - \sqrt[3]{5} \cdot \Big( \frac{1}{2} - i\frac{\sqrt{3}}{2}\Big)\bigg)
+  =
+  \blue{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2}
+$$
+\fcolorbox{orange}{white}{
+  $
+    \begin{array}{rcl}
+      f_{10} & =               & X^6 + 10X^3 + 25                                                                            \\
+             & \igual{\red{!}} & (X^3 + 5)^2  \en \racionales[X]                                                             \\
+             & \igual{\red{!}} & \Big((X + \sqrt[3]{5}) \cdot (\blue{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
+      \Big(X + \sqrt[3]{5}\Big)^2 \cdot \Big(\blue{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]      \\
+             & \igual{\red{!}} &
+      \Big(X + \sqrt[3]{5}\Big)^2 \cdot
+      \Big(X - \sqrt[3]{5}  \big( \frac{1}{2} - i\frac{\sqrt{3}}{2}\big)\Big)^2 \cdot
+      \Big(X - \sqrt[3]{5}  \big( \frac{1}{2} + i\frac{\sqrt{3}}{2}\big)\Big)^2 \en \complejos[X]
+    \end{array}
+  $
+}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

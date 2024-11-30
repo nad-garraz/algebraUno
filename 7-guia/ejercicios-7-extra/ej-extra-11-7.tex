@@ -44,15 +44,20 @@ $$
 $$
 Tengo entonces que factorizar 2 polinomios $f$:
 $$
-  f_{-10} = X^6 - 10X^3 + 25
-  \ytext
-  f_{10} = X^6 + 10X^3 + 25
+  \boxed{
+    f_{-10} = X^6 \red{- 10}X^3 + 25
+    \ytext
+    f_{10} = X^6 \red{+ 10}X^3 + 25
+  }
 $$
+Esto va a ser útil:
+\begin{center}
+  \blue{$(X - z)(X- \conj{z}) = X^2 - 2\re(z)X + |z|^2$}:
+\end{center}
+
+\bigskip
 
 \textit{Factorizo $f_{-10}$:}\par
-\begin{center}
-  Recordar que \blue{$(X - z)(X- \conj{z}) = X^2 - 2\re(z)X + |z|^2$}:
-\end{center}
 
 El valor $k = -10$ tiene las raíces con $q$ par:
 $$
@@ -72,7 +77,7 @@ $$
   \fcolorbox{orange}{white}{
     $
       \begin{array}{rcl}
-begin{-10} & =               & X^6 - 10X^3 + 25                                                                            \\
+        f_{-10} & =               & X^6 - 10X^3 + 25                                                                            \\
                 & \igual{\red{!}} & (X^3 - 5)^2  \en \racionales[X]                                                             \\
                 & \igual{\red{!}} & \Big((X - \sqrt[3]{5}) \cdot (\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
         \Big(X - \sqrt[3]{5}\Big)^2 \cdot \Big(\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]       \\
@@ -80,14 +85,14 @@ begin{-10} & =               & X^6 - 10X^3 + 25                                 
         \Big(X - \sqrt[3]{5}\Big)^2 \cdot
         \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} - i\frac{\sqrt{3}}{2}\big)\Big)^2 \cdot
         \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} + i\frac{\sqrt{3}}{2}\big)\Big)^2 \en \complejos[X]
-     begin{array}
+      \end{array}
     $
   }
 \end{center}
 
 \bigskip
 
-\textit{Factorizo $f_{10}$:}\par
+\textit{Factorizo $f_{10}$:}
 
 El valor $k = 10$ tiene las raíces con $q$ impar:
 $$

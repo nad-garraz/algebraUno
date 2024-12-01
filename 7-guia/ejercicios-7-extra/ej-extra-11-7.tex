@@ -25,16 +25,16 @@ $$
 
 Ese último resultado es $G_6$ con módulo $\sqrt[3]{5}$:
 $$
-  r_q = \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \quad\text{ con } \quad q \en [0,5]
+  r_q = \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \quad\text{ con } \quad \magenta{q} \en [0,5]
 $$
 
 Estos valores son las raíces de $f$, pero hay que ver para cuál valor de $k$:
 $$
-  k = -2(r_q)^3
+  k = -2(r_{\magenta{q}})^3
   \sii
   \llave{rcccr}{
-    \text{si $q$ par}   & \entonces & -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \big)^3 & = & -10 \\
-    \text{si $q$ impar} & \entonces & -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \big)^3 & = & 10
+    \text{si $\magenta{q}$ par}   & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q} \pi} \big)^3 & = & -10 \\
+    \text{si $\magenta{q}$ impar} & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q} \pi} \big)^3 & = & 10
   }
 $$
 
@@ -56,14 +56,18 @@ $$
 $$
 Esto va a ser útil:
 \begin{center}
-  \blue{$(X - z)(X- \conj{z}) = X^2 - 2\re(z)X + |z|^2$}:
+  \fcolorbox{red}{white}{
+    $(X - z)(X- \conj{z})
+      \igual{$\llamada1$}
+      X^2 - 2\re(z)X + |z|^2$
+  }
 \end{center}
 
 \bigskip
 
 \textit{Factorizo $f_{-10}$:}\par
 
-El valor $k = -10$ tiene asociadas las raíces con $q$ par:
+El valor $k = -10$ tiene asociadas las raíces con $\magenta{q}$ par:
 $$
   \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{2}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{4}{3}\pi} } =
   \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot (- \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot (- \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
@@ -73,7 +77,7 @@ $$
   \bigg(X - \sqrt[3]{5} \cdot \Big(- \frac{1}{2} + i\frac{\sqrt{3}}{2}\Big)\bigg)
   \cdot
   \bigg(X - \sqrt[3]{5} \cdot \Big(- \frac{1}{2} - i\frac{\sqrt{3}}{2}\Big)\bigg)
-  =
+  \igual{$\llamada1$}
   \blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2}
 $$
 
@@ -98,17 +102,17 @@ $$
 
 \textit{Factorizo $f_{10}$:}
 
-El valor $k = 10$ tiene asociadas las raíces con $q$ impar:
+El valor $k = 10$ tiene asociadas las raíces con $\magenta{q}$ impar:
 $$
   \set{-\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{1}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{5}{3}\pi} } =
   \set{-\sqrt[3]{5}, \sqrt[3]{5} \cdot ( \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot ( \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
 $$
-Esto es igual de horrible, pero solo hay que cambiar un par de signos a lo de antes:
+Esto es igual de horrible, pero solo \textit{hay que cambiar un par de signos a lo de antes}:
 $$
   \bigg(X - \sqrt[3]{5} \cdot \Big( \frac{1}{2} + i\frac{\sqrt{3}}{2}\Big)\bigg)
   \cdot
   \bigg(X - \sqrt[3]{5} \cdot \Big( \frac{1}{2} - i\frac{\sqrt{3}}{2}\Big)\bigg)
-  =
+  \igual{$\llamada1$}
   \green{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2}
 $$
 \fcolorbox{orange}{white}{

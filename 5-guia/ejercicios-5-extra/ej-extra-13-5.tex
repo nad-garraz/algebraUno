@@ -1,0 +1,81 @@
+\begin{enunciado}{\ejExtra}
+	Hallar todos los $a\en \enteros$ tales que el resto de la división de $15a^{831}$ por
+	$77$ es $6$.
+\end{enunciado}
+
+Teniendo en cuenta que:
+$$
+	831 = 3 \cdot 277
+$$
+Queremos ver para cuál valor de $a$:
+$$
+	\congruencia{15a^{831}}{6}{77}
+$$
+Para poder usar PTF, necesitamos que el divisor sea un número primo:
+$$
+	\congruencia{15a^{831}}{6}{77}
+	\leftrightsquigarrow
+	\llave{c}{
+		\congruencia{a^{831}}{6}{7} \llamada1\\
+		\congruencia{4a^{831}}{6}{11} \llamada2
+	}
+$$
+
+\textit{Estudio $\llamada1$:}
+$$
+	\congruencia{a^{831}}{6}{7}
+	\sii
+	\llave{l}{
+		\Sii{$\congruencia{a}{0}{7}$} \congruencia{0}{6}{7} \red{\skull}\\
+		\Sii{$\noCongruencia{a}{0}{7}$}[PTF]
+		\congruencia{a^3}{6}{7}
+        \Sii{\red{!!}}
+		\congruencia{a}{6}{7}
+	}
+$$
+
+\textit{Estudio $\llamada2$:}
+$$
+	\congruencia{4a^{831}}{6}{11}
+	\sii
+	\llave{l}{
+		\Sii{$\congruencia{a}{0}{11}$} \congruencia{0}{6}{11} \red{\skull}\\
+		\Sii{$\noCongruencia{a}{0}{11}$}[PTF]
+		\congruencia{4a^1}{6}{11}
+		\Sii{$3 \cop 11$}
+		\congruencia{a}{7}{11}
+	}
+$$
+
+Necesito que:
+$$
+	\llave{l}{
+		\congruencia{a}{7}{11}\\
+		\congruencia{a}{6}{7}
+	}
+$$
+Por \href{\chinito}{TCH} tengo divisores coprimos por lo que tengo solución:
+$$
+	\begin{array}{c}
+		\congruencia{a}{7}{11}
+		\Sii{def} a = 11 \cdot \blue{k} + 7 \\
+		\flecha{reemplazo}           \\
+		\congruencia{11\cdot \blue{k} + 7}{6}{7}
+		\sii
+		\congruencia{4\cdot \blue{k}}{6}{7}
+		\Sii{$2\cop 7$}[\red{!}]
+		\congruencia{\blue{k}}{5}{7}
+		\Sii{def}
+            \blue{k} = 7\cdot \yellow{q} + 5
+		\\
+		\flecha{reemplazo}[en $a$]   \\
+            a = 11 \cdot ( 7\cdot \yellow{q} + 5) + 7 = 77 \cdot \yellow{q} + 62
+		\Sii{def}
+		\fcolorbox{orange}{white}{$\congruencia{a}{62}{77}$}
+	\end{array}
+$$
+
+
+\begin{aportes}
+	\item \aporte{https://github.com/nad-garraz/algebraUno}{Nad Garraz \github}
+\end{aportes}

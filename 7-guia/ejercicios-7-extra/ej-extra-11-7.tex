@@ -25,7 +25,7 @@ $$
 
 Ese último resultado es $G_6$ con módulo $\sqrt[3]{5}$:
 $$
-  r_q = \sqrt[3]{5} \cdot e^{i \frac{1}{3}q \pi} \quad\text{ con } \quad \magenta{q} \en [0,5]
+  r_{\magenta{q}} = \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q} \pi} \quad\text{ con } \quad \magenta{q} \en [0,5]
 $$
 
 Estos valores son las raíces de $f$, pero hay que ver para cuál valor de $k$:
@@ -33,8 +33,8 @@ $$
   k = -2(r_{\magenta{q}})^3
   \sii
   \llave{rcccr}{
-    \text{si $\magenta{q}$ par}   & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q} \pi} \big)^3 & = & -10 \\
-    \text{si $\magenta{q}$ impar} & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q} \pi} \big)^3 & = & 10
+    \text{si $\magenta{q}$ es par}   & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q}_{par} \pi} \big)^3 & = & -10 \\
+    \text{si $\magenta{q}$ es impar} & \entonces & k = -2 \big( \sqrt[3]{5} \cdot e^{i \frac{1}{3}\magenta{q}_{impar} \pi} \big)^3 & = & 10
   }
 $$
 
@@ -44,14 +44,24 @@ $$
 $$
 
 Hay 2 valores de $k$ que formarán 2 polinomios distintos.
-Cada uno de esos polinomios tiene 3 raíces tanto de $f$ como de $f'$ por lo tanto las mencionadas raíces son raíces dobles.
+Cada uno de esos polinomios tiene 3 raíces tanto de $f$ como de $f'$ por lo tanto las mencionadas raíces son raíces dobles de $f$.
+
+Notar en el resultado de la derivada metiendo los valores de $k$:
+$$
+  f'_{\scriptscriptstyle -10}(r_{\magenta{q}_{par}}) = 0 \sii r^3 = 5
+  \ytext
+  f'_{\scriptscriptstyle 10}(r_{\magenta{q}_{impar}}) = 0 \sii r^3 = -5.
+$$
+A esta altura esas ecuaciones se resuelven solas y todas esas soluciones son la $r_{\magenta{q}}$ de antes, \textit{miti y miti}.
+
+\bigskip
 
 Tengo entonces que factorizar 2 polinomios $f$:
 $$
   \boxed{
-    f_{-10} = X^6 \red{- 10}X^3 + 25
+    f_{\scriptscriptstyle -10} = X^6 \red{- 10}X^3 + 25
     \ytext
-    f_{10} = X^6 \red{+ 10}X^3 + 25
+    f_{\scriptscriptstyle 10} = X^6 \red{+ 10}X^3 + 25
   }
 $$
 Esto va a ser útil:
@@ -65,12 +75,12 @@ Esto va a ser útil:
 
 \bigskip
 
-\textit{Factorizo $f_{-10}$:}\par
+\textit{Factorizo $f_{\scriptscriptstyle -10}$:}\par
 
 El valor $k = -10$ tiene asociadas las raíces con $\magenta{q}$ par:
 $$
   \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{2}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{4}{3}\pi} } =
-  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot (- \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot (- \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
+  \set{\sqrt[3]{5}, \sqrt[3]{5} \cdot \Big(- \frac{1}{2} + i\frac{\sqrt{3}}{2} \Big), \sqrt[3]{5} \cdot \Big(- \frac{1}{2} - i\frac{\sqrt{3}}{2} \Big) }.
 $$
 Que cosa horrible esto:
 $$
@@ -85,11 +95,11 @@ $$
   \fcolorbox{orange}{white}{
     $
       \begin{array}{rcl}
-        f_{-10} & =               & X^6 - 10X^3 + 25                                                                            \\
-                & \igual{\red{!}} & (X^3 - 5)^2  \en \racionales[X]                                                             \\
-                & \igual{\red{!}} & \Big((X - \sqrt[3]{5}) \cdot (\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
-        \Big(X - \sqrt[3]{5}\Big)^2 \cdot \Big(\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]       \\
-                & \igual{\red{!}} &
+        f_{\scriptscriptstyle -10} & =               & X^6 - 10X^3 + 25                                                                            \\
+                                   & \igual{\red{!}} & (X^3 - 5)^2  \en \racionales[X]                                                             \\
+                                   & \igual{\red{!}} & \Big((X - \sqrt[3]{5}) \cdot (\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
+        \Big(X - \sqrt[3]{5}\Big)^2 \cdot \Big(\blue{X^2  + \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]                          \\
+                                   & \igual{\red{!}} &
         \Big(X - \sqrt[3]{5}\Big)^2 \cdot
         \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} - i\frac{\sqrt{3}}{2}\big)\Big)^2 \cdot
         \Big(X - \sqrt[3]{5}  \big(- \frac{1}{2} + i\frac{\sqrt{3}}{2}\big)\Big)^2 \en \complejos[X]
@@ -100,12 +110,12 @@ $$
 
 \bigskip
 
-\textit{Factorizo $f_{10}$:}
+\textit{Factorizo $f_{\scriptscriptstyle 10}$:}
 
 El valor $k = 10$ tiene asociadas las raíces con $\magenta{q}$ impar:
 $$
   \set{-\sqrt[3]{5}, \sqrt[3]{5} \cdot e^{i\frac{1}{3}\pi}, \sqrt[3]{5} \cdot e^{i\frac{5}{3}\pi} } =
-  \set{-\sqrt[3]{5}, \sqrt[3]{5} \cdot ( \frac{1}{2} + i\frac{\sqrt{3}}{2}), \sqrt[3]{5} \cdot ( \frac{1}{2} - i\frac{\sqrt{3}}{2}) }.
+  \set{-\sqrt[3]{5}, \sqrt[3]{5} \cdot \Big( \frac{1}{2} + i\frac{\sqrt{3}}{2} \Big), \sqrt[3]{5} \cdot \Big( \frac{1}{2} - i\frac{\sqrt{3}}{2} \Big) }.
 $$
 Esto es igual de horrible, pero solo \textit{hay que cambiar un par de signos a lo de antes}:
 $$
@@ -118,11 +128,11 @@ $$
 \fcolorbox{orange}{white}{
   $
     \begin{array}{rcl}
-      f_{10} & =               & X^6 + 10X^3 + 25                                                                             \\
-             & \igual{\red{!}} & (X^3 + 5)^2  \en \racionales[X]                                                              \\
-             & \igual{\red{!}} & \Big((X + \sqrt[3]{5}) \cdot (\green{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
-      \Big(X + \sqrt[3]{5}\Big)^2 \cdot \Big(\green{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]      \\
-             & \igual{\red{!}} &
+      f_{\scriptscriptstyle 10} & =               & X^6 + 10X^3 + 25                                                                             \\
+                                & \igual{\red{!}} & (X^3 + 5)^2  \en \racionales[X]                                                              \\
+                                & \igual{\red{!}} & \Big((X + \sqrt[3]{5}) \cdot (\green{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 =
+      \Big(X + \sqrt[3]{5}\Big)^2 \cdot \Big(\green{X^2  - \sqrt[3]{5} \cdot X + (\sqrt[3]{5})^2)}\Big)^2 \en \reales[X]                         \\
+                                & \igual{\red{!}} &
       \Big(X + \sqrt[3]{5}\Big)^2 \cdot
       \Big(X - \sqrt[3]{5}  \big( \frac{1}{2} - i\frac{\sqrt{3}}{2}\big)\Big)^2 \cdot
       \Big(X - \sqrt[3]{5}  \big( \frac{1}{2} + i\frac{\sqrt{3}}{2}\big)\Big)^2 \en \complejos[X]

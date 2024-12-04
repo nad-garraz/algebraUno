@@ -1,0 +1,68 @@
+\begin{enunciado}{\ejExtra}
+  Calcular el resto de dividir
+  $$
+    \sumatoria{k = 4}{134} (k! + k^3)
+  $$
+  por 7.
+\end{enunciado}
+
+Nos piden calcular el resto 7 de esa porquería:
+$$
+  \sumatoria{k = 4}{134} (k! + k^3)
+  =
+  \sumatoria{k = 4}{134} k! + \sumatoria{k = 4}{134} k^3
+$$
+
+Arranco por estudiar $\sumatoria{k = 4}{134} k^3$. Tabla de restos 7 de $k^3$:
+$$
+  \begin{array}{|c||c|c|c|c|c|c|c|}
+    \hline
+    r_7(k)   & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+    r_7(k^3) & 0 & 1 & 1 & 6 & 1 & 6 & 6 \\ \hline
+  \end{array}
+$$
+Pensar que $\congruencia{6}{-1}{7}$ y eso nos ayuda a anular muchas cosas:
+$$
+  \sumatoria{k = 4}{134} k^3 = \ub{4^3 + 5^3 + 6^3 + 7^3 + 8^3 + \cdots + 130^3 + 131^3 + 132^3 + 134^3}{131 \text{ términos}}
+$$
+Todos esos términos tienen $r_7$ igual a $0, 1$ o $-1$. \underline{Sumando 7 términos consecutivos se obtiene como resultado 0}. Organizo los términos teniendo en cuenta que
+$134 = 19 \cdot 7 + 1 $, es decir que tengo 19 sumas de 7 términos que dan 0 y me sobra el último término:
+$$
+  \scriptstyle
+  \congruencia{r_7\Big(\sumatoria{k = 4}{134} k^3 \Big)}{
+    \ub{\scriptstyle 4^3 + 5^3 + 6^3 + 7^3 + 8^3 + 9^3 + 10^3}{1^3 + (-1)^3 + (-1)^3 + 0^3 + 1^3 + 1^3 + (-1)^3=0} +
+    \cdots +
+    \ub{\scriptstyle126^3+ 127^3 + 128^3 + 129^3 + 130^3 + 131^3 + 132^3}{1^3 + (-1)^3 + (-1)^3 + 0^3 + 1^3 + 1^3 + (-1)^3=0} + \ub{\scriptstyle134^3}{=1}}{7}
+  \congruente
+  19 \cdot 0 + 1\ (7)
+  \congruente 1 \ (7) \llamada1
+$$
+
+\bigskip
+
+Ahora quiero ver $\sumatoria{k = 4}{134}k!$. Noto primero que cuando $k \geq 7$ el número $k!$ es un múltiplo de 7, es decir:
+$$
+  \congruencia{k!}{0}{7} \quad \text{ con } k \en \naturales_{\geq 7}
+$$
+Por lo tanto me quedaría con los primero 3 términos:
+$$
+  \sumatoria{k = 4}{134} k! = 4! + 5! + 6! + \ub{ 0 + \cdots + 0}{131 \text{ términos igual a 0}}
+  \congruente
+  3 + 1 + 6 \ (7)
+  \congruente
+  3 + 1 + 6 \ (7)
+  \congruente
+  3 \ (7) \llamada2
+$$
+
+Por último juntando los resultados de $\llamada1 \ytext \llamada2$:
+$$
+  r_7 \Big( \sumatoria{k = 4}{134} (k! + k^3) \Big)  = 4
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

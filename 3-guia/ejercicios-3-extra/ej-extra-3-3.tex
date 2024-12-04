@@ -1,7 +1,7 @@
 \begin{enunciado}{\ejExtra}
-	Calcular la cantidad de anagramas de HIPOPOTAMO que preserven el orden
-	relativo orifinal de las letras I y A, es decir, los que tengan la I
-	a la izquierda de la A.
+  Calcular la cantidad de anagramas de HIPOPOTAMO que preserven el orden
+  relativo orifinal de las letras I y A, es decir, los que tengan la I
+  a la izquierda de la A.
 \end{enunciado}
 
 No sé si ésta es la mejor forma de hacer esto, pero es la forma que
@@ -11,25 +11,27 @@ Primero voy a atacar el tema de la posición relativa de la I y la A.
 Calculo todas las posibles posiciones respetando que la I esté a las izquierda de la A.\par
 La I fija y cuento posibles lugares para la A:
 $$
-	\begin{array}{cccccccccc | l}
-		1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 &                                   \\ \hline
-		I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 9 posibles posiciones} \\
-		\_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 8 posibles posiciones} \\
-		\_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 7 posibles posiciones} \\
-		\_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \to \text{ 6 posibles posiciones} \\
-		\_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \to \text{ 5 posibles posiciones} \\
-		\_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \to \text{ 4 posibles posiciones} \\
-		\_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \to \text{ 3 posibles posiciones} \\
-		\_ & \_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \to \text{ 2 posibles posiciones} \\
-		\_ & \_ & \_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \to \text{ 1 posible posición}
-	\end{array}
+  \begin{array}{cccccccccc | l}
+    1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 &                                   \\ \hline
+    I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 9 posibles posiciones} \\
+    \_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 8 posibles posiciones} \\
+    \_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \_ & \to \text{ 7 posibles posiciones} \\
+    \_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \_ & \to \text{ 6 posibles posiciones} \\
+    \_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \_ & \to \text{ 5 posibles posiciones} \\
+    \_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \_ & \to \text{ 4 posibles posiciones} \\
+    \_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \_ & \to \text{ 3 posibles posiciones} \\
+    \_ & \_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \_ & \to \text{ 2 posibles posiciones} \\
+    \_ & \_ & \_ & \_ & \_ & \_ & \_ & \_ & I  & A  & \to \text{ 1 posible posición}
+  \end{array}
 $$
 De ahí salen en total $1 + 2+3+4+5+6+7+8+9 = \sumatoria{i=1}{9} i = \frac{10 \cdot 9}{2} = 45$ lugares los cuales hay que
 rellenar con las letras faltantes.\par
 Para cada una de las 45 posiciones de la I y la A correctamente ubicadas tengo que ubicar 8 letras, de donde saldrían
 $8!$ posiciones, peeeeero, al tener repeticiones y para no contar cosas de más, divido por la cantidad de letras repetidas tanto para la O como para la P:\par
 $$
-	\text{Total de anagramas: } 45 \cdot (\frac{8!}{\ub{3!}{\text{O}} \cdot \ub{2!}{\text{P}} }).
+  \text{Total de anagramas: } 45 \cdot (\frac{8!}{\ub{3!}{\text{O}} \cdot \ub{2!}{\text{P}} }).
 $$
 
-
+\begin{aportes}
+\item \aporte{https://github.com/nad-garraz/algebraUno}{Nad Garraz \github}
+\end{aportes}

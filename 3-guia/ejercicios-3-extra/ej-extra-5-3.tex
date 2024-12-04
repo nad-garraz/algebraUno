@@ -2,6 +2,7 @@
   ¿Cuántas funciones $f: \set{1,2,\dots,10}\to \set{1,2,\dots,12}$ hay que \textbf{no} sean inyectivas y que
   al mismo tiempo cumplan que $f(1) < f(3) < f(5)$
 \end{enunciado}
+
 \textit{La receta:}
 \begin{enumerate}[label=\arabic*)]
   \item Calcular tooodas las funciones que cumplan $f(1) < f(3) < f(5)$.
@@ -9,12 +10,14 @@
   \item Restar los resultados obtenidos da lo pedido en el enunciado.
 \end{enumerate}
 
+\textit{A cocinar:}
+
 \begin{enumerate}[label=\arabic*)]
   \item
         Entonces agarro 3 elementos del conjunto de llegada $\set{1,2,\dots,12}$ sin preocuparme por nada. En el conjunto
         hay un total de 12 elementos agarro 3 sin mirar \faIcon{blind}:
         $$
-          \binom{12}{3} = \frac{12!}{8! \cdot 3!}
+          \binom{12}{3} = \frac{12!}{9! \cdot 3!}
         $$
         Este número combinatorio me cuenta las distintas formas de sacar 3 elementos cualesquiera de un conjunto de 12 elementos.
 
@@ -30,13 +33,15 @@
         $$
           12^{10-\red{3}} \cdot \binom{12}{3} = 12^7 \cdot \binom{12}{3} \llamada1
         $$
-        funciones en total que cumplirían que $f(1) < f(3) < f(5)$.
+        funciones que cumplirían que $f(1) < f(3) < f(5)$.
 
   \item
-        Para calcular las funciones inyectivas tenemos en cuenta que hay que agarrar 10 números de $\set{1,2,\dots,10}$ y mandarlos a 12 números
-                de $\set{1,2,\dots,12}$. Esto con la restricción $f(1) < f(3) < f(5)$ (cálculo ya hecho), me saca \red{3} elementos:
+          Para calcular ahora  \textit{las funciones inyectivas} tenemos en cuenta que hay que agarrar 10 números de $\set{1,2,\dots,10}$ y mandarlos a 12 números
+                de $\set{1,2,\dots,12}$. Esto con la restricción $f(1) < f(3) < f(5)$ (cálculo ya hecho), que me saca \red{3} elementos:
         $$
-          \binom{12}{3} \cdot \frac{(12 - \red{3})!}{((12 - \red{3}) - (10 - \red{3}))!}  = \binom{12}{3} \cdot \frac{9!}{2!}\llamada2
+          \binom{12}{3} \cdot \frac{(12 - \red{3})!}{\big((12 - \red{3}) - (10 - \red{3})\big)!}
+                =
+                \binom{12}{3} \cdot \frac{9!}{2!}\llamada2
         $$
 
   \item

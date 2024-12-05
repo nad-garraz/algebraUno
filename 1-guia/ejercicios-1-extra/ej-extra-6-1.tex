@@ -1,0 +1,147 @@
+\begin{enunciado}{\ejExtra}
+	Sea $A$ el siguiente conjunto: $A = \set{n \en \naturales :  100 \leq n \leq 1000}.$ Consideramos el conjunto
+	de \textbf{todas} las funciones de $\set{1,2,3,4,5,6}$ en $A$:
+	$$
+		\F = \set{g: \set{1,2,3,4,5,6} \to \set{100,101,\dots,999,1000} \big/ \text{ es función}}
+	$$
+	y definimos sobre $\F$ la relación $\relacion$ dada por
+	$$
+		f \relacion g \sisolosi 11 \divideA f(1) - g(1).
+	$$
+	\begin{enumerate}[label=\alph*)]
+		\item Determinar si la relación es reflexiva, simétric, transitiva y/o antisimétrica.
+
+		\item Sea $h(x) = x + 99$, hallar la cantidad de funciones $f \en \F$ \textbf{inyectivas} que cumplen simultáneamente que
+		      $f \relacion h$ y que $f(2) = 111$.
+	\end{enumerate}
+\end{enunciado}
+
+Al igual que en mucho ejercicios lo primero que voy a hacer es acomodar la forma en que nos presentan la relación, para que mi
+cerebro esté más cómodo:
+$$
+	f \relacion g \sisolosi 11 \divideA f(1) - g(1)
+	\Sii{def}
+	\fcolorbox{orange}{white}{$\congruencia{f(1)}{g(1)}{11}$}\llamada1.
+$$
+
+\begin{enumerate}[label=\alph*)]
+	\item
+	      \textit{¿Es $\relacion$ reflexiva?}:
+	      Trivial con $\llamada1$:
+
+	      $$
+		      \congruencia{f(1)}{f(1)}{11}
+	      $$
+	      La relación $\relacion$ es reflexiva.
+
+	      \textit{¿Es $\relacion$ simétrica?}:
+	      Trivial con $\llamada1$:
+
+	      Si
+	      $$
+		      f \relacion g \sii \congruencia{f(1)}{g(1)}{11}
+	      $$
+	      entonces trivialmente
+	      $$
+		      g \relacion f \sii \congruencia{g(1)}{f(1)}{11}
+	      $$
+	      La relación $\relacion$ es simétrica.
+
+	      \textit{¿Es $\relacion$ transitiva?}:
+	      Trivial con $\llamada1$:
+
+	      Si
+	      $$
+		      f \relacion g \sii \congruencia{f(1)}{g(1)}{11}
+		      \ytext
+		      g \relacion h \sii \congruencia{g(1)}{h(1)}{11}
+	      $$
+	      entonces por transitividad de la congruencia,
+	      $$
+		      f \relacion h \sii \congruencia{f(1)}{g(1) \congruente h(1)}{11}
+		      \entonces
+		      \congruencia{f(1)}{h(1)}{11}
+	      $$
+	      La relación $\relacion$ es transitiva.
+
+	      \textit{¿Es $\relacion$ antisimétrica?}:
+
+	      No creo, me armo dos funciones para usar como contraejemplos:
+	      $$
+		      \llave{rcl}{
+			      f(1)   & = & \magenta{100} \\
+			      f(2)   & = & 1000           \\
+			      f(3)   & = & 1000 \\
+			      f(4)   & = & 1000           \\
+			      f(5)   & = & 1000           \\
+			      f(6)   & = & 1000           \\
+		      }
+		      \ytext
+		      \llave{rcl}{
+			      g(1)   & = & \magenta{111} \\
+			      g(2)   & = & 1000           \\
+			      g(3)   & = & 1000 \\
+			      g(4)   & = & 1000           \\
+			      g(5)   & = & 1000           \\
+			      g(6)   & = & 1000           \\
+		      }
+	      $$
+	      Se puede ver que:
+	      $$
+		      f \neq g
+		      \quad \text{sin embargo} \quad
+		      f \relacion g
+		      \sii
+		      \congruencia{f(1)}{g(1)}{11}
+	      $$
+	      La relación $\relacion$ no es antisimétrica.
+
+
+	\item
+	      Para que $f \relacion h$ necesito que:
+	      $$
+		      \congruencia{f(1)}{h(1)}{11}
+		      \sii
+		      \congruencia{f(1)}{100}{11}
+		      \sii
+		      \congruencia{f(1)}{1}{11}
+	      $$
+	      Cuáles son los valores del conjunto $A = \set{n \en \naturales :  100 \leq n \leq 1000}$, con $\#A = \magenta{901}$ que cumplen eso, más que cuales,
+	      cuántos es lo que me importa. Los elementos de $n \en A$ que cumplen $\congruencia{n}{1}{11}$:
+	      $$
+		      B = \set{100, 111, \dots, 991} \quad\text{con} \quad \#B \igual{\red{!}} \set{82}
+	      $$
+	      Donde el 71, lo saco de pensar que el primer $n \en A$ que cumple es:
+	      $$
+		      100 = 11 \cdot \blue{9} + 1
+	      $$
+	      y el último:
+	      $$
+		      991 = 11 \cdot \blue{90} + 1
+	      $$
+	      En total hay 82 valores de $\blue{k}$ que cumplen que $\congruencia{n}{1}{11}$. Pero, me dicen que $f$ es inyectiva y además
+	      $f(2) = 111$, por lo que tengo que restar uno de esos posibles $\blue{k}$, porque:
+	      $$
+		      111 = 11 \cdot \blue{10} + 1
+	      $$
+	      Entonces ya sé para cumplir $f \relacion h$ y que f(2) = 111, tengo $81$ posibles valores para $f(1)$, ahora solo
+	      faltan los demás valores de $f$:
+	      $$
+		      \begin{array}{ccccccc}
+			                      & f(1)       & f(2)       & f(3)       & f(4)       & f(5)       & f(6)       \\
+			                      & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+			      \text{opciones} & 81         & 1          & (901 - 2)  & (901 - 3)  & (901 - 4)  & (901 - 5)
+		      \end{array}
+	      $$
+	      Por lo tanto tendré un total de:
+	      $$
+		      \fcolorbox{orange}{white}{
+			      $81 \cdot \frac{899!}{895!}$
+		      }
+	      $$
+	      funciones $f$ que cumplen lo pedido.
+\end{enumerate}
+
+\begin{aportes}
+	\item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

@@ -119,13 +119,16 @@ $$
 	      $$
 		      991 = 11 \cdot \blue{90} + 1
 	      $$
-	      En total hay 82 valores de $\blue{k}$ que cumplen que $\congruencia{n}{1}{11}$. Pero, me dicen que $f$ es inyectiva y además
+          En total hay $\#\set{\blue{9},\blue{10},\blue{11},\dots,\blue{89},\blue{90}}$ = 82 valores de $\blue{k}$ que cumplen que $\congruencia{n}{1}{11}$. Pero, me dicen que $f$ es inyectiva y además
 	      $f(2) = 111$, por lo que tengo que restar uno de esos posibles $\blue{k}$, porque:
 	      $$
 		      111 = 11 \cdot \blue{10} + 1
 	      $$
-	      Entonces ya sé para cumplir $f \relacion h$ y que f(2) = 111, tengo $81$ posibles valores para $f(1)$, ahora solo
-	      faltan los demás valores de $f$:
+          Entonces ya sé que para cumplir $f \relacion h$ y que f(2) = 111, tengo $\#\set{\blue{9},\blue{11}, \blue{12},\dots,\blue{89},\blue{90}}$ = 81 
+          posibles valores para $f(1)$.
+
+          Ahora solo
+	      faltan los demás valores que pueden tomar los otro elementos del dominio de $f$:
 	      $$
 		      \begin{array}{ccccccc}
 			                      & f(1)       & f(2)       & f(3)       & f(4)       & f(5)       & f(6)       \\
@@ -136,7 +139,7 @@ $$
 	      Por lo tanto tendré un total de:
 	      $$
 		      \fcolorbox{orange}{white}{
-			      $81 \cdot \frac{899!}{895!}$
+			      $81 \cdot 899 \cdot 898 \cdot 897 \cdot 896 =  81 \cdot \frac{899!}{895!} $
 		      }
 	      $$
 	      funciones $f$ que cumplen lo pedido.

@@ -1,1 +1,31 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+ Hallar el resto de la división de un entero $a$ por 18, sabiendo que el resto de la división de $7a$ por 18 es 5.
+\end{enunciado}
+
+Buscamos $r_{18}(a)$ sabiendo que  $r_{18}(7a)= 5$. Entonces, partimos de lo que sabemos:\\
+
+
+$
+r_{18}(7a)= 5
+\sisolosi
+\congruencia{7a}{5}{18}
+\Sii{$(5:18) = 1$}[]
+\congruencia{5.7a}{5.5}{18}
+\sisolosi
+\congruencia{35a}{25}{18}
+\Sii{$\congruencia{35}{-1}{18}$}[$\congruencia{25}{7}{18}$]
+\congruencia{-a}{7}{18}
+$
+\\
+$
+\congruencia{-a}{7}{18}
+\sisolosi
+\congruencia{a}{-7}{18}
+\sisolosi
+\congruencia{a}{11}{18}
+\sisolosi
+\boxed{
+ r_{18}(a) = 11
+ }
+$
+

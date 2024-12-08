@@ -1,9 +1,10 @@
-\ejExtra
-Determinar todos los $n \en \enteros$ tales que
-$$(n^{433} + 7n + 91 : 931) = 133.$$
-Expresar las soluciones mediante una única ecuación.
-
-\separadorCorto
+\begin{enunciado}{\ejExtra}
+	Determinar todos los $n \en \enteros$ tales que
+	$$
+		(n^{433} + 7n + 91 : 931) = 133.
+	$$
+	Expresar las soluciones mediante una única ecuación.
+\end{enunciado}
 
 %Macro
 \def\expresion{n^{433} + 7n + 91}
@@ -70,7 +71,8 @@ $\\
 \textit{Conclusión divisibilidad $49$:}
 $$49 \noDivide \expresion\  \paratodo n \en \enteros$$\\
 
-\textit{Estudio la divisibilidad $19$: }\\
+\textit{Estudio la divisibilidad $19$: }
+
 Si
 $
 	19 \divideA \expresion
@@ -86,9 +88,11 @@ $
 		\flecha{19 es primo}[$19\noDivide n$]
 		\congruencia{(\ob{n^{18}}{\conga{19} 1})^{24}\cdot n + 7n + 15}{0}{19}
 		\sii
-		\congruencia{8n}{-15}{19}
+		\congruencia{8n}{4}{19}
 		\sii\\
-		\stackrel{\times 7}\sisolosi
+        \Sii{$\red{(\Leftarrow)}$}[$7 \cop 19$]
+		\congruencia{56n}{28}{19}
+        \sii
 		\boxed{\congruencia{n}{10}{19}}\Tilde\llamada2\\
 		% --
 		\text{(\magenta{rama  $19\divideA n$})\ }
@@ -105,7 +109,7 @@ $$
 		\llamada1\congruencia{n}{0}{7}\\
 		\llamada2\congruencia{n}{10}{19}
 	}
-    \flecha{$7 \cop 19$ hay solución por}[\href{\chinito}{T chino R}]
+	\flecha{$7 \cop 19$ hay solución por}[\href{\chinito}{T chino R}]
 	\llave{l}{
 		\flecha{$\llamada2$}[en $\llamada1$]
 		n = 7 (19k + 10)= 133k + 70

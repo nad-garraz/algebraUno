@@ -1,1 +1,52 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+   Sea $a \en \enteros$ coprimo con 561. Probar que $\congruencia{a^{560}}{1}{561}$
+  \end{enunciado}
+
+Partiendo de la hipótesis:
+$$
+(a:561)=1 
+\sisolosi
+(a:3\cdot11\cdot17)=1
+\entonces 
+ \llave{l}{
+    (a:3)=1 \\
+    (a:11)=1 \\
+    (a:17)=1
+ }
+$$
+
+Además, como 3, 11 y 17 son primos, por PTF, tenemos que
+
+$$
+  \llave{l}{
+    \congruencia{a^{2}}{1}{3} \\
+    \congruencia{a^{10}}{1}{11} \\
+    \congruencia{a^{16}}{1}{17}     
+  }
+\entonces
+  \llave{l}{
+    \congruencia{(a^{2})^{280}}{1^{280}}{3} \\
+    \congruencia{(a^{10})^{56}}{1^{56}}{11} \\
+    \congruencia{(a^{16})^{35}}{1^{35}}{17}
+  }
+\sisolosi
+  \llave{l}{
+    \congruencia{a^{560}}{1}{3} \\
+    \congruencia{a^{560}}{1}{11} \\
+    \congruencia{a^{560}}{1}{17}
+  }
+$$
+
+Por útimo, utilizando que 3, 11 y 17 son coprimos dos a dos y haciendo TCR, obtenemos
+
+$$
+\llave{l}{
+    \congruencia{a^{560}}{1}{3} \\
+    \congruencia{a^{560}}{1}{11} \\
+    \congruencia{a^{560}}{1}{17}
+  }
+\sisolosi
+\congruencia{a^{560}}{1}{3\cdot11\cdot17}
+\sisolosi
+\congruencia{a^{560}}{1}{561} \Tilde
+$$

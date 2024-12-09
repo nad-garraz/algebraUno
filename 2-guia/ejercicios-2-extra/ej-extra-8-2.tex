@@ -29,20 +29,21 @@ Todos esos términos tienen $r_7$ igual a $0, 1$ o $-1$. \underline{Sumando 7 t�
 $131 = 18 \cdot 7 + 5 $, es decir que tengo 18 sumas de 7 términos que dan 0 y me sobran los últimos 5 términos:
 $$
   \scriptstyle
-  \congruencia{r_7\Big(\sumatoria{k = 4}{134} k^3 \Big)}{
-    \ub{\scriptstyle 4^3 + 5^3 + 6^3 + 7^3 + 8^3 + 9^3 + 10^3}{1 + (-1) + (-1) + 0 + 1 + 1 + (-1) = 0} +
-    \cdots +
-    \ub{\scriptstyle 126^3 + 124^3+125^3+126^3+ 127^3 + 128^3 + 129^3 }{1 + (-1) + (-1) + 0 + 1 + 1 + (-1) = 0}
-    +
-    \ub{\scriptstyle  130^3 + 131^3 + 132^3 + 133^3 + 134^3}{1 + (-1) + (-1) + 0 + 1 = 0}}{7}
-  \congruente
-  18 \cdot 0 + 0\ (7)
-  \congruente 0\ (7) \llamada1
+  \begin{array}{rcl}
+    \scriptstyle
+    \sumatoria{k = 4}{134} k^3 & \scriptstyle=                & \scriptstyle4^3 + 5^3 + 6^3 + 7^3 + 8^3 + 9^3 + 10^3 + \cdots + 126^3 + 124^3+125^3+126^3+ 127^3 + 128^3 + 129^3 + 130^3 + 131^3 + 132^3 + 133^3 + 134^3                                         \\
+                               & \scriptstyle \congruente     & \scriptstyle \ub{\scriptstyle1 + (-1) + (-1) + 0 + 1 + 1 + (-1)}{= \purple{0}} + \cdots +  \ub{\scriptstyle1 + (-1) + (-1) + 0 + 1 + 1 + (-1)}{= \purple{0}} + \ub{ \scriptstyle1 + (-1) + (-1) + 0 + 1}{= \green{0}} \ (7) \\
+                               & \scriptstyle \igual{\red{!}} & \scriptstyle 18 \cdot \purple{0} + \green{0}\ (7) \congruente 0\ (7)
+  \end{array}
 $$
-
+Se concluye que:
+$$
+  r_7\Big( \sumatoria{k = 4}{134} k^3\Big) = 0 \quad\llamada1
+$$
 \bigskip
 
-Ahora quiero ver $\sumatoria{k = 4}{134}k!$. Noto primero que cuando $k \geq 7$ el número $k!$ es un múltiplo de 7, es decir:
+Ahora quiero ver qué onda con $\sumatoria{k = 4}{134}k!$.\par
+Noto primero que cuando $k \geq 7$ el número $k!$ es un múltiplo de 7, es decir:
 $$
   \congruencia{k!}{0}{7} \quad \text{ con } k \en \naturales_{\geq 7}
 $$

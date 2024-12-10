@@ -1,1 +1,53 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Determinar, cuando existan, todos los $(a,b) \en \enteros^2$ que satisfacen
+    \begin{multicols}{4}
+      \begin{enumerate}[label=\roman*)]
+        \item $7a+11b=10$
+        \item $20a+16b=36$
+        \item $39a-24b=6$
+        \item $1555a-300b=11$
+      \end{enumerate}
+    \end{multicols}
+  \end{enunciado}
+
+
+\begin{enumerate}[label=\roman*)]
+
+  \item 
+  Tiene solución, pues $(7:11)=1 \divideA 10$ \\
+  Una solución particular es $(a_0,b_0)=(3,-1)$. Luego, la solución general es \\
+  $$\boxed{(a,b)=(-11k+3,7k-1), k \en \enteros}$$
+
+
+  \item
+  Tiene solución, pues $(20:16)=4 \divideA 36$ \\
+  Coprimizando la ecuación:
+  $$
+  20a+16b=36 
+  \leftrightsquigarrow
+  5a+4b=9
+  $$
+  \\
+  Una solución particular de la ecuación equivalente es $(a_0,b_0)=(1,1)$. Luego, la solución general es \\
+  $$\boxed{(a,b)=(4k+1,-5k+1), k \en \enteros}$$
+
+  \item
+  Tiene solución, pues $(39:-24)=3 \divideA 6$ \\
+  Coprimizando la ecuación:
+  $$
+  39a-24b=6
+  \leftrightsquigarrow
+  13a-8b=2
+  $$
+  \\
+  Una solución particular de la ecuación equivalente es $(a_0,b_0)= (2,3)$. Luego, la solución general es \\
+  $$\boxed{(a,b)=(8k+2,13k+3), k \en \enteros}$$
+
+  \item
+  No tiene solución, pues $(1555:-300)=5 \noDivide 11$
+
+  
+\begin{aportes}
+	\item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}
+

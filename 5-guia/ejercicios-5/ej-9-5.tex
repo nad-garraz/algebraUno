@@ -1,1 +1,66 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Describir los valores de $(5a+8:7a+3)$ en funcion de los valores de $a \en \enteros$
+ \end{enunciado}
+ 
+ Sea $d=(5a+8:7a+3)$. Entonces:
+ $$
+ \llave{l}{
+     d \divideA 5a+8 \Entonces{$\times 7$} d \divideA 35a+56 \\
+     d \divideA 7a+3 \Entonces{$\times 5$} d \divideA 35a+15
+   }
+ \Entonces{$F_1-F_2$}
+ d \divideA 41
+ \entonces 
+ d \en \set{1,41}
+ $$
+ \\
+ Ahora debemos ver cuando $41 \divideA 5a+8 \y 41 \divideA 7a+3$ simultáneamente. 
+ Veamos primero cuando $41 \divideA 7a+3$ :
+ \\
+ $$
+ 41 \divideA 7a+3
+ \sisolosi
+ \congruencia{7a+3}{0}{41}
+ \sisolosi
+ \congruencia{7a}{-3}{41}
+ \Sii{$(6:41)=1$}[]
+ \congruencia{6\cdot7a}{6\cdot(-3)}{41}
+ \sisolosi
+ \congruencia{42a}{-18}{41}
+ \sisolosi
+ $$
+ \\
+ $$
+ \sisolosi
+ \congruencia{a}{23}{41}
+ $$
+ \\
+ Ahora debemos ver si cuando $\congruencia{a}{23}{41}$ se verifica que $41 \divideA 5a+8$. Veamoslo:
+ \\
+ $$
+ 41 \divideA 5a+8 
+ \sisolosi
+ \congruencia{5a+8}{0}{41}
+ \Sii{$\congruencia{a}{23}{41}$}[]
+ \congruencia{5\cdot23+8}{0}{41}
+ \sisolosi
+ \congruencia{123}{0}{41}
+ \sisolosi
+ 41 \divideA 123 \Tilde
+ $$
+ 
+ 
+ Luego, $41 \divideA 5a+8 \y 41 \divideA 7a+3 \sisolosi \congruencia{a}{23}{41}$
+ \\
+ De modo que
+ $$
+ \llave{ll}{
+   \boxed{d=41} ~ si ~ \congruencia{a}{23}{41} \\
+   \boxed{d=1} ~ si ~ \noCongruencia{a}{23}{41}
+ }
+ $$
+ 
+ 
+ \begin{aportes}
+     \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+ \end{aportes}

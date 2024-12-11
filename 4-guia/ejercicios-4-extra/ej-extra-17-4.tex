@@ -1,0 +1,41 @@
+\begin{enunciado}{\ejExtra}
+	Hallar todos los valores de $a \en \enteros$ tales que $(3a+6 : 7a^2 - a -3) \distinto 1$.
+\end{enunciado}
+Si el mcd es $d$:
+$$
+	d = (3a+6 : 7a^2 - a -3)
+$$
+Puedo usar Euclides para simplificar la expresión del mcd:
+$$
+	\polyset{vars=a}
+	\divPol{7a^2-a-3}{3a+6}
+$$
+Por lo tanto $d$ queda:
+$$
+	d = (3a+6 : 7a^2 - a -3) =
+	\fcolorbox{orange}{white}{(3a + 6 : 27)}
+$$
+Por lo tanto como $d \divideA 27$:
+$$
+    d \en \set{1,3,9,27} = \set{1,3,3^2, 3^3}
+$$
+¿Para que valor de $a$ valdrá  $d=1$? Empiezo a ver si es divisible por 3:
+
+Tabla de restos para $d = 3$:
+$$
+	\begin{array}{|r||c|c|c|}
+		\hline
+		r_3(a)            & 0 & 1 & 2       \\ \hline\hline
+		r_3(3a+6)         & 0 & 0 & 0       \\ \hline
+		r_3(7a^2 - a - 3) & 0 & 0 & \red{2} \\ \hline
+	\end{array}
+$$
+Dado que el resto de los posibles divisores, 9 y 27 son potencias de 3, se concluye que:
+$$
+	d = 1 \sisolosi \congruencia{a}{2}{3}
+$$
+Dado que para esos valores de $a$ la expresión $7a^2-a-3$ no divisible por ninguna potencia de 3
+
+\begin{aportes}
+	\item \aporte{https://github.com/nad-garraz/algebraUno}{Nad Garraz \github}
+\end{aportes}

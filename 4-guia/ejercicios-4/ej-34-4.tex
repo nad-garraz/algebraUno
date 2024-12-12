@@ -1,3 +1,48 @@
 \begin{enunciado}{\ejercicio}
         Hallar el menor número natural $n$ tal que $(n : 3150) = 45$ y $n$ tenga exactamente 12 divisores positivos.
 \end{enunciado}
+
+Trabajemos con la primera condición: 
+\\
+$$
+(n:3150)=45
+\sisolosi
+(n:2\cdot3^{2}\cdot5^{2}\cdot7)=3^{2}\cdot5
+$$
+
+
+Utilizando que el MCD se calcula como primos en común a la menor potencia, concluimos que $n$ no tiene en su factorización al 2 ni al 7
+y que si tiene en su factorización un 5 y un $3^{i}$, con $i \geq 2$. Es decir:
+\\
+
+$$
+n = 3^{i}\cdot5\cdot(P_1)^{m_1}...(P_k)^{m_k} ~,~ i \geq 2 ~ y ~  m_j \geq 0 
+$$
+
+De la segunda condición tenemos que
+\\
+$$
+12 =2(i+1)(m_1+1)...(m_k+1)
+\sisolosi
+6=(i+1)(m_1+1)...(m_k+1)
+$$
+
+Como  $i \geq 2 \entonces i+1 \geq 3$ y como queremos que el producto nos de 6, esto nos deja dos opciones:
+
+\begin{itemize}
+        \item $(i+1)= 6 \ytext (m_1+1)...(m_k+1)= 1$
+        \item $(i+1)=3 \ytext (m_1+1)...(m_k+1)=2$
+\end{itemize}
+
+De la primera tenemos que $i=5$ y que no hay otro primo en la factorización. De modo que $n=3^{5}\cdot5=1215$
+\\
+\\
+De la segunda tenemos que $i=2$ y que solo puede haber otro primo en la factorización con $m_1=1$.
+Como nos piden el menor $n$, elegimos el menor primo que le sigue a 5 que no sea el 7, es decir, el 11. Entonces, $n=3^{2}\cdot5\cdot11=495$
+\\
+\\
+Luego, elegiendo el menor entre los dos, la respuesta es $\boxed{n=495}$
+
+\begin{aportes}
+        \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

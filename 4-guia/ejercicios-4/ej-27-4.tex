@@ -1,1 +1,54 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Sea $n \en \naturales, n \geq 2$. Probar que si $p$ es un número primo positivo entonces $\sqrt[n]{p} \notin \racionales$.
+\end{enunciado}
+
+Supongamos que $\sqrt[n]{p} \en \racionales$ y lleguemos a una contradicción:
+
+$$
+\sqrt[n]{p} \en \racionales 
+\entonces
+\sqrt[n]{p}=\frac{a}{b}, ~ a,b ~  \en \enteros \ytext b \neq 0
+\entonces
+b\cdot\sqrt[n]{p}=a
+\entonces
+b^{n}\cdot p=a^{n}
+$$
+
+Por otro lado, por TFA, tenemos que
+
+$$
+\llave{l}{
+ a = (P_1)^{m_1}...(P_r)^{m_r}, ~ m_1,...,m_r ~ \en \naturales_0 \\
+ b = (P_1)^{l_1}...(P_r)^{l_r}, ~ l_1,...,l_r ~ \en \naturales_0
+}
+\entonces
+\llave{l}{
+ a^{n} = (P_1)^{n\cdot m_1}...(P_r)^{n\cdot m_r} \\
+ b^{n} = (P_1)^{n\cdot l_1}...(P_r)^{n\cdot l_r}
+}
+$$
+
+Luego
+
+$$
+b^{n}\cdot p = a^{n}
+\sisolosi
+(P_1)^{n\cdot l_1}...(P_r)^{n\cdot l_r}\cdot p^1=(P_1)^{n\cdot m_1}...(P_r)^{n\cdot m_r}
+$$
+
+En el lado izquierdo de la igualdad, el primo $p$ aparece con el exponente $n\cdot l_p +1$, mientras que en el lado izquierdo aparece con el exponente $n\cdot m_p$ 
+
+Entonces, por la unicidad de la factorización, tenemos que
+
+\begin{align*}
+    n\cdot l_p +1 &= n\cdot m_p \\
+    1 &= n\cdot m_p - n\cdot l_p \\
+    \frac{1}{n} &=m_p-l_p
+\end{align*}
+
+Lo cual es absurdo, pues $m_p-l_p \en \enteros$ pero claramente $\frac{1}{n} \notin \enteros ~ $para$ ~ n \geq 2$.
+La contradicción proviene de la única suposición que hicimos, que $\sqrt[n]{p} \en \racionales$. Luego, $\sqrt[n]{p} \notin \racionales$, tal como queriamos probar.
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

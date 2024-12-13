@@ -1,9 +1,9 @@
 \begin{enunciado}{\ejExtra}
-	Determinar todos los $n \en \enteros$ tales que
-	$$
-		(n^{433} + 7n + 91 : 931) = 133.
-	$$
-	Expresar las soluciones mediante una única ecuación.
+  Determinar todos los $n \en \enteros$ tales que
+  $$
+    (n^{433} + 7n + 91 : 931) = 133.
+  $$
+  Expresar las soluciones mediante una única ecuación.
 \end{enunciado}
 
 %Macro
@@ -13,60 +13,59 @@ Para que se cumpla que
 $(n^{433} + 7n + 91 : \ub{931}{7^2\cdot 19}) = \ub{133}{7\cdot 19}$
 deben ocurrir las siguientes condiciones:\\
 $$
-	\llave{rcl}{
-		7 & \divideA  & \expresion\\
-		19  & \divideA & \expresion\\
-		7^2 & \noDivide &\expresion
-	}
+  \llave{rcl}{
+    7   & \divideA  & \expresion \\
+    19  & \divideA  & \expresion \\
+    7^2 & \noDivide & \expresion
+  }
 $$
 
 \textit{Estudio la divisibilidad $7$: }\\
 Si
 $
-	7 \divideA \expresion
-	\sisolosi
-	\congruencia{\expresion}{0}{7}
-	\sisolosi
-	\congruencia{n^{433}}{0}{7}
-	\flecha{analizo casos}[$7 \divideA n$ o $7 \noDivide n$]\\
-	\congruencia{n^{433}}{0}{7}
-	\sii
-	\llave{l}{
-		\text{(\magenta{rama  $7\noDivide n$})\ }
-		\flecha{7 es primo}[$7\noDivide n$]
-		\congruencia{(\ub{n^6}{\conga7 1})^{72}\cdot n}{0}{7}
-		\sii
-		\congruencia{n}{0}{7},
-		\text{ pero esta rama } 7 \noDivide n \to \skull\\
-		% --
-		\text{(\magenta{rama  $7\divideA n$})\ }
-		\flecha{7 es primo}[$7 \divideA n$]
-		\congruencia{0}{0}{7}
-		\text{ y como esta rama } 7 \divideA n
-		\to
-		\boxed{\congruencia{n}{0}{7} }\Tilde\llamada1\\
-	}$\\
+  7 \divideA \expresion
+  \sisolosi
+  \congruencia{\expresion}{0}{7}
+  \sisolosi
+  \congruencia{n^{433}}{0}{7}
+  \flecha{analizo casos}[$7 \divideA n$ o $7 \noDivide n$]\\
+  \congruencia{n^{433}}{0}{7}
+  \sii
+  \llave{l}{
+    \text{(\magenta{rama  $7\noDivide n$})\ }
+    \flecha{7 es primo}[$7\noDivide n$]
+    \congruencia{(\ub{n^6}{\conga7 1})^{72}\cdot n}{0}{7}
+    \sii
+    \congruencia{n}{0}{7},
+    \text{ pero esta rama } 7 \noDivide n \to \skull \\
+    % --
+    \text{(\magenta{rama  $7\divideA n$})\ }
+    \flecha{7 es primo}[$7 \divideA n$]
+    \congruencia{0}{0}{7}
+    \text{ y como esta rama } 7 \divideA n
+    \to
+    \boxed{\congruencia{n}{0}{7} }\Tilde\llamada1   \\
+  }$\\
 
 \textit{Conclusión divisibilidad $7$:}
 $$
-	7 \divideA \expresion \sii \congruencia{n}{0}{7}
+  7 \divideA \expresion \sii \congruencia{n}{0}{7}
 $$
-
 
 \textit{Estudio la divisibilidad $7^2 = 49$: }\\
 Si
 $
-	7^2 \noDivide \expresion
-	\sisolosi
-	\noCongruencia{\expresion}{0}{49}
-	\sisolosi
-	\noCongruencia{n^{433}+ 7n + 42}{0}{49}\\
-	\flecha{de $\llamada1$ tengo que}[$\congruencia{n}{0}{7} \sii n = \blue{7k}$]
-	\noCongruencia{(\blue{7k})^{433} + 7\cdot\blue{7k} + 42}{0}{49}
-	\sii
-	\noCongruencia{7 \cdot (49)^{216}\cdot k^{433} + 49k + 42}{0}{49}
-	\sii
-	\noCongruencia{42}{0}{49}
+  7^2 \noDivide \expresion
+  \sisolosi
+  \noCongruencia{\expresion}{0}{49}
+  \sisolosi
+  \noCongruencia{n^{433}+ 7n + 42}{0}{49}\\
+  \flecha{de $\llamada1$ tengo que}[$\congruencia{n}{0}{7} \sii n = \blue{7k}$]
+  \noCongruencia{(\blue{7k})^{433} + 7\cdot\blue{7k} + 42}{0}{49}
+  \sii
+  \noCongruencia{7 \cdot (49)^{216}\cdot k^{433} + 49k + 42}{0}{49}
+  \sii
+  \noCongruencia{42}{0}{49}
 $\\
 \textit{Conclusión divisibilidad $49$:}
 $$49 \noDivide \expresion\  \paratodo n \en \enteros$$\\
@@ -75,53 +74,57 @@ $$49 \noDivide \expresion\  \paratodo n \en \enteros$$\\
 
 Si
 $
-	19 \divideA \expresion
-	\sisolosi
-	\congruencia{\expresion}{0}{19}
-	\sisolosi
-	\congruencia{n^{433} + 7n +15}{0}{19}
-	\flecha{analizo casos}[$19 \divideA n$ o $19 \noDivide n$]\\
-	\congruencia{n^{433}+ 7n +15}{0}{19}
-	\sii
-	\llave{l}{
-		\text{(\magenta{rama  $19\noDivide n$})\ }
-		\flecha{19 es primo}[$19\noDivide n$]
-		\congruencia{(\ob{n^{18}}{\conga{19} 1})^{24}\cdot n + 7n + 15}{0}{19}
-		\sii
-		\congruencia{8n}{4}{19}
-		\sii\\
-		\Sii{$\red{(\Leftarrow)}$}[$7 \cop 19$]
-		\congruencia{56n}{28}{19}
-		\sii
-		\boxed{\congruencia{n}{10}{19}}\Tilde\llamada2\\
-		% --
-		\text{(\magenta{rama  $19\divideA n$})\ }
-		\flecha{19 es primo}[$19 \divideA n$]
-		\congruencia{15}{0}{19} \to \text{ningún } n
-	}$\\
+  19 \divideA \expresion
+  \sisolosi
+  \congruencia{\expresion}{0}{19}
+  \sisolosi
+  \congruencia{n^{433} + 7n +15}{0}{19}
+  \flecha{analizo casos}[$19 \divideA n$ o $19 \noDivide n$]\\
+  \congruencia{n^{433}+ 7n +15}{0}{19}
+  \sii
+  \llave{l}{
+    \text{(\magenta{rama  $19\noDivide n$})\ }
+    \flecha{19 es primo}[$19\noDivide n$]
+    \congruencia{(\ob{n^{18}}{\conga{19} 1})^{24}\cdot n + 7n + 15}{0}{19}
+    \sii
+    \congruencia{8n}{4}{19}
+    \sii                                          \\
+    \Sii{$\red{(\Leftarrow)}$}[$7 \cop 19$]
+    \congruencia{56n}{28}{19}
+    \sii
+    \boxed{\congruencia{n}{10}{19}}\Tilde\llamada2 \\
+    % --
+    \text{(\magenta{rama  $19\divideA n$})\ }
+    \flecha{19 es primo}[$19 \divideA n$]
+    \congruencia{15}{0}{19} \to \text{ningún } n
+  }$\\
 
 \textit{Conclusión divisibilidad $19$:}
 $$19 \divideA \expresion \sii \congruencia{n}{10}{19}$$
-\\
 
 $$
-	\llave{l}{
-		\llamada1\congruencia{n}{0}{7}\\
-		\llamada2\congruencia{n}{10}{19}
-	}
-	\flecha{$7 \cop 19$ hay solución por}[\href{\chinito}{T chino R}]
-	\llave{l}{
-		\flecha{$\llamada2$}[en $\llamada1$]
-		n = 7 (19k + 10)= 133k + 70
-		\to
-		\boxed{\congruencia{n}{70}{133}}\Tilde
-	}
+  \llave{l}{
+    \llamada1\congruencia{n}{0}{7} \\
+    \llamada2\congruencia{n}{10}{19}
+  }
+  \flecha{$7 \cop 19$ hay solución por}[\href{\chinito}{T chino R}]
+  \llave{l}{
+    \flecha{$\llamada2$}[en $\llamada1$]
+    n = 19\blue{k} + 10 \conga7 5\blue{k} + 3 \conga7 0
+    \sii
+    \congruencia{\blue{k}}{5}{7}}\Tilde
 $$
-
+Finalmente:
+$$
+  n = 19 \cdot (7\magenta{q} + 5) + 10
+  \sii
+  \fcolorbox{orange}{white}{$\congruencia{n}{105}{133}$}
+$$
 
 % Contribuciones
 \begin{aportes}
-	%% iconos : \github, \instagram, \tiktok, \linkedin
-	%\aporte{url}{nombre icono}
-	\item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
 \end{aportes}

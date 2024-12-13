@@ -1,54 +1,53 @@
 \begin{enunciado}{\ejercicio}
-    Sea $p$ primo positivo.
-  \begin{enumerate}[label=\alph*)]
-	\item Probar que si $0 < k < p \divideA \binom{p}{k}$.
-	\item Probar que si $a, b \en \enteros$, entonces $\congruencia{(a+b)^p}{a^p + b^p}{p}$.
+  Sea $p$ primo positivo.
+        \begin{enumerate}[label=(\alph*)]
+    \item Probar que si $0 < k < p$, entonces $p \divideA \binom{p}{k}$.
+    \item Probar que si $a, b \en \enteros$, entonces $\congruencia{(a+b)^p}{a^p + b^p}{\text{mod } p}$.
   \end{enumerate}
 \end{enunciado}
 
-\begin{enumerate}[label=\alph*)]
-	\item 
+\begin{enumerate}[label=(\alph*)]
+\item
 
-	Como $ 0 < k < p$, tenemos que $p \noDivide k!$ y que $p \noDivide (p-k)!$, pues $p$ es primo y no divide a ningun factor de ambos números.
-	Por la misma razón, se tiene que $p \noDivide k!(p-k)!$.
-	Entonces
+Como $ 0 < k < p$, tenemos que $p \noDivide k!$ y que $p \noDivide (p-k)!$, pues $p$ \textit{es primo y no divide a ningún factor de ambos números}.
+                Por la misma razón, se tiene que $\llamada1 p \noDivide k!(p-k)!$.
+Entonces
 
-	$$
-	\frac{p!}{k!(p-k)!}=\binom{p}{k}
-	\sisolosi
-	p!=\binom{p}{k} \cdot k!(p-k)!
-	\sisolosi
-	p(p-1)!=\binom{p}{k} \cdot k!(p-k)!
-	\Entonces{$(p-1)! \en \enteros$}
-	p \divideA \binom{p}{k} \cdot k!(p-k)! 
-	$$ 
+$$
+  \frac{p!}{k!(p-k)!}=\binom{p}{k}
+  \sii
+  p!=\binom{p}{k} \cdot k!(p-k)!
+  \sii
+  p(p-1)!=\binom{p}{k} \cdot k!(p-k)!
+                \Entonces{$(p-1)! \en \enteros$}[\red{!!}]
+  p \divideA \binom{p}{k} \cdot k!(p-k)!
+$$
 
-	$$
-	p \divideA \binom{p}{k} \cdot k!(p-k)!
-	\Entonces{$p$ primo}[$p \noDivide k!(p-k)!$]
-	p \divideA \binom{p}{k} \Tilde
-	$$
+$$
+  p \divideA \binom{p}{k} \cdot k!(p-k)!
+                \Sii{$p$ primo}[$\llamada1 p \noDivide k!(p-k)!$]
+  p \divideA \binom{p}{k} \Tilde
+$$
 
+\item
+Usando el binomio de Newton, tenemos que
 
-	\item
-	Usando el binomio de Newton, tenemos que 
+$$
+  (a+b)^{p}=\sumatoria{k=0}{p} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}=a^{p}+b^{p} + \sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}
+$$
 
-	$$
-	(a+b)^{p}=\sumatoria{k=0}{p} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}=a^{p}+b^{p} + \sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}
-	$$
+                Como en la nueva sumatoria tenemos que $0 < k < p$, podemos aplicar lo probado en el inciso (a), obteniendo que
 
-	Como en la nueva sumatoria tenemos que $0 < k < p$, podemos aplicar lo probado en el inciso a, obteniendo que
+$$
+  \congruencia{\sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}}{0}{p}
+$$
 
-	$$
-	\congruencia{\sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}}{0}{p}
-	$$
+Ahora solo queda juntar todo
 
-	Ahora solo queda juntar todo
+$$
+  (a+b)^{p} = a^{p}+b^{p} + \sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k} \equiv a^{p}+b^{p} \pmod{p} \Tilde
+$$
 
-	$$
-	(a+b)^{p} \equiv a^{p}+b^{p} + \sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k} \equiv a^{p}+b^{p} \pmod{p} \Tilde
-	$$
-
-	\begin{aportes}
-		\item \aporte{https://github.com/Nunezca}{Nunezca \github}
-	\end{aportes}
+\begin{aportes}
+  \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

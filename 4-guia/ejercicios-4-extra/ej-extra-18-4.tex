@@ -1,0 +1,80 @@
+\begin{enunciado}{\ejExtra}
+  Hallar todos los pares $(a,b) \en \naturales \times \naturales$ que cumplen las siguientes condiciones en simultáneo:
+  \begin{multicols}{3}
+    \begin{enumerate}[label=]
+      \item $27 \noDivide a$
+      \item $(a:b) = 42$
+      \item $[a:5b] = 13230$
+    \end{enumerate}
+  \end{multicols}
+\end{enunciado}
+
+A lo largo de este ejercicio mucho de lo que voy a usar son esas frases del secundario:
+
+\begin{center}
+  \textit{El máximo común divisor entre 2 números son los factores
+    (de la factorización en primos) comunes elevados al menor exponente}.\par
+  \textit{El mínimo común múltiplo entre 2 números son los factores
+    (de la factorización en primos) comunes y los \underline{no} comunes elevados al mayor exponente.
+  }
+\end{center}
+
+Del enunciado se deduce que:
+$$
+  3^3 \noDivide a,
+$$
+o sea que quizás $3^1,3^2$ sí divida a $a$. También tenemos que el máximo común divisor:
+$$
+  (a:b) = 2 \cdot 3 \cdot 7
+$$
+Esto nos dice que en la factorización de $a$ \textbf{y de} $b$ hay factores $2^\alpha, 3^\beta$ y $7^\gamma \llamada1$, donde esos exponentes son $\geq 1$.
+Por último el dato del mínimo común múltiplo:
+$$
+  [a:\red{5}b] = 2^{\blue{1}} \cdot 3^{\yellow{3}} \cdot 5^{\magenta{1}} \cdot 7^{\purple{2}},
+$$
+
+\textit{¿Qué nos dice el $2^{\blue{1}}$?:}\par
+Como sabemos de $\llamada1$ que tanto $a$ como $b$ tienen a 2 como un factor y ahora en el mcm tiene exponente \blue{1}. Esto
+\textit{determina} que tanto $a$ como $b$ tienen $2^1$ como factor y ninguna potencia de 2 superior en su factorización en primos.
+
+\bigskip
+
+\textit{¿Qué nos dice el $3^{\yellow{3}}$? $\llamada2$:}\par
+Parecido a lo anterior. $\llamada1$ nos dice que el 3 está en $a$ y $b$. Acá hay que tener presente que $a \noDivide 3^3$.
+Ahora se \textit{determina} el exponente exacto del factor 3 de $b$ que será $\yellow3$, y el de $a$ será $1$ sino en el máximo cómún divisor
+habría un exponente mayor en el factor 3.
+
+\bigskip
+
+\textit{¿Qué nos dice el $5^{\magenta{1}}$?:}\par
+Sale que $b$ \textit{no tiene 5 es su factorización}, porque de tenerlo, el 5 del mcm tendría un exponente mayor debido al \red5 que se enchufó
+ahí de prepo en el $[a:\red{5}b]$. Y a su vez sale que $a$ tiene que tener un $5^\delta$ con $0 \leq \delta \leq 1$ en su factorización
+
+\bigskip
+
+\textit{¿Qué nos dice el $7^{\purple{2}}$?:}\par
+Parecido a lo que salió en $\llamada2$. En este caso
+$\llamada1$ nos dice que el 7 está en $a$ y $b$. Ahora tampoco se \textit{determina} el exponente exacto, pero sí sabemos
+que $a$ y $b$ tienen un factor $7^{\gamma}$ con $1 \leq \beta \leq \purple2$ en su factorización en primos, pero por $\llamada1$ no
+pueden tener ambos \purple{2} a la vez.
+
+\bigskip
+
+Recopilando la información de eso:
+$$
+  \begin{array}{rcccc}
+    (a,b) & = & (2^1 \cdot 3^1 \cdot 5^{\cyan{1}} \cdot 7^{\red{2}}\ ,\  2^1 \cdot 3^3 \cdot 7^{\red{1}} ) & = & (1470,378) \\
+    (a,b) & = & (2^1 \cdot 3^1 \cdot 5^{\cyan{1}} \cdot 7^{\red{1}}\ ,\  2^1 \cdot 3^3 \cdot 7^{\red{2}} ) & = & (210,2646) \\
+    (a,b) & = & (2^1 \cdot 3^1 \cdot 5^{\cyan{0}} \cdot 7^{\red{2}}\ ,\  2^1 \cdot 3^3 \cdot 7^{\red{1}} ) & = & (294,378)  \\
+    (a,b) & = & (2^1 \cdot 3^1 \cdot 5^{\cyan{0}} \cdot 7^{\red{1}}\ ,\  2^1 \cdot 3^3 \cdot 7^{\red{2}} ) & = & (42,2646)  \\
+  \end{array}
+$$
+
+\textit{Nota que puede ser relevante:}\par
+Suponiendo que lo que hice está bien, $a \cdot b = (a:b) \cdot [a:b]$, tiene que valer, pero acordate que
+en el enunciado metieron un \red{5} ahí que no está ni en $a$ ni en $b$, ojo con eso.\par
+\textit{Fin de nota que puede ser relevante:}\par
+
+\begin{aportes}
+  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}

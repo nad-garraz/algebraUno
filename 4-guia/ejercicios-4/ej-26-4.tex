@@ -1,1 +1,60 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Decidir si existen enteros $a$ y $b$ no nulos que satisfagan
+    \begin{multicols}{2}
+      \begin{enumerate}[label=\alph*)]
+        \item $a^2=3b^3$
+        \item $7a^2=8b^2$
+      \end{enumerate}
+    \end{multicols}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+   \item 
+   Observando que hay un 3 del lado derecho, a ojo se puede ver que, por ejemplo, $(a,b)= (3^2,3)$ cumple.
+
+   \item
+   A simple vista, no parece haber una solución obvia. Veamos la factorización en primos para ver si encontramos una contradicción. \par
+   Por TFA, se tiene que 
+
+   $$
+   \llave{l}{
+     a = (P_1)^{m_1}...(P_r)^{m_r}, ~ m_1,...,m_r ~ \en \naturales_0 \\
+     b = (P_1)^{n_1}...(P_r)^{n_r}, ~ n_1,...,n_r ~ \en \naturales_0
+    }
+   \entonces
+   \llave{l}{
+    a^{2} = (P_1)^{2m_1}...(P_r)^{2m_r} \\
+    b^{2} = (P_1)^{2n_1}...(P_r)^{2n_r}
+    }  
+   $$
+
+   Entonces
+
+   $$
+   7a^2=8b^2
+   \sisolosi
+   7^1 \cdot (P_1)^{2m_1}...(P_r)^{2m_r} = 2^3 \cdot (P_1)^{2n_1}...(P_r)^{2n_r}
+   $$
+
+   Del lado izquierdo de la igualdad, el 7 aparece con el exponente $2m_7 +1$. \par
+   Del lado derecho de la igualdad, el 7 aparece con el exponente $2n_7$. \par
+   Entonces, por unicidad de la factorización, se deberia tener que 
+
+   $$
+   2m_7 +1=2n_7
+   $$
+
+   Lo cual es absurdo, pues un número es impar y el otro par. \par
+   Luego, $\noexiste a, b \en \enteros$  no nulos tal que $7a^2=8b^2$
+   
+\end{enumerate}
+   
+   
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}
+
+
+
+
+

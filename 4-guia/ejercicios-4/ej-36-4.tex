@@ -1,1 +1,58 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Sean $a, b \en \enteros$. Probar que si $(a:b)=1$ entonces $(a^{2} \cdot b^{3}: a+b)=1$.
+\end{enunciado}
+
+La estrategia es suponer que $(a^{2} \cdot b^{3}: a+b) \neq 1$ sabiendo que $(a:b)=1$ y llegar a una contradicción. \par
+Sea $d = (a^{2} \cdot b^{3}: a+b)$ con $d \neq 1$, entonces $\existe p$ primo positivo tal que $p \divideA d$. \par
+Luego
+
+$$
+ \llave{l}{
+    d \divideA a^2 \cdot b^3 \\
+    d \divideA a+b
+}
+\Entonces{Transitividad}
+ \llave{l}{
+    p \divideA a^2 \cdot b^3 \Entonces{p primo} p \divideA a \otext p \divideA b \\
+    p \divideA a+b
+}
+$$
+
+Esto nos deja dos opciones:
+
+\begin{itemize}
+
+    \item Caso $p \divideA a$
+
+    $$
+    \llave{l}{
+        p \divideA a \\
+        p \divideA a+b
+    }
+    \Entonces{$F_2 - F_1$}
+    p \divideA b
+    $$
+
+    Lo cual es absurdo, pues $p \divideA a$ y $p \divideA b$, pero dijimos que $(a:b)=1$.
+
+    \item Caso $p \divideA b$ 
+
+    $$
+    \llave{l}{
+        p \divideA b \\
+        p \divideA a+b
+    }
+    \Entonces{$F_2 - F_1$}
+    p \divideA a
+    $$
+
+    Lo cual es absurdo, pues $p \divideA a$ y $p \divideA b$, pero dijimos que $(a:b)=1$.
+
+\end{itemize}
+
+Sea como fuera, en ambos casos llegamos a un absurdo suponiendo que $d \neq 1$. Luego, $d=1 \Tilde$
+
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

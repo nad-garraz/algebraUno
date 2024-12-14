@@ -1,1 +1,49 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Sean $p$ y $q$ primos positivos distintos. Probar que $p^{113} \cdot q^{201} \divideA a^{378}$ si y sólo si $pq \divideA a$.
+\end{enunciado}
+
+Antes de empezar, notemos que como $p \neq q$ y ambos son primos, se tiene que $(p:q)=1$
+
+
+\begin{itemize}
+
+    \item $p^{113} \cdot q^{201} \divideA a^{378} \entonces pq \divideA a$.
+
+    $$
+    p^{113} \cdot q^{201} \divideA a^{378}
+    \sisolosi
+    a^{378}= p^{113} \cdot q^{201} \cdot k ~ , ~  k \en \enteros
+    \entonces 
+    \llave{l}{
+        p \divideA a^{378} \Entonces{p primo} p \divideA a \\
+        q \divideA a^{378} \Entonces{q primo} q \divideA a
+    }
+    \Entonces{$(p:q)=1$}
+    pq \divideA a \Tilde
+    $$
+
+
+    \item $pq \divideA a \entonces p^{113} \cdot q^{201} \divideA a^{378}$
+
+    $$
+    pq \divideA a
+    \sisolosi
+    a = pq \cdot k ~ , ~ k \en \enteros
+    \entonces
+    a^{378} = p^{378} \cdot q^{378} \cdot k^{378}
+    \sisolosi
+    a^{378} = p^{113} \cdot q^{201} (p^{265} \cdot p^{177} \cdot k^{378})
+    $$
+
+    $$
+    \Entonces{$(p^{265} \cdot p^{177} \cdot k^{378}) \en \enteros$}
+    p^{113} \cdot q^{201} \divideA a^{378} \Tilde
+    $$
+
+
+\end{itemize}
+
+
+\begin{aportes}
+	\item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

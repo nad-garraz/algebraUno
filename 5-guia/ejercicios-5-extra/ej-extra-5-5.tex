@@ -31,7 +31,14 @@ $$
   }
 $$
 En $\red{!!}$ pienso en la paridad que tiene que tener $n$. Dado que $n^{109}$ tiene que ser impar, concluyo que $n$ es impar. Como $n$ debe ser impar en $\llamada3$, y me dicen que
-$\noCongruencia{n^{109}}{3}{4}$, solo puede ocurrir que $\congruencia{n^{109}}{1}{4}$
+$\noCongruencia{n^{109}}{3}{4}$, solo puede ocurrir que $\congruencia{n^{109}}{1}{4}$.
+
+Si eso último te parece medio fantasma \purple{\faIcon[regular]{ghost}}, podés encarar $\llamada3$, quizás más mecánicamente, armando 3 sistemas, uno para
+cada condición del divisor 4. De esa forma vas a eliminar \textit{incompatibilidades}
+y vas a terminar llegando al único sistema posible {\tiny (me contó un pajarito \blue{\faIcon{twitter}})}.
+
+\medskip
+
 El sistema de $\llamada1$ queda como:
 
 \medskip
@@ -56,13 +63,23 @@ $$
 
 \bigskip
 
-Junto info que salio de los máximos común múltiplos. Quedan dos sistemas de $\llamada1$ y $\llamada2$:
+Junto info que salió de los máximos común múltiplos. Quedan dos sistemas de $\llamada1$ y $\llamada2$:
 
 $$
   \llave{l}{
     \congruencia{n}{2}{13} \\
     \congruencia{n}{1}{2}  \\
     \congruencia{n}{1}{4}
+    \scriptscriptstyle
+    \leftrightsquigarrow
+    \scriptscriptstyle{
+      \llave{l}{
+        \scriptscriptstyle
+        \congruencia{n}{1}{2} \\
+        \scriptscriptstyle
+        \congruencia{n}{1}{2}
+      }
+    }
   }
   \ytext
   \llave{l}{

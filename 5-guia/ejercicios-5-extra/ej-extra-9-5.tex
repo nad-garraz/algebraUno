@@ -1,13 +1,13 @@
-\ejExtra
-Determinar todos los $a \en \enteros$ que satisfacen simultáneamente
-$$
-  \llave{l}{
-    \congruencia{3a}{12}{24} \\
-    \congruencia{a}{10}{30}  \\
-    \congruencia{20a}{50}{125}
-  }
-$$
-\separadorCorto
+\begin{enunciado}{\ejExtra}
+  Determinar todos los $a \en \enteros$ que satisfacen simultáneamente
+  $$
+    \llave{l}{
+      \congruencia{3a}{12}{24} \\
+      \congruencia{a}{10}{30}  \\
+      \congruencia{20a}{50}{125}
+    }
+  $$
+\end{enunciado}
 
 Ejercicio de sistema de ecuaciones de congreuencias. Los divisores no son coprimos 2 a 2,
 así que hay que coprimizar y quebrar y analizar lo que queda.\\
@@ -77,11 +77,11 @@ $$
 Ahora logramos tener el sistema con los divisores coprimos 2 a 2.
 Por \href{\chinito}{teorema chino del resto} este sistema va a tener una solución particular
 $
-  x_0 \text{ con }  0 \leq x_0 < \ub{3 \cdot 8 \cdot 25}{600}
+  x_0 \text{ con }  0 \leq x_0 < 3 \cdot 8 \cdot 25 = 600:
 $\par
 
-$
-  \llave{l}{
+$$
+  \begin{array}{l}
     \flecha{de}[$\llamada1$]
     a = 8 \magenta{k} + 4
     \flecha{reemplazo a $a$}[en $\llamada2$]
@@ -100,7 +100,11 @@ $
     \green{j} = 25\yellow{h} +14 \\
     \flecha{reemplazo \green{$j$}}[en $a = 24\green{j} + 4$]
     a = 600\yellow{h} + 340
-    \sii
+    \Sii{def}
     \boxed{\congruencia{a}{340}{600}} \Tilde
-  }
-$
+  \end{array}
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

@@ -1,54 +1,93 @@
-\ejExtra
-Sea $n\en \naturales$ tal que $(n^{109} + 37:52) = 26$ y $(n^{63} -21:39) = 39$.
-Calcular el resto de dividir a $n$ por 156.
+\begin{enunciado}{\ejExtra}
+  Sea $n\en \naturales$ tal que $(n^{109} + 37:52) = 26$ y $(n^{63} -21:39) = 39$.
+  Calcular el resto de dividir a $n$ por 156.
+\end{enunciado}
 
-\separadorCorto
+Masajeando un poco el enunciado:
 
-$
-	(n^{109} + 37: \ub{52}{13 \cdot 2^2}) = \ub{26}{13 \cdot 2}
-$ y
-$(n^{63} -21 : \ub{39}{13 \cdot 3}) = \ub{39}{13 \cdot 3}$.\\
+$$
+  (n^{109} + 37: 13 \cdot 2^2) =  13 \cdot 2
+  \ytext
+  (n^{63} -21 : 13 \cdot 3) = 13 \cdot 3
+$$
 
-\textit{Info de los MCD: }\\
+\textit{¿Qué información obtenemos de los máximos común múltiplos?: }
 
-Para que $(n^{109} + 37 : 52) = 26$ debe ocurrir que:\\
+Para que $(n^{109} + 37 : 52) = 26$ debe ocurrir que:
 
-$
-	\llave{l}{
-		13 \divideA  n^{109} + 37  \\
-		2 \divideA  n^{109} + 37  \\
-		4 \noDivide  n^{109} + 37
-	}
-$
-Para que $(n^{63} -21 : 39) = 39$ debe ocurrir que:\\
+$$
+  \llamada1
+  \llave{rcl}{
+    n^{109} + 37 \divideA 13 & \Sii{def} & \congruencia{n^{109}}{2}{13} \Sii{$13$ primo}[$13 \noDivide n$] \congruencia{n^{\blue1}}{2}{13} \\
+    n^{109} + 37 \divideA 2  & \Sii{def} & \congruencia{n^{109}}{1}{2}  \Sii{\red{!!}} \congruencia{n}{1}{2}                                     \\
+    n^{109} + 37 \noDivide 4 & \Sii{def} & \noCongruencia{n^{109}}{3}{4} \Sii{$\llamada3$}
+    \llave{l}{
+      \congruencia{n^{109}}{0}{4}                                            \\
+      \otext                                                                                        \\
+      \boxed{\congruencia{n^{109}}{1}{4}} \Sii{\red{!!!}}[$n \cop 4$] \congruencia{n}{1}{4} \\
+      \otext                                                                                        \\
+      \congruencia{n^{109}}{2}{4}
+    }
+  }
+$$
+En $\red{!!}$ pienso en la paridad que tiene que tener $n$. Dado que $n^{109}$ tiene que ser impar, concluyo que $n$ es impar. Como $n$ debe ser impar en $\llamada3$, y me dicen que
+$\noCongruencia{n^{109}}{3}{4}$, solo puede ocurrir que $\congruencia{n^{109}}{1}{4}$
+El sistema de $\llamada1$ queda como:
 
-$
-	\llave{l}{
-		13 \divideA  n^{63} -21 \\
-		3 \divideA   n^{63} -21
-	}
-$\\
+\medskip
 
-$
-	\llave{l}{
-		\congruencia{n}{1}{2} \\
-		\congruencia{n}{2}{13} \\
-		\noCongruencia{n}{3}{4} \\
-		\congruencia{n}{0}{3}
-	}
-	\sisolosi
-	\llave{l}{
-		\congruencia{n}{1}{2} \\
-		\congruencia{n}{2}{13} \\
-		\congruencia{n}{1}{4} \\
-		\congruencia{n}{0}{3}
-	}
-	\sisolosi
-	\llave{l}{
-		\congruencia{n}{2}{13} \\
-		\congruencia{n}{1}{4} \\
-		\congruencia{n}{0}{3}
-	}
-$
-\red{Completar}
-R: $r_{156}(n) = 93$
+Para que $(n^{63} -21 : 39) = 39$ debe ocurrir que:
+
+$$
+  \llamada2
+  \llave{rcl}{
+    13 \divideA  n^{63} -21 & \Sii{def} &
+    \congruencia{n^{63}}{8}{13}
+    \Sii{$13$ primo}[$13 \noDivide n$]
+    \congruencia{n^{\blue{3}}}{2^3}{13}
+    \Sii{\red{!!!}}[$n \cop 13$]
+    \congruencia{n}{2}{13}                \\
+    3 \divideA  n^{63} -21  & \Sii{def} &
+    \congruencia{n^{63}}{0}{3}
+    \Sii{\red{!}}
+    \congruencia{n}{0}{3}                 \\
+  }
+$$
+
+\bigskip
+
+Junto info que salio de los máximos común múltiplos. Quedan dos sistemas de $\llamada1$ y $\llamada2$:
+
+$$
+  \llave{l}{
+    \congruencia{n}{2}{13} \\
+    \congruencia{n}{1}{2}  \\
+    \congruencia{n}{1}{4}
+  }
+  \ytext
+  \llave{l}{
+    \congruencia{n}{2}{13} \\
+    \congruencia{n}{0}{3}
+  }
+$$
+
+Juntando la info para que sea compatible. Me quedo con $\congruencia{n}{1}{4} $ para no agregar soluciones de más:
+
+$$
+  \llave{l}{
+    \congruencia{n}{2}{13} \\
+    \congruencia{n}{1}{4}  \\
+    \congruencia{n}{0}{3}
+  }
+$$
+Los divisores son coprimos dos a dos, es decir que por \href{\chinito}{TCHR} tenemos solución. La cual queda si no hago cagadas en las cuentas:
+$$
+  \congruencia{n}{93}{156}
+$$
+Por lo tanto el resto que nos pedían es:
+$$
+  \fcolorbox{orange}{white}{$r_{156}(n) = 93$}
+$$
+\begin{aportes}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

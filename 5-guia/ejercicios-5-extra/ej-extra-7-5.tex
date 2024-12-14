@@ -1,101 +1,106 @@
-\ejExtra
+\newcommand{\congPTF}[1]{\taa{(#1)}{\text{PTF}}{\congruente}}
+\begin{enunciado}{\ejExtra}
+  Hallar todos los primos $p \en \naturales$ tales que
+  $$
+    \congruencia{3^{p^2 + 3}}{-84}{p} \ytext \congruencia{(7p + 8)^{2024}}{4}{p}.
+  $$
+\end{enunciado}
 
-\def\PTF{\ ^{\yellow{\text{\FiveStar}}}}
-\newcommand{\congPTF}[1]{\taa{(#1)}{\PTF}{\congruente}}
+A lo largo del ejercicio se va a usar fuerte el colorario del pequeño teorema de Fermat.
 
-
-Hallar todos los primos $p \en \naturales$ tales que
 $$
-	\congruencia{3^{p^2 + 3}}{-84}{p} \ytext \congruencia{(7p + 8)^{2024}}{4}{p}.
-$$
-\separadorCorto
-
-A lo largo del ejercicio se va a usar fuerte el colorario del pequeño teorema de Fermat, $\PTF$
-$$
-	\text{si $p$ primo y $p\noDivide a$, con $a \en \enteros$} \entonces \congruencia{a^n}{a^{r_{p-1}}}{p}
+  \text{si $p$ primo y $p\noDivide a$, con $a \en \enteros$} \entonces \congruencia{a^n}{a^{r_{p-1}}}{p}
 $$
 $
-	\congruencia{3^{p^2 + 3}}{-84}{p}
-	\llave{l}{
-		\flecha{caso}[$p \noDivide 3$ ]
-		\llave{l}{
-			3^{p^2 + 3}
-			\congPTF{p}
-			3^{r_{\magenta{(p-1)}}(p^2 + 3)}\\
-			\flecha{división}[polinomio]
-			p^2 + 3 = \magenta{(p-1)}(p+1) + \ob{4}{\llamada1 r_{ \magenta{(p-1)}}(p^2 + 3)}
-			\entonces
-			3^{p^2 + 3}
-			\taa{(p)}{\llamada1}\congruente
-			\ub{3^4}{81} \llamada2\\
-			\congruencia{3^{p^2 + 3}}{-84}{p}
-			\stackrel{\llamada2}\sii
-			\congruencia{81}{-84}{p}
-			\sii
-			\congruencia{\ub{165}{5\cdot3\cdot11}}{0}{p}
-			\stackrel{p\noDivide 3}\sisolosi
-			\boxed{p = 5} \otext \boxed{ p =11}
-		}\\
-		\flecha{caso}[$p \divideA 3$ ]
-		\llave{l}{
-			p \divideA 3
-			\sii
-			p = 3
-			\entonces
-			3^{p^2 + 3}
-			\conga3
-			0
-			\congruente
-			\ub{-84}{\conga3 0} \ (3)
-			\entonces
-			\boxed{p = 3 }
-		}
-	}
+  \congruencia{3^{p^2 + 3}}{-84}{p}
+  \llave{l}{
+    \flecha{caso}[$p \noDivide 3$ ]
+    \llave{l}{
+      3^{p^2 + 3}
+      \congPTF{p}
+      3^{r_{\magenta{(p-1)}}(p^2 + 3)} \\
+      \flecha{división}[polinomio]
+      p^2 + 3 = \magenta{(p-1)}(p+1) + \ob{4}{\llamada1 r_{ \magenta{(p-1)}}(p^2 + 3)}
+      \entonces
+      3^{p^2 + 3}
+      \taa{(p)}{\llamada1}\congruente
+      \ub{3^4}{81} \llamada2                     \\
+      \congruencia{3^{p^2 + 3}}{-84}{p}
+      \stackrel{\llamada2}\sii
+      \congruencia{81}{-84}{p}
+      \sii
+      \congruencia{\ub{165}{5\cdot3\cdot11}}{0}{p}
+      \stackrel{p\noDivide 3}\sisolosi
+      \boxed{p = 5} \otext \boxed{ p =11}
+    } \\
+    \flecha{caso}[$p \divideA 3$ ]
+    \llave{l}{
+      p \divideA 3
+      \sii
+      p = 3
+      \entonces
+      3^{p^2 + 3}
+      \conga3
+      0
+      \congruente
+      \ub{-84}{\conga3 0} \ (3)
+      \entonces
+      \boxed{p = 3 }
+    }
+  }
 $
+
 Tengo entonces 3 posibles valores para $p \en \set{ 3,5,11}$. Los uso para ver cuál o cuáles
-verifican la segunda condición $\congruencia{(7\cdot p + 8)^{2024}}{4}{p}$.\\
+verifican la segunda condición $\congruencia{(7\cdot p + 8)^{2024}}{4}{p}$.
 
-\underline{\textit{Con }  $p = \blue{3}$}:\\
-
-$
-	(7\cdot \blue{3} + 8)^{2024} \conga3
-	2^{2024}
-	\congPTF{3}
-	2^{r_2(2024)} \conga3
-	2^0 \conga3
-	1
-	\entonces
-	\boxed{p = 3} \Tilde
-$\\
-
-\underline{\textit{Con }  $p = \green{5}$}:\\
+\underline{\textit{Con }  $p = \blue{3}$}:
 
 $
-	(7\cdot \green{5} + 8)^{2024} \conga5
-	3^{2024} \congPTF{5}
-	3^{r_4(2024)} \conga5
-	3^0 \conga5
-	1 \not\congruente
-	4\ (5) \skull
+  (7\cdot \blue{3} + 8)^{2024} \conga3
+  2^{2024}
+  \congPTF{3}
+  2^{r_2(2024)} \conga3
+  2^0 \conga3
+  1
+  \entonces
+  \boxed{p = 3} \Tilde
 $
 
-\underline{\textit{Con }  $p = \yellow{11}$}:\\
+\underline{\textit{Con }  $p = \green{5}$}:
 
 $
-	(7\cdot \yellow{11} + 8)^{2024} \conga{11}
-	8^{2024} \congPTF{11}
-	8^{r_{10}(2024)} \conga{11}
-	8^4 =
-	\ub{4096}{r_{11}(4096) = 4} \congruente
-	4\ (11) \Tilde
+  (7\cdot \green{5} + 8)^{2024} \conga5
+  3^{2024} \congPTF{5}
+  3^{r_4(2024)} \conga5
+  3^0 \conga5
+  1 \not\congruente
+  4\ (5) \skull
+$
+
+\underline{\textit{Con }  $p = \yellow{11}$}:
+
+$
+  (7\cdot \yellow{11} + 8)^{2024} \conga{11}
+  8^{2024} \congPTF{11}
+  8^{r_{10}(2024)} \conga{11}
+  8^4 =
+  \ub{4096}{r_{11}(4096) = 4} \congruente
+  4\ (11) \Tilde
 $
 
 Por lo tanto los valores de $p$ que cumplen lo pedido son:
 \boxed{
-	\begin{array}{c}
-		p = 3  \\
-		\ytext \\
-		p = 11
-	\end{array}
+  \begin{array}{c}
+    p = 3  \\
+    \ytext \\
+    p = 11
+  \end{array}
 }\Tilde
+
+
+% Contribuciones
+\begin{aportes}
+  \item \aporte{\dirRepo://github.com/nad-garraz}{Nad Garraz \github}
+\end{aportes}
+
 

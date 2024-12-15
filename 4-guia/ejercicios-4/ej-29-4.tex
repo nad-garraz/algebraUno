@@ -1,1 +1,48 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+   Determinar cuántos divisores positivos tiene 9000, $15^4 \cdot 42^3 \cdot 56^5$ y $10^n \cdot 11^{n+1}$. ¿Y cuántos divisores en total?
+\end{enunciado}
+
+Lo único que hay que hacer en este ejercicio es factorizar en primos cada número y
+utiizar la formula de cantidad de divisores (poco interesante).
+
+\begin{itemize}
+
+    \item 9000
+
+    $$
+    9000=2^3 \cdot 3^2 \cdot 5^3
+    \entonces
+    \llave{l}{
+        \#Div_+(9000)=(3+1)(2+1)(3+1)= \boxed{48} \\
+        \#Div(9000)=2 \cdot 48 = \boxed{96}
+    }
+    $$
+
+    \item $15^4 \cdot 42^3 \cdot 56^5$
+
+    $$
+    15^4 \cdot 42^3 \cdot 56^5 =2^{18} \cdot 3^7 \cdot 5^4 \cdot 7^8
+    \entonces
+    \llave{l}{
+        \#Div_+(15^4 \cdot 42^3 \cdot 56^5)=(18+1)(7+1)(4+1)(8+1)= \boxed{6840} \\
+        \#Div(15^4 \cdot 42^3 \cdot 56^5)= 2 \cdot 6840 = \boxed{13680}
+    }
+    $$
+
+    \item $10^n \cdot 11^{n+1}$
+
+    $$
+    10^n \cdot 11^{n+1}=2^n \cdot 5^n \cdot 11^{n+1}
+    \entonces
+    \llave{l}{
+        \#Div_+(10^n \cdot 11^{n+1})=(n+1)(n+1)(n+1+1)= \boxed{(n+2)(n+1)^2} \\
+        \#Div(10^n \cdot 11^{n+1})= \boxed{2(n+2)(n+1)^2}
+    }
+    $$
+
+
+\end{itemize}
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

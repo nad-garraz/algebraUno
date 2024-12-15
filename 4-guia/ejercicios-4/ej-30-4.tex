@@ -1,1 +1,39 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Hallar la suma de los divisores positivos de $2^4 \cdot 5^{123}$ y de $10^n \cdot 11^{n+1}$.
+\end{enunciado}
+
+\begin{itemize}
+
+    \item $2^4 \cdot 5^{123}$
+
+    Sabemos que $Div_+(2^4 \cdot 5^{123})= \set{2^i \cdot 5^j, ~ 0 \leq i \leq 4 \ytext 0 \leq j \leq 123}$ \par
+    Entonces, la suma de los divisores será igual a:
+
+    $$
+    \sumatoria{i=0}{4} \sumatoria{j=0}{123} 2^i \cdot 5^j =
+    \parentesis{\sumatoria{i=0}{4} 2^i} \cdot \parentesis{\sumatoria{j=0}{123} 5^j}=
+    \parentesis{\frac{1-2^{4+1}}{1-2}} \cdot \parentesis{\frac{1-5^{123+1}}{1-5}}=
+    \boxed{\frac{31}{4}(5^{124}-1)}
+    $$
+
+    \item $10^n \cdot 11^{n+1}$ \par
+    $10^n \cdot 11^{n+1}= 2^n \cdot 5^n \cdot 11^{n+1}$ \par
+    Sabemos que $Div_+(10^n \cdot 11^{n+1})= \set{2^i \cdot 5^j \cdot 11^k, ~  0 \leq i \leq n, ~ 0 \leq j \leq n \ytext 0 \leq k \leq n+1}$ \par
+    Entonces, la suma de los divisores será igual a:
+
+    $$
+    \sumatoria{i=0}{n} \sumatoria{j=0}{n} \sumatoria{k=0}{n+1} 2^i \cdot 5^j \cdot 11^k =
+    \parentesis{\sumatoria{i=0}{n} 2^i} \cdot \parentesis{\sumatoria{j=0}{n} 5^j} \cdot \parentesis{\sumatoria{k=0}{n+1} 11^k}=
+    \parentesis{\frac{1-2^{n+1}}{1-2}} \cdot \parentesis{\frac{1-5^{n+1}}{1-5}} \cdot \parentesis{\frac{1-11^{n+1+1}}{1-11}} =
+    $$
+
+    $$
+    = \boxed{\frac{1}{40}(2^{n+1}-1)(5^{n+1}-1)(11^{n+2}-1)}
+    $$
+
+\end{itemize}
+
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

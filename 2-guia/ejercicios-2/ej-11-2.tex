@@ -1,92 +1,103 @@
 \begin{enunciado}{\ejercicio}
   \begin{enumerate}[label=\roman*)]
-    \item Sea $(a_n)_{n \en \naturales }$ una sucesión de números reales todos del mismo signo y tales que 
-    $a_n > -1$ para todo $n \in \mathbb{N}$. Probar que 
-    \begin{align*}
-      \prod_{i=1}^{n} (1 + a_i) \geq 1 + \sum_{i=1}^{n}a_i
-    \end{align*}
-          
-    ¿En qué paso de la demostración se usa que $a_n > -1$ para todo $n \in \mathbb{N}$? ¿Y que todos los términos
-    de la sucesión $(a_n)_{n \in \mathbb{N}}$ tienen el mismo signo?
+    \item Sea $(a_n)_{n \en \naturales }$ una sucesión de números reales todos del mismo signo y tales que
+          $a_n > -1$ para todo $n \en \naturales $. Probar que
+          $$
+            \productoria{i=1}{n}  (1 + a_i) \geq 1 + \sumatoria{i=1}{n} a_i
+          $$
+          ¿En qué paso de la demostración se usa que $a_n > -1$ para todo $n \en \naturales $? ¿Y que todos los términos
+          de la sucesión $(a_n)_{n \en \naturales }$ tienen el mismo signo?
 
-    \item Deducir que si $a \in \mathbb{R}$ tal que $a > -1$, entonces $(1+a)^n \geq 1 + na$.
+    \item Deducir que si $a \en \reales $ tal que $a > -1$, entonces $(1+a)^n \geq 1 + na$.
   \end{enumerate}
 \end{enunciado}
+
 \setcounter{equation}{0}
+
 \begin{enumerate}[label=\roman*)]
-  \item Sea $(a_n)_{n \in \mathbb{N}}$ sucesión de números reales tales que
-  \begin{align}
-    &sg(a_n) = sg(a_1), \ \forall n \in \mathbb{N} \\
-    &a_n > -1, \ \forall n \in \mathbb{N} \iff 1 + a_n > 0, \ \forall n \in \mathbb{N}
-  \end{align}
-  donde $sg(x)$ es la función signo de $x$
-  \begin{align*}
-    sg(x) = \begin{cases}
-              -1, \text{ si } x < 0 \\
-              \phantom{-}1, \text{ si } x > 0
-            \end{cases}
-  \end{align*}
+  \item Sea $(a_n)_{n \en \naturales }$ sucesión de números reales tales que
+        \begin{align}
+           & sg(a_n) = sg(a_1), \ \forall n \en \naturales                                      \\
+           & a_n > -1, \ \forall n \en \naturales  \iff 1 + a_n > 0, \ \forall n \en \naturales
+        \end{align}
+        donde $sg(x)$ es la función signo de $x$
+        \begin{align*}
+          sg(x) = \begin{cases}
+                    -1, \text{ si } x < 0 \\
+                    \phantom{-}1, \text{ si } x > 0
+                  \end{cases}
+        \end{align*}
 
-  Definamos nuestra proposición $P(n)$ 
-  \begin{align*}
-    P(n): \prod_{i=1}^{n} (1 + a_i) \geq 1 + \sum_{i=1}^{n}a_i, \ n \in \mathbb{N}
-  \end{align*}
+        Definamos nuestra proposición $P(n)$
+        \begin{align*}
+          P(n): \productoria{i=1}{n}  (1 + a_i) \geq 1 + \sumatoria{i=1}{n} a_i, \ n \en \naturales
+        \end{align*}
 
-  \underline{Caso Base}, $n = 1$:
-  \begin{align*}
-  P(1)&: \prod_{i=1}^{n} (1 + a_i) \geq 1 + \sum_{i=1}^{1}a_i \\
-  P(1)&: 1 + a_1 \geq 1 + a_1 \implies P(1):V
-  \end{align*}
+        \underline{Caso Base}, $n = 1$:
+        \begin{align*}
+          P(1) & : \productoria{i=1}{n}  (1 + a_i) \geq 1 + \sumatoria{i=1}{1} a_i \\
+          P(1) & : 1 + a_1 \geq 1 + a_1 \entonces P(1):V
+        \end{align*}
 
-  \underline{Paso inductivo}. Sea $n \in \mathbb{N}$:
-  \begin{enumerate}
-    \item[HI.] $P(n): V$
-    \item[TI.] $P(n+1): \displaystyle \prod_{i=1}^{n+1} (1 + a_i) \geq 1 + \sum_{i=1}^{n+1}a_i$
-  \end{enumerate}
-  Desarrollemos el lado izquierdo de la desigualdad
-  \begin{align*}
-    \prod_{i=1}^{n+1} (1 + a_i) &= (1 + a_{n+1}) \prod_{i=1}^{n} (1 + a_i) \overset{\text{HI}}{\underset{(2)}{\geq}} 
-    (1 + a_{n+1}) \left(1 + \sum_{i=1}^{n}a_i\right) = 1 + \sum_{i=1}^{n}a_i + a_{n+1} + a_{n+1}\sum_{i=1}^{n}a_i 
-    \overset{*}{=} \\
-    &\overset{*}{=} 1 + \sum_{i=1}^{n+1}a_i + a_{n+1}\sum_{i=1}^{n}a_i \overset{\text{Aux}}{\geq}
-    1 + \sum_{i=1}^{n+1}a_i \implies P(n+1):V 
-  \end{align*}
-  Hemos probado el caso base y el paso inductivo, entonces $P(n): V, \ \forall n \in \mathbb{N}$.
-  \paragraph{Auxiliar}{Queremos ver que $a_{n+1}\sum_{i=1}^{n}a_i > 0$}. La Ec.(1) nos dice que $a_n$ nunca cambia de 
-  signo mientras que la Ec.(2) nos dice que $a_n$ puede ser positiva o negativa. Entonces
-  \begin{align*}
-    sg(a_n) < 0 \ \lor sg(a_n) > 0
-  \end{align*}
-  Caso $sg(a_n) < 0 $
-  \begin{align}
-    sg(a_n) < 0 &\overset{\text{(1)}}{\implies} sg(a_{n+1}) < 0 \\
-    sg(a_n) < 0 &\overset{\text{(1)}}{\implies} \sum_{i=1}^{n}a_i < 0
-  \end{align}
-  Por la Ec.(3) y la Ec.(4), tenemos que
-  \begin{align*}
-    a_{n+1}\sum_{i=1}^{n}a_i > 0
-  \end{align*}
+        \underline{Paso inductivo}. Sea $n \en \naturales $:
+        \begin{enumerate}
+          \item[HI.] $P(n): V$
+          \item[TI.] $P(n+1): \displaystyle \productoria{i=1}{n+1}  (1 + a_i) \geq 1 + \sumatoria{i=1}{n+1} a_i$
+        \end{enumerate}
+        Desarrollemos el lado izquierdo de la desigualdad
+        \begin{align*}
+          \productoria{i=1}{n+1}  (1 + a_i) & = (1 + a_{n+1}) \productoria{i=1}{n}  (1 + a_i)
+          \taa{\text{HI}}{(2)}{\geq}
+          (1 + a_{n+1}) \left(1 + \sumatoria{i=1}{n} a_i\right) = 1 + \sumatoria{i=1}{n} a_i + a_{n+1} + a_{n+1}\sumatoria{i=1}{n} a_i
+          \igual{*}                                                                                                                          \\
+                                            & \igual{*} 1 + \sumatoria{i=1}{n+1} a_i + a_{n+1}\sumatoria{i=1}{n} a_i \mayorIgual{\text{Aux}}
+          1 + \sumatoria{i=1}{n+1} a_i \entonces P(n+1):V
+        \end{align*}
+        Hemos probado el caso base y el paso inductivo, entonces $P(n): V, \ \forall n \en \naturales $.
+        \paragraph{Auxiliar}{Queremos ver que $a_{n+1}\sumatoria{i=1}{n} a_i > 0$}. La Ec.(1) nos dice que $a_n$ nunca cambia de
+        signo mientras que la Ec.(2) nos dice que $a_n$ puede ser positiva o negativa. Entonces
+        \begin{align*}
+          sg(a_n) < 0 \ \lor sg(a_n) > 0
+        \end{align*}
+        Caso $sg(a_n) < 0 $
+        \begin{align}
+          sg(a_n) < 0 & \Entonces{(1)} sg(a_{n+1}) < 0            \\
+          sg(a_n) < 0 & \Entonces{(1)} \sumatoria{i=1}{n} a_i < 0
+        \end{align}
+        Por la Ec.(3) y la Ec.(4), tenemos que
+        \begin{align*}
+          a_{n+1}\sumatoria{i=1}{n} a_i > 0
+        \end{align*}
 
-  Caso $sg(a_n) > 0 $
-  \begin{align}
-    sg(a_n) > 0 &\overset{\text{(1)}}{\implies} sg(a_{n+1}) > 0 \\
-    sg(a_n) > 0 &\overset{\text{(1)}}{\implies} \sum_{i=1}^{n}a_i > 0
-  \end{align}
-  Por la Ec.(5) y la Ec.(6), tenemos que
-  \begin{align*}
-    a_{n+1}\sum_{i=1}^{n}a_i > 0
-  \end{align*}
-  \paragraph{¿En qué paso de la demostración se usa que $a_n > -1$ para todo $n \in \mathbb{N}$? }{En la misma parte 
-  donde utilizamos la HI, pues la desigualdad de la HI sigue siendo valida solo si multiplicamos a ambos lados por un 
-  número positivo. Ese número positivo esta en la Ec.(2).}
-  \paragraph{¿Y que todos los términos de la sucesión $(a_n)_{n \in \mathbb{N}}$ tienen el mismo signo?}{En la parte
-  donde utilizamos el calculo auxiliar.}
+        Caso $sg(a_n) > 0 $
+        \begin{align}
+          sg(a_n) > 0 & \Entonces{(1)} sg(a_{n+1}) > 0            \\
+          sg(a_n) > 0 & \Entonces{(1)} \sumatoria{i=1}{n} a_i > 0
+        \end{align}
+        Por la Ec.(5) y la Ec.(6), tenemos que
+        \begin{align*}
+          a_{n+1}\sumatoria{i=1}{n} a_i > 0
+        \end{align*}
 
-  \item Como $a > -1$ y $a \in \mathbb{R}$, cumple con las condiciones impuestas sobre $(a_n)_{n \in \mathbb{N}}$ en el
-  punto (i). Tomamos $a_n = a$, $\forall n \in \mathbb{N}$. Como $P(n)$ es verdadera
-  \begin{align*}
-    \prod_{i=1}^{n} (1 + a) &\geq 1 + \sum_{i=1}^{n}a \\
-    (1 + a)^n &\geq 1 + a \sum_{i=1}^{n}1 \\
-    (1 + a)^n &\geq 1 + n a
-  \end{align*}
+        \paragraph{¿En qué paso de la demostración se usa que $a_n > -1$ para todo $n \en \naturales $? }{En la misma parte
+          donde utilizamos la HI, pues la desigualdad de la HI sigue siendo valida solo si multiplicamos a ambos lados por un
+          número positivo. Ese número positivo esta en la Ec.(2).}
+
+        \paragraph{¿Y que todos los términos de la sucesión $(a_n)_{n \en \naturales }$ tienen el mismo signo?}{En la parte
+          donde utilizamos el calculo auxiliar.}
+
+  \item Como $a > -1$ y $a \en \reales $, cumple con las condiciones impuestas sobre $(a_n)_{n \en \naturales }$ en el
+        punto (i). Tomamos $a_n = a$, $\forall n \en \naturales $. Como $P(n)$ es verdadera
+        \begin{align*}
+          \productoria{i=1}{n}  (1 + a) & \geq 1 + \sumatoria{i=1}{n} a   \\
+          (1 + a)^n                     & \geq 1 + a \sumatoria{i=1}{n} 1 \\
+          (1 + a)^n                     & \geq 1 + n a
+        \end{align*}
 \end{enumerate}
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \enstagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/koopardo/}{Marcos Zea \github}
+\end{aportes}

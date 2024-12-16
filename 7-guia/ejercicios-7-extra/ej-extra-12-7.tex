@@ -1,0 +1,48 @@
+\begin{enunciado}{\ejExtra}
+	Factorizar como producto de polinomios mónicos irreducibles en $\enteros/(3\enteros)[X]$ el polinomio
+	$$
+		f(X) = X^4 + X^3 + X + 2 \en \enteros / (3 \enteros)[X].
+	$$
+\end{enunciado}
+
+Busco una raíz:
+$$
+	f(i) = i^4 + i^3 + i + 2 = 1 + -i + i + 2 = 3 \conga3 0
+$$
+El conjugado de $i$ también, es raíz, por lo tanto bajo el grado del polinomio dividiendo por
+$$
+	(X - i) \cdot (X + i) = X^2 + 1
+$$
+
+$$
+	\divPol{X^4 + X^3 + X + 2}{X^2 + 1}
+$$
+Por lo tanto:
+$$
+	X^4 + X^3 + X + 2 =
+	(X^2 + 1) \cdot (X^2 + X \blue{- 1}) + \magenta{3}
+	\conga3
+	(X^2 + 1) \cdot (X^2 + X \blue{+ 2}) + \magenta{0}
+$$
+
+Al buscar las raíces de $(X^2 + X + 2)$, con la resolvente:
+$$
+	r_1 = -\frac{1}{2} + i \frac{\sqrt{7}}{2}
+	\ytext
+	r_2 = -\frac{1}{2} - i \frac{\sqrt{7}}{2}
+$$
+Raíces que no tienen número enteros, así que no van a figurar en la factorización.
+
+Nos piden factorización en $\enteros/(3\enteros)$ por lo que:
+$$
+	\fcolorbox{orange}{white}{$
+			f(X) = (X^2 + 1) \cdot (X^2 + X + 2)
+		$}
+$$
+
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

@@ -1,1 +1,49 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Sean $a,b \en \naturales, a,b \geq 2$. Probar que si $ab$ es un cuadrado en $\naturales$ y $(a:b)= 1$, entonces, tanto $a$ como $b$ son cuadrados en $\naturales$.
+\end{enunciado}
+
+$$
+\text{$ab$ es un cuadrado en $\naturales$} 
+\sisolosi 
+ab = k^2, ~ k \en \naturales
+$$
+
+Esto implica que todos los primos en la factorización de $ab$ son de la forma $2q$, con $q \en \naturales$. Es decir
+
+$$
+ab = (P_1)^{2n_1} \cdots (P_r)^{2n_r}, ~ n_1, \dots, n_r \en \naturales
+$$
+
+Luego, usando que $(a:b)=1$, se tiene que $a$ y $b$ no poseen primos en común, de modo que cada primo con su respectivo exponente de $ab$ esta en la factorización de $a$ o de $b$, pero no en ambas. \par 
+Entonces, podemos escribir a ambos números en su factorización correspondiente:
+
+$$
+a = (Q_1)^{2m_1} \cdots (Q_t)^{2m_t}, ~ m_1, \dots, m_t \en \naturales
+$$
+
+$$
+b = (S_1)^{2l_1} \cdots (S_c)^{2l_c}, ~ l_1, \dots, l_c \en \naturales
+$$
+
+De esta manera 
+
+$$
+\existe k_1, k_2 \en \naturales
+ ~ \text{con} ~
+\llave{l}{
+    k_1 = (Q_1)^{m_1} \cdots (Q_t)^{m_t} \\
+    k_2 = (S_1)^{l_1} \cdots (S_c)^{l_c}
+}
+ ~ \text{tal que} ~
+\llave{l}{
+    a=(k_1)^2 \\
+    b=(k_2)^2
+}
+$$
+
+Esto precisamente quiere decir que $a$ y $b$ son cuadrados en $\naturales$, que era lo que queriamos probar.
+
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

@@ -1,1 +1,28 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Hallar el menor número natural $n$ tal que $6552n$ sea un cuadrado, es decir, que exista $k \en \naturales$ tal que $6552n=k^2$.
+ \end{enunciado}
+
+ Como $k \en \naturales$ y como claramente $k \neq 1$, por TFA, se tiene que
+
+ $$
+ k = (P_1)^{m_1} \cdot (P_2)^{m_2} \cdots (P_r)^{m_r}, ~ m_1,  m_2, \dots, m_r ~ \en \naturales
+ \entonces
+ k^2= (P_1)^{2m_1} \cdot (P_2)^{2m_2} \cdots (P_r)^{2m_r}
+ $$
+
+ Entonces 
+
+ $$
+ 6552n=k^2
+ \sisolosi
+ 2^3 \cdot 3^2 \cdot 7 \cdot 13 \cdot n =  (P_1)^{2m_1} \cdot (P_2)^{2m_2} \cdots (P_r)^{2m_r}
+ $$
+
+ Esto nos dice que todos los primos del lado izquierdo de la igualdad deben estar elevados a un número de la forma $2k, ~ k \en \naturales$. \par
+Para lograr esto, notemos que  es necesario que $n$ contenga en su factorización un 2, un 7 y un 13 y como nos piden el menor $n$, esto resulta suficiente. \par
+Luego, $n = 2 \cdot 7 \cdot 13 = \boxed{182}$
+
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

@@ -1,0 +1,131 @@
+\begin{enunciado}{\ejExtra}
+  Sean $X = \set{n \en \naturales : n \leq 200}$ e $Y = \set{n\en \naturales : n \leq 100}$.\par
+  En $\partes(X)$ se define la relación $\relacion$ de la forma:
+  $$
+    A \relacion B \sisolosi B - A \subseteq Y.
+  $$
+  \begin{enumerate}[label=\alph*)]
+    \item Determinar si $\relacion$ es una relación reflexiva, simétrica, antisimétrica y/o transitiva.
+    \item Sea $B = \set{n \en X : n \text{ es par} }$. ¿Cuántos conjuntos $A \en \partes(X)$ satisfacen simultáneamente
+          $A \relacion B$ y $\#(A\inter B) = 80$?
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item Para ver esto de qué cosa son \hyperlink{teoria-1:prop-relaciones}{las propiedades de reflexión y eso acá está la teoría}.
+
+        \textit{¿Es $\relacion$ reflexiva?:}
+        $$
+          A \relacion A \sisolosi A - A = \vacio \subseteq Y
+        $$
+        Lo cual es cierto, dado que el conjunto vacío, $\vacio$, está  en todo conjunto.
+
+        \medskip
+
+        \textit{¿Es $\relacion$ simétrica?:}\par
+        Por hipótesis:
+        $$
+          A \relacion B \sisolosi B - A \subseteq Y \Tilde
+        $$
+        Quiero ver que pasa con $B\relacion A$:
+        $$
+          B \relacion A \Sii{\red{??}} A - B \subseteq Y
+        $$
+        Propongo que $A = \set{101,200}$ y que $B = \set{1,200}$. Con estos conjuntos se tiene:
+        $$
+          B - A = \set{1} \subseteq Y
+        $$
+        peeeeero,
+        $$
+          A - B = \set{101} \nsubseteq Y
+        $$
+        Por lo tanto la relación \ul{no} es simétrica.
+
+        \medskip
+
+        \textit{¿Es $\relacion$ antisimétrica?:}\par
+        Por hipótesis:
+        $$
+          A \relacion B \sisolosi B - A \subseteq Y \Tilde
+        $$
+        De ser antisimétrica debería ocurrir que
+        $$
+          B \norelacion A \text{  para  } B \distinto A.
+        $$
+        Veamos por ejemplo qué pasa con $A = \set{1}$ y $B = \set{2}$, donde $A \distinto B$:
+        $$
+          B - A = \set{2} \subseteq Y \entonces A \relacion B
+        $$
+        y también,
+        $$
+          A - B = \set{1} \subseteq Y \entonces B \relacion A
+        $$
+        Por lo tanto la relación \ul{no} es antisimétrica.
+
+        \medskip
+
+        \textit{¿Es $\relacion$ transitiva?:}\par
+        Por hipótesis:
+        $$
+          \begin{array}{c}
+            \llamada1 A \relacion B \sisolosi B - A \subseteq Y \Tilde \\
+            \llamada2 B \relacion C \sisolosi C - B \subseteq Y \Tilde
+          \end{array}
+        $$
+        En diagramas de Venn:
+        $$
+          \llamada1
+          \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillBCapCNotA
+            \fillOnlyB
+          \end{venndiagram3sets}
+          \ytext
+          \llamada2
+          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillCCapANotB
+            \fillOnlyC
+          \end{venndiagram3sets}
+        $$
+        Quiero ver si $A \relacion C$ es decir si $C-A \subseteq Y$:
+        $$
+          \llamada3
+          \begin{venndiagram3sets}[shade=yellow!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillCCapBNotA
+            \fillOnlyC
+          \end{venndiagram3sets}
+        $$
+        Esto está lindo porque $\llamada1$ y $\llamada2$ están en $Y$, lo cual equivale a decir que su unión también está en $Y$:
+        $$
+          \begin{venndiagram3sets}[shade=blue!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillBCapCNotA
+            \fillOnlyB
+          \end{venndiagram3sets}
+          \quad
+          \union
+          \quad
+          \begin{venndiagram3sets}[shade=orange!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillCCapANotB
+            \fillOnlyC
+          \end{venndiagram3sets}
+          \quad
+          =
+          \quad
+          \begin{venndiagram3sets}[shade=magenta!30!white, showframe = false,hgap=0, vgap=0, overlap = 1.1cm]
+            \fillBNotA
+            \fillCNotB
+          \end{venndiagram3sets}
+        $$
+        En los diagramas se puede ver que $\llamada3$ es un conjunto que está en la unión de $\llamada1$ y $\llamada2$,
+        y como, por hipótesis, esa unión está en $Y$, la relación es \textit{transitiva}.
+
+  \item
+        $$
+          \#B = \#\set{2,4,6,\dots,198,200} = 100
+        $$
+        \faIcon[regular]{flushed} no se me ocurre, lo voy a pensar...  bye
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+  \item \aporte{https://github.com/fionamclou}{Fiona M L \github}
+\end{aportes}

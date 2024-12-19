@@ -1,1 +1,206 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+ \begin{enumerate}[label=(\alph*)]
+
+    \item Sea $k \en \naturales$. Probar que $(2^k+7^k:2^k-7^k)=1$.
+
+    \item Sea $k \en \naturales$. Probar que $(2^k+5^{k+1}:2^{k+1}+5^k)=3 \otext 9$, y dar un ejemplo para cada caso.
+
+    \item Caracterizar para cada $k \en \naturales$ el valor que toma $(12^k-1:12^k+1286)$.
+
+ \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item 
+    
+    Sea $d=(2^k+7^k:2^k-7^k)=1$. Entonces 
+
+    $$
+     \llave{l}{
+        d \divideA 2^k+7^k \\
+        d \divideA 2^k-7^k
+     }
+     \llave{l}{
+        \Entonces{$F_1+F_2$} d \divideA 2 \cdot 2^k \\
+        \Entonces{$F_1-F_2$} d \divideA 2 \cdot 7^k
+     }
+     \entonces 
+     d \divideA (2 \cdot 2^k:2 \cdot 7^k) = 2(2^k:7^k) \igual{\red{!!}}2 \cdot 1=2
+     \entonces
+     d \en \set{1,2}
+     $$
+
+     En $\red{!!}$ uso que $(2:7)= 1 \sisolosi (2^k:7^k)=1$ \par
+     Ahora nos gustaria descartar que $d$ pueda ser 2, con lo que basta ver que 2 no divide a alguna de las expresiones.
+     Para esto, miremos la congruencia módulo 2 de $2^k+7^k$:
+
+     $$
+     2^k+7^k \equiv 0^k+1^k \equiv 1 \pmod{2}
+     \entonces
+     r_{2}(2^k+7^k) = 1 , \paratodo ~ k \en \naturales
+     \entonces
+     2 \noDivide 2^k+7^k, \paratodo ~ k \en \naturales
+     $$
+
+     De aca, tenemos que $2 \noDivide d$. Entonces, queda que $\boxed{d=1}$, tal como queriamos probar.
+
+
+     \item 
+     
+     Sea $d=(2^k+5^{k+1}:2^{k+1}+5^k)=1$. Entonces
+
+     $$
+     \llave{l}{
+        d \divideA 2^k+5^{k+1} \\
+        d \divideA 2^{k+1}+5^k
+     }
+     \llave{l}{
+        \Entonces{$2 \cdot F_1$} 
+        \llave{l}{
+        d \divideA 2^{k+1}+2 \cdot 5^{k+1} \\
+        d \divideA 2^{k+1}+5^k
+        }
+        \Entonces{$F_1-F_2$}
+        d \divideA 9 \cdot 5^k \\
+        \Entonces{$5 \cdot F_2$} 
+        \llave{l}{
+        d \divideA 2^{k}+ 5^{k+1} \\
+        d \divideA 5 \cdot 2^{k+1}+5^{k+1}
+        }
+        \Entonces{$F_2-F_1$}
+        d \divideA 9 \cdot 2^k 
+     }
+     \entonces
+     d \divideA (9 \cdot 5^k:9 \cdot 2^k) = 9(5^k:2^k) \igual{\red{!!}}9 \cdot 1=9
+     $$
+
+     $$
+     \entonces
+     d \en \set{1,3,9}
+     $$
+
+     En $\red{!!}$ uso que $(5:2)= 1 \sisolosi (5^k:2^k)=1$ \par
+
+     Veamos ahora que $d$ puede ser igual a 3 o a 9:
+
+     $$
+     \llave{l}{
+        k=1 \rightarrow d= (2^1+5^{1+1}:2^{1+1}+5^1)=(27:9)=(9:0)=9 \Tilde \\
+        k=2 \rightarrow d= (2^2+5^{2+1}:2^{2+1}+5^2)=(129:33)=(33:30)=(30:3)=(3:0)=3 \Tilde
+     }
+     $$
+
+     En estos pasos usé el algoritmo de Euclides. \bigskip
+
+     Ahors tenemos que ver que $d$ no puede ser 1, con lo que debemos verificar que ambas expresiones son siempre divisibles por 3.
+     Para esto, miramos la congruencia módulo 3:
+
+     $$
+     \llave{l}{
+        2^k + 5^{k+1} \equiv 2^k+2^{k+1} \equiv 3 \cdot 2^k \equiv 0 \pmod{3} \entonces r_3(2^k+5^{k+1})=0, \paratodo ~ k \en \naturales \\
+        2^{k+1} + 5^k \equiv 2^{k+1}+2^k \equiv 3 \cdot 2^k \equiv 0 \pmod{3} \entonces r_3(2^{k+1}+5^k)=0, \paratodo ~ k \en \naturales
+     }
+     $$
+
+     Entonces, tenemos que 
+
+     $$
+     3 \divideA 2^k+5^{k+1} \ytext 3 \divideA 2^{k+1}+5^k, \paratodo ~ k \en \naturales
+     $$
+
+     Con lo que d no puede ser 1. Entonces $\boxed{d=3 \otext 9}$, tal como queriamos ver.
+
+
+     \item 
+
+     Sea $d = (12^k-1:12^k+1286)$. \par
+
+     Notemos que $(12^k + 1286)-(12^k-1)=1287$. De modo que, haciendo Euclides, tenemos que
+     
+     $$
+     d = (12^k-1:12^k+1286) = (12^k-1:1287)=(12^k-1:3^2 \cdot 11 \cdot 13)
+     $$
+
+     Miremos ahora la congruencia módulo 3, 11 y 13 de $12^k-1$:
+      
+      \begin{itemize}
+
+        \item mod 3
+
+        $$
+        12^k-1 \equiv 0^k+2 \equiv 2 \pmod{3}
+        \entonces
+        r_3(12^k-1)=2
+        \entonces
+        3 \noDivide 12^k-1, \paratodo ~ k \en \naturales
+        $$
+
+        Luego, $3 \noDivide d$, de modo que $d \en \set{11,13,11 \cdot 13}$
+
+        \item mod 11
+
+        $$
+        12^k-1 \equiv 1^k-1 \equiv 1-1 \equiv 0 \pmod{11}
+        \entonces
+        r_{11}(12^k-1)=0
+        \entonces
+        11 \divideA 12^k-1, \paratodo ~ k \en \naturales
+        $$
+
+        Luego, $11 \divideA d$, de modo que $d \en \set{11,11 \cdot 13}$
+
+        \item mod 13
+
+        $$
+        12^k-1 \equiv (-1)^k-1 \pmod{13}
+        $$
+
+        Aca se abren dos opciones, dependiendo si $k$ es par o impar.\bigskip
+
+        Si $k$ es par, tenemos que 
+        
+        $$
+        (-1)^k=1
+        \entonces
+        \congruencia{12^k-1}{0}{13}
+        \entonces 
+        r_{13}(12^k-1)=0
+        \entonces
+        13 \divideA 12^k-1
+        $$
+        
+        Luego, tenemos que $13 \divideA d$, de modo que $d= 11 \cdot 13=143$. \bigskip
+
+        Si $k$ es impar, tenemos que 
+        
+        $$
+        (-1)^k=-1
+        \entonces
+        \congruencia{12^k-1}{11}{13}
+        \entonces 
+        r_{13}(12^k-1)=11
+        \entonces
+        13 \noDivide 12^k-1
+        $$
+        
+        Luego, tenemos que $13 \noDivide d$, de modo que $d= 11$. 
+
+      \end{itemize}
+    
+    Resumiendo
+
+    $$
+    \llave{ll}{
+      \text{$\boxed{d=11}$ si $k$ es impar} \\
+      \text{$\boxed{d=143}$ si $k$ es par}
+    }
+    $$
+
+\end{enumerate} 
+
+
+\begin{aportes}
+     \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}
+     

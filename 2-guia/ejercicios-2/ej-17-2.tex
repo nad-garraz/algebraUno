@@ -1,2 +1,128 @@
-\ejercicio
-\hacer
+\begin{enunciado}{\ejercicio}
+    \begin{enumerate}[label=\roman*)]
+        \item Sea $(a_n)_{n \in \mathbb{N}}$ la sucesión definida por
+        \begin{align*}
+            a = 1 \text{ y } a_{n+1} = a_n + n \cdot n!,\ \forall n \in \mathbb{N}
+        \end{align*}
+        Probar que $a_n = n!$, y, aplicando el Ej.9i), calcular $\displaystyle \sum_{i=1}^{n}i \cdot i!$.
+        
+        \item Sea $(a_n)_{n \in \mathbb{N}}$ la sucesión definida por
+        \begin{align*}
+            a = 1 \text{ y } a_{n+1} = a_n + 3n^2 + 3n + 1,\ \forall n \in \mathbb{N}
+        \end{align*}
+        Probar que $a_n = n^3$, y, aplicando el Ej.9i, calcular de otra forma $\displaystyle \sum_{i=1}^{n}i^2$ 
+        (comparar con Ej.6).
+    \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+    \item Sea $(a_n)_{n \in \mathbb{N}}$ definida por
+    \setcounter{equation}{0}
+    \begin{align}
+        a_1 &= 1 \\
+        a_{n+1} &= a_n + n \cdot n!,\ \forall n \in \mathbb{N}
+    \end{align} 
+    Tenemos que probar que la sucesión dada por recurrencia satisface la sucesión $a_n = n!$ para todo $n \in 
+    \mathbb{N}$. 
+    Hagamoslo por inducción
+    \begin{align*}
+        P(n): a_n = n!,\ \forall n \in \mathbb{N}
+    \end{align*}
+    \underline{Caso Base}, $n = 1$:
+	    \begin{align*}
+		    &P(1): a_1 = 1! = 1 \overset{(1)}{=} 1 \implies P(1):V
+	    \end{align*}
+	\underline{Paso inductivo.} Sea $n \geq 1$:
+	\begin{enumerate}
+        \item[HI.] $P(n): V$
+        \item[TI.] $P(n+1): a_{n+1} = (n+1)!$
+    \end{enumerate}
+ 	Desarrollemos el lado izquierdo de la igualdad en la TI
+    \begin{align*}
+  	    a_{n+1} \overset{(2)}{=} a_n + n \cdot n! \overset{\text{HI}}{=} n! + n \cdot n! = n!(n + 1) = (n+1)! 
+        \implies P(n+1):V
+    \end{align*}
+    Hemos probado el caso base y el paso inductivo. Concluimos que $P(n):V,$ $\forall n \in \mathbb{N}$.\\
+
+    Calculemos $\displaystyle \sum_{i=1}^{n}i \cdot i! $:
+    \begin{align*}
+        \sum_{i=1}^{n} i \cdot i! \overset{\text{(Aux.1)}}{=} \sum_{i=1}^{n} (a_{i+1} - a_i) \overset{\text{(Aux.2)}}{=}
+        a_{n+1} - a_1 = (n+1)! - 1
+    \end{align*}
+
+    \paragraph{Auxiliar 1}{
+        Usemos la Ec.(2)
+        \begin{align*}
+            a_{n+1} = a_n + n \cdot n! \implies n \cdot n! = a_{n+1} - a_n
+        \end{align*}
+    }
+    \paragraph{Auxiliar 2}{
+        Ecuación dada por el ejercicio 19.i)
+        \begin{align*}
+            \sum_{i=1}^{n}(a_{i+1} - a_1) = a_{n+1} - a_1
+        \end{align*}
+    }
+
+    \item Sea $(a_n)_{n \in \mathbb{N}}$ definida por
+    \setcounter{equation}{0}
+    \begin{align}
+        a_1 &= 1 \\
+        a_{n+1} &= a_n + 3n^2 + 3n + 1,\ \forall n \in \mathbb{N}
+    \end{align} 
+    Tenemos que probar que la sucesión dada por recurrencia satisface la sucesión $a_n = n^3$ para todo $n \in 
+    \mathbb{N}$. 
+    Hagamoslo por inducción
+    \begin{align*}
+        P(n): a_n = n^3,\ \forall n \in \mathbb{N}
+    \end{align*}
+    \underline{Caso Base}, $n = 1$:
+	    \begin{align*}
+		    &P(1): a_1 = 1! = 1 \overset{(1)}{=} 1 \implies P(1):V
+	    \end{align*}
+	\underline{Paso inductivo.} Sea $n \geq 1$:
+	\begin{enumerate}
+        \item[HI.] $P(n): V$
+        \item[TI.] $P(n+1): a_{n+1} = (n+1)^3$
+    \end{enumerate}
+ 	Desarrollemos el lado izquierdo de la igualdad en la TI
+    \begin{align*}
+  	    a_{n+1} \overset{(2)}{=} a_n + 3n^2 + 3n + 1 \overset{\text{HI}}{=} n^3 + 3n^2 + 3n + 1 = (n+1)^3 
+        \implies P(n+1):V
+    \end{align*}
+    Hemos probado el caso base y el paso inductivo. Concluimos que $P(n):V,$ $\forall n \in \mathbb{N}$. \\
+
+    Calculemos $\displaystyle \sum_{i=1}^{n}i^2 $:
+    \begin{align*}
+        \sum_{i=1}^{n} i^2 \overset{\text{(Aux.1)}}&{=} \sum_{i=1}^{n} \frac{a_{i+1} - a_i - 3i - 1}{3} =
+        \frac{1}{3}\sum_{i=1}^{n} (a_{i+1} - a_i - 3i - 1) \\
+        &= \frac{1}{3} \left( \sum_{i=1}^{n} (a_{i+1} - a_i) - \sum_{i=1}^{n} 3i - \sum_{i=1}^{n}1 \right)
+        = \frac{1}{3} \left( \sum_{i=1}^{n} (a_{i+1} - a_i) - 3\sum_{i=1}^{n} i - \sum_{i=1}^{n}1 \right) \\
+        &= \frac{1}{3} \left( \sum_{i=1}^{n} (a_{i+1} - a_i) - 3\frac{n(n+1)}{2} - n \right) 
+        = \frac{1}{3}\sum_{i=1}^{n} (a_{i+1} - a_i) + \frac{1}{3} \left(- 3\frac{n(n+1)}{2} - n \right) \\
+        \overset{\text{(Aux.2)}}&{=} \frac{1}{3}(a_{n+1} - a_1) + \left(-\frac{n(n+1)}{2} - \frac{n}{3} \right)
+        = \frac{1}{3}((n+1)^3 - 1) + \left(-\frac{n(n+1)}{2} - \frac{n}{3} \right) \\
+        &=  \frac{(n+1)^3}{3} - \frac{1}{3} -\frac{n(n+1)}{2} - \frac{n}{3} = 
+        \frac{(n+1)^3}{3} -\frac{n(n+1)}{2} - \frac{n+1}{3} \\
+        &= (n+1) \left( \frac{(n+1)^2}{3} -\frac{n}{2} - \frac{1}{3} \right)  
+        = (n+1) \left( \frac{n^2 + 2n + 1}{3} -\frac{n}{2} - \frac{1}{3} \right) \\
+        &= (n+1) \left( \frac{2n^2 + 4n + 2 - 3n - 2}{6} \right) = (n+1) \left( \frac{2n^2 + n}{6} \right)
+        = \frac{n(n+1)(2n+1)}{6} \\
+        \sum_{i=1}^{n} i^2 &= \frac{n(n+1)(2n+1)}{6}
+    \end{align*}
+
+    \paragraph{Auxiliar 1}{
+        Usemos la Ec.(2)
+        \begin{align*}
+            a_{n+1} &= a_n + 3n^2 + 3n + 1 \\ 
+            3n^2 &= a_{n+1} - a_n - 3n - 1 \\
+            n^2 &= \frac{a_{n+1} - a_n - 3n - 1}{3}
+        \end{align*}
+    }
+    \paragraph{Auxiliar 2}{
+        Ecuación dada por el ejercicio 19.i)
+        \begin{align*}
+            \sum_{i=1}^{n}(a_{i+1} - a_1) = a_{n+1} - a_1
+        \end{align*}
+    }
+\end{enumerate}
+

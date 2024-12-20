@@ -1,1 +1,138 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Sean $a,b \en \enteros$ tales que $(a:b)=5$.
+
+    \begin{enumerate}[label=(\alph*)]
+
+        \item Calcular los posibles valores de $(ab:5a-10b)$ y dar un ejemplo para cada uno de ellos.
+        
+        \item Para cada $k \en \naturales$, calcular $(a^{k-1}b:a^k+b^k)$.
+    \end{enumerate}
+
+\end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item 
+    
+    Coprimizo: defino $5a'=a$ y $5b'=b$, con lo que $(a:b)=(5a':5b')=5(a':b')=5$, de modo que $(a':b')=1$. \bigskip
+
+    Reemplazo en $d=(ab:5a-10b):$ 
+
+    $$
+    d=(ab:5a-10b) =
+    (25a'b':25a'-50b')=
+    25(a'b':a'-2b')
+    $$
+
+    Sea ahora $d'=(a'b':a'-2b')$. Entonces, $d=25d'$.\par
+    Trabajemos ahora con $d'$
+
+    $$
+    \llave{l}{
+        d' \divideA a'b' \\
+        d' \divideA a'-2b'
+    }
+    \llave{l}{
+        \Entonces{$b' \cdot F_2$}
+        \llave{l}{
+           d' \divideA a'b' \\
+           d' \divideA a'b'-2(b')^2
+        } 
+        \Entonces{$F_1-F_2$}
+        d' \divideA 2(b')^2 \\
+        \Entonces{$4 \cdot F_1$}[$ 2a' \cdot F_2$]
+        \llave{l}{
+           d' \divideA 4a'b' \\
+           d' \divideA 2(a')^2 -4b'a'
+        }
+        \Entonces{$F_1+F_2$}
+        d' \divideA 2(a')^2 
+    }
+    \entonces 
+    d' \divideA (2(b')^2:2(a')^2 )
+    $$
+
+    $$
+    \entonces
+    d' \divideA (2(b')^2:2(a')^2 )=2((b')^2:(a')^2) \igual{\red{!!}} 2 \cdot 1 = 2
+    \entonces 
+    d' \divideA 2
+    \entonces
+    d' \en \set{1,2}
+    $$
+
+    En $\red{!!}$ uso que  $(b':a')=1 \sisolosi ((b')^2:(a')^2)=1$ \bigskip
+
+    Como $d'= 1 \otext 2$, entonces $d= 25 \otext 50$. Veamos ahora que ambos valores son posibles:
+
+    $$
+    \llave{l}{
+      (a,b)=(0,5)
+      \flecha{$(0,5)=5$}
+      d=(0:-50)=50 \Tilde \\
+      (a,b)=(5,15)
+      \flecha{$(5,15)=5$}
+      d=(75:25-150)=(50:-125)=25 \Tilde
+    }
+    $$
+
+    Luego, $\boxed{d= 25 \otext 50}$
+
+
+
+    \item 
+
+    Coprimizo: defino $5a'=a$ y $5b'=b$, con lo que $(a:b)=(5a':5b')=5(a':b')=5$, de modo que $(a':b')=1$. \bigskip
+
+    Reemplazo en $d=(a^{k-1}b:a^k+b^k):$
+    
+    $$
+    d=(a^{k-1}b:a^k+b^k) =
+    ((5a')^{k-1}5b':(5a')^k+(5b')^k)=
+    (5^k(a')^{k-1}b':5^k(a')^k+5^k(b')^k)=
+    $$
+    $$
+    =5^k((a')^{k-1}b':(a')^k+(b')^k)
+    $$
+    
+    Sea $d'=((a')^{k-1}b':(a')^k+(b')^k)$, entonces $d=5^kd'$ \par
+    Trabajemos ahora con $d'$
+
+    $$
+    \llave{l}{
+        d' \divideA (a')^{k-1}b' \\
+        d' \divideA (a')^k+(b')^k
+    }
+    \llave{l}{
+        \Entonces{$a'(b')^{k-1} \cdot F_1$}[$(a')^k \cdot F_2$]
+        \llave{l}{
+           d' \divideA (a')^k(b')^k \\
+           d' \divideA (a')^{2k}+(b')^k(a')^{k}
+        } 
+        \Entonces{$F_2-F_1$}
+        d' \divideA (a')^{2k} \\
+        \Entonces{$a'(b')^{k-1} \cdot F_1$}[$(b')^k \cdot F_2$]
+        \llave{l}{
+           d' \divideA (a')^k(b')^k \\
+           d' \divideA (b')^{2k}+(b')^k(a')^{k}
+        }
+        \Entonces{$F_2-F_1$}
+        d' \divideA (b')^{2k} 
+    }
+    \entonces 
+    d' \divideA ((a')^{2k}:(b')^{2k}) \igual{\red{!!}} 1
+    $$
+
+    $$
+    \entonces 
+    d' \divideA 1
+    \entonces 
+    d'=1 
+    $$
+
+    En $\red{!!}$ uso que  $(a':b')=1 \sisolosi ((a')^{2k}:(b')^{2k})=1$ \bigskip
+
+    Luego, como $d'=1$, tenemos que $\boxed{d=5^k, \text{para cada $k \en \naturales$}}$
+
+
+

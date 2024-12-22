@@ -285,6 +285,56 @@
             1 = 1 \cdot (-1)^2 \igual{Aux} (-1)^n \cdot (-1)^2 = (-1)^{n+2}
           \end{align*}
         }
+        
+  \item Sea $(a_n)_{n \in \mathbb{N}_0}$ definida por
+    \setcounter{equation}{0}
+    \begin{align}
+        a_0 &= 1 \\
+        a_1 &= 4 \\
+        a_{n+2} &= 4 a_{n+1} - 4 a_n,\ \forall n \in \mathbb{N}_0 
+    \end{align}
+    Veamos si hay algún patrón entre los términos de la sucesión para poder conjeturar una formula para su termino 
+    n-ésimo
+    \begin{align}
+        a_2 &= 4a_1 - 4a_0 = 4 \cdot 4 - 4 \cdot 1 = 2^2 \cdot 2^2 - 2^2 = 2^2(2^2 - 1) = 2^2 \cdot 3 \nonumber \\
+        a_3 &= 4a_2 - 4a_1 \overset{\text{Aux}}{=} 4\cdot 2^2 \cdot 3 - 4 \cdot 2 \cdot 2 =
+        2^2\cdot 2^2 \cdot 3 - 2^2 \cdot 2 \cdot 2 = 2^3 (2 \cdot 3 - 2) = 2^3 \cdot 4 \nonumber \\
+        a_4 &= 4a_3 - 4a_2 = 4 \cdot 2^3 \cdot 4 - 4 \cdot 2^2 \cdot 3 = 2^2 \cdot 2^3 \cdot 4 - 2^2 \cdot 2^2 \cdot 3 
+        = 2^4 (2 \cdot 4 - 3) = 2^4 \cdot 5  \nonumber \\
+        a_5 &= 4a_4 - 4a_3 = 4 \cdot 2^4 \cdot 5 - 4 \cdot 2^3 \cdot 4 = 2^2 \cdot 2^4 \cdot 5 - 2^2 \cdot 2^3 \cdot 4 
+        = 2^5(2 \cdot 5 - 4) = 2^5 \cdot 6 \nonumber \\
+        &\vdotswithin{=} \nonumber \\
+        a_n &= 2^n (n+1)
+    \end{align}
+    Tenemos que probar que la sucesión dada por recurrencia satisface la sucesión que conjeturamos en la Ec.(4). 
+    Hagamoslo por inducción
+    \begin{align*}
+        P(n): a_n = 2^n (n+1), \ n \in \mathbb{N}_0   
+    \end{align*}
+    \underline{Caso Base}, $n = 0$ y $n = 1$:
+  \begin{align*}
+    &P(0): a_0 = 2^0 (0+1) = 1 \overset{(1)}{=} 1 \implies P(0):V \\
+        &P(1): a_1 = 2^1 (1+1) = 4 \overset{(2)}{=} 4 \implies P(1):V \\
+  \end{align*}
+  \underline{Paso inductivo}. Sea $n \in \mathbb{N}$:
+  \begin{enumerate}
+        \item[HI.] $P(n):V \text{ y } P(n+1):V$, donde $P(n+1): a_{n+1} = 2^{n+1}(n+2)$
+        \item[TI.] $P(n+2): a_{n+2} = 2^{n+2}(n+3)$
+    \end{enumerate}
+  Desarrollemos el lado izquierdo de la igualdad en la TI
+    \begin{align*}
+        a_{n+2} \overset{(3)}&{=} 4 a_{n+1} - 4 a_n \overset{\text{HI}}{=} 
+        4 \cdot 2^{n+1}(n+2) - 4 \cdot 2^n(n+1) = 2^2 \cdot 2^{n+1}(n+2) - 2^2 \cdot 2^n(n+1) \\
+        a_{n+2} &= 2^{n+2}(2(n+2) - (n+1)) = 2^{n+2}(2n + 4 - n - 1) = 2^{n+2}(n+3) \\
+        a_{n+2} &= 2^{n+2}(n+3) \implies P(n+2):V
+    \end{align*}
+    Hemos probado el caso base y el paso inductivo. Concluimos que $P(n):V,$ $\forall n \in \mathbb{N}$.
+
+    \paragraph{Auxiliar}{
+        Escribimos a $a_1 = 4$ como $a_1 = 2 \cdot 2$ para simplificar pasos en la obtención del termino general de 
+        $a_n$. Si utilizamos $a_1 = 4$, llegamos a que $a_3 = 2^5$, despues a que $a_5 = 2^6 \cdot 3$ y no es tan fácil 
+        ver el patrón de nuestro termino generale.
+    }
 \end{enumerate}
 
 % Contribuciones

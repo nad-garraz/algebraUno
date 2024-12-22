@@ -1,5 +1,76 @@
-%1
 \begin{enunciado}{\ejercicio}
-  \hacer
+  Para los siguientes $z \en \complejos$, hallar $\re(z), \im(z), |z|, \re(z^{-1})$ e $\im(i \cdot z)$
+  \begin{multicols}{2}
+    \begin{enumerate}[label=\roman*)]
+      \item $z = 5 i (1+i)^4$
+      \item $z = (\sqrt{2} + \sqrt{3} i)^2 (\conj{1 - 3i})$
+      \item $z=i^{17} + \frac{1}{2} i (1 - i)^3$
+      \item $z = \left(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i\right)^{10}$
+      \item $z = \left(-\frac{1}{2} + \frac{\sqrt{3}}{2}i\right)^{-1}$.
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+
+  \item  Cuando hay muchos productos, me gusta pasar todo a notación exponencial y jugar desde ahí:
+        $$
+          z =
+          \magenta{5} \cdot \blue{i} \cdot \purple{(1+i)^4}
+          \igual{\red{!!}}
+          \magenta{5} \cdot \blue{e^{i\frac{\pi}{2}}} \cdot \purple{(\sqrt{2} \cdot e^{i \frac{\pi}{4}})^4}
+          =
+          5 \cdot e^{i\frac{\pi}{2}} \cdot (4 \cdot  e^{i \pi})
+          =
+          20 \cdot e^{i \frac{3}{2}\pi}
+          \igual{\red{i}}
+          -20i
+        $$
+
+        Por lo tanto si:
+        $$
+          z \cdot z^{-1} = 1
+          \Entonces{$z = -20i$}
+          z^{-1} = \frac{1}{20}i
+        $$
+        Finalmente:
+        $$
+          \re(z) = 0 ,\,
+          \im(z) = -20 ,\,
+          |z| = 20 ,\,
+          \re(z^{-1}) = 0,\,
+          \im(i \cdot z) = 20
+        $$
+
+  \item  
+          A ojo, o casi, veo que los valores de los argumentos de los factores son feos. Recordar que hay muy pocos ángulos que tienen resultados
+                agradables, los de la tablita, \hyperlink{teoria-6:tablita}{tablita de ángulos agradables}.
+        $$
+        z =
+                \blue{(\sqrt{2} + \sqrt{3} i)^2} \cdot \purple{(\conj{1 - 3i})}
+        \igual{\red{!!}}
+                \magenta{\sqrt{7} e^{}<++>} \cdot \blue{e^{i\frac{\pi}{2}}} \cdot \purple{(\sqrt{2} \cdot e^{i \frac{\pi}{4}})^4}
+        =
+        5 \cdot e^{i\frac{\pi}{2}} \cdot (4 \cdot  e^{i \pi})
+        =
+        20 \cdot e^{i \frac{3}{2}\pi}
+        \igual{\red{i}}
+        -20i
+        $$
+
+          Por lo tanto si:
+        $$
+        z \cdot z^{-1} = 1
+        \Entonces{$z = -20i$}
+        z^{-1} = \frac{1}{20}i
+        $$
+          Finalmente:
+        $$
+        \re(z) = 0 ,\,
+        \im(z) = -20 ,\,
+        |z| = 20 ,\,
+        \re(z^{-1}) = 0,\,
+        \im(i \cdot z) = 20
+        $$
+\end{enumerate}
 

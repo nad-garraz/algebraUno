@@ -1,22 +1,69 @@
 \textit{\underline{Raíces de un número complejo: }}
 
-
 \begin{itemize}[label= \tiny \faIcon{meh}]
-                
-        \item hypertarget{teoria-6:tablita}{Tablita de ángulos agradables}:
+
+  \item \hypertarget{teoria-6:tablita}{Tablita de ángulos \textit{agradables}}:
+
+        \begin{minipage}{0.5\textwidth}
+          $$
+            \begin{array}{|c|c|c|c|c|c|}
+              \hline
+                    \theta       & \red{0} & \color{orange}{\frac{\pi}{6}}      & \green{\frac{\pi}{4}}      & \color{blue}{\frac{\pi}{3}}      & \purple{\frac{\pi}{2}} \\ \hline
+              \sin(\theta) & 0 & \frac{1}{2}        & \frac{\sqrt{2}}{2} & \frac{\sqrt{3}}{2} & 1             \\ \hline
+              \cos(\theta) & 0 & \frac{\sqrt{3}}{2} & \frac{\sqrt{2}}{2} & \frac{1}{2}        & 1             \\ \hline
+            \end{array}
+          $$
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+          \begin{tikzpicture}[scale=4]
+            % Draw the main coordinate axes
+            \draw[-latex] (-0.2,0) -- (1.2,0) node[right] {$\re(z)$};
+            \draw[-latex] (0,-0.2) -- (0,1.2) node[above] {$\im(z)$};
+
+            \draw[red,thick] (0,0) -- (1,0);
+            \draw[thin] (1,0) arc (0:90:1);
+
+            \draw[orange,thick] (0,0) -- ({sqrt(3)/2},{1/2});
+            \draw[orange,dotted] ({sqrt(3)/2},0) -- ({sqrt(3)/2},{1/2});
+            \draw[orange,dotted] (0,{1/2}) -- ({sqrt(3)/2},{1/2});
+
+            \draw[OliveGreen,thick] (0,0) -- ({1/sqrt(2)},{1/sqrt(2)});
+            \draw[OliveGreen,dotted] ({1/sqrt(2)},0) -- ({1/sqrt(2)},{1/sqrt(2)});
+            \draw[OliveGreen,dotted] (0,{1/sqrt(2)}) -- ({1/sqrt(2)},{1/sqrt(2)});
+
+            \draw[blue,thick] (0,0) -- ({1/2},{sqrt(3)/2});
+            \draw[blue,dotted] ({1/2},0) -- ({1/2},{sqrt(3)/2});
+            \draw[blue,dotted] (0,{sqrt(3)/2}) -- ({1/2},{sqrt(3)/2});
+
+            \draw[purple,thick] (0,0) -- (0,1);
+
+            \node[red] at (0.3,0.05) {$0$};
+            \node[orange] at (0.45,0.2) {$\frac{\pi}{6}$};
+            \node[OliveGreen] at (0.5,0.35) {$\frac{\pi}{4}$};
+            \node[blue] at (0.35,0.55) {$\frac{\pi}{3}$};
+            \node[purple] at (0.15,0.8) {$\frac{\pi}{2}$};
+
+            \node[below] at (1,0) {$1$};
+            \node[right] at ({sqrt(3)/2},{1/2}) {$\frac{\sqrt{3}}{2} + \frac{1}{2}i$};
+            \node[right] at ({1/sqrt(2)},{1/sqrt(2)}) {$\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i$};
+            \node[above right] at ({1/2},{sqrt(3)/2}) {$\frac{1}{2} + \frac{\sqrt{3}}{2}i$};
+            \node[left] at (0,1) {$i$};
+          \end{tikzpicture}
+        \end{minipage}
+
   \item Sean $z, w \en \complejos -\set{0}$, $z = r_z e^{\theta_z i}$ y $w = r_w e^{\theta_w i }$ con $r_z,\, s_w \en \reales_{>0}$
         y $\theta_z,\, \theta_w \en \reales$.\par
         Entonces $z = w
           \Sii{\red{!!}}
           \llave{l}{
-          r_z = r_w \\
-          \theta_z = \theta_w + 2 k \pi,\ \text{para algún } k \en \enteros
+            r_z = r_w \\
+            \theta_z = \theta_w + 2 k \pi,\ \text{para algún } k \en \enteros
           }$
   \item raíces $n$-esimas: $w^n = z
           \Sii{\red{!!}}
           \llave{l}{
-          (r_w)^n = r_z \\
-          \theta_w \cdot n = \theta_z + 2 k \pi \quad \text{para algún $k\en \enteros$}
+            (r_w)^n = r_z \\
+            \theta_w \cdot n = \theta_z + 2 k \pi \quad \text{para algún $k\en \enteros$}
           }$\par
         De donde se obtendrán $n$ raíces distintas:
         $$

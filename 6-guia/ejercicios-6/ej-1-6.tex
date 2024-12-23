@@ -10,7 +10,29 @@
     \end{enumerate}
   \end{multicols}
 \end{enunciado}
+Cosas para tener en cuenta sobre notación y algunos resultados:
 
+En notación binomial:
+$$
+  z = a + ib = \re(z) + i \cdot \im(z)
+  \flecha{donde}
+  \llave{l}{
+    a = \re(z) \en \reales                                                   \\
+    b = \im(z) \en \reales                                                   \\
+    z^{-1} = \frac{a -ib}{a^2 + b^2} = \frac{\conj{z}}{|z|^2} \\
+    \magenta{\im(i \cdot z)} = \im(i\cdot a - b) = a = \magenta{\re(z)}
+  }
+$$
+Y en notación exponencial:
+$$
+  z = r \cdot e^{i\theta} \flecha{donde}[$r>0$]
+  \llave{l}{
+    r \cdot \cos(\theta) = \re(z) \en \reales                                                                                           \\
+    r \cdot \sin(\theta) = \im(z) \en \reales                                                                                           \\
+    z^{-1} = \frac{1}{r} \cdot e^{-i\theta} = \frac{1}{r} \cdot \frac{\conj{z}}{r} = \frac{\conj{z}}{r^2} \\
+    r\cdot e^{i \theta} = r \cdot (\cos(\theta) + i \sin(\theta))
+  }
+$$
 \begin{enumerate}[label=\roman*)]
 
   \item  Cuando hay muchos productos, me gusta pasar todo a notación exponencial y jugar desde ahí:
@@ -35,42 +57,117 @@
         $$
         Finalmente:
         $$
+          \llave{l}{
+            \re(z) = 0      \\
+            \im(z) = -20    \\
+            |z| = 20        \\
+            \re(z^{-1}) = 0 \\
+            \im(i \cdot z) = \re(z) = 0
+          }
+        $$
+
+  \item
+        A ojo, o casi, veo que los valores de los argumentos de los factores son feos. Recordar que hay muy pocos ángulos que tienen resultados
+        agradables, los de la tablita, \hyperlink{teoria-6:tablita}{tablita de ángulos agradables}.
+
+        Dado que el exponente más alto es 2, se puede distribuir sin morir en el intento:
+        $$
+          z =
+          \blue{(\sqrt{2} + \sqrt{3} i)^2} \cdot \purple{(\conj{1 - 3i})}
+          \igual{\red{!}}
+          \blue{(-1 + 2\sqrt{6}i)} \cdot \purple{(1+ 3i)}
+          \igual{\red{!!}}
+          -1 - 6\sqrt{6} + i(2\sqrt{6} - 3)
+        $$
+        Donde en \red{!!} es distribuir y luego sacar factor común en los términos con $i$, nada extraño.\par
+
+        \bigskip
+
+        ehm... ¿Qué es esta mierda? 3 opciones, está mal el enunciado, lo estoy haciendo mal o los profesores nos están haciendo \textit{bullying}.
+
+  \item Atento a que $i^4 \igual{$\llamada1$} 1$:
+        $$
+          z = i^{17} + \frac{1}{2} i (1 - i)^3
+          =
+          i \cdot (i^4)^4 + \frac{1}{2} \cdot e^{i \frac{\pi}{2}} \cdot ( \sqrt{2} \cdot e^{i \frac{7}{4}\pi})^3
+          \igual{$\llamada1$}
+          i + \sqrt{2} \cdot e^{i ( \frac{1}{2} + \frac{21}{4}) \pi}
+          =
+          i + \sqrt{2} \cdot e^{i\frac{23}{4} \pi}
+          \igual{\red{!!}}
+          i + \sqrt{2} \cdot e^{i\frac{7}{4} \pi}
+        $$
+        En \red{!!} usé la periodicidad de la función exponencial, con el exponente complejo es $2\pi$-periódica.
+        $$
+          z = i + \sqrt{2}(\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i) = 1
+        $$
+        Finalmente:
+        $$
+          \llave{l}{
+            \re(z) = 1      \\
+            \im(z) = 0      \\
+            |z| = 1         \\
+            \re(z^{-1}) = 1 \\
+            \im(i \cdot z) = \re(z) = 1
+          }
+        $$
+        $$
+          \re(z) = 1 ,\,
+          \im(z) = 0 ,\,
+          |z| = 1 ,\,
+          \re(z^{-1}) = 1,\,
+          \im(i \cdot z) = i
+        $$
+
+  \item Fácil con exponenciales:
+        $$
+          z
+          =
+          \left(\frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i\right)^{10}
+          \igual{\red{!}}
+          (e^{i \frac{\pi}{4}})^{10}
+          =
+          e^{i\frac{5}{2}\pi}
+          \igual{\red{!}}
+          e^{i\frac{\pi}{2}}
+          =
+          i
+        $$
+        Finalmente:
+        $$
           \re(z) = 0 ,\,
-          \im(z) = -20 ,\,
-          |z| = 20 ,\,
-          \re(z^{-1}) = 0,\,
-          \im(i \cdot z) = 20
+          \im(z) = 1 ,\,
+          |z| = 1 ,\,
+          \re(z^{-1}) \igual{\red{!}} \re(-i) = 0,\,
+          \im(i \cdot z) = -1
         $$
 
-  \item  
-          A ojo, o casi, veo que los valores de los argumentos de los factores son feos. Recordar que hay muy pocos ángulos que tienen resultados
-                agradables, los de la tablita, \hyperlink{teoria-6:tablita}{tablita de ángulos agradables}.
+  \item Fácil con exponenciales:
         $$
-        z =
-                \blue{(\sqrt{2} + \sqrt{3} i)^2} \cdot \purple{(\conj{1 - 3i})}
-        \igual{\red{!!}}
-                \magenta{\sqrt{7} e^{}<++>} \cdot \blue{e^{i\frac{\pi}{2}}} \cdot \purple{(\sqrt{2} \cdot e^{i \frac{\pi}{4}})^4}
-        =
-        5 \cdot e^{i\frac{\pi}{2}} \cdot (4 \cdot  e^{i \pi})
-        =
-        20 \cdot e^{i \frac{3}{2}\pi}
-        \igual{\red{i}}
-        -20i
+          z
+          =(-\frac{1}{2} + \frac{\sqrt{3}}{2}i)^{-1}
+          \igual{\red{!}}
+          (e^{i \frac{4}{3}\pi})^{-1}
+          =
+          e^{-i\frac{4}{3}\pi}
+          \igual{\red{!}}
+          -\frac{1}{2} - \frac{\sqrt{3}}{2}i
         $$
-
-          Por lo tanto si:
+        Finalmente:
         $$
-        z \cdot z^{-1} = 1
-        \Entonces{$z = -20i$}
-        z^{-1} = \frac{1}{20}i
-        $$
-          Finalmente:
-        $$
-        \re(z) = 0 ,\,
-        \im(z) = -20 ,\,
-        |z| = 20 ,\,
-        \re(z^{-1}) = 0,\,
-        \im(i \cdot z) = 20
+          \llave{l}{
+            \re(z) = -\frac{1}{2}                       \\
+            \im(z) = -\frac{\sqrt{3}}{2} \\
+            |z| = 1                                     \\
+            \re(z^{-1}) = -\frac{1}{2}                  \\
+            \im(i \cdot z) = -\frac{1}{2}
+          }
         $$
 \end{enumerate}
 
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

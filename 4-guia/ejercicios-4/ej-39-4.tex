@@ -1,1 +1,65 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Hallar todos los $n \en \naturales$ tales que 
+    \begin{multicols}{2}
+      \begin{enumerate}[label=(\alph*)]
+        \item $[n:130]=260$.
+        \item $[n:420]=7560$.
+      \end{enumerate}
+    \end{multicols}
+\end{enunciado}
+
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item 
+
+    $$
+    [n:130]=260
+    \sisolosi
+    [n:2 \cdot 5 \cdot 13]=2^2 \cdot 5 \cdot 13
+    $$
+
+    Como el mínimo común múltiplo se calcula con los primos a la máxima potencia, tenemos que $n$ tiene un $2^2$ y luego tenemos que 
+    puede tener al 5 y al 13, a ambos o a ninguno, pues el 5 y el 13 ya están en la factorización del 130. \par
+    
+    Entonces, los $n$ que cumplen son:
+
+    \begin{align*}
+    n =2^2= \boxed{4} \\
+    n =2^2 \cdot 5 = \boxed{20} \\
+    n =2^2 \cdot 13= \boxed{52} \\
+    n =2^2 \cdot 5 \cdot 13= \boxed{260}
+    \end{align*}
+
+
+
+    \item 
+
+    $$
+    [n:420]=7560
+    \sisolosi
+    [n:2^2 \cdot 3 \cdot 5 \cdot 7]=2^3 \cdot 3^3 \cdot 5 \cdot 7
+    $$
+
+    Como el mínimo común múltiplo se calcula con los primos a la máxima potencia, tenemos que $n$ tiene un $2^3$, un $3^3$ y luego tenemos que 
+    puede tener al 5 y al 7, a ambos o a ninguno, pues el 5 y el 7 ya están en la factorización del 420. \par
+
+    Entonces, los $n$ que cumplen son:
+
+    \begin{align*}
+    n =2^3 \cdot 3^3= \boxed{216} \\
+    n =2^3 \cdot 3^3 \cdot 5 = \boxed{1080} \\
+    n =2^3 \cdot 3^3 \cdot 7= \boxed{1512} \\
+    n =2^3 \cdot 3^3 \cdot 5 \cdot 7= \boxed{7560}
+    \end{align*}
+
+
+\begin{aportes}
+        \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}
+
+
+    
+
+    
+

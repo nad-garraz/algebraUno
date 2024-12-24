@@ -1,1 +1,89 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Hallar todos los $a,b \en \naturales$ tales que 
+    \begin{multicols}{2}
+      \begin{enumerate}[label=(\alph*)]
+        \item $(a:b)=10$ y $[a:b]=1500$.
+        \item $3 \divideA a$, $(a:b)=20$ y $[a:b]=9000$.
+      \end{enumerate}
+    \end{multicols}
+\end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+
+    \item 
+
+    Veamos la primera condición
+
+    $$
+    (a:b)=10
+    \sisolosi
+    (a:b)= 2 \cdot 5
+    $$
+
+    De aca tenemos que tanto $a$ y $b$ poseen en su factorización, como mínimo, un 2 y un 5. \bigskip
+
+    Veamos la segunda condición
+
+    $$
+    [a:b]=1500
+    \sisolosi
+    [a:b]=2^2 \cdot 3 \cdot 5^3
+    $$
+
+    De aca tenemos que alguno entre $a$ y $b$ tiene un $2^2$, pero nos los dos a la vez, pues en el MCD aparece un 2. Por la misma razón,
+    alguno tiene un 3, pero no los dos y alguno tiene un $5^3$, pero no los dos. \bigskip
+
+    Resumiendo, tenemos que $a$ y $b$ tienen un 2 y un 5 siempre y debemos repartir un 2, un 3 y un $5^2$ 
+    para formar todas las combinaciones posibles. Así, todos los $a$ y $b$ son 
+
+    \begin{align*}
+        (a,b)= \boxed{(2^2 \cdot 3 \cdot 5^3 , 2 \cdot 5)} \\
+        (a,b)= \boxed{(2^2 \cdot 3 \cdot 5 , 2 \cdot 5^3)} \\
+        (a,b)= \boxed{(2^2 \cdot 5 , 2 \cdot 3 \cdot 5^3)} \\
+        (a,b)= \boxed{(2^2 \cdot 5^3 , 2 \cdot 3 \cdot 5)} \\
+        (a,b)= \boxed{(2 \cdot 5 , 2^2 \cdot 3 \cdot 5^3)} \\
+        (a,b)= \boxed{(2 \cdot 5^3 , 2^2 \cdot 3 \cdot 5)} \\
+        (a,b)= \boxed{(2 \cdot 3 \cdot 5^3 , 2^2 \cdot 5)} \\
+        (a,b)= \boxed{(2 \cdot 3 \cdot 5 , 2^2 \cdot 5^3)} \\
+    \end{align*}
+
+
+    \item
+
+    Veamos la segunda condición
+
+    $$
+    (a:b)=20
+    \sisolosi
+    (a:b)= 2^2 \cdot 5
+    $$
+
+    De aca tenemos que tanto $a$ y $b$ poseen en su factorización, como mínimo, un $2^2$ y un 5. \bigskip
+
+    Veamos la tercera condición
+
+    $$
+    [a:b]=9000
+    \sisolosi
+    [a:b]=2^3 \cdot 3^2 \cdot 5^3
+    $$
+
+    De aca tenemos que alguno entre $a$ y $b$ tiene un $2^3$, pero nos los dos a la vez, pues en el MCD aparece un $2^2$. Por la misma razón,
+    alguno tiene un $5^3$, pero no los dos. \par
+    En el caso del $3^2$, como tenemos la primera condición que nos dice que $3 \divideA a$, el $3^2$ debe estar en la factorización de $a$ 
+    si o si. \bigskip
+
+    Resumiendo, tenemos que $a$ tiene un $2^2$, un $3^2$ y un 5, mientras $b$ posee un $2^2$ y un 5. Ahora solo queda repartir un 2 y un $5^2$
+    para formar todas las combinaciones posibles. Así, todos los $a$ y $b$ son
+
+    \begin{align*}
+      (a,b)= \boxed{(2^3 \cdot 3^2 \cdot 5^3 , 2^2 \cdot 5)} \\
+      (a,b)= \boxed{(2^2 \cdot 3^2 \cdot 5 , 2^3 \cdot 5^3)} \\
+      (a,b)= \boxed{(2^3 \cdot 3^2 \cdot 5 , 2^2 \cdot 5^3)} \\
+      (a,b)= \boxed{(2^2 \cdot 3^2 \cdot 5^3 , 2^3 \cdot 5)} \\
+  \end{align*}
+
+
+\begin{aportes}
+    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+\end{aportes}

@@ -1,3 +1,47 @@
 \begin{enunciado}{\ejercicio}
-        \hacer
+    Sea $f:\mathbb{R}-\{0,1\}\rightarrow \mathbb{R}-\{0,1\}$ definida por $f(x) = \frac{1}{1-x}$. Para 
+    $n \in \mathbb{N}$ se define:
+    \begin{align*}
+        f^n = \underbrace {f \circ f \circ \cdots \circ f}_\text{$n$ veces}
+    \end{align*}
+    Probar que $f^{3k}(x) = x$ para todo $k \in \mathbb{N}$.
 \end{enunciado}
+Sea $f:\mathbb{R}-\{0,1\}\rightarrow \mathbb{R}-\{0,1\}$ definida por
+\setcounter{equation}{0}
+\begin{align}
+    f(x) = \frac{1}{1-x}
+\end{align}
+Sea $n \in \mathbb{N}$, definimos $f^n$ como la composición de $f$ consigo misma $n$ veces
+
+\begin{align}
+    f^n = \underbrace{f \circ f \circ \cdots \circ f}_\text{$n$ veces}
+\end{align}
+Probemos lo que pide el ejercicio por inducción
+\begin{align*}
+    P(k):f^{3k}(x) = x,\ k \in \mathbb{N}
+\end{align*}
+\underline{Caso Base}, $k = 1$:
+\begin{align*}
+    P(1): f^{3 \cdot 1}(x) &= f^3(x) \overset{(2)}{=} f \circ f \circ f(x) = f(f(f(x))) 
+    \overset{(1)}{=} f \left(f\left(\frac{1}{1-x}\right)\right) 
+    \overset{(1)}{=} f \left(\frac{1}{1 - \displaystyle \frac{1}{1-x} }\right) \\
+    &= f \left(\frac{1}{\displaystyle \frac{1-x-1}{1-x}}\right)
+    = f \left(\frac{1}{\displaystyle \frac{-x}{1-x}}\right) = f \left(\frac{1-x}{-x}\right) 
+    = f \left(\frac{x-1}{x}\right) \\
+    \overset{(1)}&{=} \frac{1}{1 - \displaystyle \frac{x-1}{x}} = \frac{1}{\displaystyle \frac{x-x+1}{x}}
+    = \frac{1}{\displaystyle \frac{1}{x}} = x \\
+    P(1): f^3(x) &= x \implies P(1):V
+\end{align*}
+\underline{Paso inductivo.} Sea $k \geq 1$:
+\begin{enumerate}
+    \item[HI.] $P(k): V$
+    \item[TI.] $P(k+1): f^{3(k+1)}(x) = x$
+\end{enumerate}
+Desarrollemos el lado izquierdo de la igualdad en la TI
+\begin{align*}
+    f^{3(k+1)}(x) &= f^{3k+3}(x) \overset{(2)}{=} f^{3k} \circ f^3(x) = f^{3k}\left( f^3(x)\right)
+    \overset{P(1)}{=} f^{3k}(x) \overset{\text{HI}}{=} x \\
+    f^{3(k+1)}(x) &= x\implies P(k+1):V
+\end{align*}
+Hemos probado el caso base y el paso inductivo. Concluimos que $P(k):V,$ $\forall k \in \mathbb{N}$. \\
+

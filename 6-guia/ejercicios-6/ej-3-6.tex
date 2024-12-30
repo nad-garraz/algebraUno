@@ -1,3 +1,162 @@
 \begin{enunciado}{\ejercicio}
-\hacer
+  Hallar todos los número complejos $z$ tales que
+  \begin{multicols}{4}
+    \begin{enumerate}[label=\roman*)]
+      \item $z^2 = -36$
+      \item $z^2 = i$
+      \item $z^2 = 7+24i$
+      \item $z^2 + 15 -8i = 0$
+    \end{enumerate}
+  \end{multicols}
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item\label{ej-3-item-i} A ojo se puede ver el resultado:
+        $$
+          z_1 = 6i \ytext z_2 = -6i
+        $$
+        Si no se ve, se puede plantear la ecuación en forma exponencial, para deducir módulo y argumento.
+        O en este caso porque la potencia es 2 también se puede atacar separando para parte real y la imaginaria así:
+        $$
+          z^2 = (a+bi)^2 = a^2-b^2 + 2abi.
+        $$
+        Para que 2 números complejos sean iguales, tienen que ser sus partes reales deben ser iguales y sus partes imaginarias también:
+        $$
+          z^2 = -36
+        $$
+        $$
+          a^2-b^2 + 2abi = - 36
+          \to
+          \llave{cl}{
+            a^2 - b^2 = -36 & \quad \text{parte real}       \\
+            2ab = 0         & \quad \text{parte imaginaria}
+          }
+        $$
+        De ese sistema queda que:
+        $$
+          a = 0 \otext b = 0,
+        $$
+        y dado que $a\ytext b \en \reales$, para que se cumpla la otra ecuación debe suceder que:
+        $$
+          a = 0 \ytext b = \pm6
+        $$
+        Por lo tanto se recupera que :
+
+        $$
+          \fcolorbox{orange}{white}{
+            $z_1 = 0 + 6i = 6i
+              \ytext
+              z_2 = 0 - 6i = - 6i
+            $
+          }
+        $$
+
+  \item Este no me parece taan obvio. Resuelvo ecuación en forma exponencial:
+        $$
+          \begin{array}{rcl}
+            z         & = & r e^{i \theta} \to \blue{z^2} = r^2 (e^{i \theta})^2 = \blue{r^2 e^{i 2\theta}} \\
+            \green{i} & = & \green{e^{i \frac{\pi}{2}}}
+          \end{array}
+        $$
+        La idea es separar la ecuación compleja en \red{2} ecuaciones con números reales. Atento a que $r \en \reales_{>0}$
+        y que el argumento $\theta$ es $2\pi$ periódico\red{!}
+
+        Ahora la ecuación queda como:
+        $$
+          \blue{r^2 e^{i 2\theta}} = \green{e^{i \frac{\pi}{2}}}
+          \flecha{módulos por un lado}[argumentos por otro]
+          \llave{l}{
+            r^2 = 1 \sii r = 1 \\
+            2 \theta = \frac{\pi}{2} + 2\magenta{k}\pi \sii \theta = \frac{\pi}{4} + \magenta{k}\pi
+          }
+        $$
+        tengo que $\magenta{k} \en \set{0,1}$ de forma tal que el argumento $\theta \en [0, 2\pi)$.
+
+        Los valores que nos pedían:
+        $$
+          \fcolorbox{orange}{white}{
+            $z_{\scriptscriptstyle \magenta{k}=0} = e^{\frac{\pi}{4}} = \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{2}}i
+              \ytext
+              z_{\scriptscriptstyle \magenta{k}=1} = e^{\frac{5}{4}\pi} = -\frac{1}{\sqrt{2}} - \frac{1}{\sqrt{2}}i$
+          }
+        $$
+
+        \textit{Le comentario:}\par
+        Sale más fácil por el método del item \ref{ej-3-item-i}? Seguramente, pero pintó hacerlo con exponenciales.
+
+  \item Ataco igual que antes:
+        $$
+          \begin{array}{rcl}
+            z               & =               & r e^{i \theta} \to \blue{z^2} = r^2 (e^{i \theta})^2 = \blue{r^2 e^{i 2\theta}} \\
+            \green{7 + 24i} & \igual{\red{!}} & \green{25 e^{i \arctan(\frac{24}{7})} }
+          \end{array}
+        $$
+
+        Horrible esos valores, probablemente no salga por acá. Pruebo con el método del item \ref{ej-3-item-i}:
+        $$
+          z^2 = 7 + 24i
+        $$
+
+        $$
+          a^2-b^2 + 2abi = 7 + 24i
+          \to
+          \llave{cl}{
+            a^2 - b^2 = 7 & \quad \text{parte real}       \\
+            2ab = 24      & \quad \text{parte imaginaria}
+          }
+        $$
+        De ese sistema queda que:
+        $$
+          a\cdot b = 12,
+        $$
+        meto en la otra ecuación $a = \frac{12}{b}$:
+        $$
+          \frac{144}{b^2} - b^2 = 7 \Sii{\red{!!}}[$b\en \reales$] b = \pm 3
+        $$
+        En \red{!!}, bicuadrática.\par
+        Con ese resultado los valores quedarían para el sistema:
+        $$
+          \fcolorbox{orange}{white}{
+            $        z_1 = -4 -3i \ytext z_2 = 4 + 3i$
+          }
+        $$
+
+  \item
+        Acomodo para que quede para resolver como el anterior:
+        $$
+          z^2 + 15 -8i = 0
+          \sii
+          z^2 = -15 + 8i
+        $$
+
+        $$
+          a^2-b^2 + 2abi = -15 + 8i
+          \to
+          \llave{cl}{
+            a^2 - b^2 = -15 & \quad \text{parte real}       \\
+            2a\cdot b = 8   & \quad \text{parte imaginaria}
+          }
+        $$
+        De ese sistema queda que:
+        $$
+          a\cdot b = 4,
+        $$
+        meto en la otra ecuación $a = \frac{4}{b}$:
+        $$
+          \frac{16}{b^2} - b^2 = -15 \Sii{\red{!!}}[$b\en \reales$] b = \pm 4
+        $$
+
+        Con ese resultado los valores quedarían para el sistema:
+        $$
+          \fcolorbox{orange}{white}{
+            $        z_1 = 1 + 4i \ytext z_2 = -1 -4i$
+          }
+        $$
+
+        % Contribuciones
+        \begin{aportes}
+          %% iconos : \github, \instagram, \tiktok, \linkedin
+          %\aporte{url}{nombre icono}
+          \item \aporte{\dirRepo}{Nad Garraz \github}
+        \end{aportes}
+\end{enumerate}

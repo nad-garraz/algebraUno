@@ -57,10 +57,10 @@
         Ahora inducción:\\
         $p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3\\
           \llave{l}{
-          \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\Tilde}\\
-          \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V?\\
-          \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 } \\
-          d = {k+1} \igual{def} d_k + k-1
+            \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\Tilde}    \\
+            \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V? \\
+            \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 }             \\
+            d = {k+1} \igual{def} d_k + k-1
           \igual{HI}
           \frac{k(k-3)}{2} + k-1 =
           \frac{k^2 - k - 2}{2} =
@@ -87,7 +87,6 @@
           \draw[dashed, green] (n-1) -- (1);
           \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
 
-
           \draw[dashed, green] (n-1) -- (1);
           \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
 
@@ -106,21 +105,48 @@
         \end{tikzpicture}\par
         En este caso estoy generando la suma de los ángulos internos de 2 polígonos,
         uno con $\alpha_n$ de $n$ lados y otro con $n-1, \alpha_{n-1}$
-        Es más claro en este caso que al sacarle un lado, estoy robádo un triángulo
+        Es más claro en este caso que al sacarle un lado, estoy formando un triángulo
+        {\tiny(en el gráfico con vértices $n$, $n-1$, 1)}
         que tiene como suma de sus ángulos internos $\pi$, entonces afirmo
-        $\alpha_{n+1} = \alpha_n + \pi $. Ahora pruebo por inducción lo pedido.
-        $p(n): \alpha_n = \pi(n-2) \paratodo n \geq 3$\par
-        $ \llave{l}{
-            \textit{Caso Base: } p(3): \pi(3-2) = \pi, \text{ lo cual es verdad para el triángulo.\Tilde}\\
-            \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3}
-            \entonces p(k+1) \V?\\
-            \textit{Hipótesis Inductiva: } \alpha_k = \pi(k-2) \entonces \alpha_{k+1} = \pi(k-1) \\
-            \llaves{l}{
-              \alpha_k \igual{def}  \alpha_{k+1} - \pi\\
-              \alpha_k \igual{HI}  \pi(k-2)\\
-            } \to \alpha_{k+1} = \pi(k-2) + \pi = \pi(k-1)\Tilde
-          }$\par
-        Como $p(3), p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio
+        $\alpha_{n+1} \igual{$\llamada1$} \alpha_n + \pi $.
+
+        Ahora pruebo por inducción lo pedido:
+        $$
+          p(n): \alpha_n = \pi(n-2) \paratodo n \geq 3
+        $$
+
+        Arrancamos inducción:
+
+        \textit{Caso Base: }
+        $$
+          p(3): \pi(3-2) = \pi,
+        $$
+        lo cual es verdad para el triángulo, como aprendiste en el secundario.
+
+        \textit{Paso inductivo }, asumo que:
+        $$
+          p(k): \ub{\alpha_k = \pi(k-2)}{\text{\purple{hipótesis inductiva}}}
+        $$
+        es verdadero para algún $k \en \enteros_{\geq 3}$, entonces también quiero que:
+        $$
+          p(\blue{k+1}): \alpha_{\blue{k+1}} = \pi(k-1)
+        $$
+        también sea verdadero.
+
+        Arranco con la definición y uso la hipótesis inductiva:
+        $$
+          \alpha_k \igual{$\llamada1$}  \alpha_{k+1} - \pi
+          \ytext
+          \alpha_k \igual{\purple{HI}}  \purple{\pi(k-2)}
+        $$
+        Metés por acá sacás por allá:
+        $$
+          \alpha_{k+1}
+          \igual{\red{!}}
+          \purple{\pi(k-2)} + \pi = \pi(k-1)\Tilde
+        $$
+
+        Como $p(3),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio
         de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
 \end{enumerate}
 

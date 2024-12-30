@@ -17,8 +17,8 @@
 \begin{enumerate}[label=\roman*)]
   \item Sea $(a_n)_{n \en \naturales }$ sucesión de números reales tales que
         \begin{align}
-           & sg(a_n) = sg(a_1), \ \forall n \en \naturales                                      \\
-           & a_n > -1, \ \forall n \en \naturales  \iff 1 + a_n > 0, \ \forall n \en \naturales
+           & sg(a_n) = sg(a_1), \, \paratodo n \en \naturales                                      \\
+           & a_n > -1, \, \paratodo n \en \naturales  \iff 1 + a_n > 0, \, \paratodo n \en \naturales
         \end{align}
         donde $sg(x)$ es la función signo de $x$
         \begin{align*}
@@ -30,7 +30,7 @@
 
         Definamos nuestra proposición $P(n)$
         \begin{align*}
-          P(n): \productoria{i=1}{n}  (1 + a_i) \geq 1 + \sumatoria{i=1}{n} a_i, \ n \en \naturales
+          P(n): \productoria{i=1}{n}  (1 + a_i) \geq 1 + \sumatoria{i=1}{n} a_i, \, n \en \naturales
         \end{align*}
 
         \underline{Caso Base}, $n = 1$:
@@ -53,11 +53,11 @@
                                             & \igual{*} 1 + \sumatoria{i=1}{n+1} a_i + a_{n+1}\sumatoria{i=1}{n} a_i \mayorIgual{\text{Aux}}
           1 + \sumatoria{i=1}{n+1} a_i \entonces P(n+1):V
         \end{align*}
-        Hemos probado el caso base y el paso inductivo, entonces $P(n): V, \ \forall n \en \naturales $.
+        Hemos probado el caso base y el paso inductivo, entonces $P(n): V, \, \paratodo n \en \naturales $.
         \paragraph{Auxiliar}{Queremos ver que $a_{n+1}\sumatoria{i=1}{n} a_i > 0$}. La Ec.(1) nos dice que $a_n$ nunca cambia de
         signo mientras que la Ec.(2) nos dice que $a_n$ puede ser positiva o negativa. Entonces
         \begin{align*}
-          sg(a_n) < 0 \ \lor sg(a_n) > 0
+          sg(a_n) < 0 \, \lor sg(a_n) > 0
         \end{align*}
         Caso $sg(a_n) < 0 $
         \begin{align}
@@ -87,7 +87,7 @@
           donde utilizamos el calculo auxiliar.}
 
   \item Como $a > -1$ y $a \en \reales $, cumple con las condiciones impuestas sobre $(a_n)_{n \en \naturales }$ en el
-        punto (i). Tomamos $a_n = a$, $\forall n \en \naturales $. Como $P(n)$ es verdadera
+        punto (i). Tomamos $a_n = a$, $\paratodo n \en \naturales $. Como $P(n)$ es verdadera
         \begin{align*}
           \productoria{i=1}{n}  (1 + a) & \geq 1 + \sumatoria{i=1}{n} a   \\
           (1 + a)^n                     & \geq 1 + a \sumatoria{i=1}{n} 1 \\

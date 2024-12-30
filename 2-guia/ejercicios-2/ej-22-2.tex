@@ -1,72 +1,78 @@
 \begin{enunciado}{\ejercicio}
-    Probar que todo número natural $n$ se escribe como suma de distintas potencias de 2, incluyendo $2^0 = 1$.
+  Probar que todo número natural $n$ se escribe como suma de distintas potencias de 2, incluyendo $2^0 = 1$.
 \end{enunciado}
 Probemos que todo número natural $n$ se escribe como suma de distintas potencias de 2 usando inducción
 \begin{align*}
-    P(n): n = \sumatoria{i=1}{r}  2^{\alpha_i},\, 0 \leq \alpha_1 < \alpha_2 < \cdots < \alpha_r,\, n \en \naturales 
+  P(n): n = \sumatoria{i=1}{r}  2^{\alpha_i},\, 0 \leq \alpha_1 < \alpha_2 < \cdots < \alpha_r,\, n \en \naturales
 \end{align*}
 \underline{Caso Base}, $n = 1$:
 \begin{align*}
-    P(1): 1 = 2^0 \Entonces{Obs} P(1):V
+  P(1): 1 = 2^0 \Entonces{Obs} P(1):V
 \end{align*}
 \underline{Paso inductivo}. Sean $n,k \en \naturales $, donde $1 \leq k \leq n$:
 \begin{enumerate}
-    \item[HI.] $P(n):V,\, \paratodo k$
-    \item[TI.] $P(n+1): n + 1 = \displaystyle \sumatoria{i=1}{s}  2^{\beta_i},\, 
-    0 \leq \beta_1 < \beta_2 < \cdots < \beta_k$
+  \item[HI.] $P(n):V,\, \paratodo k$
+  \item[TI.] $P(n+1): n + 1 = \displaystyle \sumatoria{i=1}{s}  2^{\beta_i},\,
+          0 \leq \beta_1 < \beta_2 < \cdots < \beta_k$
 \end{enumerate}
 Desarrollemos el lado izquierdo de la igualdad en la TI. Para ello analizemos el caso donde $n$ es par y otro donde es impar.\\
 Caso $n$ impar: \\
 Si $n$ impar esto implica que $n+1$ es par. Podemos escribir a $n+1$ como $n + 1 = 2h,\, h \en \naturales $
 \begin{align*}
-    h \overset{\text{Aux.1}}{\leq} n \overset{\text{HI}}&{\entonces}
-    h = \sumatoria{i=1}{r} 2^{\alpha_i} \entonces 2h = 2 \sumatoria{i=1}{r} 2^{\alpha_i} 
-    \entonces 2h = \sumatoria{i=1}{r} 2 \cdot 2^{\alpha_i} \entonces 2h = \sumatoria{i=1}{r} 2^{\alpha_i + 1} \\
-    \overset{2h = n+1}&{\entonces} n + 1 = \sumatoria{i=1}{r} 2^{\alpha_i + 1},\, 
-    1 \leq \alpha_1+1 < \alpha_2+1 < \cdots < \alpha_r+1\\
-    \overset{\text{Obs}}&{\entonces} P(n+1):V,\, n \text{ impar}
+  h \overset{\text{Aux.1}}{\leq} n \overset{\text{HI}} & {\entonces}
+  h = \sumatoria{i=1}{r} 2^{\alpha_i} \entonces 2h = 2 \sumatoria{i=1}{r} 2^{\alpha_i}
+  \entonces 2h = \sumatoria{i=1}{r} 2 \cdot 2^{\alpha_i} \entonces 2h = \sumatoria{i=1}{r} 2^{\alpha_i + 1}         \\
+  \overset{2h = n+1}                                   & {\entonces} n + 1 = \sumatoria{i=1}{r} 2^{\alpha_i + 1},\,
+  1 \leq \alpha_1+1 < \alpha_2+1 < \cdots < \alpha_r+1                                                              \\
+  \overset{\text{Obs}}                                 & {\entonces} P(n+1):V,\, n \text{ impar}
 \end{align*}
 Caso $n$ par: \\
 Si $n$ par esto implica que $n+1$ es impar. Podemos escribir a $n+1$ como $n + 1 = 2h + 1,\, h \en \naturales $
 \begin{align*}
-    h \overset{\text{Aux.2}}{\leq} n \overset{\text{HI}}&{\entonces}
-    h = \sumatoria{i=1}{r} 2^{\alpha_i} \entonces 2h = 2 \sumatoria{i=1}{r} 2^{\alpha_i} 
-    \entonces 2h = \sumatoria{i=1}{r} 2 \cdot 2^{\alpha_i} \entonces 2h = \sumatoria{i=1}{r} 2^{\alpha_i + 1} \\
-    &\entonces 1 + 2h = 1 + \sumatoria{i=1}{r} 2^{\alpha_i + 1}
-    \entonces 2h + 1 = 2^0 + \sumatoria{i=1}{r} 2^{\alpha_i + 1} \\
-    \overset{2h+1 = n+1}&{\entonces} n + 1 = 2^0 + \sumatoria{i=1}{r} 2^{\alpha_i + 1},\, 
-    1 \leq \alpha_1+1 < \alpha_2+1 < \cdots < \alpha_r+1\\
-    \overset{\text{Obs}}&{\entonces} P(n+1):V,\, n \text{ impar}
+  h \overset{\text{Aux.2}}{\leq} n \overset{\text{HI}} & {\entonces}
+  h = \sumatoria{i=1}{r} 2^{\alpha_i} \entonces 2h = 2 \sumatoria{i=1}{r} 2^{\alpha_i}
+  \entonces 2h = \sumatoria{i=1}{r} 2 \cdot 2^{\alpha_i} \entonces 2h = \sumatoria{i=1}{r} 2^{\alpha_i + 1}               \\
+                                                       & \entonces 1 + 2h = 1 + \sumatoria{i=1}{r} 2^{\alpha_i + 1}
+  \entonces 2h + 1 = 2^0 + \sumatoria{i=1}{r} 2^{\alpha_i + 1}                                                            \\
+  \overset{2h+1 = n+1}                                 & {\entonces} n + 1 = 2^0 + \sumatoria{i=1}{r} 2^{\alpha_i + 1},\,
+  1 \leq \alpha_1+1 < \alpha_2+1 < \cdots < \alpha_r+1                                                                    \\
+  \overset{\text{Obs}}                                 & {\entonces} P(n+1):V,\, n \text{ impar}
 \end{align*}
 Por lo tanto, $P(n+1):V$ para cualquier $n$ natural. Hemos probado el caso base y el paso inductivo. Concluimos que $P(n):V,$ $\paratodo n \en \naturales $.
 
 \paragraph{Auxiliar 1}{
-    Acotemos $h$
-    \begin{align*}
-        2h = n + 1 \entonces h = \frac{n+1}{2} \entonces h = \frac{n+1}{2} \leq \frac{2n}{2} \entonces h \leq n
-    \end{align*}
+  Acotemos $h$
+  \begin{align*}
+    2h = n + 1 \entonces h = \frac{n+1}{2} \entonces h = \frac{n+1}{2} \leq \frac{2n}{2} \entonces h \leq n
+  \end{align*}
 }
 \paragraph{Auxiliar 1}{
-    Acotemos $h$
-    \begin{align*}
-        2h + 1 = n + 1 \entonces h = \frac{n}{2} \entonces h = \frac{n}{2} \leq n \entonces h \leq n
-    \end{align*}
+  Acotemos $h$
+  \begin{align*}
+    2h + 1 = n + 1 \entonces h = \frac{n}{2} \entonces h = \frac{n}{2} \leq n \entonces h \leq n
+  \end{align*}
 }
 
 \paragraph{Observación}{
-    Aclaraciones sobre el uso de las preposiciones $P(n)$ y $P(n+1)$
-    \begin{itemize}
-        \item El caso base nos queda verdadero porque encontramos una forma de escribir a 1 como una suma de potencias
-        de 2, en este caso la sumatoria solo posee un término que es $2^0$. En nuestra proposición $P(n)$ aparecen $r$ 
-        y los $\alpha_i$ (exponentes de 2). Para nuestro caso base, tenemos que $r = 1$ y $\alpha_1 = 0$.
-        \item En el paso inductivo, caso $n$ impar, llegamos a escribir $n+1$ como suma de potencias de 2, lo cual
-        hace que $P(n+1)$ sea verdadera. Otra forma de verlo, es que encontramos los $\beta_i$ mencionados en la TI. 
-        Basta tomar $\beta_i = \alpha_i + 1$, con $i = 1, \cdots , r$, con lo cual $s = r$. Estos $\beta_i$ son válidos
-        pues se deducen de la HI. 
-        \item En el paso inductivo, caso $n$ par, llegamos a escribir $n+1$ como suma de potencias de 2, lo cual
-        hace que $P(n+1)$ sea verdadera. Otra forma de verlo, es que encontramos los $\beta_i$ mencionados en la TI. 
-        Basta tomar $\beta_1 = 0$ y $\beta_{i+1} = \alpha_i + 1$, con $i = 1, \cdots , r$, con lo cual $s = r + 1$.
-        Estos $\beta_{i+1}$ son válidos pues se deducen de la HI. 
-    \end{itemize}
+  Aclaraciones sobre el uso de las preposiciones $P(n)$ y $P(n+1)$
+  \begin{itemize}
+    \item El caso base nos queda verdadero porque encontramos una forma de escribir a 1 como una suma de potencias
+          de 2, en este caso la sumatoria solo posee un término que es $2^0$. En nuestra proposición $P(n)$ aparecen $r$
+          y los $\alpha_i$ (exponentes de 2). Para nuestro caso base, tenemos que $r = 1$ y $\alpha_1 = 0$.
+    \item En el paso inductivo, caso $n$ impar, llegamos a escribir $n+1$ como suma de potencias de 2, lo cual
+          hace que $P(n+1)$ sea verdadera. Otra forma de verlo, es que encontramos los $\beta_i$ mencionados en la TI.
+          Basta tomar $\beta_i = \alpha_i + 1$, con $i = 1, \cdots , r$, con lo cual $s = r$. Estos $\beta_i$ son válidos
+          pues se deducen de la HI.
+    \item En el paso inductivo, caso $n$ par, llegamos a escribir $n+1$ como suma de potencias de 2, lo cual
+          hace que $P(n+1)$ sea verdadera. Otra forma de verlo, es que encontramos los $\beta_i$ mencionados en la TI.
+          Basta tomar $\beta_1 = 0$ y $\beta_{i+1} = \alpha_i + 1$, con $i = 1, \cdots , r$, con lo cual $s = r + 1$.
+          Estos $\beta_{i+1}$ son válidos pues se deducen de la HI.
+  \end{itemize}
 }
 
+% Contribuciones
+\begin{aportes}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/koopardo/}{Marcos Zea \github}
+\end{aportes}

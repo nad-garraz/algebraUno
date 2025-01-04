@@ -43,9 +43,118 @@
           (A \union B) \times C \igual{\magenta{\Tilde}}
           (A \times C) \union (B\times C)
         $$
-  \item \hacer
-  \item \hacer
-  \item \hacer
+  \item $(A \inter B) \times C = (A \times C) \inter (B \times C)$
+  \begin{align*}
+    &(x,y) \in (A \cap B) \times C \iff x \in A \cap B \land y \in C \iff x \in A \land x \in B \land y \in C \\
+    &\iff (x \in A \land y \in C) \land (x \in B \land y \in C) \iff (x,y) \in A \times C \land (x,y) \in B \times C \\
+    &\iff (x,y) \in (A \times C) \cap (B \times C)
+  \end{align*}
+  \item $(A - B) \times C = (A \times C) - (B \times C)$
+  \begin{align*}
+    &(x,y) \in (A \times C) - (B \times C) \iff (x,y) \in (A \times C) \land (x,y) \notin (B \times C) \\
+    &\iff (x \in A \land y \in C) \land (x \notin B \lor y \notin C) \\
+    &\overset{Aux.1}{\iff} (x \in A \land y \in C \land x \notin B) \lor (x \in A \land y \in C \land y \notin C) \\
+    &\overset{Aux.2}{\iff}  x \in A \land y \in C \land x \notin B  \iff x \in (A-B) \land y \in C 
+    \iff (x,y) \in (A-B) \times C
+  \end{align*}
+  \paragraph{Auxiliar 1}{
+    Sean las proposiciones $p$, $q$ y $r$. Podemos distribuir el $\land$ con respecto a $\lor$
+    \begin{align*}
+      p \land (q \lor r) \iff (p \land q) \lor (p \land r)
+    \end{align*}
+    Tomemos 
+    \begin{align*}
+      &p: x \in A \land y \in C \\
+      &q: x \notin B \\ 
+      &r: y \notin C 
+    \end{align*}
+    Entonces
+    \begin{align*}
+      (x \in A \land y \in C) \land (x \notin B \lor y \notin C) \iff 
+      (x \in A \land y \in C \land x \notin B) \lor (x \in A \land y \in C \land y \notin C)
+    \end{align*}
+  }
+  \paragraph{Auxiliar 2}{
+    Sean las proposiciones $p$ y $q$, donde $q$ es falsa. Entonces 
+    \begin{align*}
+      p \lor q \iff p
+    \end{align*}
+    Tomemos
+    \begin{align*}
+      &p: x \in A \land y \in C \land x \notin B \\
+      &q: x \in A \land y \in C \land y \notin C
+    \end{align*}
+    Deberiamos ver que valor de verdad de $q$ es falso. En $q$ tenemos como condición que $y \in C$ y que $y \notin C$, 
+    y esto no puede ser posible, por lo tanto $q$ es falsa. Entonces
+    \begin{align*}
+      (x \in A \land y \in C \land x \notin B) \lor (x \in A \land y \in C \land y \notin C) 
+      \iff x \in A \land y \in C \land x \notin B
+    \end{align*}
+  }
+  \item $(A \triangle B) \times C = (A \times C) \triangle (B \times C)$ \\
+  Veamos dos formas de demostrar esto, una es con igualdad de conjuntos, la que venimos usando en las demostraciones 
+  anteriores y la otra es usando los puntos (i) y (iii).
+  \begin{enumerate}
+    \item Por igualdad de conjuntos
+    \begin{align*}
+      &(x,y) \in (A \times C) \triangle (B \times C) 
+      \overset{\text{Aux.1}}{\iff} (x,y) \in ((A \times C) - (B \times C)) \cup ((B \times C) - (A \times C)) \\
+      &\iff (x,y) \in ((A \times C) - (B \times C)) \lor (x,y) \in ((B \times C) - (A \times C)) \\
+      &\iff ((x,y) \in A \times C \land (x,y) \notin B \times C) 
+      \lor ((x,y) \in B \times C \land (x,y) \notin A \times C) \\
+      &\iff (x \in A \land y \in C \land (x \notin B \lor y \notin C)) 
+      \lor (x \in B \land y \in C \land (x \notin A \lor y \notin C)) \\
+      &\iff (x \in A \land y \in C \land x \notin B) \lor (x \in A \land y \in C \land y \notin C) \\
+      &\phantom{\hspace{22px}} \lor (x \in B \land y \in C \land x \notin A) 
+      \lor (x \in B \land y \in C \land y \notin C) \\
+      \overset{\text{Aux.2}}&{\iff} (x \in A \land y \in C \land x \notin B) 
+      \lor (x \in B \land y \in C \land x \notin A) \\
+      &\iff (x \in (A - B) \land y \in C) \lor (x \in (B - A) \land y \in C) \\
+      &\iff (x \in (A - B) \lor x \in (B - A)) \land y \in C 
+      \iff x \in (A - B) \cup (B - A) \land y \in C \\
+      &\iff x \in A \triangle B \land y \in C \iff (x,y) \in (A \triangle B) \times C 
+    \end{align*}
+    \item Usando los puntos (i) y (iii)
+    \begin{align*}
+      &(A \times C) \triangle (B \times C) 
+      \overset{\text{Aux.1}}{=} ((A \times C) - (B \times C)) \cup ((B \times C) - (A \times C)) \overset{(iii)}{=} \\
+      \overset{(iii)}&{=} ((A - B) \times C) \cup ((B-A) \times C) 
+      \overset{(i)}{=} ((A - B) \cup (B - A)) \times C 
+      \overset{\text{Aux.1}}{=} (A \triangle B) \times C \\
+      &\implies (A \times C) \triangle (B \times C) = (A \triangle B) \times C
+    \end{align*}
+  \end{enumerate}
+  \paragraph{Auxiliar 1}{Sean los conjuntos $A,B \subseteq V$
+    \begin{align*}
+      A \triangle B = (A - B) \cup (B - A)
+    \end{align*}
+  }
+  \paragraph{Auxiliar 2}{
+    Sean las proposiciones $p$ y $q$, donde $q$ es falsa. Entonces 
+    \begin{align*}
+      p \lor q \iff p
+    \end{align*}
+    Podemos tomar
+    \begin{align*}
+      p: x \in A \land y \in C \land x \notin B \\
+      q: x \in A \land y \in C \land y \notin C
+    \end{align*}
+    donde claramente $q$ es falso pues $y \in C$ e $y \notin C$. Entonces
+    \begin{align*}
+      (x \in A \land y \in C \land x \notin B) \lor (x \in A \land y \in C \land y \notin C)
+      \iff x \in A \land y \in C \land x \notin B
+    \end{align*}
+    Para este otro caso diferente al anterior, podemos tomar
+    \begin{align*}
+      p: x \in B \land y \in C \land x \notin A \\
+      q: x \in B \land y \in C \land y \notin C
+    \end{align*}
+    donde $q$ es falso pues $y \in C$ e $y \notin C$. Entonces
+    \begin{align*}
+      (x \in B \land y \in C \land x \notin A) \lor (x \in B \land y \in C \land y \notin C)
+      \iff x \in B \land y \in C \land x \notin A
+    \end{align*}
+  }
 \end{enumerate}
 
 

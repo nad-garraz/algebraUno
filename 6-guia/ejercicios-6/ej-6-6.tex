@@ -70,7 +70,7 @@
         La forma binómica quedaría:
         $$
           \cajaResultado{
-          (\frac{1 + \sqrt{3} i }{1 - i} )^{17} =
+            (\frac{1 + \sqrt{3} i }{1 - i} )^{17} =
             (\sqrt{2})^{13} \cdot  (1  + \sqrt{3}) + (\sqrt{2})^{13} \cdot (1 - \sqrt{3}) i
           }
         $$
@@ -78,15 +78,17 @@
   \item\label{ej6:item-b} $$
           (-1 + i\sqrt{3})^{\magenta{n}} =
           2^{\magenta{n}} \cdot  e^{i \frac{2\magenta{n}}{3}\pi} =
-          2^{\magenta{n}} \cdot (\cos(\frac{2\magenta{n}}{3} \pi) + i \sin(\frac{2\magenta{n}}{3} \pi))
+          2^{\magenta{n}} \cdot \left(\cos(\frac{2\magenta{n}}{3} \pi) + i \sin(\frac{2\magenta{n}}{3} \pi)\right)
         $$
-        El módulo va a crecer con $\magenta{n}$, pero la parte exponencial es periódica:
+        El módulo va a crecer con $\magenta{n}$, pero la parte exponencial es periódica por inspección:
         $$
           \cajaResultado{
-            \llave{rcl}{
-              \congruencia{n}{0}{3} & \to & (-1 + i\sqrt{3})^n = 2^n                                                                            \\
-              \congruencia{n}{1}{3} & \to & (-1 + i\sqrt{3})^n = 2^n \cdot (-\frac{1}{2} + i \frac{\sqrt{3}}{2}) \\
-              \congruencia{n}{2}{3} & \to & (-1 + i\sqrt{3})^n = 2^n \cdot (-\frac{1}{2} - i \frac{\sqrt{3}}{2})
+            (-1 + i\sqrt{3})^n
+            \igual{\red{!}}
+            \llave{lcl}{
+              2^n                             & \sii & \congruencia{n}{0}{3} \\
+              2^{n-1} \cdot (-1 + i \sqrt{3}) & \sii & \congruencia{n}{1}{3} \\
+              2^{n-1} \cdot (-1 - i \sqrt{3}) & \sii & \congruencia{n}{2}{3}
             }
           }
         $$

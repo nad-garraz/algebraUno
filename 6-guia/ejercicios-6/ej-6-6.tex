@@ -13,7 +13,9 @@
         $$
           z \igual{$\llamada1$} \left(\frac{1 + \sqrt{3} i }{1 - i} \right)^{17} \igual{\red{!}}
           \left(\frac{1 + \sqrt{3} i }{(1 - i)}\cdot \frac{1+i}{1+i} \right)^{17} =
-          \left( \frac{(1 + \sqrt{3} i) \cdot (1+i) }{2} \right)^{17} =             \\
+          \left( \frac{(1 + \sqrt{3} i) \cdot (1+i) }{2} \right)^{17} =
+          \left( \frac{1 - \sqrt{3}}{2} + \frac{1+\sqrt{3}}{2}i \right)^{17}
+          \\
         $$
         Ahora paso eso a notación exponencial y acomodo usando propiedades de exponentes:
         $$
@@ -26,10 +28,71 @@
             \left( \frac{{2 \cdot e^{\frac{\pi}{3}i} } \cdot \sqrt{2} e^{\frac{\pi}{4}i}}{2} \right)^{17} =
             2^{\frac{17}{2}} \cdot  e^{\frac{119}{12}\pi i}  \igual{\red{!}}
             2^{\frac{17}{2}} \cdot  e^{-\frac{1}{12}\pi i} \\
-            \llamada1 z =  2^{\frac{17}{2}}  \cos(\frac{1}{12} \pi) - i 2^{\frac{17}{2}} \sin(\frac{1}{12} \pi)
+            \llamada1 z =
+            2^{\frac{17}{2}}  \cos(\frac{1}{12} \pi) - i 2^{\frac{17}{2}} \sin(\frac{1}{12} \pi)
+            \igual{\red!}
+            2^{\frac{17}{2}}  \cos(\frac{23}{12} \pi) + i 2^{\frac{17}{2}} \sin(\frac{23}{12} \pi)
           \end{array}
         $$
-        Un espanto. Pero bueh, $\frac{1}{12}\pi = 15^\circ$
+        Un espanto. Pero bueh, $\frac{1}{12}\pi = 15^\circ \ytext \frac{23}{12} \pi = 345^\circ$.
 
-  \item \hacer
+        \medskip
+
+        \textit{Nota:} Después de hacer el item \ref{ej6:item-b}, \textit{creo} que la idea del ejercicio es hacerlo así:
+
+        Como $ (\frac{1 + \sqrt{3} i }{1 - i} )^{17}$ está compuesto por 2 elementos de nuestro conjunto de números complejos favoritos, lease:
+
+        $$
+          \llave{rcl}{
+            1 + \sqrt{3} i & = & 2 \cdot e^{i \frac{\pi}{3}}           \\
+            1 - i          & = & \sqrt{2} \cdot e^{i \frac{7}{4}\pi}
+          }
+        $$
+        Y esto elevado a la 17 tiene dentro de todo un aspecto, no taaan vomitivo:
+        $$
+          \llave{rcl}{
+            (1 + \sqrt{3} i)^{17} & = & 2^{17} \cdot e^{i \frac{17}{3}\pi} \igual{\red{!}} 2^{17} \cdot e^{i \frac{5}{3}\pi} = 2^{\magenta{16}} \cdot (1 - i\sqrt{3})     \\
+            (1 - i)^{17}          & = & (\sqrt{2})^{17} \cdot e^{i \frac{119}{4}\pi} \igual{\red{!}} \cdot (\sqrt{2})^{17} \cdot e^{i \frac{7}{4}\pi}= (\sqrt{2})^{17} \cdot (1 - i)
+          }
+        $$
+
+        Juntando lo que fue quedando:
+        $$
+          (\frac{1 + \sqrt{3} i }{1 - i} )^{17} =
+          \frac{2^{\magenta{16}} \cdot (1 - i\sqrt{3})}{(\sqrt{2})^{17} \cdot (1 - i)}
+          \igual{\red{!!}}
+          (\sqrt{2})^{13} \cdot (1 - i \sqrt{3}) \cdot (1 + i) =
+          (\sqrt{2})^{13} \cdot \left( (1  + \sqrt{3}) + (1 - \sqrt{3}) i \right)
+        $$
+
+        En el \red{!!}, multipliqué y dividí por el conjugado complejo, y simplifiqué el exponente.
+
+        La forma binómica quedaría:
+        $$
+          \cajaResultado{
+          (\frac{1 + \sqrt{3} i }{1 - i} )^{17} =
+            (\sqrt{2})^{13} \cdot  (1  + \sqrt{3}) + (\sqrt{2})^{13} \cdot (1 - \sqrt{3}) i
+          }
+        $$
+
+  \item\label{ej6:item-b} $$
+          (-1 + i\sqrt{3})^{\magenta{n}} =
+          2^{\magenta{n}} \cdot  e^{i \frac{2\magenta{n}}{3}\pi} =
+          2^{\magenta{n}} \cdot (\cos(\frac{2\magenta{n}}{3} \pi) + i \sin(\frac{2\magenta{n}}{3} \pi))
+        $$
+        El módulo va a crecer con $\magenta{n}$, pero la parte exponencial es periódica:
+        $$
+          \cajaResultado{
+            \llave{rcl}{
+              \congruencia{n}{0}{3} & \to & (-1 + i\sqrt{3})^n = 2^n                                                                            \\
+              \congruencia{n}{1}{3} & \to & (-1 + i\sqrt{3})^n = 2^n \cdot (-\frac{1}{2} + i \frac{\sqrt{3}}{2}) \\
+              \congruencia{n}{2}{3} & \to & (-1 + i\sqrt{3})^n = 2^n \cdot (-\frac{1}{2} - i \frac{\sqrt{3}}{2})
+            }
+          }
+        $$
+
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{Nad Garraz \github}
+\end{aportes}

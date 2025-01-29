@@ -1,9 +1,9 @@
 \begin{enunciado}{\ejercicio}
-
   Determinar cuáles de las siguientes afirmaciones son verdaderas y
   cualesquiera sean los subconjuntos $A$, $B$ y $C$ de un conjunto
   referencial $\universo$ y cuáles no.
   Para las que sean verdaderas, dar una demostración, para las otras dar un contraejemplo.
+
   \begin{multicols}{2}
     \begin{enumerate}[label=\roman*)]
       \item $(A \triangle B) - C = (A-C) \triangle (B - C)$.
@@ -16,36 +16,103 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item $(A \triangle B) - C = (A-C) \triangle (B - C)$. Es verdadera. Pruebo con tabla de verdad.\\
-        $
+  \item $(A \triangle B) - C = (A-C) \triangle (B - C)$. Es verdadera.
+        La demo sale fácil con tabla de verdad.
+
+        $$
           \begin{array}{|c|c|c|c|c|c|c|c|c|}
             \hline
-            A & B & C & C^c & A - C & B - C & A \triangle B & (A \triangle B) - C & (A - C) \triangle (B - C) \\
-            \hline  \hline
-            V & V & V & F   & F     & F     & F             & F                   & F                         \\
-            V & V & F & V   & V     & V     & F             & F                   & F                         \\
-            \hline
-            V & F & V & F   & F     & F     & V             & F                   & F                         \\
-            V & F & F & V   & V     & F     & V             & V                   & V                         \\
-            \hline
-            F & V & V & F   & F     & F     & V             & F                   & F                         \\
-            F & V & F & V   & F     & V     & V             & V                   & V                         \\
-            \hline
-            F & F & V & F   & F     & F     & F             & F                   & F                         \\
-            F & F & F & V   & F     & F     & F             & F                   & F                         \\
+            A & B & C & C^c & A - C & B - C & A \triangle B & (A \triangle B) - C & (A - C) \triangle (B - C) \\ \rowcolor{Cerulean!10}
+            V & V & V & F   & F     & F     & F             & \orange{F}          & \orange{F}                \\
+            V & V & F & V   & V     & V     & F             & \orange{F}          & \orange{F}                \\\rowcolor{Cerulean!10}
+            V & F & V & F   & F     & F     & V             & \orange{F}          & \orange{F}                \\
+            V & F & F & V   & V     & F     & V             & \orange{V}          & \orange{V}                \\\rowcolor{Cerulean!10}
+            F & V & V & F   & F     & F     & V             & \orange{F}          & \orange{F}                \\
+            F & V & F & V   & F     & V     & V             & \orange{V}          & \orange{V}                \\\rowcolor{Cerulean!10}
+            F & F & V & F   & F     & F     & F             & \orange{F}          & \orange{F}                \\
+            F & F & F & V   & F     & F     & F             & \orange{F}          & \orange{F}                \\\rowcolor{Cerulean!10}
             \hline
           \end{array}
-        $\par
-        Hay distribución entre la resta y una diferencias simétrica.
+        $$
+        Del resultado de la tabla se concluye que distribución entre la resta y una diferencia simétrica.
 
-\item Es falsa, lo demuestro por contraejemplo. Sean $A = C = \{1\}, B = \emptyset$, luego \\
-$(A \inter B) \triangle C = \emptyset \triangle A = A$ pero \\
-$(A \triangle C) \inter (B \triangle C) = (A \triangle A) \inter (B \triangle A) = \emptyset \inter A = \emptyset \neq A$ \\
-$\therefore (A \inter B) \triangle C \neq (A \triangle C) \inter (B \triangle C)$
-\item Es verdadera. Supongo que $C \subseteq A$, Q.P.Q $B \inter C \subseteq (A \triangle B)^c$ \\
-$(A \triangle B)^c = ((A \union B) \inter (A \inter B)^c)^c = (A^c \inter B^c) \union (A \inter B)$ \\
-$B \inter C \stackrel{C \subseteq A}{\subseteq} B \inter A = A \inter B \subseteq (A \inter B) \union (A^c \inter B^c) = (A \triangle B)^c$
-\item $\text{$\Rightarrow$)} A \triangle B = \emptyset \entonces (A - B) \union (B - A) = \emptyset \entonces A - B = \emptyset \y B - A = \emptyset$ 
-$\entonces A \subseteq B \y B \subseteq A \entonces A = B$ \\
-$\text{$\Leftarrow$)} A = B \entonces A \triangle B = A \triangle A = \emptyset$
+  \item ¡Es falsa!
+        Lo demuestro por \textit{contraejemplo}.
+        Sean:
+        $$
+          A = C = \set{1},\, B = \vacio,
+        $$
+        luego,
+        $$
+          (A \inter B) \triangle C = \vacio \triangle A = A
+        $$
+        peeeero,
+        $$
+          (A \triangle C) \inter (B \triangle C) =
+          (A \triangle A) \inter (B \triangle A) =
+          \vacio \inter A = \vacio \neq A
+        $$
+        $$
+          \cajaResultado{
+            \therefore (A \inter B) \triangle C \neq (A \triangle C) \inter (B \triangle C)
+          }
+        $$
+
+  \item ¡Es verdadera! Supongo que:
+        $$
+          C \subseteq A
+        $$
+        quiero probar que
+        $$
+          B \inter C \subseteq (A \triangle B)^c
+        $$
+        Tenemos que:
+        $$
+          (A \triangle B)^c \igual{def} ((A \union B) \inter (A \inter B)^c)^c
+          \igual{\red{!!}} (A^c \inter B^c) \union (A \inter B) \llamada1
+        $$
+        y también:
+        $$
+          B \inter C \taa{C \subseteq A}{\red{!}}{\subseteq}
+          B \inter A = A \inter B \subseteq (A \inter B) \union (A^c \inter B^c)
+          \igual{$\llamada1$}
+          (A \triangle B)^c
+        $$
+        Es así que:
+        $$
+          \cajaResultado{
+            B \inter C \subseteq (A \triangle B)^c
+          }
+        $$
+
+  \item ¡Es verdadera!
+        \begin{itemize}
+          \item[$\entonces)$]
+                $$
+                  A \triangle B = \vacio
+                  \Entonces{def}
+                  (A - B) \union (B - A) = \vacio
+                  \Entonces{\red{!}}
+                  A - B = \vacio \ytext B - A = \vacio
+                  \entonces
+                  A = B
+                $$
+
+          \item[$\Leftarrow)$]
+                $$
+                  A = B \entonces A \triangle B = A \triangle A = \vacio
+                $$
+                Probada la ida y vuelta, queda demostrado que:
+                $$
+                  \cajaResultado{
+                    A \triangle B = \vacio \sisolosi A = B
+                  }
+                $$
+        \end{itemize}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/MateCon}{Mateo Z \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
+

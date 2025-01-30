@@ -44,6 +44,107 @@
 }
 
 % 19 ii
+\def\diecinueveii{
+  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
+
+    \node[] (a) {$\bullet$};
+    \node[] at (a.west) {$a$};
+
+    \node[above right= of a] (b) {$\bullet$};
+    \node[] at (b.east) {$b$};
+
+    \node[below right= of b] (c) {$\bullet$};
+    \node[] at (c.east) {$c$};
+
+    \node[below= of a] (d) {$\bullet$};
+    \node[] at (d.west) {$d$};
+
+    \node[below= of c] (e) {$\bullet$};
+    \node[] at (e.west) {$e$};
+
+    \node[right= of d] (f) {$\bullet$};
+    \node[] at (f.west) {$f$};
+
+    \node[right= of c] (g) {$\bullet$};
+    \node[] at (g.east) {$g$};
+
+    \node[below= of g] (h) {$\bullet$};
+    \node[] at (h.east) {$h$};
+
+    % Universo
+    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+    \node[above left = 0.1cm of universo] {$A$};
+
+    % Aristas
+    \draw[->, loop below] (a) to (a);
+    \draw[->, loop above ] (b) to (b);
+    \draw[->, loop above] (c) to (c);
+    \draw[->, loop below] (f) to (f);
+
+    \draw[->, bend left] (a.center) to (b);
+    \draw[->, bend left] (b.center) to (a);
+
+    \draw[->, bend right] (c.center) to (g);
+    \draw[->, bend right] (c.center) to (h);
+    \draw[->, bend right] (c.center) to (e);
+    \draw[->, bend right] (h.center) to (g);
+  \end{tikzpicture}
+}
+
+% 19 iii
+\def\diecinueveiii{
+  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
+
+    \node[] (a) {$\bullet$};
+    \node[] at (a.west) {$a$};
+
+    \node[above right= of a] (b) {$\bullet$};
+    \node[] at (b.east) {$b$};
+
+    \node[below right= of b] (c) {$\bullet$};
+    \node[] at (c.east) {$c$};
+
+    \node[below= of a] (d) {$\bullet$};
+    \node[] at (d.west) {$d$};
+
+    \node[below= of c] (e) {$\bullet$};
+    \node[] at (e.west) {$e$};
+
+    \node[right= of d] (f) {$\bullet$};
+    \node[] at (f.west) {$f$};
+
+    \node[right= of c] (g) {$\bullet$};
+    \node[] at (g.east) {$g$};
+
+    \node[below= of g] (h) {$\bullet$};
+    \node[] at (h.east) {$h$};
+
+    % Universo
+    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
+    \node[above left = 0.1cm of universo] {$A$};
+
+    % Aristas
+    \draw[->, loop below] (a) to (a);
+    \draw[->, loop above ] (b) to (b);
+    \draw[->, loop above] (c) to (c);
+    \draw[->, loop below ] (d) to (d);
+    \draw[->, loop below] (e) to (e);
+    \draw[->, loop below] (f) to (f);
+    \draw[->, loop above] (g) to (g);
+    \draw[->, loop below ] (h) to (h);
+
+    \draw[->, bend left] (a.center) to (b);
+    \draw[->, bend left] (b.center) to (a);
+
+    \draw[->, bend right] (c.center) to (d);
+    \draw[->, bend right] (c.center) to (e);
+    \draw[->, bend right] (c.center) to (h);
+    \draw[->, bend right] (d.center) to (c);
+    \draw[->, bend right] (h.center) to (g);
+  \end{tikzpicture}
+}
+
+% 19 iV
 \def\diecinueveiv{
   \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
 
@@ -99,11 +200,11 @@
 
 % fin gráficos
 
-
 \begin{enunciado}{\ejercicio}
   Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describir por
   extensión la relación en $A$ que representa y determinar si es \textit{reflexiva, simétrica, antisimétrica o transitiva}.
 \end{enunciado}
+Podés ver el resumen de la \hyperlink{teoria-1:relaciones}{teoría acá y así entender, o corregir \faIcon[regular]{grimace}, lo que se hizo.}
 
 \begin{enumerate}[label=\roman*)]
 
@@ -112,21 +213,80 @@
           \diecinuevei
         \end{minipage}
         \begin{minipage}{0.7\textwidth}
+          \textit{Por extensión:}
+          $$
+            \set{(a,b),(b,a),(c,d),(c,h),(e,c),(f,f),(h,g)}
+          $$
           \begin{itemize}
-            \item No es reflexiva, porque no hay bucles en todos los vértices, en particular $a \norelacion a$.
-            \item No es simétrica, porque $d \norelacion c$.
-            \item No es antisimétrica, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
-            \item No es transitiva, porque $c \relacion h$ y $h \relacion g$, pero $c \norelacion h$.
+            \item \textit{Reflexiva}: Noup, porque no hay bucles en todos los vértices, en particular $a \norelacion a$.
+            \item \textit{Simétrica:} Noup, porque $d \norelacion c$.
+            \item \textit{Transitiva}: No, falta atajo, $c \relacion h$ y $h \relacion g$, pero $c \norelacion g$.
+            \item \textit{Antisimétrica:} No, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
           \end{itemize}
         \end{minipage}
 
-  \item \hacer
-  \item \hacer
+        \bigskip
+
+  \item
+        \begin{minipage}{0.25\textwidth}
+          \diecinueveii
+        \end{minipage}
+        \begin{minipage}{0.7\textwidth}
+          \textit{Por extensión:}
+          $$
+            \set{(a,a),(a,b),(b,a),(b,b),(c,c),(c,e),(c,g),
+              (c,h),(f,f),(h,g)}
+          $$
+          \begin{itemize}
+            \item \textit{Reflexiva}: No, faltan bucles en algunos vértices.
+            \item \textit{Simétrica}: No, $c \relacion e$, pero $e \norelacion c$.
+            \item \textit{Transitiva}: Sí. está el \textit{atajo} en la única terna:
+                  $$
+                    c \relacion h,\, h \relacion g \entonces c \relacion g.
+                  $$
+            \item \textit{Antisimétrica:} No, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+          \end{itemize}
+        \end{minipage}
+
+        \bigskip
+
+  \item
+        \begin{minipage}{0.25\textwidth}
+          \diecinueveiii
+        \end{minipage}
+        \begin{minipage}{0.7\textwidth}
+          \textit{Por extensión:}
+          $$
+            \scriptstyle
+            \set{(a,a),(a,b),(b,a),(b,b),
+              (c,c),(c,d),(c,e),(c,h)
+              (d,d),(d,c), (e,e), (f,f), (g,g), (h,h),(h,g) }.
+          $$
+          \begin{itemize}
+            \item \textit{Reflexiva}: Sí, están todos los bucles.
+            \item \textit{Simétrica}: No, $c \relacion h$, pero $h \norelacion c$.
+            \item \textit{Transitiva}: No, falta atajo, $c \relacion h$ y $h \relacion g$, pero $c \norelacion g$.
+            \item \textit{Antisimétrica:} No, porque $a \relacion b$ y $b \relacion a$ con $a \neq b$.
+          \end{itemize}
+        \end{minipage}
+
+        \bigskip
+
   \item
         \begin{minipage}{0.25\textwidth}
           \diecinueveiv
         \end{minipage}
         \begin{minipage}{0.7\textwidth}
+          \textit{Por extensión:}
+          $$
+            \scriptstyle
+            \set{(a,a),(a,b),(b,a),(b,b),(c,c),(d,d),
+              (e,e),(e,g),(e,h),
+              (f,f),
+              (g,g),(g,e),(g,h),
+              (h,h),(h,e),(h,g)
+            }.
+          $$
           \begin{itemize}
             \item Reflexiva, porque hay bucles en todos los elementos de $A$.
             \item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.
@@ -135,3 +295,7 @@
           \end{itemize}
         \end{minipage}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

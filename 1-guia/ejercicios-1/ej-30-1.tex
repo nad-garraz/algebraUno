@@ -1,34 +1,119 @@
 \begin{enunciado}{\ejercicio}
   Determinar si las siguientes funciones son inyectivas, sobreyectivas o biyectivas.
   Para las que sean biyectivas hallar la inversa y para la que no sean sobreyectivas hallar la imagen.
+  \begin{enumerate}[label=\roman*)]
+    \item $f: \reales \to \reales,\quad f(x) = 12x^2 -5.$
+
+    \item $f: \reales^2 \to \reales,\quad f(x,y) = x + y.$
+
+    \item $f: \reales^3 \to \reales^2,\quad f(x,y,z) = (x+y,2z).$
+
+    \item $f: \naturales \to \naturales,\quad
+            f(n) =
+            \llave{ll}{
+              \frac{n}{2} & \text{si $n$ es par}    \\
+              n + 1       & \text{si $n$ es impar.} \\
+            }$
+
+    \item $f: \enteros \times \enteros \to \enteros,\quad f(a,b) = 3a - 2b.$
+
+    \item $f: \enteros \to \naturales,\quad f(a) =
+            \llave{lcl}{
+              2a   & \text{si} & a > 0     \\
+              1-2a & \text{si} & a \leq 0.
+            }$
+  \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item $f: \reales \to \reales,\quad f(x) = 12 x^2 - 5$\par
-        No es \textit{inyectiva}, $f(-1) = f(1)$.\par
-        No es \textit{sobreyectiva}, $\im(f) = [-5, +\infinito)$.
-  \item \hacer
+  \item
+        $f: \reales \to \reales,\quad f(x) = 12 x^2 - 5$
+        No es \textit{inyectiva}, contraejemplo:
+        $$
+          f(-1) = f(1)
+        $$.
 
-  \item \hacer
+        No es \textit{sobreyectiva}:
+        $$
+          \im(f) = [-5, +\infinito).
+        $$
+
+        No es \textit{biyectiva}, no tiene inversa. Habría que restringir dominio para cada rama de la parábola, pero no piden eso \faIcon{hands-wash}
+
+  \item\label{ej30:item-ii}
+        $f: \reales^2 \to \reales,\quad f(x,y) = x + y$
+
+        No se \textit{inyectiva}. Contraejemplo:
+        $$
+          f(1,2) = 3 \ytext f(2,1) = 3
+        $$
+
+        Es \textit{sobreyectiva}, dado que $x + y$ genera todo $\reales$.
+
+  \item Sale muy parecido al anterior \ref{ej30:item-ii}
+
+        No es \textit{biyectiva}, no tiene inversa.
 
   \item $f: \naturales \to \naturales,\quad
-          f(n) = \llave{ll}{
+          f(n) =
+          \llave{ll}{
             \frac{n}{2} & \text{si $n$ es par}   \\
             n + 1       & \text{si $n$ es impar} \\
           }$\par
 
-        Es \textit{inyectiva} y \textit{sobreyectiva}. $\paratodo m,m' \en \naturales,
-          \llave{l}{
-            f(2m) = \frac{2m}{2} = m     \\
-            f(2m'-1) = 2m' - 1 + 1 = 2m' \\
-          } \to$ Si bien $f(8) = f(3)$ la función es \textit{sobreyectiva} porque
-        genera todo $\naturales$ tan solo con la parte par de la función.\par
+        No es \textit{inyectiva}. Contraejemplo:
+        $$
+          f(8) = f(3) \text{ con {\tiny \color{lightgray}{dah!}} } 8 \neq 3
+        $$
 
-        $f^{-1}(n) =
-          \llave{ll}{
-            2n    & \text{si $n$ es par}   \\
-            n - 1 & \text{si $n$ es impar}
-          }$\par
-        \red{Qué onda?}
+        Sí es \textit{sobreyectiva}. Me formo una sucesión de números pares:
+        $$
+          \paratodo m \en \naturales, a_m = 2
+          \quad\entonces
+          f(a_m) = f(2m) = \frac{2m}{2} = m
+        $$
+        Se desprende que una parte de la función genera \textit{todos los números naturales},
+        así que $\im(f) = \naturales$, por lo tanto la función es \textit{sobreyectiva}.
+
+        No es \textit{biyectiva}, no tiene inversa.
+
+  \item No es \textit{inyectiva}. Contraejemplo:
+        $$
+          f(2,1) = 6 - 2 = 4 \ytext f(0,-2) = 4.
+        $$
+
+        Para ser \textit{sobreyectiva} la imagen debe ser $\enteros$. Suponiendo que:
+        $$
+          a = b \entonces f(a,a) = 3a - 2a = a \entonces \im(f) = \enteros
+        $$
+        Por lo tanto $f$ es \textit{sobreyectiva}.
+
+        No es \textit{biyectiva}, no tiene inversa.
+
+  \item
+        La función
+        $$
+          f: \enteros \to \naturales,\quad f(a) =
+          \llave{lcll}{
+            2a   & \text{si} & a > 0    & \orange{\to\text{genera los }\naturales_{pares}} \\
+            1-2a & \text{si} & a \leq 0 & \orange{\to\text{genera los }\naturales_{impares}}
+          }
+        $$
+
+        La función es \textit{inyectiva} y \textit{sobreyectiva}.
+        $$
+          \cajaResultado{
+            f^{-1}(n) =
+            \llave{cl}{
+              \frac{n}{2}   & \text{si  $n$ es par}   \\
+              \frac{1-n}{2} & \text{si  $n$ es impar}
+            }
+          }
+        $$
 
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/Nicolasmendez04}{Nico Méndez \github}
+\end{aportes}

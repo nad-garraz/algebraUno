@@ -4,3 +4,5 @@
 *.log
 *ejercicio-suelto/
 *polynom-latex.pdf
+*synctex.gz
+.gitignore

@@ -111,21 +111,38 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
         $X \norelacion Z$
 
   \item
+
+        $A = \naturales \times \naturales,\, \relacion$ definida por $(a,b) \relacion (c,d) \sisolosi bc$ es múltiplo de $ad$.
+
+        \bigskip
+
         \textit{Reflexiva:}\par
-        $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$, se concluye que sí es reflexiva.
+        $(a,b) \relacion (a,b) \sisolosi ba = k\cdot ab$ con $k=1$.
+        Se concluye que $\relacion$ sí es \textit{reflexiva}.
 
         \textit{Simétrica:}
+        Contraejemplo:
         $$
           \llave{l}{
-            (a,b) \relacion (c,d) \sisolosi bc \igual{$\llamada1$} k\cdot ad \\
-            (c,d) \relacion (a,b) \sisolosi ad = h\cdot bc \igual{$\llamada1$} h\cdot k \cdot ad = k'ad,
+            (1,2) \relacion (3,3) \sisolosi 2 \cdot 3 \igual{def} k\cdot 1 \cdot 3 = 3 \cdot k \\
+            (3,3) \relacion (1,2) \sisolosi 1 \cdot 3 \igual{def} h \cdot 2 \cdot 3 = 6 \cdot h
           }
         $$
-        con  $k'=1$ se cumple la igualdad. La relación es simétrica.
+        La relación no es simétrica, dado que no hay un $h \en \enteros$ tal que $3 = 6 \cdot h$
+
         \textit{Anti-Simétrica:}\par
-        Si tomo $(a, b) = (4, 2)$ y $(c,d) = (16, 4)$, tengo que
-        $(a,b) \relacion (c,d)$ con $(a,b) \neq (c,d)$. Por lo tanto
-        la relación no es antisimétrica.
+        Contraejemplo:
+        Tomo dos valores distintos y veo que están relacionados
+        $$
+          \llave{l}{
+            (1,2) \relacion (2,4) \sisolosi 2 \cdot 2 \igual{def} k \cdot 1 \cdot 4 = 4 \cdot k \\
+            (2,4) \relacion (1,2) \sisolosi 4 \cdot 1 \igual{def} k \cdot 2 \cdot 2 = 4 \cdot h
+          }
+        $$
+
+        $(1,2) \relacion (2,4) \ytext (2,4) \relacion (1,2)$ con $(1,2) \neq (2,4)$.
+
+        Por lo tanto la relación $\relacion$ no es \textit{antisimétrica}.
 
         \textit{Transitiva:}
         $$
@@ -143,6 +160,8 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
             \magenta{be \igual{\Tilde} k' \cdot af}.
           }$$
         Se concluye que la relación es transitiva.
-        Con esos resultados se puede decir que $\relacion$ en $A$ es de \textit{equivalencia}.
+
+        Con esos resultados se puede decir que $\relacion$ en $A$ no es de \textit{equivalencia}
+        ni de \textit{orden}.
 
 \end{enumerate}

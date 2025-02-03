@@ -1,7 +1,187 @@
 \begin{enunciado}{\ejercicio}
-        Sea $f: \set{1,2,3,4} \to \set{1,2,3,4}$ una función.
-        Consideremos el conjunto de \textbf{todas} las funciones de $\set{1,2,3,4}$ en $\set{1,2,3,4,5,6,7,8}$, es decir,
-        $$
-        \F = \set{f: \set{1,2,3,4} \to \set{1,2,3,4,5,6,7,8}}
-        $$
+  Sea $f: \set{1,2,3,4} \to \set{1,2,3,4}$ una función.
+  Consideremos el conjunto de \textbf{todas} las funciones de $\set{1,2,3,4}$ en $\set{1,2,3,4,5,6,7,8}$, es decir,
+  $$
+    \F = \set{f: \set{1,2,3,4} \to \set{1,2,3,4,5,6,7,8}}
+  $$
+  y definimos sobre $\F$ la relación dada por
+  $$
+    g \relacion h \sisolosi g \circ f = h\circ f.
+  $$
+
+  \begin{enumerate}[label=\roman*)]
+    \item Probar  que $\relacion$ es una relación de equivalencia. ¿Es siempre antisimétrica (sin importar cómo sea $f$)?
+
+    \item Asumiendo que $f$ es sobreyectiva, calcular la clase de equivalencia de cada $g \en \F$.
+  \end{enumerate}
 \end{enunciado}
+
+\hyperlink{teoria-1:relaciones}{La teoría de estas importantes propiedades de relaciones está acá}.
+
+Seguramente vos no te confundís, porque sos un {\color{lightgray}{\textit{insoportable sabelotodo}}}, a diferencia mía pero:
+
+\red{\faIcon[regular]{exclamation-triangle}}\par
+Notar que la $f$ en la definición de la relación $\relacion$
+es una \textit{función específica}, siempre te devuelve algo en $\set{1,2,3,4}$. Es por eso que las composiciones que aparecen en la definición
+de $\relacion$ no explotan \faIcon[regular]{bomb} por los aires. Lo aclaro porque la \underline{$f$ que está en el conjunto $\F$ esa sí es una $f$ genérica}.\par
+La $f$ específica la pinto: $\blue{f}$
+
+\red{\faIcon[regular]{exclamation-triangle}}
+
+\begin{enumerate}[label=\roman*)]
+  \item Para ver si una relación es de equivalencia hay que probar que sea \textit{reflexiva, simétrica y transitiva}.
+        \begin{itemize}
+          \item[\textit{Reflexiva}:] Quiero ver que:
+                $$
+                  \paratodo g \en \F,\quad g \relacion g.
+                $$
+                Lo cual se cumple de forma trivial:
+                $$
+                  g \relacion g \Sii{def} g \circ \blue{f} = g \circ \blue{f}.
+                $$
+                Por lo que la relación $\relacion$ es reflexiva.
+
+          \item[\textit{Simétrica}:] Quiero ver que:
+                $$
+                  \paratodo g, h \en \F,\  \text{si } g \relacion h \entonces h \relacion g.
+                $$
+                También se cumple de forma trivial:
+                $$
+                  \ub{g \relacion h}{\text{\purple{hipótesis}}} \Sii{def} g \circ \blue{f} = h \circ \blue{f}
+                  \ytext
+                  h \relacion g \Sii{def} \ub{h \circ \blue{f} = g \circ \blue{f}}{\text{igual a la \purple{hipótesis}}}.
+                $$
+                Por lo que la relación $\relacion$ es simétrica.
+
+          \item[\textit{Transitiva}:] Quiero ver que:
+                $$
+                  \paratodo g,\, h,\, i \en \F,\quad  \text{si } g \relacion h \ytext h \relacion i \entonces g \relacion i.
+                $$
+                También se cumple de forma trivial:
+                $$
+                  \ub{g \relacion h \ytext h \relacion i}{\text{\purple{hipótesis}}}
+                  \Sii{def}
+                  \llave{c}{
+                    g \circ \blue{f} = \ub{h \circ \blue{f}}{\text{Hola}} \\
+                    \ytext                                                                         \\
+                    \ub{h \circ \blue{f}}{\text{qué tal?}} = i \circ \blue{f}
+                  }
+                  \entonces
+                  g \circ \blue{f} = i \circ \blue{f} \entonces g \relacion i.
+                $$
+                Por lo que la relación $\relacion$ es transitiva.
+
+                \bigskip
+
+                Dado que $\relacion$ resultó ser \textit{reflexiva, simétrica y transitiva} es una \underline{relación de
+                  equivalencia}.
+
+                \bigskip
+
+          \item[\textit{Antisimétrica}:] Quiero ver que:
+                $$
+                  \begin{array}{c}
+                    \paratodo g, h \en \F,\quad  \text{si } g \relacion h \ytext g \distinto h \entonces g \norelacion h
+                  \end{array}
+                $$
+
+                Proponemos dos funciones y las definimos completas:
+
+                $$
+                  \begin{array}{rcl}
+                    g(1) & = & 5 \\
+                    g(2) & = & 5 \\
+                    g(3) & = & 5 \\
+                    g(4) & = & 5
+                  \end{array}
+                  \ytext
+                  \begin{array}{rcl}
+                    h(1) & = & 5 \\
+                    h(2) & = & 6 \\
+                    h(3) & = & 6 \\
+                    h(4) & = & 6
+                  \end{array}
+                $$
+                Claramente $g \neq h$, la idea ahora es proponer que ¡$\blue{f}$ sea una función que me las relacione!
+                propongo:
+                $$
+                  \begin{array}{rcl}
+                    \blue{f}(1) & = & 1  \\
+                    \blue{f}(2) & = & 1  \\
+                    \blue{f}(3) & = & 1  \\
+                    \blue{f}(4) & = & 1.
+                  \end{array}
+                $$
+                Por lo tanto:
+                $$
+                  \begin{array}{rclcl}
+                    g \circ \blue{f}(1) & = & g(1) & = & 5  \\
+                    g \circ \blue{f}(2) & = & g(1) & = & 5  \\
+                    g \circ \blue{f}(3) & = & g(1) & = & 5  \\
+                    g \circ \blue{f}(4) & = & g(1) & = & 5.
+                  \end{array}
+                  \ytext
+                  \begin{array}{rclcl}
+                    h \circ \blue{f}(1) & = & h(1) & = & 5  \\
+                    h \circ \blue{f}(2) & = & h(1) & = & 5  \\
+                    h \circ \blue{f}(3) & = & h(1) & = & 5  \\
+                    h \circ \blue{f}(4) & = & h(1) & = & 5.
+                  \end{array}
+                $$
+
+                Y así llegamos a que la función no es antisimétrica, porque tenemos dos funciones \textit{\magenta{distintas}} que
+                cumplen ser simétricas, es decir:
+                $$
+                  g \relacion h = h \relacion g
+                $$
+
+                Por lo que la relación $\relacion$ no es antisimétrica.
+
+        \end{itemize}
+
+  \item
+        Si $f$ es \textit{sobreyectiva}:
+        $$
+          \blue{f} \text{ es sobreyectiva }
+          \Sii{def}
+          \im(\blue{f}) = \ub{\set{1,2,3,4}}{\purple{\text{codominio}}}
+          \Sii{def}
+          \paratodo y \en \set{1,2,3,4} \existe x \en \set{1,2,3,4} \text{ tal que } \blue{f(}x\blue{)} = y
+        $$
+
+        $$
+          \begin{array}{rcl}
+            g \circ \blue{f}(1) & = & g(y_1)  \\
+            g \circ \blue{f}(2) & = & g(y_2)  \\
+            g \circ \blue{f}(3) & = & g(y_3)  \\
+            g \circ \blue{f}(4) & = & g(y_4).
+          \end{array}
+          \ytext
+          \begin{array}{rcl}
+            h \circ \blue{f}(1) & = & h(y_1)  \\
+            h \circ \blue{f}(2) & = & h(y_2)  \\
+            h \circ \blue{f}(3) & = & h(y_3)  \\
+            h \circ \blue{f}(4) & = & h(y_4).
+          \end{array}
+        $$
+        Dado que \blue{f} es \textit{sobreyectiva}, los $\set{x_1, x_2, x_3, x_4}$ son todos distintos. Entonces para que una función $g$
+        esté relacionada con otra función $h$:
+        $$
+          g \relacion h
+          \sisolosi
+          (g \circ \blue{f})(x_i) = (h \circ \blue{f})(x_i)
+          \sisolosi
+          g(y_i) = h(y_i)
+          \sisolosi
+          g = h
+          \quad \text{ con } i \en \set{1,2,3,4}
+        $$
+        Por lo que cada función $g \en \F$ es una clase de un solo elemento:
+        $$
+          \clase{g} = \set{g}
+        $$
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -37,15 +37,20 @@
   \begin{tikzpicture}[scale=0.8, baseline=0]
     % Number line
     \draw[thick, <->,] (-4,0) -- (5,0);
-    % Interval
-    \draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
-    \draw[fill=green, color=green] (2,0.2) circle (3pt);
-    \draw[fill=green, color=green] (-2,0.2) circle (3pt);
-    \draw[<-, magenta, thick] (-3,0.1) -- (3,0.1);
-    \draw[-, green, thick] (-2,0.2) -- (2,0.2);
-    \node [color=magenta] at (3,-0.3) {3};
+    \draw[thick] (0,-0.5) -- (0,0.6);
+    \node[color=black] at (0,-0.7) {0};
+    % Intervals
+	% Set A
+    \draw[fill=magenta, color=magenta] (3,0.3) circle (3pt);
+    \draw[->, magenta, thick] (3,0.3) -- (5,0.3);
+    \node[color=magenta] at (3,-0.3) {3};
+	%Set B
+    \draw[fill=green, color=green] (2,0.3) circle (3pt);
+    \draw[fill=green, color=green] (-2,0.3) circle (3pt);
+    \draw[-, green, thick] (-2,0.3) -- (2,0.3);
     \node[color=green] at (2,-0.3) {2};
     \node[color=green] at (-2,-0.3) {-2};
+
   \end{tikzpicture}
 }
 
@@ -218,12 +223,15 @@
           \item $\paratodo n \en \naturales \talque \existe m \en \naturales, m \leq n$.\par
                 La proposición es verdadera, el único $m \en \naturales$ que cumple eso es el $m = 1$.
 
-          \item $\existe x \en \reales,\, x \leq 3 \entonces x^2 \leq 4$.\par
-                La proposición es falsa. Dado dos conjunto:\par
+          \item $\existe x \en \reales,\, x > 3 \land x^2 \leq 4$.\par          		
+                La proposición es falsa. El nuevo conjunto propuesto es vacío.\par
                 \[
                   \llaves{c}{
-                    \magenta{A = \set{x \en \reales \talque x \leq 3}} \par
-                    \green{B = \set{x \en \reales \talque x^2 \leq 2}}
+                    \magenta{A = \set{x \en \reales \talque x > 3}} 
+                    \\
+					\ytext
+					\\	
+                    \green{B = \set{x \en \reales \talque |x| \leq 2}}
                   } \to \doceiiE
                 \]
 

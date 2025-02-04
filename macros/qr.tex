@@ -7,25 +7,40 @@
 \thispagestyle{empty}
 
 \vspace*{\fill}
+
 \noindent\makebox[\textwidth]{
   \begin{minipage}{0.7\textwidth}
     \centering
 
-    El repo en \href{\dirRepo}{github\github} para
-    descargar las guías con los últimos updates.\par\medskip
+    {\LARGE
+      Esta Guía \guia\ que tenés se actualizó por última vez:
 
-    \qrWeb{\dirRepo}
+      \red{\updateDos}
+
+      Escaneá el QR para bajarte (quizás) una versión
+      más nueva:
+      \par
+
+      \bigskip
+
+      Guía \guia \par\medskip
+    }
+    \qrcode[height=4cm]{\dirGuia{\guia}}
     \vspace{2cm}
 
-    La Guía \guia\ se actualizó por última vez: \red{{\update}}\par\bigskip
-    Guía \guia \par\medskip
-    \qrWeb{\dirGuia{\guia}}
+    { \Large
+      El resto de las guías repo en \href{\dirRepo}{github\github} para
+      descargar las guías con los últimos updates.\par\medskip
+    }
+    \qrcode[height=4cm]{\dirRepo}
     \vspace{2cm}
 
-
-    Si querés mandar un ejercicio o avisar de algún error,
-    lo más fácil es por \href{\dirTelegram}{Telegram \faIcon{telegram}}.\par\medskip
-    \qrWeb{\dirTelegram}
+    { \Large
+      Si querés mandar un ejercicio o avisar de algún error,
+      lo más fácil es por \href{\dirTelegram}{Telegram \faIcon{telegram}}.\par\medskip
+    }
+    \qrcode[height=4cm]{\dirTelegram}
   \end{minipage}
 }
+
 \vspace*{\fill}

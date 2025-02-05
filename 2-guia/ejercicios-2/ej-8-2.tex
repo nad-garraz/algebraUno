@@ -1,35 +1,103 @@
 \begin{enunciado}{\ejercicio}
-Sea $a,\, b \en \reales$.
-        Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b) \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$.
-        Deducir la fórmula de la serie geométrica: para todo
-        $a \distinto 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.
+  Sea $a,\, b \en \reales$.
+  Probar que para todo $n \en \naturales,\, a^n - b^n = (a-b)
+    \sumatoria{i = 1}{n}a^{i-1}b^{n-i}$.
+  Deducir la fórmula de la serie geométrica: para todo
+  $a \distinto 1,\, \sumatoria{i = 0}{n}a^i = \frac{a^{n+1} - 1}{a-1}$.
 \end{enunciado}
 
-$\llave{ l }{
-		\text{Primer paso: } n = 1 (a-b) \sumatoria{1}{1} a^{i-1} \cdot b^{1-1} = a - b = a^1 - b^1 \Tilde\\
-		\text{Paso inductivo: } n = k  a^k - b^k = (a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} \entonces
-        a^{k+1} - b^{k+1} \igual{?} (a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i}\\
-		\llave{l}{
-			(a-b) \sumatoria{i = 1}{k+1} a^{i-1} \cdot b^{k+1-i} =
-			(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot \underbrace{b^{k+1-i}}_{b\cdot b^{k-i}} +
-			\kmasuno{
-				(a - b) a^k \cdot b^{k+1-(k+1)}
-			} = \\
-			b \cdot
-			\HI{
-				(a-b) \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i}
-        } + (a - b) a^k
-        \igual{HI}
-        b \cdot a^k - b^k + (a - b) a^k = a^{k+1} - b^{k+1} \Tilde
-		}\\
-	}$\\
-Para deducir la fórmula de la serie geométrica $b = 1 \to (a-1) \sumatoria{i=1}{n} a^{i-1} = a^n - 1 \to\\
-	\llave{ l }{
-		(a-1) \sumatoria{1}{n} a^{i-1} = 
-        (a-1) \cdot (1 + a + a^2 + \cdots + a^{n-1})  = a^n - 1
-        \flecha{multiplico por $a$ y}[divido por $(a - 1)$ M.A.M.]\\
-		\sumatoria{1}{n} a^i = a + a^2 + \cdots + a^n  = \frac{a^{n+1} - a}{a-1}
-        \flecha{sumo un $1$}[M.A.M.]
-		\sumatoria{\magenta{i = 0}}{n} a^i = 1 + a + a^2 + \cdots + a^n   = \frac{a^n - a}{a-1} + 1 \to\\
-		\boxed{ \frac{a^n + 1}{a-1} =  \sumatoria{i = 0}{n} a^i  }
-	}$
+Quiero probar por inducción:
+$$
+  p(n) : a^n - b^n = (a-b) \sumatoria{i=1}{n} a^{i-1} b^{n-i} \quad \paratodo n \en \naturales
+$$
+
+\textit{Caso base:}
+$$
+  p(\blue{1}) : (a^{\blue{1}} - b^{\blue{1}})
+  \sumatoria{i = 1}{\blue{1}} a^{i-1} \cdot b^{\blue{1}-i} =
+  a - b = a^1 - b^1
+$$
+Resulta que el \textit{caso base} es verdadero.
+
+\medskip
+
+\textit{Paso inductivo:}
+
+Asumo como verdadero para algún $k \en \enteros$:
+$$
+  p(\blue{k}) :  \ub{
+    a^{\blue{k}} - b^{\blue{k}} = (a - b) \sumatoria{i = 1}{\blue{k}} a^{i-1} \cdot b^{\blue{k}-i}
+  }{\purple{\text{hipótesis inductiva}}}
+$$
+
+y quiero probar que:
+
+$$
+  p(\blue{k+1}) : a^{\blue{k+1}} - b^{\blue{k+1}} \igual{?} (a - b) \sumatoria{i = 1}{\blue{k+1}} a^{i-1} \cdot b^{\blue{k+1}-i}
+$$
+
+Arranco por el paso $\blue{k+1}$ y busco de usar la \purple{hipótesis inductiva} para probar lo que quiero:
+
+$$
+  (a - b) \sumatoria{i = 1}{\blue{k+1}} a^{i-1} \cdot b^{\blue{k+1}-i}
+  \igual{\red{!!}}
+  \blue{b} \cdot (a - b) \sumatoria{i = 1}{\blue{k+1}} a^{i-1} \cdot b^{\blue{k} - i}
+  \igual{\red{!}}
+  \blue{b} \cdot (a - b) \left(
+  \sumatoria{i = 1}{k} a^{i-1} \cdot b^{k-i} +
+  a^k \cdot b^{\cyan{-1}}
+  \right)
+  \igual{$\llamada1$}
+$$
+En el \red{!!} hice un factor común y en el \red{!} el truquito de separar un término de la sumatoria.
+Acomodo la expresión:
+$$
+  \igual{$\llamada1$}
+  \blue{b} \cdot (a - b) \sumatoria{i = 1}{\blue{k+1}} a^{i-1} \cdot b^{\blue{k} - i} +
+  (a^{k+1}b^2 - a^k b^2)
+  \igual{\purple{HI}}
+  \blue{b} \cdot (\purple{a^k - b^k}) + (a^{k+1} - a^k b) = a^{k+1} - b^{k+1}
+$$
+
+Por lo que $p(k+1)$ es verdadero.
+
+\bigskip
+
+Como $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas, porque principio de inducción $p(n)$ también lo
+es $\paratodo n \en \naturales$.
+
+\bigskip
+
+Para deducir la fórmula de la serie geométrica pongo $b = 1$ en la expresión original:
+$$
+  a^n - 1 =
+  (a - \magenta{1}) \sumatoria{i=1}{n} a^{i-1} \cdot \magenta{1}
+  \Sii{$a\neq 1$}
+  \frac{a^n - 1}{a-1} = \sumatoria{i=1}{n} a^{i-1}
+$$
+
+Multiplico por $\magenta{a}$ miembro a miembro:
+$$
+  \magenta{a} \cdot \frac{a^n - 1}{a-1} = \magenta{a} \cdot \sumatoria{i=1}{n} a^{i-1}
+  \Sii{\red{!}}
+  \frac{a^{n+1} - a}{a-1} = \sumatoria{i=1}{n} a^{i}
+  \igual{\red{!!}}
+  \red{-1} + \sumatoria{i = \red{0}}{n}a^i
+$$
+Por lo tanto:
+$$
+  \frac{a^{n+1} - a}{a-1}
+  =
+  \red{-1} + \sumatoria{i = \red{0}}{n}a^i
+  \Sii{\red{!}}
+  \cajaResultado{
+    \displaystyle
+    \frac{a^{n+1} - 1}{a-1} =
+    \sumatoria{i = 0}{n} a^i
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
+

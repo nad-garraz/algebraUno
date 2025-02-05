@@ -1,1 +1,94 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Enunciar y demostrar criterios de divisibilidad por 8 y por 9.
+\end{enunciado}
+
+\begin{itemize}
+    \item\textbf{Criterio de divisibilidad por 8:}
+    
+    Sea $a = (r_nr_{n-1} \dots r_3 r_2  r_1  r_0)_{10}$ el desarrollo decimal de $a$, con $0 \leq r_k \leq 9$.
+    Entonces
+
+    $$
+    8 \divideA a
+    \sisolosi
+    8 \divideA (r_2r_1r_0)_{10}
+    $$
+
+    Es decir, $a$ es divisible por 8 si y solo si el número formado por las 3 últimas cifras de $a$ es divisible por 8.
+
+    \textbf{Demostración:}
+
+    Observemos que $\congruencia{10^3}{0}{8}$. Probemos entonces por inducción que $ P(m): \congruencia{10^m}{0}{8}, \ m \geq 3$
+
+    \begin{itemize}
+
+        \item \textbf{Caso Base}: $P(3)$
+    
+
+        $\congruencia{10^3}{0}{8} \Tilde$
+    
+        \item 
+        \textbf{Paso inductivo}: $P(m) \entonces P(m+1)$
+
+        
+        $$
+        10^{m+1} \equiv 10^m \cdot 10 \conga{\textbf{HI}} 0 \cdot 10 \equiv 0 \pmod 8
+        $$
+    \end{itemize}
+
+    Entonces, $P(m)$ es verdadera para todo $m \geq 3$
+
+    Luego, como $a = 10^{n}r_n+ 10^{n-1}r_{n-1} + \dots + 10^{3}r_3 + 10^{2}r_2 + 10r_1 + r_0$, tomando congruencia
+    módulo 8 tenemos que
+
+    $a = 10^{n}r_n+ 10^{n-1}r_{n-1} + \dots + 10^{3}r_3 + 10^{2}r_2 + 10r_1 + r_0 \equiv 0 + 0 + \dots 0 + 10^{2}r_2 + 10r_1 + r_0 \pmod 8 $
+
+    Luego,
+
+    $$
+    8 \divideA a 
+    \sisolosi
+    \congruencia{a}{0}{8}
+    \sisolosi
+    \congruencia{10^{2}r_2 + 10r_1 + r_0}{0}{8}
+    \sisolosi
+    \congruencia{(r_2r_1r_0)_{10}}{0}{8}
+    \sisolosi
+    8 \divideA (r_2r_1r_0)_{10}
+    $$
+
+    \item\textbf{Criterio de divisibilidad por 9:}
+    
+    Sea $a = (r_nr_{n-1} \dots r_1  r_0)_{10}$ el desarrollo decimal de $a$, con $0 \leq r_k \leq 9$.
+    Entonces
+
+    $$
+    9 \divideA a
+    \sisolosi
+    9 \divideA r_n + r_{n-1} + \dots + r_1 + r_0
+    $$
+
+    Es decir, $a$ es divisible por 9 si y solo si la suma de los dígitos de $a$ es divisible por 9.
+
+    \textbf{Demostración:}
+
+    Observemos que $\congruencia{10}{1}{9}$, con lo que $\congruencia{10^m}{1}{9}, \ m \in \naturales_0$
+
+    Luego, como $a = 10^{n}r_n+ 10^{n-1}r_{n-1} + \dots + 10r_1 + r_0$, tomando congruencia
+    módulo 9 tenemos que
+
+    $a = 10^{n}r_n+ 10^{n-1}r_{n-1} + \dots + 10r_1 + r_0 \equiv r_n + r_{n-1} + \dots + r_1 + r_0 \pmod 9 $
+
+    Luego,
+
+    $$
+    9 \divideA a 
+    \sisolosi
+    \congruencia{a}{0}{9}
+    \sisolosi
+    \congruencia{r_n + r_{n-1} + \dots + r_1 + r_0}{0}{9}
+    \sisolosi
+    9 \divideA r_n + r_{n-1} + \dots r_1 + r_0
+    $$
+
+\end{itemize}

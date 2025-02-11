@@ -5,37 +5,37 @@
 \definecolor{color4}{RGB}{128,128,0}
 \definecolor{color5}{RGB}{0,128,128}
 \definecolor{color6}{RGB}{128,0,128}
-\newcommand{\drawConnectedLines}[4]{
+
+\newcommand{\graficosEjercicio}[3]{
   % Param:
-  % #1: title number (for the triangle)
-  % #2: number of points on first line (n)
-  % #3: number of points on second line (m)
-  % #4: scale factor (optional, default 0.7)
-  \begin{tikzpicture}[scale=#4]
+  % #1: titulo
+  % #2: n
+  % #3: m
+  \begin{tikzpicture}[scale=0.7]
     % Title and labels
     \node at (1,3.1) {\#$\triangle$ = #1};
     \draw (0,0) -- (4,4) node[above]{\blue{$n=#2$}};
     \draw (2,0) node[below]{\color{red!80!black}$m=#3$} -- (6,4);
 
-    % Calculate spacing for points
+    % Calculate espacioEntreVertices for points
 
     \ifthenelse {\numexpr#2 = 1\relax}
     {
-      \pgfmathsetmacro{\spacing}{2.2}
+      \pgfmathsetmacro{\espacioEntreVertices}{2.2}
     }
     {
-      \pgfmathsetmacro{\spacing}{4/#2}
+      \pgfmathsetmacro{\espacioEntreVertices}{4/#2}
     }
 
     % Points on first line
     \foreach \i in {0,...,\numexpr#2-1\relax} {
-        \pgfmathsetmacro{\y}{0.5+\spacing*\i}
+        \pgfmathsetmacro{\y}{0.5+\espacioEntreVertices*\i}
         \node[circle, fill=Cerulean, inner sep=2pt] (A\i) at (\y,\y) {};
       }
 
     % Points on second line
     \foreach \i in {0,...,\numexpr#3-1\relax} {
-        \pgfmathsetmacro{\y}{0.8+0.9*\spacing*\i}
+        \pgfmathsetmacro{\y}{0.8+0.9*\espacioEntreVertices*\i}
         \node[circle, fill=red!80!black, inner sep=2pt] (B\i) at ({\y+2},\y) {};
       }
 
@@ -58,16 +58,16 @@
 
 Haciendo para algunos casos a mano se tiene algo así:
 $$
-  \drawConnectedLines{1}{1}{2}{0.7}
+  \graficosEjercicio{1}{1}{2}
   \qquad
-  \drawConnectedLines{3}{3}{1}{0.7}
+  \graficosEjercicio{3}{3}{1}
   \qquad
-  \drawConnectedLines{4}{2}{2}{0.7}
+  \graficosEjercicio{4}{2}{2}
 $$
 $$
-  \drawConnectedLines{9}{3}{2}{0.7}
+  \graficosEjercicio{9}{3}{2}
   \qquad
-  \drawConnectedLines{18}{3}{3}{0.7}
+  \graficosEjercicio{18}{3}{3}
 $$
 Para armar un triángulo con 3 vértices \href{\mindExplosion}{\faIcon[regular]{meh-rolling-eyes}},
 tengo que agarrar 1 vértice de una recta y 2 vértices de la otra.

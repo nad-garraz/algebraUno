@@ -5,107 +5,46 @@
 \definecolor{color4}{RGB}{128,128,0}
 \definecolor{color5}{RGB}{0,128,128}
 \definecolor{color6}{RGB}{128,0,128}
-\def\rectasi{
-  \begin{tikzpicture}[scale=0.7]
+\newcommand{\drawConnectedLines}[4]{
+  % Param:
+  % #1: title number (for the triangle)
+  % #2: number of points on first line (n)
+  % #3: number of points on second line (m)
+  % #4: scale factor (optional, default 0.7)
+  \begin{tikzpicture}[scale=#4]
+    % Title and labels
+    \node at (1,3.1) {\#$\triangle$ = #1};
+    \draw (0,0) -- (4,4) node[above]{\blue{$n=#2$}};
+    \draw (2,0) node[below]{\color{red!80!black}$m=#3$} -- (6,4);
 
-    \node at (2,3.1) {"1 $\triangle$"};
-    % Draw the two parallel lines
-    \draw (0,0) -- (4,4) node[above]{$n=2$};
-    \draw (2,0) node[below]{$m=1$} -- (6,4) ;
+    % Calculate spacing for points
 
-    % Points on first line with nodes
-    \foreach \y [count=\i] in {0.8,3.2} {
+    \ifthenelse {\numexpr#2 = 1\relax}
+    {
+      \pgfmathsetmacro{\spacing}{2.2}
+    }
+    {
+      \pgfmathsetmacro{\spacing}{4/#2}
+    }
+
+    % Points on first line
+    \foreach \i in {0,...,\numexpr#2-1\relax} {
+        \pgfmathsetmacro{\y}{0.5+\spacing*\i}
         \node[circle, fill=Cerulean, inner sep=2pt] (A\i) at (\y,\y) {};
       }
 
-    % Points on second line with nodes
-    \foreach \y [count=\i] in {2} {
+    % Points on second line
+    \foreach \i in {0,...,\numexpr#3-1\relax} {
+        \pgfmathsetmacro{\y}{0.8+0.9*\spacing*\i}
         \node[circle, fill=red!80!black, inner sep=2pt] (B\i) at ({\y+2},\y) {};
       }
 
-    % Connect all points between lines
-    \foreach \i [count=\k] in {1,2} {
-        \foreach \j in {1} {
-            \draw[color=color\k, thin] (A\i) -- (B\j);
-          }
-      }
-  \end{tikzpicture}
-}
-
-\def\rectasii{
-  \begin{tikzpicture}[scale=0.7]
-
-    \node at (2,3.1) {"3 $\triangle$"};
-    % Draw the two parallel lines
-    \draw (0,0) -- (4,4) node[above]{$n=3$};
-    \draw (2,0) node[below]{$m=1$} -- (6,4) ;
-
-    % Points on first line with nodes
-    \foreach \y [count=\i] in {0.8,2,3.2} {
-        \node[circle, fill=Cerulean, inner sep=2pt] (A\i) at (\y,\y) {};
-      }
-
-    % Points on second line with nodes
-    \foreach \y [count=\i] in {2} {
-        \node[circle, fill=red!80!black, inner sep=2pt] (B\i) at ({\y+2},\y) {};
-      }
-
-    % Connect all points between lines
-    \foreach \i [count=\k] in {1,2,3} {
-        \foreach \j in {1} {
-            \draw[color=color\k, thin] (A\i) -- (B\j);
-          }
-      }
-  \end{tikzpicture}
-}
-
-\def\rectasiii{
-  \begin{tikzpicture}[scale=0.7]
-    \node at (2,3.1) {"4 $\triangle$"};
-
-    \draw (0,0) -- (4,4) node[above]{$n=2$};
-    \draw (2,0) node[below]{$m=2$} -- (6,4) ;
-
-    % Points on first line with nodes
-    \foreach \y [count=\i] in {0.8,3.2} {
-        \node[circle, fill=Cerulean, inner sep=2pt] (A\i) at (\y,\y) {};
-      }
-
-    % Points on second line with nodes
-    \foreach \y [count=\i] in {0.8,3.2} {
-        \node[circle, fill=red!80!black, inner sep=2pt] (B\i) at ({\y+2},\y) {};
-      }
-
-    % Connect all points between lines
-    \foreach \i [count=\k] in {1,2,3} {
-        \foreach \j in {1,2} {
-            \draw[color=color\k, thin] (A\i) -- (B\j);
-          }
-      }
-  \end{tikzpicture}
-}
-
-\def\rectasiv{
-  \begin{tikzpicture}[scale=0.7]
-    \node at (2,3.1) {"9 $\triangle$"};
-
-    \draw (0,0) -- (4,4) node[above]{$n=3$};
-    \draw (2,0) node[below]{$m=2$} -- (6,4) ;
-
-    % Points on first line with nodes
-    \foreach \y [count=\i] in {0.8,2,3.2} {
-        \node[circle, fill=Cerulean, inner sep=2pt] (A\i) at (\y,\y) {};
-      }
-
-    % Points on second line with nodes
-    \foreach \y [count=\i] in {0.8,2} {
-        \node[circle, fill=red!80!black, inner sep=2pt] (B\i) at ({\y+2},\y) {};
-      }
-
-    % Connect all points between lines
-    \foreach \i [count=\k] in {1,2,3} {
-        \foreach \j in {1,2} {
-            \draw[color=color\k, thin] (A\i) -- (B\j);
+    % Connect points with different colors
+    \foreach \i [count=\k] in {0,...,\numexpr#2-1\relax} {
+        \foreach \j in {0,...,\numexpr#3-1\relax} {
+            \pgfmathsetmacro{\colorindex}{mod(\i,3)}
+            \draw[color=color\k, thin]
+            (A\i) -- (B\j);
           }
       }
   \end{tikzpicture}
@@ -113,12 +52,22 @@
 
 \begin{enunciado}{\ejercicio}
   Dadas dos rectas paralelas en el plano, se marcan $n$ puntos distintos sobre una y $m$ puntos distintos sobre la otra.
+  No van a repetirse nunca.
   ¿Cuántos triángulos se pueden formar con vértices en esos puntos?
 \end{enunciado}
 
 Haciendo para algunos casos a mano se tiene algo así:
 $$
-  \rectasi \rectasii \rectasiii \rectasiv
+  \drawConnectedLines{1}{1}{2}{0.7}
+  \qquad
+  \drawConnectedLines{3}{3}{1}{0.7}
+  \qquad
+  \drawConnectedLines{4}{2}{2}{0.7}
+$$
+$$
+  \drawConnectedLines{9}{3}{2}{0.7}
+  \qquad
+  \drawConnectedLines{18}{3}{3}{0.7}
 $$
 Para armar un triángulo con 3 vértices \href{\mindExplosion}{\faIcon[regular]{meh-rolling-eyes}},
 tengo que agarrar 1 vértice de una recta y 2 vértices de la otra.
@@ -135,6 +84,7 @@ tengo que agarrar 1 vértice de una recta y 2 vértices de la otra.
         Es decir que tengo:
         $$
           \binom{n}{1}
+          \cdot
           \binom{m}{2}
           = \frac{n \cdot m \cdot (m - 1)}{2}
         $$
@@ -151,6 +101,7 @@ tengo que agarrar 1 vértice de una recta y 2 vértices de la otra.
         Es decir que tengo:
         $$
           \binom{m}{1}
+          \cdot
           \binom{n}{2}
           = \frac{m \cdot n \cdot (n - 1)}{2}
         $$

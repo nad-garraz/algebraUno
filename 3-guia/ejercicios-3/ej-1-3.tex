@@ -1,9 +1,23 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Dado el conjunto referencial $V = \set{n \en \naturales : n \text{ es múltiplo de } 15}$, determinar el cardinal del
+  complemento del subconjunto $A$ de $V$ definido por $A = \set{n \en V : n \geq 132}$.
+\end{enunciado}
 
-Dado el conjunto referencial $V = \set{n \en \naturales : n \text{ es múltiplo de } 15}$, determinar el cardinal del\\
-complemento del subconjunto $A$ de $V$ definido por $A = \set{n \en V : n \geq 132}$.\\
+Se tiene al complemento:
+$$
+  A^c  = \set{n \en V : n < 132}.
+$$
 
-Se tiene que $A^c = \set{n \en V : n \ngeq 132} = \set{n \en V : n < 132}$.\\
-Así, $\#A^c = $ todos los múltiplos de 15 menores a 132. Lo calculo sacando la parte entera de $\frac{132}{15}$, o sea:\\
+Así los $n \en \naturales$ tales que $n = k \cdot 15$ con $k\en \enteros$ y  $n < 132$:
+$$
+  15 \cdot k < 132 \sii k \en \set{1,2,3,4,5,6,7,8}
+$$
 
-$\#A^c = \lfloor \frac{132}{15} \rfloor = \lfloor 8,8 \rfloor = 8$
+El cardinal pedido es:
+$$
+  \#A^c = 8
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

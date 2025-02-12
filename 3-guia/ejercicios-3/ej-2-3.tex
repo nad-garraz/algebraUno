@@ -1,29 +1,57 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  ¿Cuántos números naturales hay menores o iguales que 1000 que no son ni múltiplos
+  de 3 ni múltiplos de 5?
+\end{enunciado}
 
-¿Cuántos números naturales hay menores o iguales que 1000 que no son ni múltiplos\\
-de 3 ni múltiplos de 5?\\
+Defino un conjunto referencial:
+$$
+  V = \set{n \en \naturales : n \leq 1000},$$
+y dos conjuntos
+$$
+  A = \set{n \en V : n \text{ no es múltiplo de } 3}
+  \ytext
+  B = \set{n \en V : n \text{ no es múltiplo de } 5}.
+$$
 
-Defino un conjunto referencial $V = \set{n \en \naturales : n \leq 1000}$, y dos conjuntos\\
-$A = \set{n \en V : n \text{ no es múltiplo de } 3}$, $B = \set{n \en V : n \text{ no es múltiplo de } 5}$.\\
+Búsco calcular $\#(A \inter B)$:
 
-Búsco calcular $\#(A \inter B)$\\
-
-Pero $
-    \#(A \inter B) = \#[V - (A \inter B)^c] = \#(V - A^c \union B^c) = \#V - \#(A^c \union B^c) = \#V - [\#A^c + \#B^c - \#(A^c \inter B^c)]
-$\\
-Donde 
-$
-    A^c = \set{n \en V : n \text{ es múltiplo de } 3},
-    B^c = \set{n \en V : n \text{ es múltiplo de } 5},\\
+$$
+  \#(A \inter B)
+  \igual{def}
+  \#[V - (A \inter B)^c]
+  \igual{\red{!}}
+  \#(V - A^c \union B^c) = \#V - \#(A^c \union B^c)
+  \igual{\red{!}}
+  \#V - [\#A^c + \#B^c - \#(A^c \inter B^c)]\llamada1
+$$
+Donde
+$$
+  \begin{array}{l}
+    A^c = \set{n \en V : n \text{ es múltiplo de } 3}, \\
+    B^c = \set{n \en V : n \text{ es múltiplo de } 5}, \\
     (A^c \inter B^c) = \set{n \en V : n \text{ es múltiplo de } 15}
-$\\
-
+  \end{array}
+$$
 Calculo sus cardinales:
-
-\begin{itemize}
+\begin{multicols}{3}
+  \begin{itemize}
     \item $\#A^c = \lfloor \frac{1000}{3} \rfloor = 333$
     \item $\#B^c = \lfloor \frac{1000}{5} \rfloor = 200$
     \item $\#(A^c \inter B^c) = \lfloor \frac{1000}{15} \rfloor = 66$
-\end{itemize}
+  \end{itemize}
+\end{multicols}
 
-Así, $\#(A \inter B) = \#V - [\#A^c + \#B^c - \#(A^c \inter B^c)] = 1000 - 333 - 200 + 66 = 533$
+Finalmente:
+$$
+  \cajaResultado{
+  \#(A \inter B)
+  \igual{$\llamada1$}
+  \#V - [\#A^c + \#B^c - \#(A^c \inter B^c)]
+  =
+  1000 - (333 + 200 - 66) = 533
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

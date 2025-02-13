@@ -1,1 +1,95 @@
-\ejercicio\hacer
+\def\Pedro{\href{https://www.youtube.com/watch?v=RXKabdUBiWM}{Pedro}\xspace}
+
+\begin{enunciado}{\ejercicio}
+  Pedro compró 14 unidades de fruta: 6 duraznos, 2 naranjas, 1 banana, 1 pera, 1 higo, 1 kiwi, 1 ciruela, 1 mandarina.
+  Su propósito es comer una fruta en cada desayuno y merienda. Determinar de cuántas formas puede organizar sus refrigerios de
+  esa semana si no quiere consumir más de una \orange{naranja} por día.
+\end{enunciado}
+
+\Pedro tiene que elegir 2 frutas por día, una para desayunar y otra para merendar.
+Pero tiene alto mambo con las \orange{naranjas}. Vamos a ver como calcular que el \textit{infeliz} no tenga una sobredosis de
+\textit{ácido ascórbico} de dos formas muy parecidas:
+
+\begin{enumerate}[label=\orange{\faIcon{lemon}$_\arabic*$)}]
+
+  \item
+
+        Hay \orange{14 opciones} donde podría comer una naranja:
+        $$
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline \rowcolor{green!8}
+                            & \text{lunes}              & \text{martes} & \text{miércoles} & \text{jueves} & \text{viernes} & \text{sábado} & \text{domingo} \\ \hline
+            \text{desayuno} & $\orange{\faIcon{lemon}}$ & 1             & 3                & 5             & 7              & 9             & 11             \\ \hline
+            \text{merienda} & \times\red{!}             & 2             & 4                & 6             & 8              & 10            & 12             \\\hline
+          \end{array}
+        $$
+
+        Dado que solo quiere consumir una \orange{naranja} por día luego le quedarían \orange{12 opciones} \underline{válidas}, por ejemplo:
+
+        $$
+          \begin{array}{|c|c|c|c|c|c|c|c|}
+            \hline \rowcolor{green!8}
+                            & \text{lunes}              & \text{martes} & \text{miércoles} & \text{jueves}             & \text{viernes} & \text{sábado} & \text{domingo} \\ \hline
+            \text{desayuno} & $\orange{\faIcon{lemon}}$ &               &                  &                           &                &               &                \\ \hline
+            \text{merienda} & \times\red{!}             &               &                  & $\orange{\faIcon{lemon}}$ &                &               &                \\\hline
+          \end{array}
+        $$
+        Peeeeeero, ojo que estamos contando el doble, porque el razonamiento sirve para dos objetos \underline{distintos},
+        por eso hay que dividir entre 2. A \Pedro no le importa cual de las 2 naranjas:
+        $$
+          \frac{14 \cdot 12}{2} = 84 \llamada1
+        $$
+
+  \item
+        También se puede pensar como que tengo que poner 2 objetos repetidos en 14 lugares y eso de repetidos nos hace dividir por el factorial ¿O no?:
+        $$
+          \frac{\binom{14}{2}}{2!} = 91
+        $$
+        Peeeeeero, ojo que ahora estamos contando también cuando \Pedro se clava dos jugosas \orange{naranjas} el mismo día. Dado que hay 7 opciones para ubicar
+        las \orange{naranjas} juntas, es decir, poner 2 \orange{naranjas} el mismo día, hay que \textit{restar} esas \red{7} opciones:
+        $$
+          \frac{\binom{14}{2}}{2!} \red{- 7} = 84 \llamada1
+        $$
+\end{enumerate}
+
+Lo que queda por hacer tiene menos rosca, es cuestión de ir ocupando los lugares que quedan con cada fruta:
+
+Quedan \magenta{12 lugares válidos}. Formas de ubicar 6 duraznos:
+$$
+  \binom{12}{6} = \frac{12!}{6! \cdot 6!} = \orange{924}
+$$
+Quedan \magenta{6 lugares válidos}. Formas de ubicar 1 banana:
+$$
+  \binom{6}{1} = \orange{6}
+$$
+Quedan \magenta{5 lugares válidos}. Formas de ubicar 1 pera:
+$$
+  \binom{5}{1} = \orange{5}
+$$
+Quedan \magenta{4 lugares válidos}. Formas de ubicar 1 higo:
+$$
+  \binom{4}{1} = \orange{4}
+$$
+Quedan \magenta{3 lugares válidos}. Formas de ubicar 1 kiwi:
+$$
+  \binom{3}{1} = \orange{3}
+$$
+Quedan \magenta{2 lugares válidos}. Formas de ubicar 1 ciruela:
+$$
+  \binom{2}{1} = \orange{2}
+$$
+Quedan \magenta{1 lugar válido}. Formas de ubicar 1 mandarina:
+$$
+  \binom{1}{1} = \orange{1}
+$$
+
+Juntando todo, las formas que tendrá de balancear su ingesta frutífera:
+$$
+  \cajaResultado{
+    84 \cdot 924 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 55.883.520
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

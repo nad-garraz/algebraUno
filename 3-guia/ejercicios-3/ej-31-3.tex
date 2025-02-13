@@ -1,30 +1,48 @@
-\ejercicio
-Sean $X = \set{n \en \naturales : n\leq 100}$ y $A = \set{1}$ ¿Cuántos subconjuntos $B\subseteq X$ satisfacen que el conjunto $A \triangle B$
-tiene a lo sumo 2 elementos?
+\begin{enunciado}{\ejercicio}
+  Sean $X = \set{n \en \naturales : n\leq 100}$ y $A = \set{1}$
+  ¿Cuántos subconjuntos $B\subseteq X$ satisfacen que el conjunto $A \triangle B$
+  tiene a lo sumo 2 elementos?
+\end{enunciado}
+$$
+  ...\\
+  \textit{a lo sumo = como mucho = como máximo}\\
+$$
+$$
+  \textit{al menos =  por poco = como mínimo}\\
+  ...\\
+$$
 
-\separadorCorto
-...\\
-\textit{a lo sumo = como mucho = como máximo}\\
-\textit{al menos =  por poco = como mínimo}\\
-...\\
+La diferencia simétrica es la unión de los elementos no comunes
+a los conjuntos $A$ y $B$. Si me piden que:
 
-La diferencia simétrica es la unión de los elementos no comunes a los conjuntos $A$ y $B$. Si me piden que:\\
-$\#( A \triangle B) \leq 2 \entonces B =
-	\llave{ccl}{
-		1 \en B & \to & \#B \leq 3
-		\flecha{Busco conjuntos}[de la forma]
-		\llave{lll}{
-			\underline{1}\; \_ \;\_ &\flecha{el 1 está usado}[quedan  99. Elijo 2.] &   \binom{99}{2}\\
-			\underline{1} \;\_      &\flecha{el 1 está usado}[quedan  99. Elijo 1.] &   \binom{99}{1}\\
-			\underline{1}           &\flecha{el 1 está usado}[quedan  99. Elijo 0.] &  \binom{99}{0}
-		}\\
-		1 \notin B & \to & \#B \leq 1
-		\flecha{Busco conjuntos}[de la forma]
-		\llave{lll}{
-			\_ & \flecha{tengo 99 números para}[elegir \red{$1 \notin B$}. Elijo 1]     & \binom{99}{1}\\
-			\vacio & \flecha{tengo 99 números para}[elegir \red{$1 \notin B$}. Elijo 0] & \binom{99}{0}
-		}\\
-	}$
+$$
+  \#( A \triangle B) \leq 2 \entonces
+  \llave{ccl}{
+    \blue{1} \en B    & \entonces & 1\leq \#B \leq 3
+    \flecha{Conjuntos}[de la forma]
+    \llave{lll}{
+      \#B = 3 \to \set{\blue{1}; \text{\faIcon[regular]{grimace}}; \text{\faIcon[regular]{smile-wink}} } & \flecha{el 1 está usado, de}[99 números elijo 2] & \binom{99}{2} \\
+      \#B = 2 \to \set{\blue{1} ; \text{\faIcon[regular]{grimace}} }                       & \flecha{el 1 está usado, de}[99 números elijo 1] & \binom{99}{1} \\
+      \#B = 1 \to \set{\blue{1}}                                                 & \flecha{el 1 está usado, de}[99 números elijo 0] & \binom{99}{0}
+    }
+    \\
+    \\
+    \blue{1} \notin B & \entonces & 0\leq\#B \leq 1
+    \flecha{Conjuntos}[de la forma]
+    \llave{lll}{
+      \#B = 1 \to  \set{ \text{\faIcon[regular]{grimace}}} & \flecha{De 99 números para}[elegir \red{$1 \notin B$}. Elijo 1] & \binom{99}{1} \\
+      \#B = 0 \to \vacio                         & \flecha{De 99 números para}[elegir \red{$1 \notin B$}. Elijo 0] & \binom{99}{0}
+    }
+  }
+$$
 
-Por último habría un total de $ \binom{99}{2} + \binom{99}{1} + \binom{99}{0} +\binom{99}{1} + \binom{99}{0}$ subconjuntos $B \subseteq X$
-para cumplir lo pedido.
+Por último el total de subconjuntos $B \subseteq X$ que cumplen lo pedido sería:
+$$
+  \cajaResultado{
+    \binom{99}{2} + \binom{99}{1} + \binom{99}{0} +\binom{99}{1} + \binom{99}{0} = \binom{99}{2} + 200
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

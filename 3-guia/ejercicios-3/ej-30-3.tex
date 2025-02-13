@@ -1,20 +1,21 @@
-\ejercicio
-Sea $X = \set{1,2,3,4,5,\red{\cancelto{6}{5}},7,8,9,10}$, y sea $R$ la relación de equivalencia en $\partes(X)$ definida por:
-$A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.$\\
-¿Cuántos conjuntos $B \en \partes(X)$ de exactamente 5 elementos tiene la clase de equivalencia $\overline A $ de $A = \set{1,3,5}$?
-
-\separadorCorto
+\begin{enunciado}{\ejercicio}
+  Sea $X = \set{1,2,3,4,5,6,7,8,9,10}$, y sea $R$ la relación de equivalencia en $\partes(X)$ definida por:
+  $$
+    A \relacion B \sisolosi A \inter \set{1,2,3} = B \inter \set{1,2,3}.
+  $$
+  ¿Cuántos conjuntos $B \en \partes(X)$ de exactamente 5 elementos tiene la clase de equivalencia $\overline A $ de $A = \set{1,3,5}$?
+\end{enunciado}
 
 Como $A$ tiene al 1 y al 3, los elementos $B$, \textit{conjuntos en este caso}, pertenecientes a la clase $\overline A$
 deberían cumplir que si $B \subseteq \overline A \entonces
-	\llaves{cc}{
-		1 \en B&\\
-		3 \en B&\\
-		2 \notin B &\to \text{ si } 2 \en B \entonces A \cancel\relacion B
-	} $.\\
+  \llaves{cc}{
+    1 \en B&\\
+    3 \en B&\\
+    2 \notin B &\to \text{ si } 2 \en B \entonces A \cancel\relacion B
+  } $.\\
 Los conjuntos de 5 elementos serán de la forma:\\
 $\llave{c c c c c} % hay 5 en total
-	{
-		1 & 3 & \_ & \_ & \_   \\
-	} \flecha{5 elementos}[$ \inter \set{1,2,3} \igual{\checkmark} \set{1,3}$] \binom{7}{3} = 35$. Los 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
+  {
+    1 & 3 & \_ & \_ & \_ \\
+  } \flecha{5 elementos}[$ \inter \set{1,2,3} \igual{\checkmark} \set{1,3}$] \binom{7}{3} = 35$. Los 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
 \red{¿Es solo eso o interpreto mal la $\relacion$ u otra cosa?}

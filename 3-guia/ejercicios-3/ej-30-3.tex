@@ -6,16 +6,44 @@
   ¿Cuántos conjuntos $B \en \partes(X)$ de exactamente 5 elementos tiene la clase de equivalencia $\overline A $ de $A = \set{1,3,5}$?
 \end{enunciado}
 
-Como $A$ tiene al 1 y al 3, los elementos $B$, \textit{conjuntos en este caso}, pertenecientes a la clase $\overline A$
-deberían cumplir que si $B \subseteq \overline A \entonces
-  \llaves{cc}{
-    1 \en B&\\
-    3 \en B&\\
-    2 \notin B &\to \text{ si } 2 \en B \entonces A \cancel\relacion B
-  } $.\\
-Los conjuntos de 5 elementos serán de la forma:\\
-$\llave{c c c c c} % hay 5 en total
-  {
-    1 & 3 & \_ & \_ & \_ \\
-  } \flecha{5 elementos}[$ \inter \set{1,2,3} \igual{\checkmark} \set{1,3}$] \binom{7}{3} = 35$. Los 7 números usados son $\set{4,5,\red{6},7,8,9,10}$ \\
-\red{¿Es solo eso o interpreto mal la $\relacion$ u otra cosa?}
+Como $A = \set{1,3,5}$:
+$$
+  A \inter \set{1,2,3} = \set{1,3}.
+$$
+
+Los conjuntos $B \en \partes(X)$ que tienen $\#B = 5$ pertenecientes a la clase $\clase{A}$
+deberían cumplir:
+$$
+  B \subseteq \clase{A}
+  \entonces
+  1 \en B
+  \ytext
+  3 \en B
+  \ytext
+  2 \notin B,
+$$
+donde la última condición es necesaria, dado que si:
+$$
+  2 \en B
+  \entonces
+  2 \en (B \inter \set{1,2,3})
+  \entonces
+  A \norelacion B
+$$
+
+Con esta info, los conjuntos $B$ con $\#B = 5$ serán de la forma:
+$$
+  B = \set{ 1, 3, \text{\faIcon[regular]{smile}}, \text{\faIcon[regular]{grimace}}, \text{\faIcon[regular]{smile-wink}} }
+$$
+Es decir tengo que agarrar 3 elementos de lo que queda del conjunto $X$.
+Los 7 números que quedan para elegir son $\set{4,5,6,7,8,9,10}$ y tengo:
+$$
+  \binom{7}{3} = 35
+$$
+formas de agarrarlos.
+
+La cantidad de $B$ que cumplen lo pedido son \cajaResultado{35}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

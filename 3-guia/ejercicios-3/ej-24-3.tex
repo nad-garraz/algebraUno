@@ -42,14 +42,15 @@ Pero tiene alto mambo con las \orange{naranjas}. Vamos a ver como calcular que e
         $$
 
   \item
-        Otra forma de encarar: Tengo que poner 2 objetos \textit{repetidos, iguales, indistinguibles entre sí} en 14 lugares y eso de repetidos nos hace dividir por el factorial ¿O no?:
+        Otra forma de encarar: Tengo que poner 2 objetos \textit{repetidos, iguales, indistinguibles entre sí} en 14 lugares. Recordar, porque me olvido seguido que el número
+        combinatorio no cuenta permutaciones:
         $$
-          \frac{\binom{14}{2}}{2!} = 91
+          \binom{14}{2} = \frac{14!}{2! \cdot 12!} = 91
         $$
         Peeeeeero, ojo que ahora estamos contando también cuando \Pedro se clava dos jugosas \orange{naranjas} el mismo día. Dado que hay 7 opciones para ubicar
         las \orange{naranjas} juntas, es decir, poner 2 \orange{naranjas} el mismo día, hay que \textit{restar} esas \red{7} opciones:
         $$
-          \frac{\binom{14}{2}}{2!} \red{- 7} = 84 \llamada1
+          \binom{14}{2} - \red{7} = 84 \llamada1
         $$
 \end{enumerate}
 
@@ -61,34 +62,31 @@ $$
 $$
 Quedan \magenta{6 lugares válidos}. Formas de ubicar 1 banana:
 $$
-  \binom{6}{1} = \orange{6}
+  \binom{6}{1} = \frac{6!}{1! \cdot 5!} = \orange{6}
 $$
 Quedan \magenta{5 lugares válidos}. Formas de ubicar 1 pera:
 $$
-  \binom{5}{1} = \orange{5}
+  \binom{5}{1} = \frac{5!}{1! \cdot 4!} = \orange{5}
 $$
 Quedan \magenta{4 lugares válidos}. Formas de ubicar 1 higo:
 $$
-  \binom{4}{1} = \orange{4}
+  \binom{4}{1} = \frac{4!}{1! \cdot 3!} = \orange{4}
 $$
 Quedan \magenta{3 lugares válidos}. Formas de ubicar 1 kiwi:
 $$
-  \binom{3}{1} = \orange{3}
+  \binom{3}{1} = \frac{3!}{1! \cdot 2!} = \orange{3}
 $$
 Quedan \magenta{2 lugares válidos}. Formas de ubicar 1 ciruela:
 $$
-  \binom{2}{1} = \orange{2}
+  \binom{2}{1} = \frac{2!}{1! \cdot 1!} = \orange{2}
 $$
 Quedan \magenta{1 lugar válido}. Formas de ubicar 1 mandarina:
 $$
-  \binom{1}{1} = \orange{1}
+  \binom{1}{1} = \frac{1!}{1! \cdot 0!} = \orange{1}
 $$
-
 Juntando todo, las formas que tendrá de balancear su ingesta frutífera:
 $$
-  \cajaResultado{
-    84 \cdot 924 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 55.883.520
-  }
+  84 \cdot 924 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 = 55.883.520
 $$
 
 \begin{aportes}

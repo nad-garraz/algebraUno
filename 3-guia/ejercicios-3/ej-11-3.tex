@@ -1,16 +1,45 @@
-\ejercicio
-Sean $A = \set{1,2,3,4,5,6,7}$ y $\set{8,9,10,11,12,13,14}$.
-\begin{enumerate}[label=\roman*)]
-	\item ¿Cuántas funciones biyectivas $f: A \to B$ hay?
-	\item ¿Cuántas funciones biyectivas $f: A \to B$ hay tales que $f(\set{1,2,3}) = \set{12,13,14}$?
-\end{enumerate}
-
-\separadorCorto
+\begin{enunciado}{\ejercicio}
+  Sean $A = \set{1,2,3,4,5,6,7}$ y $\set{8,9,10,11,12,13,14}$.
+  \begin{enumerate}[label=\roman*)]
+    \item ¿Cuántas funciones biyectivas $f: A \to B$ hay?
+    \item ¿Cuántas funciones biyectivas $f: A \to B$ hay tales que $f(\set{1,2,3}) = \set{12,13,14}$?
+  \end{enumerate}
+\end{enunciado}
 
 Cuando cuento funciones biyectivas, el ejercicio es como reordenar los elementos del conjunto de llegada de todas las
-formas posibles. Dado un conjunto $\im(f)$, la cantidad de funciones biyectivas será $\#\im(f)$
+formas posibles. Dado un conjunto $\im(f)$, la cantidad de funciones biyectivas será:
+$$
+  \#\im(f)!
+$$
 
 \begin{enumerate}[label=\roman*)]
-	\item Hay $7!$ funciones biyectivas.
-	\item Dado que hay 3 valores fijos, juego con los 4 valores restantes, por lo tanto habrá $4!$ funciones biyectivas
+  \item
+        Hay un total de
+        $$
+          \cajaResultado{
+            7! = 5040
+          }
+        $$
+        funciones biyectivas.
+
+  \item  Del enunciado puedo formarme con $f(\set{1,2,3}) = \set{12,13,14}$ un total de:
+        $$
+          3!
+        $$
+        combinaciones para respetar esa condición. Luego para definir el resto de la funciones tengo
+        que contar:
+        $$
+          f(\set{4,5,6,7}) = \set{8,9,10,11}.
+        $$
+        Esto me da un total de $4!$ combinaciones por cada una de las $3!$ combinaciones encontradas antes.
+        Por lo tanto el total de funciones será:
+        $$
+          \cajaResultado{
+            3! \cdot 4! = 144
+          }
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

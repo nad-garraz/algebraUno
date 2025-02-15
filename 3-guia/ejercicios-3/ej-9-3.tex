@@ -1,34 +1,66 @@
-\ejercicio
-Si $A$ es un conjunto con $n$ elementos ¿Cuántas relaciones en $A$ hay?
-¿Cuántas de ellas son reflexivas?
-¿Cuántas de  ellas son simétricas? ¿Cuántas de ellas son reflexivas y simétricas? \\
+\begin{enunciado}{\ejercicio}
+  Si $A$ es un conjunto con $n$ elementos ¿Cuántas relaciones en $A$ hay?
+  ¿Cuántas de ellas son reflexivas?
+  ¿Cuántas de  ellas son simétricas? ¿Cuántas de ellas son reflexivas y simétricas? \\
+\end{enunciado}
 
-\separadorCorto
+Para dos conjuntos
+$$
+  A = \set{a,b,c}
+  \ytext
+  B = \set{1,2}
+$$
+la cantidad de relaciones que hay entre ellos es igual a la cantidad de subconjuntos de
+$$
+  \partes(A \times B).
+$$
+Entonces si se tiene que $A = \set{1,\cdots, n}$ el cardinal $\# \partes(A \relacion A ) = 2^{n^2}$
 
-Dado que para dos conjuntos $A = \set{a,b,c}$ y $B = \set{1,2}$ la cantidad de relaciones
-que hay entre ellos es igual a la cantidad de subconjuntos de $\partes(A \times B)$, entonces si
-$A = \set{1,\cdots, n}$ el cardinal $\# \partes(A \relacion A ) = 2^{n^2}$\\
+\bigskip
 
-Las relaciones reflexivas son de la forma $a_i \relacion a_i$, por lo que solo será una relación por cada
-elemento del conjunto $\# (A \relacion A)_{ref} = n$. Voy a calcular la cantidad de elementos que tiene
-el conjunto $\partes \parentesis{ (A \relacion A)_{ref} }$, porque estoy buscando todos los subconjuntos que puedo
-formar con los elementos de $(A \relacion A)_{ref}$, entonces $ \#\partes((A \relacion A)_{ref}) = 2^n$\\
-\red{Corroborar}
+\textit{Relaciones reflexivas:}
 
-Las relaciones simétricas serán aquellas que $a_i \relacion a_j \entonces a_j \relacion a_i$. Pensando esto como los elementos de la diagonal
+Las relaciones reflexivas son de la forma:
+$$
+  a_i \relacion a_i,
+$$
+por lo que solo será una relación por cada elemento del conjunto $\# (A \relacion A)_{ref} = n$.
+Voy a calcular la cantidad de elementos que tiene el conjunto
+$\partes \parentesis{ (A \relacion A)_{ref} }$, porque estoy buscando todos los subconjuntos que puedo
+formar con los elementos de $(A \relacion A)_{ref}$:
+$$
+  \#\partes((A \relacion A)_{ref}) = 2^n
+  \quad\red{Corroborar!}
+$$
+
+\bigskip
+
+\textit{Relaciones simétricas:}
+
+Las relaciones simétricas serán aquellas que
+$$
+  a_i \relacion a_j \entonces a_j \relacion a_i.
+$$
+Pensando esto como los elementos de la diagonal
 para abajo de una matriz de $n\times n$ tengo $\sumatoria{i=1}{n} i = \frac{n \cdot (n+1)}{2}$ elementos matriciales.\\
 $\sumatoria{k = 0}{n} \binom{\frac{n \cdot (n+1)}{2}}{k} = 2^{\frac{n \cdot (n+1)}{2}}$
 \red{Corroborar}
 
 $
-	\begin{array}{c|c|c|c|c|c|c|c|}
-		\multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
-		a_1                  & R,\, S                  & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-		a_2                  & S                       & R,\, S                  & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-		a_3                  & S                       & S                       & R,\, S                  & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-		\vdots               & \vdots                  & \vdots                  & \vdots                  & \ddots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-		a_{n-2}              & S                       & S                       & S                       & \ddots                     & R,\, S                      & \cdot                       & \cdot                   \\ \cline{2-8}
-		a_{n-1}              & S                       & S                       & S                       & \ddots                     & S                           & R,\, S                      & \cdot                   \\ \cline{2-8}
-		a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & R,\, S                  \\ \cline{2-8}
-	\end{array}
-$\\
+  \begin{array}{c|c|c|c|c|c|c|c|}
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
+    a_1                  & R,\, S                  & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_2                  & S                       & R,\, S                  & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_3                  & S                       & S                       & R,\, S                  & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    \vdots               & \vdots                  & \vdots                  & \vdots                  & \ddots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_{n-2}              & S                       & S                       & S                       & \ddots                     & R,\, S                      & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_{n-1}              & S                       & S                       & S                       & \ddots                     & S                           & R,\, S                      & \cdot                   \\ \cline{2-8}
+    a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & R,\, S                  \\ \cline{2-8}
+  \end{array}
+$
+
+\hacer
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -1,33 +1,95 @@
-\ejercicio
-¿Cuántos anagramas tienen las palabras \textit{estudio, elementos} y \textit{combinatorio}\\
-\separadorCorto
+\begin{enunciado}{\ejercicio}
+	¿Cuántos anagramas tienen las palabras \textit{estudio, elementos} y \textit{combinatorio}?
+\end{enunciado}
 
-El anagrama equivale a permutar los elementos. Si no hay letras repetidas es una biyección $\#(letras)!$\\
-La palabra \textit{estudio} tiene $7!$ anagramas.\\
+El anagrama equivale a permutar los elementos del conjunto, en este caso las letras de las palabras.
 
-\textit{Elementos} tiene 3 letras \underline{e}, por lo tanto los elementos no repetidos son 6 $\set{l,m,n,t,o,s}$; esto
-es una \textit{inyección}
-\footnote{Primero ubico lo que no está repetido. Luego agrego, en una dada posición, a eso 3 o más elementos repetidos. Esta última acción
-	no altera la cantidad de permutaciones. Pensar en esto: lmntosEEE cuenta como lmntos\_\_\_.}
-$ \to \frac{9!}{(9-6)!} = \frac{9!}{3!}$.\\
-También puedo pensar esto con combinatoria: Primero ubico a las 3 letras \textit{e} en los lugares de las letras, por ejemplo
-$\llave{c c c c c c c c c} % hay 9 en total
-	{
-		e & \_ & e & \_ & e & \_ & \_ & \_ & \_\\
-		1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
-	} \to$
-donde esta es una de un total de $\binom{9}{3}$ formas de hacer eso, y los elementos que quedan en el conjunto de letras se \textit{inyectan}
-en los lugares vacíos que quedan, en este caso tengo 6 elementos para ubicar en 6 lugares, lo que sería una biyección $\#(letras)!$.\\
-$\to \binom{9}{3} \cdot 6!  = \frac{9!}{3!}$
-
-\textit{Combinatorio} tiene repetidas las letras \textit{i} (x2) y la \textit{o} (x3). Tengo un conjunto de 7 elementos $\set{c,m.b,n,a,t,r}$
-sin repetición. Puedo ubicar las letras con combinación en los 12 lugares \textit{o} y luego las \textit{i} en los 9 lugares restantes. Una vez hecho
-eso puedo \textit{inyectar (biyectar?)} las letras no repetidas restantes:\\
-$\to \binom{12}{3} \cdot \binom{9}{2} \cdot 7! =
-	\underbrace{\normalsize \frac{12!}{3! 2!} }_{
-		\text{ notar \footnotemark}
+Si no hay letras repetidas es una biyección $\#(letras)!$, por ejemplo la palabra \textit{estudio} tiene
+$$
+	\cajaResultado{
+		\#\set{e,s,t,u,d,i,o} ! = 7!
 	}
-	= \frac{\foreach \i in {12,11,...,5}{\i \cdot}4}{2} = 39.916.800$
+$$
+anagramas en total.
 
-\footnotetext{Esto es el total de biyecciones dividido entre las cantidades de repeticiones de los elementos en cuestión.}
-\newpage
+\bigskip
+
+\textit{Elementos:}
+
+Tiene 3 letras \textit{\blue{e}}, por lo tanto los elementos
+
+no repetidos son 6:
+$$
+	\set{l,m,n,t,o,s}.
+$$
+
+Voy a realizar una \textit{inyección}:
+\begin{itemize}
+	\item Primero ubico lo que \underline{no} está repetido.
+	\item Luego agrego, en una dada posición, a eso 3 o más elementos repetidos. Esto
+	      no altera el conteo. Pensar que la palabra: \textit{lmntos\blue{eee}}
+	      cuenta como \textit{lmntos\blue{\_}\blue{\_}\blue{\_}}.
+\end{itemize}
+Por lo tanto:
+$$
+	\cajaResultado{
+		\frac{9!}{(9-6)!} = \frac{9!}{3!}
+	}
+$$
+son todos los posibles anagramas de la palabra \textit{elementos}.
+
+Otra forma de pensarlo, con combinatoria:
+\begin{itemize}
+	\item Primero ubico a las 3 letras \textit{\blue{e}}, por ejemplo:
+	      $$
+		      \llave{c c c c c c c c c} {
+			      \blue{e} & \_ & \blue{e} & \_ & \blue{e} & \_ & \_ & \_ & \_\\
+			      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9
+		      },
+	      $$
+	      donde esta es solo una de un total de
+	      $$
+		      \binom{9}{3}
+	      $$
+	      formas de hacer eso, y los elementos que quedan en el conjunto de letras se \textit{inyectan}.
+
+	\item
+	      Luego en los lugares vacíos que quedan, en este caso tengo 6 elementos \textit{distintos}
+	      para ubicar en 6 lugares, lo que sería una biyección:
+	      $$
+		      \#\set{l,m,n,t,o,s}! =  6!
+	      $$
+\end{itemize}
+Finalemente quedan:
+$$
+	\cajaResultado{
+		\binom{9}{3} \cdot 6!  = \frac{9!}{3!}
+	}
+$$
+
+
+\bigskip
+
+\textit{Combinatorio}:
+
+Tiene repetidas las letras \textit{\blue{i}} (x2) y la \textit{\blue{o}} (x3).
+Tengo un conjunto de 7 elementos distintos:
+$$
+	\set{c,m.b,n,a,t,r}.
+$$
+Puedo ubicar las letras con en número combinatorio en 12 lugares \textit{\blue{o}} y luego las
+\textit{\blue{i}} en los 9 lugares restantes.
+Una vez hecho eso puedo \textit{inyectar (biyectar?)} las letras no repetidas restantes:
+$$
+	\cajaResultado{
+		\binom{12}{3} \cdot \binom{9}{2} \cdot 7! =
+		\normalsize \frac{12!}{3! \cdot 2!}
+		= \frac{\foreach \i in {12,11,...,5}{\i \cdot}4}{2} = 39.916.800
+	}
+$$
+\textit{Notar que:} Ese número que quedó es el total de biyecciones dividido entre las cantidades
+de repeticiones de los elementos en cuestión.
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

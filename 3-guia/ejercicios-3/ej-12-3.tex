@@ -1,28 +1,52 @@
-\ejercicio
-¿Cuántos números de 5 cifras distintas se pueden armar usando los dígitos del 1 al 5?
-¿ Y usando los dígitos del 1 al 7? ¿ Y usando los dígitos del 1 al 7 de manera que el dígito de las centenas no sea el 2?
+\begin{enunciado}{\ejercicio}
+  ¿Cuántos números de 5 cifras distintas se pueden armar usando los dígitos del 1 al 5?
+  ¿ Y usando los dígitos del 1 al 7? ¿ Y usando los dígitos del 1 al 7 de manera que el dígito de las centenas no sea el 2?
+\end{enunciado}
+
 \begin{enumerate}[label=\arabic*)]
-	\item Hay que usar $\set{1,2,3,4,5}$ y reordenarlos de todas las formas posibles. $5!$
+  \item Hay que usar $\set{1,2,3,4,5}$ y reordenarlos de todas las formas posibles. $5!$
 
-	\item Hay que usar $\set{1,2,3,4,5,6,7}$ y ver de cuantas formas posibles pueden ponerse en 5 lugares:
-	      $\llave{c c c c c}{
-			      \_ & \_ & \_& \_& \_ \\
-			      1 & 2 &3 &4 &5
-		      }$, dado que no puedo repetir, a medida que voy llenando los valores, me voy quedando cada vez con menos valores
-	      para elegir del conjunto de datos, por lo tanto queda algo así:
-	      $\llave{c c c c c}{
-			      \#7 & \#6 & \#5 & \#4 &\#3 \\
-			      \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
-			      \_ & \_ & \_& \_& \_ \\
-			      1 & 2 &3 &4 &5
-		      }\to$ Tengo $7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 = \frac{7!}{2!} $ \red{interpretar?}
+  \item Hay que usar $\set{1,2,3,4,5,6,7}$ y ver de cuantas formas posibles pueden ponerse en 5 lugares:
+        $$
+          \llave{c c c c c}{
+            \_ & \_ & \_ & \_ & \_ \\
+            1  & 2  & 3  & 4  & 5
+          },
+        $$
+        dado que no puedo repetir, a medida que voy llenando los valores, me voy quedando cada vez con menos elementos
+        para elegir del conjunto, por lo tanto queda algo así:
+        $$
+          \llave{c c c c c}{
+            \#7        & \#6        & \#5        & \#4        & \#3        \\
+            \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+            \_         & \_         & \_         & \_         & \_         \\
+            1          & 2          & 3          & 4          & 5
+          }
+        $$
+        Tengo:
+        $$
+          \cajaResultado{
+            7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 = \frac{7!}{2!}
+          }
+        $$
 
-	\item Parecido al anterior pero fijo el 2 en el dígito de las centenas:\\
-	      $\llave{c c c c c}{
-			      \#6 & \#5 & \#4 & \#1 &\#3 \\
-			      \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
-			      \_ & \_ & \_& 2 & \_ \\
-			      1 & 2 &3 &4 &5
-		      }
-		      \to $ Tengo $6 \cdot 5 \cdot 4 \cdot 1 \cdot 3 = \frac{6!}{2!} $ \red{interpretar?}
+  \item Parecido al anterior pero fijo el 2 en el dígito de las centenas:
+
+        $$\llave{c c c c c}{
+            \#6        & \#5        & \#4        & \#1        & \#3        \\
+            \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+            \_         & \_         & \_         & 2          & \_         \\
+            1          & 2          & 3          & 4          & 5
+          }
+        $$
+        Tengo:
+        $$
+          \cajaResultado{
+            6 \cdot 5 \cdot 4 \cdot 1 \cdot 3 = \frac{6!}{2!}
+          }
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

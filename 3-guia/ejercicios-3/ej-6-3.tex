@@ -1,40 +1,41 @@
 \begin{enunciado}{\ejercicio}
-
   \begin{enumerate}[label=\alph*)]
-    \item ¿Cuántos números de exactamente 4 cifras (no pueden empezar con 0) hay que no contienen al dígito 5?
+    \item ¿Cuántos números de exactamente 4 cifras (no pueden empezar con 0)
+          hay que no contienen al dígito 5?
     \item ¿Cuántos números de exactamente 4 cifras hay que contienen al dígito 7?
   \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
   \item
-
         Como las cifras no pueden ser 5 y la primer cifra no puede empezar con 0, se tiene lo siguiente:
-
-        $
+        $$
           \begin{array}{r|cccc}
             \text{cifras}        & \_ & \_ & \_ & \_ \\
             \text{posibilidades} & 8  & 9  & 9  & 9
           \end{array}
-        $
-        $\entonces$ hay $8 \cdot 9^3 = 5832$ posibiles números
+        $$
 
-  \item Para hallar la cantidad de números de 4 cifras que contienen al 7 lo calculo con el complemento, o sea\\
+        entonces hay $8 \cdot 9^3 = 5832$ posibiles números.
+
+  \item Para hallar la cantidad de números de 4 cifras que contienen al 7 lo calculo con
+        el complemento, o sea
 
         $\# \text{números de 4 cifras con el 7} = \# \text{números de 4 cifras} - \# \text{números de 4 cifras sin el 7}$\\
 
         \begin{itemize}
-          \item \# números de 4 cifras:\\
+          \item \# números de 4 cifras:
 
-                $
+                $$
                   \begin{array}{r|cccc}
                     \text{cifras}        & \_ & \_ & \_ & \_ \\
                     \text{posibilidades} & 9  & 10 & 10 & 10
                   \end{array}
-                $
-                $\entonces$ hay $9 \cdot 10^3 = 9000$ números de 4 cifras
+                $$
+                Entonces hay $9 \cdot 10^3 = 9000$ números de 4 cifras.
 
-          \item \# números de 4 cifras sin el 7:\\
+          \item \# números de 4 cifras sin el 7:
+
                 En el ítem anterior calculamos la cantidad de números de 4 cifras que no contienen al 5, que es la misma cantidad que números de 4 cifras que no contienen al 7, por lo tanto hay 5832 números posibles.
         \end{itemize}
 

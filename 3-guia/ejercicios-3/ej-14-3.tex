@@ -1,20 +1,33 @@
-\ejercicio
-¿Cuántas funciones biyectivas
-$f: \set{1,2,3,4,5,6,7} \to \set{1,2,3,4,5,6,7}$ tales que
-$f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$ hay?
+\begin{enunciado}{\ejercicio}
+  ¿Cuántas funciones biyectivas
+  $f: \set{1,2,3,4,5,6,7} \to \set{1,2,3,4,5,6,7}$ tales que
+  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$ hay?
+\end{enunciado}
 
-\separadorCorto
+Primero veo la condición  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$, donde podría formar
+$$
+  \frac{5!}{(5-3)!} = 60
+$$
+combinaciones biyectivas.
 
-Primero veo la condición  $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$, donde podría formar $\frac{5!}{(5-3)!} = 60$ combinaciones biyectivas.
-Para obtener la cantidad de funciones pedidas, tengo que usar todos los valores del $\set{1,2,3,4,5,6,7}$. Primero fijo la cantidad de
-valores que pueden tomar $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$ luego lo que reste.
-\\
+Para obtener la cantidad de funciones pedidas, tengo que usar todos los valores del
+conjunto $\set{1,2,3,4,5,6,7}$.
 
-$\llave{c c c c c c c}{
-		\#5 & \#4 & \#3 & \#4 & \#3 & \#2 & \#1 \\
-		\downarrow & \downarrow & \downarrow &\downarrow &\downarrow &\downarrow &\downarrow\\
-		f(1) & f(2) &f(3) &f(4) &f(5) &f(6) &f(7)\\
-        \multicolumn{3}{c}{\blue{\text{Condiciones pedidas}}} & \multicolumn{4}{c}{\green{\text{Lo que resta para completar}}}
-	}
-	\to \blue{5 \cdot 4 \cdot 3} \cdot \green{4 \cdot 3 \cdot 2 \cdot 1} = \frac{5!}{(5-3)!} \cdot 4!
-    $
+Primero fijo la cantidad de valores que pueden tomar $f(\set{1,2,3}) \subseteq \set{3,4,5,6,7}$
+luego lo que reste:
+$$
+  \llave{c c c c c c c}{
+    \#5                                        & \#4                                        & \#3        & \#4        & \#3        & \#2        & \#1        \\
+    \downarrow                                 & \downarrow                                 & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+    f(1)                                       & f(2)                                       & f(3)       & f(4)       & f(5)       & f(6)       & f(7)       \\
+    \multicolumn{3}{c}{\blue{\text{Condiciones pedidas}}} & \multicolumn{4}{c}{\magenta{\text{Lo que resta para completar}}}
+  }
+  \to
+  \cajaResultado{
+    \blue{5 \cdot 4 \cdot 3} \cdot \magenta{4 \cdot 3 \cdot 2 \cdot 1} = \frac{5!}{(5-3)!} \cdot 4!
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -120,9 +120,93 @@
 
   \item
         $$
-          \#B = \#\set{2,4,6,\dots,198,200} = 100
+          \#B = \set{n \en X : n \text{ es par} } = \#\set{2,4,6,\dots,198,200} = 100
         $$
-        \faIcon[regular]{flushed} no se me ocurre, lo voy a pensar...  bye
+        Para que $A \relacion B$ necesito que los \underline{todos} los conjuntos $A$ \textit{le saquen} a $B$
+        los elementos del $102$ al $200$. Por lo tanto:
+        $$
+          \set{102, 104, \dots, 200} \subseteq A.
+        $$
+        De forma tal que $B - A \subseteq Y$. Teniendo en cuenta que $\#(\set{102, 104, \dots, 200}) = 50$, ahora tengo que jugar con el
+        resto de números de $B$:
+        $$
+          \set{2, 4, \dots, 100}
+          \to
+          \#(\set{2, 4, \dots, 100}) = 50
+        $$
+        y tomar \underline{solo} 30 elementos, para satisfacer $\#(A \inter B) = 80$. Formas de tomar esos números:
+        $$
+          \binom{50}{30} = \frac{50!}{30! \cdot 20!}
+        $$
+        Ese resultado cumple las condiciones, peeeeero no hay que olvidar que $A \en \partes(X)$,
+        por lo tanto $A$, podría tener números impares entre $1 \ytext 200$, esto me va a agregar posibles conjuntos $A$. Dado
+        que si agrego números impares a los conjuntos de arriba \underline{no rompo ninguna condición}.
+
+        \medskip
+
+        ¿Cuántos $A$ me agrega?
+        Empiezo por agregar \underline{ningún} número impar de un conjunto de 100 para elegir:
+        $$
+          \binom{100}{0}
+        $$
+        Puedo formar así \underline{un} $A$ que cumple todo lo pedido y no tiene \underline{ningún} número impar.
+
+        Ahora agarro 1 número entre 100:
+        $$
+          \binom{100}{1}
+        $$
+        Puedo formar así \underline{100} $A$ que cumplen todo lo pedido y tienen \underline{un} número impar.
+
+        Ahora agarro 2 números entre 100:
+        $$
+          \binom{100}{2}
+        $$
+        Puedo formar así \underline{5445} $A$ que cumplen todo lo pedido y tienen \underline{2} números impar.
+
+        Ahora agarro 3 números entre 100:
+        $$
+          \binom{100}{3}
+        $$
+
+        \bigskip
+
+        \begin{center}
+          ...
+          bueh, creo que se ve a donde estamos yendo.
+          ...
+        \end{center}
+
+        \bigskip
+
+        Sigo así hasta agarrar a todos en algún momento llego a que:
+        $$
+          \binom{100}{100} = 1
+        $$
+
+        Juntando todo eso con el resultado de la parte \textir{par} quedaría que el total de conjuntos $A$ es:
+        $$
+          \cajaResultado{
+            \binom{50}{30} \cdot \sumatoria{\blue{i} = 0 }{100} \binom{100}{\blue{i}}
+          }
+        $$
+        Y bueh para mí ahí está un posible resultado final. Lo que viene ahora no creo que haya sido necesario, y de haberlo
+        sido, me hubiese puesto a llorar en el examen:
+        $$
+          (x+y)^n = \sumatoria{i = 0}{n} \binom{n}{i}x^{n-i}y^k
+          \quad
+          \Entonces{$x = y = 1$}[$n = 100$]
+          \quad
+          2^{100} = \sumatoria{\blue{i} = 0}{100} \binom{100}{\blue{i}}
+        $$
+
+        Por lo tanto y nuevamente la cantidad de conjuntos $A$ que cumplen lo pedido pero escrito en una
+        forma más \textit{elegante} es:
+        $$
+          \cajaResultado{
+            \binom{50}{30} \cdot 2^{100}
+          }
+        $$
+
 \end{enumerate}
 
 \begin{aportes}

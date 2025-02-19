@@ -1,0 +1,65 @@
+\begin{enunciado}{\ejExtra}
+	Probar que $6^{2n} - 35n -1$ es divisible por 245 para todo $n \en \naturales$.
+\end{enunciado}
+
+Noto que:
+$$
+	245 = 5^2 \cdot 7
+$$
+
+Los que nos piden se puede escribir como:
+$$
+	\congruencia{6^{2n} - 35n -1}{0}{245}
+$$
+
+\textit{Inducción:}
+
+Quiero probar que:
+$$
+	p(n) : \congruencia{6^{2n} - 35n -1}{0}{245} \quad \paratodo n \en \naturales
+$$
+
+\textit{Caso base:}
+$$
+	p(\blue{1}) :
+	\congruencia{
+		6^{2 \cdot \blue{1}} - 35 \cdot {\blue{1}} -1 = 0 }{0}{245}
+$$
+Por lo que $p(1)$ resultó ser verdadera.
+
+\textit{Paso inductivo:}
+Asumo que
+$$
+	p(\blue{k}) : \ub{\congruencia{ 6^{2 \cdot \blue{k}} - 35 \cdot {\blue{k}} -1}{0}{245}}{\purple{\text{hipótesis inductiva}}}
+$$
+es verdadera para algún $k \en \naturales$. Entonces quiero probar que:
+$$
+	p(\blue{k+1}) : \congruencia{ 6^{2 \cdot (\blue{k+1})} - 35 \cdot ({\blue{k+1}}) -1}{0}{245}
+$$
+Partiendo de esto último:
+$$
+	6^{2 \cdot (\blue{k+1})} - 35 \cdot ({\blue{k+1}}) -1
+	=
+	36 \cdot 6^{2k} - 35k -35 -1
+	=
+	36 \cdot (6^{2h} - 1) - 35k \congruente 0 \ (245) \llamada1
+$$
+Acomodo la \purple{hipótesis inductiva}:
+$$
+	\congruencia{ 6^{2 \blue{k}} - 35 \cdot {\blue{k}} -1}{0}{245}
+	\sisolosi
+	\congruencia{ 6^{2 k} -1 }{35k}{245} \llamada2
+$$
+Uso $\llamada2$ eso en $\llamada1$
+$$
+	36 \cdot (\purple{35k}) - 35k = 35^2k = 5^2 \cdot 7^2= 245 \cdot 7 \congruente 0 \ (245) \llamada1
+$$
+Es así que $p(k+1)$ también es verdadera.
+
+\bigskip
+
+Dado que $p(1),\, p(k),\, p(k+1)$ resultaron verdaderas por principio de inducción $p(n)$ también lo es $\paratodo n \en \naturales$
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

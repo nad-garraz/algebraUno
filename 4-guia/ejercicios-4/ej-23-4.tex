@@ -1,41 +1,157 @@
-\ejercicio
-\begin{enumerate}[label=\roman*)]
-  \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
-  \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
-  \item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
-\end{enumerate}
+\def\enumeracion{\alph}
 
-\separadorCorto
+\begin{enunciado}{\ejercicio}
+  \begin{enumerate}[label=\enumeracion*)]
+    \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
+    \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
+    \item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
+  \end{enumerate}
+\end{enunciado}
 
-\begin{enumerate}[label=\roman*)]
-  \item
-        $\frac{b+4}{a} + \frac{5}{b} =
+\begin{enumerate}[label=\enumeracion*)]
+  \item Acomodo el enunciado como:
+        $$
+          \frac{b+4}{a} + \frac{5}{b} =
           \frac{b^2 + 4b + 5a}{ab}
-          \flecha{quiero que}
-          ab \divideA b^2 + 4b + 5a\\
-          \flecha{por}[coprimitusibilidad]
+        $$
+
+        Quiero que esa fracción sea entera, lo cual es lo mismo que decir:
+
+        $$
+          ab \divideA b^2 + 4b + 5a
+        $$
+        Dado que $a \cop b$:
+        $$
           \llave{l}{
             a | b^2 + 4b +5a \\
-            b | b^2 + 4b +5a \\
-          } \to
+            b | b^2 + 4b +5a
+          }
+          \sii
           \llave{l}{
             a | b^2 + 4b \\
-            b | 5a       \\
-          } \flecha{es seguro que $b\noDivide a$}[debe dividr a 5]
-          \llave{l}{
-            a | b\cdot(b+4) \\
-            b | 5           \\
+            b | 5a
           }
-        $\\
-        Seguro tengo que $b \en \set{\pm1, \pm5} \to$ pruebo valores de $b$ y veo que valor de $a$ queda:\\
-        $\llave{l}{
-            b = 1 \to (a\divideA 5 ,1) \to \set{(\pm 1, 1).(\pm5,1)}                                     \\
-            b = -1 \to (a \divideA -3,1) \to \set{(\pm 1, -1).(\pm 3,1)}                                 \\
-            b = 5 \to (a \divideA 45,5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, 5), (\pm 3, 5).(\pm 9,5)} \\
-            b = -5 \to (a \divideA 5,-5) \flecha{\magenta{atención que}}[$(a:b) = 1$] \set{(\pm 1, -5)}
-          }$
+          \Entonces{sé que $b\noDivide a$}[$b$ debe dividir a 5]
+          \llave{l}{
+            a | b\cdot(b+4) \llamada1 \\
+            b | 5
+          }
+        $$
+        Sale que:
+        $$
+          b \en \set{\pm1, \pm5}
+        $$
+        Puedo entonces probar valores de $b$ y así ver que valor de $a$ queda:
 
-  \item \Hacer
+        \textit{Si $b = 1$}
+        $$
+          \Entonces{$\llamada1$}
+          a \divideA 5
+          \entonces (a,b)
+          =
+          \llave{l}{
+            (\pm1, 1) \\
+            (\pm5, 1)
+          }
+        $$
+
+        \textit{Si $b = -1$}
+        $$
+          \Entonces{$\llamada1$}
+          a \divideA -3
+          \entonces (a,b)
+          =
+          \llave{l}{
+            (\pm1, -1) \\
+            (\pm3, -1)
+          }
+        $$
+
+        \textit{Si $b = 5$}
+        $$
+          \Entonces{$\llamada1$}
+          a \divideA 45
+          \entonces (a,b)
+          \igual{\red{!!}}
+          \llave{l}{
+            (\pm1, 5) \\
+            (\pm3, 5) \\
+            (\pm9, 5)
+          }
+        $$
+
+        \textit{Si $b = -5$}
+        $$
+          \Entonces{$\llamada1$}
+          a \divideA 5
+          \entonces (a,b)
+          \igual{\red{!!}}
+          \llave{l}{
+            (\pm1, 5)
+          }
+        $$
+
+        En el \red{!!} se usa que $a \cop b$
+
+  \item
+        Acomodo el enunciado sacando denominador común:
+        $$
+          \frac{9a}{b} + \frac{7a^2}{b^2} = \frac{9ab + 7 a^2}{b^2}
+        $$
+
+        Quiero que esa fracción sea entera, lo cual es lo mismo que decir:
+
+        $$
+          b^2 \divideA 9ab + 7 a^2
+          \Entonces{\red{!!!}}
+          b \divideA 9ab + 7 a^2
+          \sii
+          b \divideA 7 a^2
+          \Sii{$a \cop b$}
+          b \divideA 7
+        $$
+        Sale que:
+        $$
+          b \en \set{\pm1, \pm7}
+        $$
+
+        Puedo entonces probar valores de $b$ y así ver que valor de $a$ queda:
+
+        \textit{Si $b = \pm 1$:}
+        $$
+          \frac{\pm 9a + 7 a^2}{1} \en \enteros \paratodo a \en \enteros
+          \entonces (a,b)
+          =
+          (a, \pm1)
+        $$
+
+        \textit{Si $b = 7$:}
+        $$
+          \frac{ 9 a \cdot 7 + 7 a^2}{49} =
+          \frac{9 a + a^2}{7}
+        $$
+        Esto último va a ocurrir cuando:
+        $$
+          \congruencia{a^2 + 9a}{0}{7}
+          \sii
+          \congruencia{a\cdot (a + 2)}{0}{7}
+          \Sii{$a \cop 7$}[$b = 7$]
+          \congruencia{a + 2}{0}{7}
+          \sii
+          \congruencia{a}{5}{7}
+        $$
+        Los pares $(a,b)$ para satisfacer lo pedido son de la forma:
+        $$
+          (a, b) =
+          (a, 7) \quad \text{ con } \quad \congruencia{a}{5}{7}
+        $$
+
+        \textit{Si $b = -7$:}
+        El desarrollo es igual que para el caso anterior y los pares quedan:
+        $$
+          (a, b) =
+          (a, -7) \quad \text{ con } \quad \congruencia{a}{2}{7}
+        $$
 
   \item
         $$
@@ -72,12 +188,6 @@
         reemplazando esos valores de $a$ en $\llamada1$ se obtiene tiene valor $-1 \en \enteros$.
 \end{enumerate}
 
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}
-
-\bigskip
-\bigskip
-

@@ -1,28 +1,26 @@
-\textit{\underline{Primos y factorización: }}
-
-
 \begin{enunciado}{\ejercicio}
-        Probar que existen infinitos primos positivos congruentes a 3 módulo 4. \par
-        \textit{Sugerencia:} probar primero que si $a \en \naturales$ satisface $\congruencia{a}{3}{4}$, entonces existe $p$ primo con
-        $\congruencia{p}{3}{4}$ tal que $p \divideA a$. Luego probar que si existieran sólo finitos primos congruentes a 3 módulo 4, 
-        digamos $p_1, p_2, \dots, p_n$, entonces $a= -1 + 4\productoria{i=1}{n} p_i$ sería mayor que 1 y no es divisible por ningún
-        primo congruente a 3 módulo 4.
+  Probar que existen infinitos primos positivos congruentes a 3 módulo 4.
+
+  \textit{Sugerencia:} probar primero que si $a \en \naturales$ satisface $\congruencia{a}{3}{4}$, entonces existe $p$ primo con
+  $\congruencia{p}{3}{4}$ tal que $p \divideA a$. Luego probar que si existieran sólo finitos primos congruentes a 3 módulo 4,
+  digamos $p_1, p_2, \dots, p_n$, entonces $a= -1 + 4\productoria{i=1}{n} p_i$ sería mayor que 1 y no es divisible por ningún
+  primo congruente a 3 módulo 4.
 \end{enunciado}
 
 Comencemos probando la primera parte de la sugerencia:
 
 $$
-\text{Dado $a \en \naturales, \congruencia{a}{3}{4}$} 
-\entonces
-\text{$\existe p$ primo con $\congruencia{p}{3}{4}$ tal que $p \divideA a$} 
+  \text{Dado $a \en \naturales, \congruencia{a}{3}{4}$}
+  \entonces
+  \text{$\existe p$ primo con $\congruencia{p}{3}{4}$ tal que $p \divideA a$}
 $$
 
-Como $\congruencia{a}{3}{4} \sisolosi a= 4k+3$ y dado que $a \en \naturales$, es evidente que $a > 1$. 
+Como $\congruencia{a}{3}{4} \sisolosi a= 4k+3$ y dado que $a \en \naturales$, es evidente que $a > 1$.
 Luego sabemos que $\existe p$ primo tal que $p \divideA a$. Ahora debemos ver que $\congruencia{p}{3}{4}$.
 Para esto, apliquemos el TFA:
 
 $$
-a = (P_1)^{n_1} \cdot (P_2)^{n_2} \cdots (P_r)^{n_r}, ~ n_1,n_2 \dots, n_r \en \naturales
+  a = (P_1)^{n_1} \cdot (P_2)^{n_2} \cdots (P_r)^{n_r}, ~ n_1,n_2 \dots, n_r \en \naturales
 $$
 
 Notemos ahora que ninguno de los primos en la factorización de $a$ puede ser 2, pues $a=4k+3=2(2k+1) + 1$ es impar.
@@ -30,29 +28,29 @@ Esto nos descarta que $\congruencia{p}{0}{4}$ o que $\congruencia{p}{2}{4}$, pue
 De modo que nos quedan dos opciones:
 
 $$
-\congruencia{p}{1}{4}
-\otext
-\congruencia{p}{3}{4}
+  \congruencia{p}{1}{4}
+  \otext
+  \congruencia{p}{3}{4}
 $$
 
 Prestemos atención a lo siguiente. Si todos los primos en la factorización de $a$ fueran congruentes a 1 módulo 4, esto es
 
 $$
-\congruencia{P_1}{1}{4}, 
-\congruencia{P_2}{1}{4}, 
-\dots,
-\congruencia{P_r}{1}{4}
-\entonces
-\congruencia{(P_1)^{n_1}}{1}{4}, 
-\congruencia{(P_2)^{n_2}}{1}{4}, 
-\dots,
-\congruencia{(P_r)^{n_r}}{1}{4}
+  \congruencia{P_1}{1}{4},
+  \congruencia{P_2}{1}{4},
+  \dots,
+  \congruencia{P_r}{1}{4}
+  \entonces
+  \congruencia{(P_1)^{n_1}}{1}{4},
+  \congruencia{(P_2)^{n_2}}{1}{4},
+  \dots,
+  \congruencia{(P_r)^{n_r}}{1}{4}
 $$
 
-tendriamos que 
+tendriamos que
 
 $$
-a=\congruencia{(P_1)^{n_1} \cdot (P_2)^{n_2} \cdots (P_r)^{n_r}}{1}{4}
+  a=\congruencia{(P_1)^{n_1} \cdot (P_2)^{n_2} \cdots (P_r)^{n_r}}{1}{4}
 $$
 
 lo cual contradice nuestra hipótesis de que $\congruencia{a}{3}{4}$. \par
@@ -60,24 +58,24 @@ Así, probamos que al menos debe existir un $p$ en la factorización de $a$ (est
 que era lo que queriamos probar. \bigskip
 
 Veamos ahora la segunda parte de la sugerencia (no voy a probar eso exactamente, pero es parecido). \par
-Supongamos que existen finitos primos congruentes a 3 módulo 4, digamos $p_1, p_2, \dots, p_n$. 
+Supongamos que existen finitos primos congruentes a 3 módulo 4, digamos $p_1, p_2, \dots, p_n$.
 Esto nos permite definir $a$ como $a = -1 + 4\productoria{i=1}{n} p_i$.
 Notemos que como $a \en \naturales$, $a > 1$ y $\congruencia{a}{3}{4}$, podemos aplicar lo que probamos en la primera parte.
 Esto es: existe $p$ primo con $\congruencia{p}{3}{4}$ tal que $p \divideA a$. Notemos que este $p$ debe ser alguno de los $p_i$. \par
 Luego
 
 $$
-\llave{l}{
+  \llave{l}{
     p_i \divideA -1 + 4\productoria{i=1}{n} p_i \\
     p_i \divideA 4\productoria{i=1}{n} p_i
-}
-\Entonces{$F_2-F_1$}
-p_i \divideA 1
+  }
+  \Entonces{$F_2-F_1$}
+  p_i \divideA 1
 $$
 
 Lo cual es absurdo. Esta contradicción proviene de la única suposición que hicimos, que existen finitos primos congruentes a 3 módulo 4. \par
 Luego, existen infinitos primos congruentes a 3 módulo 4, que era lo que queriamos probar.
 
 \begin{aportes}
-        \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+  \item \aporte{https://github.com/Nunezca}{Nunezca \github}
 \end{aportes}

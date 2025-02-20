@@ -1,0 +1,96 @@
+\begin{enunciado}{\ejExtra}
+  Sea $n \en \naturales$ con $n \congruente 2 \ (\text{mód } 6)$. Hallar los posibles valores de $(2n^4 + 6n^2 + 10: n^3 + 2n)$ y dar
+  un ejemplo para cada uno.
+\end{enunciado}
+
+Bautizo al MCD:
+$$
+  d = (2n^4 + 6n^2 + 10: n^3 + 2n)
+$$
+Según Euclides:
+$$
+  \polyset{vars=n}
+  \divPol{2n^4+6n^2+10}{n^3+2n}
+$$
+Por lo que:
+$$
+  d = (2n^4 + 6n^2 + 10: n^3 + 2n) = (n^3 + 2n : 2n^2 + 10)
+$$
+
+$$
+  \polyset{vars=n}
+  \divPol{n^3 + 2n}{2n^2 + 10}
+$$
+Por lo que:
+$$
+  d = (n^3 + 2n : 2n^2 + 10) = (2n^2 + 10 : -3n)
+$$
+
+$$
+  \polyset{vars=n}
+  \divPol{2n^2 + 10}{-3n}
+$$
+Por lo que:
+$$
+  d = (2n^2 + 10 : -3n) = (3n : 10)
+$$
+
+Si $d = (3n : 10)$ entonces los \textit{potenciales} posibles valores para el MCD serían:
+$$
+  d \en \set{1, 2, 5, 10}
+$$
+
+\textit{Quiero ver si encuentro algún $n$ tal que $d = 1$:}
+
+Teniendo en cuenta que los valores de $n$ que interesan son:
+$$
+  \congruencia{n}{2}{6}
+  \Sii{def}[$\llamada1$]
+  n \en \set{k \en \enteros_{\geq 0} : 6k + 2}
+$$
+Los $n$ son siempre par, por lo que $3n$ siempre será par, descartando así el $d = 1$. También puedo sacar el 5,
+porque si $3n$ es par y encima múltiplo de 5, entonces es múltiplo de 10.
+
+Hasta el momento:
+$$
+  d \neq 1
+  \ytext
+  d \neq 5
+  \entonces
+  d \en \set{2, 10}
+$$
+
+\textit{Quiero ver si encuentro algún $n$ tal que $d = 2$:}
+
+Con $n = 2$:
+$$
+  \cajaResultado{
+    n = 2
+    \entonces
+    d = (6 : 10) = 2
+  }
+$$
+
+\textit{Quiero ver si encuentro algún $n$ tal que $d = 10$:}
+$$
+  \Entonces{$\llamada1$}[\red{!}]
+  n \igual{$\llamada2$} 6k + 2
+$$
+$$
+  \congruencia{6k + 2}{0}{5}
+  \sii
+  \congruencia{k}{3}{5}
+  \Entonces{$k = 3$} n \igual{$\llamada{2}$} 20
+$$
+Es con $n = 20$ que:
+$$
+  \cajaResultado{
+    n = 20
+    \entonces
+    d = (60 : 10) = 10
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

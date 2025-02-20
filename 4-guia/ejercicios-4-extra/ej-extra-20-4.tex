@@ -17,30 +17,30 @@ $$
   d = (2n^4 + 6n^2 + 10: n^3 + 2n) = (n^3 + 2n : 2n^2 + 10)
 $$
 
+Limpiando un poco eso:
 $$
-  \polyset{vars=n}
-  \divPol{n^3 + 2n}{2n^2 + 10}
-$$
-Por lo que:
-$$
-  d = (n^3 + 2n : 2n^2 + 10) = (2n^2 + 10 : -3n)
-$$
-
-$$
-  \polyset{vars=n}
-  \divPol{2n^2 + 10}{-3n}
-$$
-Por lo que:
-$$
-  d = (2n^2 + 10 : -3n) = (3n : 10)
-$$
-
-Si $d = (3n : 10)$ entonces los \textit{potenciales} posibles valores para el MCD serían:
-$$
-  d \en \set{1, 2, 5, 10}
+  \llave{l}{
+    d \divideA  n^3 + 2n \\
+    d \divideA  2n^2 + 10
+  }
+  \Entonces{$2F_1 - n F_2 \to F_1$}
+  \llave{l}{
+    d \divideA  6n \\
+    d \divideA  2n^2 + 10
+  }
+  \Entonces{$3 F_2 - nF_1 \to F_2$}
+  \llave{l}{
+    d \divideA  6n \\
+    d \divideA  30
+  }
 $$
 
-\textit{Quiero ver si encuentro algún $n$ tal que $d = 1$:}
+Si $d = (6n : 30) \llamada1$ entonces los \textit{potenciales} posibles valores para el MCD serían:
+$$
+  d \en \set{1, 2, 3, 5, 6, 10, 15, 30}
+$$
+
+\medskip
 
 Teniendo en cuenta que los valores de $n$ que interesan son:
 $$
@@ -48,30 +48,25 @@ $$
   \Sii{def}[$\llamada1$]
   n \en \set{k \en \enteros_{\geq 0} : 6k + 2}
 $$
-Los $n$ son siempre par, por lo que $3n$ siempre será par, descartando así el $d = 1$. También puedo sacar el 5,
-porque si $3n$ es par y encima múltiplo de 5, entonces es múltiplo de 10.
 
-Hasta el momento:
-$$
-  d \neq 1
-  \ytext
-  d \neq 5
-  \entonces
-  d \en \set{2, 10}
-$$
+\underline{Los $n$ son siempre par}, descartando así los valores $\set{1, 3, 5, 15}$. Esto porque siempre va a estar el 2 como factor en $d$.
 
-\textit{Quiero ver si encuentro algún $n$ tal que $d = 2$:}
+\medskip
 
-Con $n = 2$:
+Similarmente:
 $$
-  \cajaResultado{
-    n = 2
-    \entonces
-    d = (6 : 10) = 2
-  }
+  6 \divideA 6n,
+$$
+por lo tanto el 2 no puede ser MCD, porque el 6 siempre va a ser un divisor común y obviamente $6 > 2$ {\tiny\faIcon[regulat]{meh-rolling-eyes}}.
+
+Hasta el momento los posibles valores que puede tomar el MCD, $d$:
+$$
+  d \en \set{6, 10, 30}
 $$
 
 \textit{Quiero ver si encuentro algún $n$ tal que $d = 10$:}
+
+Si encuentro que $6n$ es divisible por 5, \underline{tengo que eliminar al 10 de los $d$} porque también será divisible por 30.
 $$
   \Entonces{$\llamada1$}[\red{!}]
   n \igual{$\llamada2$} 6k + 2
@@ -87,7 +82,19 @@ $$
   \cajaResultado{
     n = 20
     \entonces
-    d = (60 : 10) = 10
+    d = (60 : 30) = 30
+  }
+$$
+
+Es así que los posibles valores para $d$ son:
+$$
+  \cajaResultado{
+    d \en \set{6, 30},
+    \quad \text{con} \quad
+    \llave{lcl}{
+      n = 2  & \entonces & d = 6  \\
+      n = 20 & \entonces & d = 30
+    }
   }
 $$
 

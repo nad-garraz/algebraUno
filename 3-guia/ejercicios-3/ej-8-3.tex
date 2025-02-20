@@ -1,1 +1,91 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Un estudiante puede elegir qué cursar entre 5 materias que se dictan este cuatrimestre. ¿De cuántas
+  maneras distintas puede elegir qué materias cursar, incluyendo como posibilidad no cursar ninguna
+  materia? ¿Y si tiene que cursar al menos dos materias?
+\end{enunciado}
+
+Hay 5 materias, el conjunto de materias lo bautizo $M$:
+$$
+  M = \set{m_1, m_2, m_3, m_4, m_5}
+  \quad \text{con} \quad
+  \#M = 5
+$$
+
+Si decide cursar 0 materias, eso se puede elegir de una sola manera:
+$$
+  \binom{5}{0} = 1
+$$
+
+\medskip
+
+Si decide cursar 1 materia, eso se puede elegir así:
+$$
+  \binom{5}{1} = 5
+$$
+
+\medskip
+
+Si decide cursar 2 materias, eso se puede elegir así:
+$$
+  \binom{5}{2} = 10
+$$
+
+\medskip
+
+Si decide cursar 3 materias, eso se puede elegir así:
+$$
+  \binom{5}{3} = 10
+$$
+
+\medskip
+
+Si decide cursar 4 materias, eso se puede elegir así:
+$$
+  \binom{5}{4} = 5
+$$
+
+\medskip
+
+Si decide cursar 5 materias, eso se puede elegir así:
+$$
+  \binom{5}{5} = 1
+$$
+
+\bigskip
+
+Entonces la forma de elegir que cosa cursar sería la suma de todo eso:
+$$
+  \binom{5}{0} +
+  \binom{5}{1} +
+  \binom{5}{2} +
+  \binom{5}{3} +
+  \binom{5}{4} +
+  \binom{5}{5} =
+  \cajaResultado{
+    \sumatoria{i = 0}{5} \binom{5}{i} = 32
+  }
+$$
+
+De \textit{yapa} se puede expresar así:
+$$
+  (x + y)^n = \sumatoria{i = 0}{n} \binom{n}{i} x^{n-i}y^{i}
+  \Entonces{$x = 1,\, y = 1$}[$n=5$]
+  \cajaResultado{
+    2^5 = \sumatoria{i=0}{5} \binom{5}{i}
+  }
+$$
+
+Si al menos tiene que cursar 2 materias, quiere decir que puede cursar 2, 3, 4 o 5. Sumando lo que corresponde:
+$$
+  \binom{5}{2} +
+  \binom{5}{3} +
+  \binom{5}{4} +
+  \binom{5}{5} =
+  \cajaResultado{
+    \sumatoria{i = 2}{5} \binom{5}{i} = 26
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

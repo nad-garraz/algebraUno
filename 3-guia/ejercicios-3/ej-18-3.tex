@@ -1,45 +1,88 @@
+\def\enumeracion{\roman*)}
+
 \begin{enunciado}{\ejercicio}
   Sea $A = \set{n \in \naturales : n \leq 20}$.
   Calcular la cantidad de subconjuntos $B \subseteq A$ que cumplen
   las siguientes condiciones:
-  \begin{enumerate}[label=\roman*)]
+  \begin{enumerate}[label=\enumeracion]
     \item $B$ tiene 10 elementos y contiene exactamente 4 múltiplos de 3.
+
     \item $B$ tiene 5 elementos y no hay dos elementos de $B$ cuya suma sea impar.
   \end{enumerate}
 
 \end{enunciado}
 
-El conjunto $A = \set{\foreach \k in {1,...,19}{\k, }20}$\par
-\begin{enumerate}[label=\roman*)]
+\begin{enumerate}[label=\enumeracion]
   \item
-        $ \flecha{multiplos}[de 3] C =
-          \set{3, 6, 9, 12, 15, 18}$,
-        agarro 4 elementos del conjunto $C$ y luego 6 de los restantes del conjunto $A$ sin contar
-        el múltiplo de 3 que ya usé.\par
-        $\llave{l}{
-            \binom{6}{4} \cdot \binom{9}{6} =
-            \frac{\cancel{6!}}{4! 2!} \cdot \frac{9!}{\cancel{6!} 3!}
-            \flecha{simplificando}
-            9 \cdot 4 \cdot 7 \cdot 5 = 1260
-          }$
+        El conjunto $A$:
+        $$
+          A = \set{\foreach \k in {1,...,19}{\k, }20}
+          \quad \text{con} \quad
+          \#A = 20
+        $$
+
+        El subconjunto de los múltiplos de 3, lo bautizo como $C$:
+        $$
+          C = \set{3, 6, 9, 12, 15, 18}
+          \quad \text{con} \quad
+          \#C = 6
+        $$
+
+        Quiero armar un conjunto con 10 elemntos. 4 de esos elementos deben ser de $C$
+        ¿Cuántas formas de agarrar 4 elementos de $C$ hay?:
+        $$
+          \binom{6}{4} \llamada1
+        $$
+
+        Como quiero después agarrar \textit{6 elementos más de $A$ para llegar a 10}, y que ninguno esté en $C$,
+        Tengo para agarrar:
+        $$
+          \#(A-C) =  14
+        $$
+        Formas de agarrar 6 elementos de esos 14 que quedaron:
+        $$
+          \binom{14}{6} \llamada2
+        $$
+
+        Finalmente quedan juntando $\llamada1 \ytext \llamada2$, la cantidad de conjuntos $B$ que satisfacen lo pedido:
+        $$
+          \cajaResultado{
+            \binom{6}{4} \cdot \binom{14}{6} = 45.045
+          }
+        $$
 
   \item
-        La condición de que la suma \textit{no sea impar} implica que todos los elementos
-        deben ser par o todos impar.\par
-        $\llave{l}{
-            \flecha{todos}[pares]   \set{2,4,6,8,10,12,14,16,18, 20}
-            \flecha{10 elementos}[quiero 5]
-            \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252 \\
-            \flecha{todos}[impares] \set{1,3,5,7,9,11,13,15,17,19}
-            \flecha{10 elementos}[quiero 5]
-            \binom{10}{5} = \frac{10!}{5!\cdot 5!} = 252 \\
-          }$
+        La condición de que la suma \textit{no sea impar} implica que \underline{todos} los elementos
+        \underline{deben ser} par o todos impar.
+
+        Conjuntos de números pares e impares, los bautizo, $P$ e $I$ respectivamente:
+        $$
+          P = \set{2,4,6,8,10,12,14,16,18, 20}
+          \quad \text{con} \quad
+          \#P = 10
+        $$
+        $$
+          I = \set{1,3,5,7,9,11,13,15,17,19}
+          \quad \text{con} \quad
+          \#I = 10
+        $$
+
+        Ahora para armar los conjuntos $B$ con $\#B = 5$ tengo que tomar solo 5
+        elementos ya sea de $P$ o 5 elementos de $I$. Eso es tomar 5 elementos de un conjunto de 10:
+        $$
+            \binom{10}{5} = 252
+        $$
+        Entonces puedo armarme 252 conjuntos $B$ con los elementos del conjunto $P$
+        y también 252 con los de $I$. Por lo tanto la cantidad total de conjuntos que satisfacen lo pedido:
+        $$
+        \cajaResultado{252 + 252 = 504}
+        $$
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
   %% iconos : \github, \instagram, \tiktok, \linkedin
   %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://www.instagram.com/jjean.gibert}{Jean \instagram}
 \end{aportes}

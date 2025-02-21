@@ -1,6 +1,6 @@
 \begin{enunciado}{\ejercicio}
   Sea $p$ primo positivo.
-        \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=(\alph*)]
     \item Probar que si $0 < k < p$, entonces $p \divideA \binom{p}{k}$.
     \item Probar que si $a, b \en \enteros$, entonces $\congruencia{(a+b)^p}{a^p + b^p}{\text{mod } p}$.
   \end{enumerate}
@@ -10,7 +10,7 @@
 \item
 
 Como $ 0 < k < p$, tenemos que $p \noDivide k!$ y que $p \noDivide (p-k)!$, pues $p$ \textit{es primo y no divide a ningún factor de ambos números}.
-                Por la misma razón, se tiene que $\llamada1 p \noDivide k!(p-k)!$.
+Por la misma razón, se tiene que $\llamada1 p \noDivide k!(p-k)!$.
 Entonces
 
 $$
@@ -19,13 +19,13 @@ $$
   p!=\binom{p}{k} \cdot k!(p-k)!
   \sii
   p(p-1)!=\binom{p}{k} \cdot k!(p-k)!
-                \Entonces{$(p-1)! \en \enteros$}[\red{!!}]
+  \Entonces{$(p-1)! \en \enteros$}[\red{!!}]
   p \divideA \binom{p}{k} \cdot k!(p-k)!
 $$
 
 $$
   p \divideA \binom{p}{k} \cdot k!(p-k)!
-                \Sii{$p$ primo}[$\llamada1 p \noDivide k!(p-k)!$]
+  \Sii{$p$ primo}[$\llamada1 p \noDivide k!(p-k)!$]
   p \divideA \binom{p}{k} \Tilde
 $$
 
@@ -36,7 +36,7 @@ $$
   (a+b)^{p}=\sumatoria{k=0}{p} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}=a^{p}+b^{p} + \sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}
 $$
 
-                Como en la nueva sumatoria tenemos que $0 < k < p$, podemos aplicar lo probado en el inciso (a), obteniendo que
+Como en la nueva sumatoria tenemos que $0 < k < p$, podemos aplicar lo probado en el inciso (a), obteniendo que
 
 $$
   \congruencia{\sumatoria{k=1}{p-1} \binom{p}{k} \cdot a^{k} \cdot b^{p-k}}{0}{p}
@@ -50,4 +50,5 @@ $$
 
 \begin{aportes}
   \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

@@ -17,8 +17,8 @@ $\par
 Puesto de otra forma $ \congruencia{a_{n+2}}{a_{n+1} - a_n}{7}
   \to
   \llave{l}{
-    \congruencia{a_1}{3^1}{7} \sisolosi \congruencia{a_1}{3}{7}   \\
-    \congruencia{a_2}{3^2}{7} \sisolosi \congruencia{a_2}{2}{7}  \\
+    \congruencia{a_1}{3^1}{7} \sisolosi \congruencia{a_1}{3}{7} \\
+    \congruencia{a_2}{3^2}{7} \sisolosi \congruencia{a_2}{2}{7} \\
     \congruencia{a_3}{3^3}{7} \sisolosi \congruencia{a_3}{6}{7}
   }$\par
 
@@ -42,9 +42,9 @@ $ p(n) : \congruencia{a_n}{3^n}{\text{mod }7} \paratodo n \en \naturales\\
     \llave{l}{
     \congruencia{a_k}{3^k}{\text{mod } 7}                                                                       \\
     \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7}                                                               \\
-    \flecha{sumo}[$\llamada{1}$]
-    a_{k+2} =
-    a_{k+1} - a_k \congruente 3^{k+1} - 3^k =
+      \flecha{sumo}[$\llamada{1}$]
+      a_{k+2} =
+      a_{k+1} - a_k \congruente 3^{k+1} - 3^k =
     2\cdot 3^k \conga7 9 \cdot 3^k =3^{k+2} \ (7) \Tilde                                                        \\
     p(k + 2) \text{  resultó ser verdadera.}
     }                                                                                                           \\
@@ -53,3 +53,7 @@ $\par
 
 Concluyendo como $p(1), p(2), p(k), p(k+1) \ytext p(k+2)$ resultaron verdaderas
 por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

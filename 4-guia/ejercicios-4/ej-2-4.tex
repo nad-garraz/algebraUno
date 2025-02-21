@@ -1,7 +1,8 @@
+\def\enumeracion{\alph*)}
 \begin{enunciado}{\ejercicio}
   Hallar todos los $n \en \naturales$ tales que:
   \begin{multicols}{2}
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}[label=\enumeracion]
       \item $3n - 1 \divideA n+7$
       \item $3n -2 \divideA 5n - 8$
       \item $2n+1 \divideA n^2 + 5$
@@ -10,25 +11,94 @@
   \end{multicols}
 \end{enunciado}
 
-\begin{enumerate}[label=\alph*)]
-  \item $3n - 1 \divideA n+7$\par
-        Busco eliminar la $n$ del \textit{miembro} derecho.\par
-        $\llaves{l}{
-            3n - 1 \divideA n + 7
-            \flecha{$a \divideA c \entonces$}[$a \divideA k \cdot c$]
-            3n - 1 \divideA \red{3} \cdot (n+7) = 3n + 21\\
-            \flecha{$a \divideA b \ytext a \divideA c$}[$\entonces a \divideA b \pm c$]
-            3n-1 \divideA 3n + 21 - (3n -1) = 22
-          } \to 3n - 1 \divideA 22\\
-          \flecha{busco $n$}[para que]
-          \frac{22}{3n-1} \en \divset{22}{\pm1, \pm2, \pm11, \pm22}
-          \flecha{probando}
-          n \en \set{1,4} \Tilde
-        $
+\begin{enumerate}[label=\enumeracion]
   \item
+        Busco eliminar la $n$ del \textit{miembro} derecho.
+        $$
+          \llave{l}{
+            3n - 1 \divideA n + 7 \\
+            3n - 1 \divideA 3n - 1
+          }
+          \Entonces{$3F_1 - F_2 \to F_1$}
+          \llave{l}{
+            3n - 1 \divideA 22 \\
+            3n - 1 \divideA 3n - 1
+          }
+        $$
+        Con ese resultado sé que $3n -1$ es un \textit{\underline{posible divisor}} de 22:
+        $$
+          \blue{d} = 3n - 1 \en \set{\pm1,\pm2, \pm11, \pm22}
+        $$
+
+        Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$.
+
+        Probando a manopla:
+        $$
+          \begin{array}{lcl}
+            n = 1 & \entonces & d = 2  \\
+            n = 6 & \entonces & d = 11
+          \end{array}
+        $$
+
+  \item Trato de sacar la $n$ del lado derecho:
+        $$
+          \llave{l}{
+            3n -2 \divideA 5n - 8 \\
+            3n -2 \divideA 3n - 2
+          }
+          \Entonces{$3F_1 - 4F_2 \to F_1$}
+          \llave{l}{
+            3n -2 \divideA -16 \\
+            3n -2 \divideA 3n - 2
+          }
+        $$
+        Con ese resultado sé que $3n -2$ es un \textit{\underline{posible divisor}} de  16:
+        $$
+          \blue{d} = 3n - 2 \en \set{\pm1, \pm2, \pm4, \pm8 \pm 16}
+        $$
+        Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$,
+        pero me da pajilla \rosa{\faIcon[regular]{grimace}}.
+
   \item
-  \item $n-2 \divideA n^3 - 8$ \par
-        $\flecha{$a \divideA b$}[$\entonces a \divideA k \cdot b$]
-          n-2 \divideA \ub{(n-2) \cdot (n^2 + 2n + 4)}{n^3 - 8} $
-        Esto va a dividir para todo $n \distinto 2$
+        Trato de sacar la $n$ del lado derecho:
+        $$
+          \llave{l}{
+            2n - 1 \divideA n^2 + 5 \\
+            2n - 1 \divideA 2n - 1
+          }
+          \Entonces{$nF_2 - 2F_1 \to F_1$}
+          \llave{l}{
+            2n - 1 \divideA -n - 10 \\
+            2n - 1 \divideA 2n - 1
+          }
+          \Entonces{$2F_1 + F_2 \to F_1$}
+          \llave{l}{
+            2n - 1 \divideA -21 \\
+            2n - 1 \divideA 2n - 1
+          }
+        $$
+        Con ese resultado sé que $2n - 1$ es un \textit{\underline{posible divisor}} de  21:
+        $$
+          \blue{d} = 3n - 2 \en \set{\pm1, \pm3, \pm7, \pm21}
+        $$
+        Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$,
+        pero me da pajilla \rosa{\faIcon[regular]{grimace}}.
+
+  \item A veces se ve y a veces no, pero:
+        $$
+          \polyset{vars=n}
+          \divPol{n^3-8}{n-2}
+        $$
+        Por lo que:
+        $$
+          n^3 - 8
+          \igual{\red{!}}
+          (n-2) \cdot (n^2 + 2n +4)
+          \entonces
+          n-2 \divideA n^3 - 8 \quad \paratodo n \en \naturales_{\neq 2}
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

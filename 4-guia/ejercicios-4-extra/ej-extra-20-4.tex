@@ -35,7 +35,7 @@ $$
   }
 $$
 
-Si $d = (6n : 30) \llamada1$ entonces los \textit{potenciales} posibles valores para el MCD serían:
+Si $d = (6n : 30)$ entonces los \textit{potenciales} posibles valores para el MCD serían:
 $$
   d \en \set{1, 2, 3, 5, 6, 10, 15, 30}
 $$
@@ -49,7 +49,8 @@ $$
   n \en \set{k \en \enteros_{\geq 0} : 6k + 2}
 $$
 
-\underline{Los $n$ son siempre par}, descartando así los valores $\set{1, 3, 5, 15}$. Esto porque siempre va a estar el 2 como factor en $d$.
+\underline{Los $n$ son siempre par}, descartando así los valores $\set{1, 3, 5, 15}$. Esto porque siempre va a estar el 2 como factor en $d$,
+ya que $d \divideA 6n$.
 
 \medskip
 
@@ -64,25 +65,35 @@ $$
   d \en \set{6, 10, 30}
 $$
 
-\textit{Quiero ver si encuentro algún $n$ tal que $d = 10$:}
+\textit{Me parece que $d = 10$ no va a ser un d}, ya que si encuentro algún $n$ es divisible por 5, ocurre lo siguiente:
+$$
+  \purple{n} = \purple{5k}
+  \entonces
+  d \divideA 6\cdot \purple{5k}=30k,
+$$
+por lo que \underline{tengo que eliminar al 10 de los posibles $d$} \red{!} Siempre que sea divisible por 10 va a ser divisible por 30.
 
-Si encuentro que $6n$ es divisible por 5, \underline{tengo que eliminar al 10 de los $d$} porque también será divisible por 30.
+\bigskip
+
+Ahora busco ese $\purple{n}$ multiplo de 5, para probar que $30$ es un podible $d$:
 $$
   \Entonces{$\llamada1$}[\red{!}]
-  n \igual{$\llamada2$} 6k + 2
-$$
-$$
+  \purple{n} \igual{$\llamada2$} 6k + 2
+  \Entonces{analizar si $\purple{n}$}[es multiplo de 5]
   \congruencia{6k + 2}{0}{5}
   \sii
   \congruencia{k}{3}{5}
-  \Entonces{$k = 3$} n \igual{$\llamada{2}$} 20
+  \Entonces{$k = 3$}
+  \purple{n} \igual{$\llamada{2}$} 20
 $$
-Es con $n = 20$ que:
+Es con $\purple{n} = 20$ que:
 $$
   \cajaResultado{
-    n = 20
+    \purple{n} = 20
     \entonces
-    d = (60 : 30) = 30
+    d
+    \igual{\checkmark}
+    30
   }
 $$
 

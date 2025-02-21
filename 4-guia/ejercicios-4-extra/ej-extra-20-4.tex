@@ -78,7 +78,7 @@ por lo que \underline{tengo que eliminar al 10 de los posibles $d$} \red{!} Siem
 Ahora busco ese $\purple{n}$ multiplo de 5, para probar que $30$ es un podible $d$:
 $$
   \Entonces{$\llamada1$}[\red{!}]
-  \purple{n} \igual{$\llamada2$} 6k + 2
+  \purple{n} = \ub{6k + 2}{\llamada2}
   \Entonces{analizar si $\purple{n}$}[es multiplo de 5]
   \congruencia{6k + 2}{0}{5}
   \sii
@@ -97,14 +97,16 @@ $$
   }
 $$
 
-Es así que los posibles valores para $d$ son:
+Es así que los posibles valores para $d = (2n^4 + 6n^2 + 10: n^3 + 2n)$ son:
 $$
   \cajaResultado{
     d \en \set{6, 30},
-    \quad \text{con} \quad
-    \llave{lcl}{
-      n = 2  & \entonces & d = 6  \\
-      n = 20 & \entonces & d = 30
+    \ \text{ para }
+    \congruencia{n}{2}{6}
+    \quad \text{y además} \quad
+    \llave{llcl}{
+      \text{si} & n = 2  & \entonces & d = 6  \\
+      \text{si} & n = 20 & \entonces & d = 30
     }
   }
 $$

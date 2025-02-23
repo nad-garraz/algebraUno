@@ -22,11 +22,11 @@ $$
   \congruencia{a^{1081}+ 3a + 2}{0}{5}
   \sii
   \llave{cl}{
-    \flecha{caso si}[$\congruencia{a}{0}{5}$]          & \congruencia{2}{0}{5}
+    \flecha{caso si}[$\congruencia{a}{0}{5}$]             & \congruencia{2}{0}{5}
     \flecha{concluyo que}
-    \noCongruencia{a}{0}{5}                                                    \\
-                                                       & \text{o}              \\
-    \flecha{PTF. $p$ primo}[y $\noCongruencia{a}{0}{5}$] &
+    \noCongruencia{a}{0}{5}                                                       \\
+                                                          & \text{o}              \\
+    \flecha{PTF: $5$ es primo}[y $\noCongruencia{a}{0}{5}$] &
     \congruencia{a + 3a + 2}{0}{5}
     \sii
     \congruencia{a}{2}{5}}                     \\
@@ -41,11 +41,11 @@ $$
   \congruencia{a^{1081}+ 3a + 1}{0}{7}
   \sii
   \llave{cl}{
-    \flecha{caso si}[$\congruencia{a}{0}{7}$]          & \congruencia{1}{0}{7}
+    \flecha{caso si}[$\congruencia{a}{0}{7}$]             & \congruencia{1}{0}{7}
     \flecha{concluyo que}
-    \noCongruencia{a}{0}{7}                                                     \\
-                                                        & \text{o}              \\
-    \flecha{PTF. $p$ primo}[y $\noCongruencia{a}{0}{7}$] &
+    \noCongruencia{a}{0}{7}                                                        \\
+                                                           & \text{o}              \\
+    \flecha{PTF: $7$ es primo}[y $\noCongruencia{a}{0}{7}$] &
     \congruencia{4a + 3}{0}{7}
     \sii
     \congruencia{a}{1}{7}}                    . \\
@@ -59,11 +59,11 @@ $$
   \noCongruencia{a^{1081} + 2}{0}{3}
   \sii
   \llave{cl}{
-    \flecha{caso si}[$\congruencia{a}{0}{3}$]          & \noCongruencia{2}{0}{3}
+    \flecha{caso si}[$\congruencia{a}{0}{3}$]             & \noCongruencia{2}{0}{3}
     \flecha{concluyo que}
-    \congruencia{a}{0}{3} \llamada6                                               \\
-                                                        & \text{o}                \\
-    \flecha{PTF. $p$ primo}[y $\noCongruencia{a}{0}{3}$] &
+    \congruencia{a}{0}{3} \llamada6                                                  \\
+                                                           & \text{o}                \\
+    \flecha{PTF: $3$ es primo}[y $\noCongruencia{a}{0}{3}$] &
     \noCongruencia{a + 2}{0}{3}
     \sii
     \noCongruencia{a}{1}{3}
@@ -74,21 +74,21 @@ En el \red{!!} estoy en la rama donde $\noCongruencia{a}{0}{3}$ y si $\congruenc
 de esa rama es $\congruencia{a}{2}{3}$.
 
 El resultado del estudio de $\llamada1, \llamada2 \ytext \llamada3$,
-dio los resultados de $\llamada4, \llamada5, \llamada6$ con los cuales se puede formar los sistemas:
+dio los resultados de $\llamada4, \llamada5, \llamada6$ con los cuales se puede formar los 2 sistemas:
 $$
   \llave{l}{
     \congruencia{a}{2}{5} \\
     \congruencia{a}{1}{7} \\
     \congruencia{a}{0}{3}
   }
-  \flecha{divisore coprimos}[\href{\chinito}{TCH}] \boxed{\congruencia{a}{57}{105} }
+  \flecha{divisores coprimos}[\href{\chinito}{TCH}] \boxed{\congruencia{a}{57}{105} }
   \ytext
   \llave{l}{
     \congruencia{a}{2}{5} \\
     \congruencia{a}{1}{7} \\
     \congruencia{a}{2}{3}
   }
-  \flecha{divisore coprimos}[\href{\chinito}{TCH}]
+  \flecha{divisores coprimos}[\href{\chinito}{TCH}]
   \boxed{\congruencia{a}{92}{105} }
 $$
 
@@ -105,14 +105,16 @@ Solo falta calcular el $r_{70}(a)$ para estos valores de $a$. Calcular el resto 
 $$
   \flecha{$\conga{70}$}
   \llave{l}{
-    a = 35 k_1 + 57 \Sii{def}  \congruencia{a}{57}{35} \\
-    a = 35 k_2 + 22 \Sii{def}  \congruencia{a}{22}{35}
+    a = 35 k_1 + 57 \Sii{def}  \cajaResultado{\congruencia{a}{57}{35}} \\
+    a = 35 k_2 + 22 \Sii{def}  \cajaResultado{\congruencia{a}{22}{35}}
   }
 $$
 
-Los restos pedidos:
+Los restos pedidos de dividir $a$ por 70:
 $$
-  r_{70}(a) = \set{22, 57}
+  \cajaResultado{
+    r_{70}(a) = \set{22, 57}
+  }
 $$
 
 % Contribuciones

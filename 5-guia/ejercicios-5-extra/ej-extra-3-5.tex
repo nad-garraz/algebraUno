@@ -11,41 +11,44 @@
 
 Para que se cumpla que
 $(n^{433} + 7n + 91 : \ub{931}{7^2\cdot 19}) = \ub{133}{7\cdot 19}$
-deben ocurrir las siguientes condiciones:\\
+deben ocurrir las siguientes condiciones:
 $$
   \llave{rcl}{
+    \vspace{5pt}
     7   & \divideA  & \expresion \\
+    \vspace{5pt}
     19  & \divideA  & \expresion \\
     7^2 & \noDivide & \expresion
   }
 $$
 
-\textit{Estudio la divisibilidad $7$: }\\
+\textit{Estudio la divisibilidad $7$: }
+
 Si
-$
+$$
   7 \divideA \expresion
   \sisolosi
   \congruencia{\expresion}{0}{7}
   \sisolosi
   \congruencia{n^{433}}{0}{7}
-  \flecha{analizo casos}[$7 \divideA n$ o $7 \noDivide n$]\\
+$$
+Analizo esa expresión en los casos cuando $7 \divideA n$ y cuando $7 \noDivide n$ o lo que es lo mismo cuando
+$\congruencia{n}{0}{7}$ y cuando $\noCongruencia{n}{0}{7}$:
+$$
   \congruencia{n^{433}}{0}{7}
   \sii
   \llave{l}{
-    \text{(\magenta{rama  $7\noDivide n$})\ }
-    \flecha{7 es primo}[$7\noDivide n$]
-    \congruencia{(\ub{n^6}{\conga7 1})^{72}\cdot n}{0}{7}
-    \sii
-    \congruencia{n}{0}{7},
-    \text{ pero esta rama } 7 \noDivide n \to \skull \\
+    \flecha{7 es primo}[$\noCongruencia{n}{0}{7}$]
+    \congruencia{n^{433}}{0}{7}
+    \Sii{\href{\chinito}{THC}}
+    \congruencia{n}{0}{7} \to \skull \\
     % --
-    \text{(\magenta{rama  $7\divideA n$})\ }
-    \flecha{7 es primo}[$7 \divideA n$]
+    \flecha{7 es primo}[$\congruencia{n}{0}{7}$]
     \congruencia{0}{0}{7}
-    \text{ y como esta rama } 7 \divideA n
-    \to
-    \boxed{\congruencia{n}{0}{7} }\Tilde\llamada1   \\
-  }$\\
+    \entonces
+    \boxed{\congruencia{n}{0}{7} }\Tilde\llamada1
+  }
+$$
 
 \textit{Conclusión divisibilidad $7$:}
 $$

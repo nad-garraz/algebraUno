@@ -1,33 +1,69 @@
 \begin{enunciado}{\ejercicio}
-  Determinar todos los $(a,b)$ que simultáneamente $4 \divideA a,\, 8 \divideA b \y 33a + 9b = 120$.
+  Determinar todos los $(a,b)$ que simultáneamente $4 \divideA a,\, 8 \divideA b \ytext 33a + 9b = 120$.
 \end{enunciado}
 
+Para que la ecuación tenga solución necesito que el MCD entre 33 y 9 divida al 120, es decir:
+$$
+  (33:9) \divideA 120 \entonces 33a + 9b = 120
+$$
+y dado que $(33:9) = 3
+  \ytext
+  3\divideA 120$ sé que puedo encontrar dicha solución. Pero tengo más restricciones sobre
+los valores de $a \ytext b$.
 
-Si $(33:9) \divideA 120 \entonces 33a + 9b = 120$ tiene solución. $(33:9)=3,\, 3 \divideA 120$\Tilde\par
-$
+$$
   \llave{l}{
-    4 \divideA a \to a = 4k_1\\
-    8 \divideA b \to b = 8k_2
-  }
-  \flecha{meto en}[$33a + 9b = 120$]
+    4 \divideA a \Sii{def} a = 4k_1 \\
+    8 \divideA b \Sii{def} b = 8k_2
+  } \llamada1
+$$
+Pongo esa info en la ecuación:
+$$
+  \flecha{$\llamada1$}
+  33a + 9b = 120
+  \to
   132 k_1 + 72 k_2 = 120
-  \flecha{$(132:72) = 12 \divideA 120$}[coprimizo]
-  11 k_1 + 6 k_2 = 10$ \par
-
-Busco solución particular con Euclides:\par
-$\llaves{l}{
-    11 = 6 \cdot 1 + 5 \\
-    6 = 5 \cdot 1 + 1 \Tilde \\
+$$
+Siempre que puedo tengo que coprimizar:
+$$
+  132 k_1 + 72 k_2 = 120
+  \Sii{coprimizo}
+  11 k_1 + 6 k_2 = 10
+$$
+Busco \textit{solución particular} con Euclides, busco escribir al número 1 como combinación entera de \blue{11} y \blue{6}:
+$$
+  \llave{rcl}{
+    11 & = & 6 \cdot 1 + 5 \\
+    6  & = & 5 \cdot 1 + 1
   }
-  \flecha{1 como combinación}[entera de \blue{11} y \blue{6}]
-  1 =  \blue{11} \cdot -1 + \blue{6} \cdot -2
-  \flecha{solución}[particular]
-  10 = \blue{11}\cdot(\ub{-10}{k_1})   + \blue{6} \cdot \ub{20}{k_2}
-$
+  \entonces
+  1 =  \blue{11} \cdot (-1) + \blue{6} \cdot 2 \llamada2
+$$
+Obtengo así la \textit{solución particular}:
+$$
+  \Entonces{$\llamada2 \times 10$}
+  10 = \blue{11}\cdot(-10)   + \blue{6} \cdot 20
+  \entonces
+  (k_1, k_2) = (-10, 20)
+$$
+La solución del homogéneo queda:
+$$
+  11 k_{1_h} + 6 k_{2_h} = 0 \entonces (k_{1_h}, k_{2_h}) = (-6, 11)
+$$
+Por lo que la solución general:
+$$
+  (k_{1_g}, k_{2_g}) = (k_{1_p}, k_{2_p}) + \purple{k} \cdot (k_{1_h}, k_{2_h}) =
+  (-10, 20) + \purple{k} \cdot (-6, 11) =
+  (-10 - 6\purple{k}, 20 + 11\purple{k})
+$$
+Pero me pidieron los pares $(a,b)$ con $a \divideA 4 \ytext b \divideA 8$:
+$$
+  \Entonces{$\llamada1$}
+  \cajaResultado{
+    (a,b) = (-40 - 24k, 160 + 88k)
+  }
+$$
 
-Para $11 k_1 + 6 k_2 = 10$ tengo la solución general $(k_1, k_2) = (-10 + (-6)k, 20 + 11k)$ con $k \en \enteros$\par
-Pero quiero los valores de $a$ y $b$:\par
-La solución general será $\boxed{(a,b) = (4k_1, 8k_2) = (-40 + 24 k, 160 + (-88)k)}$\par
-
-\noindent Otra respuesta con solución a ojo menos falopa, esta recta es la misma que la anterior:\par
-$(a,b) = (2+3k, 6-11k)$ con $\congruencia{k}{2}{8} $
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

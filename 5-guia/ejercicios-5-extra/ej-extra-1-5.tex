@@ -23,7 +23,7 @@ $$
   \sii
   \llave{cl}{
     \flecha{caso si}[$\congruencia{a}{0}{5}$]             & \congruencia{2}{0}{5}
-    \flecha{concluyo que}
+    \Entonces{concluyo}[que]
     \noCongruencia{a}{0}{5}                                                       \\
                                                           & \text{o}              \\
     \flecha{PTF: $5$ es primo}[y $\noCongruencia{a}{0}{5}$] &
@@ -42,7 +42,7 @@ $$
   \sii
   \llave{cl}{
     \flecha{caso si}[$\congruencia{a}{0}{7}$]             & \congruencia{1}{0}{7}
-    \flecha{concluyo que}
+    \Entonces{concluyo}[que]
     \noCongruencia{a}{0}{7}                                                        \\
                                                            & \text{o}              \\
     \flecha{PTF: $7$ es primo}[y $\noCongruencia{a}{0}{7}$] &
@@ -60,18 +60,25 @@ $$
   \sii
   \llave{cl}{
     \flecha{caso si}[$\congruencia{a}{0}{3}$]             & \noCongruencia{2}{0}{3}
-    \flecha{concluyo que}
+    \Entonces{concluyo}[que]
     \congruencia{a}{0}{3} \llamada6                                                  \\
                                                            & \text{o}                \\
     \flecha{PTF: $3$ es primo}[y $\noCongruencia{a}{0}{3}$] &
     \noCongruencia{a + 2}{0}{3}
     \sii
     \noCongruencia{a}{1}{3}
-    \flecha{concluyo que}[\red{!!}] \congruencia{a}{2}{3} \llamada6.
+    \Entonces{concluyo}[que \red{!!}] \congruencia{a}{2}{3} \llamada6.
   }
 $$
 En el \red{!!} estoy en la rama donde $\noCongruencia{a}{0}{3}$ y si $\congruencia{a}{1}{3}$ no se cumpliría $\llamada3$, por eso el único valor que sale
 de esa rama es $\congruencia{a}{2}{3}$.
+
+Se concluye de este último resultado que $a$ también puede tomar los valores:
+$$
+  \congruencia{a}{0}{3}
+  \otext
+  \congruencia{a}{2}{3}
+$$
 
 El resultado del estudio de $\llamada1, \llamada2 \ytext \llamada3$,
 dio los resultados de $\llamada4, \llamada5, \llamada6$ con los cuales se puede formar los 2 sistemas:
@@ -103,17 +110,16 @@ $$
 $$
 Solo falta calcular el $r_{70}(a)$ para estos valores de $a$. Calcular el resto es ver la congruencia 70, $r_{70}(a)$:
 $$
-  \flecha{$\conga{70}$}
   \llave{l}{
-    a = 35 k_1 + 57 \Sii{def}  \cajaResultado{\congruencia{a}{57}{35}} \\
-    a = 35 k_2 + 22 \Sii{def}  \cajaResultado{\congruencia{a}{22}{35}}
+    a \conga{70} 35 k_1 + 57 \Sii{def}  \cajaResultado{\congruencia{a}{57}{70}} \\
+    a \conga{70} 35 k_2 + 22 \Sii{def}  \cajaResultado{\congruencia{a}{22}{70}}
   }
 $$
 
 Los restos pedidos de dividir $a$ por 70:
 $$
   \cajaResultado{
-    r_{70}(a) = \set{22, 57}
+    r_{70}(a) \en \set{22, 57}
   }
 $$
 
@@ -121,7 +127,7 @@ $$
 \begin{aportes}
   %% iconos : \github, \instagram, \tiktok, \linkedin
   %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{\neverGonnaGiveYouUp}{Nacho \youtube}
 \end{aportes}
 

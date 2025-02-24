@@ -8,45 +8,110 @@
   \end{multicols}
 \end{enunciado}
 
+Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
+
+\bigskip
 \begin{enumerate}[label=\alph*)]
+
   \item Para poder usar PTF tengo que tener un primo en el divisor, quiebro:
         $$
           \begin{array}{c}
             \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{2p}
-            \leftrightsquigarrow
+            \equivalente
             \llave{l}{
             \congruencia{p}{1}{2} \llamada1 \\
               \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{p} \llamada2
             }
           \end{array}
         $$
-
+        Quiero que ocurra que:
         $$
           \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{p}
           \sii
           \llave{l}{
-            \Sii{si $p \divideA 38$}[$\entonces p = 19$]
-            \congruencia{ 38^{2p^2 -p -1} + 3p + 171 \conga{19} 0}{\blue{0}}{p} \llamada3 \\
+            \Sii{si $p \divideA 38$}[$\entonces p = \purple{19}$]
+            \congruencia{ 38^{2 \cdot \purple{19}^2 - \purple{19} -1} + 3 \cdot \purple{19} + 171 \conga{19} 0}{\blue{0}}{\purple{19}} \llamada3 \\
             \Sii{PTF}[$p \noDivide 38$ \red{!!}]
             \congruencia{38^{\red{0}} + 0 + 171 = \ub{172}{2^2 \cdot 43}}{\blue{0}}{p} \llamada4
           }
         $$
 
-        Cálculo para hacer el PTF:
+        Cálculo usado hacer el PTF con $p$ genérico:
         $$
           \polyset{vars=p}
           \divPol{2p^2 - p - 1}{p-1}
         $$
 
-        Después de hacer todo eso, sacamos de $\llamada1$ que $p$ es impar. De $\llamada3$ obtenemos que un posible valor sería $p = 19$ y
-                luego del caso $p \noDivide 38$ sale que debe ocurrir que $172 \conga{p} 0$, y dado que $p$ tiene que ser impar, $p = 43$.
+        Después de hacer todo eso, sacamos de $\llamada1$ que $p$ es impar. De $\llamada3$ obtenemos que un posible valor sería:
+        $$
+          \cajaResultado{
+            p = 19
+          }
+        $$
+        y luego del caso $p \noDivide 38$ sale que debe ocurrir que $172 \conga{p} 0$, y dado que $p$ \underline{tiene que ser impar}, entonces
+        queda que:
+        $$
+          \cajaResultado{
+            p = 43
+          }
+        $$.
 
-        \item \hacer
+  \item Parecido al anterior. Voy a ver que pasa con $p = 3$ y con $p = 5$ así descarto esos valores y después le manto PTF:
+        $$
+          p = 3
+          \entonces
+          9 \divideA 5^2 + 3^{11} + 833
+          \Sii{def}
+          \noCongruencia{7 + 0 + 5 \conga{9} 3}{\blue{0}}{9}
+        $$
+        La expresión no se divide por 9, entonces descarto $p = 3$. A ver con $p = 5$:
+        $$
+          p = 5
+          \entonces
+          3 \cdot 5 \divideA 5^4 + 3^{27} + 833
+          \equivalente
+          \llave{l}{
+            \congruencia{5^2 \cdot 5^2 + 3^{27} \cdot 3^{3} + 833 \conga3 1 + 0 + 2}{\blue{0}}{3} \\
+            \congruencia{5^4 + (3^4)^{6} \cdot 3^{3} + 833 \conga5 0 + 2 + 3 }{\blue{0}}{5}
+          }
+        $$
+        Con $p = 5$ funciona el sistema con divisores coprimos, así que $p = 5$ es un número primo que cumple el enunciado.
+
+        \medskip
+
+        Para un primo $p$ genérico con $p \distinto 3 \ytext p \distinto 5$:
+        $$
+          3p \divideA 5^{p-1} + 3^{p^2+2} + 833
+          \equivalente
+          \llave{l}{
+            \congruencia{5^{p-1} + 3^{p^2+2}+833}{\blue{0}}{p} \llamada1 \\
+            \congruencia{5^{p-1} + 3^{p^2+2}+833}{\blue{0}}{3} \llamada2
+          }
+        $$
+        Laburo en $\llamada1$ con PTF:
+        $$
+          \llamada1
+          \entonces
+          \congruencia{5^0 + 3^1 + 833 = 837 = 3^3 \cdot 31}{\blue{0}}{p}
+        $$
+        Como el $p = 3$ está descartado a este punto tengo que pedir que $p = \purple{31}$ para que se cumpla la congruencia.
+        Solo me falta chequear que $\llamada2$ funciones bien para este valor:
+        $$
+          \llamada2
+          \entonces
+          \congruencia{5^{\purple{31}-1} + 3^{\purple{31}^2+2}+833 \conga{3} 834 }{\blue{0}}{3}
+        $$
+
+        \medskip
+
+        Concluyendo de esta manera que el número primo $31$ también es solución:
+        $$
+          \cajaResultado{
+            p \en \set{5, 31}
+          }
+        $$
 \end{enumerate}
 
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

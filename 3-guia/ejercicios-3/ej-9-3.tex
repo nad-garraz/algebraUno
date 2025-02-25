@@ -6,60 +6,171 @@
 
 Para dos conjuntos
 $$
-  A = \set{a,b,c}
+  A = \set{1,\cdots, n}
   \ytext
-  B = \set{1,2}
+  B = \set{ a_i \en A \ytext a_j \en A \talque  a_i \relacion a_j \paratodo i,j \en [1, n] }
 $$
-la cantidad de relaciones que hay entre ellos es igual a la cantidad de subconjuntos de
+Los cardinales de conjuntos de esta pinta:
 $$
-  \partes(A \times B).
-$$
-Entonces si se tiene que $A = \set{1,\cdots, n}$ el cardinal $\# \partes(A \relacion A ) = 2^{n^2}$
-
-\bigskip
-
-\textit{Relaciones reflexivas:}
-
-Las relaciones reflexivas son de la forma:
-$$
-  a_i \relacion a_i,
-$$
-por lo que solo será una relación por cada elemento del conjunto $\# (A \relacion A)_{ref} = n$.
-Voy a calcular la cantidad de elementos que tiene el conjunto
-$\partes \parentesis{ (A \relacion A)_{ref} }$, porque estoy buscando todos los subconjuntos que puedo
-formar con los elementos de $(A \relacion A)_{ref}$:
-$$
-  \#\partes((A \relacion A)_{ref}) = 2^n
-  \quad\red{Corroborar!}
+  \#A = n
+  ,\quad
+  \#B = n^2
+  ,\quad
+  \#\partes(B) = 2^{n^2}
 $$
 
 \bigskip
 
-\textit{Relaciones simétricas:}
-
-Las relaciones simétricas serán aquellas que
+\textit{¿Cuántas relaciones reflexivas tengo en $A$?:}
+Sé que las relaciones reflexivas son de la forma:
 $$
-  a_i \relacion a_j \entonces a_j \relacion a_i.
+  \paratodo a_i \en A \entonces a_i \relacion a_i,
 $$
-Pensando esto como los elementos de la diagonal
-para abajo de una matriz de $n\times n$ tengo $\sumatoria{i=1}{n} i = \frac{n \cdot (n+1)}{2}$ elementos matriciales.\\
-$\sumatoria{k = 0}{n} \binom{\frac{n \cdot (n+1)}{2}}{k} = 2^{\frac{n \cdot (n+1)}{2}}$
-\red{Corroborar}
-
-$
+es decir, lo $n$ elementos de la diagonal de una matriz:
+$$
   \begin{array}{c|c|c|c|c|c|c|c|}
     \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
-    a_1                  & R,\, S                  & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-    a_2                  & S                       & R,\, S                  & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-    a_3                  & S                       & S                       & R,\, S                  & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_1                  & R                       & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_2                  & \cdot                   & R                       & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_3                  & \cdot                   & \cdot                   & R                       & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
     \vdots               & \vdots                  & \vdots                  & \vdots                  & \ddots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
-    a_{n-2}              & S                       & S                       & S                       & \ddots                     & R,\, S                      & \cdot                       & \cdot                   \\ \cline{2-8}
-    a_{n-1}              & S                       & S                       & S                       & \ddots                     & S                           & R,\, S                      & \cdot                   \\ \cline{2-8}
-    a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & R,\, S                  \\ \cline{2-8}
+    a_{n-2}              & \cdot                   & \cdot                   & \cdot                   & \ddots                     & R                           & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_{n-1}              & \cdot                   & \cdot                   & \cdot                   & \ddots                     & \cdot                       & R                           & \cdot                   \\ \cline{2-8}
+    a_n                  & \cdot                   & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & R                       \\ \cline{2-8}
   \end{array}
-$
+$$
+deben estar en mi relación. Hay solo una forma de conseguir eso:
+$$
+  \binom{n}{n} = 1 \llamada1.
+$$
+solo hay una posibilidad para que pase eso.
 
-\hacer
+Todo muy lindo, hago un ejemplo de juguete para entender esta verga. Ejemplo con $A = \set{a_1, a_2}$):
+$$
+  \begin{array}{c|c|c|}
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} \\ \cline{2-3}
+    a_1                  & R                       & \cdot                   \\ \cline{2-3}
+    a_2                  & \cdot                   & R                       \\ \cline{2-3}
+  \end{array}
+$$
+$$
+  \llave{l}{
+    \relacion_1 = \set{(a_1,a_1), (a_2,a_2)} \\
+    \relacion_2 = \set{(a_1,a_1), (a_2,a_2), (a_{\cyan 2}, a_{\magenta 1})} \\
+    \relacion_3 = \set{(a_1,a_1), (a_2,a_2), (a_{\magenta 1}, a_{\cyan 2})} \\
+    \relacion_4 = \set{(a_1,a_1), (a_2,a_2), (a_1,a_2), (a_2, a_1)} \\
+  }
+$$
+Tengo en total 4 posibles relaciones reflexivas. Se puede ver que los elementos \underline{no diagonales} son el
+problema a tratar, o siendo menos dramáticos, los elementos no diagnonales me agregan posibles relaciones
+a mi única ($\llamada1$) relación hasta el momento.
+
+\medskip
+
+\begin{center}
+  \begin{minipage}{0.7\textwidth}
+    ¿Cómo calculo todas las posibilidades de combinar los elementos en un conjunto $A = \set{a_1, \cdots, a_n }$?
+  \end{minipage}
+\end{center}
+
+\medskip
+
+La cantidad total de pares $A \times A$ \underline{sin} los elementos de la diagonal, es decir $(a_i,a_j)$ con $i \distinto j$
+que me puedo armar en esa matriz es:
+$$
+  n^2 - n
+$$
+Cada uno de estos $n^2 - n$ pares pueden \textit{aparecer o no} en la relación (como en el ejemplo de juguete).
+\textit{Aparecer o no} son 2 posibilidades, \textit{ser o no ser \faIcon[regular]{skull}}. Habrá:
+$$
+  \ub{2 \cdot 2 \cdots 2}{\#(\textit{elementos no diagonales)}} =  2^{n^2 - n}
+$$
+Noto que ese resultado es $\#\partes(\set{\textit{elementos no diagonales}})$.
+
+El total de relaciones \textit{reflexivas}:
+$$
+  \cajaResultado{
+    2^{(n^2 + n)}
+  }
+$$
+
+\vspace{1cm}
+
+\textit{¿Cuántas relaciones simétricas habrá en $A$?:} Las relaciones simétricas serán aquellas que
+$$
+  a_i \relacion a_j \entonces a_j \relacion a_i,\quad
+  \paratodo a_i \ytext a_j \en A.
+$$
+Arranco con un ejemplo de juguete, para un conjunto $A = \set{a_1, a_2}$) tengo las siguientes relaciones simétricas:
+$$
+  \begin{array}{c|c|c|}
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} \\ \cline{2-3}
+    a_1                  & S                       & \cdot                   \\ \cline{2-3}
+    a_2                  & S                       & S                       \\ \cline{2-3}
+  \end{array}
+$$
+$$
+  \llave{l}{
+    \relacion_1 = \set{(a_1,a_1)}                    \\
+    \relacion_2 = \set{(a_2,a_2)}                    \\
+    \relacion_3 = \set{(a_1,a_1), (a_2,a_2)} \\
+    \relacion_4 = \set{(a_1,a_1), (a_1,a_2), (a_2, a_1)} \\
+    \relacion_5 = \set{(a_2,a_2), (a_1,a_2), (a_2, a_1)} \\
+    \relacion_6 = \set{(a_1,a_1), (a_2,a_2), (a_1,a_2), (a_2, a_1)} \\
+    \relacion_7 = \set{(a_1,a_2), (a_2,a_1)}
+  }
+$$
+Es así que se comprueba que las profundidades del infierno no están acotadas.
+Por otro lado voy a ver cuántos elementos tengo para armar estar relaciones:
+$$
+  \begin{array}{c|c|c|c|c|c|c|c|}
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
+    a_1                  & S                       & \cdot                   & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_2                  & S                       & S                       & \cdot                   & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_3                  & S                       & S                       & S                       & \cdots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    \vdots               & \vdots                  & \vdots                  & \vdots                  & \ddots                     & \cdot                       & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_{n-2}              & S                       & S                       & S                       & \ddots                     & S                           & \cdot                       & \cdot                   \\ \cline{2-8}
+    a_{n-1}              & S                       & S                       & S                       & \ddots                     & S                           & S                           & \cdot                   \\ \cline{2-8}
+    a_n                  & S                       & S                       & S                       & \cdots                     & S                           & S                           & S                       \\ \cline{2-8}
+  \end{array}
+$$
+La cantidad de elementos que hay marcados con una $S$ en la matriz y los $S$ debajo de la diagonal son respectivamente:
+$$
+  \frac{n \cdot (n+1)}{2}
+  \ytext
+  \frac{n \cdot (n - 1)}{2}
+$$
+Usando un razonamiento análogo a cuando calculamos las reflexivas estos elementos pueden aparecer o no aparecer
+en la relación, \red{peeeeero} alguno tiene que aparecer:
+$$
+  \ub{(2 \cdot 2 \cdots 2)}{\#(\textit{elementos $S$ en la matriz)}} \red{- 1 }
+  =
+  2^{\frac{(n^2 + n)}{2}} \red{ - 1}
+$$
+Agrego el $\red{ - 1}$ porque sino estoy tomando al conjunto vacío $\vacio$ como una relación simétrica más.
+
+El total de relaciones \textit{simétricas}:
+$$
+  \cajaResultado{
+    2^{\frac{(n^2 + n)}{2}} - 1
+  }
+$$
+
+\vspace{1cm}
+
+\textit{¿Cuántas relaciones reflexivas y simétricas habrá:}
+
+Como se laburó en la parte de reflexividad, tengo que agarrar los $n$ pares $(a_i,a_i)$ y para eso hay solo una forma de hacerlo.
+Si quiero que las relaciones sean \textit{reflexivas} y \textit{simétricas} tengo que jugar con los elementos que conté para la
+reflexividad, pero solo con la mitad, dado que cuando aparezca el elemento matricial $a_{ij}$ aparecerá el elemento $a_{ji}$
+debido a la simetría.
+
+El total de relaciones \textit{simétricas} y \textit{reflexivas}:
+$$
+  \cajaResultado{
+    2^{\frac{n^2 - n}{2}}
+  }
+$$
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

@@ -17,16 +17,19 @@
 
 \begin{enumerate}[label=\alph*)]
   \item
-        Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$\\
+        Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$
+
         Voy a usar que:
-        $$\llamada1
+        $$
+          \llamada1
           \llave{rcr}{
             (-i)^2 & = & -1 \\
             (-i)^3 & = & i  \\
             (-i)^4 & = & 1  \\
             (-i)^5 & = & -i \\
             (-i)^6 & = & -1
-          }$$
+          }
+        $$
 
         Evalúo $f(r(-i))$:
 
@@ -48,7 +51,7 @@
             r = \sqrt{3} \llamada2                                           \\
               \re(f(r(-i))) : -r^6  - r^4  - 4r^2  + \c = 0
               \Sii{$\llamada2$}[$r = \sqrt{3}$]
-                  \cajaResultado{\c = 48}
+              \cajaResultado{\c = 48}
             }
           \end{array}
         $$
@@ -117,11 +120,11 @@
         \textit{Factorizaciones: }
         \begin{center}
           \cajaResultado{
-              \begin{array}{rcl}
-                \racionales[X] & \to & f = (X^2 + 3) \cdot (X^2 - 2X - 4)^2                                                               \\
-                \reales[X]     & \to & f = (X^2 + 3) \cdot (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2                           \\
-                \complejos[X]  & \to & f =  (X-\sqrt{3}i) \cdot (X+\sqrt{3}i) \cdot  (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2
-              \end{array}
+            \begin{array}{rcl}
+              \racionales[X] & \to & f = (X^2 + 3) \cdot (X^2 - 2X - 4)^2                                                               \\
+              \reales[X]     & \to & f = (X^2 + 3) \cdot (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2                           \\
+              \complejos[X]  & \to & f =  (X-\sqrt{3}i) \cdot (X+\sqrt{3}i) \cdot  (X - (1 + \sqrt{5}))^2  \cdot (X - (1 - \sqrt{5}))^2
+            \end{array}
           }
         \end{center}
 \end{enumerate}

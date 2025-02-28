@@ -1,0 +1,128 @@
+\begin{enunciado}{\ejExtra}
+  Sea $X = \set{f: \set{ n \en \naturales : n \leq 5} \to \set{n \en \enteros : 0 \leq n \leq 100}}$, es decir, $X$ es el conjunto de todas
+  las funciones del conjunto $\set{1, \dots, 5}$ en el conjunto $\set{0,\dots, 100}$. Se define en $X$ la relación $\relacion$ dada por
+  $$
+    f \relacion g \sisolosi \congruencia{f(4)}{g(4)}{\text{mód } 3}
+  $$
+  \begin{enumerate}[label=\alph*)]
+    \item Decida si la relación es reflexiva, simétrica, transitiva y/o antisimétrica.
+    \item Sea $g \en X$ la función difinida $g(n) = 5$ para todo $n \en \set{1, \dots 5}$. Calcule la cantidad de funciones
+          inyectivas $f$ tales que $f \relacion g$ y $f(5) = 14$.
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item
+        Dado que la relación $\relacion$ está definida en una congruencia algunas de las propiedades se cumplen de forma trivial debido
+        a la congruencia.
+
+        \textit{¿Es la relación $\relacion$ reflexiva?}
+        $$
+          \congruencia{f(4)}{f(4)}{3}
+        $$
+        Se cumple de manera trivial.
+        \cajaResultado{\relacion \text{ es \textit{reflexiva}}}.
+
+        \medskip
+
+        \textit{¿Es la relación $\relacion$ simétrica?}
+        $$
+          \text{Si }	\congruencia{f(4)}{g(4)}{3}
+          \Entonces{?}
+          \congruencia{g(4)}{f(4)}{3}
+        $$
+        Se cumple de manera trivial.
+        \cajaResultado{\relacion \text{ es \textit{simétrica}}}.
+
+        \medskip
+
+        \textit{¿Es la relación $\relacion$ transitiva?}
+        $$
+          \text{Si }
+          \congruencia{f(4)}{g(4)}{3}
+          \ytext
+          \congruencia{g(4)}{h(4)}{3}
+          \Entonces{?}
+          \congruencia{f(4)}{h(4)}{3}
+        $$
+        Se cumple de manera trivial.
+        $\quad\congruencia{f(4)}{g(4) \conga3 h(4)}{3}\quad$
+        \cajaResultado{\relacion \text{ es \textit{transtiva}}}.
+
+        \medskip
+
+        \textit{¿Es la relación $\relacion$ antisimétrica?}
+        $$
+          \text{Si }
+          \congruencia{f(4)}{g(4)}{3}
+          \ytext
+          \congruencia{g(4)}{f(4)}{3}
+          \Entonces{?}
+          f = g
+        $$
+        Y, me parece que no. Un contraejemplo viene al pelo. Busco dos funciones que cumplan la relación pero que sean distintas:
+        $$
+          \llave{l}{
+            f(n) = 6n \\
+            g(n) = 3n
+          }
+          \entonces
+          \congruencia{\ub{f(4)}{\conga 3 0}}{\ub{g(4)}{\conga 3 0}}{3}
+          \ytext
+          \congruencia{\ub{g(4)}{\conga 3 0}}{\ub{f(4)}{\conga 3 0}}{3}
+          \quad \text{con} \quad
+          f \distinto g
+        $$
+        El contraejemplo dice que
+        \cajaResultado{\relacion \text{ \underline{no} es \textit{antisimétrica}}}.
+
+  \item
+        Quiero que ocurra que:
+        \begin{itemize}
+          \item $f(5) = 14$.
+          \item $f$ es inyectiva.
+          \item $f \relacion g \entonces \congruencia{f(4) \conga{3} g(4)}{2}{3}$
+        \end{itemize}
+
+        Esa última condición me dice que $f(4)$ es de la pinta:
+        $$
+          f(4) = 3k + 2
+          \quad \text{con} \quad k \en \enteros
+        $$
+        ¿Cuánto posibles valores del conjunto del codominio $\set{0, \dots, 100}$ hay que cumplan que su módulo 3 es 2?
+        $$
+          0 \leq 3k+2 \leq 100
+          \sii
+          -\frac{2}{3} \leq 3k+2 \leq \frac{98}{3}
+          \sii
+          k \en \set{0, \dots, 32}
+        $$
+        donde $\#\set{0, \dots, 32} = \blue{33}$.
+
+        Ojito que hay una \textit{trampilla} con el $f(5) = 14$, que o sorpresa $\congruencia{14}{\magenta{2}}{3}\red{!!}$
+
+        Por lo tanto si me quiero armar funciones \textit{inyectivas} que cumplan lo pedido:
+        $$
+          \llave{l}{
+            f(4) \to \text{32 opciones}   \\
+            f(5) \to \text{ única opción} \\
+            f(1) \to \text{99 opciones}   \\
+            f(2) \to \text{98 opciones}   \\
+            f(3) \to \text{97 opciones}
+          }
+        $$
+        $f(4) \ytext f(5)$ son las que se laburaron, las otras 3 $f(1), f(2) \ytext f(3)$ son el relleno donde solo hay que prestar atención a no romper
+        la inyectividad.
+
+        Se concluye que la cantidad de funciones $f$ que cumplen lo pedido son en total:
+        $$
+          \cajaResultado{
+            32 \cdot 1 \cdot 99 \cdot 98 \cdot 97
+          }
+        $$
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\neverGonnaGiveYouUp}{Magui \youtube}
+\end{aportes}

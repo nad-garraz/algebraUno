@@ -1,0 +1,78 @@
+\begin{enunciado}{\ejExtra}
+  Pruebe que la siguiente igualdad es cierta para todo $n \en \naturales$.
+  $$
+    \frac{1}{9} \sumatoria{k = 1}{n}k \parentesis{\frac{2}{3}}^{k-1} =
+    \parentesis{-\frac{n}{3} -1}\parentesis{\frac{2}{3}}^n + 1.
+  $$
+\end{enunciado}
+
+Este es simple, muy directo. \textit{induccionemos}!
+
+\bigskip
+
+Quiero probar que:
+$$
+  p(n) \ : \
+  \frac{1}{9} \sumatoria{k = 1}{n}k \parentesis{\frac{2}{3}}^{k-1}
+  =
+  \parentesis{-\frac{n}{3} -1}\parentesis{\frac{2}{3}}^n + 1
+  \quad \paratodo n \en \naturales
+$$
+
+\textit{Caso base: ¿Es $p(1)$ verdadera? }
+$$
+  p(\blue{1}) \ : \
+  \frac{1}{9} \sumatoria{k = 1}{\blue{1}}k \parentesis{\frac{2}{3}}^{k-1} =
+  \frac{1}{9}
+  \igual{\red{!}}
+  \parentesis{-\frac{\blue{1}}{3} - 1}\parentesis{\frac{2}{3}}^{\blue{1}} + 1 =
+  \frac{1}{9}
+$$
+Por lo que $p(1)$ resultó ser verdadera.
+
+\textit{Paso inductivo, asumo que}:
+$$
+  p(\blue{h})\ : \
+  \ub{\displaystyle
+    \frac{1}{9} \sumatoria{k = 1}{\blue{h}}k \parentesis{\frac{2}{3}}^{k-1}
+    =
+    \parentesis{-\frac{\blue{h}}{3} - 1}\parentesis{\frac{2}{3}}^{\blue{h}} + 1
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+  \quad \text{para algún } \blue{h} \en \naturales
+$$
+es verdadero, entonces quiero probar que:
+$$
+  p(\blue{h+1})\ : \
+  \frac{1}{9} \sumatoria{k = 1}{\blue{h+1}}k \parentesis{\frac{2}{3}}^{k-1}
+  =
+  \parentesis{-\frac{\blue{h+1}}{3} - 1}\parentesis{\frac{2}{3}}^{\blue{h+1}} + 1
+$$
+también lo sea.
+
+Parto de $p(h+1)$ trato de enchufar la \purple{hipótesis inductiva} en algún lado. Acomodo la sumatoria:
+$$
+  \begin{array}{c}
+    \frac{1}{9} \sumatoria{k = 1}{\blue{h+1}}k \parentesis{\frac{2}{3}}^{k-1}
+    =
+    \frac{1}{9} \sumatoria{k = 1}{\blue{h}}k \parentesis{\frac{2}{3}}^{k-1} + \frac{1}{9}(\blue{h+1}) \parentesis{\frac{2}{3}}^{\blue{h}}
+    \igual{\purple{HI}}
+    \parentesis{-\frac{\blue{h}}{3} - 1}\parentesis{\frac{2}{3}}^{\blue{h}} + 1 + \frac{1}{9}(\blue{h+1}) \parentesis{\frac{2}{3}}^{\blue{h}}
+    \igual{\red{!}} \\
+    \igual{\red{!}}
+    \parentesis{\frac{2}{3}}^{\blue{h}}\parentesis{ -\frac{2}{9}\blue{h} - \frac{8}{9}} + 1 =
+    \parentesis{\frac{2}{3}}^{\blue{h}+1}\parentesis{ -\frac{1}{3}\blue{h} - \frac{4}{3}} + 1
+    \igual{\red{!}}
+    \parentesis{\frac{2}{3}}^{\blue{h}+1}\parentesis{ -\frac{\blue{h} + 1}{3} - 1} + 1
+  \end{array}
+$$
+Probando así que $p(h+1)$ también es verdadera.
+
+\bigskip
+
+Dado que $p(1),\, p(h) \ytext p(h+1)$ son verdaderas por criterio de inducción también lo es $p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -1,1 +1,228 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+	Hallar, cuando existan, todos los enteros $a$ que satisfacen simultáneamente:
+	\begin{enumerate}[label=\roman*)]
+		\begin{multicols}{3}
+			\item\label{ej11-itemi}
+			$
+				\llave{l}{
+					\congruencia{3a}{4}{5} \\
+					\congruencia{5a}{4}{6} \\
+					\congruencia{6a}{2}{7}
+				}
+			$
+
+			\item\label{ej11-itemii}
+			$
+				\llave{l}{
+					\congruencia{3a}{1}{10} \\
+					\congruencia{5a}{3}{6} \\
+					\congruencia{9a}{1}{14}
+				}
+			$
+
+			\item\label{ej11-itemiii}
+			$
+				\llave{l}{
+					\congruencia{15a}{10}{35} \\
+					\congruencia{21a}{15}{8} \\
+					\congruencia{18a}{24}{30}
+				}
+			$
+		\end{multicols}
+	\end{enumerate}
+\end{enunciado}
+
+Ejercicio para practica resolución de sistemas de ecuaciones de congruencia.
+Acomodar, coprimizar, \href{\chinito}{Teorema Chino del resto} y resolver.
+
+\bigskip
+
+\begin{enumerate}[label=\roman*)]
+	\item
+	      Este no tiene mucha rosca, no hay nada que coprimizar, los divisores son coprimos 2 a 2. Debería ser cuestión de simplificar el
+	      sistema y luego resolver despejando:
+	      $$
+		      \llave{l}{
+			      \congruencia{3a}{4}{5} \\
+			      \congruencia{5a}{4}{6} \\
+			      \congruencia{6a}{2}{7}
+		      }
+		      \Sii{\red{!}}
+		      \llave{l}{
+			      \congruencia{a}{3}{5} \llamada1 \\
+			      \congruencia{a}{2}{6} \llamada2\\
+			      \congruencia{a}{5}{7} \llamada3
+		      }
+	      $$
+
+	      Todos los divisores son coprimos 2 a 2, así que por el \href{\chinito}{THC} debería poder encontrar una solución:
+
+	      $$
+		      \llamada1
+		      a = 5\magenta{k} + 3
+		      \Entonces{meto en}[$\llamada2$]
+		      \congruencia{5\magenta{k}+3 \conga6 -\magenta{k}+3}{2}{6}
+		      \sii
+		      \congruencia{\magenta{k}}{1}{6}
+		      \Entonces{en}[$\llamada1$]
+		      a = 5(6\green{j} + 1) + 3 = 30\green{j} + 8
+	      $$
+	      Hasta el momento:
+	      $$
+		      a = 30\green{j} + 8
+		      \Entonces{meto en}[$\llamada3$]
+		      \congruencia{30\green{j} + 8}{5}{7}
+		      \sii
+		      \congruencia{\green{j}}{2}{7}
+		      \entonces
+		      a = 30 \cdot (7\yellow{h} + 2) + 8 = 210\yellow{h} + 68
+	      $$
+	      Por lo tanto la solución al sistema \ref{ej11-itemi}:
+	      $$
+		      \cajaResultado{
+			      \congruencia{a}{68}{210}
+		      }
+	      $$
+
+	\item
+	      Acá los divisores \underline{no} son coprimos, habría que \textit{quebrar} y estudiar la \textit{compatibilidad} de las ecuaciones.
+
+	      \medskip
+
+	      Primero simplifico un poco el sistema:
+	      $$
+		      \llave{l}{
+			      \congruencia{3a}{1}{10} \\
+			      \congruencia{5a}{3}{6} \\
+			      \congruencia{9a}{1}{14}
+		      }
+		      \Sii{\red{!}}
+		      \llave{lcl}{
+			      \congruencia{a}{7}{10}
+			      &\equivalente&
+			      \llave{l}{
+				      \congruencia{a}{1}{2} \\
+				      \congruencia{a}{2}{5}
+			      }
+			      \\
+			      \\
+			      \congruencia{a}{3}{6}
+			      &\equivalente&
+			      \llave{l}{
+				      \congruencia{a}{1}{2} \\
+				      \congruencia{a}{0}{3}
+			      }
+			      \\
+			      \\
+			      \congruencia{a}{11}{14}
+			      &\equivalente&
+			      \llave{l}{
+				      \congruencia{a}{1}{2} \\
+				      \congruencia{a}{4}{7}
+			      }
+		      }
+	      $$
+	      La papa está en el divisor 2, pero como aparece con el mismo resto en todas las ecuaciones no tenemos problemas de \textit{compatibilidad}.
+	      $$
+		      \llave{l}{
+			      \congruencia{3a}{1}{10} \\
+			      \congruencia{5a}{3}{6} \\
+			      \congruencia{9a}{1}{14}
+		      }
+		      \taa{\red{!}}{}\equivalente
+		      \llave{l}{
+			      \congruencia{a}{2}{5}   \llamada1\\
+			      \congruencia{a}{0}{3}   \llamada2\\
+			      \congruencia{a}{11}{14} \llamada3
+		      }
+	      $$
+	      Tengo todos los divisores coprimos. Resolver este último sistema me va a dar las soluciones del problema original.
+
+	      Ahora hay que resolver:
+	      $$
+		      \llamada1
+		      a = 5\magenta{k} + 2
+		      \Entonces{meto en}[$\llamada2$]
+		      \congruencia{5 \magenta{k} + 2 \conga3 - \magenta{k} + 2}{0}{3}
+		      \sii
+		      \congruencia{\magenta{k}}{2}{3}
+		      \Entonces{en}[$\llamada1$]
+		      a = 5(3\green{j} + 2) + 2 = 15\green{j} + 12
+	      $$
+	      Hasta el momento:
+	      $$
+		      a = 15\green{j} + 12
+		      \Entonces{meto en}[$\llamada3$]
+		      \congruencia{15 \green{j} + 12}{11}{14}
+		      \sii
+		      \congruencia{\green{j}}{13}{14}
+		      \entonces
+		      a = 15 \cdot (14\yellow{h} + 13) + 12 = 210 \yellow{h} + 207
+	      $$
+	      Por lo tanto la solución al sistema \ref{ej11-itemii}:
+	      $$
+		      \cajaResultado{
+			      \congruencia{a}{207}{210}
+		      }
+	      $$
+
+	\item
+	      Acá los divisores \underline{no} son coprimos, parecido al anterior, pero no tanto.
+
+	      \medskip
+
+	      Primero simplifico un poco el sistema, siempre coprimizo si se puede:
+	      $$
+		      \llave{l}{
+			      \congruencia{15a}{10}{35} \\
+			      \congruencia{21a}{15}{8} \\
+			      \congruencia{18a}{24}{30}
+		      }
+		      \Sii{\red{!!}}[coprimizar]
+		      \llave{l}{
+			      \congruencia{3a}{2}{7} \\
+			      \congruencia{5a}{7}{8} \\
+			      \congruencia{3a}{4}{5}
+		      }
+		      \sii
+		      \llave{l}{
+			      \congruencia{a}{3}{7}     \llamada1 \\
+			      \congruencia{a}{3}{8}     \llamada2 \\
+			      \congruencia{a}{3}{5}     \llamada3
+		      }
+	      $$
+
+	      Tengo todos los divisores coprimos. Resolver este último sistema me va a dar las soluciones del problema original.
+
+	      Ahora hay que resolver:
+	      $$
+		      \llamada1
+		      a = 7\magenta{k} + 3
+		      \Entonces{meto en}[$\llamada2$]
+		      \congruencia{7\magenta{k} + 3}{3}{8}
+		      \sii
+		      \congruencia{\magenta{k}}{0}{8}
+		      \Entonces{en}[$\llamada1$]
+		      a = 7(8\green{j} + 0) + 3 = 56\green{j} + 3
+	      $$
+	      Hasta el momento:
+	      $$
+		      a = 56\green{j} + 3
+		      \Entonces{meto en}[$\llamada3$]
+		      \congruencia{56 \green{j} + 3}{3}{5}
+		      \sii
+		      \congruencia{\green{j}}{0}{5}
+		      \entonces
+		      a = 56 \cdot (5\yellow{h} + 0) + 3 = 280 \yellow{h} + 3
+	      $$
+	      Por lo tanto la solución al sistema \ref{ej11-itemiii}:
+	      $$
+		      \cajaResultado{
+			      \congruencia{a}{3}{280}
+		      }
+	      $$
+\end{enumerate}
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

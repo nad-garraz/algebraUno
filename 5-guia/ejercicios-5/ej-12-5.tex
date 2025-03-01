@@ -95,19 +95,62 @@
         $$
         Y dado que $a = 120 \magenta{i} + 53$:
         $$
-          r_{480}(a) \en
-          \set{53, 173, 293, 413}
+          \cajaResultado{
+            r_{480}(a) \en
+            \set{53, 173, 293, 413}
+          }
         $$
         valores para $\magenta{i} = 0, 1, 2, 3$ respectivamente. Cumplen condición de resto, listo ganamos. Te mando un beso
         grande \faIcon[regular]{kiss}.
 
-  \item \hacer
-
+  \item  Hay que encontrar el menor entero positivo del sistema:
+        $$
+          \llave{l}{
+            \congruencia{a}{13}{21} \\
+            \congruencia{6a}{9}{15}
+          }
+        $$
+        No son coprimos los divisores y se puede coprimizar la segunda ecuación:
+        $$
+          \llave{l}{
+            \congruencia{a}{13}{21} \\
+            \congruencia{6a}{9}{15}
+          }
+          \Sii{\red{!}}[coprimizo]
+          \llave{l}{
+            \congruencia{a}{13}{21} \\
+            \congruencia{2a}{3}{5}
+          }
+          \sii
+          \llave{l}{
+            \congruencia{a}{13}{21} \llamada1 \\
+            \congruencia{a}{4}{5} \llamada2
+          }
+        $$
+        Ahora hay que resolver:
+        $$
+          \llamada1
+          a = 21\magenta{k} + 13
+          \Entonces{meto en}[$\llamada2$]
+          \congruencia{21\magenta{k} + 13}{4}{5}
+          \sii
+          \congruencia{\magenta{k}}{1}{5}
+          \Entonces{en}[$\llamada1$]
+          a = 21(5\green{j} + 1) + 13 = 105\green{j} + 34
+        $$
+        Por lo tanto la solución al sistema:
+        $$
+          \congruencia{a}{34}{105}
+        $$
+        Nos piden el entero positivo más chico que cumpla eso:
+        $$
+          \cajaResultado{
+            a = 34
+          }
+        $$
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

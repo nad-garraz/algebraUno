@@ -1,1 +1,87 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  En un depósito se almacenan latas de gaseosa. El viernes por la noche, un empleado realizó un control
+  de inventario y observó que:
+  \begin{itemize}
+    \item Al poner las latas de cajas de 12 unidades sobraban 4.
+    \item Al poner las latas de cajas de 63 unidades sobraban 43.
+    \item Había por lo menos 12.600 latas y no más de 13.000, pero no tomó nota de la cantidad eXacta.
+  \end{itemize}
+  ¿Cuántas latas de gaseosa había en el depósito el viernes por la noche?
+\end{enunciado}
+Ejercicio en el que hay que armar el sistemita de ecuaciones para poder resolver.
+
+\medskip
+
+Voy a ponerle el poco original nombre \underline{$X$} al total de latas. Del enunciado salen las condiciones:
+$$
+  \llave{l}{
+    \congruencia{X}{4}{12} \\
+    \congruencia{X}{43}{63}\\
+    12.600 \leq X \leq 13.000 \llamada1
+  }
+$$
+
+Los divisores no son coprimos habrá que quebrar:
+$$
+  \llave{l}{
+    \congruencia{X}{4}{12}
+    \equivalente
+    \llave{l}{
+      \congruencia{X}{1}{\purple3} \\
+      \congruencia{X}{0}{4}
+    }\\
+    \congruencia{X}{43}{63}
+    \equivalente
+    \llave{l}{
+      \congruencia{X}{1}{\purple{3}} \\
+      \congruencia{X}{1}{7}
+    }
+  }
+$$
+El sistema es compatible. Me quedo con la equación que tiene el divisor potencia de 3 más grande.
+De no hacerlo obtendría soluciones de más.
+
+Resuelvo el siguiente sistema:
+$$
+  \llave{l}{
+    \congruencia{X}{4}{12}\\
+    \congruencia{X}{43}{63}
+  }
+  \equivalente
+  \llave{l}{
+    \congruencia{X}{0}{4}\\
+    \congruencia{X}{43}{63}
+  }
+$$
+Este sistema tiene divisores coprimos y por el \href{\chinito}{TCHR} puedo encontrar una solución:
+$$
+  \begin{array}{c}
+    X = 4 \blue{k}                        \\
+    \congruencia{4k}{43}{63}
+    \Sii{\red{!}}
+    \congruencia{k}{58}{63}
+    \Sii{def} \blue{k} = 63\green{j} + 58 \\
+    X =
+    4 (63\green{j} + 58) =
+    252\green{j} + 232
+  \end{array}
+$$
+
+Ahora hay que usar la condición $\llamada1$:
+$$
+  12.600 \leq 252\green{j} + 232 \leq 13.000
+  \sii
+  49.07 \dots \leq \green{j} \leq 50.\bar6
+  \sii \green{j} = \green{50}
+$$
+
+Se puede concluir entonces que la cantidad de latas es:
+$$
+  \cajaResultado{
+    X = 252 \cdot \green{50} + 232 = 12832
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

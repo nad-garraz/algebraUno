@@ -1,1 +1,83 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Hallar los posibles restos de dividir a un entero $a$ por 238 sabiendo que $\congruencia{a^2}{21}{238}$.
+\end{enunciado}
+
+$$
+  \congruencia{a^2}{21}{238}
+  \equivalente
+  \llave{l}{
+    \congruencia{a^2}{1}{2}  \Sii{\red{!}} \congruencia{a}{1}{2}\\
+    \congruencia{a^2}{0}{7} \Sii{\red{!}} \congruencia{a}{0}{7}\\
+    \congruencia{a^2}{4}{17} \Sii{$\llamada1$}
+    \llave{l}{
+      \congruencia{a}{2}{17} \\
+      \otext \\
+      \congruencia{a}{15}{17}
+    }
+  }
+$$
+
+Donde $\llamada1$:
+$$
+  \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    r_{17}(a)   & 0 & 1 & \cyan{2} & 3 & 4  & 5 & 6 & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & \cyan{15} & 16 \\ \hline
+    r_{17}(a^2) & 0 & 1 & \cyan{4} & 9 & 16 & 8 & 2 & 15 & 13 & 13 & 15 & 2  & 2  & 16 & 6  & \cyan{4}  & 1  \\ \hline
+  \end{array}
+$$
+
+Y el resto es historia. Dos hermosos sistemas para resolver:
+$$
+  \llave{l}{
+    \congruencia{a}{1}{2} \llamada2\\
+    \congruencia{a}{0}{7}\llamada3\\
+    \congruencia{a}{2}{17} \llamada4
+  }
+  \ytext
+  \llave{l}{
+    \congruencia{a}{1}{2} \llamada2\\
+    \congruencia{a}{0}{7} \llamada3\\
+    \congruencia{a}{15}{17} \llamada5
+  }
+$$
+$$
+  \llamada2 \congruencia{a}{1}{2}
+  \Sii{def}
+  a = 2\blue{k} + 1
+  \Entonces{meto}[en $\llamada3$]
+  \congruencia{2\blue{k} + 1}{0}{7}
+  \sii
+  \congruencia{\blue{k}}{3}{7}
+  \Entonces{reemplazo}[en $a$]
+  a = 2(7 \green{h} + 3) + 1 = 14\green{h} + 7 \llamada6
+$$
+Ese valor de $\llamada6$ lo uso en las otras dos ecuaciones:
+$$
+  \begin{array}{c}
+    \flecha{meto en}[$\llamada4$]
+    \congruencia{14\green{h} + 7}{2}{17}
+    \Sii{$\times 11$}[$11\cop 17$]
+    \congruencia{\green{h}}{13}{17}
+    \Entonces{reemplazo}[en $a$]
+    a = 14(17\magenta{j} + 13) + 7 = 238\magenta{j} + 189 \\
+    \flecha{meto en}[$\llamada5$]
+    \congruencia{14\green{h} + 7}{15}{17}
+    \Sii{$\times 11$}[$11\cop 17$]
+    \congruencia{\green{h}}{3}{17}
+    \Entonces{reemplazo}[en $a$]
+    a = 14(17\magenta{j} + 3) + 7 = 238\magenta{j} + 49   \\
+  \end{array}
+$$
+
+Se termina el ejercicio. Los valores que cumplen lo pedido:
+$$
+  \cajaResultado{
+    \congruencia{a}{189}{238}
+    \ytext
+    \congruencia{a}{49}{238}
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

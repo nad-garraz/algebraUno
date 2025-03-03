@@ -1,7 +1,5 @@
 \def\sumLocal{\sumatoria{i=1}{1759}}
 \begin{enunciado}{\ejercicio}
-  %Macro local
-  % fin macro local
   Hallar el resto de la división de:
   \begin{enumerate}[label=\roman*)]
     \item $43 \cdot 7^{135} + 24^{78} + 11^{222}$ por 70
@@ -10,8 +8,53 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item \hacer
-
+  \item Hay que hallar:
+        $$
+          r_{70}(43 \cdot 7^{135} + 24^{78} + 11^{222})
+          \Sii{def}
+          \congruencia{43 \cdot 7^{135} + 24^{78} + 11^{222}}{X}{70}
+        $$
+        Hay que quebrar eso:
+        $$
+          \congruencia{43 \cdot 7^{135} + 24^{78} + 11^{222}}{X}{70}
+          \equivalente
+          \llave{l}{
+            \congruencia{1}{X}{2}\\
+            \congruencia{3 \cdot 2^{135} + (-1)^{78} + 1^{222}}{X}{5}
+            \Sii{PTF}
+            \congruencia{3 \cdot 2^3 + 2 \conga5 1}{X}{5}
+            \\
+            \congruencia{ 3^{78} + 4^{222}}{X}{7}
+            \Sii{PTF}
+            \congruencia{3^0 + 4^0 = 2 }{X}{7}
+          }
+        $$
+        Hay que resolver entonces el sistema:
+        $$
+          \llave{l}{
+            \congruencia{X}{1}{2} \llamada1\\
+            \congruencia{X}{1}{5} \llamada2\\
+            \congruencia{X}{2}{7} \llamada3
+          }
+        $$
+        De $\llamada1$ y $\llamada2$ sale:
+        $$
+          \congruencia{X}{1}{10}
+          \Sii{def}
+          X = 10\blue{k} + 1
+          \flecha{meto}[en $\llamada3$]
+          \congruencia{10\blue{k} + 1}{2}{7}
+          \Sii{$\times 5$}[$5 \cop 7$]
+          \congruencia{\blue{k}}{5}{7}
+          \entonces
+          X = 10(7 \green{h} + 5) + 1 = 70\green{h} + 51
+        $$
+        Por lo tanto el resto pedido:
+        $$
+          \cajaResultado{
+            r_{70}(43 \cdot 7^{135} + 24^{78} + 11^{222}) = 51
+          }
+        $$
   \item Calcular el resto pedido equivale a resolver la ecuación de equivalencia:
         $$
           \congruencia{X}{\sumLocal i^{42}}{56}
@@ -124,5 +167,5 @@
 \end{enumerate}
 
 \begin{aportes}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

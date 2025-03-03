@@ -1,1 +1,91 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Resolver en $\enteros$ los siguientes sistemas lineales
+  de ecuaciones de congruencia:
+  \begin{enumerate}[label=\roman*)]
+    \begin{multicols}{2}
+      \item
+      $
+        \llave{l}{
+          \congruencia{2^{2013}X}{6}{13}\\
+          \congruencia{5^{2013}X}{4}{7}\\
+          \congruencia{7^{2013}X}{2}{5}
+        }
+      $
+      \item
+      $
+        \llave{l}{
+          \congruencia{10^{49}X}{17}{39}\\
+          \congruencia{5X}{7}{9}
+        }
+      $
+    \end{multicols}
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item Todos divisores primos y coprimos dos a dos:
+        $$
+          \llave{lclcl}{
+            \congruencia{2^{2013}X}{6}{13} & \Sii{PTF} & \congruencia{2^9 X}{6}{13} & \Sii{\red{!}} & \congruencia{X}{9}{13} \\
+            \congruencia{5^{2013} X}{4}{7} & \Sii{PTF} & \congruencia{5^3 X}{4}{7}  & \Sii{\red{!}} & \congruencia{X}{3}{7}\\
+            \congruencia{7^{2013}X}{2}{5} & \sii & \congruencia{2X}{2}{5} & \Sii{\red{!}} & \congruencia{X}{1}{5}
+          }
+        $$
+
+        Listo hay que resolver esa goma de sistema:
+        $$
+          \llave{l}{
+            \congruencia{X}{9}{13}\\
+            \congruencia{X}{3}{7}\\
+            \congruencia{X}{1}{5}
+          }
+        $$
+
+        Ehm, paja resolverlo.
+
+        \hacer
+
+  \item
+        $$
+          \llave{l}{
+            \congruencia{10^{49}X}{17}{39}
+            \equivalente
+            \llave{l}{
+              \congruencia{1^{49}X}{2}{3}
+              \sii
+              \congruencia{X}{2}{3}\\
+              \congruencia{10^{49}X}{4}{13}
+              \Sii{PTF}
+              \congruencia{10X}{4}{13}
+              \Sii{$\times 4$}[$4 \cop 13$]
+              \congruencia{X}{3}{13}
+            }
+            \\
+            \\
+            \congruencia{5X}{7}{9}
+            \sii
+            \congruencia{X}{5}{9}
+            \equivalente
+            \llave{l}{
+              \congruencia{X}{2}{3}
+            }
+          }
+        $$
+        El sistema es compatible. Tomo la ecuación que tiene el denominador con la mayor potencia de 3, si no obtendría más soluciones de las que
+        tiene el sistema original.
+
+        El sistema a resolver:
+        $$
+          \llave{l}{
+            \congruencia{X}{3}{13} \\
+            \congruencia{X}{5}{9}
+          }
+        $$
+        Ehm, paja resolverlo.
+
+        \hacer
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

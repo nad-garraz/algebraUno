@@ -140,31 +140,39 @@ La $f$ específica la pinto: $\blue{f}$
         \end{itemize}
 
   \item
-        Si $f$ es \textit{sobreyectiva}:
+        Si $\blue{f}$ es \textit{sobreyectiva}:
         $$
-          \blue{f} \text{ es sobreyectiva }
+          \blue{f} \text{ sobreyectiva }
           \Sii{def}
           \im(\blue{f}) = \ub{\set{1,2,3,4}}{\purple{\text{codominio}}}
           \Sii{def}
           \paratodo y \en \set{1,2,3,4} \existe x \en \set{1,2,3,4} \text{ tal que } \blue{f(}x\blue{)} = y
         $$
+        En particular si el dominio y el codominio tienen la misma cantidad de elementos,
+        podemos decir que $\blue{f}$ tiene que ser \textit{biyectiva}.
+        Así que $\blue{f}$ es \textit{sobreyectiva}, distintos $x_i$ van a parar a distinto $y_i$
+        $$
+          \set{x_1, x_2, x_3, x_4}
+          \flecha{$\blue{f}$}
+          \set{y_1, y_2, y_3, y_4}.
+        $$
 
         $$
           \begin{array}{rcl}
-            g \circ \blue{f}(1) & = & g(y_1)  \\
-            g \circ \blue{f}(2) & = & g(y_2)  \\
-            g \circ \blue{f}(3) & = & g(y_3)  \\
-            g \circ \blue{f}(4) & = & g(y_4).
+            g \circ \blue{f}(x_1) & = & g(y_1)  \\
+            g \circ \blue{f}(x_2) & = & g(y_2)  \\
+            g \circ \blue{f}(x_3) & = & g(y_3)  \\
+            g \circ \blue{f}(x_4) & = & g(y_4).
           \end{array}
           \ytext
           \begin{array}{rcl}
-            h \circ \blue{f}(1) & = & h(y_1)  \\
-            h \circ \blue{f}(2) & = & h(y_2)  \\
-            h \circ \blue{f}(3) & = & h(y_3)  \\
-            h \circ \blue{f}(4) & = & h(y_4).
+            h \circ \blue{f}(x_1) & = & h(y_1)  \\
+            h \circ \blue{f}(x_2) & = & h(y_2)  \\
+            h \circ \blue{f}(x_3) & = & h(y_3)  \\
+            h \circ \blue{f}(x_4) & = & h(y_4).
           \end{array}
         $$
-        Dado que \blue{f} es \textit{sobreyectiva}, los $\set{x_1, x_2, x_3, x_4}$ son todos distintos. Entonces para que una función $g$
+        Entonces para que una función $g$
         esté relacionada con otra función $h$:
         $$
           g \relacion h

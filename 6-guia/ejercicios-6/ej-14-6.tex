@@ -1,53 +1,57 @@
 \begin{enunciado}{\ejercicio}
-Se define en $\complejos - \set{0}$ la relación $\relacion$ dada por $z \relacion w \sisolosi z \conj w \en \reales_{>0}$.
-\begin{enumerate}[label=\roman*)]
-	\item Probar que $\relacion$ es una relación de equivalencia.
-	\item Dibujar en le plano complejo la clase de equivalencia de $z = 1 + i$.
-\end{enumerate}
+  Se define en $\complejos - \set{0}$ la relación $\relacion$ dada por $z \relacion w \sisolosi z \conj w \en \reales_{>0}$.
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que $\relacion$ es una relación de equivalencia.
+    \item Dibujar en le plano complejo la clase de equivalencia de $z = 1 + i$.
+  \end{enumerate}
 
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item Dado un $z = r e^{i\theta}$, tengo que $z\en \reales_{>0} \sisolosi
-		      \re(z) > 0 \y \im(z) = 0 \sisolosi
-		      r > 0 \y \theta = 2k\pi$ con $k \en \enteros$
-	      \begin{itemize}
-		      \item  \textit{Reflexividad: } $z = r e^{i\theta},\, z \relacion z = r^2 e^{2\theta i}$ por lo tanto
-		            $z \relacion z \sisolosi 2\theta = 2 k\pi \sisolosi \theta = k\pi \Tilde$
+  \item Dado un $z = r e^{i\theta}$, tengo que $z\en \reales_{>0} \sisolosi
+          \re(z) > 0 \y \im(z) = 0 \sisolosi
+          r > 0 \y \theta = 2k\pi$ con $k \en \enteros$
+        \begin{itemize}
+          \item  \textit{Reflexividad: } $z = r e^{i\theta},\, z \relacion z = r^2 e^{2\theta i}$ por lo tanto
+                $z \relacion z \sisolosi 2\theta = 2 k\pi \sisolosi \theta = k\pi \Tilde$
 
-		      \item  \textit{Simetría: }
-		            $\llave{l}{
-				            z \relacion w = r s  e^{(\theta -\varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \Tilde\\
-				            w \relacion z = r s  e^{(\varphi - \theta )i} \sisolosi \theta = -2k_2\pi + \varphi = 2k_3\pi + \varphi  \Tilde
-			            }$
+          \item  \textit{Simetría: }
+                $\llave{l}{
+                    z \relacion w = r s  e^{(\theta -\varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \Tilde\\
+                    w \relacion z = r s  e^{(\varphi - \theta )i} \sisolosi \theta = -2k_2\pi + \varphi = 2k_3\pi + \varphi  \Tilde
+                  }$
 
-		      \item  \textit{Transitividad: }
-		            $\llave{l}{
-				            z \relacion w = r s  e^{(\theta - \varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \\
-				            w \relacion v = r t  e^{(\varphi - \alpha )i} \sisolosi \varphi = 2k_2\pi + \alpha \\
-				            \entonces z \relacion v \sisolosi \theta =  2k_1\pi + \ub{\varphi}{2k_2\pi + \alpha} = 2\pi(k_1 + k_2) + \alpha = 2k_3\pi + \alpha \Tilde
-			            }$\par
-		            La relación $\relacion$ es de equivalencia.
-	      \end{itemize}
+          \item  \textit{Transitividad: }
+                $\llave{l}{
+                    z \relacion w = r s  e^{(\theta - \varphi )i} \sisolosi \theta = 2k_1\pi + \varphi \\
+                    w \relacion v = r t  e^{(\varphi - \alpha )i} \sisolosi \varphi = 2k_2\pi + \alpha \\
+                    \entonces z \relacion v \sisolosi \theta =  2k_1\pi + \ub{\varphi}{2k_2\pi + \alpha} = 2\pi(k_1 + k_2) + \alpha = 2k_3\pi + \alpha \Tilde
+                  }$\par
+                La relación $\relacion$ es de equivalencia.
+        \end{itemize}
 
-	\item
-	      \begin{minipage}{0.7\textwidth}
-		      Tengo que el $\argumento(1+i) = \frac{\pi}{4}$.
-                  La clase  $\clase z$ estará formada
-                  por los $w \en \complejos$ tal que:
-		      \boxed{ w \relacion z \sisolosi \argumento(w) = \frac{1}{4}\pi}
-	      \end{minipage}
-	      \begin{minipage}{0.3\textwidth}
-		      \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]
-			      % \draw[help lines, dashed, step=0.25, ultra thin](-.5,-0.5) grid (1.5,1.5);
+  \item
+        \begin{minipage}{0.7\textwidth}
+          Tengo que el $\argumento(1+i) = \frac{\pi}{4}$.
+          La clase  $\clase z$ estará formada
+          por los $w \en \complejos$ tal que:
+          \boxed{ w \relacion z \sisolosi \argumento(w) = \frac{1}{4}\pi}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+          \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]
+            % \draw[help lines, dashed, step=0.25, ultra thin](-.5,-0.5) grid (1.5,1.5);
 
-			      \draw[ultra thin,->,gray] (-.5,0) -- (1.5,0) node[below] {Re};
-			      \draw[ultra thin,->,gray] (0,-.5) -- (0,1.5) node[right] {Im};
-			      \draw[dotted, magenta, -latex] (0,0) -- (1.5,1.5) node[right] {$\clase{z}$};
-			      % \draw[ultra thin] (0,0) circle (1);
-			      \filldraw[thin] (1,1) circle (0.5pt) node[above] {$z$}; % Added the origin
-			      \draw[thin] (0,0) circle (2pt); % Added the origin
-			      \draw[thin, decorate,decoration={brace,amplitude=2pt,mirror,raise=1pt}] (0,0) -- (1,1) node[midway,below right] {$\sqrt{2}$} ;
-		      \end{tikzpicture}
-	      \end{minipage}
+            \draw[ultra thin,->,gray] (-.5,0) -- (1.5,0) node[below] {Re};
+            \draw[ultra thin,->,gray] (0,-.5) -- (0,1.5) node[right] {Im};
+            \draw[dotted, magenta, -latex] (0,0) -- (1.5,1.5) node[right] {$\clase{z}$};
+            % \draw[ultra thin] (0,0) circle (1);
+            \filldraw[thin] (1,1) circle (0.5pt) node[above] {$z$}; % Added the origin
+            \draw[thin] (0,0) circle (2pt); % Added the origin
+            \draw[thin, decorate,decoration={brace,amplitude=2pt,mirror,raise=1pt}] (0,0) -- (1,1) node[midway,below right] {$\sqrt{2}$} ;
+          \end{tikzpicture}
+        \end{minipage}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

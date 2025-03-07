@@ -12,52 +12,55 @@
     \llave{ll}{
       e^{\frac{2\pi}{6}i}  & \text{si $n$ impar} \\
       e^{-\frac{2\pi}{6}i} & \text{si $n$ par}
-    }$. Concluir que $z_n \en G_6$ para todo $n \en \naturales$.
+    }$.
+  Concluir que $z_n \en G_6$ para todo $n \en \naturales$.
 \end{enunciado}
 
-\begin{minipage}{0.75\textwidth}
-  Hay que probar por inducción. Quiero probar:\par
-  $p(n) :
+\begin{minipage}{0.7\textwidth}
+  Hay que probar por inducción. Quiero probar:
+
+  $$p(n) :
     z_n =
     \llave{ll}{
       e^{\frac{2\pi}{6}i}   & \text{si $n$ impar} \\
       e^{-\frac{2\pi}{6}i} & \text{si $n$ par}
-    } \paratodo n \en \naturales$ \par
+    } \paratodo n \en \naturales
+  $$
 
-  \textit{Caso base: }\par
+  \textit{Caso base: }
 
-  $\llave{l}{
+  $$
+    \llave{l}{
       p(1) : z_1 = 1 + e^{\frac{2\pi}{3}i} = 1 -\frac{1}{2} + i \frac{\sqrt{3}}{2} = \frac{1}{2} + i \frac{\sqrt{3}}{2} =  e^{\frac{\pi}{3}i} \Tilde \\
       p(2) : z_2 = \conj{ 1 + z_1^2} = \conj{ 1 + e^{\frac{2\pi}{3}i} } = 1 + e^{-\frac{2\pi}{3}i} = e^{-\frac{\pi}{3}i} \Tilde
-    }$\par
+    }
+  $$
 
-  \textit{Paso inductivo: }\par
+  \textit{Paso inductivo: }
 
-  $\llave{l}{
-      p(2k) : z_{2k} = e^{-\frac{\pi}{3}i} \text{ Verdadero } \entonces p(2k+2) \  \text{¿Verdadero?} \\
-      p(2k+1) : z_{2k+1} = e^{\frac{\pi}{3}i} \text{ Verdadero } \entonces p(2k+3) \  \text{¿Verdadero?}
-    }$\par
+  $$
+    \llave{rcl}{
+      p(2k) : \ub{z_{2k} = e^{-\frac{\pi}{3}i}}{\purple{\text{hipótesis inductiva}}} \text{ Verdadero } &\entonces& p(2k+2) \  \text{¿Verdadero?} \\
+      p(2k+1) : \ub{z_{2k+1} = e^{\frac{\pi}{3}i}}{\purple{\text{hipótesis inductiva}}} \text{ Verdadero } &\entonces& p(2k+3) \  \text{¿Verdadero?}
+    }
+  $$
 
-  $\llave{l}{
+  $$\llave{l}{
       z_{2k+2} = \conj{ 1 + z_{2k+1}^2 }
-      \Sii{HI} z_{2k+2} =
+      \Sii{\purple{HI}} z_{2k+2} =
       \conj{ 1 + e^{\frac{2\pi}{3}i} } =
       \conj{ e^{\frac{\pi}{3}i} } =
       e^{-\frac{\pi}{3}i} \Tilde
       \\
       z_{2k+3} = \conj{ 1 + z_{2k+2}^2 }
-      \Sii{HI} z_{2k+3} =
+      \Sii{\purple{HI}} z_{2k+3} =
       \conj{ 1 + e^{-\frac{2\pi}{3}i} } =
       \conj{ e^{-\frac{\pi}{3}i} } =
       e^{\frac{\pi}{3}i} \Tilde
-    }$\par
-
-  Dado que $p(1), p(2), p(2k),p(2k+1),p(2k+2),p(2k+3)$ resultaron ser verdaderas, entonces
-  por el principio de inducción se concluye que $p(n)$ también lo es $\paratodo n \en \naturales$.\par
-  Dado que la sucesión $z_n$   tiene solo 2 imágenes, para cualquier $n \en \naturales$ y teniendo en cuenta
-  que $e^{-i\frac{2\pi}{6}} = e^{i\frac{2\pi}{6}\cdot 5} \en G_6\ \paratodo n \en \naturales$
+    }
+  $$
 \end{minipage}
-\begin{minipage}{0.3\textwidth}
+\begin{minipage}{0.2\textwidth}
   \begin{tikzpicture}[baseline=0,scale = 1.4, every node/.style={font=\tiny}]
     \draw[ultra thin,->,gray] (-1.5,0) -- (1.8,0) node[below] {Re};
     \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
@@ -78,3 +81,12 @@
       }
   \end{tikzpicture}
 \end{minipage}
+
+Dado que $p(1), p(2), p(2k),p(2k+1),p(2k+2),p(2k+3)$ resultaron ser verdaderas, entonces
+por el principio de inducción se concluye que $p(n)$ también lo es $\paratodo n \en \naturales$.\par
+Dado que la sucesión $z_n$   tiene solo 2 imágenes, para cualquier $n \en \naturales$ y teniendo en cuenta
+que $e^{-i\frac{2\pi}{6}} = e^{i\frac{2\pi}{6}\cdot 5} \en G_6\ \paratodo n \en \naturales$
+
+\begin{aportes}
+\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

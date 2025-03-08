@@ -1,5 +1,5 @@
 \begin{enunciado}{\ejercicio\labelEjercicio{ej:cong}}
-   % Etiqueta para referenciar el ejercicio
+  % Etiqueta para referenciar el ejercicio
 
   Hallar el cociente y el resto de la división de $f$ por $g$ en los casos
 
@@ -11,47 +11,65 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item \divPol{5X^4 + 2X^3 - X + 4}{X^2 + 2} \par
+  \item $$
+          \divPol{5X^4 + 2X^3 - X + 4}{X^2 + 2}
+        $$
 
         Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$
 
-  \item \divPol{4X^4 + X^3 - 4}{2X^2 + 1} \par
+  \item $$
+          \divPol{4X^4 + X^3 - 4}{2X^2 + 1}
+        $$
 
-        Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$\par
+        Resultado válido para $\racionales[X],\,\reales[X],\,\complejos[X]$
+
         En $\enteros/p\enteros\
           \to
           4X^4 + X^3 -4 = (2X^2 + 1) \cdot \ub{(2X^2 + 4X + 6)}{q[X]} + \ub{(3X + 4)}{r[X]}$
 
   \item Después de hacer un par iteraciones en la división asoma la idea de que:
+        $$
+          X^n - 1 = (X-1) \cdot \ub{\sumatoria{j=0}{n-1} X^j}{q[X]} + \ub{0}{r[X]},
+          \qquad\qquad{\text{\tiny(que es la geométrica con $X \distinto 1$)}}
+        $$
 
-        $ X^n - 1 = (X-1) \cdot \ub{\sumatoria{j=0}{n-1} X^j}{q[X]} + \ub{0}{r[X]}$, \qquad\qquad{\tiny(que es la geométrica con $X \distinto 1$)}\par
-        \textit{Inducción: } Quiero probar que $p(n): X^n - 1 = (X-1) \cdot \sumatoria{j=0}{n-1} X^j  \ \paratodo n \en \naturales$\par
-
-        \textit{Caso base: } $p(\magenta1):
+        \textit{Inducción: } Quiero probar que:
+        $$
+          p(n): X^n - 1 = (X-1) \cdot \sumatoria{j=0}{n-1} X^j  \ \paratodo n \en \naturales
+        $$
+        \textit{Caso base: }
+        $$
+          p(\magenta1):
           X^{\magenta1} - 1 = (X - 1) \ub{\sumatoria{j=0}{\magenta1 - 1} X^j}{X^0 = 1}
           \entonces
-          p(\magenta1)$ es Verdadero \Tilde\par
+          p(\magenta1)
+        $$
+        Entonce, $p(\magenta{1})$ es Verdadero
 
-        \textit{Paso inductivo: }\par
-        $p(k): \ub{X^k - 1 = (X-1) \cdot \sumatoria{j=0}{k-1}X^j}{\green{HI}} \text{ es Verdadera}
-          \stackrel{?}\entonces
-          p(k+1): X^{k+1} - 1 = (X-1) \cdot \sumatoria{j=0}{k}X^j \text{ es Verdadera}$\par
+        \textit{Paso inductivo.}
 
-        $ (X-1) \cdot \sumatoria{j=0}{k} X^j =
+        Asumo que:
+        $$
+          p(k) : \ub{X^k - 1 = (X-1) \cdot \sumatoria{j=0}{k-1}X^j}{\purple{\text{hipótesis inductiva}}} \text{ es Verdadera}.
+        $$
+        Entonces quiero probar que:
+        $$
+          p(k+1): X^{k+1} - 1 = (X-1) \cdot \sumatoria{j=0}{k}X^j
+        $$
+        también lo sea. Arranco las cuentulis:
+        $$
+          \scriptstyle
+          (X-1) \cdot \sumatoria{j=0}{k} X^j =
           (X-1) \cdot (\sumatoria{j=0}{\blue{k-1}} X^j + X^{\blue{k}} ) =
-          \ub{(X-1) \cdot \sumatoria{j=0}{k-1} X^j }{\green{HI}} + (X - 1) \cdot X^k =
-          \green{X^k - 1} + X^{k+1} - X^k = X^{k+1} - 1 \Tilde
-        $
+          \ub{\scriptstyle (X-1) \cdot \sumatoria{j=0}{k-1} X^j }{\purple{HI}} + (X - 1) \cdot X^k =
+          \purple{X^k - 1} + X^{k+1} - X^k = X^{k+1} - 1
+        $$
 
         Dado que $p(1),\, p(k) $ y $p(k+1)$ resultaron verdaderas por el principio de inducción también
         será verdadera $p(n) \paratodo n \en \naturales$
 
 \end{enumerate}
 
-
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

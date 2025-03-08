@@ -1,5 +1,6 @@
 % Macro Local
 \newcommand{\polGen}[1]{\sumatoria{i=0}{n} #1_i X^i}
+\def\teoriaBulletMeh{ \tiny \purple{\faIcon{meh}}}
 
 \begin{itemize}
   \item \textit{Operaciones: }
@@ -28,7 +29,7 @@
 
         Polinomio, $(f:g) \en \K[X]$, \textit{mónico} de mayor grado que divide a ambos polinomios en $\K[X]$
         y vale el algoritmo de Euclides.
-        \begin{itemize}[label = \tiny \faIcon{meh}]
+        \begin{itemize}[label=\teoriaBulletMeh]
           \item $(f:g) \divideA f \ytext (f:g) \divideA g$
 
           \item $f = (f:g) \cdot k_f  \ytext  g = (f:g) \cdot k_g \quad \text{con} \quad k_f  \ytext   k_g$ en $\K[X]$
@@ -38,7 +39,7 @@
 
   \item \hypertarget{teoria-7:raicesMultiples}{\textit{Raíces múltiples:}}\par
         Sea $f \en \K[x]$ no nulo, y sea $\alpha \en \K$. Se dice que:
-        \begin{itemize}[label=\tiny \faIcon{meh}]
+        \begin{itemize}[label=\teoriaBulletMeh]
           \item Cuando $f$ tiene una raíz múltiple:
                 $$
                   \begin{array}{c}
@@ -89,24 +90,27 @@
                   \mult(\alpha,f) = m \sisolosi f(\alpha) = 0  \ytext  \mult(\alpha;f') = m-1
                 $$
 
-          \item Relación entre la multiplicidad de una raíz de $f$ y sus derivadas: \par
-                $\mult(\alpha;f) = m \sisolosi
+          \item Relación entre la multiplicidad de una raíz de $f$ y sus derivadas:
+                $$\mult(\alpha;f) = m \sisolosi
                   \llave{rl}{
                     \mult(\alpha;f)\geq m &
                     \llaveInv{c}{
                       f(\alpha) = 0\\
                       \vdots\\
                       f^{(m-1)}(\alpha) = 0
-                    } \\
-                    \hline
+                    }\\
+                    \\
                     \mult(\alpha;f) = m   &
                     \llaveInv{r}{
-                      \  f^{(m)}(\alpha) \distinto 0 \magenta{\text{ la $m$-ésima derivada no se anula.}}
-                    }
-                  }$
+                  \  f^{(m)}(\alpha) \distinto 0 \magenta{ \text{\ \ {\small la $m$-ésima derivada no se anula.}}}
+                  }
+                  }
+                $$
                 Todo ese quilombo de cosas lo que dice es por ejemplo, que si tenés una raíz $\alpha$ de $f$
-                \textbf{triple} entonces la \textbf{tercera derivada} \red{NO PUEDE SER 0}, $f^{'''}(\alpha) \taa{\red{!!}}{}\distinto 0$.\par
-                Pero tanto la función, su primera y segunda derivada DEBEN SER 0,
+
+                \textbf{triple} entonces la \textbf{tercera derivada} \red{NO PUEDE SER 0}, $f^{'''}(\alpha) \taa{\red{!!}}{}\distinto 0$.
+
+                Pero tanto la función, su primera y segunda derivada \underline{DEBEN SER 0},
                 $
                   f(\alpha) \igual{\red{!!}}
                   f'(\alpha) \igual{\red{!!}}
@@ -124,7 +128,7 @@
 
   \item \hypertarget{teoria-7:irreducibles}{Polinomios irreducibles}:\par
         Sea $f \en K[X]$
-        \begin{itemize}
+        \begin{itemize}[label=\teoriaBulletMeh]
           \item
                 Se dice que f es \textit{irreducible} en $K[X]$ cuando $f \not\en K$ y los únicos divisores de $f$ son de la forma
                 $g = c$ o $g = cf$ para algún $c \en K^\times$. O sea $f$ tiene únicamente dos divisores mónicos (distintos), que son

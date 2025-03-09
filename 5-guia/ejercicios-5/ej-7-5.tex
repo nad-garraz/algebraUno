@@ -1,92 +1,89 @@
 \begin{enunciado}{\ejercicio}
-	Hallar todas las soluciones $(x,y) \en \enteros^2$ de la ecuación
-	$$
-		110x + 250y = 100
-	$$
-	que satisfacen simultáneamente que $37^2 \divideA (x - y)^{4321}$.
+  Hallar todas las soluciones $(x,y) \en \enteros^2$ de la ecuación
+  $$
+    110x + 250y = 100
+  $$
+  que satisfacen simultáneamente que $37^2 \divideA (x - y)^{4321}$.
 \end{enunciado}
 
 La solución de la diofántica:
 $$
-	(x,y) = k\cdot (25, - 11) + (410, -180) \flecha{$\llamada1$}
-	\llave{rcl}{
-		x &=& 25k + 410 \\
-		y &=& -11k - 180
-	}
+  (x,y) = k\cdot (25, - 11) + (410, -180) \flecha{$\llamada1$}
+  \llave{rcl}{
+    x &=& 25k + 410 \\
+    y &=& -11k - 180
+  }
 $$
 
 Entonces hay que ver para que valores de $k$ se cumple que:
 
 $$
-	37^2 \divideA (\magenta{x - y})^{4321} \flecha{$\llamada1$}
-	37^2 \divideA (\magenta{ 590 + 36k })^{4321}
+  37^2 \divideA (\magenta{x - y})^{4321} \flecha{$\llamada1$}
+  37^2 \divideA (\magenta{ 590 + 36k })^{4321}
 $$
 
 Buscamos posibles valores:
 $$
-	\llamada2
-	37^2 \divideA ( 590 + 36k )^{4321}
-	\Entonces{transitividad}[$\llamada3$]
-	37 \divideA ( 590 + 36k )^{4321}
-	\Sii{$p \divideA a^n \sii p \divideA a$}[$p$ primo]
-	37 \divideA 590 + 36k
+  \llamada2
+  37^2 \divideA ( 590 + 36k )^{4321}
+  \Entonces{transitividad}[$\llamada3$]
+  37 \divideA ( 590 + 36k )^{4321}
+  \Sii{$p \divideA a^n \sii p \divideA a$}[$p$ primo]
+  37 \divideA 590 + 36k
 $$
 Que como ecuación de congruencia queda:
 $$
-	\congruencia{-36k}{590}{37} \sii
-	\congruencia{k}{35}{37}
+  \congruencia{-36k}{590}{37} \sii
+  \congruencia{k}{35}{37}
 $$
 
 Por lo tanto de $\llamada2$ solo faltaría probar la vuelta ($\Leftarrow$) en $\llamada3$ se tiene que para los $k$:
 $$
-	\congruencia{k}{35}{37}
-	\sii
-	37^{\yellow{1}} \divideA (590 + 36k)^{4321} \Sii{\red{??}}
-	37^{\blue{2}} \divideA (590 + 36k)^{4321}
+  \congruencia{k}{35}{37}
+  \sii
+  37^{\yellow{1}} \divideA (590 + 36k)^{4321} \Sii{\red{??}}
+  37^{\blue{2}} \divideA (590 + 36k)^{4321}
 $$
 Veamos:
 $$
-	\begin{array}{c}
-		37^{\yellow{1}} \divideA (590 + 36k)^{4321}
-		\Entonces{37 es}[ primo]
-		37 \divideA 590 + 36k
-		\Entonces{\red{!}}
-		37^2 \divideA (590 + 36k)^2 \\
-		\entonces
-		37^2 \divideA (590 + 36k)^2 \cdot (50 + 36k)^{4319}
-		\sii
-		37^{\blue{2}} \divideA (590 + 36k)^{4321}
-	\end{array}
+  \begin{array}{c}
+    37^{\yellow{1}} \divideA (590 + 36k)^{4321}
+    \Entonces{37 es}[ primo]
+    37 \divideA 590 + 36k
+    \Entonces{\red{!}}
+    37^2 \divideA (590 + 36k)^2 \\
+    \entonces
+    37^2 \divideA (590 + 36k)^2 \cdot (50 + 36k)^{4319}
+    \sii
+    37^{\blue{2}} \divideA (590 + 36k)^{4321}
+  \end{array}
 $$
 
 De esa manera queda demostrado que
 
 $$
-	37^2 \divideA ( 590 + 36k )^{4321}
-	\sii
-	37 \divideA ( 590 + 36k )^{4321}
-	\sii
-	37 \divideA 590 + 36k
-    \sii
-	37 \divideA 590 + 36k
-    \sii
-    \congruencia{k}{35}{37}.
+  37^2 \divideA ( 590 + 36k )^{4321}
+  \sii
+  37 \divideA ( 590 + 36k )^{4321}
+  \sii
+  37 \divideA 590 + 36k
+  \sii
+  37 \divideA 590 + 36k
+  \sii
+  \congruencia{k}{35}{37}.
 $$
 Por último el resultado serán los pares $(x,y) \en \enteros^2$ tales que
 $$
-	\llave{rcl}{
-		x &=& 25k + 410 \\
-		y &=& -11k - 180
-} \qquad \text{con }\quad
-    \congruencia{k}{35}{37}.
+  \llave{rcl}{
+    x &=& 25k + 410 \\
+    y &=& -11k - 180
+  } \qquad \text{con }\quad
+  \congruencia{k}{35}{37}.
 $$
-
-
-
 
 % Contribuciones
 \begin{aportes}
-	%% iconos : \github, \instagram, \tiktok, \linkedin
-	%\aporte{url}{nombre icono}
-	\item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
+  %% iconos : \github, \instagram, \tiktok, \linkedin
+  %\aporte{url}{nombre icono}
+  \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
 \end{aportes}

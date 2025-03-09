@@ -1,4 +1,5 @@
 \newcommand{\congPTF}[1]{\taa{(#1)}{\text{PTF}}{\congruente}}
+
 \begin{enunciado}{\ejExtra}
   Hallar todos los primos $p \en \naturales$ tales que
   $$
@@ -11,94 +12,117 @@ A lo largo del ejercicio se va a usar fuerte el colorario del pequeño teorema d
 $$
   \text{si $p$ primo y $p\noDivide a$, con $a \en \enteros$} \entonces \congruencia{a^n}{a^{r_{p-1}}}{p}
 $$
-$
+
+Arrancando:
+$$
   \congruencia{3^{p^2 + 3}}{-84}{p}
-  \llave{l}{
-    \flecha{caso}[$p \noDivide 3$ ]
-    \llave{l}{
-      3^{p^2 + 3}
-      \congPTF{p}
-      3^{r_{\magenta{(p-1)}}(p^2 + 3)} \\
-      \flecha{división}[polinomio]
-      p^2 + 3 = \magenta{(p-1)}(p+1) + \ob{4}{\llamada1 r_{ \magenta{(p-1)}}(p^2 + 3)}
-      \entonces
-      3^{p^2 + 3}
-      \taa{(p)}{\llamada1}\congruente
-      \ub{3^4}{81} \llamada2                     \\
-      \congruencia{3^{p^2 + 3}}{-84}{p}
-      \stackrel{\llamada2}\sii
-      \congruencia{81}{-84}{p}
-      \sii
-      \congruencia{\ub{165}{5\cdot3\cdot11}}{0}{p}
-      \stackrel{p\noDivide 3}\sisolosi
-      \boxed{p = 5} \otext \boxed{ p =11}
-    } \\
-    \flecha{caso}[$p \divideA 3$ ]
-    \llave{l}{
-      p \divideA 3
-      \sii
-      p = 3
-      \entonces
-      3^{p^2 + 3}
-      \conga3
-      0
-      \congruente
-      \ub{-84}{\conga3 0} \ (3)
-      \entonces
-      \boxed{p = 3 }
-    }
+$$
+Estudio los dos casos. Uno cuando $p \noDivide 3$ y $p \divideA 3$:
+
+\medskip
+
+\textit{Caso $p \noDivide 3$ entonces puedo usar el PTF para simplificar un poco}:
+$$
+  \congruencia{3^{p^2 + 3}}{3^{r_{\magenta{(p-1)}}(p^2 + 3)}}{p}
+  \Sii{$\llamada1$}
+  \congruencia{3^{p^2 + 3}}{81}{p}
+$$
+Calculo ese resto con división de polinomios $\llamada1$:
+$$
+  \polyset{vars=p}
+  \divPol{p^2 + 3}{p - 1}
+$$
+El problema ahora queda así:
+$$
+  \congruencia{3^{p^2 + 3} \conga{p} 81}{-84}{p}
+  \Sii{\red{!}}
+  \congruencia{\ub{165}{5\cdot3\cdot11}}{0}{p}
+  \Sii{\red{!!}}[$p \noDivide 3$]
+  \llave{c}{
+    p = 5\\
+    \otext \\
+    p = 11
   }
-$
+$$
 
-Tengo entonces 3 posibles valores para $p \en \set{ 3,5,11}$. Los uso para ver cuál o cuáles
-verifican la segunda condición $\congruencia{(7\cdot p + 8)^{2024}}{4}{p}$.
+\bigskip
 
-\underline{\textit{Con }  $p = \blue{3}$}:
+\textit{Caso $p \divideA 3$}. Pero como $p$ es primo, entonces $\purple{p} = \purple{3}$:
+$$
+  \congruencia{3^{p^2 + 3}}{-84}{\purple{3}}
+  \sii
+  \congruencia{0}{-84}{\purple{3}}
+  \sii
+  p = 3
+$$
 
-$
-  (7\cdot \blue{3} + 8)^{2024} \conga3
-  2^{2024}
-  \congPTF{3}
-  2^{r_2(2024)} \conga3
-  2^0 \conga3
-  1
-  \entonces
-  \boxed{p = 3} \Tilde
-$
+\bigskip
 
-\underline{\textit{Con }  $p = \green{5}$}:
+Tengo entonces 3 \textit{posibles} valores para $p$:
+$$
+  p \en \set{ 3,5,11}.
+$$
 
-$
-  (7\cdot \green{5} + 8)^{2024} \conga5
-  3^{2024} \congPTF{5}
-  3^{r_4(2024)} \conga5
-  3^0 \conga5
-  1 \not\congruente
-  4\ (5) \skull
-$
+Ahora viene el problema de ver si estos 3 valores verifican la segunda condición del enunciado:
+$$
+  \congruencia{(7\cdot p + 8)^{2024}}{4}{p}
+$$
 
-\underline{\textit{Con }  $p = \yellow{11}$}:
+\textit{Caso $p = \purple{3}$}:
+$$
+  \congruencia{(7\cdot \purple{3} + 8)^{2024}}{4}{\purple{3}}
+  \Sii{PTF}[\red{!!!}]
+  \congruencia{2^{\red{0}}}{4}{\purple{3}}
+  \sii
+  \congruencia{1}{1}{\purple{3}}
+$$
+De donde se rescata que cuando
+$\cajaResultado{
+    p = 3,
+  }$
+está todo bien \faIcon[regular]{smile}.
 
-$
-  (7\cdot \yellow{11} + 8)^{2024} \conga{11}
-  8^{2024} \congPTF{11}
-  8^{r_{10}(2024)} \conga{11}
-  8^4 =
-  \ub{4096}{r_{11}(4096) = 4} \congruente
-  4\ (11) \Tilde
-$
+\medskip
+
+\textit{Caso $p = \green{5}$}:
+$$
+  \congruencia{(7\cdot \green{5} + 8)^{2024}}{4}{\green{5}}
+  \Sii{PTF}[\red{!!!}]
+  \congruencia{3^{\red{0}}}{4}{\green{5}}
+  \Sii{\red{\faIcon{skull}}}
+  \congruencia{1}{4}{\green{5}}
+$$
+De donde se rescata que cuando $ p = \green{5}$,
+está todo mal \faIcon[regular]{sad-cry}.
+
+\medskip
+
+\textit{Caso $p = \yellow{11}$}:
+$$
+  \congruencia{(7\cdot \yellow{11} + 8)^{2024}}{4}{\yellow{11}}
+  \Sii{PTF}[\red{!!!}]
+  \congruencia{8^{\red{4}}}{4}{\yellow{11}}
+  \sii
+  \congruencia{4096}{4}{\yellow{11}}
+  \Sii{\yellow{\faIcon{calculator}}}
+  \congruencia{4}{4}{\yellow{11}}
+$$
+De donde se rescata que cuando
+$\cajaResultado{
+    p = 11,
+  }$
+está todo bien también \faIcon[regular]{smile}.
 
 Por lo tanto los valores de $p$ que cumplen lo pedido son:
-\boxed{
-  \begin{array}{c}
-    p = 3  \\
-    \ytext \\
+$$
+  \cajaResultado{
+    p = 3
+    \ytext
     p = 11
-  \end{array}
-}\Tilde
-
+  }
+$$
 
 % Contribuciones
 \begin{aportes}
-  \item \aporte{\dirRepo://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

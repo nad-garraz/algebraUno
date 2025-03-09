@@ -2,7 +2,7 @@
   Hallar el resto de la división de $12^{2^n}$ por 7 para cada $n \en \naturales$
 \end{enunciado}
 
-Arrancamos con un descontracturamente masajeo del enunciado:
+Arrancamos con un descontracturante masajeo del enunciado:
 $$
   \congruencia{12^{2^n}}{5^{2^n}}{7}
 $$
@@ -24,21 +24,25 @@ $$
     \hline
     r_6(n)       & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
     r_6(2^n)     & 1 & 2 & 4 & 2 & 4 & 2 \\ \hline\hline
-    r_7(5^{2^n}) & 4 & 2 & 4 & 2 & 4 & 2 \\ \hline
+    r_7(5^{2^n}) & 5 & 4 & 2 & 4 & 2 & 4 \\ \hline
   \end{array}
 $$
 
 La tabla es muy sugestiva:
 $$
-  \begin{array}{rcl}
-    r_7(12^{2^n}) & = & 2 \text{ si } n \text{ par} \\
-    r_7(12^{2^n}) & = & 4 \text{ si } n \text{ impar}
-  \end{array}
+  \cajaResultado  {
+    r_7(12^{2^n})  =
+    \llave{ll}{
+      5 & \text{ si } \congruencia{n}{0}{6}                        \\
+      2 & \text{ si } \congruencia{n}{2}{6} \otext \congruencia{n}{4}{6} \\
+      4 & \text{ si } n \text{ impar}
+    }
+  }
 $$
 
 % Contribuciones
 \begin{aportes}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
 \end{aportes}
 

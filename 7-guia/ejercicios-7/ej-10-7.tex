@@ -1,33 +1,60 @@
-\ejercicio
-% Enunciado
+\begin{enunciado}{\ejercicio}
+  \label{guia7-ej10}
+  Sea $f \en \racionales[X]$ tal que $f(1) =  -2, f(2) = 1 \ytext f(-1) = 0.$ Hallar el resto de la división de $f$ por $X^3 - 2X^2 - X + 2$.
+\end{enunciado}
 
-Sea $f \en \racionales[X]$ tal que $f(1) =  -2, f(2) = 1 \ytext f(-1) = 0.$ Hallar el resto de la división de $f$ por $X^3 - 2X^2 - X + 2$.
+\textit{En general $P \en \K[X] \entonces $ el resto de dividir a $P$ por $X - a$ es $P(a)$}, es decir:
+$$
+  P = Q \cdot (X-a) + \ub{r}{P(a)}
+  \quad\text{con}\quad
+  Q \en \K[X]
+$$
 
-\separadorCorto
+A ver con lo que nos dieron en el enunciado:
+$$
+  f(X) = q(X) \cdot \ub{X^3 - 2X^2 -X + 2}{g(X)}  + r(X)
+  \quad\text{con}\quad
+  g(X) = \ub{(X-2) \cdot (X-1)\cdot(X+1)}{\red{!!!}}
+  \ytext
+  r(X) = a^2 + bX + c,
+$$
+hay que notar que $r(X)$ cumple condición de resto, ya que el $\gr(r) < \gr(g)$. Y ese $g$ nos queda hermoso para los valores del
+enunciado como habrás (o no) notado.
 
-\textit{Sea $P \en \K[X] \entonces $ el resto de dividir a $P$ por $X - a$ es $P(a)$}.\\
+$$
+  \llave{rclcl}{
+    f(1)  &=& q(1) \cdot \cancelto{0}{g(1)} + r(1) &=& -2\\
+    f(2)  &=& q(2) \cdot \cancelto{0}{g(2)} + r(2) &=& 1\\
+    f(-1) &=& q(-1) \cdot \cancelto{0}{g(-1)} + r(-1) &=& 0
+  }
+  \sii
+  \llave{l}{
+    r(1) = a + b +c = -2 \\
+    r(2) = 4a + 2b +c = 1 \\
+    r(-1) = a - b +c = 0
+  }
+$$
+Sistema de 3 ecuaciones y 3 incógnitas. Resuelvo con matriz, porque pinta, pero es innecesario:
+$$
+  \matriz{ccc|c}{
+    1 & 1 & 1 & -2 \\
+    4 & 2 & 1 & 1 \\
+    1 & -1 & 1 & 0
+  }
+  \to
+  \matriz{ccc|c}{
+    1 & 0 & 0 & \frac{4}{3} \\
+    0 & 1 & 0 & -1 \\
+    0 & 0 & 1 & -\frac{7}{3}
+  }
+$$
+Por lo tanto el resto pedido es:
+$$
+  \cajaResultado{
+    r(X) = \frac{4}{3} X^2 - X - \frac{7}{3}
+  }
+$$
 
-$f(X) = q(X)\cdot \ub{X^3 - 2X^2 -X + 2}{g(X)}  + r(X)$, con $g(X) = (X-2) \cdot (X-1)\cdot(X+1) \ytext
-	r(X) = a^2 + bX + c,$ ya que el $\gr(r) < \gr(g)$
-$\flecha{evaluar}
-	\llave{l}{
-		f(1) = -2 = q(1) \cdot \cancelto{0}{g(1)} + r(1) = -2\\
-		f(2) = 1 = q(2) \cdot \cancelto{0}{g(2)} + r(2) = 1\\
-		f(-1) = 0 = q(-1) \cdot \cancelto{0}{g(-1)} + r(-1) = 0
-	}\to
-	\llave{l}{
-		r(1) = a + b +c = -2 \\
-		r(2) = 4a + 2b +c = 1 \\
-		r(-1) = a - b +c = 0 \\
-	}\to
-	\matriz{ccc|c}{
-		1 & 1 & 1 & -2 \\
-		4 & 2 & 1 & 1 \\
-		1 & -1 & 1 & 0 \\
-	}\to
-	\matriz{ccc|c}{
-		1 & 0 & 0 & \frac{4}{3} \\
-		0 & 1 & 0 & -1 \\
-		0 & 0 & 1 & -\frac{7}{3} \\
-	}
-	\to$ \boxed{r(X) = \frac{4}{3} X^2 - X - \frac{7}{3}}
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

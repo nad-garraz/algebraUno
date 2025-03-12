@@ -1,1 +1,62 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}\label{guia7:ej8}
+  Sea $\K$ un cuerpo. Sean $n \en \naturales$ y $a \en \K$.
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que $X - a \divideA X^n - a^n$ en $K[X]$.
+    \item Probar que si $n$ es impar entonces $X + a \divideA X^n + a^n$ en $\K[X]$.
+    \item Probar que si $n$ es par entonces $X + a \divideA X^n - a^n$ en $\K[X]$.
+  \end{enumerate}
+
+  Calcular los cocientes en cada caso.
+\end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+  \item Pruebo por inducción:
+        $$
+          p(n) : X - a \divideA X^n - a^n \quad \text{en} \K[X] \paratodo n \en \naturales.
+        $$
+
+        \textit{Caso base:}
+        $$
+          p(\blue{1}) : X - a \divideA X^{\blue{1}} - a^{\blue{1}}
+        $$
+        El caso  $p(\blue{1})$ es verdadero.
+
+        \textit{Paso inductivo:}
+        Asumo que
+        $$
+          p(\blue{k}) : \ub{X - a \divideA X^{\blue{k}} - a^{\blue{k}}}{\text{\purple{hipótesis inductiva}}}
+        $$
+        es verdadero. Entonces quiero probar que
+        $$
+          p(\blue{k+1}) : X - a \divideA X^{\blue{k+1}} - a^{\blue{k+1}}
+        $$
+        también lo sea.
+
+        Arranco haciendo a mano la división a mano del caso \blue{$k+1$} en la
+        primera iteración tengo que:
+        $$
+          \begin{array}{rlc}
+            \textstyle
+            X^{\blue{k+1}} - a^{\blue{k+1}} & = & X^k \cdot (X-a) + aX^k - a^{k+1}      \\
+                                            & = & X^k \cdot (X-a) + a \cdot (X^k - a^k)
+          \end{array}
+          \Entonces{\purple{HI}}[$\div$ MAM $(X-a)$]
+          \begin{array}{rcl}
+            \frac{X^{\blue{k+1}} - a^{\blue{k+1}}}{X-a}  =  \frac{X^k \cdot (\cancel{X-a})}{\cancel{X-a}} +
+            \frac{a \cdot (\cancel{\purple{X^k - a^k}})}{\cancel{\purple{X-a}}} \\
+          \end{array}
+        $$
+        Ese último paso muestra que $X-a \divideA X^{\blue{k+1}} - a^{\blue{k+1}}$ entonces $p(\blue{k+1})$ también es verdadera.
+
+        \medskip
+
+        Dado que $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas por criterio de inducción $p(n)$ también lo es $\paratodo n \en \naturales$.
+
+  \item \hacer
+  \item \hacer
+
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

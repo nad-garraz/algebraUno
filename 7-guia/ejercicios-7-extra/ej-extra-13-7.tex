@@ -1,0 +1,75 @@
+\begin{enunciado}{\ejExtra}
+	Sea $f \en \racionales[X]$ el polinomio mónico de grado mínimo que satisface simultáneamente
+	\begin{enumerate}[label={\tiny $\blacksquare$}]
+		\item $X^2 + 2X + 5$ divide a $(f:f')$,
+		\item $X^2 - 4X + 1$ divide a $(f:f'')$,
+		\item $f'(2-\sqrt{3}) = 0$.
+	\end{enumerate}
+	Hallar la factorización de $f$ en $\complejos[X]$, en $\reales[X]$ y en $\racionales[X]$.
+\end{enunciado}
+
+Acomodo un poco el enunciado:
+$$
+	\begin{array}{l}
+		X^2 + 2X + 5
+		\igual{\red{!}}
+		(X - (-1 + 4i)) \cdot (X - (-1 - 4i))                  \\
+		X^2 -4 X + 1
+		\igual{\red{!}}
+		(X - (2 + \sqrt{3})) \cdot (X - (\blue{2 - \sqrt{3}})) \\
+	\end{array}
+$$
+Tengo que $\blue{2 - \sqrt{3}}$ por lo menos es triple ya que por la segunda y tercera condición:
+$$
+	\begin{array}{l}
+		(X - (\blue{2 - \sqrt{3}}) \divideA f                                        , \\
+		(X - (\blue{2 - \sqrt{3}}) \divideA f' \qquad \text{ por tercerca condición}   \\
+		\ytext                                                                         \\
+		(X - (\blue{2 - \sqrt{3}}) \divideA f'' \qquad \text{ por segunda condición}   \\
+	\end{array}
+$$
+
+Las raíces complejas $-1+4i$ y $-1 - 4i$ son por lo menos dobles.
+
+\bigskip
+
+Para que se cumpla la segunda condición las 2 raíces irracionales van a tener que tener la misma multiplicidad.
+
+\medskip
+
+Factorización en $\racionales[X]$:
+$$
+	\cajaResultado{
+		f =
+		(X^2 + 2X + 5)^2
+		\cdot
+		(X^2 - 4X + 1)^3
+	}
+$$
+
+Factorización en $\reales[X]$:
+$$
+	\cajaResultado{
+		f =
+		(X^2 + 2X + 5)^2
+		\cdot
+		(X - (\blue{2 - \sqrt{3}}))^3
+		\cdot
+		(X - (2 + \sqrt{3}))^3
+	}
+$$
+
+Factorización en $\complejos[X]$:
+$$
+	\cajaResultado{
+		f =
+		(X - (-1 + 4i))^2 \cdot (X - (-1 - 4i))^2                  \\
+		\cdot
+		(X - (\blue{2 - \sqrt{3}}))^3
+		\cdot
+		(X - (2 + \sqrt{3}))^3
+	}
+$$
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

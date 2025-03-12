@@ -1,0 +1,196 @@
+\begin{enunciado}{\ejExtra}
+  Hallar todos los $z \en \complejos$
+  tales que
+  $(2-z^3)^4 = z^{12}$.
+\end{enunciado}
+
+\textit{Enunciado corto, problema grande.}
+
+\bigskip
+
+\underline{Distintas formas de atacarlo}, y cual ves primero depende de vos, o dicho de otra manera de tus poderes, o
+de cuanta maná tengas para ejecutar un típico \faIcon{magic} \textit{matemagium incantatum} \faIcon{magic}:
+
+\begin{enumerate}[label=\faIcon{magic}$_{\arabic*}$)]
+  \item\label{extra6-6:item1} $$
+          (2-z^3)^4 = z^{12}
+          \sii
+          (2-z^3)^4 = (z^3)^4
+          \Sii{\red{!!}}
+          \llave{lcl}{
+            (2-z^3)^4 = (z^3)^4
+            &\sii&
+            \llave{l}{
+              2-z^3 = z^3 \quad \llamada1
+            }\\
+            (2-z^3)^4 \igual{\red{!}} (\red{\pm i} \cdot z^3)^4
+            &\sii&
+            \llave{l}{
+              2-z^3 = \red{i} \cdot z^3  \quad \llamada2\\
+              2-z^3 = \red{-i} \cdot z^3 \quad\llamada3
+            }
+          }
+        $$
+        Boom, 3 ecuaciones para resolver con tus amigos, un domingo de lluvia con mates y tortas fritas o en su defecto,
+        \textit{solo, solísimo} en un parcial.
+
+  \item\label{extra6-6:item2}
+        $$
+          \begin{array}{rcl}
+            (2-z^3)^4 = z^{12}
+                              & \sii           &
+            1 = \parentesis{\frac{z^3}{2-z^3}}^4                                    \\
+                              & \Sii{\red{!!}} &
+            \frac{z^3}{2-z^3} \en G_4 \quad \text{con} \quad G_4 = \set{1,i,-1, -i} \\
+                              & \sii           &
+            \llave{rcl}{
+            \frac{z^3}{2-z^3} & =              & 1                                  \\
+            \frac{z^3}{2-z^3} & =              & -1   \quad$\red{\faIcon{skull}}$   \\
+            \frac{z^3}{2-z^3} & =              & i                                  \\
+            \frac{z^3}{2-z^3} & =              & -i                                 \\
+            }
+          \end{array}
+        $$
+        Boom, 3 igual que antes pero con menos magia aparecieron las ecuaciones de $\llamada1, \llamada2$ y $\llamada3$. La de \red{\faIcon{skull}} no tiene solución.
+
+  \item\label{extra6-6:item3} Como esas en \ref{extra6-6:item1} y \ref{extra6-6:item2} no las vi hasta que hice lo que hay
+        a continuación voy a desarrollar esta versión, porque como soy medio fanático de factorizar,
+        bueh, me salen estas cosas primero.
+        Te aviso que voy a hacer montón de \textit{diferencias de cuadrados\blue{!}}
+        $$
+          \begin{array}{rcl}
+            (2-z^3)^4 = z^{12}
+             & \sii           &
+            (2-z^3)^4 = (z^3)^4     \\
+             & \sii           &
+            (2-z^3)^4 - (z^3)^4 = 0 \\
+             & \Sii{\blue{!}} &
+            \magenta{\big(}
+            (2-z^3)^2 - (z^3)^2 )
+            \magenta{\big)^2}
+            \cdot
+            \parentesis{(2-z^3)^2 + (z^3)^2)}^2
+            = 0                     \\
+             & \Sii{\blue{!}} &
+            \magenta{\big(}\parentesis{(2-z^3) - z^3}
+            \cdot
+            \parentesis{(2-z^3) + z^3}
+            \magenta{\big)^2}
+            \cdot
+            \parentesis{(2-z^3)^2 + (z^3)^2}^2
+            = 0                     \\
+             & \sii           &
+            \magenta{\big(}
+            2 \cdot (2-2z^3)
+            \magenta{\big)^2}
+            \cdot
+            \parentesis{(2-z^3)^2 + (z^3)^2}^2
+            = 0                     \\
+             & \Sii{\red{!!}} &
+            \magenta{\big(}
+            1 - z^3
+            \magenta{\big)^2}
+            \cdot
+            \parentesis{(2-z^3)^2 + (z^3)^2}^2
+            = 0
+          \end{array}
+        $$
+        \textit{Pocas cosas tan placenteras en la vida como un producto igualado a cero}. Debe ocurrir que:
+        $$
+          1 - z^3 = 0
+          \qquad \text{o bien que} \qquad
+          (2-z^3)^2 + (z^3)^2 = 0
+        $$
+        La primera no es otra cosa que $\llamada1$ con un poco de más de amor {\tiny\rosa{\faIcon{heart}}},
+        y la segunda
+        $$
+          \begin{array}{rcl}
+            (2-z^3)^2 + (z^3)^2 = 0
+             & \sii           &
+            (2 - z^3)^2  = - (z^3)^2    \\
+             & \Sii{\red{!!}} &
+            (2 - z^3)^2  = (iz^3)^2     \\
+             & \sii           &
+            (2 - z^3)^2  - (iz^3)^2 = 0 \\
+             & \Sii{\blue{!}} &
+            \magenta{\big(}
+            (2 - z^3) - (iz^3)
+            \magenta{\big)}
+            \cdot
+            \magenta{\big(}
+            (2 - z^3) + (iz^3)
+            \magenta{\big)}
+            = 0                         \\
+             & \sii           &
+            \magenta{\big(}
+            2 - z^3 \cdot (1 + i)
+            \magenta{\big)}
+            \cdot
+            \magenta{\big(}
+            2 + z^3 \cdot (-1 + i)
+            \magenta{\big)}
+            = 0                         \\
+          \end{array}
+        $$
+        Sé lo que estás pensando y la respuesta es \underline{no}, nunca son suficientes las diferencias de cuadrados.
+
+        Este último resultado es nuevamente un producto igualado a cero, poooooor lo tanto:
+        $$
+          \llave{rcl}{
+            2 - z^3 \cdot (1 + i) = 0
+            &\sii&
+            z^3 = 1 - i  \quad \llamada2\\
+            &\text{o bien}&\\
+            2 + z^3 \cdot (-1 + i) = 0
+            &\sii&
+            z^3 = 1 + i  \quad \llamada3\\
+          }
+        $$
+        Llegando así a no otra cosa que a $\llamada2$ y a $\llamada3$ con un poco más de amor nuevamente.
+\end{enumerate}
+
+Hayas llegado a las ecuaciones como hayas llegado, poco importa en este momento: Hay que resolver 3 ecuaciones complejas, las cuales
+no quiero resolver en detalle, pero como soy un tipazo, ahí dejo las soluciones.
+$$
+  z^3 = 1
+  \Sii{$G_3$}
+  \cajaResultado{
+    \llave{l}{
+      z_1 = 1\\
+      z_2 = e^{\frac{2}{3} \pi}\\
+      z_3 = e^{\frac{4}{3} \pi}
+    }
+  }
+$$
+Ahora con $\llamada2$
+$$
+  z^3 = 1 - i = \sqrt{2} \cdot e^{i\frac{7}{4} \pi}
+  \Sii{\red{!!!}}
+  \cajaResultado{
+    \llave{l}{
+      z_4 = \sqrt[6]{2} \cdot e^{i \frac{7}{12} \pi}\\
+      z_5 = \sqrt[6]{2} \cdot e^{i \frac{5}{4} \pi}\\
+      z_6 = \sqrt[6]{2} \cdot e^{i \frac{23}{12} \pi}
+    }
+  }
+$$
+y por último $\llamada3$:
+$$
+  z^3 = 1 + i = \sqrt{2} \cdot e^{i\frac{1}{4} \pi}
+  \Sii{\red{!!!}}
+  \cajaResultado{
+    \llave{l}{
+      z_7 = \sqrt[6]{2} \cdot e^{i \frac{1}{12} \pi}\\
+      z_8 = \sqrt[6]{2} \cdot e^{i \frac{3}{4} \pi}\\
+      z_9 = \sqrt[6]{2} \cdot e^{i \frac{17}{12} \pi}
+    }
+  }
+$$
+
+Siendo objetivos, la solución del \ref{extra6-6:item2} es la más elegante lejos, la de \ref{extra6-6:item3} es un delirio,
+pero lo importante es llegar al resultado correcto!
+Como dijo el \blue{Capitán planeta}: \textit{¡El poder es tuyo!}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

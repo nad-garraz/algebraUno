@@ -17,7 +17,7 @@
 
 \begin{enumerate}[label=\alph*)]
   \item
-        Si la raíz $\alpha = r e^{i\frac{3\pi}{2}} = r(-i) \entonces f(r(-i)) = 0$
+        Si la raíz $\alpha = r \cdot e^{i\frac{3\pi}{2}} = r(-i) = -ir \entonces f(-ir) = 0$
 
         Voy a usar que:
         $$
@@ -31,29 +31,34 @@
           }
         $$
 
-        Evalúo $f(r(-i))$:
+        Evalúo $f(-ir)$:
 
         $$
           \begin{array}{rcl}
-            f(r(-i)) & =                   & (r(-i))^6 - 4(r(-i))^5 - (r(-i))^4 + 4 r^3i + 4(r(-i))^2 + 48(r(-i)) + \c \\
-                     & \igual{$\llamada1$} & -r^6 + 4r^5i - r^4 + 4 r^3i - 4r^2 - 48ri + \c = 0
+            f(-ir) & =                   & (-ir)^6 - 4(-ir)^5 - (-ir)^4 + 4 r^3i + 4(-ir)^2 + 48(-ir) + \c \\
+                   & \igual{$\llamada1$} & -r^6 + 4ir^5 - r^4 + 4ir^3 - 4r^2 - 48ir + \c = 0
           \end{array}
         $$
 
         Esta expresión va a ser 0 cuando su parte imaginaria y su parte real sean ambas 0:
         $$
-          \begin{array}{c}
-            f(r(-i))  =   -r^6 + 4r^5i - r^4 - 4 r^3i - 4r^2 - 48ri + \c = 0 \\
-            \sisolosi                                                        \\
-            \llave{l}{
-              \im(f(r(-i))): 4r(r^4 +  r^2 - 12) = 0
-              \Sii{$r \en \reales$}[$r > 0$]
-            r = \sqrt{3} \llamada2                                           \\
-              \re(f(r(-i))) : -r^6  - r^4  - 4r^2  + \c = 0
-              \Sii{$\llamada2$}[$r = \sqrt{3}$]
-              \cajaResultado{\c = 48}
-            }
+          \begin{array}{rcl}
+            f(-ir) & = & -r^6 + 4ir^5 - r^4 + 4ir^3 - 4r^2 - 48ir + \c          \\
+                   & = & (-r^6  - r^4  - 4r^2  + \c) +i (4r^5 + 4r^3 - 48r) = 0
           \end{array}
+        $$
+        En el siguiente paso \underline{no} busco exhaustivamente todas las raíces, porque es al pedo. Solo
+        busco lo que me interesa según las condiciones del ejercicio:
+        $$
+          \llave{rcl}{
+            \im(f(-ir)) = 4r(r^4 +  r^2 - 12) = 0
+            &\Sii{\red{$r \en \reales$}}[\red{$r > 0$}]&
+            r \igual{\red{!}} \sqrt{3} \llamada2                                \\
+            \\
+            \re(f(-ir)) = -r^6  - r^4  - 4r^2  + \c = 0
+            &\Sii{$\red{r \igual{$\llamada2$} \sqrt{3}}$}[$\red{\mathbf{c} \en \reales}$]&
+            \cajaResultado{\c = 48}
+          }
         $$
 
         Por lo tanto con ese $\c = 48$:
@@ -86,7 +91,7 @@
                & = & 4(X^3 - 3X^2 - 2X + 4) = 0 \\
           \end{array}
         $$
-        Con el lema de Gauss se que las posibles raíces de $g'$ están en:
+        Con el lema de Gauss sé que las posibles raíces de $g'$ están en:
         $$
           \set{\pm1,\pm2,\pm4}
         $$
@@ -128,3 +133,7 @@
           }
         \end{center}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -11,7 +11,10 @@
 
 Si el $(f:X^4 - X^3 +6X^2  -5X +5) \distinto 1$, esto nos da información
 sobre \textit{raíces comunes} entre $f$ y $X^4 - X^3 +6X^2  -5X +5$. Puedo hacer el algoritmo de Euclides para encontrar el MCD, con esa
-o esas raíces. El último resto no nulo hecho \textbf{mónico} será el MCD. \par \medskip
+o esas raíces. El último resto no nulo hecho \textbf{mónico} será el MCD.
+
+\medskip
+
 $$
   {\tiny
       \mcd{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^4 - X^3 +6X^2  -5X +5}
@@ -38,9 +41,9 @@ $$
 $$
 \medskip
 
-Obtuvimos que: 
+Obtuvimos que:
 $$
-f = (X^2 - X + 1) \cdot (\magenta{X^3 + 3X^2 -5X - 15}) + 0.
+  f = (X^2 - X + 1) \cdot (\magenta{X^3 + 3X^2 -5X - 15}) + 0.
 $$
 
 Hermoso resultado, donde la hermosura se mide en su simpleza para ser factorizado.
@@ -58,29 +61,28 @@ Ahora factorizamos en irreducibles, que son polinomios mónicos que  solo se div
 sí mismos y por 1, \textit{los primos en el mundo de polinomios}. Para tener una mejor explicación
 \hyperlink{teoria-7:irreducibles}{clickeá acá! Y vas a la teoría del apunte.}
 
-\textit{Factorizaciones: }\par
+\textit{Factorizaciones: }
 $$
-  \begin{array}{rcl}
-    \racionales[X] & \to & f =  (\ob{X^2 - 5}{\en\racionales[X]}) \cdot
-    (\ob{X^2 - X + 1}{\en\racionales[X]}) \cdot
-    (\ob{X+3}{\en\racionales[X]})                                       \\
-    \reales[X]     & \to & f = (\ob{ X-\sqrt5}{\en \reales[X]}) \cdot
-    (\ob{ X + \sqrt5}{\en \reales[X]})  \cdot
-    (\ob{X^2 - X + 1}{\en\reales[X]}) \cdot
-    (\ob{X+3}{\en\reales[X]})                                           \\
-    \complejos[X]  & \to & f =
-    (\ob{X+3}{\en\complejos[X]}) \cdot
-    (\ob{X - \sqrt5}{\en \complejos[X]}) \cdot
-    (\ob{X + \sqrt5}{\en \complejos[X]}) \cdot
-    (\ob{X - (\frac{1}{2}  - \frac{\sqrt{3}}{2} i)}{\en \complejos[X]}) \cdot
-    (\ob{X - (\frac{1}{2}  + \frac{\sqrt{3}}{2} i)}{\en\complejos[X]})
-  \end{array}
+  \cajaResultado{
+    \begin{array}{rcl}
+      \racionales[X] & \to & f =  (X^2 - 5) \cdot
+      (X^2 - X + 1) \cdot
+      (X+3)                                       \\
+      \reales[X]     & \to & f = (X-\sqrt5) \cdot
+      (X + \sqrt5)  \cdot
+      (X^2 - X + 1) \cdot
+      (X+3)                                       \\
+      \complejos[X]  & \to & f =
+      (X+3 \cdot
+      (X - \sqrt5) \cdot
+      (X + \sqrt5) \cdot
+      (X - (\frac{1}{2}  - \frac{\sqrt{3}}{2} i)) \cdot
+      (X - (\frac{1}{2}  + \frac{\sqrt{3}}{2} i))
+    \end{array}
+  }
 $$
 
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
 \end{aportes}

@@ -6,6 +6,12 @@
   \end{enumerate}
 \end{enunciado}
 
+Antes de empezar:
+\begin{center}
+  Recordad que los elementos de \underline{$G_n$ son de la forma $ e^{\frac{2\pi}{n}k}$ con $k \en \enteros$}
+\end{center}
+
+Ahora sí:
 \begin{enumerate}[label=\alph*)]
   \item
         Las raíces de $f$:
@@ -26,29 +32,39 @@
         Si $X^5 - (\frac{1}{2} + \frac{\sqrt{3}}{2}i )  \divideA X^{30} - 1$,
         entonces  las raíces de $f$ también deben ser raíces de $X^{30} - 1$.
 
-        Observad que:
+        Observad que esas raíces son elementos de $G_{30}$ si acomodo esas raíces:
         $$
-          X^{30} - 1 =
-          (X^{15} - 1) \cdot (X^{15} + 1) =
+          \set{
+            e^{i \frac{1}{15} \pi},
+            e^{i \frac{7}{15} \pi},
+            e^{i \frac{13}{15} \pi},
+            e^{i \frac{19}{15} \pi},
+            e^{i \frac{5}{3} \pi}
+          }
+          \Entonces{\magenta{$\times, \div$ 2}}[esos argumentos]
+          \set{
+            e^{i \frac{2}{30} \pi},
+            e^{i \frac{14}{30} \pi},
+            e^{i \frac{26}{30} \pi},
+            e^{i \frac{38}{30} \pi},
+            e^{i \frac{50}{30} \pi}
+          }
         $$
-        Y ya veo tu cara así {\Large \surprise}! Sí, todos los elementos de $G_{15}$ son raíces de $G_{30}$
+        Las raíces de :
+        $$
+          X^{30} - 1 = 0
+          \Sii{\red{!}}
+          X \en G_{30}
+        $$
+
+        Todas la raíces de $f$ están en $G_{30}$, así que $f \divideA X^{30} - 1$
 
         \bigskip
-        \begin{center}
-          En general,:
-          $$
-            \text{Si se tienen 2 conjuntos }  G_n \ytext G_m \quad \text{con} \quad m \divideA n
-            \entonces
-            G_m \subseteq G_n
-          $$
-        \end{center}
 
-        \bigskip
-        Todas la raíces de $f$ están en $G_{15}$, así que $f \divideA X^{30} - 1$
-
-        \bigskip
+        \textit{Otra forma de mostarlo:}
 
         \textit{Versión de galera y bastón:}
+
         La versión más elegante, pero que no se me ocurre primero ni a palos (mirá el ejercicio \ref{ej:8} {\tiny$\ot$ click}):
         Sabemos que:
         $$
@@ -60,7 +76,7 @@
             X^5 - \Big(\frac{1}{2} + \frac{\sqrt{3}}{2}i \Big) \divideA X^{30} - 1
           \end{array}
         $$
-        Por ende el polinio $f$ divide a $X^{30} - 1$.
+        Por ende el polinomio $f$ divide a $X^{30} - 1$.
 
   \item $f \divideA g$
         Las raíces de $f$ son todas complejas, así que voy a necesitar los conjugados para tener un $g \en \reales[X]$.

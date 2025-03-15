@@ -17,19 +17,23 @@
 \fancyhead[R]{Página \thepage} %% encabezado derecho
 
 \fancyfoot[EL]{
-  \href{\dirRepo}{\small\github
-    ¡Aportá con correcciones, subiendo ejercicios, \yellow{\faIcon{star}} al repo, críticas, todo sirve.
-    }
+  \small\github
+  ¡Aportá con correcciones, mandando ejercicios, \yellow{\faIcon{star}} \href{\dirRepo}{al repo}, críticas, todo sirve.\\
+  La idea es que la guía esté actualizada y con el mínimo de errores.
+  
 }    % pie izquierdo pares
 \fancyfoot[OL]{
-  \href{\dirTelegram}{\small\telegram ¿Errores? Avisá así se corrige y ganamos todos.
-  }
+  \small \telegram ¿Errores? \href{\dirTelegram}{Avisá acá} así se corrige y ganamos todos.\\
+  \small Compilado: \update. Chequeá si hay una \href{\dirGuia{\guia}}{versión nueva $\to$ acá.}
 } % pie izquierdo impares
 
 % \fancyfoot[EC]{\small \update}                                                                        % pie izquierdo pares
 \fancyfoot[OR]{
   \small\hyperlink{indice-\guia}{
-    Ir a índice $\uparrow$\\ \vspace{-5pt}
-    \update }}             % pie derecho pares
+    Ir a índice $\uparrow$
+  }
+}             % pie derecho pares
 
-\fancyfoot[ER]{\small \hyperlink{indice-\guia}{ Ir a índice $\uparrow$}}                            % pie derecho impares
+\fancyfoot[ER]{
+  \small \hyperlink{indice-\guia}{Ir al índice $\uparrow$}
+}                            % pie derecho impares

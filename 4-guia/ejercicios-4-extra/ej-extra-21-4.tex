@@ -1,0 +1,94 @@
+\begin{enunciado}{\ejExtra}
+  Sea $a \en \enteros$. Calcule todos los posibles valores de $d = (a^2 + a : a^3 + 3a^2 + 2a + 14)$. Para
+  cada posibilidad de $d$ hallada, caracterice todos los $a \en \enteros$ para los cuales se obtiene dicho valor de $d$.
+\end{enunciado}
+
+Simplifico al MCD, $d$ usando Euclides:
+$$
+  \polyset{vars=a}
+  \divPol{a^3 + 3a^2 + 2a + 14}{a^2 + a}
+$$
+Por lo tanto:
+$$
+  d = (a^2 + a :  14)
+  \entonces
+  \llave{l}{
+    d \divideA a^2 + a\\
+    \ytext\\
+    d \divideA 14
+  }
+  d \en \set{1,2,7,14}
+$$
+
+\bigskip
+
+\textit{Tabla de restos:}
+
+Empiezo por los números menores.
+
+\medskip
+
+\textit{¿$d = 2$ divide las expresiones?:}
+$$
+  \begin{array}{|c|c|c|}
+    \hline
+    r_2(a)       & 0           & 1           \\\hline
+    r_2(a^2 + a) & \magenta{0} & \magenta{0} \\\hline
+  \end{array}
+$$
+Se concluye que el 2 es un \textit{divisor común} para \underline{cualquier valor de $a$}. Peeeeero como yo quiero al \textit{MAYOR divisor común}, sigo
+probando con los otros posibles valores de $d$.
+
+\medskip
+
+\textit{¿$d = 7$ divide las expresiones?:}
+$$
+  \begin{array}{|c|c|c|c|c|c|c|c|}
+    \hline
+    r_2(a)       & 0           & 1 & 2 & 3 & 4 & 5 & 6           \\\hline
+    r_2(a^2 + a) & \magenta{0} & 2 & 6 & 5 & 6 & 2 & \magenta{0} \\\hline
+  \end{array}
+$$
+Se concluye que el 7 es un \textit{divisor común} para:
+$$
+  \congruencia{a}{0}{7}
+  \otext
+  \congruencia{a}{6}{7}
+$$
+
+\medskip
+
+\textit{¿$d = 14$ divide las expresiones?:}
+
+No hace falta hacer la tabla. ¿Por qué?
+
+Bueno, resulta que 14 va a ser un \textit{divisor común} ¡Cuando tanto 2 y 7 lo sean! Por
+lo tanto 14 es un \textit{divisor común} cuando:
+$$
+  \congruencia{a}{0}{7}
+  \otext
+  \congruencia{a}{6}{7}
+$$
+
+Vamos redondeando. Los valores de el MCD, $d$ van a ser:
+$$
+  \cajaResultado{
+    d =
+    \llave{ccl}{
+      14 &\sii&
+      \llave{l}{
+        \congruencia{a}{0}{7}\\
+        \otext\\
+        \congruencia{a}{6}{7}
+      }\\
+      \\
+      2 &\sii& \text{otro caso}
+    }.
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
+\end{aportes}
+

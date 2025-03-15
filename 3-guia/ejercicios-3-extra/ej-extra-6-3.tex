@@ -1,7 +1,100 @@
 \begin{enunciado}{\ejExtra}
-
+  Determine cuántas funciones sobreyectivas
+  $f: \set{n \en \naturales : n \leq 8} \to \set{n \en \naturales : n \leq 8}$
+  cumplen simultáneamente las siguientes condiciones:
+  \begin{enumerate}[label=\tiny $\blacksquare$]
+    \item $f(3) \leq f(4) \leq f(5)$
+    \item $f(1) + f(2)$ es impar.
+  \end{enumerate}
 \end{enunciado}
 
-%\begin{aportes}
-%\item \aporte{https://github.com/nad-garraz/algebraUno}{Nad Garraz \github}
-%\end{aportes}
+Aclarando lo que quizás no necesite aclaración, voy a organizando la información con a que hay que jugar:
+$$
+  \ub{\set{1,\blue{2},3,\blue{4},5,\blue{6},7,\blue{8}}}{\dom(f)}
+  \flecha{$f$}
+  \ub{\set{1,\blue{2},3,\blue{4},5,\blue{6},7,\blue{8}}}{\cod(f)}
+$$
+
+Tanto el dominio como el codominio tienen 4 \blue{pares} y 4 impares.
+La función sobreyectiva es esa que para cada valor del codominio tiene un valor en el dominio que va a parar a ahí:
+$$
+  f \textit{ es sobreyectiva }
+  \sii
+  \paratodo y \en \cod(f) \existe x \en \dom(f) \talque f(x) = y.
+$$
+De ahí podemos concluir que \underline{en este ejecicio} las funciones como tienen la misma cantidad
+de elementos en el $\cod(f)$ y en el $\dom(f)$ serán \textit{biyectivas}.
+\begin{center}
+  \textit{¿Y a mí qué me importa?}
+\end{center}
+Estarás diciendo. Lo noto, porque eso dice que vamos a tener que usar para definir a cada $f$,
+toooodos los numeritos de los conjuntos y no van a poder repetirse \faIcon[regular]{smile}.
+
+\bigskip
+
+\textit{Sobre $\cyan{f(3) \leq f(4) \leq f(5)} \ytext \magenta{f(1) + f(2)  \textit{ es impar}}$:}
+
+Por ejemplo estamos buscando algo así:
+$$
+  \llave{rcl}{
+    \magenta{f(1)} & = & 1 \\
+    \magenta{f(2)} & = & 2          \\
+    \cyan{f(3)} & = & 3          \\
+    \cyan{f(4)} & = & 4          \\
+    \cyan{f(5)} & = & 5          \\
+    f(6) & = & 6          \\
+    f(7) & = & 7          \\
+    f(8) & = & 8
+  }
+$$
+Para que la suma de 2 números sea siempre impar necesito que los sumandos sean \magenta{uno impar y uno par}.
+
+Voy a agarrar 2 números, uno par y uno impar, para cumplir que $\magenta{f(1) + f(2)}$ es impar de los 8 números del $\cod(f)$.
+
+Si porque me pintó, le pongo el \red{impar} a $f(1)$ primero y luego el \red{par} a $f(2)$, voy a tener 4 formas de elegir en cada caso.
+Peeero lo mismo sería si lo hago al revés y le pongo primero el \red{par} a $f(1)$, etc....
+
+Formas de agarrar esos dos números:
+$$
+  \ua{\binom{4}{1}}{\text{tomo el \red{impar} para } f(1)} \cdot \oa{\binom{4}{1}}{\text{tomo el \red{par} para } f(2)}
+  \qquad
+  \otext
+  \qquad
+  \ua{\binom{4}{1}}{\text{tomo el \red{par} para } f(1)} \cdot \oa{\binom{4}{1}}{\text{tomo el \red{impar} para } f(2)}
+$$
+De esta manera tengo 32 formas de satisfacer que \magenta{$f(1) + f(2)$  \textit{ es impar}}.
+
+\bigskip
+
+\underline{No importa} cuales \cyan{3} números \textit{distintos} $\set{\cyan{a, b, c}} \en \cod(f)$
+agarre, siempre van a cumplir que \cyan{uno va a ser el menor, otro estará en el medio y otro será el mayor} \rollingEyes.
+Listo. Agarro \cyan{3} números entre los 6 que quedan:
+$$
+  \binom{6}{\cyan{3}} = 120
+$$
+Esas serían las formas de contar las posibles combinaciones para que $\cyan{f(3) \leq f(4) \leq f(5)}$.
+
+\bigskip
+
+Y por último hay que ubicar los 3 restantes que no tienen que cumplir nada en particular:
+$$
+  \llave{l}{
+    f(6) \to \#3 \\
+    f(7) \to \#2 \\
+    f(8) \to \#1
+  }
+  \to 3! \text{ \faIcon[regular]{smile}}
+$$
+
+Se concluye que las funciones \textit{sobreyectivas} que cumplen lo pedido serían en total:
+$$
+  \cajaResultado{
+    2 \cdot \left(\binom{4}{1} \cdot \binom{4}{1}\right) \cdot \binom{6}{3} \cdot 3!  =
+    32 \cdot  120 \cdot 6 = 23.040
+  }
+$$
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
+\end{aportes}
+

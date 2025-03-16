@@ -1,1 +1,47 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+	Determinar todos los $a \en \complejos$ tales que 1 sea raíz \textit{doble}
+	$X^4 - aX^3 - 3X^2 + (2 + 3a)X -2a$.
+\end{enunciado}
+
+Si uno es raíz \textit{doble} de $f = X^4 - aX^3 - 3X^2 + (2 + 3a)X -2a$ tiene que ocurrir que:
+$$
+	f(1) = f'(1) = 0 \ytext \magenta{f^{''} \distinto 0}
+$$
+
+Planteamos eso:
+$$
+	f(\blue{1}) = \blue{1}^4 - a\blue{1}^3 - 3\blue{1}^2 + (2 + 3a) \blue{1} -2a = 0
+	\sii
+	\blue{1} - a - 3 + (2 + 3a) - 2a = 0
+	\sii
+	0 = 0 \paratodo a \en \complejos
+$$
+Oka, no nos dio mucha info. Ahora con $f'$:
+$$
+	f'(\blue{1}) = 4\blue{1}^3 - 3a\blue{1}^2 - 6\blue{1} + (2 + 3a) = 0
+	\sii
+	4 - 3a - 6 + (2 + 3a) = 0
+	\sii
+	0 = 0 \paratodo a \en \complejos
+$$
+Bueh, el ejercicio apunta que no nos olvidemos la última condición con la $f^{''}$:
+$$
+	f''(\blue{1}) = 12\blue{1}^2 - 6a\blue{1} - 6 \distinto 0
+	\sii
+	12 - 6a - 6 \distinto 0
+	\sii
+	a \distinto 1 \paratodo a \en \complejos
+$$
+
+Por lo tanto si:
+$$
+	\cajaResultado{
+		a \distinto 1
+	}
+$$
+1 será una raíz \textit{doble} del polinomio $X^4 - aX^3 - 3X^2 + (2 + 3a)X -2a$.
+De otra forma sería \textit{por lo menos una raíz triple}
+
+\begin{aportes}
+\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

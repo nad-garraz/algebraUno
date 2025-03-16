@@ -1,1 +1,35 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Sea $n \en \naturales$.
+  Probar que $\sumatoria{k=0}{n}\frac{X^k}{k!} \en \complejos[X]$ tiene todas sus raíces complejas simples.
+\end{enunciado}
+
+$$
+  P = \sumatoria{k=0}{n}\frac{X^k}{k!} =
+  1 + X + \frac{1}{2!}X^2 + \frac{1}{3!}X^3 + \frac{1}{4!}X^4 + \cdots + \frac{1}{n!}X^n
+$$
+
+Su derivada primera:
+$$
+  P' = \sumatoria{k=0}{n}\frac{X^{k-1}}{(k-1)!} =
+  1 + X + \frac{1}{2!}X^2 + \frac{1}{3!}X^3 + \cdots + \frac{1}{(n-1)!}X^{n-1}
+$$
+
+Noto que:
+$$
+  P' = P - \frac{1}{n!}X^n
+$$
+
+Entonces si $\blue{\alpha}$ es una raíz de $P$:
+$$
+  P(\blue{\alpha}) = 0
+  \entonces
+  P'(\blue{\alpha}) =
+  \ub{P(\blue{\alpha})}{0} - \frac{1}{n!}\blue{\alpha}^n = - \frac{1}{n!}\blue{\alpha}^n \distinto 0
+$$
+Así queda probado que las raíces van a ser \textit{simples}.
+
+Atención que, $\blue{\alpha} = 0$ \underline{no me importa} porque $P(0) \distinto 0$, boludeces no.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

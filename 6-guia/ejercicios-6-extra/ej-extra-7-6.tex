@@ -1,35 +1,34 @@
 \begin{enunciado}{\ejExtra}
-	Sea $\omega \en G_{10}$ tal que $\omega^5 \distinto 1$. Encuentre la parte real de
-	$$
-		\omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k=5}{98}\omega^{5k}.
-	$$
+  Sea $\omega \en G_{10}$ tal que $\omega^5 \distinto 1$. Encuentre la parte real de
+  $$
+    \omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k=5}{98}\omega^{5k}.
+  $$
 \end{enunciado}
 \hyperlink{teoria6:propiedadesGn}{Algunas resultados de este tema acá {\tiny $\ot$ click} }
 
-
-Dado que $\omega \en G_{10}$ ocurre:
+Dado que $\omega \en G_{10}$ ocurre que:
 $$
-	\omega^5 = \left(e^{i \frac{2k\pi}{10}}\right)^5
-	\sii
-	\omega^5 =
-	\llave{cl}{
-		1 & \text{si $k$ es par}\\
-		-1 & \text{si $k$ es impar}
-	}
-	\Entonces{\red{enunciado}}
-	\omega^5 = -1
+  \omega^5 = \left(e^{i \frac{2k\pi}{10}}\right)^5
+  \sii
+  \omega^5 =
+  \llave{cl}{
+    1 & \text{si $k$ es par}\\
+    -1 & \text{si $k$ es impar}
+  }
+  \Entonces{\red{enunciado}}
+  \omega^5 = -1
 $$
 Con ese \textit{resultadillo} ahora podemos reescribir el enunciado como:
 $$
-	\begin{array}{rcl}
-		\omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k = 5}{98}\omega^{5k}
-		 & \igual{$\llamada1$}[\red{!!}] &
-		\omega + \omega^3 + \omega^4 + \omega^8 + \red{0}                                     \\
-		 & \igual{\red{!}}               & \omega + \omega^3 + \omega^4 + (-1) \cdot \omega^3 \\
-		 & \igual{\red{!}}               & \omega + \omega^4                                  \\
-		 & \igual{\red{!}}               & \omega + (-1) \cdot \conj{\omega}                  \\
-		 & \igual{$\llamada2$}           & \omega - \conj{\omega} = i \cdot 2\im(\omega)
-	\end{array}
+  \begin{array}{rcl}
+    \omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k = 5}{98}\omega^{5k}
+     & \igual{$\llamada1$}[\red{!!}] &
+    \omega + \omega^3 + \omega^4 + \omega^8 + \red{0}                                     \\
+     & \igual{\red{!}}               & \omega + \omega^3 + \omega^4 + (-1) \cdot \omega^3 \\
+     & \igual{\red{!}}               & \omega + \omega^4                                  \\
+     & \igual{$\llamada2$}           & \omega + (-1) \cdot \conj{\omega}                  \\
+     & \igual{\red{!}}               & \omega - \conj{\omega} = i \cdot 2\im(\omega)
+  \end{array}
 $$
 
 En $\llamada1$ la sumatoria es una suma onda $1 - 1 + 1 - 1 + \cdots$ donde
@@ -39,11 +38,24 @@ En $\llamada2$ hago $\omega^4 = \frac{1}{\omega} \cdot \omega^5$ y un poco de ac
 
 Es así que si la expresión es igual a un número imaginario puro se concluye:
 $$
-	\cajaResultado{
-		\re(\omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k = 5}{98}\omega^{5k}) =  0.
-	}
+  \cajaResultado{
+    \re(\omega + \omega^{-7} + \conj{\omega}^6 + \omega^8 + \sumatoria{k = 5}{98}\omega^{5k}) =  0.
+  }
 $$
 
+\textit{Nota que puede serte útil o no, chupala:}
+
+A varias personas les \textit{tentó} poner en el valor de $\omega = -1$, o quizás $\omega = e^{i\frac{1}{5}\pi}$, porque $\omega^1$, bueh.
+$\omega$ es un número cualquiera de los 10 valores que forman $G_{10}$, entonces no es cosa de que uno pueda elegir. Ojo con confundir:
+$$
+\omega^1 \en G_{10}
+\Entonces{pongo}[$\blue{k = 1}$]
+e^{i\frac{2\blue{1}}{10}\pi} = e^{i\frac{1}{5}\pi},
+$$
+onda, no. Nada que ver. Abrazo.
+
+\textit{ Fin de nota que puede serte útil o no, chupala.}
+
 \begin{aportes}
-	\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

@@ -5,7 +5,7 @@
           Sea $A = \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}$. Consideremos en $\partes(A)$ la relación de equivalencia dada
           por el cardinal (es decir, la cantidad de elementos): Dos subconjuntos de $A$ están relacionados si y solo si
           tienen la misma cantidad de elementos ¿Cuántas clases de equivalencia \textbf{distintas}
-          determina la relación? Hallar un representante par acada clase.
+          determina la relación? Hallar un representante para cada clase.
 
     \item
           En el conjunto de todos los subconjuntos finitos de $\naturales$, consideremos nuevamente la relación
@@ -18,26 +18,90 @@
 
 \begin{enumerate}[label=\roman*)]
   \item $\partes(A) = \set{\vacio, \set{1}, \set{1,2}, \cdots, \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}$, el conjunto $\partes(A)$ tiene un total de
-        $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.\par
-        $\llave{lcl}{
-            \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
-            \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
-            \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
-            \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
-            \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
-            \vdots                            &\vdots  & \vdots\\
-            \text{Conjuntos con 10 elementos: } & \clase{10} & \set{1,2,3,4,5,6,7,8,9,10} = A\\
-          }$
+        $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.
+        $$
+          \begin{array}{ccc}
+            \rowcolor{Cerulean!10}
+            \text{Característica de la clase} & \text{clase}                       & \text{elemento ejemplo} \\ \hline
+            \text{Conjuntos con \#0: }        & \clase{\vacio}                     & \vacio                  \\
+            \text{Conjuntos con \#1: }        & \clase{\set{1}}                    & \set{3}                 \\
+            \text{Conjuntos con \#2: }        & \clase{\set{1,2}}                  & \set{5,2}               \\
+            \text{Conjuntos con \#3: }        & \clase{\set{1,2,3}}                & \set{1,6, 3}            \\
+            \text{Conjuntos con \#4: }        & \clase{\set{1,2,3,4}}              & \set{1,8, 10,4}         \\
+            \vdots                            & \vdots                             & \vdots                  \\
+            \text{Conjuntos con \#10: }       & \clase{\set{1,2,3,4,5,6,7,8,9,10}} & A                       \\
+          \end{array}
+        $$
+
+        Pobres e incompletos ejemplitos, sino se me va la vida:
+        $$
+          \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine]
+
+            \node[] (a) {$\set{2}$};
+            %\node[] at (a.north west) {};
+
+            \node[below left=1cm of a] (b) {$\set{3}$};
+            %\node[] at (b.south) {};
+
+            \node[below right=1cm of a] (f) {$\set{1}$};
+            %\node[] at (f.south) {};
+
+            \node[above right=1cm of a] (d) {$\vacio$};
+            %\node[] at (d.west) {};
+
+            \node[right=1.5cm of f] (d2) {$A$};
+            %\node[] at (d2.west) {$\vacio$};
+
+            \node[right=1.5cm of a] (c) {$\set{1,2}$};
+            %\node[] at (c.south) {$\set{1,2}$};
+
+            \node[right=1cm of c] (e) {$\set{3,10}$};
+            %\node[] at (e.south) {$\set{3,10}$};
+
+            % Universo
+            \node[shape=ellipse, draw, black, fit={ (a) (b) (d) (f) (e)}] (universo) {};
+
+            % Aristas
+            \draw[magenta, ->, loop above] (a) to (a);
+            \draw[magenta, ->, loop left ] (b) to (b);
+            \draw[->, loop left] (c) to (c);
+            \draw[->, loop right ] (e) to (e);
+            \draw[magenta, ->, loop right ] (f) to (f);
+
+            \draw[OliveGreen, ->, loop above ] (d) to (d);
+            \draw[OliveGreen, ->, loop below ] (d2) to (d2);
+
+            \draw[magenta, ->, bend left] (a.south) to (b);
+            \draw[magenta, ->, bend left] (b.north) to (a);
+            \draw[magenta, ->, bend left] (a.east) to (f);
+            \draw[magenta, ->, bend left] (f.north) to (a);
+            \draw[magenta, ->, bend left] (b.east) to (f);
+            \draw[magenta, ->, bend left] (f.south) to (b);
+
+            \draw[->, bend right] (c.south) to (e);
+            \draw[->, bend right] (e.north) to (c);
+          \end{tikzpicture}
+        $$
+
   \item
         Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\par
-        La relación determina $N+1$ \textit{clases de equivalencia} distintas.\par
-        $\llave{lcl}{
-            \text{Conjuntos con 0 elementos: } & \clase{0}  & \vacio\\
-            \text{Conjuntos con 1 elemento: } & \clase{1} & \set{3}\\
-            \text{Conjuntos con 2 elementos: }& \clase{2} & \set{5,2}\\
-            \text{Conjuntos con 3 elementos: }& \clase{3} & \set{1,6, 3}\\
-            \text{Conjuntos con 4 elementos: }& \clase{4} & \set{1,8, 10,4}\\
-            \vdots                            &\vdots  & \vdots\\
-            \text{Conjuntos con 10 elementos: } & \clase{N} & \set{1,2,3,4, \cdots, N-1, N} \naturales_N\\
-          }$
+        La relación determina $N+1$ \textit{clases de equivalencia} distintas.
+        $$
+          \begin{array}{cccc}
+            \rowcolor{Cerulean!10}
+            \text{Característica de la clase} & \text{clase}                   & \text{elemento ejemplo}      & \text{Conjuntos en clase} \\ \hline
+            \text{Conjuntos con \#0 }         & \clase{\vacio}                 & \vacio                       & \binom{N}{0}              \\
+            \text{Conjuntos con \#1}          & \clase{\set{1}}                & \set{3}                      & \binom{N}{1}              \\
+            \text{Conjuntos con \#2 }         & \clase{\set{1,2}}              & \set{5,2}                    & \binom{N}{2}              \\
+            \text{Conjuntos con \#3 }         & \clase{\set{1,2,3}}            & \set{1,6, 3}                 & \binom{N}{3}              \\
+            \vdots                            & \vdots                         & \vdots                       &                           \\
+            \text{Conjuntos con \#$N-1$: }    & \clase{\set{1,2,\ldots,N-1}}   & \set{1,2,3, \ldots,N-2, N-1} & \binom{N}{N-1}            \\
+            \text{Conjuntos con \#$N$: }      & \clase{\set{1,2,\ldots,N-1,N}} & A                            & \binom{N}{N}              \\
+          \end{array}
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/franramosfx}{Fran Ramos \github}
+\end{aportes}

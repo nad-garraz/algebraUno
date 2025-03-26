@@ -51,24 +51,22 @@ _curados y escritos por el alumnado de álgebra 1_.
     - `definiciones.tex`: Las definiciones, macros para que los comandos de LaTeX sean un poco más agradables y se pueda leer el código en leguaje _más natural_.
     - `encabezado-pie.tex`: Encabezado y pie de página, para darle un poco de 🌠bling-bling 🌠 al apunte y mejor navegación
     - `estructura-ejercicio.tex`: Donde se inyectan los ejercicios dándoloe la estructura que tiene cada PDF.
+    - `...etc...`
 
 ## Contribuir
 
-Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo. Ahí podés comentarnos por el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) o mail así lo solucionamos y aumentamos la calidad del trabajo.
+Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo.
+Ahí podés comentarnos por el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) o mail así lo solucionamos y aumentamos la calidad del trabajo.
 Si sabés un poco de LaTeX, ya vas a estar bien, porque hay muchísimos ejercicios con los comandos para que copies y pegues.
 
-_Para contribuir al código directamente tenés que:_
-
-- Tener instalado Git
-- Tener instalado LaTeX
-- Tener cuenta de GitHub
-- Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos. La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_.
+_Para contribuir al código directamente tenés que:
+ - Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda para arrancar con github y compilar en LaTeX.
+ La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_.
 
 ## Compilar
-
+Esto puede variar según el programa que uses, pero igual ahí va:
 Para compilar los archivos de LaTeX una vez que fueron modificados:
-
-- Con la terminal, entrar a la carpeta de la guía que quieras compilar, por ejemplo la guía 5.
+- En la terminal, entrar a la carpeta de la guía que quieras compilar, por ejemplo la guía 5 tenés que compilar en la carpeta donde está el 5-sol.tex:
 
 ```bash
 $ cd algebraUno/5-guia/
@@ -76,10 +74,10 @@ $ pdflatex 5-sol.tex
 ```
 
 Eso debería actualizar el archivo `5-sol.pdf` con los cambios que hubieras realizado.
+
 Luego tenés que hacer una pull request para actualizar el repositorio con tu aporte!
 
-- Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos.
-La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_, porque yo ya hice mi parte y me da paja mantener esto sin ayuda.
+- Nuevamente: Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos.
 
 Podés usar el código como quieras siguiendo esta licencia: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 

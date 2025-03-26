@@ -36,7 +36,7 @@ _curados y escritos por el alumnado de álgebra 1_.
 
 ## Estructura del repo
 
-- [Videos introductorios al repo y un poquito a LaTeX](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB):
+- [Videos introductorios al repo y un poquito a LaTeX (tengo que actualizar esto, igual sirve... perorpaja)](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB):
 - En los directorios `i-guia`:
 
   - `i-sol.pdf`: PDF con los ejercicios correspondientes a los temas de la guía _i-ésima_. El que seguramente estás buscando, a menos que quieras contribuir.
@@ -55,29 +55,47 @@ _curados y escritos por el alumnado de álgebra 1_.
 
 ## Contribuir
 
-Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo.
-Ahí podés comentarnos por el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) o mail así lo solucionamos y aumentamos la calidad del trabajo.
-Si sabés un poco de LaTeX, ya vas a estar bien, porque hay muchísimos ejercicios con los comandos para que copies y pegues.
+Para contribuir:
 
-_Para contribuir al código directamente tenés que:
- - Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda para arrancar con github y compilar en LaTeX.
- La idea es que te capacites para poder _vos también mantener el repo vivo y actualizado_.
-
-## Compilar
-Esto puede variar según el programa que uses, pero igual ahí va:
-Para compilar los archivos de LaTeX una vez que fueron modificados:
-- En la terminal, entrar a la carpeta de la guía que quieras compilar, por ejemplo la guía 5 tenés que compilar en la carpeta donde está el 5-sol.tex:
-
-```bash
-$ cd algebraUno/5-guia/
-$ pdflatex 5-sol.tex
+1 - Clonás el repo:
+```
+git clone https://github.com/nad-garraz/algebraLinealComputacional
 ```
 
-Eso debería actualizar el archivo `5-sol.pdf` con los cambios que hubieras realizado.
+2 - Creas una rama en la cual laburar, con un nombre descriptivo onda _"ej-10-guia-2"_ y la pusheas así
+    los demás nos enteramos de la existencia de esa rama
+```
+git switch -c nombre-nueva-rama
+git push origin nombre-nueva-rama
+```
 
-Luego tenés que hacer una pull request para actualizar el repositorio con tu aporte!
+3 - Codeas en el archivo del ejercicio que querés hacer, por ejemplo el "ej-10-2.tex". Agregas el archivo para que git lo sepa y
+    commiteas los cambios con un comentario descriptivo, "Agrego ej-10-2.tex inciso a y b"
+```
+git add ej-10-2.tex 
+git commit -m "Comentario descriptivo sobre lo que hiciste"
+```
 
-- Nuevamente: Metete en el [grupo de Telegram](https://t.me/+1znt2GV1i8cwMTNh) si necesitás ayuda con alguno de esos pasos.
+4 - Si ya terminaste y querés subir los cambios a github vas a primero hacer un pull, 
+    por si alguien cambió algo mientras laburabas en tu rama. Luego vas a hacer un push
+```
+git pull
+git push origin nombre-nueva-rama
+```
+5 - Los cambios deberían aparecer en github, EN TU RAMA. Para fusionar vas a hacer una PULL REQUEST
+    desde la página. Cuando estés ahí vas a tener que esperar el visto bueno para la fusión y luego
+    se mergea y listo. La rama nombre-nueva-rama va desaparecer.
+
+6 - Si en tu repositorio local todavía ves la rama y la querés borrar:
+```
+git branch
+git switch main
+git branch -D nombre-nueva-rama
+```
+
+Si tenés preguntas sobre el workflow preguntá en el grupo de [Telegram](https://t.me/+1znt2GV1i8cwMTNh)
+
+Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo.
 
 Podés usar el código como quieras siguiendo esta licencia: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 

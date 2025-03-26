@@ -1,0 +1,63 @@
+\begin{enunciado}{\ejExtra}
+	Factorice en irreducibles de $\racionales[X], \reales[X], \text{ y } \complejos[X]$ el polinomio
+	$$
+		f = x^5 - x^4 -6x^3 + 12 x^2 + 40 x + 32,
+	$$
+	sabiendo que tiene alguna raíz en común con $g = x^4 - x^3 - 9x^2 - 16x - 10$.
+\end{enunciado}
+
+Como los polinomios comparten una raíz, sé que $(f : g) \distinto 1$. Usando al crack, titán de Euclides busco:
+$$
+	(f:g) \text{ dado que } (f:g) \divideA f  \ytext (f:g) \divideA g
+$$
+y de ahí voy a sacar las raíces hermosas esas que tanto necesito.
+$$
+	\divPol{x^5 - 4x^4 -6x^3 + 12 x^2 + 40 x + 32}{x^4 - x^3 - 9x^2 - 16x - 10}
+$$
+
+$(f : g ) = (x^4 - x^3 - 9x^2 - 16x - 10 : x^2 + 2x + 2)$, sigo con Euclides:
+
+$$
+	\divPol{x^4 - x^3 - 9x^2 - 16x - 10}{x^2 + 2x +2}
+$$
+
+Este último resultado confirma que:
+$$
+	(f:g) = x^2 + 2x + 2 \igual{\red{!!}} (-1 + i)\cdot(-1 - i)
+$$
+Reduzco a $f$ para buscar más raíces:
+$$
+	\divPol{x^5 - 4x^4 -6x^3 + 12 x^2 + 40 x + 32}{x^2 + 2x + 2}
+$$
+De esta manera puedo escribir:
+$$
+	f = (x^2 + 2x + 2) \cdot (x^3 - 6x^2 + 4x + 16)
+$$
+\rollingEyes con el \textit{lema de Gauss} posibles raíces de:
+$$
+	x^3 - 6x^2 + 4x + 16 \to \set{\pm1, \pm 2, \pm 4, \pm 8, \pm 16}.
+$$
+De las cuales funciona el 4 \rollingEyes.
+
+Vuelvo a dividir \rollingEyes:
+$$
+	\divPol{x^3 - 6x^2 + 4x + 16}{x-4}
+$$
+Podemos reescribir {\LARGE \rollingEyes}:
+$$
+	f = (x^2 + 2x + 2) \cdot (x-3) \cdot (x^2 -2x - 4)
+$$
+{\huge \rollingEyes} el último factor tiene raíces $1 - \sqrt{5}$ y $1 + \sqrt{5}$ y ya escribo $f$ en la factorizaciones pedidas:
+$$
+	\cajaResultado{
+		\begin{array}{rcll}
+			f & = & (x^2 + 2x + 2) \cdot (x-3) \cdot (x^2 -2x - 4)                               & \en \racionales[X] \\
+			f & = & (x^2 + 2x + 2) \cdot (x-3) \cdot (1 - \sqrt{5}) \cdot (1 + \sqrt{5})         & \en \reales[X]     \\
+			f & = & (-1 + i) \cdot (-1 -i) \cdot (x-3) \cdot (1 - \sqrt{5}) \cdot (1 + \sqrt{5}) & \en \complejos[X]
+		\end{array}
+	}
+$$
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

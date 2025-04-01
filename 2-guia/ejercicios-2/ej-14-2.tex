@@ -53,21 +53,43 @@
         $d_{n-1}$. Ahora voy a encontrar una relación entre ambas sucesiones. Al sacan un lado pierdo las \magenta{diagonales} desde $2$ hasta $n-2$ que
         serían $n - 3$ en total y además pierdo la {\color{green}diagonal} que conectan el vértice $1$ con el $n-1$:
         $\cyan{d_n} = \red{d_{n-1}} + \green{1} +\magenta{n-2} = d_{n-1} + n - 1$
-        $\to {d_n = d_{n-1} + n - 1}$\\
-        Ahora inducción:\\
-        $p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3\\
-          \llave{l}{
-            \textit{Caso Base: } p(3) \V? \to \frac{3(3-3)}{2} = 0,\text{ lo cual es verdad para el triángulo.\Tilde}    \\
-            \textit{Paso inductivo: } p(k) \text{ es verdadero para algún } k \en \enteros_{\geq 3} \entonces p(k+1) \V? \\
-            \textit{Hipótesis Inductiva: } d_k = \frac{k(k-3)}{2} \entonces d_{k+1} = \frac{(k+1)(k-2)}{ 2 }             \\
-            d = {k+1} \igual{def} d_k + k-1
-          \igual{HI}
-          \frac{k(k-3)}{2} + k-1 =
+        $\to {d_n = d_{n-1} + n - 1}$
+
+        Ahora inducción:
+        Quiero probar:
+        $$
+          p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3
+        $$
+        \textit{Caso Base: }
+        $$
+          p(3) : \frac{3(3-3)}{2} = 0,
+        $$
+        lo cual es verdad para el triángulo.
+
+        \textit{Paso inductivo: }
+        Asumo que
+        $$
+          p(\blue{k}) : \ub{d_{\blue{k}} = \frac{\blue{k} (\blue{k} - 3)}{2}}{\text{\purple{hipótesis inductiva}}}
+        $$
+        es verdadera para algún $k \en \enteros_{\geq 3}$.
+
+        Entonces quiero probar que:
+        $$
+          p(\blue{k+1}): d_{\blue{k+1}} = \frac{(\blue{k+1})(\blue{k + 1} - 3)}{ 2 }
+        $$
+        también sea verdadera.
+
+        Arranco por la definición de $p(\blue{k+1})$ y busco usar la \purple{hipótesis inductiva} para
+        encontrar la expresión buscada:
+        $$
+          d_{k+1} \igual{def} d_k + k-1
+          \igual{\purple{HI}}
+          \purple{\frac{k (k-3)}{2}} + k-1 =
           \frac{k^2 - k - 2}{2} =
-          \frac{(k-2)(k+1)}{2} \Tilde\\
-          }\\
-        $
-        Como $p(3) \ytext p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
+          \frac{(k+1)(k-2)}{2}
+        $$
+
+        Como $p(3),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
 
   \item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.\\
         \begin{tikzpicture}[scale=0.9]
@@ -154,5 +176,6 @@
 \begin{aportes}
   %% iconos : \github, \enstagram, \tiktok, \linkedin
   %\aporte{url}{nombre icono}
-  \item \aporte{\dirRepo}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\neverGonnaGiveYouUp}{Damián Rojas \youtube}
 \end{aportes}

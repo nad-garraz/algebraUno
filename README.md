@@ -36,7 +36,7 @@ _curados y escritos por el alumnado de álgebra 1_.
 
 ## Estructura del repo
 
-- [Videos introductorios al repo y un poquito a LaTeX (tengo que actualizar esto, igual sirve... perorpaja)](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB):
+- [Videos introductorios al repo y un poquito a LaTeX (tengo que actualizar esto, igual sirve..._peropaja_)](https://www.youtube.com/watch?v=8s2Z8MvKbRM&list=PLTgIZ7PjigTILwmmcQqfCDazzR8bo8N6d&pp=gAQBiAQB):
 - En los directorios `i-guia`:
 
   - `i-sol.pdf`: PDF con los ejercicios correspondientes a los temas de la guía _i-ésima_. El que seguramente estás buscando, a menos que quieras contribuir.
@@ -59,7 +59,7 @@ Para contribuir:
 
 1 - Clonás el repo:
 ```
-git clone https://github.com/nad-garraz/algebraLinealComputacional
+git clone https://github.com/nad-garraz/algebraUno 
 ```
 
 2 - Creas una rama en la cual laburar, con un nombre descriptivo onda _"ej-10-guia-2"_ y la pusheas así

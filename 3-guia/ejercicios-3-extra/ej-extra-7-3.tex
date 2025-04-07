@@ -1,0 +1,83 @@
+\begin{enunciado}{\ejExtra}
+  Calcule la cantidad de anagramas de 6 letras que se pueden obtener usando las letras de la palabra
+
+  PARTICULA, con la condición de que empiecen con C.
+  Por ejemplo, posibles anagramas son CAPTAR y CRIPTA.
+\end{enunciado}
+
+Antes de hacer este ejercicio, si estás medio que no entendés el tema, mirate el ejercicio \ref{ej:23}{\tiny($\ot$ click acá)}.
+
+\medskip
+
+Hay que calcular anagrámas en una palabra \magenta{P\blue{A}RTICUL\blue{A}} con 9 letras, donde hay \magenta{8} posibles
+valores, dado que \blue{2} son repetidas. A mí me gusta esta forma de resolver esto:
+
+\begin{enumerate}[label=\faIcon{calculator}$_{(\arabic*)}$]
+  \item Primero ubico la C:
+        $$
+          \llave{c c c c c c} {
+            \text{C} & \_ & \_ & \_ & \_ & \_ \\
+            1 & 2 & 3 & 4 & 5 & 6
+          },
+        $$
+        Dado que la C solo va a estar ahí hay \ul{1} sola forma de hacer esto.
+
+  \item Segundo cuento las versiones con 2 valores de $A$. Un ejemplo de eso sería:
+        $$
+          \llave{c c c c c c} {
+            \text{C} & \blue{\text{A}} & \_ & \blue{\text{A}} & \_ & \_ \\
+            1 & 2 & 3 & 4 & 5 & 6
+          },
+        $$
+        En este caso tengo 5 lugares para poner estas \blue{2 A}. En total hay
+        $$
+          \binom{5}{\blue{2}}
+        $$
+        formas de hacer eso
+
+  \item Por último tengo que ubicar las 3 de las \magenta{5} letras restantes $\set{\text{\magenta{P,R,T,I,U,L}}}$.
+        Eso lo hacemos \textit{inyectando}, por ejemplo así:
+        $$
+          \llave{c c c c c c} {
+            \text{C} & \blue{\text{A}} & \magenta{\text{P}} & \blue{\text{A}} & \magenta{\text{R}} & \magenta{\text{T}} \\
+            1 & 2 & 3 & 4 & 5 & 6
+          },
+        $$
+        Lo cual se podrá hacer de:
+        $$
+          6 \cdot 5 \cdot 4 =
+          \frac{6!}{(6-3)!} =
+          \frac{6!}{3!} = 120
+        $$
+        formas distintas.
+\end{enumerate}
+Por lo tanto para este caso en el que usamos 2 \blue{A} en cada palabra tenemos un total de:
+$$
+  \cajaResultado  {
+  \text{\#ANAGRAMAS}_{\text{\blue{AA}} } =  1 \cdot \binom{5}{2} \cdot \frac{6!}{3!}
+  }
+$$
+
+\bigskip
+
+Esto mismo hay que hacerlo para el caso en que las palabras formadas tienen \underline{solo una \blue{A}} y después en el caso en que tengan
+\underline{ninguna \blue{A}}. Eso no lo desarrollo, porque \textit{pajilla}, peeeero, como soy un tipazo te pongo lo que me dio así corroborás
+y si lo hice mal yo y no me avisás te condeno \red{\faIcon[regular]{angry}} a recursar eternamente esta materia \red{\faIcon[regular]{angry}}.
+\begin{center}
+  {\tiny En el mismo párrafo pasé de ser un tipazo a un terrible hdp}.
+\end{center}
+$$
+  \cajaResultado  {
+  \text{\#ANAGRAMAS}_{\text{\blue{AA}} }  +
+  \text{\#ANAGRAMAS}_{\text{\blue{A}} }  +
+  \text{\#ANAGRAMAS}
+  =
+  1 \cdot \binom{5}{\blue{2}} \cdot \frac{6!}{3!} +
+  1 \cdot \binom{5}{\blue{1}} \cdot \frac{6!}{2!} +
+  1 \cdot \binom{5}{\blue{0}} \cdot \frac{6!}{1!}
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

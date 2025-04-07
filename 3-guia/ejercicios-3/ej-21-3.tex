@@ -4,10 +4,10 @@
 
 El anagrama equivale a permutar los elementos del conjunto, en este caso las letras de las palabras.
 
-Si no hay letras repetidas es una biyección $\#(letras)!$, por ejemplo la palabra \textit{estudio} tiene
+Si no hay letras repetidas es una biyección $(\#(letras))!$, por ejemplo la palabra \textit{estudio} tiene
 $$
 	\cajaResultado{
-		\#\set{e,s,t,u,d,i,o} ! = 7!
+            (\#\set{e,s,t,u,d,i,o}) ! = 7!
 	}
 $$
 anagramas en total.
@@ -26,7 +26,7 @@ $$
 Voy a realizar una \textit{inyección}:
 \begin{itemize}
 	\item Primero ubico lo que \underline{no} está repetido.
-	\item Luego agrego, en una dada posición, a eso 3 o más elementos repetidos. Esto
+	\item Luego agrego, en una dada posición, a esos 3 o más elementos repetidos. Esto
 	      no altera el conteo. Pensar que la palabra: \textit{lmntos\blue{eee}}
 	      cuenta como \textit{lmntos\blue{\_}\blue{\_}\blue{\_}}.
 \end{itemize}

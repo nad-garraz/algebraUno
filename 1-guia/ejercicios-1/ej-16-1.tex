@@ -45,7 +45,7 @@
         $$
   \item $(A \inter B) \times C = (A \times C) \inter (B \times C)$
         \begin{align*}
-           & (x,y) \en (A \inter B) \times C \sii x \en A \inter B \land y \en C \sii x \en A \land x \en B \land y \en C        \\
+           & (x,y) \en (A \inter B) \times C \sii x \en A \inter B \land y \en C \sii x \en A \land x \en B \land y \en C    \\
            & \sii (x \en A \land y \en C) \land (x \en B \land y \en C) \sii (x,y) \en A \times C \land (x,y) \en B \times C \\
            & \sii (x,y) \en (A \times C) \inter (B \times C)
         \end{align*}
@@ -97,30 +97,30 @@
         \begin{enumerate}
           \item Por igualdad de conjuntos
                 \begin{align*}
-                                         & (x,y) \en (A \times C) \triangle (B \times C)
-                  \Sii{Aux.1} (x,y) \en ((A \times C) - (B \times C)) \union ((B \times C) - (A \times C))                  \\
-                                         & \sii (x,y) \en ((A \times C) - (B \times C)) \lor (x,y) \en ((B \times C) - (A \times C))   \\
-                                         & \sii ((x,y) \en A \times C \land (x,y) \notin B \times C)
-                  \lor ((x,y) \en B \times C \land (x,y) \notin A \times C)                                                            \\
-                                         & \sii (x \en A \land y \en C \land (x \notin B \lor y \notin C))
-                  \lor (x \en B \land y \en C \land (x \notin A \lor y \notin C))                                                      \\
-                                         & \sii (x \en A \land y \en C \land x \notin B) \lor (x \en A \land y \en C \land y \notin C) \\
-                                         & \phantom{\hspace{22px}} \lor (x \en B \land y \en C \land x \notin A)
-                  \lor (x \en B \land y \en C \land y \notin C)                                                                        \\
-                  &\Sii{Aux.2}   (x \en A \land y \en C \land x \notin B)
-                  \lor (x \en B \land y \en C \land x \notin A)                                                                        \\
-                                         & \sii (x \en (A - B) \land y \en C) \lor (x \en (B - A) \land y \en C)                       \\
-                                         & \sii (x \en (A - B) \lor x \en (B - A)) \land y \en C
-                  \sii x \en (A - B) \union (B - A) \land y \en C                                                                        \\
-                                         & \sii x \en A \triangle B \land y \en C \sii (x,y) \en (A \triangle B) \times C
+                   & (x,y) \en (A \times C) \triangle (B \times C)
+                  \Sii{Aux.1} (x,y) \en ((A \times C) - (B \times C)) \union ((B \times C) - (A \times C))       \\
+                   & \sii (x,y) \en ((A \times C) - (B \times C)) \lor (x,y) \en ((B \times C) - (A \times C))   \\
+                   & \sii ((x,y) \en A \times C \land (x,y) \notin B \times C)
+                  \lor ((x,y) \en B \times C \land (x,y) \notin A \times C)                                      \\
+                   & \sii (x \en A \land y \en C \land (x \notin B \lor y \notin C))
+                  \lor (x \en B \land y \en C \land (x \notin A \lor y \notin C))                                \\
+                   & \sii (x \en A \land y \en C \land x \notin B) \lor (x \en A \land y \en C \land y \notin C) \\
+                   & \phantom{\hspace{22px}} \lor (x \en B \land y \en C \land x \notin A)
+                  \lor (x \en B \land y \en C \land y \notin C)                                                  \\
+                   & \Sii{Aux.2}   (x \en A \land y \en C \land x \notin B)
+                  \lor (x \en B \land y \en C \land x \notin A)                                                  \\
+                   & \sii (x \en (A - B) \land y \en C) \lor (x \en (B - A) \land y \en C)                       \\
+                   & \sii (x \en (A - B) \lor x \en (B - A)) \land y \en C
+                  \sii x \en (A - B) \union (B - A) \land y \en C                                                \\
+                   & \sii x \en A \triangle B \land y \en C \sii (x,y) \en (A \triangle B) \times C
                 \end{align*}
           \item Usando los puntos (i) y (iii)
                 \begin{align*}
                                   & (A \times C) \triangle (B \times C)
-                        \igual{Aux}[1] ((A \times C) - (B \times C)) \union ((B \times C) - (A \times C)) \overset{(iii)}{=} \\
+                  \igual{Aux}[1] ((A \times C) - (B \times C)) \union ((B \times C) - (A \times C)) \overset{(iii)}{=} \\
                   \overset{(iii)} & {=} ((A - B) \times C) \union ((B-A) \times C)
                   \igual{$(i)$} ((A - B) \union (B - A)) \times C
-                        \igual{Aux}[1] (A \triangle B) \times C                                                            \\
+                  \igual{Aux}[1] (A \triangle B) \times C                                                              \\
                                   & \entonces (A \times C) \triangle (B \times C) = (A \triangle B) \times C
                 \end{align*}
         \end{enumerate}
@@ -159,8 +159,6 @@
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/koopardo}{Marcos Zea \github}
 \end{aportes}

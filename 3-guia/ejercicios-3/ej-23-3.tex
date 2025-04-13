@@ -10,23 +10,34 @@
 \begin{enumerate}[label=\roman*)]
   \item
         Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. \sout{Para que no hayan $"ii"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre
-          puedo poner las letras $"\underline{i}\, \_ \, \underline{i} "$. Para cada uno de estas 120 configuraciones de la pinta:} \red{Está mal!} \\
-        $\llave{c c c c c c c c c c c} % hay 9 en total
+          puedo poner las letras $"\underline{i}\, \_ \, \underline{i} "$. Para cada uno de estas 120 configuraciones de la pinta:} \red{Esta forma de hacerlo está mal!}
+        $$
+          \llave{c c c c c c c c c c c} % hay 9 en total
           {
             \magenta{i} & \magenta{\_} & \magenta{i} & \_           & \_ & \_           & \_ & \_          & \_ & \_                                                                                                                             \\
             \_          & \_           & \magenta{i} & \magenta{\_} & \_ & \_           & \_ & \magenta{i} & \_ & \_          & \to \text{\footnotesize Con las \magenta{$i$} donde están el \magenta{"\_"} tiene 4 posiciones} \\
             \_          & \_           & \_          & \magenta{i}  & \_ & \magenta{\_} & \_ & \_          & \_ & \magenta{i} & \to \text{\footnotesize Con las \magenta{$i$} donde están el \magenta{"\_"} tiene 5 posiciones} \\ \cline{1-10}
             1           & 2            & 3           & 4            & 5  & 6            & 7  & 8           & 9  & 10
           } \\
-        $ Estoy contando de más. La cantidad para que las $i$ no estén juntas es 36... salieron contando a mano
-        ($\sumatoria{1}{8} k = 36$).
+        $$
+        \red{
+          Estoy contando de más. La cantidad para que las $i$ no estén juntas es 36... salieron contando a mano
+          ($\sumatoria{1}{8} k = 36$)
+        }.
 
         Luego inyectando con las repeticiones de la $"o"$: $36 \cdot \frac{8!}{3!} = 241.920 $
 
+        \bigskip
+
+        \blue{Esta forma es la correcta:}
+
         Pensando en el complemento:
 
-        Las posiciones que pueden tomar las $ii$ juntas, se calculan a mano enseguida. Habrían en total \\
-        $\to \underbrace{\frac{10!}{3! \cdot 2!}}_{\universo} - \underbrace{9 \cdot \frac{8!}{3!}}_{complemento} = 241.920 $
+        Las posiciones que pueden tomar las $ii$ juntas, se calculan a mano enseguida. Habrían en total:
+        $$
+          \to \ub{\frac{10!}{3! \cdot 2!}}{\universo} - \ub{9 \cdot \frac{8!}{3!}}{\text{complemento}}
+          = 241.920
+        $$
 
   \item
         Tengo 10 letras, $\set{p,l,n,m,s,o,o,o,i,i}$. Para que se forme  $"n\dots s \dots p"$ calculo $\binom{10}{3} = 120$, pensando que en un conjunto de 3, siempre

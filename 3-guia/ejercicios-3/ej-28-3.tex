@@ -12,7 +12,28 @@ Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
 
 \begin{enumerate}[label=\roman*)]
   \item
-        \hacer
+        Voy a mostrarlo usando un 
+        argumento combinatorio, que es basicamente mostrar que con las dos expresiones estamos contando lo mismo. \\
+        Veamos, imaginemos que tenemos un cojunto de $n$ cantidad de mujeres y otro de $n$ cantidad de hombres. La suma de este 
+        conjunto tendria $2n$ personas, ahora yo quiero elegir $n$ personas de ese total de $2n$ personas, que contar eso es 
+        $\binom{2n}{n}$. Hasta ahora todo bien, notemos que esto lo puedo decir tambien como elegir $k$ mujeres de las $n$ que hay 
+        y elegir $n - k$ hombres de los $n$ que hay. Notar que $k + (n - k) = n$, asi que el grupo que elijamos como combinacion
+        de los dos siempre va a tener $n$ personas, y va a estar elegido una parte desde $n$ mujeres y la otra desde $n$ hombres. 
+        Entonces tenemos que:
+        \[
+        \binom{n}{0}\binom{n}{n} + \binom{n}{1}\binom{n}{n - 1} + \cdots + \binom{n}{n - 1}\binom{n}{1} + \binom{n}{n}\binom{n}{0} = \binom{2n}{n}
+        \]
+        Lo de arriba se puede reescribir como:
+        \[
+        \sum_{k = 0}^{n}\binom{n}{k}\binom{n}{n-k} = \binom{2n}{n}
+        \]
+        Y por simetria del numero combinatorio, queda como:
+        \[
+        \sum_{k = 0}^{n} \binom{n}{k}^2 = \binom{2n}{n}
+        \]
+        Como vimos, estamos contando lo mismo con las dos expresiones, por lo tanto queda probado que son iguales. 
+        %\vspace{12pt}
+
   \item
         \hacer
   \item

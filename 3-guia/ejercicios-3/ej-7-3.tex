@@ -4,4 +4,10 @@
   ¿De cuántas maneras distintas puede distribuir los libros en las cajas?
 \end{enunciado}
 
-\hacer
+Tenemos un conjunto de libros y otro de cajas, todos los libros van a ir a parar a al menos una caja.
+Esto quiere decir que basicamente lo que queremos buscar son todas las funciones de libros a cajas. 
+Que se obtiene haciendo $\#(\text{cajas})^{\#(\text{libros})} = \cajaResultado{3^{17}}$ \\
+Otra forma de pensarlo es que por cada libro tenemos $3$ opciones de mandarlo a cualquiera de las cajas,
+como tenemos 17 libros, esto es
+\[\overbrace{3 \times 3 \times \cdots \times 3}^{17\ \text{veces}} = 3^{17}\]
+

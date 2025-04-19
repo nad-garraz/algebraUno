@@ -2,28 +2,85 @@
   Sean $A = \set{1,2,3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$. Sea $\mathcal F$ el conjunto de todas las funciones
   $f: A \to B$.
   \begin{enumerate}[label=\roman*)]
-    \item  ¿Cuántos elementos tiene le conjunto $\mathcal F$
-    \item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \im(f) }$
-    \item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : 10 \en \im(fa)}$
-    \item  ¿Cuántos elementos tiene le conjunto $\set{f \en \mathcal F : f(1) \en \set{2,4,6} }$
+    \item  ¿Cuántos elementos tiene el conjunto $\F$?
+    \item  ¿Cuántos elementos tiene el conjunto $\set{f \en \F : 10 \not\en \im(f)}$?
+    \item  ¿Cuántos elementos tiene el conjunto $\set{f \en \F : 10 \en \im(f)}$?
+    \item  ¿Cuántos elementos tiene el conjunto $\set{f \en \F : f(1) \en \set{2,4,6} }$?
   \end{enumerate}
 \end{enunciado}
 
 Cuando se calcula la cantidad de funciones, haciendo el árbol se puede ver que va a haber
-$\#\im(f)$ de funciones que provienen de un elemento del dominio.
-Por lo tanto si tengo un conjunto $A_n$ y uno $B_m$, la cantidad de funciones $f : A \to B$ será
-de $m^n$
+$\#\cod(f)$ de funciones que provienen de un elemento del dominio.
+
+Por lo tanto si tengo dos conjuntos $A_n$ y $B_m$, con $\#(A) = n \ytext \#(B) = m$ la cantidad de funciones $f : A \to B$
+será de $m^n$
 
 \begin{enumerate}[label=\roman*)]
-  \item $\# \mathcal F = 12^5$
+  \item Con lo expuesto ahí arriba el total, \textit{totalísimo} de funciones que me puedo armar sería:
+        $$
+          \# \F = 12^5 \llamada1,
+        $$
+        dado que tengo 12 opciones para cada elemento del $\dom(f)$.
 
-  \item $\# \mathcal F = 11^5$
+  \item Parecido al anterior pero ahora el codominio no tiene el 10, entonces las posibilidades de formar funciones se achican:
+        $$
+          \#\set{f \en \F : 10 \not\en \im(f)} = 11^5 \llamada2
+        $$
+        dado que tengo 11 elementos para elegir para cada elemento del $\dom(f)$
 
-  \item Tengo una que va a parar al $10$ y cuento que queda. Por ejemplo si $f(2) = 10$: $A = \set{1,\cancel{2},3,4,5}$ y $B = \set{1,2,3,4,5,6,7,8,9,10,11,12}$.
-        Por lo tanto tengo $\# \mathcal F = 12^4 \cdot \underbrace{\normalsize 1}_{f (2) = 10}$\\
-        \red{Corroborar}
+  \item Para calcular esto lo pensamos con el complemento. Le sacamos al total de funciones $f$ las funciones que no tienen al 10 en su imagen:
+        $$
+          \#\set{f \en \F : 10 \en \im(f)}
+          \igual{$\llamada1$}[$\llamada2$]
+          12^5 - 11^5
+        $$
+        acá no se desperdicia nada, reciclando los resultados encontrados antes ahí están las funciones buscadas.
 
-  \item Me dicen que $f(\set1) = \set{2,4,6}$,
-        Si lo pienso como el anterior ahora tengo 3 veces más combinaciones, entonces
-        $\# \mathcal F = 12^4 \cdot \underbrace{\tiny 3}_{ f (\set{1})= \set{2,4,6}}$
+  \item Para atacar el problema está bueno pensarlo en 2 partes:
+        \begin{enumerate}[label=\faIcon{calculator}$_{(\arabic*)}$]
+          \item Cumplir $f(1) \en \set{2,4,6}$
+          \item Contar lo que queda sin hacer \poo
+        \end{enumerate}
+        En el arte de escribir sin decir nada, empiezo por el principio:
+        \begin{enumerate}[label=\faIcon{calculator}$_{(\arabic*)}$]
+          \item Para que una función esté bien definida, siempre hay que agarrar todos los elementos de su dominio.
+                En este caso me piden que $f(1) \en \set{2,4,6}$ por lo que tengo:
+                $$
+                  \binom{3}{1} = 3
+                $$
+                Lo cual no es una locura, dado que tengo solo 3 opciones:
+                $$
+                  \llave{rcl}{
+                    f(1) &=& 2 \\
+                    &\text{ o }&\\
+                    f(1) &=& 4 \\
+                    &\text{ o }&\\
+                    f(1) &=& 6
+                  }
+                $$
+
+          \item Ahora a contar sin... bueh \poo.
+                Acá no hay que tener en cuenta que esta función no tiene restricciones, como ser inyectiva o yo que sé, es decir que
+                para calcular todas las demás funciones que podemos formar, vamos a tener algo así:
+                $$
+                  A' = \set{2,3,4,5} \ytext B = \set{1,2,3,4,5,6,7,8,9,10,11,12}
+                  \entonces
+                  \#A = 4 \ytext \#B = 12
+                $$
+                Y contamos como al principio: $12^4$.
+
+                \bigskip
+
+                Por lo tanto el total de funciones que cumplen lo pedido será:
+                $$
+                  \cajaResultado{
+                    \#\set{f \en \F : f(1) \en \set{2,4,6}} = 3 \cdot 12^4
+                  }
+                $$
+        \end{enumerate}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/Diego-Dev-Moros}{Diego Moros \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

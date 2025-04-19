@@ -242,6 +242,18 @@
   \href{#1}{#2}
 }
 
+% Párrafo destacado:
+\newcommand{\parrafoDestacado}[2][]{
+  \begin{center}
+    #1\qquad
+    \parbox{0.7\textwidth}{
+            \centering
+      #2
+    }
+    \qquad#1
+  \end{center}
+}
+
 \newenvironment{aportes}{
   \par
   \vspace{10pt}

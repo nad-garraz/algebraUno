@@ -12,27 +12,69 @@ Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
 
 \begin{enumerate}[label=\roman*)]
   \item
-        Voy a mostrarlo usando un 
-        argumento combinatorio, que es basicamente mostrar que con las dos expresiones estamos contando lo mismo. \\
-        Veamos, imaginemos que tenemos un cojunto de $n$ cantidad de mujeres y otro de $n$ cantidad de hombres. La suma de este 
-        conjunto tendria $2n$ personas, ahora yo quiero elegir $n$ personas de ese total de $2n$ personas, que contar eso es 
-        $\binom{2n}{n}$. Hasta ahora todo bien, notemos que esto lo puedo decir tambien como elegir $k$ mujeres de las $n$ que hay 
-        y elegir $n - k$ hombres de los $n$ que hay. Notar que $k + (n - k) = n$, asi que el grupo que elijamos como combinacion
-        de los dos siempre va a tener $n$ personas, y va a estar elegido una parte desde $n$ mujeres y la otra desde $n$ hombres. 
-        Entonces tenemos que:
-        \[
-        \binom{n}{0}\binom{n}{n} + \binom{n}{1}\binom{n}{n - 1} + \cdots + \binom{n}{n - 1}\binom{n}{1} + \binom{n}{n}\binom{n}{0} = \binom{2n}{n}
-        \]
-        Lo de arriba se puede reescribir como:
-        \[
-        \sum_{k = 0}^{n}\binom{n}{k}\binom{n}{n-k} = \binom{2n}{n}
-        \]
-        Y por simetria del numero combinatorio, queda como:
-        \[
-        \sum_{k = 0}^{n} \binom{n}{k}^2 = \binom{2n}{n}
-        \]
-        Como vimos, estamos contando lo mismo con las dos expresiones, por lo tanto queda probado que son iguales. 
-        %\vspace{12pt}
+        Voy a mostrarlo usando un argumento combinatorio. Básicamente voy a mostrar que con las dos expresiones estamos contando lo mismo.
+        Imaginemos que tenemos un conjunto de $\rosa{n}$ cantidad de mujeres y otro de $\blue{n}$ cantidad de hombres.
+        La suma de este conjunto tendría $\green{2n}$ personas. Ahora, yo quiero elegir $\green{n}$ personas de ese total
+        de $\green{2n}$ personas, contar eso es:
+        $$
+          \binom{2n}{n}.
+        $$
+        Hasta ahora todo bien. Notemos que esto lo puedo decir también, es decir, es lo mismo que elegir
+        $\rosa{k}$ mujeres de las $\rosa{n}$ mujeres que hay y elegir $\blue{n} - \rosa{k}$ hombres entre los \blue{n} hombres que hay.
+
+        Notar que $\rosa{k} + (\blue{n} - \rosa{k}) = \green{n}$, así que el grupo que elijamos como combinación
+        de los dos siempre va a tener $\green{n}$ personas, y va a estar elegido una parte desde $\rosa{n}$ mujeres y la otra desde $\blue{n}$ hombres.
+
+        \medskip
+
+        Entonces voy a sumar todas las posibles formas de elegir $\green{n}$ personas de entre $\green{2n}$ personas,
+        pero agarrando siempre de $\rosa{k}$ mujeres y $\blue{n} - \rosa{k}$ hombres :
+        $$
+          \binom{\green{2n}}{\green{n}} =
+          \ob{
+            \ub{\displaystyle \binom{\rosa{n}}{\rosa{0}}\binom{\blue{n}}{\blue{n} - \rosa{0}}}
+            {\substack{\text{elijo  \rosa{0} mujeres}\\
+                \ytext \\
+                \text{ $\blue{n}$ hombres}
+              }}
+            +
+            \ub{\displaystyle \binom{\rosa{n}}{\rosa{1}}\binom{\blue{n}}{\blue{n} - \rosa{0}}}
+            {\substack{\text{elijo  $\rosa{1}$ mujeres}\\
+                \ytext \\
+                \text{ $\blue{n} - \rosa{1}$ hombres}
+              }}
+            +
+            \cdots
+            +
+            \ub{\displaystyle \binom{\rosa{n}}{\rosa{n-1}}\binom{\blue{n}}{\blue{n} - (\rosa{n - 1})}}
+            {\substack{\text{elijo  \rosa{$n-1$} mujeres}\\
+                \ytext \\
+                \text{ $\blue{1}$ hombres}
+              }}
+            +
+            \ub{\displaystyle \binom{\rosa{n}}{\rosa{n}}\binom{\blue{n}}{\blue{n} - \rosa{n}}}
+            {\substack{\text{elijo  \rosa{$n$} mujeres}\\
+                \ytext \\
+                \text{ $\blue{0}$ hombres}
+              }}
+          }{\text{formas de tomar \green{$n$} personas de un total entre $\green{2n}$}}
+          = \llamada1
+        $$
+        La sumatoria en $\llamada1$ se puede reescribir por su simetría y además por la sugerencia del enunciado como:
+        $$
+          \llamada1 =
+          \sumatoria{\rosa{k} = 0}{n} \binom{\rosa{n}}{\rosa{k}}\binom{\blue{n}}{\blue{n} - \rosa{k}}
+          \igual{\red{!}}[sug.]
+          \sumatoria{\rosa{k} = 0}{\green{n}} \binom{\rosa{n}}{\rosa{k}}^2
+          = \binom{\green{2n}}{\green{n}}
+        $$
+        Como vimos, estamos contando lo mismo con las dos expresiones, por lo tanto queda probado que son iguales.
+        $$
+          \cajaResultado{
+            \sumatoria{k = 0}{n} \binom{n}{k}^2
+            = \binom{2n}{n}
+          }
+        $$
 
   \item
         \hacer
@@ -42,3 +84,7 @@ Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
         \hacer
 \end{enumerate}
 
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{Sigfri \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -1,72 +1,95 @@
 \begin{enunciado}{\ejercicio}
-    \begin{enumerate}[label=\alph*)]
-        \item  En el listado de inscripciones de un grupo de 150 estudiantes,
-        figuran 83 inscripciones en Analisis y 67 en Algebra. Ademas se
-        sabe que 45 de los estudiantes se anotaron en ambas materias.
-        ¿Cuantos de los estudiantes no estan inscriptos en ningun curso?
-        \item  En un instituto de idiomas donde hay 110 alumnos, las clases
-        de ingles tienen 63 inscriptos, las de aleman 30 y las de frances
-        50. Se sabe que 7 alumnos estudian los tres idiomas, 30 solo
-        estudian ingles, 13 solo estudian aleman y 25 solo estudian frances.
-        ¿Cuantos alumnos estudian exactamente dos idiomas? Cuantos
-        ingles y aleman pero no frances? Cuantos no estudian ninguno
-        de esos idiomas?
-      \end{enumerate}
+  \begin{enumerate}[label=\alph*)]
+    \item  En el listado de inscripciones de un grupo de 150 estudiantes, figuran 83 inscripciones en Análisis y 67 en Álgebra. Además se
+          sabe que 45 de los estudiantes se anotaron en ambas materias.
+          ¿Cuántos de los estudiantes no estan inscriptos en ningún curso?
+
+    \item  En un instituto de idiomas donde hay 110 alumnos, las clases de inglés tienen 63 inscriptos, las de alemán 30 y las de francés
+          50. Se sabe que 7 alumnos estudian los tres idiomas, 30 solo estudian inglés, 13 solo estudian alemán y 25 solo estudian francés.
+          ¿Cuántos alumnos estudian exactamente dos idiomas?
+          ¿Cuántos inglés y alemán pero no francés? ¿Cuántos no estudian ninguno de esos idiomas?
+  \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
-    \item \hacer
-    
-    \item Bueno para encarar este ejercicio primero quiero definir
-    el interior de un conjunto como SOLO los elementos que pertenecen a ese conjunto,
-    creo que no hay una notacion estandar para esto, asi que voy a definir una como
-    {\large
-    \[
-    X_i^\circ := X_i \backslash \bigcup_{i \ne j} X_j
-    \]
-    }
-    Basicamente lo que esto quiere decir es que cada vez que leamos
-    por ejemplo $A^\circ$, eso son los elementos que estan SOLO en $A$ y no
-    en otro conjunto. \\
-    Otra aclaración, aca los conjuntos representan personas, pero lo unico
-    que nos interesa del conjunto es su cardinalidad, asi que cada vez
-    que me refiera a un conjunto por su nombre, en realidad me estoy refiriendo a su cardinalidad
-    Tenemos entonces:
-    \[I = 63, A = 30, F = 50\]
-    \[I^\circ = 30, A^\circ = 13, F^\circ = 25\]
-    \[I\cap A\cap F = 7\]
-    \[U = I^\circ + A^\circ + F^\circ + (I \cap A)+ (I \cap F) + (A \cap F) + (I \cap A \cap F) + S = 110\]
+  \item
+        $$
+          \begin{tikzpicture}[baseline=0, scale = 0.55]
+            \filldraw[fill=pink!40, draw=pink!80, thick] (-1,0) circle (2cm);
 
-    Aclaración: $S$ es el conjunto de personas que no estudian ninguno de los idiomas de interes. \\
-    Ahora voy a definir cada conjunto $A$,$I$,$F$ en funcion de sus interiores e intersecciones
-    \[I = I^\circ \cup (I \cap A) \cup (I \cap F) \cup (I \cap A \cap F) = 63\]
-    \[A = A^\circ \cup (A \cap I) \cup (A \cap F) \cup (I \cap A \cap F) = 30\]
-    \[F = F^\circ \cup (F \cap I) \cup (F \cap A) \cup (I \cap A \cap F) = 50\]
-    La clave es que como ahora todos estos conjuntos son disjuntos puedo tratar la union como una
-    suma comun y llamar a cada grupo de intersecciones como una variable y armar un sistema de ecuaciones:
-    \[x = I \cap A\]
-    \[y = I \cap F\]
-    \[z = A \cap F\]
-    Ahora, de las definiciones de mas arriba tengo
-    \begin{align*}
-        30 + x + y + 7 &= 63 \\
-        13 + x + z + 7 &= 30 \\
-        25 + y + z + 7 &= 50
-    \end{align*}
-    De este sistema de ecuaciones obtenemos que $x = 9$, $y = 17$, $z = 1$ \\
-    Ya tenemos el ejercicio completado practicamente, veamos lo que nos pedia el enunciado... \\
-    Alumnos que estudian solo dos idiomas son las intersecciones entre dos conjuntos. Que justamente
-    son nuestras $x$, $y$, $z$. A si que tenemos $\cajaResultado{x + y + z = 27}$. \\
-    Los alumnos que estudian ingles y aleman pero no frances son la interseccion entre ingles y aleman, osea $\cajaResultado{x = 9}$
-    Para determinar los alumnos que no estudian ningun idioma, tenemos que volver a una de las primeras ecuaciones que teniamos. 
-    \[U = I^\circ + A^\circ + F^\circ + (I \cap A)+ (I \cap F) + (A \cap F) + (I \cap A \cap F) + S = 110\]
-    Reemplazando obtenemos
-    \[U = 30 + 13 + 25 + 9 + 17 + 1 + 7 + S = 110\]
-    \[30 + 13 + 25 + 9 + 17 + 1 + 7 + S = 110\]
-    \[102 + S = 110\]
-    \[\cajaResultado{S = 8}\]
+            \filldraw[fill=brown!40, draw=brown!80, thick, opacity=0.4] (1,0) circle (2cm);
 
+            \node at (-2,0) {$\substack{\text{álgebra}\\67}$};
+            \node at (2,0) {$\substack{\text{ánalisis}\\83}$};
+            \node at (0,0) {$\substack{\text{álgebra}\\ \ytext \\ \text{análisis}\\45}$};
+          \end{tikzpicture}
+        $$
+        Hacer esto intuitivamente es:
+        $$
+          \oa{150}{\text{Todos}} -
+          ( \ua{83}{\text{análisis}} +
+          \oa{67}{\text{álgebra}} -
+          \ua{45}{\text{elimino}\\\text{repetidos}}) =
+          \oa{45}{\text{no se}\\\text{anotaron}}
+        $$
 
-    
+        En formato \textit{snob}:
+        $$
+          \#(\universo \setminus {A \triangle B }) = \#\universo - \#\text{Álgebra} - \#\text{Ánalisis} + \#(\text{Álgebra} \inter\text{Análisis}) = 45
+        $$
+
+  \item Bueno para encarar este ejercicio primero quiero definir
+        el interior de un conjunto como \underline{solo} los elementos que pertenecen a ese conjunto,
+        creo que no hay una notación estándar para esto, así que voy a definir una como
+          {\large
+            \[
+              X_i^\circ := X_i \backslash \bigcup_{i \ne j} X_j
+            \]
+          }
+        Basicamente lo que esto quiere decir es que cada vez que leamos
+        por ejemplo $A^\circ$, eso son los elementos que estan SOLO en $A$ y no
+        en otro conjunto. \\
+        Otra aclaración, aca los conjuntos representan personas, pero lo unico
+        que nos interesa del conjunto es su cardinalidad, asi que cada vez
+        que me refiera a un conjunto por su nombre, en realidad me estoy refiriendo a su cardinalidad
+        Tenemos entonces:
+        \[I = 63, A = 30, F = 50\]
+        \[I^\circ = 30, A^\circ = 13, F^\circ = 25\]
+        \[I\cap A\cap F = 7\]
+        \[U = I^\circ + A^\circ + F^\circ + (I \cap A)+ (I \cap F) + (A \cap F) + (I \cap A \cap F) + S = 110\]
+
+        Aclaración: $S$ es el conjunto de personas que no estudian ninguno de los idiomas de interes. \\
+        Ahora voy a definir cada conjunto $A$,$I$,$F$ en funcion de sus interiores e intersecciones
+        \[I = I^\circ \cup (I \cap A) \cup (I \cap F) \cup (I \cap A \cap F) = 63\]
+        \[A = A^\circ \cup (A \cap I) \cup (A \cap F) \cup (I \cap A \cap F) = 30\]
+        \[F = F^\circ \cup (F \cap I) \cup (F \cap A) \cup (I \cap A \cap F) = 50\]
+        La clave es que como ahora todos estos conjuntos son disjuntos puedo tratar la union como una
+        suma comun y llamar a cada grupo de intersecciones como una variable y armar un sistema de ecuaciones:
+        \[x = I \cap A\]
+        \[y = I \cap F\]
+        \[z = A \cap F\]
+        Ahora, de las definiciones de mas arriba tengo
+        \begin{align*}
+          30 + x + y + 7 & = 63 \\
+          13 + x + z + 7 & = 30 \\
+          25 + y + z + 7 & = 50
+        \end{align*}
+        De este sistema de ecuaciones obtenemos que $x = 9$, $y = 17$, $z = 1$ \\
+        Ya tenemos el ejercicio completado practicamente, veamos lo que nos pedia el enunciado... \\
+        Alumnos que estudian solo dos idiomas son las intersecciones entre dos conjuntos. Que justamente
+        son nuestras $x$, $y$, $z$. A si que tenemos $\cajaResultado{x + y + z = 27}$. \\
+        Los alumnos que estudian ingles y aleman pero no frances son la interseccion entre ingles y aleman, osea $\cajaResultado{x = 9}$
+        Para determinar los alumnos que no estudian ningun idioma, tenemos que volver a una de las primeras ecuaciones que teniamos.
+        \[U = I^\circ + A^\circ + F^\circ + (I \cap A)+ (I \cap F) + (A \cap F) + (I \cap A \cap F) + S = 110\]
+        Reemplazando obtenemos
+        \[U = 30 + 13 + 25 + 9 + 17 + 1 + 7 + S = 110\]
+        \[30 + 13 + 25 + 9 + 17 + 1 + 7 + S = 110\]
+        \[102 + S = 110\]
+        \[\cajaResultado{S = 8}\]
 
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{Sigfri \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

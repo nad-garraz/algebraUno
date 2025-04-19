@@ -44,20 +44,29 @@
         $$
           \llave{l}{
             3n -2 \divideA 5n - 8 \\
+            \\
             3n -2 \divideA 3n - 2
           }
-          \Entonces{$3F_1 - 4F_2 \to F_1$}
+          \Entonces{$3F_1 - 5F_2 \to F_1$}
           \llave{l}{
-            3n -2 \divideA -16 \\
+            3n -2 \divideA -14 \\
+            \\
             3n -2 \divideA 3n - 2
           }
         $$
-        Con ese resultado sé que $3n -2$ es un \textit{\underline{posible divisor}} de  16:
+        Con ese resultado sé que $3n -2$ es un \textit{\underline{posible divisor}} de  18:
         $$
-          \blue{d} = 3n - 2 \en \set{\pm1, \pm2, \pm4, \pm8 \pm 16}
+          \blue{d} = 3n - 2 \en \set{\pm1, \pm2, \pm7, \pm 14}
         $$
-        Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$,
-        pero me da pajilla \rosa{\faIcon[regular]{grimace}}.
+        Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$:
+        $$
+          \begin{array}{ccc}
+                  d = 1 &\Entonces{sale}[con]& n=1            \\
+                  d = 2 &\Entonces{\faIcon{skull}}& n=\vacio  \\
+                  d = 7 &\Entonces{sale}[con]& n=3            \\
+                  d = 14 &\Entonces{\faIcon{skull}}& n=\vacio
+          \end{array}
+        $$
 
   \item
         Trato de sacar la $n$ del lado derecho:

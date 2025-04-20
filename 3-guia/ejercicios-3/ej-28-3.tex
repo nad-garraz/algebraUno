@@ -1,14 +1,12 @@
 \begin{enunciado}{\ejercicio}
   En este ejercicio no hace falta usar inducción.
   \begin{enumerate}[label=\alph*)]
-          \item Probar que $\sumatoria{k = 0}{n} \binom{n}{k}^2 = \binom{2n}{n}. \qquad \parentesis{\text{sug: } \binom{n}{k} = \binom{n}{n-k}}$.
+    \item Probar que $\sumatoria{k = 0}{n} \binom{n}{k}^2 = \binom{2n}{n}. \qquad \parentesis{\text{sug: } \binom{n}{k} = \binom{n}{n-k}}$.
     \item Probar que $\sumatoria{k = 0}{n} (-1)^k \binom{n}{k} = 0$.
     \item Probar que $\sumatoria{k = 0}{2n} \binom{2n}{k} = 4^n$ y deducir que $\binom{2n}{n} < 4^n$.
     \item Calcular $\sumatoria{k = 0}{2n+1} \binom{2n+1}{k}$ y deducir $\sumatoria{k=0}{n} \binom{2n+1}{k}$.
   \end{enumerate}
 \end{enunciado}
-
-Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
 
 \begin{enumerate}[label=\alph*)]
   \item
@@ -19,6 +17,35 @@ Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
         $$
           \binom{2n}{n}.
         $$
+
+        \bigskip
+
+        \parrafoDestacado{
+          \textit{Un modelo de juguete:}
+
+          En una caja con 6 \textit{bolitas}, podría sacar 3 de $\binom{6}{3} = \magenta{20}$ maneras diferentes.
+          Ahora propongo agarrarlas de una forma diferente:
+
+          Pinto \rosa{3 de rosa} y \blue{3 de azul}.
+          Sigue habiendo 6 \textit{bolitas} solo que pintadas, ahora voy sacando de a 3, nuevamente, pero contando así:
+          $$
+            \binom{\rosa{3}}{\rosa{0}} \binom{\blue{3}}{\blue{3}} +
+            \binom{\rosa{3}}{\rosa{1}} \binom{\blue{3}}{\blue{2}} +
+            \binom{\rosa{3}}{\rosa{2}} \binom{\blue{3}}{\blue{1}} +
+            \binom{\rosa{3}}{\rosa{3}} \binom{\blue{3}}{\blue{0}} =
+            1 + 9 + 9 + 1 =
+            \magenta{20}
+          $$
+          Cada término de esa suma es contar las formas de sacar $\rosa{k}$ \textit{bolitas} rosas
+          de las \rosa{3 \textit{bolitas} rosas} que hay para luego multplicar eso por la cantidad de sacar
+          \textit{\blue{$(3-k)$ bolitas azules}}. Como estoy sacando $\rosa{k} + \blue{(3-k)}$ es siempre
+          estar sacando 3.
+        }
+
+        \bigskip
+
+        \textit{El modelo más pulenta:}
+
         Hasta ahora todo bien. Notemos que esto lo puedo decir también, es decir, es lo mismo que elegir
         $\rosa{k}$ mujeres de las $\rosa{n}$ mujeres que hay y elegir $\blue{n} - \rosa{k}$ hombres entre los \blue{n} hombres que hay.
 
@@ -77,7 +104,98 @@ Binomio de Newton: $(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}$
         $$
 
   \item
+        ¿Vale usar \textit{crudamente} la fórmula del binomio de Newton acá?
+
+        \textit{Si sí, se puede: }
+        $$
+          \textstyle
+          \ub{(x + y)^n = \sumatoria{k=0}{n} \binom{n}{k} x^n y^{n-k}}{\text{Binomio de Newton}}
+          \Entonces{$x = 1$}[$y = -1$]
+          (1 - 1)^n = \sumatoria{k=0}{n} \binom{n}{k} 1^n \cdot (-1)^{n-k}
+          \sii
+          \cajaResultado{
+            \sumatoria{k=0}{n} (-1)^{n-k} \binom{n}{k} = 0
+          }
+        $$
+
+        Si más o menos se entendió el ejercicio anterior, uno va tomando idea de por donde va esto de sumar los números
+        combinatorios dada su simetría:
+
+        \textit{Caso con $n$ impar:}
+        $$
+          \begin{array}{rcl}
+            \sumatoria{k = 0}{n} (-1)^k \binom{n}{k}
+             & =                      &
+            (-1)^0  \binom{n}{0} +
+            (-1)^1  \binom{n}{1} +
+            \cdots +
+            (-1)^{\frac{n}{2}} \binom{n}{\frac{n}{2}} +
+            \cdots +
+            (-1)^{(n-1)} \binom{n}{n-1} +
+            (-1)^n  \binom{n}{n}        \\
+             & \igual{\red{!}}        &
+            \binom{n}{0} -
+            \binom{n}{1} +
+            \cdots \magenta{\pm}
+            \binom{n}{\frac{n-1}{2}} \magenta{\mp}
+            \binom{n}{\frac{n+1}{2}} \magenta{\pm}
+            \cdots +
+            \binom{n}{n-1} -
+            \binom{n}{n}                \\
+             & \igual{\red{!!}}[sug.] &
+            \binom{n}{0} -
+            \binom{n}{1} +
+            \cdots \magenta{\pm}
+            \binom{n}{\frac{n-1}{2}} \magenta{\mp}
+            \binom{n}{\frac{n-1}{2}} \magenta{\pm}
+            \cdots +
+            \binom{n}{1} -
+            \binom{n}{0}
+            =0
+          \end{array}
+        $$
+
+        \textit{Caso con $n$ par:}
+        $$
+          \begin{array}{rcl}
+            \sumatoria{k = 0}{n} (-1)^k \binom{n}{k}
+             & =                      &
+            (-1)^0  \binom{n}{0} +
+            (-1)^1  \binom{n}{1} +
+            \cdots +
+            (-1)^{\frac{n}{2}} \binom{n}{\frac{n}{2}} +
+            \cdots +
+            (-1)^{(n-1)} \binom{n}{n-1} +
+            (-1)^n  \binom{n}{n}        \\
+             & \igual{\red{!}}        &
+            \binom{n}{0} -
+            \binom{n}{1} +
+            \cdots +
+            \binom{n}{\frac{n}{2}} -
+            \cdots -
+            \binom{n}{n-1} +
+            \binom{n}{n}                \\
+             & \igual{\red{!!}}[sug.] &
+            \binom{n}{0} -
+            \binom{n}{1} +
+            \cdots +
+            \binom{n}{\frac{n}{2}} -
+            \cdots -
+            \binom{n}{1} +
+            \binom{n}{0}                \\
+             & =                      &
+            2\binom{n}{0} -
+            2\binom{n}{1} +
+            \cdots -
+            2\binom{n}{\frac{n}{2}-1} +
+            \binom{n}{\frac{n}{2}}
+          \end{array}
+        $$
+
+        \red{Tengo que probar que eso me da cero... a ver si alguien por facor me saca de este quilombo}
+
         \hacer
+
   \item
         \hacer
   \item

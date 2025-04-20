@@ -5,4 +5,71 @@
   ¿Cuántos conjuntos $A \en \partes(X)$ cumplen simultáneamente $\#A \geq 2$ y $A \relacion \set{1,2,3,4,5,6,7,8,9}$?
 \end{enunciado}
 
-\Hacer
+Los ingredientes:
+\begin{enumerate}[label=\purple{\faIcon{utensils}$_{(\arabic*)}$}]
+  \item Para que se cumpla que $A \relacion B$ necesito que $A \en \partes(\set{1,2,3,4,5,6,7,8,9})$
+  \item Además necesito que por lo menos tenga $\#A \geq 2$
+\end{enumerate}
+
+Por lo tanto es cuestión de ir agarrando elementos de $\partes(\set{1,2,3,4,5,6,7,8,9})$ teniendo en cuenta que esos
+elementos tienen que tener \textit{un cardinal mayor o igual a $2$}. Por favor entender que los \textit{elementos del conjunto partes son conjuntos.}
+
+\medskip
+
+Esto es un trabajo para \simpleicon{burgerking}, digo el \textit{número combinatorio:}
+$$
+  \binom{9}{2} +
+  \binom{9}{3} +
+  \binom{9}{4} +
+  \binom{9}{5} +
+  \binom{9}{6} +
+  \binom{9}{7} +
+  \binom{9}{8} +
+  \binom{9}{9} = \llamada1
+$$
+Y si querés averiguar cuanto \textit{verga} es eso ahí tenés un laburo para \simpleicon{mcdonalds}, digo el \textit{binomio de Newton:}
+{\small
+  $$
+    \textstyle
+    (x + y)^n = \sumatoria{k=0}{n}\binom{n}{k} x^n y ^{n-k}
+    \Entonces{$x = y = 1$}[$n = 9$]
+    2^9 =
+    \sumatoria{k=0}{9}\binom{9}{k} =
+    \ub{\binom{9}{0}}{=1} +
+    \ub{\binom{9}{1}}{=9} +
+    \ub{
+      \binom{9}{2} +
+      \binom{9}{3} +
+      \binom{9}{4} +
+      \binom{9}{5} +
+      \binom{9}{6} +
+      \binom{9}{7} +
+      \binom{9}{8} +
+      \binom{9}{9}
+    }
+    {
+      \llamada1
+    }
+  $$
+}
+Despejando:
+$$
+  \cajaResultado{
+    \llamada1 =
+    \binom{9}{2} +
+    \binom{9}{3} +
+    \binom{9}{4} +
+    \binom{9}{5} +
+    \binom{9}{6} +
+    \binom{9}{7} +
+    \binom{9}{8} +
+    \binom{9}{9} =
+    2^9 - 10 = 502
+  }
+$$
+
+Me voy a comer algo, \faIcon{handshake}.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

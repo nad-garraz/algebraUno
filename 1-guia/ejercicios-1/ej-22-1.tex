@@ -127,7 +127,33 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
   Veo que si elijo un $h$ cualquiera (tiene que ser par), puedo elegir tambien cualquier $b_0$, y la regla de 
   antisimetria no se va a cumplir para todos los numeros.
 
-  \item \hacer
+  \item  Primero notamos que como hay un $\leq$ ya nos da una idea de que probablemente vaya a ser una relacion de orden. \\
+        \textit{Reflexiva: }\par
+        Hay que probar que $\forall a \in A, a \relacion a$. \\
+        Vemos que elijo un $a_0$ arbitrario y tengo que $a_0 \leq a_0$ lo cual es verdadero, por lo tanto \underline{es reflexiva}. \\
+        
+        \textit{Simetrica: }\par
+        Hay que ver que $a \relacion b \entonces b \relacion a$ para $a\neq b$. \\
+        Podemos buscar un contraejemplo, $2 \relacion 4$, pero $4 \norelacion 2$. \\
+        Otra manera de verlo sino es reducir al absurdo, vemos por la hipotesis que $|a_0| \leq |b_0|$ implica $|b_0| \leq |a_0|$,
+        pero esto no puede ser cierto porque si ambas son verdaderas a la vez entonces $|a_0| \leq |b_0| \leq |a_0|$, lo cual es claramente falso
+        porque un numero no puede ser mayor que un numero y menor que ese mismo numero a la vez (Notesé que al principio excluí la posibilidad
+        de que $a = b$ porque sino no tendria sentido esta prueba, ya que para ese caso esta la reflexividad). \\
+
+        \textit{Transitividad: }\par
+        Queremos ver que $a \relacion b \ytext b \relacion c \entonces a \relacion c$. \\
+        Justo en este caso es bastante sencillo de ver porque la propiedad estrella del $\leq$ es justamente la transitividad. 
+        Si tenemos $a_0 \leq b_0$ y $b_0 \leq c_0$, es lo mismo que tener $a_0 \leq b_0 \leq c_0$, y por transitividad del $\leq$, 
+        queda que $a_0 \leq c_0$. \underline{Probando la transitividad}
+
+        \textit{Antisimetrica: }\par    
+        Queremos ver que $a \relacion b \ytext b \relacion a \entonces a = b$. \\
+        Aca no hay mucha vuelta, como la relacion \underline{no} es simetrica, no vamos a poder encontrar un 
+        $a \relacion b \ytext b \relacion a$, a no ser que $a = b$, ahi si y en ese caso se cumple (esto ya lo sabemos
+        porque previamente ya desmotramos la reflexividad). Entonces se puede plantear algo como $a_0 \relacion a_0 
+        \ytext a_0 \relacion a_0 \entonces a_0 = a_0$. Lo cual claramente es verdadero, por lo tanto \underline{es antisimetrica}
+    
+
   \item \hacer
   \item \hacer
   \item $

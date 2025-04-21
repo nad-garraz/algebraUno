@@ -73,7 +73,59 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
           \quad  \veintidosi
         \end{minipage}
 
-  \item \hacer
+  \item Primero notemos que $a + b$ es par puede pensarse como $a + b = 2k, k \in \naturales$, esto lo digo
+  para ver que como tenemos una igualdad, nos da una idea de que muy probablemente sea de equivalencia... para tener en cuenta no mas. \\
+  \textit{Reflexiva:}\par 
+  Hay que probar que $\forall a \in A, a \relacion a$. \\
+  Elijo un elemento arbitrario $a_0$, quiero ver que $a_0 \relacion a_0$. O sea que $a_0 + a_0$ es par, o
+  dicho de otro modo: $a_0 + a_0 = 2k$, usando esta ultima afirmacion, veo que $a_0 + a_0 = 2a_0$, que efectivamente
+  es un numero de la forma $2k$. Por lo tanto \underline{es reflexiva}. \\
+  
+  \textit{Simetrica: }\par
+  Que una relacion sea simetrica significa que $a \relacion b \entonces b \relacion a$. 
+  Es bastante trivial la verdad porque la suma es conmutativa, pero bueno, fijamos $a = a_0$, $b = b_0$. 
+  Como $a \relacion b$, entonces $a_0 + b_0 = 2k$, pero $a_0 + b_0 = b_0 + a_0$ porque la suma es conmutativa,
+  por lo tanto $b \relacion a$. Por lo tanto \underline{es simetrica}. \\
+
+  \textit{Transitividad: }\par
+  Que una relacion sea transitiva significa que $a \relacion b \ytext b \relacion a \entonces a \relacion c$. 
+  Para mi la forma mas sencilla y clara de hacer este tipo de pruebas es armar un sistema de ecuaciones y ver
+  que sale. Tenemos: \par
+  $\begin{cases}
+    a_0 + b_0 = 2k \\
+    b_0 + c_0 = 2k
+  \end{cases}
+  \flecha{lo mismo que} \quad 
+  \begin{cases}
+    a_0 = 2k - b_0 \\
+    c_0 = 2k - b_0
+  \end{cases}
+  \flecha{sumamos las ecuaciones} \quad
+  a_0 + c_0 = 4k - 2b_0 \quad \llamada1
+  $
+  \par
+  $\llamada1$ se ve que toda esa expresion equivale a un numero de la forma $2k$, por lo tanto $a_0 + c_0 = 2k$.\\
+  \underline{Probando la transitividad}\\
+
+  \textit{Antisimetrica: }\par
+  Que una relacion sea antisimetrica significa que $a \relacion b \ytext b \relacion a \entonces a = b$. \\
+  Podemos facilmente ver un contraejemplo, $2\relacion4$ y $4\relacion2$, pero $2\neq4$. 
+  Ya con el contraejemplo queda probado que no es antisimetrica, pero quiero a parte mostrar una prueba mas general para 
+  el que le interese...\\
+  Tenemos:
+  \[
+  \begin{cases}
+    a_0 + b_0 = 2k\\
+    b_0 + a_0 = 2k
+  \end{cases}
+  \]
+  Vemos que por conmutatividad de la suma las dos expresiones son identicas. LLamo $h = 2k$ y tengo: \\
+  $a_0 + b_0 = h \flecha \quad a_0 = h - b_0$. De aca obtengo otra manera de expresar la relacion como
+  \[
+  (h - b_0) \relacion b_0
+  \] 
+  Veo que si elijo un $h$ cualquiera (tiene que ser par), puedo elegir tambien cualquier $b_0$, y la regla de 
+  antisimetria no se va a cumplir para todos los numeros.
 
   \item \hacer
   \item \hacer
@@ -172,4 +224,5 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{\neverGonnaGiveYouUp}{Magui \youtube}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

@@ -2,4 +2,47 @@
   Probar que $ \binom{2n}{n} > n 2^n,\, \paratodo n \geq 4$.
 \end{enunciado}
 
-\hacer
+Vamos a probarlo por induccion: \\
+\textit{Proposición: } \[p(n) = \binom{2n}{n} > n2^n,\, \paratodo n \geq 4\]
+\textit{Caso base: } \[p(4) = \binom{8}{4} > 4\cdot2^4 = 70 > 64 \text{\Tilde}\] \par    
+
+Ahora quiero probar que $p(n) \entonces p(n + 1)$, o sea quiero ver que:
+\[
+\binom{2(n+1)}{n+1} > (n+1)\cdot 2^{(n+1)}, \, \paratodo n \geq 4
+\]
+\[
+\binom{2n}{n} = \frac{(2n)!}{n!(2n-n)!} = \red{\frac{(2n)!}{(n!)^2}} \quad \text{Clave tener esta identidad a mano}
+\]
+Empezamos expandiendo el coeficiente binomial usando la formula con factoriales:
+\[
+\binom{2n+2}{n+1} = \frac{(2n+2)!}{(n+1)!\cdot(2n+2 - (n+1))!} = \frac{(2n+2)(2n+1)(2n)!}{(n+1)!\cdot(n+1)!}
+\]
+% \vspace{1cm}, \igual{llamada1}
+\[
+\frac{(2n+2)(2n+1)\red{(2n)!}}{(n+1)^2\cdot\red{(n!)^2}} \overset{\mathclap{\text{HI}}}{>} \frac{(2n+2)(2n+1)n\cdot2^n}{(n+1)^2}
+\]
+Ahora quiero ver que:
+\[
+  \frac{(2n+2)(2n+1)n\cdot2^n}{(n+1)^2} > (n+1)\cdot2^{(n+1)}
+\]
+\[
+\frac{\red{2^n\cdot2}\cancel{(n+1)}(2n+1)n}{(n+1)^{\cancel{2}}} > (n+1)\cdot\red{2^n\cdot2}
+\]
+\[
+\frac{(2n + 1)n}{n+1} > n + 1
+\]
+\[
+2n^2 + n > n^2 +2n + 1
+\]
+\[
+n^2 - n > 1  
+\]
+Esto ultimo es verdadero para $n \in \naturales_{>1} 1$, por ende para $n \geq 4$ la prueba inductiva es valida, y
+queda probado que:
+\[
+  \binom{2n}{n} > n 2^n,\, \paratodo n \geq 4
+\]
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

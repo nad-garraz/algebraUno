@@ -203,7 +203,211 @@
         \hacer
 
   \item
-        \hacer
+        Primero queremos probar que $\sumatoria{k = 0}{2n} \binom{2n}{k} = 4^n$. \\
+        La forma mas sencilla de hacer esto es haciendo un cambio de variable y usando una identidad ya conocida:
+        $\sumatoria{k=0}{n}\binom{n}{k} = 2^n$, haciendo cambio de variable $m = 2n$, tenemos
+        $\sumatoria{k=0}{m}\binom{m}{k} = 2^m = 2^{2n} = 4^n$. \par\smallskip
+        Otra manera de pensarlo es contando funciones de esta manera: \par\smallskip
+        \textit{Recuerdo: }\par
+        $\sumatoria{k=0}{n}\binom{n}{k} = 2^n$ esta identidad equivale a contar las partes $\partes$ de un conjunto de n elementos. 
+        Que tambien se puede obtener contando las funciones $f:A \subseteq \naturales \to \set{0,1}, \, \#(A) = n$, esta notacion nos dice de manera intuitiva que 
+        por cada elemento tenemos dos opciones, o lo incluimos ($1$), o no ($0$), todas las posibles maneras de relacionar el dominio con el codominio son 
+        $\#(\set{0,1})^{\#(A)} = 2^5$ \par\smallskip   
+        Ahora la idea es que tenemos el doble de elementos ($2n$) y hay que armar subconjuntos de hasta $2n$ elementos, la idea entonces 
+        es extender esta idea de la funcion a dar la posibilidad de repetir las elecciones ya hechas, extendiendo el codominio a
+        $\set{00, 01, 10, 11}$, de esta manera tenemos todas las posibilidades $2^n$ anteriores, y extendemos posibilidad de repetir o agregar elemento. Obteniendo
+        todos los posibles subconjuntos de $2n$ elementos, ahora el codominio tiene 4 elementos, por lo que tenemos que la cantidad de funciones son $4^n$. \\
+        Si no se entendió voy a hacer un ejemplo para que se vea mas visual: \smallskip
+        Imaginemos un conjunto de $n = 2$ elementos $\set{a,b}$, ahora para calcular las partes voy a usar la idea de contar  
+        las funciones, tenemos 4 posibilidades: \par\smallskip
+        $
+        \llave{l}{
+          f(a) = 0 \\
+          f(b) = 0
+        }
+        \flecha{queda}
+        \vacio
+        \quad$
+        $
+        \llave{l}{
+          f(a) = 1 \\
+          f(b) = 0
+        }
+        \flecha{queda}
+        \set{a}
+        \quad$
+        $
+        \llave{l}{
+          f(a) = 0 \\
+          f(b) = 1
+        }
+        \flecha{queda}
+        \set{b}
+        \quad$
+        $
+        \llave{l}{
+          f(a) = 1 \\
+          f(b) = 1
+        }
+        \flecha{queda}
+        \set{a,b}
+        \quad$ \par
+        Si combinamos todos estos conjuntos obtenemos $\set{\set{a},\set{b},\set{a,b},\vacio}$ que precisamente son 
+        las partes $\partes$ del conjunto $\set{a,b}$ \\
+        Ahora veo la idea pero con el codominio extendido: \par\smallskip
+        $
+        \llave{l}{
+          f(a) = 00 \\
+          f(b) = 00
+        }
+        \flecha{queda}
+        \vacio
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+          f(a) = 10 \\
+          f(b) = 00
+        }
+        \flecha{queda}
+        \set{a}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+          f(a) = 01 \\
+          f(b) = 00
+        }
+        \flecha{queda}
+        \set{\tilde{a}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+          f(a) = 11 \\
+          f(b) = 00
+        }
+        \flecha{queda}
+        \set{a,\tilde{a}}
+        \hspace{0.75em}$ \par
+        $
+        \llave{l}{
+          f(a) = 00 \\
+          f(b) = 10
+        }
+        \flecha{}
+        \set{b}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 10 \\
+        f(b) = 10
+        }
+        \flecha{}
+        \set{a,b}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 01 \\
+        f(b) = 10
+        }
+        \flecha{}
+        \set{\tilde{a},b}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 11 \\
+        f(b) = 10
+        }
+        \flecha{}
+        \set{a,\tilde{a},b}
+        \hspace{0.75em}$ \par
+        $
+        \llave{l}{
+          f(a) = 00 \\
+          f(b) = 01
+        }
+        \flecha{}
+        \set{\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 10 \\
+        f(b) = 01
+        }
+        \flecha{}
+        \set{a,\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 01 \\
+        f(b) = 01
+        }
+        \flecha{}
+        \set{\tilde{a},\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 11 \\
+        f(b) = 01
+        }
+        \flecha{}
+        \set{a,\tilde{a},\tilde{b}}
+        \hspace{0.75em}$ \par
+        $
+        \llave{l}{
+          f(a) = 00 \\
+          f(b) = 11
+        }
+        \flecha{}
+        \set{b,\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 10 \\
+        f(b) = 11
+        }
+        \flecha{}
+        \set{a,b,\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 01 \\
+        f(b) = 11
+        }
+        \flecha{}
+        \set{\tilde{a},b,\tilde{b}}
+        \hspace{0.75em}$
+        $
+        \llave{l}{
+        f(a) = 11 \\
+        f(b) = 11
+        }
+        \flecha{}
+        \set{a,\tilde{a},b,\tilde{b}}
+        \hspace{0.75em}$ \par
+
+        \textit{Aclaración: } \par   
+        El uso de las tildes $\tilde{~}$ en las letras es simplemente para marcar diferencia porq en un conjunto no puede haber elementos repetidos. \\
+        Ahora llamo $c = \tilde{a}$ y $d = \tilde{b}$ y miren lo que tengo:
+        \[
+        \set{\vacio,\set{a},\set{b},\set{c},\set{d},\set{a,b},\set{a,c},\set{a,d},\set{b,c},\set{b,d},\set{c,d},
+        \set{a,b,c},\set{a,b,d},\set{a,c,d},\set{b,c,d},\set{a,b,c,d}}
+        \]
+        Esto precisamente son las partes de un conjunto de 4 elementos!, que corresponde con contar $2^4 = 2^{2n} = 4^n$. Despues de todo este choclo, recordemos que originalmente
+        teniamos $n = 2$ elementos $a,b$, y con esta idea de la funcion contamos las partes de un conjunto de $2n$ elementos. \par\bigskip
+        Despues el enunciado nos pedia deducir que: $\binom{2n}{n} < 4^n$. \\
+        Este no tiene mucho misterio, expandimos el lado derecha con lo que probamos recientemente y nos queda:
+        \[
+        \binom{2n}{n} < \sumatoria{k = 0}{2n} \binom{2n}{k}
+        \]
+        \[
+        \red{\binom{2n}{n}} < \binom{2n}{0} + \cdots + \red{\binom{2n}{n}} + \cdots \binom{2n}{2n}
+        \]
+        Bueno todos los terminos de la derecha son positivos asi que se ve claramente que lo que nos planteaba el enunciado es verdadero.
+
+       
+
+
+
+
   \item
         \hacer
 \end{enumerate}

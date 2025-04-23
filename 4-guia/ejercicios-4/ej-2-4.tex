@@ -35,8 +35,10 @@
         Probando a manopla:
         $$
           \begin{array}{lcl}
-            n = 1 & \entonces & d = 2  \\
-            n = 6 & \entonces & d = 11
+            d = 1  & \Entonces{\faIcon{skull}} & n = \vacio \\
+            d = 2  & \Entonces{sale}[con]      & n = 1      \\
+            d = 11 & \Entonces{sale}[con]      & n = 4      \\
+            d = 22 & \Entonces{\faIcon{skull}} & n = \vacio
           \end{array}
         $$
 
@@ -61,10 +63,10 @@
         Pero ahora hay que probar para cuáles valores de $n$, obtengo alguno de esos valores $\blue{d}$:
         $$
           \begin{array}{ccc}
-                  d = 1 &\Entonces{sale}[con]& n=1            \\
-                  d = 2 &\Entonces{\faIcon{skull}}& n=\vacio  \\
-                  d = 7 &\Entonces{sale}[con]& n=3            \\
-                  d = 14 &\Entonces{\faIcon{skull}}& n=\vacio
+            d = 1  & \Entonces{sale}[con]      & n=1      \\
+            d = 2  & \Entonces{\faIcon{skull}} & n=\vacio \\
+            d = 7  & \Entonces{sale}[con]      & n=3      \\
+            d = 14 & \Entonces{\faIcon{skull}} & n=\vacio
           \end{array}
         $$
 

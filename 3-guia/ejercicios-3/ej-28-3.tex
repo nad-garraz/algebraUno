@@ -403,13 +403,40 @@
         \]
         Bueno todos los terminos de la derecha son positivos asi que se ve claramente que lo que nos planteaba el enunciado es verdadero.
 
-       
-
-
-
-
   \item
-        \hacer
+        Para calcular lo que nos piden no damos mucha vuelta, hacemos cambio de variable $m = 2n + 1$ y vemos que:
+        \[
+        \sumatoria{k=0}{2n + 1} \binom{2n+1}{k} \xrightarrow{m = 2n + 1} \sumatoria{k=0}{m} \binom{m}{k} = 2^m \xrightarrow{m = 2n + 1} 2^{2n + 1} = 2^{2n} \cdot 2 = \cajaResultado{4^n \cdot 2}
+        \] \\
+        Ya tenemos la primera parte del ejercicio, ahora nos piden \textit{deducir} $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$. Para hacer este vamos a usar un poco de intuicion del triangulo de pascal:\\
+        \[
+        \begin{tabular}{c|ccccccccccc}
+        n=0&  &     &     &     &      & $\binom{0}{0}$   &      &      &     &     & \\
+        &  &     &     &     &      &     &      &      &     &     & \\
+        n=1&  &     &     &     & $\binom{1}{0}$    &     &  $\binom{1}{1}$     &      &     &     & \\
+        &  &     &     &     &      &     &      &      &     &     & \\
+        n=2&  &     &     & $\binom{2}{0}$     &      & $\binom{2}{1}$     &      & $\binom{2}{2}$      &     &     & \\
+        &  &     &     &     &      &     &      &      &     &     & \\
+        n=3&  &     & $\binom{3}{0}$     &     & $\binom{3}{1}$      &     &  $\binom{3}{2}$     &      & $\binom{3}{3}$     &     & \\
+        &  &     &     &     &      &     &      &      &     &     & \\
+        n=4&  & $\binom{4}{0}$     &     & $\binom{4}{1}$     &      & $\binom{4}{2}$     &      & $\binom{4}{3}$      &     & $\binom{4}{4}$     & \\
+        &  &     &     &     &      &     &      &      &     &     & \\
+        n=5&$\binom{5}{0}$   &     &  $\binom{5}{1}$    &     &  $\binom{5}{2}$    &     & $\binom{5}{3}$     &      &  $\binom{5}{4}$    &     & $\binom{5}{5}$  
+        \end{tabular}
+        \] \\
+        Vemos que las filas con $n$ impares tienen una cantidad par de terminos, por ejemplo $n = 3$, tiene 4 terminos, esto se debe a que como el listado empieza
+        en $0$. Como tienen una cantidad par de terminos, y sabemos que el triangulo de pascal es simétrico (por la identidad: $\binom{n}{k} = \binom{n}{n - k}$), con 
+        saber la mitad ya sabemos el resto (en el caso de los $n$ impares). Entonces vamos a usar esta idea, nos piden deducir $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$, vemos 
+        que $2n + 1$ siempre va a ser un numero impar, asi que podemos aplicar esta idea de la simetria, la clave acá es que sumar hasta $n$ es sumar exactamente
+        hasta la mitad de su respectiva fila en el triangulo de pascal. Por que? Tiene que ver con que el triangulo de pascal esta indexado en 0, pero mejor
+        verlo graficamente, por ejemplo vean que en la fila 3 del triangulo de pascar, es como decir la fila $2m + 1,\, m=1$, y justamente en $m$ se parte al medio
+        la fila. \\
+        Bueno combinemos todas estas ideas y entonces para calcular $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$ primero calculamos todos los elementos de la fila correspondiente
+        al $2n + 1$ y luego dividimos por dos porque partimos al medio la fila. Entonces tenemos:
+        \[
+        \sumatoria{k = 0}{n} \binom{2n + 1}{k} = \frac{\sumatoria{k = 0}{2n + 1} \binom{2n + 1}{k}}{2} = \frac{4^n \cdot \cancel{2}}{\cancel{2}} = \cajaResultado{4^n}
+        \]
+
 \end{enumerate}
 
 \begin{aportes}

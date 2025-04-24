@@ -3,9 +3,9 @@
   \begin{enumerate}[label=\roman*)]
     \item ¿Cuántos subconjuntos de 4 elementos tiene el conjunto
           $\set{\foreach \j in {1,...,6}{ \j, }7} $
-    \item ¿ Y si se pide que 1 pertenezca al subconjunto?
-    \item ¿ Y si se pide que 1 no pertenezca al subconjunto?
-    \item ¿ Y si se pide que 1 o 2 pertenezca al subconjunto, pero no simultáneamente los dos?
+    \item ¿Y si se pide que 1 pertenezca al subconjunto?
+    \item ¿Y si se pide que 1 no pertenezca al subconjunto?
+    \item ¿Y si se pide que 1 o 2 pertenezca al subconjunto, pero no simultaneamente los dos?
   \end{enumerate}
 
 \end{enunciado}
@@ -14,13 +14,59 @@ El problema de tomar $k$ elementos de un conjunto de $n$ elementos se calcula co
 $\binom{n}{k} = \frac{n!}{k!(n-k)!}$
 
 \begin{enumerate}[label=\roman*)]
-  \item  $\binom{7}{4} =
-          \frac{7!}{4!(7-4)!} =
-          \frac{7\cdot \cancel{6} \cdot 5 \cdot \cancel{4!}}{\cancel{4!}(\cancel{3!})} = 35$
+  \item\label{ej-17:item-i}  Tengo 7 elementos de donde elegir y tengo que tomar 4 al azar:
+        $$\binom{7}{4} =
+          \frac{7!}{4! \cdot (7-4)!} =
+          \cajaResultado{
+            35
+          }
+          .
+        $$
 
-  \item $\binom{6}{3} = \frac{6!}{3!\cdot 3!} = 20$.
+  \item\label{ej-17:item-ii}
+        Ahora tengo que formar cosas de la pinta: $\set{1,\text{\faIcon[regular]{smile}}, \text{\meh}, \text{\angry}}$.
+        Tengo entonces un total de 6 elementos para elegir:
+        $$
+          \binom{6}{3} = \frac{6!}{3!\cdot 3!} =
+          \cajaResultado{
+            20
+          }
+          .
+        $$
+        Recordar que uno está armando conjuntos y pensar en elementos repetidos dentro del conjunto no tiene sentido, onda no puedo elegir otra vez al que
+        ya viene por defecto.
 
-  \item $\binom{6}{4} = \frac{6!}{4!\cdot 2!} = 15$.
+  \item Es como si ahora el conjunto de donde elijo los valores sea: $\set{2,3,4,5,6,7}$. Tengo 6 elementos para elegir:
+        $$
+          \binom{6}{4} = \frac{6!}{4!\cdot 2!} =
+          \cajaResultado{
+            15
+          }.
+        $$
+        También se puede encarar este tipo de problemas, pensando en sacarle a \underline{todos} los conjuntos que me puedo formar,
+        la cantidad de elementos que tengan 1, usando así los resultados del item \ref{ej-17:item-ii} y del item \ref{ej-17:item-i}
+        $$
+          \binom{7}{4} - \binom{6}{4} = 35 - 20 =
+          \cajaResultado{
+            15
+          }.
+        $$
 
-  \item $\binom{5}{3} \cdot 2 = \frac{5!}{3!\cdot 2!} \cdot 2 = 20$
+  \item
+        Ahora tengo que formar cosas de la pinta: $\set{1,\text{\faIcon[regular]{smile}}, \text{\meh}, \text{\angry}}$ donde no puede
+        estar el elemento 2, es decir que tengo para elegir entre $\set{3,4,5,6,7}$ y lo mismo para
+        $\set{2,\text{\simpleicon{mcdonalds}}, \text{\simpleicon{burgerking}}, \text{\simpleicon{kfc}}}$ donde no puede
+        estar el elemento 1, es decir que tengo para elegir entre $\set{3,4,5,6,7}$.
+        $$
+          \binom{5}{3} +
+          \binom{5}{3} =
+          2 \cdot \binom{5}{3} =
+          \cajaResultado{
+            20
+          }.
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

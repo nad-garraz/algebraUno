@@ -69,8 +69,8 @@
 \def\noDivide{\centernot\divideA}
 \def\congruente{\, \equiv \,}
 \def\noCongruente{\, \not\equiv \,}
-\newcommand{\congruencia}[3]{#1 \equiv #2 \;(#3)}
-\newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \;(#3)}
+\newcommand{\congruencia}[3]{#1 \equiv #2 \,\,(#3)}
+\newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \,\,(#3)}
 \newcommand{\conga}[1]{\stackrel{\mathclap{(#1)}}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
@@ -248,7 +248,7 @@
   \begin{center}
     #1\qquad
     \parbox{0.7\textwidth}{
-            \centering
+      \centering
       #2
     }
     \qquad#1

@@ -6,7 +6,7 @@
 \begin{enumerate}[label=\arabic*)]
   \item Hay que usar $\set{1,2,3,4,5}$ y reordenarlos de todas las formas posibles. $5!$
 
-  \item Hay que usar $\set{1,2,3,4,5,6,7}$ y ver de cuantas formas posibles pueden ponerse en 5 lugares:
+  \item\label{ej-12:item_b} Hay que usar $\set{1,2,3,4,5,6,7}$ y ver de cuantas formas posibles pueden ponerse en 5 lugares:
         $$
           \llave{c c c c c}{
             \_ & \_ & \_ & \_ & \_ \\
@@ -30,7 +30,8 @@
           }
         $$
 
-  \item Parecido al anterior pero fijo el 2 en el dígito de las centenas:
+  \item Parecido al anterior pero fijo el 2 en el dígito de las centenas para encontrar los que
+        \underline{sí} tienen el 2 en la cifra de las centenas
 
         $$\llave{c c c c c}{
             \#6        & \#5        & \#1        & \#4        & \#3        \\
@@ -41,8 +42,14 @@
         $$
         Tengo:
         $$
+          6 \cdot 5 \cdot 1 \cdot 4 \cdot 3 = \frac{6!}{2!}
+        $$
+        Lo que conseguí es contar \underline{todos los números de 5 cífras que tienen al 2 en el dígito de las centenas}.
+        Y ahora se lo resto al total que conseguí en el item \ref{ej-12:item_b}
+        $$
           \cajaResultado{
-            6 \cdot 5 \cdot 1 \cdot 4 \cdot 3 = \frac{6!}{2!}
+            \quad  \ub{\displaystyle\binom{7!}{2!}}{\text{\tiny todos}} -
+            \ob{\displaystyle\binom{6!}{2!}}{\substack{\text{\tiny 2 en dígito}\\\text{\tiny centena}}}  = 2160
           }
         $$
 \end{enumerate}

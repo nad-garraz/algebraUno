@@ -62,7 +62,26 @@
             \congruencia{a^2}{-1}{5} \\
           }$
 
-  \item \hacer
+  \item Empezamos reescribiendo la expresión $\congruencia{a^3 + \red{7}}{-3 +\red{7}}{7} \longrightarrow \congruencia{a^3}{4}{7}$. \\
+  Ahora solo nos basta con probar todas las posibilidades para $ 0 \leq a \leq |6|$ ya que si tuvieramos $7$
+  directamente el resto seria 0, y si tenemos algun numero mayor que $7$, la ecuacion se puede reescribir como:
+  \[\congruencia{(7+m)^3}{4}{7}\]
+  \[\congruencia{(\underbrace{7^3+7^2\cdot m + 7\cdot m^2}_{\text{divisibles por 7}} + m^3)}{4}{7}\]
+  \[\congruencia{m^3}{4}{7}\]
+  Eso se puede seguir haciendo iterativamente hasta eventualmente tener un $m \leq 7$, en donde entrarian nuestros casos base, 
+  esto se podria y se deberia enunciar con induccion global para ser mas formal, pero bueno la idea se entiende. \\ 
+  Entonces veamos los $|a|\leq 6$:\\
+  \begin{center}
+  Para $|a| = 0$ es trivial, el resto es 0\par
+  Para $|a| = 1$, $a^3 = \pm 1$, $\congruencia{1}{1}{7}$, $\congruencia{-1}{6}{7}$\par
+  Para $|a| = 2$, $a^3 = \pm 8$, $\congruencia{8}{1}{7}$, $\congruencia{-8}{6}{7}$\par
+  Para $|a| = 3$, $a^3 = \pm 27$, $\congruencia{27}{6}{7}$, $\congruencia{-27}{1}{7}$\par
+  Para $|a| = 4$, $a^3 = \pm 64$, $\congruencia{64}{1}{7}$, $\congruencia{-64}{6}{7}$\par
+  Para $|a| = 5$, $a^3 = \pm 125$, $\congruencia{125}{6}{7}$, $\congruencia{-125}{1}{7}$\par
+  Para $|a| = 6$, $a^3 = \pm 216$, $\congruencia{216}{6}{7}$, $\congruencia{-216}{1}{7}$\par
+  \end{center}
+  Como vemos, ninguno es congruente con 4, por ende queda probado que no existe nigun entero $a$ 
+  tal que $\congruencia{a^3}{-3}{7}$
 
   \item Me piden que exista una dada congruencia para todo $a \en \enteros$.
         Eso equivale a probar a que al dividir el \textit{lado izquierdo}
@@ -88,3 +107,7 @@
   \item
   \item
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

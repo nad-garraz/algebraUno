@@ -21,6 +21,30 @@
           \flecha{como $\congruencia{a}{13}{5}$}[$r_5(a) = 3$]
                 r_5(33a^3 + 3a^2 -197a +2) = 4$
 
-  \item \hacer
+  \item Queremos hallar el resto, planteemos una ecuacion de congruencia:
+        \[\congruencia{\sumatoria{i=1}{n} (-1)^i \cdot i!}{r}{12}\]
+         \\
+        Ahora expandimos la suma para ver el patron que tiene y ver si podemos simplificar algo: 
+        \[\congruencia{-1+2-6+24-\cdots+(-1)^k\cdot n!}{r}{12}\] \\
+        Notemos que el $24$ es divisor de $12$, además todos los terminos subsiguientes, van a tener de factores $4\cdot3$, por lo cual 
+        los terminos que le sigue al 24 todos van a ser divisibles por 12, o sea podemos reescribir la ecuacion como:
+        \[\congruencia{-1+2-6+12h}{r}{12}\] \\
+        Luego:
+        \[\congruencia{-1+2-6}{r}{12}\]
+        \[\congruencia{-5}{r}{12}\]
+        Sumo $12$ a ambos miembros 
+        \[\congruencia{-5 + 12}{r + 12}{12}\]
+        Finalmente
+        \[\congruencia{7}{r}{12}\]
+        Entonces concluimos que el resto para los $n \geq 4$ al dividir por 12 es de $7$. Para los primeros terminos
+        va a haber que calcularlo manualmente. \\
+        Para $n = 1$, $\congruencia{-1}{11}{12}$ \\
+        Para $n = 2$ $\congruencia{-1 + 2}{1}{12}$ \\
+        Para $n = 3$, $\congruencia{-1+2-6}{7}{12}$ \\
+        La respuesta final es entonces: \cajaResultado{$\text{Para $n = 1$, $r = 11$, $n = 2$, $r = 1$, $n \geq 3$, $r=7$}$}
+
 \end{enumerate}
 
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

@@ -6,36 +6,100 @@
     \begin{enumerate}[label=\alph*)]
       \item $a =133,\quad b = -14.$
       \item $a =13,\quad b = 111.$
-      \item $a =3b+7,\quad b \distinto 0.$
+      \item $a =3b+7,    \quad b \distinto 0.$
       \item $a = b^2 - 6,\quad b \distinto 0.$
       \item $a = n^2 + 5,\quad b = n+2 \ (n \en \naturales).$
-      \item $a = n + 3,\quad = n^2 + 1 \ (n \en \naturales).$
+      \item $a = n + 3,   \quad b = n^2 + 1 \ (n \en \naturales).$
     \end{enumerate}
   \end{multicols}
 \end{enunciado}
 
+Voy a usar $\blue{q}$ para el \blue{cociente} y \magenta{$r$} para el \magenta{resto}:
+\parrafoDestacado[\purple{\atencion}]{
+  $b$ el divisor tiene que cumplir: $|b| \leq |a|$
+
+  $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |a|$.
+}
+
 \begin{enumerate}[label=\alph*)]
-  \item $133 : (-14) \entonces 133 = \blue{(-9)} \cdot (-14) + \magenta{7}$
-  \item $ $
+  \item $133 \div (-14) \entonces 133 = \ua{\blue{(-9)}}{\blue{q}} \cdot (-14) + \ua{\magenta{7}}{\magenta{r}}$
+
+  \item $13 \div 111  \entonces 13 = 111 \cdot \ua{\blue{0}}{\blue{q}} + \ua{\magenta{13}}{\magenta{r}}$
+
+        ¿Qué onda esto? Si bien el divisor $b = 111 > 13 = a$ ¿El algoritmo de división vale igual entonces y
+        valen el cociente y el resto?
+
   \item $a = 3b + 7 \to
           \text{me interesa: }\to
           \llaves{l}{
             |b| \leq |a| \Tilde\\
             0 \leq \magenta{r} < |b| \Tilde \\
-          } \to $\par
-        $ \to
+          }$
+
+        $$
           \llave{l}{
             \text{Si: } |b| > 7 \to (\blue{q},\magenta{r}) = (3,7)\\
             \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)\\
-            \footnotesize
             \begin{array}{|l|l|l|l|l|l|l|l|}
               \hline
               (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
               (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
-              \hline
             \end{array}
           }
-        $
-  \item $a = b^2 - 6,\quad b \distinto 0.$
-          \hacer
+        $$
+
+  \item $a = b^2 - 6,\quad b \distinto 0$:
+
+        Quiero hacer $\frac{a}{b} = \frac{b^2 - 6}{b}$:
+        $$
+          \polyset{vars=b}
+          \divPol{b^2 - 6}{b}
+          \qquad \to \qquad
+          b^2 - 6 = \ua{b}{d} \cdot \oa{b}{\blue{q}} - 6 \ \llamada1
+        $$
+        Entonces los escenarios posibles:
+        \begin{center}
+          $b$ el divisor tiene que cumplir: $|b| \leq |a|$
+
+          $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |a|$.
+        \end{center}
+        $$
+          \begin{array}{|c|c|c|c|c|}
+            \hline
+            (a,b)                  & (-5,1) & (-5,-1) & (-2,2) & (-2,-2) \\ \hline
+            (\blue{q},\magenta{r}) & (-5,0) & (5,0)   & (-1,0) & (1,0)   \\ \hline
+          \end{array}
+        $$
+        Caso cuando $a = -5$ y $b = 1$ meto en $\llamada1$:
+        $$
+          -5 =
+          1 \cdot 1 - 6
+          \igual{\red{!}}
+          1 \cdot \blue{(-5)} + \magenta{0}
+        $$
+        Caso cuando $a = -5$ y $b = -1$ meto en $\llamada1$:
+        $$
+          -5 =
+          (-1) \cdot (-1) - 6
+          \igual{\red{!}}
+          (-1) \cdot \blue{(-5)} + \magenta{0}
+        $$
+        Caso cuando $a = -2$ y $b = 2$ meto en $\llamada1$:
+        $$
+          -2 =
+          2 \cdot \blue{(-1)} + \magenta{0}
+        $$
+        Caso cuando $a = -2$ y $b = -2$ meto en $\llamada1$:
+        $$
+          -2 =
+          (-2) \cdot \blue{1} + \magenta{0}
+        $$
+
+  \item \hacer
+
+  \item \hacer
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

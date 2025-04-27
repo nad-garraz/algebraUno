@@ -18,7 +18,7 @@ Voy a usar $\blue{q}$ para el \blue{cociente} y \magenta{$r$} para el \magenta{r
 \parrafoDestacado[\purple{\atencion}]{
   $b$ el divisor tiene que cumplir: $|b| \leq |a|$
 
-  $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |a|$.
+  $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |d|$.
 }
 
 \begin{enumerate}[label=\alph*)]
@@ -29,73 +29,63 @@ Voy a usar $\blue{q}$ para el \blue{cociente} y \magenta{$r$} para el \magenta{r
         ¿Qué onda esto? Si bien el divisor $b = 111 > 13 = a$ ¿El algoritmo de división vale igual entonces y
         valen el cociente y el resto?
 
-  \item $a = 3b + 7 \to
-          \text{me interesa: }\to
-          \llaves{l}{
-            |b| \leq |a| \Tilde\\
-            0 \leq \magenta{r} < |b| \Tilde \\
-          }$
-
+  \item $a = 3b + 7,\quad b = b$
         $$
-          \llave{l}{
+          \llave{c}{
             \text{Si: } |b| > 7 \to (\blue{q},\magenta{r}) = (3,7)\\
-            \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)\\
-            \begin{array}{|l|l|l|l|l|l|l|l|}
-              \hline
-              (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
-              (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
-            \end{array}
+            \text{Si: } |b| \leq 7 \to (\blue{q},\magenta{r}) = (3,7)
           }
+        $$
+        $$
+          \begin{array}{|l|c|c|c|c|c|c|c|}
+            \hline
+            (a,b)                  & (-14,-7) & (-11,-6) & (-8,-5) & (-5,-4) & (4, -1) & \dots \\ \hline
+            (\blue{q},\magenta{r}) & (2,0)    & (2,1)    & (2,2)   & (2,3)   & (4, 0)  & \dots \\ \hline
+          \end{array}
         $$
 
   \item $a = b^2 - 6,\quad b \distinto 0$:
 
         Quiero hacer $\frac{a}{b} = \frac{b^2 - 6}{b}$:
         $$
-          \polyset{vars=b}
-          \divPol{b^2 - 6}{b}
-          \qquad \to \qquad
-          b^2 - 6 = \ua{b}{d} \cdot \oa{b}{\blue{q}} - 6 \ \llamada1
+          b^2 - 6 = \ua{b}{d} \cdot \oa{b}{\blue{q}} - 6
         $$
-        Entonces los escenarios posibles:
-        \begin{center}
-          $b$ el divisor tiene que cumplir: $|b| \leq |a|$
-
-          $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |a|$.
-        \end{center}
+        Posibles valores para $a,\ b,\ \blue{q} \ytext \magenta{r}$:
         $$
-          \begin{array}{|c|c|c|c|c|}
-            \hline
-            (a,b)                  & (-5,1) & (-5,-1) & (-2,2) & (-2,-2) \\ \hline
-            (\blue{q},\magenta{r}) & (-5,0) & (5,0)   & (-1,0) & (1,0)   \\ \hline
+          \begin{array}{r|c|c|c|c|c|c|c|c|c|c|} \cline{2-10}
+            \text{dividendo}\to & a = b^2 - 6                 & -5 & -5 & -2 & -2 & 3 & 3  & 10 & 10 \\ \cline{2-10}
+            \text{divisor}  \to & b                           & 1  & -1 & 2  & -2 & 3 & -3 & 4  & -4 \\ \cline{2-10}
+            \text{cociente} \to & \blue{q}                    & -5 & 5  & -1 & 1  & 1 & -1 & 2  & -2 \\ \cline{2-10}
+            \text{resto}    \to & 0 \leq \magenta{r} \leq |d| & 0  & 0  & 0  & 0  & 0 & 0  & 2  & 2  \\ \cline{2-10}
           \end{array}
         $$
-        Caso cuando $a = -5$ y $b = 1$ meto en $\llamada1$:
-        $$
-          -5 =
-          1 \cdot 1 - 6
-          \igual{\red{!}}
-          1 \cdot \blue{(-5)} + \magenta{0}
-        $$
-        Caso cuando $a = -5$ y $b = -1$ meto en $\llamada1$:
-        $$
-          -5 =
-          (-1) \cdot (-1) - 6
-          \igual{\red{!}}
-          (-1) \cdot \blue{(-5)} + \magenta{0}
-        $$
-        Caso cuando $a = -2$ y $b = 2$ meto en $\llamada1$:
-        $$
-          -2 =
-          2 \cdot \blue{(-1)} + \magenta{0}
-        $$
-        Caso cuando $a = -2$ y $b = -2$ meto en $\llamada1$:
-        $$
-          -2 =
-          (-2) \cdot \blue{1} + \magenta{0}
-        $$
 
-  \item \hacer
+  \item $a = n^2 + 5,\quad b = n + 2 \ (n \en \naturales).$
+
+        Quiero hacer $\frac{a}{b} = \frac{n^2 + 5}{n + 2}$:
+        $$
+          \polyset{vars=n}
+          \divPol{n^2 + 5}{n + 2}
+          \qquad \to \qquad
+          n^2 + 5 = \ub{(n + 2)}{d} \cdot \ob{(n - 2)}{\blue{q_n}} + 9
+        $$
+        Posibles valores para $a,\ b,\ \blue{q} \ytext \magenta{r}$:
+        $$
+          \begin{array}{r|c|c|c|c|c|c|c|c|c|c|c|c|c|c} \cline{2-13}
+                                & n                           & 1 & 2 & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10  & 11  \\ \cline{2-13}
+            \text{dividendo}\to & a = n^2 + 5                 & 6 & 9 & 14 & 21 & 30 & 41 & 54 & 69 & 86 & 105 & 126 \\ \cline{2-13}
+            \text{divisor}  \to & b = n + 2                   & 3 & 4 & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12  & 13  \\ \cline{2-13}
+            \text{cociente} \to & \blue{q}                    & 2 & 2 & 2  & 3  & 4  & 5  & 6  & 6  & 7  & 8   & 9   \\ \cline{2-13}
+            \text{resto}    \to & 0 \leq \magenta{r} \leq |d| & 0 & 1 & 4  & 3  & 2  & 1  & 0  & 9  & 9  & 9   & 9   \\ \cline{2-13}
+          \end{array}
+        $$
+        Entonces en la tabla están los valores de los cocientes. Los primeros están sacados a manopla:
+        $$
+          \llave{ccl}{
+            \blue{q_n} = n - 2 & \text{ para } & n \geq 8 \\
+            \magenta{r_n} = 9 & \text{ para } & n \geq 8 \\
+          }
+        $$
 
   \item \hacer
 \end{enumerate}

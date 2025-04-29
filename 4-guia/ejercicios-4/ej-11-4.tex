@@ -63,25 +63,25 @@
           }$
 
   \item Empezamos reescribiendo la expresión $\congruencia{a^3 + \red{7}}{-3 +\red{7}}{7} \longrightarrow \congruencia{a^3}{4}{7}$. \\
-  Ahora solo nos basta con probar todas las posibilidades para $ 0 \leq a \leq |6|$ ya que si tuvieramos $7$
-  directamente el resto seria 0, y si tenemos algun numero mayor que $7$, la ecuacion se puede reescribir como:
-  \[\congruencia{(7+m)^3}{4}{7}\]
-  \[\congruencia{(\underbrace{7^3+7^2\cdot m + 7\cdot m^2}_{\text{divisibles por 7}} + m^3)}{4}{7}\]
-  \[\congruencia{m^3}{4}{7}\]
-  Eso se puede seguir haciendo iterativamente hasta eventualmente tener un $m \leq 7$, en donde entrarian nuestros casos base, 
-  esto se podria y se deberia enunciar con induccion global para ser mas formal, pero bueno la idea se entiende. \\ 
-  Entonces veamos los $|a|\leq 6$:\\
-  \begin{center}
-  Para $|a| = 0$ es trivial, el resto es 0\par
-  Para $|a| = 1$, $a^3 = \pm 1$, $\congruencia{1}{1}{7}$, $\congruencia{-1}{6}{7}$\par
-  Para $|a| = 2$, $a^3 = \pm 8$, $\congruencia{8}{1}{7}$, $\congruencia{-8}{6}{7}$\par
-  Para $|a| = 3$, $a^3 = \pm 27$, $\congruencia{27}{6}{7}$, $\congruencia{-27}{1}{7}$\par
-  Para $|a| = 4$, $a^3 = \pm 64$, $\congruencia{64}{1}{7}$, $\congruencia{-64}{6}{7}$\par
-  Para $|a| = 5$, $a^3 = \pm 125$, $\congruencia{125}{6}{7}$, $\congruencia{-125}{1}{7}$\par
-  Para $|a| = 6$, $a^3 = \pm 216$, $\congruencia{216}{6}{7}$, $\congruencia{-216}{1}{7}$\par
-  \end{center}
-  Como vemos, ninguno es congruente con 4, por ende queda probado que no existe nigun entero $a$ 
-  tal que $\congruencia{a^3}{-3}{7}$
+        Ahora solo nos basta con probar todas las posibilidades para $ 0 \leq a \leq |6|$ ya que si tuvieramos $7$
+        directamente el resto seria 0, y si tenemos algun numero mayor que $7$, la ecuacion se puede reescribir como:
+        \[\congruencia{(7+m)^3}{4}{7}\]
+        \[\congruencia{(\underbrace{7^3+7^2\cdot m + 7\cdot m^2}_{\text{divisibles por 7}} + m^3)}{4}{7}\]
+        \[\congruencia{m^3}{4}{7}\]
+        Eso se puede seguir haciendo iterativamente hasta eventualmente tener un $m \leq 7$, en donde entrarian nuestros casos base,
+        esto se podria y se deberia enunciar con induccion global para ser mas formal, pero bueno la idea se entiende. \\
+        Entonces veamos los $|a|\leq 6$:\\
+        \begin{center}
+          Para $|a| = 0$ es trivial, el resto es 0\par
+          Para $|a| = 1$, $a^3 = \pm 1$, $\congruencia{1}{1}{7}$, $\congruencia{-1}{6}{7}$\par
+          Para $|a| = 2$, $a^3 = \pm 8$, $\congruencia{8}{1}{7}$, $\congruencia{-8}{6}{7}$\par
+          Para $|a| = 3$, $a^3 = \pm 27$, $\congruencia{27}{6}{7}$, $\congruencia{-27}{1}{7}$\par
+          Para $|a| = 4$, $a^3 = \pm 64$, $\congruencia{64}{1}{7}$, $\congruencia{-64}{6}{7}$\par
+          Para $|a| = 5$, $a^3 = \pm 125$, $\congruencia{125}{6}{7}$, $\congruencia{-125}{1}{7}$\par
+          Para $|a| = 6$, $a^3 = \pm 216$, $\congruencia{216}{6}{7}$, $\congruencia{-216}{1}{7}$\par
+        \end{center}
+        Como vemos, ninguno es congruente con 4, por ende queda probado que no existe nigun entero $a$
+        tal que $\congruencia{a^3}{-3}{7}$
 
   \item Me piden que exista una dada congruencia para todo $a \en \enteros$.
         Eso equivale a probar a que al dividir el \textit{lado izquierdo}
@@ -105,37 +105,34 @@
           r_7(r_7(a) \cdot  r_7(a^3 - 1) \cdot r_7(a^3 + 1)) =
           0 \paratodo a \en \enteros$
   \item
-          Tenemos una doble implicación, asique hay que probar los dos lados:\\
-          $\Rightarrow)$\\
-          Que $7\divideA a^2 + b^2$ puede reescribirse como $\congruencia{a^2+b^2}{0}{7}$, lo que queremos
-          entonces es que la suma de los restos de dividir por $7$ a $a^2$ y a $b^2$ sumen 0, para eso podemos armar 
-          una tablita, primero veamos cuales son los restos de dividir por 7 a un numero de la forma $m^2$: \\
-          $r_7(0^2) = 0\quad r_7(1^2) = 1\quad r_7(2^2)=4\quad r_7(3^2) = 2\quad r_7(4^2) = 2\quad
-          r_7(5^2) = 4\quad r_7(6^2) = 1$\par   
-          Entonces ahora armamos una tablita: \\
-          \begin{center}
-            \begin{tabular}{|c|c|c|c|c|}
-              \hline
-              \multicolumn{5}{|c|}{$r_7(a^2) + r_7(b^2)$}{\rule{0pt}{10pt}}\\ \hline
-              \backslashbox{$r_7(b^2)$}{$r_7(a^2)$} & 0 & 1 & 2 & 4 \\
-              \hline
-              0 &  $\red{0}$ &  1 &  2 &  4  \\
-              1 &  1 &  2 &  3 & 5  \\
-              2 &  2 &  3 &  4 & 6  \\
-              4 & 4 & 5 & 6 & 1  \\
-              \hline
-            \end{tabular}
-          \end{center}
-          De la tabla vemos que los unicos posibles restos de $7$ que sumados dan $0$ como resto de $7$, son $0$ y $0$, y
-          el unico numero $m$ del $0$ al $6$ tal que $r_7(m^2) = 0$ es $m = 0$, o sea que $a$ y $b$ ambos tienen que ser $0$. 
-          Dicho de otro modo, la solucion de la ecuacion de congruencia $\congruencia{a^2 + b^2}{0}{7}$ es $(a,b) = (0,0)$. 
-          Está claro que el $7$ divide al $0$ asique queda probada la primera implicacion. \\
-          $\Leftarrow)$ \\
-          Ahora el otro lado, este es mas sencillo. Tenemos de hipotesis que $7\divideA a$ y $7\divideA b$, por ende $7\divideA a+b$ y $7\divideA \red{a\cdot b}$. \\
-          Entonces tambien se cumple que $7\divideA (a+b)\cdot(a+b)$, por lo que $7\divideA a^2 + 2\red{a\cdot b} + b^2$, y finalmente como $2ab$ es divisible por 7
-          se puede reescribir finalmente todo como $7\divideA a^2 + b^2$.\\
-          Finalmente se han probado las dos implicaciones, por lo tanto la proposicion inicial es verdadera
+        Tenemos una doble implicación, asique hay que probar los dos lados:\\
+        $\Rightarrow)$\\
+        Que $7\divideA a^2 + b^2$ puede reescribirse como $\congruencia{a^2+b^2}{0}{7}$, lo que queremos
+        entonces es que la suma de los restos de dividir por $7$ a $a^2$ y a $b^2$ sumen 0, para eso podemos armar
+        una tablita, primero veamos cuales son los restos de dividir por 7 a un numero de la forma $m^2$: \\
+        $r_7(0^2) = 0\quad r_7(1^2) = 1\quad r_7(2^2)=4\quad r_7(3^2) = 2\quad r_7(4^2) = 2\quad
+          r_7(5^2) = 4\quad r_7(6^2) = 1$\par
 
+        Entonces ahora armamos una tablita: \\
+        $$
+          \begin{array}{|c|c|c|c|c|}
+            \hline
+            _{r_7(b^2)}\big\backslash^{r_7(a^2)} & ^0      & ^1 & ^2 & ^4 \\ \hline
+            _0                                   & \red{0} & 1  & 2  & 4  \\
+            _1                                   & 1       & 2  & 3  & 5  \\
+            _2                                   & 2       & 3  & 4  & 6  \\
+            _4                                   & 4       & 5  & 6  & 1  \\\hline
+          \end{array}
+        $$
+        De la tabla vemos que los unicos posibles restos de $7$ que sumados dan $0$ como resto de $7$, son $0$ y $0$, y
+        el unico numero $m$ del $0$ al $6$ tal que $r_7(m^2) = 0$ es $m = 0$, o sea que $a$ y $b$ ambos tienen que ser $0$.
+        Dicho de otro modo, la solucion de la ecuacion de congruencia $\congruencia{a^2 + b^2}{0}{7}$ es $(a,b) = (0,0)$.
+        Está claro que el $7$ divide al $0$ asique queda probada la primera implicacion. \\
+        $\Leftarrow)$ \\
+        Ahora el otro lado, este es mas sencillo. Tenemos de hipotesis que $7\divideA a$ y $7\divideA b$, por ende $7\divideA a+b$ y $7\divideA \red{a\cdot b}$. \\
+        Entonces tambien se cumple que $7\divideA (a+b)\cdot(a+b)$, por lo que $7\divideA a^2 + 2\red{a\cdot b} + b^2$, y finalmente como $2ab$ es divisible por 7
+        se puede reescribir finalmente todo como $7\divideA a^2 + b^2$.\\
+        Finalmente se han probado las dos implicaciones, por lo tanto la proposicion inicial es verdadera
 
   \item
 \end{enumerate}

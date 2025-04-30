@@ -1,48 +1,80 @@
 \begin{enunciado}{\ejercicio}
-        \begin{enumerate}[label=\alph*)] 
-         \item Probar que el producto de $n$ enteros consecutivos es divisible por $n!$ 
-         \item Probar que $\binom{2n}{n}$ es divisible por 2.
-         \end{enumerate}
+  \begin{enumerate}[label=\alph*)]
+    \item Probar que el producto de $n$ enteros consecutivos es divisible por $n!$
+    \item Probar que $\binom{2n}{n}$ es divisible por 2.
+  \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
-        \item 
-                Este es bastante sencillo de ver, tenemos el producto de n enteros consecutivos como:
-                \[\prod_{i=\alpha}^{n + \alpha - 1} = \alpha \times (\alpha + 1)\cdots \times (n + \alpha - 1)\]
-                Por ejemplo:
-                \[\prod_{i=4}^{7} = 4\times5\times6\times7\]
-                Tenemos que ver que es divisible por $n!$, si uno se lo pone a pensar intuitivamente, es bastante logico
-                ya que $n!$ va a siempre compartir factores, de hecho el factorial se puede definir como $\prod_{i=1}^{n} i = n!$, asi que 
-                si empezamos desde otro indice no cambia nada, igual sigue siendo divisible por $n!$. 
+  \item
+        Este es bastante sencillo de ver, tenemos el producto de $n$ enteros consecutivos como:
+        $$
+          \productoria{i=\green{m}}{n + \green{m} - 1} i = \green{m} \times (\green{m} + 1) \times \cdots \times (n + \green{m} - 1)
+        $$
+        Por ejemplo:
+        $$
+          \productoria{i=4}{7} i  = 4\times5\times6\times7
+        $$
+        Tenemos que ver que es divisible por $n!$, si uno se lo pone a pensar intuitivamente, es bastante logico
+        ya que $n!$ va a siempre compartir factores, de hecho el factorial se puede definir como $\productoria{i=1}{n}  i = n!$, asi que
+        si empezamos desde otro indice no cambia nada, igual sigue siendo divisible por $n!$.
 
-                Vamos a probarlo por induccion porque es lo mas facil, sino se podria generalizar con productorias pero es un quilombo de notación.\par   
-                Tenemos que nuestra hipotesis inductiva es: 
-                \[p(n):\prod_{i=\alpha}^{n} \text{ es divisible por } n!\]
-                Probemos el caso base $p(1)$:
-                \[p(1): \prod_{i=\alpha=1}^{1} i = 1 \text{ es divisible por 1!}\]
-                Ahora queremos ver que $p(n) \entonces p(n+1)$
-                \[\prod_{i=\alpha}^{n+1} i \text { es divisible por $(n+1)!$ ?}\]
-                \[\underbrace{\red{\prod_{i=\alpha}^{n} i}}_{H.I} \times (n+1) \text{ es divisible por } \underbrace{\red{n!} \times (n+1)}_{=(n+1)!} \llamada1 \]
-                Finalmente entonces probamos que $p(n+1)$ es verdadera, completando la prueba.  
-                
-                $\llamada1 :$ Aca usamos que $a\divideA b \entonces t\cdot a \divideA t \cdot b,\, t \in \enteros$
-        \item
-                Expandimos el coeficiente binomial con su formula de factoriales:
-                \[\binom{2n}{n} = \frac{(2n)!}{(n!)^2}\]
-                Si fuera par, eso significa que al dividirlo por dos obtengo un numero entero, entonces la idea va a ser esa.
-                \[\frac{(2n)!}{(n!)^2} \cdot \frac{1}{2} = \frac{(\cancel{2}n)(2n-1)!}{(n!)^2} \cdot \frac{1}{\cancel{2}}\]
-                Entonces me basta ver que
-                \[\frac{n(2n-1)!}{(n!)^2} \text{ es entero }\]
-                Manipulamos la expresion un poco:
-                \[\frac{\cancel{n}(2n-1)!}{(n!)\cancel{n}(n-1)!}\]
-                Ahora podemos ver que esta expresión es lo mismo que $\binom{2n-1}{n-1}$, el cual es un numero entero. Concluimos
-                entonces que $\binom{2n}{n}$ es par. \par   
-                Para mas intuición, fijarse que en el triangulo de pascal, el coeficiente $\binom{2n}{n}$ es justo la mitad de la fila
-                con n par (en este caso el n seria el $2n$ de nuestro coeficiente binomial), pueden ver que todos los valores que estan en el medio
-                en el triangulo de pascal surgen de la suma de los dos de arriba, que son exactamente iguales.
+        Vamos a probarlo por inducción porque es lo más fácil, sino se podría generalizar con productorias pero es un \textit{quilombo de notación}.
+
+        Tenemos que nuestra \purple{hipotesis inductiva} es:
+        $$
+          p(n):\productoria{i=\green{m}}{n} i \text{ es divisible por } n!
+        $$
+        Probemos el caso base $p(1)$:
+        $$
+          p(1): \productoria{i=\green{m}=1}{1}  i = 1 \text{ es divisible por 1!}
+        $$
+        Ahora queremos ver que $p(n) \entonces p(n+1)$
+        $$
+          \productoria{i=\green{m}}{n+1}  i \text { es divisible por $(n+1)!$ ?}
+        $$
+        $$
+          (\red{n+1})  \times \ub{\displaystyle \productoria{i=\green{m}}{\red{n}}  i}{\text{\purple{hipótesis inductiva}}}
+          \text{ es divisible por }
+          \ub{n! \times (\red{n+1})}{=(n+1)!} \llamada1
+        $$
+        Finalmente entonces probamos que $p(n+1)$ es verdadera, completando la prueba.
+
+        $\llamada1 :$ Aca usamos que
+        $
+          a\divideA b
+          \entonces
+          t\cdot a \divideA t \cdot b,\, t \en \enteros
+        $
+
+  \item
+        Expandimos el coeficiente binomial con su fórmula de factoriales:
+        $$
+          \binom{2n}{n} = \frac{(2n)!}{(n!)^2}
+        $$
+        Si fuera par, eso significa que al dividirlo por dos obtengo un número entero, entonces la idea va a ser esa:
+        $$
+          \frac{(2n)!}{(n!)^2} \cdot \frac{1}{2} = \frac{(\cancel{2}n)(2n-1)!}{(n!)^2} \cdot \frac{1}{\cancel{2}}
+        $$
+        Entonces me basta ver que
+        $$
+          \frac{n(2n-1)!}{(n!)^2} \quad \en \enteros
+        $$
+        Manipulamos la expresión un poco:
+        $$
+          \frac{\cancel{n}(2n-1)!}{(n!)\cancel{n}(n-1)!}
+        $$
+        Ahora podemos ver que esta expresión es lo mismo que $\binom{2n-1}{n-1}$, el cual es un número entero. Concluimos
+        entonces que $\binom{2n}{n}$ es par.
+
+        \parrafoDestacado[$\triangle$]{
+          Para más intuición, fijarse que en el triángulo de pascal, el coeficiente $\binom{2n}{n}$ es justo la mitad de la fila
+          con $n$ par (en este caso el $n$ seria el $2n$ de nuestro coeficiente binomial), pueden ver que todos los valores que están en el medio
+          en el triángulo de pascal surgen de la suma de los dos de arriba, que son exactamente iguales.
+        }
 
 \end{enumerate}
 
 \begin{aportes}
-        \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

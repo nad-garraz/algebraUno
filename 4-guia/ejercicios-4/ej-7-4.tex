@@ -41,8 +41,10 @@
 
   \item \hacer
 
-  \item  Hermoso ejercicio en el que sin fe en el todo poderoso Gauss sencillamente uno tira la toalla.\par
-        Sale por inducción:\par
+  \item  Hermoso ejercicio en el que sin fe en el todo poderoso Gauss sencillamente uno tira la toalla.
+
+        Sale por inducción:
+
         \textit{Quiero ver que:}
         $$
           p(n) : 256 \divideA 49^n + 208n - 1
@@ -56,7 +58,7 @@
 
         \textit{Caso base:}
         $$
-          p(1) : 256 \divideA 49^1 + 208 \cdot 1 - 1 \Tilde
+          p(\blue{1}) : 256 \divideA 49^{\blue{1}} + 208 \cdot \blue{1} - 1 \Tilde
         $$
         Por lo tanto $p(1)$ resulta verdadera.
 
@@ -64,13 +66,13 @@
         Uso la notación de congruencia de acá en adelante, porque es mucho más cómodo.
         Supongo que:
         $$
-          p(k) : \ub{\congruencia{49^k + 208 \cdot k - 1}{0}{256}}{\purple{\text{hipótesis inductiva}}}
-          \quad \paratodo k \en \enteros
+          p(\blue{k}) : \ub{\congruencia{49^{\blue{k}} + 208 \cdot \blue{k} - 1}{0}{256}}{\purple{\text{hipótesis inductiva}}}
+          \quad \text{ para algún } \blue{k} \en \enteros
         $$
         es  una proposición verdadera.
         Entonces quiere probar que:\par
         $$
-          p(k+1) : \congruencia{49^{k+1} + 208 \cdot (k+1) - 1}{0}{256},
+          p(\blue{k+1}) : \congruencia{49^{\blue{k+1}} + 208 \cdot (\blue{k+1}) - 1}{0}{256},
         $$
         también sea verdadera. Arranco del paso $(k+1)$ y haciendo un poco de \textit{matemagia}:
         $$

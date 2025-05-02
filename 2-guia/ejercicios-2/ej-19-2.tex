@@ -92,11 +92,11 @@
         \begin{align*}
           a_{n+2} & \igual{(3)} a_{n+1} + \frac{2n+1}{n+2}a_n \overset{\text{HI}}{>}
           n + 1 + \frac{1}{3} + \frac{2n+1}{n+2}\left(n + \frac{1}{3}\right)
-          = n + 1 + \frac{1}{3} + \frac{2n+1}{n+2}\left(n + \frac{1}{3}\right) + 1 - 1                                \\
+          = n + 1 + \frac{1}{3} + \frac{2n+1}{n+2}\left(n + \frac{1}{3}\right) + 1 - 1                                                          \\
                   & \igual{*} n + 2 + \frac{1}{3} + \frac{2n+1}{n+2}\left(n + \frac{1}{3}\right) - 1
           \overset{\text{Aux.1}}{\geq} n + 2 + \frac{1}{3} + 1 \cdot \left(n + \frac{1}{3}\right) - 1
-          = n + 2 + \frac{1}{3} + n + \frac{1}{3} - 1                                                                 \\
-                  & \igual{**} n + 2 + \frac{1}{3} + n - \frac{2}{3} \overset{\text{Aux.2}}{\geq} n + 2 + \frac{1}{3} \\
+          = n + 2 + \frac{1}{3} + n + \frac{1}{3} - 1                                                                                           \\
+                  & \igual{**} n + 2 + \frac{1}{3} + \magenta{n - \frac{2}{3}} \ \mayorIgual{\magenta{Aux.2}} n + 2 + \frac{1}{3} + \magenta{0} \\
                   & \entonces a_{n+2} > n + 2 + \frac{1}{3} \entonces P(n+2):V
         \end{align*}
         Hemos probado el caso base y el paso inductivo. Podemos concluir que $P(n):V,$ $\paratodo n \en \naturales _{\geq 4}$.
@@ -110,9 +110,15 @@
 
         \paragraph{Auxiliar 2}{Sea $n \en \naturales $
           \begin{align*}
-            1 \leq n \iff \frac{1}{3} + \frac{2}{3} \leq n \iff \frac{1}{3} \leq n - \frac{2}{3}
+            n \geq  1 \geq  \frac{2}{3}
+            \Sii{\red{!}}
+            n - \frac{2}{3} \geq \magenta{0}
           \end{align*}
         }
 
 \end{enumerate}
 
+\begin{aportes}
+  \item \aporte{https://github.com/koopardo}{Marcos Zea \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

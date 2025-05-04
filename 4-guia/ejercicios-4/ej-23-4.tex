@@ -4,7 +4,7 @@
   \begin{enumerate}[label=\enumeracion*)]
     \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{b+4}{a} + \frac{5}{b} \en \enteros$.
     \item Determinar todos los $a,b \en \enteros$ coprimos tales que $\frac{9a}{b} + \frac{7a^2}{b^2} \en \enteros$.
-    \item Determinar todos los $a,b \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
+    \item Determinar todos los $a \en \enteros$ tales que $\frac{2a + 3}{a + 1} + \frac{a + 2}{4} \en \enteros$.
   \end{enumerate}
 \end{enunciado}
 
@@ -175,19 +175,26 @@
             4a + 4 \divideA 4a + 4
           }
         $$
-        Las cuentas del \red{!} te las dejo a vos. \par
-        $4a+4$ tiene que dividir a 16, por lo tanto mis posibles valores serán $\set{\pm1,\pm2,\pm4,\pm8,\pm16}$.\par
+        Las cuentas del \red{!} te las dejo a vos.
 
+        $4a+4$ tiene que dividir a 16, onda $\frac{16}{4a + a} \en \enteros$ por lo tanto necesitamos:
+        $$
+          4a + a \en \set{\pm1,\pm2,\pm4,\pm8,\pm16}
+        $$.
         Teniendo en cuenta que $4a + 4 \en \enteros$ y también que $a \en \enteros$, quedan como únicos posibles valores:
         $$
-          \begin{array}{c}
-            4 \magenta{(-5)} + 4 = \blue{-16} \Tilde \\
-            4 \magenta{(-2)} + 4 = \blue{-4} \Tilde
+          \begin{array}{rcc}
+            4 \cdot \magenta{(-5)} + 4 & = & \blue{-16} \\
+            4 \cdot \magenta{(-3)} + 4 & = & \blue{-8}  \\
+            4 \cdot \magenta{(-2)} + 4 & = & \blue{-4}  \\
+            4 \cdot \magenta{1} + 4    & = & \blue{8}   \\
+            4 \cdot \magenta{0} + 4    & = & \blue{4}
           \end{array}
         $$
-        reemplazando esos valores de $a$ en $\llamada1$ se obtiene tiene valor $-1 \en \enteros$.
+        reemplazando esos valores de $a$ en $\llamada1$ se obtiene que  $ \llamada1 \en \enteros$.
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/a18delsol}{Juan Iglesias \github}
 \end{aportes}

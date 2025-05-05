@@ -10,7 +10,7 @@
   \end{multicols}
 \end{enunciado}
 
-Ejercicio importante. La raíz $n$-ésima de $z$ es el número que multiplicado por sí mismo $n$ veces me da $z$:
+\underline{Ejercicio importante}. La raíz $n$-ésima de $z$ es el número que multiplicado por sí mismo $n$ veces me da $z$:
 $$
   w^n = z,
 $$
@@ -53,12 +53,36 @@ es decir que quiero encontrar $w$. Siempre va a haber tantas soluciones como $n$
           z = -1 + i  = \sqrt{2} \cdot e^{\frac{3}{4} \pi i}
         $$
 
-  \item En notación exponencial $z$ se calcula primero con la base:
+  \item En notación exponencial $z$, se calcula primero con la base :
         $$
-                z = (2 - 2i)^{12} =
-                \big(2\sqrt{2} \cdot e^{\frac{7}{4} \pi i}\big)^{12} =
-                2^{18}\cdot e^{21 \pi i}
-                \igual{\red{!}}
-                2^{18}\cdot e^{\pi i}
+          z = (2 - 2i)^{12} =
+          \big(2\sqrt{2} \cdot e^{\frac{7}{4} \pi i}\big)^{12} =
+          2^{18}\cdot e^{21 \pi i}
+          \igual{\red{!!}}
+          2^{18}\cdot e^{\pi i} \llamada1
         $$
+        \textit{Máquina de hacer chorizos: ¿Cuál número $w \en \complejos$ multiplicado 6 veces por si mismo me da $\llamada1$?}
+        $$
+          \begin{array}{c}
+              w^6 \igual{?} 2^{18}\cdot e^{\pi i}
+            \sii
+            (|w|e^{i\theta})^6 = 2^{18}\cdot e^{\pi i}
+            \sii
+            |w|^6 \cdot e^{i 6\theta} = 2^{18} \cdot e^{\pi i}
+            \sii
+            \llave{l}{
+            |w|^6 = 2^{18} \sii |w| = 8 \\
+              6\theta = \pi  \blue{ + 2k\pi} \sii \theta_k = (\frac{1}{6} + \frac{1}{3}k)\pi
+            }
+          \end{array}
+        $$
+        Como $ 0 \leq \theta < 2 \pi$:
+        $$
+          w_k = 8 \cdot e^{i\theta_k} \text{ con } k \en \enteros_{[0,5]}
+        $$
+
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

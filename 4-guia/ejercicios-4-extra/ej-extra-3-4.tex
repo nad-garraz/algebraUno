@@ -31,15 +31,28 @@ $$
 $$
 
 Si ocurre que $p \divideA 3 \sii p = 3$. Quiero entonces ver si $3 \divideA c^2 + d^2 \sii c^2 + d^2 \conga3 0$. Hago
-una tabla para estudiar esa última ecuación:
-$$
-  \begin{array}{|c||c|c|c|}
-    \hline
-    r_3(c)         & 0 & 1 & 2 \\ \hline
-    r_3(d)         & 0 & 1 & 2 \\ \hline
-    r_3(c^2 + d^2) & 0 & 2 & 2 \\ \hline
-  \end{array}
-$$
+una tabla para estudiar esa última ecuación, tengo 2 valores, hago \underline{todas las combinaciones}:
+\begin{center}
+  $
+    \begin{array}{|c||c|c|c|} \hline\rowcolor{Cerulean!10}
+      r_3(c)         & 0       & 1 & 2 \\ \hline
+      r_3(d)         & 0       & 1 & 2 \\ \hline\rowcolor{Cerulean!10}
+      r_3(c^2 + d^2) & \red{0} & 2 & 2 \\ \hline
+    \end{array}
+    \quad
+    \begin{array}{|c||c|c|c|} \hline\rowcolor{Cerulean!10}
+      r_3(c)         & 0 & 1 & 2 \\ \hline
+      r_3(d)         & 2 & 0 & 1 \\ \hline\rowcolor{Cerulean!10}
+      r_3(c^2 + d^2) & 1 & 1 & 2 \\ \hline
+    \end{array}
+    \quad
+    \begin{array}{|c||c|c|c|} \hline\rowcolor{Cerulean!10}
+      r_3(c)         & 0 & 1 & 2 \\ \hline
+      r_3(d)         & 1 & 2 & 0 \\ \hline\rowcolor{Cerulean!10}
+      r_3(c^2 + d^2) & 1 & 2 & 1 \\ \hline
+    \end{array}
+  $
+\end{center}
 
 De la tabla concluímos que para que $c^2 + d^2 \conga3 0$ debe ocurrir que:
 $c \conga3 0$ y también que $d \conga3 0$, es decir que tanto $c$ como $d$ sean
@@ -60,7 +73,7 @@ $$
 $$
 
 Entonces si $p \divideA c$ y también $p \divideA c^2 + d^2$ debe ocurrir que
-$p \divideA d$. Nuevamente contraticción ya que \red{no puede ocurrir} debido a que $(c:d) = 1$.\par \medskip
+$p \divideA d$. Nuevamente contradicción ya que \red{no puede ocurrir} debido a que $(c:d) = 1$.\par \medskip
 
 El caso $\llamada3$ es lo mismo que el caso $\llamada2$.\par
 

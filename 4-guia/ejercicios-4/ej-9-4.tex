@@ -2,10 +2,12 @@
   Sabiendo que el resto de la división de un entero
   $a$ por 18 es 5, calcular el resto de:
   \begin{enumerate}[label=\alph*)]
-    \item la división de $a^2 -3a +11$ por 18.
-    \item la división de $a$ por 3.
-    \item la división de $4a+1$ por 9.
-    \item la división de $7a^2 + 12$ por 28.
+    \begin{multicols}{2}
+      \item la división de $a^2 -3a +11$ por 18.
+      \item la división de $a$ por 3.
+      \item la división de $4a+1$ por 9.
+      \item la división de $7a^2 + 12$ por 28.
+    \end{multicols}
   \end{enumerate}
 \end{enunciado}
 
@@ -32,16 +34,46 @@
           r_9(a) = r_9(21) = 3
         $
 
-  \item
-        $r_{28}(7a^2 + 12) = r_{28}(7 \cdot r_{28}(a)^2 + 12) \flecha{¿qué es} r_{28}(a)$\\
-        $\llave{l}{
-            a = 18 \cdot q + 5 \flecha{busco algo}[para el 28]                              \\
-            14 \cdot a = \ub{252 \cdot q}{28 \cdot 9\cdot q } + 70
-            \flecha{corrijo según}[condición resto]
-            28 \cdot 9\cdot q + \ub{2\cdot28 +14}{70} = 28\cdot (9\cdot q + 2) + 14  \Tilde \\
-            \flecha{por lo}[tanto] 14a = 28\cdot q' + 14 \entonces \congruencia{14\cdot a}{14}{28} \sisolosi  \congruencia{a}{1}{28}
-          }$\\
-        Ahora que sé que $r_{28}(a) = 1$ sale que $r_{28}(7a^2 + 12) = r_{28}(7 \cdot \ub{r_{28}(a)^2}{1} + 12) = r_{28}(19)=19 \Tilde$
+  \item A ver el resto de esa expresión:
+        $$
+          r_{28}(7a^2 + 12) = r_{28}(7 \cdot r_{28}(a)^2 + 12)
+        $$
+        La pregunta ahora es ¿qué \poo es $r_{28}(a)\llamada1$? Sé por enunciado que:
+        $$
+          r_{18}(a) = 5
+          \Sii{def}
+          a = 18 \cdot q + 5
+        $$
+        La idea ahora es modificar esa expresión para que me quede un 28 de divisor:
+        $$
+          a = 18 \cdot q + 5 = 2 \cdot 9 q + 5
+          \Sii{$\times$ 14}[M.A.M]
+          14 \cdot a = \ub{14 \cdot 2}{28} \cdot 9 \cdot q + 70
+        $$
+        Ahora tengo que \textit{toquetear} esa expresión para que quede algo de la pinta
+        $\green{\text{divisor}} \times \blue{\text{cociente}} + \purple{\text{resto}}$:
+        $$
+          14 \cdot a = \green{28} \cdot \blue{9q} + \purple{70}
+          \sii
+          14 \cdot a = \green{28} \cdot \blue{9q} + \purple{2\cdot 28 + 14}
+          \igual{\red{!}}
+          \green{28}\cdot \ub{\blue{(9q + 2)}}{\blue{q'}}  + \purple{14}
+        $$
+        Entonces queda que:
+        $$
+          14 \cdot a = \green{28}\cdot \blue{q'}  + \purple{14}
+          \Sii{def}
+          \congruencia{14a}{\purple{14}}{\green{28}}
+          \sii
+          \congruencia{a}{1}{28}
+          \sii r_{28}(a) = 1
+        $$
+        Lo que logré fue encontrar una expresión donde el divisor sea 28 ¡Y así contesté $\llamada1$!
+
+        Ahora que sé que $r_{28}(a) = 1$ sale que
+        $$
+          r_{28}(7a^2 + 12) = r_{28}( 7 \cdot r_{28}(a)^2 + 12) = r_{28}(7 \cdot 1 + 12 ) = r_{28}(a) = 19
+        $$
 \end{enumerate}
 
 \begin{aportes}

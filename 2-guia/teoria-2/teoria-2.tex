@@ -1,6 +1,6 @@
-\begin{itemize}[label=\tiny\faIcon{snowman}]
+\begin{itemize}[label=\purple{\tiny\faIcon{snowman}}]
   \item\label{2-teoria:suma-prod} \textit{Propiedades de la sumatoria y productoria:}
-        \begin{itemize}[label=\tiny\faIcon{pizza-slice}]
+      \begin{itemize}[label=\orange{\tiny\faIcon{pizza-slice}}]
           \item
                 $(\sumatoria{k=1}{n} a_k) + (\sumatoria{k=1}{n} b_k) = \sumatoria{k=1}{n} (a_k + b_k)$
 
@@ -17,26 +17,28 @@
   \item\label{2-teoria:suma-gauss} \textit{Suma de Gauss:}
         $$
           \begin{array}{c}
-            \paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}
+              \paratodo n \en \naturales: \sumatoria{i = \red{1}}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n \cdot (n+1)}{2}
           \end{array}
         $$
         Y cuando empieza desde $i = 0$ u otro valor escribís lo que hay y hacés algo así:
         $$
           \sumatoria{i = \blue{0}}{n} i
           \igual{\red{!}}
-          0 + \ub{1 + 2 + \cdots + (n-1) + n}{\sumatoria{i = \red{1}}{n} i} =  \sumatoria{i = \red{1}}{n} i
+          0 + \ub{1 + 2 + \cdots + (n-1) + n}{\sumatoria{i = \red{1}}{n} i} 
           \igual{\red{!}}
           \frac{n \cdot (n+1)}{2}
         $$
         o también puede pasar así:
+        {\small
         $$
           \sumatoria{i = \blue{3}}{n} i
           \igual{\red{!}}
-          3 + 4 + \cdots + (n-1) + n =
+          3 + 4 + \cdots + (n-1) + n \ua{=}{\text{sumo \magenta{0}}}
           - \magenta{2} - \magenta{1} + \ub{\magenta{1} + \magenta{2} + 3 + 4 + \cdots + (n-1) + n}{\sumatoria{n=\red{1}}{n} i}
           \igual{\red{!}}
           -1 -2 +\frac{n \cdot (n+1)}{2}
         $$
+        }
 
   \item\hypertarget{2-teoria:geometrica}{\textit{Suma geométrica:} }
         $$

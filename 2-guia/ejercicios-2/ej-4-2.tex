@@ -10,39 +10,66 @@
   \end{multicols}
 \end{enunciado}
 
+Acá \hyperlink{2-teoria:geometrica}{la fórmula de la serie geométrica click, click {\tiny \faIcon{mouse}}}
+
+Pequeña demostración que nadie pidió y probablemente nadie necesite de una forma de llegar a la formulita de la serie geométrica, si:
+$\sumatoria{i=0}{n} a \cdot q^i = S_{\ub{\scriptscriptstyle n+1}{\tiny\text{total de términos}}}$
+$$
+  \begin{array}{crcl}
+            & S_{n+1}             & = & \blue{a} \cdot (1 + q + q^2 + \cdots + q^n)       \\
+    \red{-} &                     &   &                                                   \\
+            & q \cdot S_{n+1}     & = & \blue{a} \cdot (q + q^2 + \cdots + q^n + q^{n+1}) \\ \hline
+            & (1\red{-} q)S_{n+1} & = & \blue{a} \cdot (1 - q^{n+1})                      \\
+  \end{array}
+  \Sii{$q\distinto 0$}
+  \cajaResultado{
+    S_{n+1} = \blue{a} \cdot \frac{1 - q^{n+1}}{1 - q} = \blue{a} \cdot \frac{q^{n+1} - 1}{q - 1}
+  }
+$$
 \begin{enumerate}[label=\roman*)]
-  \item $\sumatoria{i=0}{n} 2^i
+  \item  \textit{Formulini geométrini}:
+        $$
+          \sumatoria{i=0}{n} 2^i
           \igual{}[$q \distinto 1$]
           \frac{\red{2}^{n+1} - 1}{\red{2} - 1} =
-          2^{n+1} - 1 $
+          2^{n+1} - 1
+        $$
 
-  \item $\sumatoria{i=1}{n} q^i =
+  \item $$
+          \sumatoria{i=1}{n} q^i =
           \red{-1 + 1} + \sumatoria{i=1}{n} q^i =
           \red{-1} + \sumatoria{i = \red{0}}{n} q^i =
           \llave{lll}{
             n + 1 \red{-1} = n                                                                                                       & \text{si} & q = 1         \\
-            \frac{q^{n+1}-1}{q-1} \red{-1} = \ub{\frac{q^{n+1} - q}{q-1}}{\llamada1 \sumatoria{k = \red{1}}{n} q^i} & \text{si} & q \distinto 1
-          }$
+            \frac{q^{n+1}-1}{q-1} \red{-1} = \frac{q^{n+1} - q}{q-1} & \text{si} & q \distinto 1
+          }
+        $$
 
-  \item $\sumatoria{i=0}{n} q^{2i} \igual{\red{!}}
+  \item
+        {\small
+        $$
+          \sumatoria{i=0}{n} q^{2i} \igual{\red{!}}
           1 + \sumatoria{i=\magenta{1}}{n} q^{2i} =
-          \llave{lll}{
-            \scriptstyle
-            1 + \underbrace{\scriptstyle q^2 + q^4 + \cdots + (q^{n-1})^2 + q^{2n}}_{\text{n elementos}} = n + 1 & \text{ si } & q = \pm 1         \\
-            \scriptstyle
-            1 + \underbrace{\scriptstyle(q^2)^1 + (q^2)^2 + \cdots + (q^2)^{n-1} + (q^2)^n}_{\text{n elementos}} \igual{$\scriptscriptstyle\llamada1$}
+          \llave{lllcc}{
+            1 + \ub{q^2 + q^4 + \cdots + (q^{n-1})^2 + q^{2n}}{n \text{ elementos}} &=& n + 1 & \text{ si } & q = \pm 1         \\
+            1 + \ub{(q^2)^1 + (q^2)^2 + \cdots + (q^2)^{n-1} + (q^2)^n}{n \text{ elementos}}
+            &\igual{\red{!}}&
             \frac{(q^2)^{n+1} - q^2}{q^2 - 1} + 1 =
             \frac{q^{2(n+1)} - 1}{q^2 - 1}                                                                                                     & \text{ si } & q \distinto \pm 1
           }
-        $
-  \item $
+        $$
+        }
+
+  \item
+        $$
           \sumatoria{i=n}{2n} q^i
-          =
-          \llave{rcl}{
-            n + 1 &\text{ si }& q = 1 \\
-            q^n \cdot (1+q+q^2+\cdots+q^n) = q^n \cdot \frac{q^{n+1} - 1}{q-1} &\text{ si } & q \distinto 1
+          \igual{\red{!!}}
+          \llave{rclcc}{
+            1^n \cdot (1 + 1^1 + 1^2 \cdots + 1^{n-1} + 1^n)  &=& n + 1 &\text{ si }& q = 1 \\
+            q^n \cdot (1+q+q^2+\cdots+q^n) &=& q^n \cdot \frac{q^{n+1} - 1}{q-1} &\text{ si } & q \distinto 1
           }
-        $
+        $$
+        Si no caes en el \red{!!}, escribí todo y después sacá factor común. La idea es que queda más fácil para contar la cantidad de términos que hay.
 \end{enumerate}
 
 % Contribuciones

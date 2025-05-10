@@ -20,13 +20,22 @@
             \paratodo n \en \naturales: \sumatoria{i = 1}{n} i =  1 + 2 + \cdots + (n-1) + n = \frac{n(n+1)}{2}
           \end{array}
         $$
-        Y cuando empieza desde $i = 0$ u otro valor se hace:
+        Y cuando empieza desde $i = 0$ u otro valor escribís lo que hay y hacés algo así:
         $$
-          \sumatoria{i = 0}{n} i
+          \sumatoria{i = \blue{0}}{n} i
           \igual{\red{!}}
-          1 + \sumatoria{i = \red{1}}{n} i
+          0 + \ub{1 + 2 + \cdots + (n-1) + n}{\sumatoria{i = \red{1}}{n} i} =  \sumatoria{i = \red{1}}{n} i
           \igual{\red{!}}
-          1 + \frac{n \cdot (n+1)}{2} \Tilde
+          \frac{n \cdot (n+1)}{2}
+        $$
+        o también puede pasar así:
+        $$
+          \sumatoria{i = \blue{3}}{n} i
+          \igual{\red{!}}
+          3 + 4 + \cdots + (n-1) + n =
+          - \magenta{2} - \magenta{1} + \ub{\magenta{1} + \magenta{2} + 3 + 4 + \cdots + (n-1) + n}{\sumatoria{n=\red{1}}{n} i}
+          \igual{\red{!}}
+          -1 -2 +\frac{n \cdot (n+1)}{2}
         $$
 
   \item\hypertarget{2-teoria:geometrica}{\textit{Suma geométrica:} }
@@ -39,11 +48,11 @@
             \frac{q^{n+1}-1}{q-1} & \text{si} & q \distinto 1
           }
         $$
-                Y cuando empieza desde $\blue{i = 1}$ u otro valor se hace:
+        Y cuando empieza desde $\blue{i = 1}$ u otro valor se hace:
         $$
-                \sumatoria{\blue{i = 1}}{n} q^i
+          \sumatoria{\blue{i = 1}}{n} q^i
           \igual{\red{!}}
-                \red{-1 + 1} + \sumatoria{\blue{i = 1}}{n} q^i
+          \red{-1 + 1} + \sumatoria{\blue{i = 1}}{n} q^i
           \igual{\red{!}}
           \red{-1} + \sumatoria{i = \red{0}}{n} q^i =
           \llave{lll}{

@@ -56,7 +56,7 @@ $$
   \begin{array}{rcl}
     \sumatoria{k=1}{\magenta{j + 1} + 1} \frac{3}{\magenta{j+1} + k} =
     \sumatoria{k=1}{j + 2} \frac{3}{j+1 + k}
-     & =                        &
+     & =                &
     \frac{3}{j+1 + 1} +
     \frac{3}{j+1 + 2} +
     \frac{3}{j+1 + 3} +
@@ -64,8 +64,8 @@ $$
     \frac{3}{j+1 + j-1} +
     \frac{3}{j+1 + j} +
     \frac{3}{j+1 + j+1}+
-    \frac{3}{j+1 + j+2} =                                                                                                     \\
-     & =                        &
+    \frac{3}{j+1 + j+2}                                                                               \\
+     & =                &
     \frac{3}{j+2} +
     \frac{3}{j+3} +
     \frac{3}{j+4} +
@@ -73,11 +73,11 @@ $$
     \frac{3}{2j} +
     \frac{3}{2j+1} +
     \frac{3}{2j+2}+
-    \frac{3}{2j+3}                                                                                                            \\
-     & \igual{\red{!!}}         &
+    \frac{3}{2j+3}                                                                                    \\
+     & \igual{\red{!!}} &
     \yellow{-\frac{3}{j+1}} +
     \ub{
-      \yellow{\frac{3}{j+1}  } +
+      \yellow{\frac{3}{j+1}} +
       \frac{3}{j+2} +
       \frac{3}{j+3} +
       \frac{3}{j+4} +
@@ -88,18 +88,22 @@ $$
       \sumatoria{k=1}{j + 1} \frac{3}{j + k}
     } +
     \frac{3}{2j+2}+
-    \frac{3}{2j+3}                                                                                                            \\
-     & =                        &
-    \yellow{-\frac{3}{j+1}} + \frac{3}{2j+2} + \frac{3}{2j+3} + \sumatoria{k=1}{j + 1}\frac{3}{j + k} \igual{\red{!}}
-    \ub{- \frac{3}{2j+2} + \frac{3}{2j+3}}{\leq 0}  + \purple{\sumatoria{k=1}{j + 1} \frac{3}{j + k}}\menorIgual{\purple{HI}} \\
-     & \menorIgual{\purple{HI}} &
-    \ob{- \ub{\frac{3}{(jk+2)(2j+3)}}{> 0 }}{<0} + \purple{\frac{5}{2}}
+    \frac{3}{2j+3}                                                                                    \\
+     & =                &
+    \yellow{-\frac{3}{j+1}} + \frac{3}{2j+2} + \frac{3}{2j+3} + \sumatoria{k=1}{j + 1}\frac{3}{j + k} \\
+     & \igual{\red{!}}  &
+    \ub{- \frac{3}{2j+2} + \frac{3}{2j+3}}{\leq 0}  + \purple{\sumatoria{k=1}{j + 1} \frac{3}{j + k}}\menorIgual{\purple{HI}}
+    \ub{
+      \frac{\oa{ -3}{<0}}{(jk+2)(2j+3)}
+    }{>0} + \purple{\frac{5}{2}}
     \leq
-    \frac{5}{2}
-    \entonces
-    \sumatoria{k=1}{j + 2} \frac{3}{j+1 + k}
-    \leq
-    \frac{5}{2}
+    \frac{5}{2}                                                                                       \\
+     & \entonces        &
+    \cajaResultado{
+      \sumatoria{k=1}{j + 2} \frac{3}{j+1 + k}
+      \leq
+      \frac{5}{2}
+    }
   \end{array}
 $$
 Mostrando que $p(j+1)$ también es verdadera.

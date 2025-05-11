@@ -1,54 +1,68 @@
 \begin{enunciado}{\ejExtra}
-Probar para todo $n \en \naturales$ se cumple la siguiente desigualdad:
-$$
-	\frac{(2n)!}{(n!)^2} \leq (n+1)!
-$$
+  Probar para todo $n \en \naturales$ se cumple la siguiente desigualdad:
+  $$
+    \frac{(2n)!}{(n!)^2} \leq (n+1)!
+  $$
 \end{enunciado}
 
 Se prueba usando el principio de inducción $\en \naturales$.\par
 
 \textit{Proposición: }\par
 $$
-	p(n): \frac{(2n)!}{(n!)^2} \leq (n+1)!
+  p(n): \frac{(2n)!}{(n!)^2} \leq (n+1)!
 $$
 
 \textit{Caso base: } Evalúo en $n=1$.
 
 $$
-	p(\blue{1}):
-	\frac{(2 \cdot \blue{1})!}{\blue{1}!^2} = 2 \leq (1+1)! \Tilde
+  p(\blue{1}):
+  \frac{(2 \cdot \blue{1})!}{\blue{1}!^2} = 2 \leq (1+1)! \Tilde
 $$
 Se concluye que $p(1)$ es verdadera.
 
 \textit{Paso inductivo: }
 $$
-	p(k): \HI{\frac{(2k)!}{(k!)^2} \leq (k+1)!}
-$$ la supongo verdadera.\par
+  p(k): \ub{\frac{(2k)!}{(k!)^2} \leq (k+1)!}{\text{\purple{hipótesis inductiva}}}
+$$ la supongo verdadera.
+
 Quiero probar que:
 $$
-	p(k+1): \frac{(2(k + \magenta{1}))!}{(k + \magenta{1})!^2} \leq (k + \magenta{1} + 1)!
+  p(k+1): \frac{(2(k + \magenta{1}))!}{(k + \magenta{1})!^2} \leq (k + \magenta{1} + 1)!
 $$ también lo es.\par
 
 $$
-	\llave{c}{
-		\frac{(2k+2)!}{(k+1)!^2} \leq  (k+2)!
-		\Sii{abrir}[factorial]\\
-		\frac{(2k + 2) \cdot (2k + 1) \cdot \blue{(2k)!}}{(k + 1)^2 \cdot \blue{(k!)^2}}
-		\stacktext{HI}\leq
-		\frac{
-			\ob{
-				(2k + 2) \cdot (2k + 1)
-			}{ 4\cdot \cancel{(k+1)} (k + \frac{1}{2}) }
-		} {(k + 1)^{\cancel{2}} } \blue{(k + 1)!} =
-		\frac{
-			\ob{ 4\cdot (k + \frac{1}{2}) }{\frac{4(k+\frac{1}{2})}{k+1}
-				\stackrel{\llamada1}\leq \yellow{k+2}}
-		}{(k + 1)} (k+1)!
-		\leq \yellow{(k+2)} (k+1)! = (k+2)!\\
-		\boxed{\frac{(2(k+1))!}{(k+1)!^2} \leq  (k+2)!}
-	}
+  \frac{(2k+2)!}{(k+1)!^2} \leq  (k+2)!
+  \Sii{abro}[factorial]
+  \frac{(2k + 2) \cdot (2k + 1) \cdot \blue{(2k)!}}{(k + 1)^2 \cdot \blue{(k!)^2}}
+  \menorIgual{\purple{HI}}
+  \frac{
+    \ob{
+      (2k + 2) \cdot (2k + 1)
+    }{ 4\cdot \cancel{(k+1)} (k + \frac{1}{2}) }
+  } {(k + 1)^{\cancel{2}} } \blue{(k + 1)!}
+  =
+  \frac{4 \cdot (k + \frac{1}{2})}{k + 1} (k+1)!
+  \llamada1
 $$
-$\llamada1$ se prueba fácil en 2 cuentas, queda como ejercicio para vos
-\href{\dirRepo}{\Large\faIcon{hands-wash}}.
+En $\llamada1$ fácil probar que:
+$$
+  \frac{
+    4\cdot (k + \frac{1}{2})}{k + 1}
+  \menorIgual{$\llamada2$}
+  \yellow{(k+2)}
+$$
+Por lo tanto queda:
+$$
+  \llamada1 \leq \yellow{(k+2)}(k+1)! = (k+2)!
+$$
+Y con este último resultado se llega a que:
+$$
+  \cajaResultado{
+    \frac{(2(k+1))!}{(k+1)!^2} \leq  (k+2)!
+  }
+$$
+$\llamada2$ se prueba fácil en 2 cuentas, queda como ejercicio para vos
+\purple{\faIcon{hands-wash}}.
+
 Es así que $p(1), p(k), \ytext p(k+1)$ resultaron verdaderas y por el principio de inducción
 $p(n)$ también lo será $\paratodo n \en \naturales$.

@@ -1,0 +1,57 @@
+\begin{enunciado}{ejExtra}
+  Probar que $\productoria{k=1}{n}\frac{10k - 5}{2k} > n 3^{n-1}$ para todo $n \en \naturales$.
+\end{enunciado}
+
+Inducción pura y dura.
+
+\bigskip
+
+Quiero probar la siguiente proposición:
+$$
+  p(n) :
+  \productoria{k=1}{n}\frac{10k - 5}{2k} > n 3^{n-1} \quad \paratodo n \en \naturales
+$$
+
+\textit{Caso Base:}
+$$
+  p(\blue{1}) :
+  \productoria{k=1}{\blue{1}}\frac{10k - 5}{2k} > \blue{1} 3^{\blue{1}-1}  = \frac{5}{2} > \blue{1} \cdot 3^{\blue{1} - 1} = 1
+$$
+Por lo tanto $p(\blue{1})$ resultó ser verdadera.
+
+\medskip
+
+Asumo ahora para algún $k \en \naturales$
+$$
+  p(\blue{h}) :
+  \ub{\productoria{k=1}{\blue{h}}\frac{10k - 5}{2k} > \blue{h} 3^{\blue{h}-1}
+    >
+    \blue{h} \cdot 3^{\blue{h} - 1}}{\text{\purple{hipótesis inductiva}}}
+$$
+es verdadera. Y quiero probar que:
+$$
+  p(\blue{h+1}) : \productoria{k=1}{\blue{h+1}}\frac{10k - 5}{2k} > \blue{h+1} 3^{\blue{h+1}-1}
+  >
+  (\blue{h+1}) \cdot 3^{\blue{h+1} - 1} =
+  (\blue{h+1}) \cdot 3^{\blue{h}}
+$$
+Partiendo del paso $(\blue{h + 1})-$ésimo:
+$$
+  \productoria{k=1}{\blue{h+1}}\frac{10k - 5}{2k} =
+  \frac{10(\blue{h+1}) - 5}{2(h+1)} \cdot
+  \productoria{k=1}{\blue{h}}\frac{10k - 5}{2k}
+  \mayor{\purple{HI}}
+  \frac{10\blue{h} + 5}{2(h+1)} \cdot \blue{h}\cdot 3^{\blue{h}-1} \mayor{\red{!}} (\blue{h+1}) \cdot 3^{\blue{h}}
+$$
+Si podemos probar que el último $\mayor{\red{!}}$ es verdadero, listo, ganamos. Acomodo un poco, nada raro:
+$$
+  10h^2 + 5h \mayor{\red{!}} 6(h+1)^2
+$$
+Esa expresión es verdadera $ \paratodo n \en \naturales$.
+
+Dado que $p(1), p(h) \ytext p(h+1)$ resultaron ser verdaderas, por el principio de inducción también lo es $p(n)$ para todo $n \en \naturales$ como se
+quería mostrar.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

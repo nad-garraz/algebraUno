@@ -192,6 +192,13 @@
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}\leq}
   }
 }
+\NewDocumentCommand{\mayor}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{\text{#1}}}>
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}>}
+  }
+}
 
 %=======================================================
 % Comandos con flechas extensibles.

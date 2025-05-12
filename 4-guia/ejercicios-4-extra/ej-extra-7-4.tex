@@ -41,19 +41,11 @@ $$
   }
 $$
 
-Por lo tanto la versión más simple quedó en: $ d = (-a+4 : 9) $. Posibles $d: \set{1,3,9}\Tilde $\par\medskip
+Por lo tanto la versión más simple quedó en: $ d = (-a+4 : 9) $. Posibles $d: \set{1,3,9}\Tilde $
 
-Hago tabla de restos 9 y 3, para ver si las expresiones $(a^2 + 2 : 2a+1)$ son divisibles por mis potenciales $d$.\par
+\medskip
 
-\textit{Tabla de restos para $d=9$}:
-$$
-  \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
-    \hline
-    r_9(a)      & 0 & 1 & 2 & 3 & \magenta{4} & 5  & 6  & 7  & 8  \\ \hline\hline
-    r_9(-a + 4) & 4 & 3 & 2 & 1 & \magenta{0} & -1 & -2 & -3 & -4 \\ \hline
-  \end{array}
-$$
-Entonces los $a$ que cumplen \magenta{$\congruencia{a}{4}{9}$}, son candidatos para obtener $d$.\par
+Hago tabla de restos 3 y 9, para ver si las expresiones $(a^2 + 2 : 2a+1)$ son divisibles por mis potenciales $d$.
 
 \textit{Tabla de restos para $d=3$}:
 $$
@@ -63,17 +55,38 @@ $$
     r_3(-a + 4) & 2 & \magenta{0} & 2 \\ \hline
   \end{array}
 $$
-Entonces los $a$ que cumplen \magenta{$\congruencia{a}{1}{3}$}, también con candidatos para obtener $d$ .\par
+Entonces los $a$ que cumplen \magenta{$\congruencia{a}{1}{3}$}, son candidatos para obtener $d = 3$.
+Dado que 9 es una potencia de 3, ya sé más o menos que esperar de lo que viene, ¿O no?
 
-Estos resultados deben cumplir la condición $\llamada1 \congruencia{a}{7}{9}$ como se pide en el enunciado,
-lo cual no es compatible con el resultado de la tabla de $r_9$, pero sí con la tabla $r_3$.
-Notar que: $a = 9k + 7 \conga3 1 $.\par\bigskip
-
-Finalmente el MCD con $a \en \enteros$ que cumplan que $\congruencia{32a}{17}{9}$
+\textit{Tabla de restos para $d=9$}:
 $$
-  \boxed{
+  \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    r_9(a)      & 0 & 1 & 2 & 3 & \magenta{4} & 5  & 6  & 7  & 8  \\ \hline\hline
+    r_9(-a + 4) & 4 & 3 & 2 & 1 & \magenta{0} & -1 & -2 & -3 & -4 \\ \hline
+  \end{array}
+$$
+Entonces los $a$ que cumplen \magenta{$\congruencia{a}{4}{9}\ \llamada2$}, son candidatos para $d = 9$.
+
+\textit{Ahora no olvida que no estamos laburando con cualquier valor de $a$}.
+Estos resultados deben cumplir la condición $\llamada1 \congruencia{a}{7}{9}$ como se pide en el enunciado.
+
+Ese resultado no es compatible con el resultado de la tabla de $r_9$, (¿Lo ves?):
+$$
+  \congruencia{a}{7}{9}
+  \Sii{def}
+  a \igual{$\llamada1$} 9\cdot k + 7 \conga{9} 7 \noCongruente 4 \ \llamada2
+$$
+pero sí con la tabla $r_3$.
+Notar que: $a \igual{$\llamada1$} 9k + 7 \conga3 1$, cumple $\llamada2$.
+
+\bigskip
+
+Finalmente el MCD con $a \en \enteros$ que cumplan que $\congruencia{32a}{17}{9}$:
+$$
+  \cajaResultado{
     (a^3 + 4a + 1 : a^2 + 2) = 3
-  } \Tilde
+  }
 $$
 
 \begin{aportes}

@@ -1,12 +1,50 @@
 \begin{enunciado}{\ejExtra}
-        Hallar la cantidad de números naturales de exactamente 20 dígitos (o sea que no empiezan con 0) que se pueden
-        formar con los dígitos 0, 2, 3 y 9 y que cumplen que la suma de los 7 últimos dígitos es igual a 6.
+  Hallar la cantidad de números naturales de exactamente 20 dígitos (o sea que no empiezan con 0) que se pueden
+  formar con los dígitos 0, 2, 3 y 9 y que cumplen que la suma de los 7 últimos dígitos es igual a 6.
 \end{enunciado}
 
-El primer dígito puede valer solo 2, 3 o 9, es decir 3 opciones.
-Del dígito 19 al dígito octavo puede valer solo 0, 2, 3 o 9, es decir 4 opciones. 
-Para sumar 6 con los números que puedo usar, solo tengo 2+2+2 y 3+3:
-En los últimos 7 dígitos tengo $\binom{7}{2} + \binom{7}{3}$ opciones
+Un número de 20 dígitos, donde solo puedo poner, 0, 2, 3 o 9:
 
-TODO:
-HACER ESTO AGRADABLE
+\begin{enumerate}[label=\purple{\faIcon{calculator}$_{\arabic*)}$}]
+  \item El dígito más \textit{significativo}, digamos el vigésimo, tiene \blue{3} posibles valores 2, 3 o 9.
+
+  \item Los dígitos $\ub{\text{desde el décimo noveno hasta el octavo}}{\orange{12} \text{ dígitos en total}}$ pueden tomar \orange{4} posibles valores, 0, 2, 3 o 9.
+
+  \item Los últimos dígitos, del séptimo hasta el primero tienen que sumar 6. Solo es posible eso haciendo cosas de la pinta:
+        $$
+          \dots \ub{0. 0 0 0. 2 2 2}{\text{\magenta{3} bolitas en \magenta{7} cajitas}}
+          \quad \otext \quad
+          \dots \ub{0. 0 0 0 .0 3 3}{\text{\magenta{2} bolitas en \magenta{7} cajitas}}
+        $$
+\end{enumerate}
+
+Con toda esa info, la cantidad de números de 20 cifras sería::
+$$
+  \cajaResultado{
+    \blue{3} \cdot
+    \ub{
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+      \orange{4}\cdot
+    }{\orange{{4}^{12}}}
+    \left(
+    \binom{\magenta{7}}{\magenta{3}}
+    +
+    \binom{\magenta{7}}{\magenta{2}}
+    \right)
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\neverGonnaGiveYouUp}{Santino \youtube}
+\end{aportes}

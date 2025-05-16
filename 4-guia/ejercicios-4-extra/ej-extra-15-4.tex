@@ -1,5 +1,4 @@
 \begin{enunciado}{\ejExtra}
-    \red{Este ejercicio está pendiente de revisión, OJO} 
   Sean $a,\,b \en \enteros$ tales que $(a:b) = 1$. Calcular los posibles valores de $(a^2+3b^2 : 2a^2 + 11b^2)$
   y dar un ejemplo para cada uno de ellos.
 \end{enunciado}
@@ -46,25 +45,36 @@ $$
 \textit{División por 1:}\par
 El uno está por ejemplo para el par $(a,b) = (1,2)$ donde $a \cop b$.
 
+\bigskip
+
 \textit{División por 5:}
+Hay que tener cuidado cuando se hace la tabla de restos y hay dos parámetros, $a$ y $b$, porque
+estos \underline{no tienen que tener el mismo resto a la vez}, entonces se puede proceder así:
+
 $$
-  \begin{array}{|c|c|c|c|c|c|}
-    \hline
-    r_5(a)   & 0 & 1 & 2 & 3 & 4 \\ \hline
-    r_5(a^2) & 0 & 1 & 4 & 4 & 1 \\ \hline
-  \end{array}
-  \ytext
-  \begin{array}{|c|c|c|c|c|c|}
-    \hline
-    r_5(b)    & 0 & 1 & 2 & 3 & 4 \\ \hline
-    r_5(3b^2) & 0 & 3 & 2 & 2 & 3 \\ \hline
-  \end{array}
-  \ytext
-  \cajaResultado{
+  \llave{l}{
+    \textit{Tabla para $a$:}\\
     \begin{array}{|c|c|c|c|c|c|}
       \hline
-      r_5(a^2 + 3b^2) & 0 & 4 & 1 & 1 & 4 \\ \hline
+      r_5(a)   & 0 & 1 & 2 & 3 & 4 \\ \hline
+      r_5(a^2) & 0 & 1 & 4 & 4 & 1 \\ \hline
+    \end{array}\\
+    \ytext\\
+    \textit{Tabla para $b$:}\\
+    \begin{array}{|c|c|c|c|c|c|}
+      \hline
+      r_5(b)    & 0 & 1 & 2 & 3 & 4 \\ \hline
+      r_5(3b^2) & 0 & 3 & 2 & 2 & 3 \\ \hline
     \end{array}
+  }
+  \flecha{busco una \magenta{combinación} suma que me dé}[$r_5(a^2 + 3b^2) \conga5 0$]
+  \cajaResultado{
+    r_5(a^2 + 3b^2) = 0
+    \sii
+    \llave{l}{
+      \congruencia{a}{0}{5}\\
+      \congruencia{b}{0}{5}
+    }
   }
 $$
 Ese resultado dice que para que suceda que $ 5 \divideA a^2 + 3b^2$ se requiere que:

@@ -1,0 +1,121 @@
+\begin{enunciado}{\ejExtra}
+	Sea $A = \set{f : \set{1, \ldots, 8} \to \set{1,\ldots, 10} : f \text{ inyectiva}}$. Se define en $A$ la siguiente
+	relación $\relacion$:
+	$$
+		f \relacion g \sii f(2) - g(2) = f(3) - g(3) \ytext f(1) - g(1) \text{ es par}.
+	$$
+	\begin{enumerate}[label=(\alph*)]
+		\item Calcular el cardinal de $A$.
+		\item Decidir si $\relacion$ es una relación de equivalencia.
+		\item Si $f : \set{1,\ldots, 8} \to \set{1, \ldots, 10}$ es $f(n) = r_8(n) + 1$, calcular la cantidad de funciones en $A$
+		      que se relacionan con $f$.
+	\end{enumerate}
+\end{enunciado}
+Haga lo que haga en este ejercicio voy a reescribir la relación $\relacion$ así:
+$$
+	f \relacion g \sii f(2) - f(3) = g(2) - g(3) \ytext f(1) - g(1) \text{ es par}.
+$$
+es que soy medio disléxico y así lo veo mejor.
+
+\begin{enumerate}[label=\alph*)]
+	\item Tengo una función $inyectiva$, por lo tanto para cada número del dominio tenemos que asignarle un número del codominio sin repetirlo:
+	      $$
+		      \begin{array}{lcccccccc}
+			                                             & f(1)       & f(2)       & f(3)       & f(4)       & f(5)       & f(6)       & f(7)       & f(8)       \\
+			                                             & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow & \downarrow \\
+			      {\tiny\text{cantidad de opciones}} \to & \#10       & \#9        & \#8        & \#7        & \#6        & \#5        & \#4        & \#3        \\
+		      \end{array}
+	      $$
+	      Hay un total de
+	      $$
+		      \cajaResultado{
+			      \frac{10!}{2!} \text{ funciones inyectivas $f$ que se pueden armar en } A
+		      }
+	      $$
+
+	\item Lo es no hay nada nuevo.
+
+	      Desarrollarlo queda de tarea para \textit{yo del futuro o para algún buen samaritano \grimace}.
+
+	      \hacer
+
+	\item Esa $f(n) = r_8(n) + 1$ es lo mismo que decir:
+	      $$
+		      f(n) =
+		      \llave{rcl}{
+			      n + 1  & \text{ si } & n < 8\\
+			      1  & \text{ si } & n = 8
+		      }
+		      \quad
+		      \Entonces{evaluando}
+		      \quad
+		      f(n) =
+		      \llave{rcl}{
+			      f(1)  & = & 2\\
+			      f(2)  & = & 3\\
+			      f(3)  & = & 4\\
+			      f(4)  & = & 5\\
+			      f(5)  & = & 6\\
+			      f(6)  & = & 7\\
+			      f(7)  & = & 8\\
+			      f(8)  & = & 1
+		      }
+	      $$
+	      Vieno la pinta que tiene $f(n)$ y recordando lo que tiene que cumplir una función para estar
+	      relacionada a $f$,
+	      $$
+		      f \relacion g \sii f(2) - f(3) = g(2) - g(3) \ytext f(1) - g(1) \text{ es par}.
+	      $$
+	      sé que una posible función $g$, tiene que ser algo como:
+	      $$
+		      g(n) =
+		      \llave{rcl}{
+			      g(1)  & = & 4  \\
+			      g(2)  & = & 9  \\
+			      g(3)  & = & 10  \\
+			      g(4)  & = & 1  \\
+			      g(5)  & = & 2  \\
+			      g(6)  & = & 3  \\
+			      g(7)  & = & 5  \\
+			      g(8)  & = & 6
+		      }
+	      $$
+	      Para cumplir que:
+	      $$
+		      \ub{f(2) - f(3)}{ = -1} = g(2) - g(3)
+	      $$
+	      eso me dice que los valores de $g(2) \ytext g(3)$ son consecutivos, uno será par y el otro impar.
+	      Tengo para usar como imagen de $g(2)$ un total de \blue{4 números par} $\set{2,4,6,8}$ y \blue{5 números impar} $\set{1,3,5,7,9}$.
+	      El 10 queda afuera, porque no tengo nada para restarle y que me dé $-1$.
+
+	      Importante es notar que una vez elegido el valor de $g(2)$ el valor de $g(3)$ queda determimado para que la resta de $-1$, por lo tanto:
+	      $$
+		      \begin{array}{rcl}
+			      \oa{4}{g(2)             \\\text{ es par}} \cdot \ua{1}{g(3)\\\text{única opción impar}}
+			       & \qquad\otext\qquad &
+			      \oa{5}{g(2)             \\\text{ es impar}} \cdot \ua{1}{g(3)\\\text{única opción par}}
+		      \end{array}
+	      $$
+	      Para cumplir la condición de que:
+	      $$
+		      \ua{f(1)}{ = 2} - g(1) \quad \text{ es par }
+	      $$
+	      nos obliga a asignarle \underline{un valor par a $g(1)$} tengo \magenta{4 opciones}, porque ya usé un par
+	      en la condición anterior y la función es \underline{inyectiva}.
+
+	      Y por último tengo que poner los valores que sobran para definir bien a la función. Usé 3 valores, así
+	      que quedan 5 números para elegir sin condiciones de un total de 7 que quedan, siempre cumpliendo la inyectividad:
+	      $$
+		      \green{\frac{7!}{(7-5)!}} = \green{\frac{7!}{2!}} = \green{7 \cdot 6 \cdot 5 \cdot 4 \cdot 3}
+	      $$
+	      Por lo tanto el total de funciones inyectivas $g \en A$ que se van a relacionar con $f(n)$:
+	      $$
+		      \cajaResultado{
+			      (\blue{4 + 5}) \cdot \magenta{4} \cdot \green{\frac{7!}{2!}}
+		      }
+	      $$
+\end{enumerate}
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

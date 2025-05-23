@@ -1,0 +1,42 @@
+\begin{enunciado}{\ejExtra}
+	Hallar el menor $n \en \naturales$ tal que $(11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11) = 99$ y
+	que tenga exactamente 12 divisores positivos.
+\end{enunciado}
+
+Lindo enunciado. Bautizo:
+$$
+	d = (11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11)
+$$
+Factorizando ese $d$:
+$$
+	99 = 3^2 \cdot 11
+$$
+Por la forma en que está expresado el número este ejercicio sale entendiendo que:
+\parrafoDestacado{
+	El \textit{máximo común divisor}, $d = (a:b)$, es el producto de los
+	primos comunes, de las factorizaciones de $a$ y $b$, elevados al menor exponente.
+}
+Para que $d$ sea 99 entonces:
+$$
+	n = 3 \cdot k \quad \text{con } k \en \naturales.
+$$
+Ya está con eso tenemos que $d = 99$ siempre que lo que agreguemos en $k$ \underline{no tenga ningún primo en común} con:
+$$
+	2^2 \cdot 3^4 \cdot 5 \cdot 11.
+$$
+Tenemos que agregar el primo más chico que no rompa esa condición para conseguir el menor $n$ posible:
+$$
+	7,\text{ en la quiniela \textit{revólver}.}
+$$
+Entonces:
+$$
+	\cajaResultado{
+		n = 3^{\blue{1}} \cdot 7^{\blue{5}}
+	}
+$$
+Ese número tiene $(\blue{1} + 1) \cdot (\blue{5} + 1) = 12$ divisores.
+\hyperlink{teoria-4:cantidadDivisores}{Acá un poco de teoría sobre esto \click}.
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

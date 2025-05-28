@@ -24,22 +24,25 @@ $$
       \congruencia{2^n}{\magenta{Y}}{4}
       \Sii{\red{!!}}
       \llave{rcl}{
-    \text{si } n = 1    & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{4}                                                         \\
-    \text{si } n \geq 2 & \entonces & \congruencia{2^n \conga4 2^{2m + m'} \igual{\red{!}} 4^m \cdot 2^n \conga4 0}{\magenta{Y}}{4}
-    }                                                                                                                               \\
+    \text{si } n = 1    & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{4}                                                            \\
+    \text{si } n \geq 2 & \entonces & \congruencia{2^n \conga4 2^{2m + m'} \igual{\red{!}} 4^m \cdot 2^{m'} \conga4 0}{\magenta{Y}}{4}
+    }                                                                                                                                  \\
       \congruencia{2^n}{\magenta{Y}}{3}
       \Sii{PTF}[$3\cop 2$]
       \congruencia{2^{r_2(n)}}{\magenta{Y}}{3}
       \Sii{\red{!}}
       \llave{rcl}{
-    \text{si $n$ par}   & \entonces & \congruencia{2^0 = 1}{\magenta{Y}}{3}                                                         \\
-                        & \otext    &                                                                                               \\
-    \text{si $n$ impar} & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{3}                                                         \\
+    \text{si $n$ par}   & \entonces & \congruencia{2^0 = 1}{\magenta{Y}}{3}                                                            \\
+                        & \otext    &                                                                                                  \\
+    \text{si $n$ impar} & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{3}                                                            \\
       }
     }
   \end{array}
 $$
 }
+En donde pongo el exponente $2m + m'$ es una forma de descomponer un número mayor a 2 para mostrar que $4 \divideA 2^{2m + m'}$ siempre.
+Podrías usar una tabla de restos también, \textit{you are free to choose}.
+
 Por lo tanto para el sistema de $\llamada2$ saco 3 sistemas:
 $$
   \text{Si } n = 1
@@ -86,6 +89,9 @@ $$
     r_{13}(2^{\green{2}}) = 4 \quad \text{para $n = 1$}
   }
 $$
+Como ya habrás notado, mucho más barato era ir a $\llamada1$ y poner $n = 1$.
+
+\bigskip
 
 Ahora voy a resolver el sistema $\llamada4$:
 $$
@@ -104,6 +110,8 @@ $$
     r_{13}(2^{\green{4}}) = 3 \quad \text{para $\congruencia{n}{0}{2}$}
   }
 $$
+
+\bigskip
 
 Por último voy a resolver el sistema $\llamada5$:
 $$
@@ -124,6 +132,8 @@ $$
     9 \quad \text{para $\congruencia{n}{1}{2}$}
   }
 $$
+
+\bigskip
 
 Concluyendo que si quiero calcular $r_{13}(2^{2^n})\ \paratodo n \en \naturales$:
 $$

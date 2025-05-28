@@ -1,1 +1,143 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Hallar el resto de la división de $2^{2^n}$ por 13 para cada $n \en \naturales$.
+\end{enunciado}
+
+Enunciado corto y al pie, eso vaticina \textit{infierno}. Bueno, no, estoy exagerando un poco.
+
+$$
+  r_{13}(2^{2^n}) = \violet{X}
+  \Sii{def}
+  \congruencia{2^{2^n}}{\violet{X}}{13}
+  \Sii{$(13:2) = 1$}[PTF]
+  \congruencia{2^{\magenta{r_{12}(2^n)}}}{\violet{X}}{13} \llamada1
+$$
+La papa está en reconocer qué es esa expresión del \magenta{exponente}. \textit{Let's estudiate it}:
+{\small
+$$
+  \begin{array}{c}
+    \magenta{r_{12}(2^n)}
+    \Sii{def}
+    \congruencia{2^n}{\magenta{Y}}{12}
+    \equivalente
+    \llamada2
+    \llave{l}{
+      \congruencia{2^n}{\magenta{Y}}{4}
+      \Sii{\red{!!}}
+      \llave{rcl}{
+    \text{si } n = 1    & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{4}                                                         \\
+    \text{si } n \geq 2 & \entonces & \congruencia{2^n \conga4 2^{2m + m'} \igual{\red{!}} 4^m \cdot 2^n \conga4 0}{\magenta{Y}}{4}
+    }                                                                                                                               \\
+      \congruencia{2^n}{\magenta{Y}}{3}
+      \Sii{PTF}[$3\cop 2$]
+      \congruencia{2^{r_2(n)}}{\magenta{Y}}{3}
+      \Sii{\red{!}}
+      \llave{rcl}{
+    \text{si $n$ par}   & \entonces & \congruencia{2^0 = 1}{\magenta{Y}}{3}                                                         \\
+                        & \otext    &                                                                                               \\
+    \text{si $n$ impar} & \entonces & \congruencia{2^1 = 2}{\magenta{Y}}{3}                                                         \\
+      }
+    }
+  \end{array}
+$$
+}
+Por lo tanto para el sistema de $\llamada2$ saco 3 sistemas:
+$$
+  \text{Si } n = 1
+  \Entonces{$\llamada3$}
+  \llave{l}{
+    \congruencia{\magenta{Y}}{2}{4}\\
+    \congruencia{\magenta{Y}}{2}{3}
+  }
+  ,
+  \quad
+  \text{si } \congruencia{n}{0}{2}
+  \Entonces{$\llamada4$}
+  \llave{l}{
+    \congruencia{\magenta{Y}}{0}{4}\\
+    \congruencia{\magenta{Y}}{1}{3}
+  }
+  \ytext
+  \
+  \text{si } \congruencia{n}{1}{2}
+  \Entonces{$\llamada5$}
+  \llave{l}{
+    \congruencia{\magenta{Y}}{0}{4}\\
+    \congruencia{\magenta{Y}}{2}{3}
+  }
+$$
+Para cada uno de esos casos quiero encontrar $\magenta{Y}$ así puedo después volver al principio del ejercicio
+para calcular lo que piden. Pero en el sistema $\llamada3$ es más fácil ponerlo directamente en el $\llamada1$,
+porque es un solo valor. Igual porque soy un tipazo lo resuelvo de forma mecánica por si no lo ves:
+$$
+  \flecha{$\llamada3$}
+  \magenta{Y} = 4\blue{k} + 2
+  \flecha{meto en}[mod $(3)$]
+  \congruencia{4\blue{k} + 2 \conga3 \blue{k} + 2}{2}{3}
+  \sii
+  \congruencia{\blue{k}}{0}{3}
+  \Sii{def}
+  \blue{k} = 3\yellow{j}
+  \Entonces{\red{!!}}
+  \congruencia{\magenta{Y}}{\green{2}}{12}
+$$
+Reemplazando ese resultado en $\llamada1$:
+$$
+  \cajaResultado{
+    r_{13}(2^{\green{2}}) = 4 \quad \text{para $n = 1$}
+  }
+$$
+
+Ahora voy a resolver el sistema $\llamada4$:
+$$
+  \flecha{$\llamada4$}
+  \magenta{Y} = 4\blue{k}
+  \flecha{meto en}[mod $(3)$]
+  \congruencia{4\blue{k} \conga3 \blue{k}}{1}{3}
+  \Sii{def}
+  \blue{k} = 3\yellow{j} + 1
+  \Entonces{\red{!!}}
+  \congruencia{\magenta{Y}}{\green{4}}{12}
+$$
+Reemplazando ese resultado en $\llamada1$:
+$$
+  \cajaResultado{
+    r_{13}(2^{\green{4}}) = 3 \quad \text{para $\congruencia{n}{0}{2}$}
+  }
+$$
+
+Por último voy a resolver el sistema $\llamada5$:
+$$
+  \flecha{$\llamada5$}
+  \magenta{Y} = 4\blue{k}
+  \flecha{meto en}[mod $(3)$]
+  \congruencia{4\blue{k} \conga3 \blue{k}}{2}{3}
+  \Sii{def}
+  \blue{k} = 3\yellow{j} + 2
+  \Entonces{\red{!!}}
+  \congruencia{\magenta{Y}}{\green{8}}{12}
+$$
+Reemplazando ese resultado en $\llamada1$:
+$$
+  \cajaResultado{
+    r_{13}(2^{\green{8}}) =
+    r_{13}(2^{\green{4}} \cdot 2^{\green{4}}) =
+    9 \quad \text{para $\congruencia{n}{1}{2}$}
+  }
+$$
+
+Concluyendo que si quiero calcular $r_{13}(2^{2^n})\ \paratodo n \en \naturales$:
+$$
+  \cajaResultado{
+    r_{13}(2^{2^n}) =
+    \llave{rcl}{
+      4 & \text{si} & n = 1 \\
+      3 & \text{si} & \congruencia{n}{0}{2} \\
+      9 & \text{si} & \congruencia{n}{1}{2} \ytext n \geq 2 \\
+    }
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/olivportero}{Olivia Portero \github}
+\end{aportes}

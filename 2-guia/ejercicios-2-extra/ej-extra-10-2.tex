@@ -1,0 +1,87 @@
+\begin{enunciado}{\ejExtra}
+  Probar que $\sumatoria{i=1}{n} \frac{3}{n+i} \geq \frac{37}{20}$ para todo $n \geq 3$.
+\end{enunciado}
+
+\textit{Just another problem} de inducción:
+
+Quiero probar que:
+$$
+  p(n) : \sumatoria{i=1}{n} \frac{3}{n+i} \geq \frac{37}{20}  \paratodo n \geq 3.
+$$
+
+\textit{Caso base:}
+$$
+  p(\blue{3}) : \sumatoria{i=1}{\blue{3}} \frac{3}{\frac{3}+i} = \frac{3}{4} +\frac{3}{5} +\frac{3}{6} = \frac{37}{20}  \geq \frac{37}{20}.
+$$
+La proposición $p(\blue{3})$ resultó verdadera.
+
+\textit{Paso inductivo:}
+Voy a asumir que para algún $\blue{k} \en \naturales_{\geq 3}$:
+$$
+  p(\blue{k}) :
+  \ub{\displaystyle
+    \sumatoria{i=1}{\blue{k}} \frac{3}{\blue{k}+i} \geq \frac{37}{20}
+  }{\text{\purple{hipótesis inductiva}}}
+$$
+es verdadera. Entonces quiero probar que:
+$$
+  p(\blue{k+1}) :
+  \sumatoria{i=1}{\blue{k+1}} \frac{3}{\blue{k+1}+i} \geq \frac{37}{20},
+$$
+también lo sea.
+
+Arranco por el $k+1$
+$$
+  \begin{array}{rcl}
+    \sumatoria{i=1}{\blue{k+1}} \frac{3}{\blue{k+1}+i}
+     & = &
+    \frac{3}{\blue{k + 1} + 1} +
+    \frac{3}{\blue{k + 1} + 2} +
+    \cdots +
+    \frac{3}{\blue{k + 1} + k - 2} +
+    \frac{3}{\blue{k + 1} + k - 1} +
+    \frac{3}{\blue{k + 1} + k} +
+    \frac{3}{\blue{k + 1} + k + 1} \\
+     & = &
+    \frac{3}{k + 2} +
+    \frac{3}{k + 3} +
+    \cdots +
+    \frac{3}{2k - 1} +
+    \frac{3}{2k} +
+    \frac{3}{2k + 1} +
+    \frac{3}{2(k+1)}               \\
+  \end{array}
+$$
+Ahora mirá fuerte esa última expresión y encontrá ahí la forma de armar la expresión de la sumatoria
+de la\purple{hípotesis inductiva} sumando y restando algo:
+$$
+  \begin{array}{rcl}
+    \sumatoria{i=1}{\blue{k+1}} \frac{3}{\blue{k+1}+i}
+     & =                        &
+    -\violet{\frac{3}{k+1}}+
+    \ub{
+      \violet{\frac{3}{k+1}}+
+      \frac{3}{k + 2} +
+      \frac{3}{k + 3} +
+      \cdots +
+      \frac{3}{2k - 1} +
+      \frac{3}{2k}
+    }{
+      =\sumatoria{i=1}{\blue{k}} \frac{3}{\blue{k}+i}
+    }+
+    \frac{3}{2k + 1} +
+    \frac{3}{2(k+1)}              \\
+     & \mayorIgual{\purple{HI}} &
+    \frac{39}{20} - \frac{3}{k+1} + \frac{3}{2k+1} + \frac{3}{2(k+1)}
+    \igual{\red{!}}
+    \frac{39}{20} + \ub{\frac{3}{2(k+1)(2k+1)}}{\geq 0 \paratodo k_{\geq3}}
+    \geq \frac{39}{20}
+  \end{array}
+$$
+
+Por lo tanto
+$p(\blue{3}), p(\blue{k}) \ytext p(\blue{k+1})$ resultaron verdaderas entonces por el principio de inducción también lo es $p(n) \paratodo n \en \naturales_{\geq3}$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

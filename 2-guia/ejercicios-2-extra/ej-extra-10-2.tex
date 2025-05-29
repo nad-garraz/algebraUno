@@ -30,7 +30,9 @@ $$
 $$
 también lo sea.
 
-Arranco por el $k+1$
+Arranco por el $k+1$, abro la sumatoria porque el término general tiene la $n$ ahí en el medio. A mí me gusta así,
+no sé eso de cambiar los índices, estás bienvenido a subir tu solución alternativa con el cambio de índices que
+me tiene sin cuidado.
 $$
   \begin{array}{rcl}
     \sumatoria{i=1}{\blue{k+1}} \frac{3}{\blue{k+1}+i}
@@ -52,8 +54,8 @@ $$
     \frac{3}{2(k+1)}               \\
   \end{array}
 $$
-Ahora mirá fuerte esa última expresión y encontrá ahí la forma de armar la expresión de la sumatoria
-de la\purple{hípotesis inductiva} sumando y restando algo:
+Ahora mirá fuerte esa última expresión y encontrá ahí la forma de \textit{armar la expresión de la sumatoria
+  de la \purple{hípotesis inductiva} sumando y restando algo}:
 $$
   \begin{array}{rcl}
     \sumatoria{i=1}{\blue{k+1}} \frac{3}{\blue{k+1}+i}
@@ -67,20 +69,23 @@ $$
       \frac{3}{2k - 1} +
       \frac{3}{2k}
     }{
-      =\sumatoria{i=1}{\blue{k}} \frac{3}{\blue{k}+i}
+      \text{\purple{¡\grimaceR!}}
     }+
     \frac{3}{2k + 1} +
-    \frac{3}{2(k+1)}              \\
+    \frac{3}{2(k+1)}                                                                                  \\
+     & \igual{\red{!}}          &
+    \sumatoria{i=1}{\blue{k}} \frac{3}{\blue{k}+i}- \frac{3}{k+1} + \frac{3}{2k+1} + \frac{3}{2(k+1)} \\
      & \mayorIgual{\purple{HI}} &
     \frac{39}{20} - \frac{3}{k+1} + \frac{3}{2k+1} + \frac{3}{2(k+1)}
     \igual{\red{!}}
-    \frac{39}{20} + \ub{\frac{3}{2(k+1)(2k+1)}}{\geq 0 \paratodo k_{\geq3}}
+    \frac{39}{20} + \ub{\frac{3}{2(k+1)(2k+1)}}{\geq 0 \paratodo k \en \naturales}
     \geq \frac{39}{20}
   \end{array}
 $$
 
 Por lo tanto
-$p(\blue{3}), p(\blue{k}) \ytext p(\blue{k+1})$ resultaron verdaderas entonces por el principio de inducción también lo es $p(n) \paratodo n \en \naturales_{\geq3}$
+$p(\blue{3}), p(\blue{k}) \ytext p(\blue{k+1})$ resultaron verdaderas entonces por el principio de inducción también
+lo es $p(n) \paratodo n \en \naturales_{\geq3}$
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

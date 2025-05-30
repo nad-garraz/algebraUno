@@ -19,7 +19,7 @@
           \congruencia{43 \cdot 7^{135} + 24^{78} + 11^{222}}{X}{70}
           \equivalente
           \llave{l}{
-            \congruencia{1}{X}{2}\\
+            \congruencia{1+1 = 2}{X}{2} \sii \congruencia{0}{X}{2}\\
             \congruencia{3 \cdot 2^{135} + (-1)^{78} + 1^{222}}{X}{5}
             \Sii{PTF}
             \congruencia{3 \cdot 2^3 + 2 \conga5 1}{X}{5}
@@ -32,29 +32,40 @@
         Hay que resolver entonces el sistema:
         $$
           \llave{l}{
-            \congruencia{X}{1}{2} \llamada1\\
+            \congruencia{X}{0}{2} \llamada1\\
             \congruencia{X}{1}{5} \llamada2\\
             \congruencia{X}{2}{7} \llamada3
           }
         $$
-        De $\llamada1$ y $\llamada2$ sale:
+        De $\llamada1$:
         $$
-          \congruencia{X}{1}{10}
-          \Sii{def}
-          X = 10\blue{k} + 1
-          \flecha{meto}[en $\llamada3$]
-          \congruencia{10\blue{k} + 1}{2}{7}
-          \Sii{$\times 5$}[$5 \cop 7$]
-          \congruencia{\blue{k}}{5}{7}
-          \entonces
-          X = 10(7 \green{h} + 5) + 1 = 70\green{h} + 51
+          \begin{array}{rcl}
+            \congruencia{X}{0}{2}
+            \Sii{def}
+            X = 2\magenta{k}
+             & \flecha{meto}[en $\llamada2$] &
+            \congruencia{2\magenta{k}}{1}{5}
+            \Sii{$\times 3$}[$3 \cop 5$]
+            \congruencia{\magenta{k}}{3}{5}
+            \Sii{def}
+            \magenta{k} = 5 \green{h} + 3
+            \entonces
+            X = 10\green{h} + 6                \\
+             & \flecha{meto}[en $\llamada3$] &
+            \congruencia{X = 10\green{h} + 6 \conga7  3\green{h} + 6}{2}{7}
+            \Sii{$\times 2$}[$2 \cop 7$]
+            \congruencia{\green{h}}{1}{7}
+            \Sii{def}
+            70\yellow{j} + 16
+          \end{array}
         $$
         Por lo tanto el resto pedido:
         $$
           \cajaResultado{
-            r_{70}(43 \cdot 7^{135} + 24^{78} + 11^{222}) = 51
+            r_{70}(43 \cdot 7^{135} + 24^{78} + 11^{222}) = 16
           }
         $$
+
   \item Calcular el resto pedido equivale a resolver la ecuación de equivalencia:
         $$
           \congruencia{X}{\sumLocal i^{42}}{56}
@@ -168,4 +179,5 @@
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/a18delsol}{Juan Iglesias \github}
 \end{aportes}

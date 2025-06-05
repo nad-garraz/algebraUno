@@ -6,93 +6,115 @@
   Probar que $-2$ es raíz doble de $f_n$ para todo $n \en \naturales$.
 \end{enunciado}
 
-No caer en la \red{\textit{trampilla}$^{\skull}$} de olvidar que para que una raíz de $f$ sea doble, i.e.  $\mult(-2;f) \red{\igual{!}} 2$
-debe ocurrir lo \textit{"obvio"}, $f(-2) = f'(-2) = 0$ y también que $\red{f^{''}(-2) \distinto 0}$. Si olvidamos esto último
-solo probaríamos que la $\mult(-1;f) \geq 2$ y tendríamos el ejercicio mal \red{$\skull$}.\par
+No caer en la \red{\textit{trampilla}$^{\text{\faIcon{skull}}}$} de olvidar que para que una raíz de
+$f$ sea doble, i.e.  $\mult(-2;f) \red{\igual{!}} 2$ debe ocurrir lo \textit{"obvio"},
+$f(-2) = f'(-2) = 0$ y también que $\red{f^{''}(-2) \distinto 0}$.
+Si olvidamos esto último solo probaríamos que la $\mult(-1;f) \geq 2$ y tendríamos el ejercicio mal \red{\faIcon{skull}}.
 
-\textit{Por inducción en $n$: } $q(n): $ "$-2$ es raíz doble de $f_n,\, \paratodo n \en \naturales$"
+\textit{Por inducción en $n$: }
+$$
+  p(n):  \text{$-2$ es raíz doble de } f_n,\, \paratodo n \en \naturales
+$$
 
-\textit{\underline{Caso base:}} ¿$q(1)$ es V?\par
-$
+\textit{Caso base:}
+$$
+  p(\blue{1}) :  \text{$-2$ es raíz doble de } f_{\blue{1}}
+$$
+Derivar y evaluar:
+$$
   \llave{lcl}{
-    f_1 = X^5 + 3X^4 + 5X^3 + 11X^2 - 20 &
+    f_{\blue{1}} = X^5 + 3X^4 + 5X^3 + 11X^2 - 20 &
     \flecha{evaluar}[en $-2$]            &
-    f_1(-2) = 0                            \\
+    f_{\blue{1}}(-2) = 0                            \\
 
-    f'_1 = 5X^4 + 12X^3 + 15X^2 + 22X    &
-    \flecha{evaluar}[en $-2$]            &
-    f'_1(-2) = 0                           \\
+    f'_{\blue{1}} = 5X^4 + 12X^3 + 15X^2 + 22X    &
+  \flecha{evaluar}[en $-2$]            &
+  f'_{\blue{1}}(-2) = 0                           \\
 
-    f^{''}_1 = 20X^3 + 36X^2 + 30X + 22  &
-    \flecha{evaluar}[en $-2$]            &
-    f^{''}_1(-2) = -54 \distinto 0
+  f^{''}_{\blue{1}} = 20X^3 + 36X^2 + 30X + 22  &
+  \flecha{evaluar}[en $-2$]            &
+  f^{''}_{\blue{1}}(-2) = -54 \distinto 0
   }
-$
+  $$
 
-$\therefore \mult(-2; f_1) = 2 \entonces -2$ es raíz doble de $f_1 \entonces q(1)$ es V \Tilde\par
+    Por lo tanto $\mult(-2; f_1) = 2 \entonces -2$ es raíz doble de $f_{\blue{1}} \entonces p(\blue{1})$ resultó ser verdadera.
 
-\underline{\textit{Paso inductivo:}} ¿Si $q(k) \text{ verdadera } \entonces q(k+1) \text{ también lo es}$, $\paratodo k \en \naturales$?
+    \medskip
 
-\textit{HI:} $-2$ es raíz doble de
-$f_k
-  \sii
+    \textit{Paso inductivo:}
+
+    Asumo que para algún $\blue{k} \en \naturales$
+  $$
+  p(\blue{k}) :  \ub{
+    \text{$-2$ es raíz doble de } f_{\blue{k}}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+  $$
+    es verdadera. Entonces quiero probar que:
+  $$
+  p(\blue{k+1}) : \text{$-2$ es raíz doble de } f_{\blue{k+1}}
+  $$
+    también lo sea.
+
+    Sé que:
+  $$f_{\blue{k}}
+  \Sii{cumple}[que]
   \llave{l}{
-    f_k(-2) = 0 \llamada1  \\
-    f'_k(-2) = 0 \llamada2 \\
-    f''_k(-2) \distinto 0 \llamada3
+    f_{\blue{k}}(-2) = 0 \llamada1  \\
+    f'_{\blue{k}}(-2) = 0 \llamada2 \\
+  f''_{\blue{k}}(-2) \distinto 0 \llamada3
   }
-$
+  $$
 
-QPQ dado $k \en \naturales,\, q(k+1):$ $-2$ es raíz doble de $f_{k+1} \igual{def} (X + 2)^2 f'_k + 3f_k$:\par
-
-\textit{Derivar:}\par
-$$
+    Laburo con $f_{\blue{k+1}}$:
+  $$
   \llave{l}{
-    f_{k+1} \igual{def} (X + 2)^2 f'_k + 3 \cdot f_k \\
-    f'_{k+1}  = 2(X+2)f'_k + (X+2)^2 f^{''}_k + 3\cdot f'_k\\
-  f^{''}_{k+1} =
-  2f'_k + (2X+4)f^{''}_k + 2(X+2) f^{''}_k + (X+2)^2 f^{'''}_k + 3 \cdot f^{''}_k
+    f_{\blue{k+1}} \igual{def} (X + 2)^2 f'_{\blue{k}} + 3 \cdot f_{\blue{k}} \\
+  f'_{\blue{k+1}}  = 2(X+2)f'_{\blue{k}} + (X+2)^2 f^{''}_{\blue{k}} + 3\cdot f'_{\blue{k}}\\
+  f^{''}_{\blue{k+1}} =
+  2f'_{\blue{k}} + (2X+4)f^{''}_{\blue{k}} + 2(X+2) f^{''}_{\blue{k}} + (X+2)^2 f^{'''}_{\blue{k}} + 3 \cdot f^{''}_{\blue{k}}
   }
-$$
+  $$
 
-\medskip
+    \medskip
 
-\textit{Evaluar en $-2$:}\par
-$
+    \textit{Evaluar en $-2$:}
+  $$
   \begin{array}{lll}
-    f_{k+1}(-2) \igual{?} 0
+    f_{\blue{k+1}}(-2) \igual{?} 0
      & \sii &
-    f_{k+1}(-2) = \cancel{(-2 + 2)}^2 f'_k(-2) + 3f_k(-2) =
-    0^2 f'_k(-2) + 3 f_k(-2)=
-    3 f_k(-2) \igual{$\llamada1$}
-    0 \Tilde \vspace{10pt}                             \\
-    f'_{k+1}(-2) \igual{?} 0
+    f_{\blue{k+1}}(-2) = \cancel{(-2 + 2)}^2 f'_{\blue{k}}(-2) + 3f_{\blue{k}}(-2) =
+    0^2 f'_{\blue{k}}(-2) + 3 f_{\blue{k}}(-2)=
+    3 f_{\blue{k}}(-2) \igual{$\llamada1$}
+    0 \Tilde \vspace{10pt}                                      \\
+    f'_{\blue{k+1}}(-2) \igual{?} 0
      & \sii &
-    f_{k+1}'(-2) =
-    2\cancel{(-2 + 2)}f'_k(-2) + \cancel{(-2 + 2)}^2 f^{''} + f'_k(-2) =
-    f'_k(-2) \igual{$\llamada2$} 0 \Tilde\vspace{10pt} \\
-    f^{''}_{k+1}(-2) \taa{?}{}\distinto 0
+    f_{\blue{k+1}}'(-2) =
+    2\cancel{(-2 + 2)}f'_{\blue{k}}(-2) + \cancel{(-2 + 2)}^2 f^{''} + f'_{\blue{k}}(-2) =
+    f'_{\blue{k}}(-2) \igual{$\llamada2$} 0 \Tilde\vspace{10pt} \\
+    f^{''}_{\blue{k+1}}(-2) \taa{?}{}\distinto 0
      & \sii &
     \llave{l}{
-      {f^{''}_{k+1}(-2) = 2f'_k(-2) +
-      2\cancel{(-2+2)}f^{''}_k(-2) +
-    2\cancel{(-2+2)} f^{''}_k(-2) } +                  \\
-    + \cancel{(-2+2)}^2 f^{'''}_k(-2) +
-    f^{''}_k(-2) = 2\ob{f'_k(-2)}{= 0 \llamada2} + \ob{f^{''}_k(-2)}{\distinto 0 \llamada3}
+      {f^{''}_{\blue{k+1}}(-2) = 2f'_{\blue{k}}(-2) +
+    2\cancel{(-2+2)}f^{''}_{\blue{k}}(-2) +
+    2\cancel{(-2+2)} f^{''}_{\blue{k}}(-2) } +                  \\
+    + \cancel{(-2+2)}^2 f^{'''}_{\blue{k}}(-2) +
+    f^{''}_{\blue{k}}(-2) = 2\ob{f'_{\blue{k}}(-2)}{= 0 \llamada2} + \ob{f^{''}_{\blue{k}}(-2)}{\distinto 0 \llamada3}
     \distinto 0 \Tilde
     }
   \end{array}
-$
+$$
 
-$\therefore \mult(-2; f_{k+1}) = 2 \entonces -2$ es raíz doble de $f_{k+1} \entonces q(k+1)$ es V \Tilde
+Por lo tanto $\mult(-2; f_{\blue{k+1}}) = 2 \entonces -2$ es raíz doble de $f_{\blue{k+1}} \entonces p(\blue{k+1})$ es verdadera también.
 
-Como $q(1),\, q(k)$ y $q(k+1)$ resultaron verdaderas, por principio de inducción $q(n)$ también lo es $\paratodo n \en \naturales$.
+\bigskip
+
+Como $p(\blue{1}),\, p(\blue{k})$ y $q(\blue{k+1})$ resultaron verdaderas, por principio de inducción $p(n)$ también lo es $\paratodo n \en \naturales$.
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
-  \item \aporte{\neverGonnaGiveYouUp}{No me acuerdo el autor original \youtube}
+  \item \aporte{\neverGonnaGiveYouUp}{autor original anónimo \youtube}
 \end{aportes}

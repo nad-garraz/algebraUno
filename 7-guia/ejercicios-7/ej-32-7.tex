@@ -3,4 +3,91 @@
   Probar que $\sumatoria{k=0}{n}X^k \en \complejos[X]$ tiene todas sus raíces complejas simples.
 \end{enunciado}
 
-\hacer
+Sale por inducción:
+$$
+  p(n):  \sumatoria{k=0}{n}X^k \en \complejos[X] \text{ tiene todas sus raíces complejas simples } \paratodo n \en \naturales.
+$$
+
+\textit{Caso base:}
+$$
+  p(\blue{1}):  \sumatoria{k=0}{\blue{1}}X^k = 1 + X^{\blue{1}} \text{ tiene todas sus raíces complejas simples. }
+$$
+En este caso $f(X) = 1 + X$:
+$$
+  f(-1) = 0
+  \ytext
+  f'(-1) = 1 \distinto 0
+$$
+Por lo tanto $p(\blue{1})$ es verdadera.
+
+\textit{Paso inductivo:}
+Asumo que para algún $\blue{k} \en \naturales$ la proposición:
+$$
+  p(\blue{h}):
+  \ub{
+    \sumatoria{k=0}{\blue{h}}X^k = 1 + X + X^2 + \cdots + X^{\blue{h}} \text{ tiene todas sus raíces complejas simples. }
+  } {
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero ver que:
+$$
+  p(\blue{h+1}):  \sumatoria{k=0}{\blue{h+1}}X^k = 1 + X + X^2 + \cdots + X^h + X^{\blue{h+1}} \text{ tiene todas sus raíces complejas simples. }
+$$
+también lo sea.
+
+Primero veo que la \purple{hipótesis inductiva} es algo así:
+$$
+  f_{\blue{h}}(\alpha_{\blue{h}})
+  \igual{$\oa{\ }{\alpha_{\blue{h}} \distinto 0}$}[\red{!!}] 0
+  \ytext
+  f'_{\blue{h}}(X) =
+  \sumatoria{k=\red{1}}{\blue{h}} kX^{k-1} = 1 + 2X + 3X^2 + \cdots + \blue{h}X^{\blue{h}-1}
+  \text{ donde }
+  f'_{\blue{h}}(\alpha_{\blue{h}}) \distinto 0
+  \paratodo \alpha_{\blue{h}} \text{ raíz de } f.
+$$
+
+Ahora laburo el polinomio $(\blue{h+1})-$ésimo, con $\alpha$  raíz del mismo:
+
+$$
+  \llave{l}{
+    f_{\blue{h+1}}(\alpha_{\blue{h+1}})
+    \igual{$\oa{\ }{\alpha_{\blue{h+1}} \distinto 0}$}[\red{!!}] 0\\
+    f'_{\blue{h+1}}(X) =
+  \sumatoria{k=\magenta{1}}{\blue{h+1}}kX^{k-1} =
+  \ub{
+  1 + 2X + \cdots + \blue{h}X^{\blue{h-1}}
+  }
+  {
+  f'_{\blue{h}}(X)
+  }
+  + (\blue{h+1})X^{\blue{h}}
+  =
+  f'_{\blue{h}}(X) + (\blue{h+1})X^{\blue{h}}
+  \\
+  \flecha{evalúo}[en $\alpha_{_{\blue{h+1}}}$]
+  f'_{\blue{h+1}}(\alpha_{_{\blue{h+1}}})
+  \igual{\purple{HI}}
+  \ub{
+  f'_{\blue{h}}(\alpha_{_{\blue{h+1}}})
+  }{
+  \distinto 0
+  }
+  + (\blue{h+1})
+  \ub{
+    \alpha_{_{\blue{h+1}}}^{\blue{h}}
+  }{
+    \distinto 0
+  }
+  \distinto 0
+  \\
+  }
+$$
+Por lo tanto $p(k+1)$ resultó verdadera.
+
+Como $p(1), p{h}\ytext p(h+1)$ resultaron verdaderas por principio de inducción en $n$ también lo es $p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

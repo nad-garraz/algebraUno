@@ -5,20 +5,28 @@
   \end{enumerate}
 \end{enunciado}
 
+\parrafoDestacado{
+  En este tipo de ejercicios es común hacer la sumas esas usando la serie geométrica $\sum q^n$, acordate
+  que tenés que separar el caso cuando el $q = 1$.
+}
 \begin{enumerate}[label=\alph*)]
-  \item Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$.
+  \item\label{ej12-6:item-a} Sea $w \en G_{36}$, $w^4 \distinto 1.$ Calcular $\sumatoria{k=7}{60}w^{4k}$.
 
-        Sé que si $w \en G_{36}$ ocurren:
+        Sé que si $w \en G_{36}$ tiene la pinta:
+        $$
+          w = e^{i \frac{2\pi}{36}k} \text{ para algún } k \en \enteros
+        $$
+        por lo tanto es fácil ver que es un número muy loquito que tiene las siguientes propiedades:
         $$
           \llave{l}{
             w^{36} = 1 \llamada1\\
             \sumatoria{k = 0}{35} w^k = 0
           }
         $$
-
-        Como $w^4 \distinto 1 \entonces w \distinto \pm1$. Si no tendría que considerar casos particulares para la suma.
-
-        Acomodo un poco la sumatoria, agregando los valores que faltan entre 0 y 7:
+        Por enunciado me dicen que $w^4 \distinto 1 \entonces w \distinto \pm 1$. Esto está bueno, porque ahora puedo usar la
+        fórmula geométrica sin pensar que estoy metiendo un 0 en el denominador. Si no tendría que considerar casos particulares para la suma.
+        Acomodo un poco la sumatoria, para que aparezcan todos los términos para armar la serie geométrica como la formulita. Le
+        agrego los términos que faltan entre 0 y 7:
         $$
           \begin{array}{c}
             \sumatoria{k = 7}{60}w^{4k} =
@@ -48,26 +56,59 @@
             11 \text{ es impar} \entonces -1 \not \en G_{11}
           }$\par
         Como $w \distinto 1$ no calculo caso particular para la suma.
-        Me piden la parte real $\flecha{uso} \re(z) = \frac{z + \conj z}{2}$.\par
+        Me piden la parte real voy a usar:
+        $$
+          \re(z) \igual{$\llamada1$} \frac{z + \conj z}{2}
+        $$
+        Probé hacer la suma geométrica como en el ítem \ref{ej12-6:item-a} anterior, pero no llegué a nada. Voy a hacer eso que me encanta de
+        abrir la sumatoria y usar que $61 = 5 \cdot 11 +6$, porque hay 61 términos en total.
 
-        Probé hacer la suma de Gauss como en el anterior, pero no llegué a nada, abro sumatoria y uso que $61 = 5 \cdot 11 +6$, porque hay 61 sumandos.\par
-
-        $\sumatoria{k=0}{60}w^k =
-          w^0 + \dots + w^{60} =
-          5 \cdot \ub{\ob{(w^0 + w^1 + \dots + w^9 + w^{10})}{=0}}{\text{\tiny agrupé usando: }w \en G^{11} \entonces w^k = w^{r_{11}(k)}} +
-          w^{55} + w^{56} + w^{57} + w^{58} + w^{59} + w^{60}=\\
-          = w^0 + w^1 + w^2 + w^3 + w^4 + w^5 \llamada{1}
-        $\par
-
-        También voy a usar que si $w \en G_{11}
-          \entonces \conj{w}^k = w^{r_{11}(-k)}$\par
-        $\re\parentesis{\sumatoria{k=0}{60}w^k} = \frac{\sumatoria{k=0}{60}w^k + \sumatoria{k=0}{60} \conj w^k}{2}
-          \igual{$\llamada1$}
-          \frac{w^0 + w^1 + w^2 + w^3 + w^4 + w^5 + \conj w^0 + \conj w^1 + \conj w^2 + \conj w^3 + \conj w^4 + \conj w^5}{2} =\\
-          = \frac{w^0}{2} + \frac{\ob{w^1 + w^2 + w^3 + w^4 + w^5 + w^0 + w^{10} + w^9 + w^8 + w^7 + w^6}
-            {\sumatoria{k=0}{10} w^k}}{2} =
-          \frac{\ob{\scriptstyle w^0}{1}}{2} + \frac{\ob{\scriptstyle\sumatoria{k=0}{10} w^k}{= 0}}{2} = \frac{1}{2}
-        $
+        $$
+          \sumatoria{k=0}{60}w^k =
+          w^0 + \dots + w^{60}
+          \ua{
+            \igual{\red{!!!}}
+          }{
+            \ \\ \text{\tiny agrupé usando: } \\w \en G^{11} \entonces w^k = w^{r_{11}(k)}
+          }
+          \blue{5} \cdot \ob{(w^0 + w^1 + \dots + w^9 + w^{10})}{=0} +
+          w^{55} + w^{56} + w^{57} + w^{58} + w^{59} + w^{60} = \llamada2
+        $$
+        Si bien no sé cuál es número $w$, sé que una sumatoria de 11 términos de potencias consecutivas de $w^n$ da 0, porque $w \en G_{11}$.
+        $$
+          \llamada2 =
+          w^0 + w^1 + w^2 + w^3 + w^4 + w^5
+          \sii
+          \sumatoria{k=0}{60}w^k \igual{$\llamada3$}
+          w^0 + w^1 + w^2 + w^3 + w^4 + w^5
+        $$
+        La expresión que quedo es más manejable. Recuerdo que estoy buscando la parte real de esa \textit{gaver}:
+        $$
+          \re\parentesis{\sumatoria{k=0}{60}w^k}
+          \igual{$\llamada1$}[$\llamada3$]
+          \frac{w^0 + w^1 + w^2 + w^3 + w^4 + w^5 + \conj w^0 + \conj w^1 + \conj w^2 + \conj w^3 + \conj w^4 + \conj w^5}{2}
+          \igual{$\llamada4$}
+        $$
+        Nuevamente esta es una propiedad muy útil de los números $G_{n}$:
+        $$
+          w \en G_{11} \entonces \conj{w}^k \igual{$\llamada5$} w^{r_{11}(-k)}
+        $$
+        $$
+          \igual{$\llamada4$}[$\llamada5$]
+          \frac{w^0 +
+            \ob{
+              w^1 + w^2 + w^3 + w^4 + w^5 + w^0 + w^{10} + w^9 + w^8 + w^7 + w^6
+            }{
+              \sumatoria{k = 0}{10} w^k}
+          }{2} =
+          \frac{w^0 + \ob{\scriptstyle\sumatoria{k=0}{10} w^k}{\igual{\red{!}} 0}}{2} = \frac{w^0}{2} = \frac{1}{2}
+        $$
+        Finalmente:
+        $$
+          \cajaResultado{
+            \re\parentesis{\sumatoria{k=0}{60}w^k} = \frac{1}{2}
+          }
+        $$
 \end{enumerate}
 
 \begin{aportes}

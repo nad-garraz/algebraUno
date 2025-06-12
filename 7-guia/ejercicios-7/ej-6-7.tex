@@ -1,116 +1,178 @@
 \begin{enunciado}{\ejercicio}
 
-\textit{\underline {Definición}:} Sea $K$ un cuerpo y sea $h \en \K[X]$ un polinomio no nulo. Dados $f,g \en \K[X]$,
-se dice que $f$ es congruente a $g$ módulo $h$ si $h \divideA f-g$. En tal caso se escribe $\congruencia{f}{g}{h}$.
+  \textit{\underline {Definición}:} Sea $K$ un cuerpo y sea $h \en K[X]$ un polinomio no nulo. Dados $f,g \en K[X]$,
+  se dice que $f$ es congruente a $g$ módulo $h$ si $h \divideA f-g$. En tal caso se escribe $\congruencia{f}{g}{h}$.
 
-\begin{enumerate}[label=\roman*)]
-	\item Probar que $\congruencia{}{}{h}$ es una relación de equivalencia en $\K[X]$.
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que $\congruencia{}{}{h}$ es una relación de equivalencia en $K[X]$.
 
-	\item Probar que si
-	      $\congruencia{f_1}{g_1}{h}$ y
-	      $\congruencia{f_2}{g_2}{h}$
-	      entonces
-	      $\congruencia{f_1 + f_2}{g_1 + g_2}{h}$
-	      $\congruencia{f_1 \cdot f_2}{ g_1 \cdot g_2}{h}$.
+    \item Probar que si
+          $\congruencia{f_1}{g_1}{h}$ y
+          $\congruencia{f_2}{g_2}{h}$
+          entonces
+          $\congruencia{f_1 + f_2}{g_1 + g_2}{h}$
+          $\congruencia{f_1 \cdot f_2}{ g_1 \cdot g_2}{h}$.
 
-	\item Probar que si $\congruencia{f}{g}{h}$ entonces $\congruencia{f^n}{g^n}{h}$ para todo $n \en \naturales$.
+    \item Probar que si $\congruencia{f}{g}{h}$ entonces $\congruencia{f^n}{g^n}{h}$ para todo $n \en \naturales$.
 
-	\item Probar que $r$ es el resto de la división de $f$ por $h$ si y solo si $\congruencia{f}{r}{h}$ y $r=0$ o $\gr(r) < \gr(h)$.
-\end{enumerate}
+    \item Probar que $r$ es el resto de la división de $f$ por $h$ si y solo si $\congruencia{f}{r}{h}$ y $r=0$ o $\gr(r) < \gr(h)$.
+  \end{enumerate}
 
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item uff... \quad
-	      Para probar que esto es una relación de equivalencia pruebo que sea
-	      \textit{reflexiva},
-	      \textit{simétrica} y
-	      \textit{transitiva},
+  \item uff... \quad
+        Para probar que esto es una relación de equivalencia pruebo que sea
+        \textit{reflexiva},
+        \textit{simétrica} y
+        \textit{transitiva},
 
-	      \begin{itemize}
-		      \item \textit{reflexiva}: Es $f$ congruente a $f$ módulo h?\\
-		            $\congruencia{f}{f}{h}
-			            \sisolosi
-			            h \divideA f-f = 0
-			            \sisolosi
-			            h \divideA 0$ \Tilde
+        \begin{itemize}
+          \item \textit{reflexiva}: ¿Es $f$ congruente a $f$ módulo h?
+                $$\congruencia{f}{f}{h}
+                  \sisolosi
+                  h \divideA f-f = 0
+                  \sisolosi
+                  h \divideA 0
+                $$
+                La relación es \textit{reflexiva}, porque todo polinomio divide al 0.
 
-		      \item \textit{simétrica}: Si $\congruencia{f}{g}{h}  \stackrel{?}\sisolosi \congruencia{g}{f}{h}$ \\
-		            $\congruencia{f}{g}{h}
-			            \sisolosi
-			            h \divideA f-g
-			            \sisolosi
-			            h \divideA -(g-f)
-			            \sisolosi
-			            h \divideA g-f
-			            \sisolosi
-			            \congruencia{g}{f}{h}$ \Tilde
+          \item \textit{simétrica}:
+                Si $\congruencia{f}{g}{h}  \Sii{?} \congruencia{g}{f}{h}$
+                $$
+                  \congruencia{f}{g}{h}
+                  \sisolosi
+                  h \divideA f-g
+                  \sisolosi
+                  h \divideA -(g-f)
+                  \sisolosi
+                  h \divideA g-f
+                  \sisolosi
+                  \congruencia{g}{f}{h}
+                $$
+                La relación es \textit{simétrica}.
 
-		      \item \textit{transitiva}: Si
-		            $\llave{l}{
-				            \congruencia{f}{g}{h}\\
-				            \congruencia{g}{p}{h}
-			            }
-			            \stackrel{?}\sisolosi
-			            \congruencia{f}{p}{h}.\\
-		            $
+          \item \textit{transitiva}: Si
+                $$\llave{l}{
+                    \congruencia{f}{g}{h}\\
+                    \congruencia{g}{p}{h}
+                  }
+                  \Sii{?}
+                  \congruencia{f}{p}{h}.
+                $$
+                $$
+                  \llave{l}{
+                    h \divideA f - g\\
+                    h \divideA g - p
+                  }
+                  \flecha{$F_1 + F_2$}[$\to F_2$]
+                  \llave{l}{
+                    h \divideA f - g\\
+                    h \divideA f - p }
+                  \to \congruencia{f}{p}{h}
+                $$
+                También resultó ser \textit{transitiva}.
+        \end{itemize}
+        Cumple condiciones para ser una relación de equivalencias en $K[X]$
 
-		            $\llave{l}{
-				            h \divideA f - g\\
-				            h \divideA g - p
-			            }
-			            \flecha{$F_1 + F_2$}[$\to F_2$]
-			            \llave{l}{
-				            h \divideA f - g\\
-				            h \divideA f - p }
-			            \to \congruencia{f}{p}{h} $ \Tilde
-	      \end{itemize}
-	      Cumple condiciones para ser una relación de equivalencias en $\K[X]$
+  \item Si
+        $$
+          \llave{l}{
+            \congruencia{f_1}{g_1}{h}\\
+            \congruencia{f_2}{g_2}{h} \llamada1
+          },
+        $$
+        entonces
+        $$\congruencia{f_1}{g_1}{h}
+          \sisolosi
+          h \divideA f_1 - g_1
+          \Entonces{\red{!}}
+          h \divideA f_2\cdot (f_1 - g_1)
+          \sisolosi
+          \congruencia{f_1\cdot f_2}{g_1\cdot f_2}{h}
+          \Sii{$\llamada1$}
+          \congruencia{f_1\cdot f_2}{g_1\cdot g_2}{h}.
+        $$
+        Y así queda demostrado.
 
-	\item Si
-	      $\llave{l}{
-			      \congruencia{f_1}{g_1}{h}\\
-			      \congruencia{f_2}{g_2}{h} \llamada1
-		      }$\\
+  \item \textit{Inducción: }
+        Quiero probar que:
+        $$
+          p(n): \text{ Si }
+          \congruencia{f}{g}{h} \entonces \congruencia{f^n}{g^n}{h} \paratodo n \en \naturales.
+        $$
 
-	      $\congruencia{f_1}{g_1}{h}
-		      \sisolosi
-		      h \divideA f_1 - g_1
-		      \entonces
-		      h \divideA f_2\cdot (f_1 - g_1)
-		      \sisolosi
-		      \congruencia{f_1\cdot f_2}{g_1\cdot f_2}{h}
-		      \stackrel{\llamada1}\sisolosi
-		      \congruencia{f_1\cdot f_2}{g_1\cdot g_2}{h}
-	      $
+        \textit{Caso base: }
+        $$
+          p(1):
+          \congruencia{f^1}{g^1}{h} \quad \llamada2
+        $$
+        Por lo tanto $p(1)$ resultó verdadera.
 
-	\item \textit{Inducción: } Quiero probar $p(n):$ Si $\congruencia{f}{g}{h}$ entonces $\congruencia{f^n}{g^n}{h}$ para todo $n \en \naturales$.\\
-	      $\textit{Caso base: } p(1): \congruencia{f^1}{g^1}{h}\llamada2 \text{ Verdadera}$\Tilde\\
+        \medskip
 
-	      $\textit{Paso inductivo: } p(k):
-		      \ub{\congruencia{f^k}{g^k}{h}}{HI} \text{ es verdadera}
-		      \stackrel{?}\entonces
-		      p(k+1): \congruencia{f^{k+1}}{g^{k+1}}{h} \text{ ¿También lo es?}
-	      $\\
+        \textit{Paso inductivo: }
 
-	      $\congruencia{f^k}{g^k}{h}
-		      \sisolosi
-		      h \divideA f^k - g^k
-		      \entonces
-		      h \divideA f \cdot (f^k - g^k)
-		      \sisolosi
-		      \congruencia{f^{k+1}}{f\cdot g^k}{h}
-		      \stackrel{\llamada2}\sisolosi
-		      \congruencia{f^{k+1}}{g^{k+1}}{h}
-	      $\Tilde\\
+        Asumo que para algún $k \en \naturales$:
+        $$
+          p(k):
+          \ub{
+            \congruencia{f^k}{g^k}{h}
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es verdadera, entonces quiero probar que para $k+1$:
+        $$
+          p(k+1):
+          \congruencia{f^{k+1}}{g^{k+1}}{h}
+        $$
+        también lo sea.
+        $$
+          \congruencia{f^k}{g^k}{h}
+          \sisolosi
+          h \divideA f^k - g^k
+          \entonces
+          h \divideA f \cdot (f^k - g^k)
+          \sisolosi
+          \congruencia{f^{k+1}}{f\cdot g^k}{h}
+          \Sii{$\llamada2$}
+          \congruencia{f^{k+1}}{g^{k+1}}{h}
+        $$
+        De esta manera $p(k+1)$ también es verdadera.
 
-	      Finalmente $p(1), p(k), p(k+1)$ resultaron verdaderas y por el principio de inducción
-	      $p(n)$ es verdadera $\paratodo n \en \naturales$
+        Finalmente $p(1), p(k) \ytext p(k+1)$
+        resultaron verdaderas y por el principio de inducción
+        $p(n)$ es verdadera $\paratodo n \en \naturales$
 
-	\item \hacer
+  \item Quiero probar que:
+        $$
+          f = d \cdot h + r
+          \sii
+          \congruencia{f}{r}{h}
+          \land
+          ( r = 0 \lor \gr(r) < \gr(h))
+        $$
+        \begin{itemize}
+          \item[($\red{\Rightarrow}$)]
+                $$
+                  f = d \cdot h + \magenta{r}
+                  \Sii{def}
+                  \congruencia{f}{\magenta{r}}{h}
+                $$
+                Por hipótesis $r$ es el resto de la división, por condición de resto se va a tener que cumplir
+                que:
+                $$
+                  \magenta{r} = 0
+                  \otext
+                  \gr(\magenta{r}) < \gr(h)
+                $$
 
+          \item[($\red{\Leftarrow}$)]
+                \hacer
+        \end{itemize}
 \end{enumerate}
 
 \begin{aportes}
-\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

@@ -1,103 +1,124 @@
 \ejercicio
 Determinar todos los $a \en \complejos$ tales que\\
 \begin{enumerate}[label=\roman*)]
-    \item $X^3 + 2X^2 + 2X + 1$ sea divisible por $X^2 + aX + 1$,
-    \item $X^4 - aX^3 + 2X^2 + X + 1$ sea divisible por $X^2 + X + 1$,
-    \item El resto de la división de $X^5 - 3x^3 - x^2 - 2X + 1$ por $X^2 + aX + 1$ sea $-8X + 4$.
+  \item $X^3 + 2X^2 + 2X + 1$ sea divisible por $X^2 + aX + 1$,
+  \item $X^4 - aX^3 + 2X^2 + X + 1$ sea divisible por $X^2 + X + 1$,
+  \item El resto de la división de $X^5 - 3x^3 - x^2 - 2X + 1$ por $X^2 + aX + 1$ sea $-8X + 4$.
 \end{enumerate}
 
 \separadorCorto
 
 \begin{enumerate}[label=\roman*)]
-    \item
+  \item
         Haciendo la division de $X^3 + 2X^2 + 2X + 1$ por $X^2 + aX + 1$, se tiene que:
         \[
-            X^3 + 2X^2 + 2X + 1 = (X - a + 2)(X^2 + aX + 1) + \ub{(a^2 - 2a + 1)X + a - 1}{\text{resto}}
+          X^3 + 2X^2 + 2X + 1 = (X - a + 2)(X^2 + aX + 1) + \ub{(a^2 - 2a + 1)X + a - 1}{\text{resto}}
         \]
         Así, para que $X^3 + 2X^2 + 2X + 1$ sea divisible por $X^2 + aX + 1$ tiene que ocurrir que el resto sea 0.\\
         O sea,
-        
+
         \begin{align*}
-            X^2 + aX + 1 \divideA X^3 + 2X^2 + 2X + 1 \sisolosi & (a^2 - 2a + 1)X + a - 1 = 0\\
-            \sisolosi & \llave{r}{
-                a^2 - 2a + 1 = 0 \\
-                a - 1 = 0
-            }
+          X^2 + aX + 1 \divideA X^3 + 2X^2 + 2X + 1 \sisolosi & (a^2 - 2a + 1)X + a - 1 = 0 \\
+          \sisolosi                                           & \llave{r}{
+          a^2 - 2a + 1 = 0                                                                  \\
+            a - 1 = 0
+          }
         \end{align*}
 
         Analizo las ecuaciones:\\
         \begin{itemize}
-            \item $a - 1 = 0 \sisolosi a = 1$
-            \item $a^2 - 2a + 1 = 0 \flecha{a = 1} 1^2 - 2.1 + 1 = 1 - 2 + 1 = 0 \Tilde$
+          \item $a - 1 = 0 \sisolosi a = 1$
+          \item $a^2 - 2a + 1 = 0
+                  \flecha{$a = 1$}
+                  1^2 - 2 \cdot 1 + 1 = 1 - 2 + 1 = 0$
         \end{itemize}
 
-        Luego, el valor de $a \en \complejos$ tal que $X^3 + 2X^2 + 2X + 1$ es divisible por $X^2 + aX + 1$ es \boxed{$a = 1$}.
+        Luego, el valor de $a \en \complejos$
+        tal que $X^3 + 2X^2 + 2X + 1$ es divisible por $X^2 + aX + 1$ es \cajaResultado{a = 1}.
 
-        \item \hacer
+  \item \hacer
 
-        \item Haciendo la division de $X^5 - 3X^3 - X^2 - 2X + 1$ por $X^2 + aX + 1$, se tiene que:
-        \[
-            X^5 - 3X^3 - X^2 - 2X + 1 = q(X^2 + aX + 1) + \ub{r}{\text{resto}}
-        \]
-        con $q = (X^3 - aX^2 + (a^2 - 4)X - a^3 + 5a - 1)$ y $r = (a^4 - 6a^2 + a + 2)X + a^3 - 5a + 2$.
-
-        Así,
-        \begin{align*}
-            & r = -8X + 4\\
-            \sisolosi & (a^4 - 6a^2 + a + 2)X + a^3 - 5a + 2 = -8X + 4\\
-            \sisolosi & \llave{r}{
-                a^4 - 6a^2 + a + 2 = -8\\
-                a^3 - 5a + 2 = 4
+  \item Haciendo la division de:
+        $$
+          X^5 - 3X^3 - X^2 - 2X + 1 \text{ por } X^2 + aX + 1,
+        $$
+        se tiene que:
+        $$
+          \begin{array}{c}
+            X^5 - 3X^3 - X^2 - 2X + 1 = q \cdot (X^2 + aX + 1) + \oa{r}{\text{resto}} \\
+            \text{ con }
+            \llave{rcl}{
+            q           & = & (X^3 - aX^2 + (a^2 - 4)X - a^3 + 5a - 1)                \\
+            \magenta{r} & = & (a^4 - 6a^2 + a + 2)X + a^3 - 5a + 2.
             }
-            \sisolosi \llave{r}{
-                a^4 - 6a^2 + a + 10 = 0\\
-                a^3 - 5a - 2 = 0
+          \end{array}
+        $$
+        Ahora viene la igualación de polinomios para encontrar ese valor de $a$:
+        $$
+          \begin{array}{rcl}
+            \magenta{r} = -8X + 4
+                                & \sisolosi &
+            (a^4 - 6a^2 + a + 2)X + a^3 - 5a + 2 = -8X + 4          \\
+                                & \sisolosi &
+            \llave{r}{
+            a^4 - 6a^2 + a + 2 = -8                                 \\
+              a^3 - 5a + 2 = 4
+            }                                                       \\
+                                & \sisolosi &
+            \llave{rcl}{
+            a^4 - 6a^2 + a + 10 & =         & 0        \  \llamada1 \\
+            a^3 - 5a - 2        & =         & 0 \  \llamada2
             }
-        \end{align*}
-
-        Analizo las ecuaciones:\\
-        
+          \end{array}
+        $$
+        Analizo las ecuaciones:
         \begin{itemize}
-            \item $a^3 - 5a - 2 = 0 \sii a(a^2 - 5) - 2 = 0$\\
-            Veo que $a = -2$ es solución, por lo que divido $a^3 - 5a - 2$ por $a + 2$ con Ruffini:
-        
-            \[
-                \begin{array}{c|cccc}
-                    & 1 & 0 & -5 & -2\\
-                    -2 &  & -2 & 4 & 2\\
+          \item[$\llamada2$] $a^3 - 5a - 2 = 0 \sii a(a^2 - 5) - 2 = 0$\\
+                Veo que $a = -2$ es solución, por lo que divido $a^3 - 5a - 2$ por $a + 2$ con Ruffini:
+                $$
+                  \begin{array}{c|cccc}
+                       & 1 & 0  & -5 & -2        \\
+                    -2 &   & -2 & 4  & 2         \\
                     \hline
-                    & 1 & -2 & -1 & \boxed{0}
-                \end{array}
-            \]
+                       & 1 & -2 & -1 & \boxed{0}
+                  \end{array}
+                $$
+                Por lo que:
+                $$
+                  a^3 - 5a - 2 = (a + 2)(a^2 - 2a - 1).
+                $$
+                Busco las raíces de $a^2 - 2a - 1$ con la fórmula resolvente:
+                \begin{align*}
+                  a_{+,-} & = \frac{2 \pm \sqrt{(-2)^2 - 4 \cdot (-1)}}{2} \\
+                          & = \frac{2 \pm \sqrt{8}}{2}                     \\
+                          & = 1 \pm \sqrt{2}
+                \end{align*}
+                Por lo que:
+                $$
+                  a^3 - 5a - 2 = (a + 2)(a - 1 + \sqrt{2})(a - 1 - \sqrt{2}) = 0
+                  \sisolosi
+                  \llave{l}{
+                    a = -2\\
+                    a = 1 + \sqrt{2}\\
+                    a = 1 - \sqrt{2}
+                  }
+                $$
 
-            Por lo que $a^3 - 5a - 2 = (a + 2)(a^2 - 2a - 1)$\\
+          \item[$\llamada1$] $a^4 - 6a^2 + a + 10 = 0$. Me fijo que valores de $a$ obtenidos antes verifican:
 
-            Busco las raíces de $a^2 - 2a - 1$ con la fórmula resolvente:
+                \begin{itemize}
+                  \item Si $a = -2 \entonces (-2)^4 - 6(-2)^2 - 2 + 10 = 16 - 24 - 2 + 10 = 0 \Tilde$
 
-            \begin{align*}
-                a_{+,-} &= \frac{2 \pm \sqrt{(-2)^2 - 4 \cdot (-1)}}{2}\\
-                &= \frac{2 \pm \sqrt{8}}{2}\\
-                &= 1 \pm \sqrt{2}
-            \end{align*}
+                  \item Si $a = 1 + \sqrt{2} \entonces (1 + \sqrt{2})^4 - 6(1 + \sqrt{2})^2 + 1 + \sqrt{2} + 10 = 10 + \sqrt{2} \distinto 0$
 
-            Por lo que $a^3 - 5a - 2 = (a + 2)(a - 1 + \sqrt{2})(a - 1 - \sqrt{2}) = 0 \sisolosi \llave{l}{
-                a = -2\\
-                a = 1 + \sqrt{2}\\
-                a = 1 - \sqrt{2}
-            }$\\
-
-            \item $a^4 - 6a^2 + a + 10 = 0$
-
-            Me fijo que valores de $a$ obtenidos antes verifican:
-            
-            \begin{itemize}
-                \item Si $a = -2 \entonces (-2)^4 - 6(-2)^2 - 2 + 10 = 16 - 24 - 2 + 10 = 0 \Tilde$
-
-                \item Si $a = 1 + \sqrt{2} \entonces (1 + \sqrt{2})^4 - 6(1 + \sqrt{2})^2 + 1 + \sqrt{2} + 10 = 10 + \sqrt{2} \distinto 0$
-
-                \item Si $a = 1 - \sqrt{2} \entonces (1 - \sqrt{2})^4 - 6(1 - \sqrt{2})^2 + 1 - \sqrt{2} + 10 = 10 - \sqrt{2} \distinto 0$
-            \end{itemize}
+                  \item Si $a = 1 - \sqrt{2} \entonces (1 - \sqrt{2})^4 - 6(1 - \sqrt{2})^2 + 1 - \sqrt{2} + 10 = 10 - \sqrt{2} \distinto 0$
+                \end{itemize}
         \end{itemize}
-
-        Luego, el único valor de $a \en \complejos$ tal que el resto de dividir a $X^5 - 3x^3 - x^2 - 2X + 1$ por $X^2 + aX + 1$ sea $-8X + 4$ es \boxed{$a = -2$}
+        Luego, el único valor de $a \en \complejos$
+        tal que el resto de dividir a $X^5 - 3x^3 - x^2 - 2X + 1$ por $X^2 + aX + 1$ sea $-8X + 4$ es \cajaResultado{a = -2}
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\neverGonnaGiveYouUp}{Autor original \youtube}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

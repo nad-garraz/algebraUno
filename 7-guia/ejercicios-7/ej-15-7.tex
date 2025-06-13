@@ -1,25 +1,83 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  \begin{enumerate}[label=\roman*)]
+    \item Sean $f,g \en \complejos[X]$ y sea $a\en \complejos$. Probar que $a$ es raíz de $f$ y $g$ si y sólo sí $a$ es raíz de
+          $(f:g)$.
+
+    \item Hallar todas las raíces complejas de $X^4 + 3X - 2$ sabiendo
+          que tiene una raíz en común con ${X^4 + 3X^3 -3X +1}$.
+  \end{enumerate}
+\end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item Sean $f,g \en \complejos[X]$ y sea $a\en \complejos$. Probar que $a$ es raíz de $f$ y $g$ si y sólo sí $a$ es raíz de
-	      $(f:g)$.
+  \item Hay que probar la doble implicación:
+        \begin{itemize}
+          \item[($\red{\Rightarrow}$)]
+                $$
+                  \text{Si $a$ es raíz de $f$ y $g$}
+                  \entonces
+                  \llave{l}{
+                    (X - a) | f\\
+                    (X - a) | g
+                  }
+                  \entonces
+                  (X - a) \text{ es una raíz común }
+                  \entonces
+                  (X - a) \divideA (f:g)
+                $$
+          \item[($\red{\Leftarrow}$)]
+                El máximo común divisor tiene los monomios de las factorizaciones comunes elevados al menor exponente.
+                Así que por definición:
+                $$
+                  (f:g) = (X - a)^m
+                $$
+                entonces $X-a$ está en la factorización de $f$ y $g$.
+        \end{itemize}
+        No sé siento que la demo esa es muy circular. Salió pedorra.
 
-	\item Hallar todas las raíces complejas de $X^4 + 3X - 2$ sabiendo
-      que tiene una raíz en común con ${X^4 + 3X^3 -3X +1}$.
+  \item  Usando lo que se demuestra en el ítem anterior, si dos polinomios $f$ y $g$ tienen
+        raíces en común, entonces esas raíces tienen que ser raíces del $(f:g)$:
+
+        Si
+        $$
+          f = X^4 + 3X - 2
+          \ytext
+          g = X^4 + 3X^3 -3X +1,
+        $$
+        busco el $(f:g)$:
+        $$
+          \mcd{X^4 + 3X - 2}{X^4 + 3X^3 -3X +1}
+        $$
+        Obtuve que:
+        $$
+          (f:g) = X^2 + X - 1
+        $$
+        Las raíces:
+        $$
+          \cajaResultado{
+            \llave{l}{
+              \alpha_1 = \frac{1 + \sqrt{5}}{2} \\
+              \alpha_2 = \frac{1 - \sqrt{5}}{2}
+            }
+          }
+        $$
+        \parrafoDestacado[\red{\atencion}]{
+          Por lo tanto esas raíces son comunes a $f$ y a $g$.
+        }
+        Luego puedo escribir
+        $$
+          X^4 + 3X - 2 = (X^2 + X - 1) \cdot (X^2 - X + 2)
+        $$
+        Y las raíces de $X^2 - X + 2$:
+        $$
+          \cajaResultado{
+            \llave{l}{
+              \alpha_3 = \frac{1}{2} - i\frac{\sqrt{7}}{2} \\
+              \alpha_4 = \frac{1}{2} + i\frac{\sqrt{7}}{2}
+            }
+          }
+        $$
 \end{enumerate}
 
-\separadorCorto
-
-\begin{enumerate}[label=\roman*)]
-	\item \Hacer
-
-    \item  Busco el $(f:g)$:\\
-      \mcd{X^4 + 3X - 2}{X^4 + 3X^3 -3X +1}\\
-      $(f:g) = X^2 + X - 1
-      \flecha{raíces}
-      \llave{l}{
-        \alpha_1 = \frac{1 + \sqrt{5}}{2} \\
-        \alpha_2 = \frac{1 - \sqrt{5}}{2}
-      }\\
-      \mcd{X^4 + 3X - 2}{X^2 + X - 1}$
-\end{enumerate}
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

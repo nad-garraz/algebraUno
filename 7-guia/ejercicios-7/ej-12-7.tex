@@ -1,33 +1,63 @@
-%!TEX root = ../7-sol.tex
 \begin{enunciado}{\ejercicio}
-Hallar la forma binomial de cada una de las raíces complejas del polinomio $f(X) = X^6 + X^3 - 2$.
+  Hallar la forma binomial de cada una de las raíces complejas del polinomio $f(X) = X^6 + X^3 - 2$.
 \end{enunciado}
 
-Primera raíz: $f(\alpha_1 = 1) = 0 \to f(X) = q(X) \cdot (X - 1)$. Busco $q(X)$ con algoritmo de división.\\
-\polylongdiv[style=D]{X^6 + X^3 - 2 }{X - 1}\\
+Primera raíz a \textit{ojímetro}:
+$$
+  f(\alpha_1 = 1) = 0
+  \sisolosi
+  f(X) = q(X) \cdot (X - 1)
+  \sisolosi
+  (X - 1) \divideA f
+  \sisolosi
+  r_{_{(X-1)}}(f) = 0
+$$
+Busco $q(X)$ con algoritmo de división.
+{\footnotesize
+$$
+  \polylongdiv[style=D]{X^6 + X^3 - 2 }{X - 1}
+$$
+}
 
-El cociente $q(X) = X^5 + X^4 + X^3 + 2X^2 + 2X + 2$ se puede factorizar en grupos como\\
-$q(X) = (X^2+X+1) \cdot (X^3 + 2)$. Entonces las 5 raíces que me faltan para tener las 6 que debe tener $f \en \complejos[X]$
-salen de esos dos polinomios.\\
+El cociente $q(X)$ se puede factorizar en grupos como:
+$$
+  q(X) =
+  X^5 + X^4 + X^3 + 2X^2 + 2X + 2
+  \igual{\red{!}}
+  (X^2+X+1) \cdot (X^3 + 2).
+$$
+Entonces las 5 raíces que me faltan para tener las 6 que debe tener $f \en \complejos[X]$ salen de esos dos polinomios.
+Salen fácil las del polinomio de grado 2:
+$$
+  X^2 + X +1 = 0
+  \sii
+  \cajaResultado{
+    \begin{array}{l}
+      \alpha_2 = -\frac{1}{2} + \frac{\sqrt{3}}{2} \\
+      \alpha_3 = -\frac{1}{2} - \frac{\sqrt{3}}{2}
+    \end{array}
+  }
+$$
 
-$
-	X^2 + X +1 = 0 \entonces
-	\llave{l}{
-		\alpha_2 = -\frac{1}{2} + \frac{\sqrt{3}}{2}\\
-		\alpha_3 = -\frac{1}{2} - \frac{\sqrt{3}}{2}
-	}
-$
+Resuelvo la ecuación $ X^3 + 2 = 0$ usando la notación exponencial del número complejo:
+$$
+  X = re^{i\theta}
+$$
+Reemplazo y máquina de hacer chorizos:
+$$
+  \llaves{l}{
+    r^3 = 2 \to r = \sqrt[3]{2}\\
+    3\theta = \pi + \magenta{2k\pi} \to \theta = \frac{\pi}{3} + \frac{2k\pi}{3} \text{ con } k = 0,\, 1,\, 2.
+  } \to
+  \cajaResultado{
+    \begin{array}{l}
+      \alpha_4 = \sqrt[3]{2} e^{i \frac{\pi}{3}} = \sqrt[3]{2} (\frac{1}{2} + i \frac{\sqrt{3}}{2}) \\
+      \alpha_5 = \sqrt[3]{2} e^{i \pi}  = -\sqrt[3]{2}                                              \\
+      \alpha_6 = \sqrt[3]{2} e^{i \frac{5\pi}{3}} = \sqrt[3]{2} (\frac{1}{2} - i \frac{\sqrt{3}}{2})
+    \end{array}
+  }
+$$
 
-$
-	X^3 + 2 = 0 \flecha{exponencial}[$X = re^{i\theta}$]
-	\llaves{l}{
-		r^3 = 2 \to r = \sqrt[3]{2}\\
-		3\theta = \pi + \magenta{2k\pi} \to \theta = \frac{\pi}{3} + \frac{2k\pi}{3} \text{ con } k = 0,\, 1,\, 2.
-	} \to
-	\llave{l}{
-		\alpha_4 = \sqrt[3]{2} e^{i \frac{\pi}{3}} = \sqrt[3]{2} (\frac{1}{2} + i \frac{\sqrt{3}}{2})    \\
-		\alpha_5 = \sqrt[3]{2} e^{i \pi}  = -\sqrt[3]{2}\\
-		\alpha_6 = \sqrt[3]{2} e^{i \frac{5\pi}{3}} = \sqrt[3]{2} (\frac{1}{2} - i \frac{\sqrt{3}}{2})
-	}
-$
-
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

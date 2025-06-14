@@ -12,18 +12,16 @@ $$
   \entonces
   f = q(X) \cdot g(X) + r(X)
   \text{ con }
-  \gr(\ub{aX^2 + bX + c}{r(X)} ) \menorIgual{\red{!}} 2
+  \gr(\ub{aX^2 + bX + c}{r(X)} )
+  \menorIgual{\red{!}}
+  2
 $$
 Evalúo para armar un sistema:
 $$
   \llave{l}{
     f(0) = q(0) \cdot \ub{g(0)}{=0} + r(0) = 1\\
     f(1) = q(1) \cdot \ub{g(1)}{=0} + r(1) = 3\\
-    f(-1) = q(-1) \cdot \ub{g(-1)}{=0} + r(-1) = 1 + 3(-1)^{n+1} + 3(-1)^n - 5 -2 + 1 =
-    \llave{rl}{
-      2 & n \text{ impar }\\
-      1 & n \text{ par }
-    }
+    f(-1) = q(-1) \cdot \ub{g(-1)}{=0} + r(-1) = 1 + 3(-1)^{n+1} + 3(-1)^n - 5 -2 + 1 \igual{\red{!}} -5
   }
 $$
 Habemos sistemus de ecuaciunus para encontrar a $r(X)$:
@@ -31,48 +29,34 @@ $$
   \llave{l}{
     r(0) = c = 1 \\
     r(1) = a + b + 1 = 3 \to a+b = 2 \\
-    r(-1) = a - b + 1 =
-    \llave{rl}{
-      2 \to a - b = 1 & n \text{ impar }\\
-      1 \to a - b = 0 & n \text{ par }
-    }
+    r(-1) = a - b + 1 = - 5
   }
 $$
-Nuevamente el uso de matrices es totalmente opcional. Entonces resuelvo dos sistemitas según la paridad de $n$:
+Nuevamente el uso de matrices es totalmente opcional. Entonces resuelvo para $a$ y $b$, porque ya tengo $c$:
 $$
-  \llave{cccc}{
-    \flecha{$n$}[impar] &
+  \begin{array}{ccc}
     \matriz{cc|c}{
-      1 & 1 & 2  \\
-      1 & -1 & 1
+    1 & 1   & 2            \\
+    1 & -1  & -5
     }
     \sii
     \matriz{cc|c}{
-      1 & 0 & \frac{3}{2}  \\
-      0 & 1 & \frac{1}{2}
-    }
-    &\to&
-    \cajaResultado{
-      r_{impar}(X) = \frac{3}{2}X^2 + \frac{1}{2}X + 1
-    }
-    \\
-    \flecha{$n$}[par] &
-    \matriz{cc|c}{
-      1 & 1 & 2  \\
-      1 & -1 & 0
+    1 & 1   & 2            \\
+    0 & -2  & -7
     }
     \sii
     \matriz{cc|c}{
-      1 & 0 & 1  \\
-      0 & 1 & 1 
+    1 & 0   & -\frac{3}{2} \\
+    0 & 1   & -\frac{7}{2}
     }
-    &\to&
+      & \to &
     \cajaResultado{
-      r_{par}(X) = X^2 + X + 1
+      r(X) = -\frac{3}{2}X^2 - \frac{7}{2}X + 1
     }
-  }
+  \end{array}
 $$
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/olivportero}{Olivia Portero \github}
 \end{aportes}

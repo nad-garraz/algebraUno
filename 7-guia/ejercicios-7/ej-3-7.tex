@@ -59,21 +59,31 @@
           \sii
           \gr(X+1) + \gr(f^2) = \gr(X) \cdot \gr(X^5 + f)
           \Sii{\red{!}}
-          2 \cdot \gr(f) =\gr(X^5 + f)
+          \ub{
+            2 \cdot \gr(f)
+          }{
+            \text{par}
+          }
+          \igual{$\llamada1$}
+          \gr(X^5 + f)
         $$
         Analizamos la última ecuación para distintos grados:
         $$
-          \begin{array}{c}
-            \gr(f) > 5 \entonces \gr(X^5 + f) = 5 \llamada1    \\
-            \gr(f) = 5 \entonces \gr(X^5 + f) \leq 5 \llamada2 \\
-            \gr(f) > 5 \entonces \gr(X^5 + f) = \gr(f) \llamada3
+          \begin{array}{rccl}
+            \text{si} & \gr(f) < 5 & \entonces & \gr(X^5 + f) = 5 \quad  \llamada2    \\
+            \text{si} & \gr(f) = 5 & \entonces & \gr(X^5 + f) \leq 5 \quad \llamada3  \\
+            \text{si} & \gr(f) > 5 & \entonces & \gr(X^5 + f) = \gr(f) \quad\llamada4
           \end{array}
         $$
-        Entonces no tenemos un valor para el grado de $f$ en el que haya un balance en la ecuación, porque:
-        Para el caso $\llamada1$ el miembro derecho tiene un valor par
-        así que descartado.\par
-        Para el caso $\llamada2$ el miembro derecho tiene un grado igual a 10 así que descartado.\par
-        Y por último para el caso $\llamada3$ el miembro derecho tiene un grado del doble que el polinomio del miembro izquierdo.\par
+        Entonces no tenemos un valor para el grado de $f$ en el que haya un balance en la ecuación $\llamada1$, porque:
+        \begin{enumerate}
+          \item[$\llamada2$] El miembro derecho de $\llamada1$ tendría un valor par
+                así que descartado.
+
+          \item[$\llamada3$] El miembro derecho de $\llamada1$ tendría un grado igual a 10 así que descartado.
+
+          \item[$\llamada4$] El miembro derecho de $\llamada1$ tendría un grado del doble que el polinomio del miembro izquierdo.
+        \end{enumerate}
 
   \item Si $f \distinto 0$:
         $$

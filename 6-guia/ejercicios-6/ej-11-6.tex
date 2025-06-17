@@ -41,58 +41,77 @@ Si $w \en G_n \entonces
           \magenta{-1} + \ub{\magenta{1} + w + w^2}{= 0} + 8 = 7 $
 
   \item Calcular $1 + w^2 + w^{-2} + w^4 + w^{-4}$ para cada $w\en G_{10}$.
-        \separadorCorto
-        Raíces de $G_{10}$ de interés: $2 \divideA 10 \ytext 5 \divideA 10$. $10$ es par $\entonces w = \pm1$ y
-        raíces de $G_2$ y de $G_5$ se hacen a parte.\par
 
-        \begin{minipage}{0.55\textwidth}
-          \begin{itemize}
-            \item \textit{Si} $w = \pm1$: \par
-                  $1 + w^2 + w^{-2} + w^4 + w^{-4} = 5$ \Tilde\par
+        $$
+          \begin{minipage}{0.55\textwidth}
+            Tuneo un poco el enunciado usando que:
+            $$
+              w \en G_{10}
+              \entonces
+              w^m = w^{\magenta{r_{10}(m)}},
+            $$
+            por lo tanto:
+            $$
+              1 + w^2 + w^{-2} + w^4 + w^{-4}
+              \igual{\red{!}}
+              1 + w^2 + w^{\magenta{8}} + w^4 + w^{\magenta{6}}
+            $$
+            Todas potencias pares escribo como:
+            $$
+              1 + w^2 + w^{\magenta{8}} + w^4 + w^{\magenta{6}}
+              \igual{\red{!}}
+              \sumatoria{i = 0}{4} (w^2)^i \quad \llamada1
+            $$
+            Si $w = \blue{\pm 1}$, dado que $\blue{\pm 1} \en G_{10}$, $\llamada1$ queda:
+            $$
+              \sumatoria{i = 0}{4} (\blue{(\pm 1)}^2)^i = 5,
+            $$
+          \end{minipage}
+          \begin{minipage}{0.3\textwidth}
+            \centering
+            $G_5 \subseteq G_{10}$\par
+            \begin{tikzpicture}[baseline=0]
+              \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
+              \draw[->] (0,-1.5) -- (0,1.5) node[right] {Im};
+              \draw[ultra thin] (0,0) circle (1);
+              \filldraw[thin] (0,0) circle (1pt); % Added the origin
+              \foreach \x in {0,...,10} {
+                  \filldraw (\x*360/10:1) circle (1pt);
+                  \ifnum\x<10
+                    \draw[OliveGreen] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
+                  \fi
+                  \ifnum\x<5
+                    \draw[magenta] (\x*360/5:1) -- ({(\x+1)*360/5}:1);
+                  \fi
+                }
+            \end{tikzpicture}
 
-            \item \textit{Si} $w \en G_{10} \ytext w \distinto \pm 1$: \par
-                  $ 1 + w^2 + w^{-2} + w^4 + w^{-4} = 1 + w^2 + w^8 + w^4 + w^6 =\\
-                    = \sumatoria{k=0}{4} (w^2)^k = \frac{(w^2)^5 - 1}{w^2 - 1} =
-                    \frac{\ob{\scriptstyle w^{10}}{=1} - 1}{w^2 - 1} = 0$
-          \end{itemize}
-        \end{minipage}
-        \begin{minipage}{0.3\textwidth}
-          \centering
-          $G_5 \subseteq G_{10}$\par
-          \begin{tikzpicture}[baseline=0]
-            \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
-            \draw[->] (0,-1.5) -- (0,1.5) node[right] {Im};
-            \draw[ultra thin] (0,0) circle (1);
-            \filldraw[thin] (0,0) circle (1pt); % Added the origin
-            \foreach \x in {0,...,10} {
-                \filldraw (\x*360/10:1) circle (1pt);
-                \ifnum\x<10
-                  \draw[OliveGreen] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
-                \fi
-                \ifnum\x<5
-                  \draw[magenta] (\x*360/5:1) -- ({(\x+1)*360/5}:1);
-                \fi
-              }
-          \end{tikzpicture}
+            $"G_5" \subseteq G_{10}$\par
+            \begin{tikzpicture}[baseline=0]
+              \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
+              \draw[->] (0,-1.5) -- (0,1.5) node[right] {Im};
+              \draw[ultra thin] (0,0) circle (1);
+              \filldraw[thin] (0,0) circle (1pt); % Added the origin
 
-          $"G_5" \subseteq G_{10}$\par
-          \begin{tikzpicture}[baseline=0]
-            \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
-            \draw[->] (0,-1.5) -- (0,1.5) node[right] {Im};
-            \draw[ultra thin] (0,0) circle (1);
-            \filldraw[thin] (0,0) circle (1pt); % Added the origin
+              \foreach \x in {0,...,10} {
+                  \filldraw (\x*360/10:1) circle (1pt);
+                  \ifnum\x<10
+                    \draw[OliveGreen] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
+                  \fi
+                  \ifnum\x<5
+                    \draw[cyan] ({\x*360/5+360/10}:1) -- ({(\x+1)*360/5+360/10}:1);
+                  \fi
+                }
+            \end{tikzpicture}
+          \end{minipage}
 
-            \foreach \x in {0,...,10} {
-                \filldraw (\x*360/10:1) circle (1pt);
-                \ifnum\x<10
-                  \draw[OliveGreen] (\x*360/10:1) -- ({(\x+1)*360/10}:1);
-                \fi
-                \ifnum\x<5
-                  \draw[cyan] ({\x*360/5+360/10}:1) -- ({(\x+1)*360/5+360/10}:1);
-                \fi
-              }
-          \end{tikzpicture}
-        \end{minipage}
+          pero si no uso fórmula geométrica:
+        $$
+        \sumatoria{i = 0}{4} (w^2)^i  =
+        \frac{(w^2)^{4 + 1} - w^2}{w^2 - 1} =
+        \frac{w^{10} - w^2}{w^2 - 1} =
+        \frac{\magenta{1} - w^2}{w^2 - 1} = -1
+        $$
 
   \item Calcular $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}}$ para cada $w \en G_5$
 

@@ -1,51 +1,54 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que para todo $a \en \complejos$,
+          el polinomio
+          $f = X^6 - 2X^5 + (1+a)X^4 -2aX^3 + (1+a)X^2 - 2X + 1$
+          es divisible por $(X-1)^2$.
+
+    \item Determinar todos los $a \en \complejos$
+          para los cuales
+          $f$ es divisible por $(X-1)^3$.
+  \end{enumerate}
+\end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item Probar que para todo $a \en \complejos$,
-	      el polinomio
-	      $f = X^6 - 2X^5 + (1+a)X^3 + (1+a)X^2 - 2X + 1$
-	      es divisible por $(X-1)^2$.
+  \item
+        $(X-1)^2 \divideA f \paratodo a \en \complejos \sii 1 \textit{ es por lo menos raíz doble de } f \sii f(1) = f'(1) = 0$.
 
-	\item Determinar todos los $a \en \complejos$
-	      para los cuales
-	      $f$ es divisible por $(X-1)^3$.
+        $$
+          \begin{array}{rcl}
+            f = X^6 - 2X^5 + (1+a)X^4 -2aX^3 + (1+a)X^2 - 2X + 1 & \flecha{evalúo}[$X=1$] f(1) = 0 \ \paratodo a \en \complejos  \\
+            f' = 6X^5 - 10 X^4 + 4(1+a)X^3 -6aX^2 + 2(1+a)X - 2  & \flecha{evalúo}[$X=1$] f'(1) = 0 \ \paratodo a \en \complejos
+          \end{array}
+        $$
+        Calculando $f(1) \ytext f'(1)$ se comprueba lo pedido.
+
+  \item
+        $$
+          (X-1)^3 \divideA f
+          \sii
+          f^{''}(1) = 0
+        $$
+        Parecido a antes vuelvo a derivar y evalúo:
+        $$
+          f^{''} = 30X^4 - 40 X^3 + 12(1+a)X^2 - 12aX + 2(1+a)
+          \flecha{evalúo}[$X=1$]
+          f^{''}(1) = 4 + 2a
+          \entonces
+          f^{''}(1) = 0
+          \sii
+          a = -2
+        $$
+        Por lo tanto:
+        $$
+          \cajaResultado{
+            (X-1)^3 \divideA f \sisolosi a = -2
+          }
+        $$
+        Observar que si $a \distinto -2$, 1 es una raíz \textit{doble} de $f$ de otra forma es una raíz \textit{por lo menos} triple.
 \end{enumerate}
 
-\separadorCorto
-
-\begin{enumerate}[label=\roman*)]
-	\item
-	      $(X-1)^2 \divideA f \paratodo a \en \complejos
-		      \sii
-	      $
-	      1 es \textit{por lo menos} raíz doble de $f$
-	      $
-		      \sii f(1) = f'(1) = 0. \\
-	      \llave{ll}{
-		      f = X^6 - 2X^5 + (1+a)X^3 + (1+a)X^2 - 2X + 1 & \flecha{evalúo}[$X=1$] f(1) = 0 \ \paratodo a \en \complejos\\
-		      f' = 6X^5 - 10 X^4 + 4(1+a)X^3 - 6aX^2 + 2(1+a)X - 2 & \flecha{evalúo}[$X=1$] f'(1) = 0 \ \paratodo a \en \complejos
-	      }\\
-          $
-
-	      Calculando $f(1) \ytext f'(1)$ se comprueba. \Tilde
-
-	\item
-	      $(X-1)^3 \divideA f
-		      \sii
-		      f^{''}(1) = 0\\
-		      \entonces
-		      f^{''} = 30X^4 - 40 X^3 + 12(1+a)X^2 - 12aX + 2(1+a) 
-              \flecha{evalúo}[$X=1$]
-		      f^{''}(1) = 2a\\
-              \entonces
-              f^{''}(1) = 0
-		      \sii
-		      a = 0
-	      $\\
-
-	      \boxed{(X-1)^3 \divideA f \sisolosi a = 0} \Tilde\\
-
-	      Observar que si $a \distinto 0$, 1 es una raíz \textit{doble} de $f$ de otra forma
-          es una raíz \textit{por lo menos} triple.
-
-\end{enumerate}
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/olivportero}{Olivia Portero \github}
+\end{aportes}

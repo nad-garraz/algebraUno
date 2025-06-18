@@ -68,7 +68,7 @@
 
 	      Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción en también lo es $p(n) \paratodo n \en \naturales$.
 
-	\item A este ejercicio le pongo $10/10$ \textit{naD's} es muy lindo, \red{intentalo hacer antes de mirar mi resolución}.
+	\item Lindo ejercicio, \cyan{intentá hacerlo antes de mirar la resolución}.
 
 	      Sale también por inducción.
 
@@ -90,7 +90,7 @@
 	      $$
 		      X \divideA X^3 + 2X
 		      \sii
-		      X \divideA X \cdot (X^2 + 2X)
+		      X \divideA X \cdot (X^2 + 2)
 	      $$
 	      Por lo tanto $p(\blue{1})$ es verdadera.
 
@@ -125,14 +125,16 @@
 			      X \cdot X^k \divideA X\cdot f_k^2
 			      \sii
 			      X^{k+1} \divideA X \cdot f_k^2  \quad \llamada1 \\
-			      \ytext                                          \\
-			      X^{k-1} \divideA f'_k
+			      \text{y parecido con la derivada}               \\
+			      \Entonces{\red{!!}}	      X^{k-1} \divideA f'_k
 			      \Sii{\red{!}}
 			      X^2 \cdot X^{k-1} \divideA X^2 \cdot f'_k
 			      \sii
 			      X^{k+1} \divideA X^2 \cdot f'_k \quad \llamada2
 		      \end{array}
 	      $$
+	      Donde en \red{!!} usé la \purple{hipótesis inductiva}, si $f_k$ tiene como raíz al 0 con multiplidad $k$ entonces la derivada tiene que
+	      tener multiplicidad $k-1$ en 0.
 	      Con esos hermosos, tiernos y sabrosos resultados de $\llamada1 \ytext \llamada2$:
 	      $$
 		      \llave{l}{

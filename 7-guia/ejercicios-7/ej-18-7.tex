@@ -1,3 +1,54 @@
-\ejercicio
-\red{Controlar y Pasar}
+\begin{enunciado}{\ejercicio}
+  Determinar todos los $a \en \reales$ para los cuales $f = X^{2n+1} -(2n+1) X + a$ tiene al menos una raíz múltiple en $\complejos$.
+\end{enunciado}
+
+Si $\alpha$ es raíz múltiple de $f$ \ul{debe} ocurrir que:
+$$
+  \llave{rcl}{
+    f(\alpha)   & = & 0\\
+    f'(\alpha)  & = & 0
+  }
+$$
+Derivo $f$ y acomodo:
+$$
+  f' = (2n+1) \cdot (X^{2n} - 1)
+  \Entonces{evalúo}[$\alpha$]
+  f'(\alpha) = (2n+1) \cdot (\alpha^{2n} - 1) = 0
+  \sii
+  (\alpha^{2n} - 1) = 0 \quad \llamada1
+$$
+Volviendo a $f$, si evalúo en $\alpha$
+$$
+  \begin{array}{rcl}
+    f(\alpha) =  0
+    \sii
+    \alpha^{2n+1} - (2n+1)\alpha + a = 0
+     & \sii          &
+    \alpha \cdot (\ob{\alpha^{2n} - 1}{\igual{$\llamada1$} 0} - 2n) + a = 0 \\
+     & \Sii{\red{!}} &
+    a = 2n \cdot \alpha
+  \end{array}
+$$
+Por lo tanto \ul{$\alpha \en \reales$}  $\llamada2$.
+
+\medskip
+
+Volviendo a $\llamada1$ y con el resultado de que las raíces $\alpha \en \reales$:
+$$
+  (\alpha^{2n} - 1) = 0
+  \Sii{\red{!}}
+  (\alpha^n - 1)(\alpha^n + 1) = 0
+  \Sii{$\llamada2$}
+  \alpha = \pm 1
+$$
+Por lo tanto los valores de $a \en \reales$ para que el polinomio tenga por lo menos una raíz múltiple:
+$$
+  \cajaResultado{
+    a = \pm 2n
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
 

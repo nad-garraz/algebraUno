@@ -6,31 +6,31 @@
 \end{enunciado}
 Ataco como en el ejercicio anterior. La idea no es calcular todas las raíces.
 
-Si $f$ tiene raíces múltiples $\alpha_k$:
+Si $f$ tiene raíces múltiples $r_k$:
 $$
-	\alpha_k
+	r_k
 	\sii
-	f(\alpha_k) = f'(\alpha_k) =  0,
+	f(r_k) = f'(r_k) =  0,
 $$
 por lo tanto  tanto comienzo buscando las raíces de $f'$ para sacarme ese $a$ de en medio.
 $$
 	f' = 20X^{19} + 80 X^9 =
 	20 X^9 (X^{10} + 4)
 $$
-Evaluando en $\alpha_k$:
+Evaluando en $r_k$:
 $$
-	f'(\alpha_k) =
-	20 (\alpha_k)^9 \cdot ((\alpha_k)^{10} + 4)=
+	f'(r_k) =
+	20 (r_k)^9 \cdot ((r_k)^{10} + 4)=
 	0
 	\sii
 	\llave{ccl}{
-		\alpha_k & = & 0 \\
-		(\alpha_k)^{10}  & = & -4 \ \llamada1
+		r_k & = & 0 \\
+		(r_k)^{10}  & = & -4 \ \llamada1
 	}
 $$
 Hay de momento 11 raíces de $f'$. Me interesa saber si son raíces de $f$,
 
-\textit{Cuando} $\alpha_k = 0$:
+\textit{Cuando} $r_k = 0$:
 $$
 	f(0) = 2a
 	\entonces
@@ -46,12 +46,12 @@ $$
 	X^{20} + 8X^{10} + 2a =
 	(X^{10})^2 + 8X^{10} + 2a
 $$
-\textit{Cuando} $(\alpha_k)^{10} \igual{$\llamada1$} -4$:
+\textit{Cuando} $(r_k)^{10} \igual{$\llamada1$} -4$:
 $$
 	\begin{array}{rcl}
-		f(\alpha_k) = 0
+		f(r_k) = 0
 		 & \sii              &
-		((\alpha_k)^{10})^2 + 8(\alpha_k)^{10}) + 2a = 0 \\
+		((r_k)^{10})^2 + 8(r_k)^{10}) + 2a = 0 \\
 		 & \Sii{$\llamada1$} &
 		(-4)^2 + 8(-4) + 2a = 0                          \\
 		 & \sii              &
@@ -66,9 +66,9 @@ Ahora tengo que ver cuántas raíces y sus multiplicidades para $a = 0$ y $a = 8
 
 Si $a = 0 \entonces f = X^{10}(X^{10} + 8)$
 $$
-	f(\alpha_k) = 0
+	f(r_k) = 0
 	\sii
-	(\alpha_k)^{10}((\alpha_k)^{10} + 8)
+	(r_k)^{10}((r_k)^{10} + 8)
 	\sii
 	\llave{rcl}{
 		X & = & 0 \\
@@ -94,9 +94,9 @@ $$
 
 Si $a = 8 \entonces f = (X^{20} + 8X^{10} + 16) \igual{\red{!!}} (X^{10} + 4)^2$
 $$
-	f(\alpha_k) = 0
+	f(r_k) = 0
 	\sii
-	\big((\alpha_k)^{10} + 4\big)^2
+	\big((r_k)^{10} + 4\big)^2
 	\sii
 	X^{10} = -4,
 $$

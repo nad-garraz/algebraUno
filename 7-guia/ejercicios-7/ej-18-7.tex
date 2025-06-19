@@ -2,44 +2,44 @@
   Determinar todos los $a \en \reales$ para los cuales $f = X^{2n+1} -(2n+1) X + a$ tiene al menos una raíz múltiple en $\complejos$.
 \end{enunciado}
 
-Si $\alpha$ es raíz múltiple de $f$ \ul{debe} ocurrir que:
+Si $r$ es raíz múltiple de $f$ \ul{debe} ocurrir que:
 $$
   \llave{rcl}{
-    f(\alpha)   & = & 0\\
-    f'(\alpha)  & = & 0
+    f(r)   & = & 0\\
+    f'(r)  & = & 0
   }
 $$
 Derivo $f$ y acomodo:
 $$
   f' = (2n+1) \cdot (X^{2n} - 1)
-  \Entonces{evalúo}[$\alpha$]
-  f'(\alpha) = (2n+1) \cdot (\alpha^{2n} - 1) = 0
+  \Entonces{evalúo}[$r$]
+  f'(r) = (2n+1) \cdot (r^{2n} - 1) = 0
   \sii
-  (\alpha^{2n} - 1) = 0 \quad \llamada1
+  (r^{2n} - 1) = 0 \quad \llamada1
 $$
-Volviendo a $f$, si evalúo en $\alpha$
+Volviendo a $f$, si evalúo en $r$
 $$
   \begin{array}{rcl}
-    f(\alpha) =  0
+    f(r) =  0
     \sii
-    \alpha^{2n+1} - (2n+1)\alpha + a = 0
+    r^{2n+1} - (2n+1)r + a = 0
      & \sii          &
-    \alpha \cdot (\ob{\alpha^{2n} - 1}{\igual{$\llamada1$} 0} - 2n) + a = 0 \\
+    r \cdot (\ob{r^{2n} - 1}{\igual{$\llamada1$} 0} - 2n) + a = 0 \\
      & \Sii{\red{!}} &
-    a = 2n \cdot \alpha
+    a = 2n \cdot r
   \end{array}
 $$
-Por lo tanto \ul{$\alpha \en \reales$}  $\llamada2$.
+Por lo tanto \ul{$r \en \reales$}  $\llamada2$.
 
 \medskip
 
-Volviendo a $\llamada1$ y con el resultado de que las raíces $\alpha \en \reales$:
+Volviendo a $\llamada1$ y con el resultado de que las raíces $r \en \reales$:
 $$
-  (\alpha^{2n} - 1) = 0
+  (r^{2n} - 1) = 0
   \Sii{\red{!}}
-  (\alpha^n - 1)(\alpha^n + 1) = 0
+  (r^n - 1)(r^n + 1) = 0
   \Sii{$\llamada2$}
-  \alpha = \pm 1
+  r = \pm 1
 $$
 Por lo tanto los valores de $a \en \reales$ para que el polinomio tenga por lo menos una raíz múltiple:
 $$

@@ -1,74 +1,110 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+	Sea $f = X^{20} + 8X^{10} + 2a$. Determinar todos los valores de
+	$a \en \complejos$ para los cuales $f$ admite una raíz múltiple en
+	$\complejos$. Para cada valor hallado determinar cuántas raíces
+	distintas tiene $f$ y la multiplicidad de cada una de ellas.
+\end{enunciado}
+Ataco como en el ejercicio anterior. La idea no es calcular todas las raíces.
 
-Sea $f = X^{20} + 8X^{10} + 2a$. Determinar todos los valores de
-$a \en \complejos$ para los cuales $f$ admite una raíz múltiple en
-$\complejos$. Para cada valor hallado determinar cuántas raíces
-distintas tiene $f$ y la multiplicidad de cada una de ellas.
-
-\separadorCorto
-
-Si $f$ tiene raíces múltiples
-$
+Si $f$ tiene raíces múltiples $\alpha_k$:
+$$
 	\alpha_k
 	\sii
-	f(\alpha_k) = f'(\alpha_k) =  0$,
-por lo tanto  tanto comienzo buscando las raíces de $f'$ para sacarme ese
-$a$ de en medio.\\
-
-$
+	f(\alpha_k) = f'(\alpha_k) =  0,
+$$
+por lo tanto  tanto comienzo buscando las raíces de $f'$ para sacarme ese $a$ de en medio.
+$$
 	f' = 20X^{19} + 80 X^9 =
 	20 X^9 (X^{10} + 4)
-	\entonces
-	f' = 0
+$$
+Evaluando en $\alpha_k$:
+$$
+	f'(\alpha_k) =
+	20 (\alpha_k)^9 \cdot ((\alpha_k)^{10} + 4)=
+	0
 	\sii
-	\llave{l}{
-		X = 0\\
-		X^{10} = -4
-		\sii
-		X = \sqrt[10]{4} e^{i\frac{2k+1}{10}\pi}\ k\en \enteros_{[0,9]}
+	\llave{ccl}{
+		\alpha_k & = & 0 \\
+		(\alpha_k)^{10}  & = & -4 \ \llamada1
 	}
-$\\
-Hay de momento 11 raíces de $f'$. Me interesa saber si son raíces de $f$:\\
-$
+$$
+Hay de momento 11 raíces de $f'$. Me interesa saber si son raíces de $f$,
+
+\textit{Cuando} $\alpha_k = 0$:
+$$
 	f(0) = 2a
 	\entonces
 	f(0) = 0
 	\sii
-	a = 0\\
+	\cajaResultado{
+		a = 0
+	}
+$$
+Acomodo $f$ y después reemplazo por los otros valores que anulan $f'$:
+$$
 	f =
+	X^{20} + 8X^{10} + 2a =
 	(X^{10})^2 + 8X^{10} + 2a
-	\entonces
-	f(\alpha = \magenta{X^{10} = -4}) =
-	(\magenta{-4})^2 + 8(\magenta{-4}) + 2a =
-	-16 + 2a = 0
-	\sii
-	a = 8
-$\\
+$$
+\textit{Cuando} $(\alpha_k)^{10} \igual{$\llamada1$} -4$:
+$$
+	\begin{array}{rcl}
+		f(\alpha_k) = 0
+		 & \sii              &
+		((\alpha_k)^{10})^2 + 8(\alpha_k)^{10}) + 2a = 0 \\
+		 & \Sii{$\llamada1$} &
+		(-4)^2 + 8(-4) + 2a = 0                          \\
+		 & \sii              &
+		-16 + 2a = 0                                     \\
+		 & \sii              &
+		\cajaResultado{
+			a = 8
+		}
+	\end{array}
+$$
+Ahora tengo que ver cuántas raíces y sus multiplicidades para $a = 0$ y $a = 8$.
 
-Entonces:\\
-Si
-$
-	a = 0
-	\entonces
-	f = X^{10}(X^{10} + 8)\\
-	\entonces
-	f = 0
+Si $a = 0 \entonces f = X^{10}(X^{10} + 8)$
+$$
+	f(\alpha_k) = 0
 	\sii
-	X = 0 \otext X^{10} = -8
-$, donde
-\boxed{\mu(0;f) = 10} y
-\boxed{\mu(\sqrt[10]{8}e^{i\frac{2k+1}{10}\pi});f) = 1\ k \en \enteros_{[0-9]}}.\\
-11 raíces distintas.\\
+	(\alpha_k)^{10}((\alpha_k)^{10} + 8)
+	\sii
+	\llave{rcl}{
+		X & = & 0 \\
+		& \otext &\\
+		X^{10} & = & -8,
+	}
+$$
+donde se ve que con $a = 0$ hay 11 raíces distintas en total, las multiplicidades:
+$$
+	\cajaResultado{\mult(0;f) = 10}
+	\ytext
+	\cajaResultado{\mult(\sqrt[10]{8}e^{i\frac{2k+1}{10}\pi});f) = 1 \quad k \en \enteros_{[0-9]}}.
+$$
 
-Si
-$
-	a = 8
-	\entonces
-	f = X^{20} + 8X^{10} + 16 = (X^{10} + 4)^2\\
-	\entonces
-	f = 0
+\parrafoDestacado[\red{\atencion}]{
+	No había necesidad de calcular las raíces, pero dado que la solución, es
+	casi lo mismo que $G_{10}$ ya fue.
+	Pero alcanzaría con decir que es un polinomio complejo de grado 10, entonces hay 10
+	soluciones y las multiplicidades se ven en los exponentes de los polinomios irreducibles en la factorización.
+}
+
+\bigskip
+
+Si $a = 8 \entonces f = (X^{20} + 8X^{10} + 16) \igual{\red{!!}} (X^{10} + 4)^2$
+$$
+	f(\alpha_k) = 0
 	\sii
-	X^{10} = -4
-$, donde
-\boxed{\mu(\sqrt[10]{4}e^{i\frac{2k+1}{10}\pi});f) = 2\ k \en \enteros_{[0-9]}}.\\
-10 raíces distintas.
+	\big((\alpha_k)^{10} + 4\big)^2
+	\sii
+	X^{10} = -4,
+$$
+donde se ve que con $a = 8$ hay un total de 10 raíces distintas, las multiplicidades:
+$$
+	\cajaResultado{\mult(\sqrt[5]{2}e^{i\frac{2k+1}{10}\pi});f) = 2 \quad k \en \enteros_{[0-9]}}.
+$$
+
+\begin{aportes}
+	\item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

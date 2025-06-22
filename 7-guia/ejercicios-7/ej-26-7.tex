@@ -1,1 +1,38 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+  Sea $\alpha \en \complejos$ raíz de multiplicidad 3 de $f \en \complejos[X]$. Probar que el resto de dividir a $f'$ por
+  $(X - \alpha)^3$ es $a(X - \alpha)^2$, con $a \en \complejos$, $a \distinto 0$.
+\end{enunciado}
+
+Sé que cuando derivo el algoritmo de división es:
+$$
+  f = D \cdot Q + R
+$$
+En este caso $D = (X - \alpha)^3$
+$$
+  (X - \alpha)^3 \divideA f
+  \sii
+  f = \magenta{q} \cdot  (X - \alpha)^3 + 0
+  \quad \text{con }
+  q \en \complejos[X]
+$$
+Derivo esa expresión de $f$:
+$$
+  f' = q' \cdot (X - \alpha)^3 + 3q \cdot (X-\alpha)^2
+$$
+El dato dice que $\alpha$ es una raíz triple de $f$, por lo tanto si derivo $f$, $(X - \alpha)^3$:
+$$
+  f' = \ub{q'}{Q} \cdot \ub{(X - \alpha)^3}{D}  + \ub{3q \cdot (X - \alpha)^2}{R}
+$$
+No me acuerdo si es \textit{teorema del resto} o algo así que dice que especializar a $f$ en algún valor te da lo que vale el resto,
+lo cual es \textit{razonable cuando hacés Ruffini}, pero ahora que se está dividiendo por una potencia de 3, es más raro.
+pero esta es la primera vez que aparece en
+En fin, especializo en $\alpha$, recordando que es raíz triple de $f$, por lo tanto me va a dar cero:
+$$
+  f'(\alpha) = R(\alpha) =
+  \ub{3\magenta{q}(\alpha)}{\distinto 0} \cdot (\alpha - \alpha)^2 = 0
+$$
+Por lo tanto $R$ cumple condición de resto y además es de la forma $\ua{a}{\distinto 0 \en \complejos} \cdot (X - \alpha)^2$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -5,7 +5,7 @@
 
 Como $135 = 3^3 \cdot 5$, los posibles valores sin tener en cuenta la restricción que puede tomar el MCD serían:
 $$
-  \llamada1 \text{MCD} \en \set{1,3,5,15,9, 45, 27, 135}
+  \llamada1 \text{MCD} \en \set{1, 3, 5, 9, 15, 27, 45, 135}
 $$.
 
 Por otro lado tengo que:
@@ -98,27 +98,36 @@ $$
     \congruencia{a}{1}{5}
     \quad \text{incompatible con } \blue{\noCongruencia{a}{1}{5}} \\
     \Sii{\purple{$\congruencia{a}{0}{5}$}}
-    \congruencia{0}{1}{3} \quad \text{incompatible}
+    \congruencia{0}{1}{5} \quad \text{incompatible}
   }
 $$
-Se concluye que la expresión $a^{97} - 36$ no es divisible por 5 para los valores de $a$ permitidos. Esto reduce la cantidad de \textit{posibles} MCD a:
+Se concluye que la expresión $a^{97} - 36$ \ul{no es divisible por 5 para los valores de $a$ permitidos}.
+Esto reduce la cantidad de \textit{posibles} MCD a:
 $$
   \text{MCD} \en \set{1,3,9,27}
 $$
 
-\textit{\underline{Divisibilidad por 9}. ¿Es la expresión $a^{97} - 36$ divisible por 9 para alguno de los valores de $a$ permitidos?}:
+\textit{\underline{Divisibilidad por 9}}.
+
+Teniendo en cuenta que los posibles MCD, son todos potencias de 3 y que $\congruencia{a}{0}{3}$
+\textit{¿Es la expresión $a^{97} - 36$ divisible por 9 para alguno de los valores de $a$ permitidos?}:
 $$
   \congruencia{a^{97} - 36 }{0}{9}
   \sii
   \congruencia{a^{97}}{0}{9}
-  \Sii{$\blue{a = 0}$}
+  \Sii{$\blue{\congruencia{a}{0}{3}} \entonces \congruencia{a}{0}{9}$}
   \congruencia{0}{0}{9}
 $$
 
-Se concluye que la expresión $a^{97} - 36$ es divisible por 9 para alguno de los valores de $a$ permitidos. De esa manera descarta
-que el 3 pueda ser MCD.\par \bigskip
+Se concluye que la expresión $a^{97} - 36$ es divisible por 9 para $\congruencia{a}{0}{9}$ los cuales son valores que cumplen
+$\congruencia{a}{0}{3}$. De esa manera \ul{descarto que el 3 pueda ser MCD}.
 
-\textit{\underline{Divisibilidad por 27}. ¿Es la expresión $a^{97} - 36$ divisible por 27 para alguno de los valores de $a$ permitidos?}:
+\bigskip
+
+\textit{\underline{Divisibilidad por 27}.}
+
+Teniendo en cuenta que hasta el momento que el 9 es el MCD.
+\textit{¿Es la expresión $a^{97} - 36$ divisible por 27 para alguno de los valores de $a$ permitidos?}:
 $$
   \congruencia{a^{97} - 36}{0}{27}
   \sii
@@ -154,13 +163,13 @@ De esta formar $a =4$ es un valor permitido por $\blue{\congruencia{a}{4}{5} }$ 
 Concluyendo así que el 1 es \underline{otro} posible valor para el MCD.\par
 Posibles valores:
 $$
-  \text{MCD} \en \set{1, 9}
+  \cajaResultado{
+    \text{MCD} \en \set{1, 9}
+  }
 $$
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/JowinTeran}{Ale Teran \github}
 \end{aportes}

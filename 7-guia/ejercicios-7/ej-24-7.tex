@@ -1,8 +1,79 @@
 \begin{enunciado}{\ejercicio}
-	Sea $(f_n)_{n\en \naturales}$ la sucesión de polinomios en $\complejos[X]$ definida por
-	$$
-		f_1 = X^4 + 2X^2 + 1 \ytext f_{n+1} = (X - i)(f_n + f'n), \quad \paratodo n \en \naturales.
-	$$
-	Probar que $i$ es raíz \textit{doble} de $f_n$ para todo $n \en \naturales$.
+  Sea $(f_n)_{n\en \naturales}$ la sucesión de polinomios en $\complejos[X]$ definida por
+  $$
+    f_1 = X^4 + 2X^2 + 1 \ytext f_{n+1} = (X - i)(f_n + f'n), \quad \paratodo n \en \naturales.
+  $$
+  Probar que $i$ es raíz \textit{doble} de $f_n$ para todo $n \en \naturales$.
 \end{enunciado}
-\hacer
+
+Sale por inducción. Quiero probar la siguiente proposición:
+$$
+  p(n) : i \text{ es una raíz \textit{doble} de } f_n \paratodo n \en \naturales.
+$$
+
+\bigskip
+
+\textit{Caso Base:}
+$$
+  p(\blue{1}) : i \text{ es una raíz \textit{doble} de } f_{\blue{1}}.
+$$
+Especializo a $f_{\blue{1}}$, $f'_{\blue{1}}$ y a \red{¡} $f''_{\blue{1}}$ \red{!} en $i$:
+$$
+  f_{\blue{1}} (i) = i^4 + 2i^2 + 1 = 0
+  ,\quad
+  f'_{\blue{1}} (i) = 4i^3 + 4i = 0
+  \ytext
+  f''_{\blue{1}} (i) = 12i^2 \distinto 0
+$$
+Por lo cual $p(\blue{1})$ resulta verdadera.
+
+\medskip
+
+\textit{Paso inductivo:}
+Asumo como verdadero para algún $\blue{k} \en \naturales$ que la proposición:
+$$
+  p(\blue{k}) : \ub{ i \text{ es una raíz \textit{doble} de } f_{\blue{k}},
+  }{
+    \purple{\text{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero probar que la proposición:
+$$
+  p(\blue{k+1}) : i \text{ es una raíz \textit{doble} de } f_{\blue{k+1}}
+$$
+también lo sea.
+
+La \purple{hipótesis inductiva} dice que:
+$$
+  f_{\blue{k}}(i) = 0,
+  \quad
+  f'_{\blue{k}}(i) = 0,
+  \ytext
+  f''_{\blue{k}}(i) \taa{\red{!}}{}\distinto 0,
+$$
+Usando la definición de la función, especializo, evalúo o como quieras decirle a
+$f_{\blue{k+1}}$, $f'_{\blue{k + 1}}$ y a \red{¡} $f''_{\blue{k + 1}}$ \red{!} en $i$:
+$$
+  \llave{rcl}{
+    f_{\blue{k + 1}}(i)
+    & = &
+    (i - i) \big(f_{\blue{k}}(i) + f'_{\blue{k}}(i)\big) = 0,\\
+  f'_{\blue{k + 1}}(i)
+  & = &
+  f_{\blue{k}}(i) + f'_{\blue{k}}(i) + (i - i) \big(f'_{\blue{k}}(i) + f''_{\blue{k}}(i)\big)
+  \igual{\purple{HI}} 0\\
+  f^{''}_{\blue{k + 1}}(i)
+  & = &
+  2 \cdot \big(f'_{\blue{k}}(i) + f^{''}_{\blue{k}}(i)\big) + (i - i) \big(f^{''}_{\blue{k}}(i) + f^{'''}_{\blue{k}}(i)\big)
+  \taa{\text{\purple{HI}}}{}\distinto 0
+  }
+$$
+Y así resultó la proposición $p(\blue{k+1})$ verdadera.
+
+\medskip
+
+Dado que $p(1),\, p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción también lo es $p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

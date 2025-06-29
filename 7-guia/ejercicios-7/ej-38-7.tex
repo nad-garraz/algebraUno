@@ -1,9 +1,63 @@
 \begin{enunciado}{\ejercicio}
-	\begin{enumerate}[label=\roman*)]
-		\item Hallar todas las raíces en $\complejos$ del polinomio $f = X^4 - (i + 4)X^3 + (8 + 4i)X^2 - (2i + 24)X + 12$
-		      sabiendo que tiene al menos una raíz real.
-		\item Hallar todas las raíces en $\complejos$ del polinomio $f = X^6 - (2 + 8i)X^3 + 24iX + 12i$,
-		      sabiendo que tiene al menos una raíz entera.
-	\end{enumerate}
+  \begin{enumerate}[label=\roman*)]
+    \item Hallar todas las raíces en $\complejos$ del polinomio
+          $f = X^4 - (i + 4)X^3 + (8 + 4i)X^2 - (2i + 24)X + 12$
+          sabiendo que tiene al menos una raíz real.
+
+    \item Hallar todas las raíces en $\complejos$ del polinomio
+          $f = X^6 - 3X^4 -  (2 + 8i)X^3 + 24iX + 16i$,
+          sabiendo que tiene al menos una raíz entera.
+  \end{enumerate}
 \end{enunciado}
-\hacer
+
+\begin{enumerate}[label=(\alph*)]
+  \item Separo en parte real e imaginaria para que sea más manejable:
+        {\small
+        $$
+          f = X^4 - (i + 4)X^3 + (8 + 4i)X^2 - (2i + 24)X + 12 =
+          \ub{
+            X^4 - 4X^3 + 8X^2 -24X + 12
+          }{
+            \re(f)
+          }
+          + i \ub{
+            (-X^3 + 4X^2 -2X)
+          }{
+            \im(f)
+          }
+        $$
+        }
+        Ataco primero $\im(f)$ que está más fácil:
+        $$
+          \im(f(r)) = -r^3 + 4r^2 -2r = 0
+          \sii
+          r\cdot(-r^2 + 4r -2) = 0
+          \Sii{\red{!}}
+          r \en \set{0,\, 2 + \sqrt{2},\, 2 - \sqrt{2}}
+        $$
+        El 0 claramente no es raíz de la parte real $\re(f)$, por lo tanto las otras tienen que serlo, debido a que el polinomio no tiene
+        coeficientes irracionales y por enunciado $f$ tiene \ul{al menos una raíz real}:
+        $$
+          \divPol{X^4 - 4X^3 + 8X^2 -24X + 12}{-X^2 + 4X -2}
+        $$
+        Por lo tanto:
+        $$
+          \re(f) =  (-X^2 + 4X -2) \cdot (-X^2 - 6) = (X - (2 + \sqrt{2}))(X - (2 - \sqrt{2}))(X - i\sqrt{6})(X + i\sqrt{6})
+        $$
+        Sé que las raíces complejas no son raíces de la parte imaginaria así que no me sirven. Las únicas raíces que tienen en común
+        $\re(f)$ y $\im(f)$, me forman el $(\re(f): \im(g)) = -X^2 + 4X -2$, datazo que nadie pidió!
+        Ahora le bajo el grado al polinomio original:
+        $$
+          f = (-X^2 + iX -6) \cdot (-X^2 + 4X -2) =
+          (X - 3i)
+          (X + 2i)\cdot
+          (2 + \sqrt{2})
+          (2 - \sqrt{2})
+        $$
+
+  \item \hacer
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -1,157 +1,155 @@
 \begin{enunciado}{\ejercicio}
-	Sea $(f_n)_{n\en \naturales}$ la sucesión de polinomios en $Q[X]$ definida por
-	$$
-		f_1 = X^3 + 2X
-		\ytext
-		f_{n+1} = Xf_n^2 + X^2f'_n,\, \paratodo n \en \naturales.
-	$$
-	Probar que para todo $n \en \naturales$ vale que:
-	\begin{enumerate}[label=\roman*)]
-		\item $\gr(f_n) = 2^{n+1} - 1$.
-		\item 0 es raíz de multiplicidad $n$ de $f_n$.
-	\end{enumerate}
+  Sea $(f_n)_{n\en \naturales}$ la sucesión de polinomios en $Q[X]$ definida por
+  $$
+    f_1 = X^3 + 2X
+    \ytext
+    f_{n+1} = Xf_n^2 + X^2f'_n,\, \paratodo n \en \naturales.
+  $$
+  Probar que para todo $n \en \naturales$ vale que:
+  \begin{enumerate}[label=\roman*)]
+    \item $\gr(f_n) = 2^{n+1} - 1$.
+    \item 0 es raíz de multiplicidad $n$ de $f_n$.
+  \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item Inducción:
+  \item Inducción:
 
-	      Quiero probar la proposición:
-	      $$
-		      p(n) : gr(f_n) = 2^{n + 1} - 1 \ \paratodo n \en \naturales
-	      $$
+        Quiero probar la proposición:
+        $$
+          p(n) : gr(f_n) = 2^{n + 1} - 1 \ \paratodo n \en \naturales
+        $$
 
-	      \textit{Caso base:}
-	      $$
-		      p(\blue{1}) : gr(f_{\blue{1}}) = 2^{\blue{1} + 1} - 1 = 3 = \gr(X^3 + 2X)
-	      $$
-	      Por lo tanto $p(\blue{1})$ es verdadera.
+        \textit{Caso base:}
+        $$
+          p(\blue{1}) : gr(f_{\blue{1}}) = 2^{\blue{1} + 1} - 1 = 3 = \gr(X^3 + 2X)
+        $$
+        Por lo tanto $p(\blue{1})$ es verdadera.
 
-	      \textit{Paso inductivo:}
+        \textit{Paso inductivo:}
 
-	      Asumo para un $\blue{k} \en \naturales$ que:
-	      $$
-		      p(\blue{k}) : \ub{
-			      \gr(f_{\blue{k}}) = 2^{\blue{k} + 1} - 1
-		      }{
-			      \text{\purple{hipótesis inductiva}}
-		      }
-	      $$
-	      es una proposición verdadera. Entonces quiero probar que:
-	      $$
-		      p(\blue{k + 1}) : \gr(f_{\blue{k+1}}) = 2^{\blue{k+1} + 1} - 1  = 2^{\blue{k} + 2} -1
-	      $$
-	      también lo sea.
+        Asumo para un $\blue{k} \en \naturales$ que:
+        $$
+          p(\blue{k}) : \ub{
+            \gr(f_{\blue{k}}) = 2^{\blue{k} + 1} - 1
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es una proposición verdadera. Entonces quiero probar que:
+        $$
+          p(\blue{k + 1}) : \gr(f_{\blue{k+1}}) = 2^{\blue{k+1} + 1} - 1  = 2^{\blue{k} + 2} -1
+        $$
+        también lo sea.
 
-	      $$
-		      f_{\blue{k+1}}
-		      \igual{def}
-		      Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
-	      $$
-	      ¿Qué grado tiene esa cosa?
-	      $$
-		      \gr(Xf_{\blue{k}}^2 + X^2 \cdot f'_{\blue{k}})
-		      \igual{\red{!}}
-		      1 + \gr(\ub{f_{\blue{k}}^2}{2\gr(f_{\blue{k}})} + \ub{X \cdot f'_{\blue{k}}}{\gr(f_{\blue{k}})})
-		      =
-		      1 + 2 \cdot \gr(f_{\blue{k}})
-		      \igual{\purple{HI}}
-		      1 + 2 \cdot (\purple{2^{k+1} - 1})
-		      =
-		      2^{\blue{k+2}} - 1
-	      $$
-	      Si no viste el \red{!}, saqué factor común $X$, así es que aparece el 1 que se suma al grado. También tuve en
-	      cuenta que $\gr(f') = \gr(f) - 1 \ \paratodo f \en f[X]$
+        $$
+          f_{\blue{k+1}}
+          \igual{def}
+          Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
+        $$
+        ¿Qué grado tiene esa cosa?
+        $$
+          \gr(Xf_{\blue{k}}^2 + X^2 \cdot f'_{\blue{k}})
+          \igual{\red{!}}
+          1 + \gr(\ub{f_{\blue{k}}^2}{2\gr(f_{\blue{k}})} + \ub{X \cdot f'_{\blue{k}}}{\gr(f_{\blue{k}})})
+          =
+          1 + 2 \cdot \gr(f_{\blue{k}})
+          \igual{\purple{HI}}
+          1 + 2 \cdot (\purple{2^{k+1} - 1})
+          =
+          2^{\blue{k+2}} - 1
+        $$
+        Si no viste el \red{!}, saqué factor común $X$, así es que aparece el 1 que se suma al grado. También tuve en
+        cuenta que $\gr(f') = \gr(f) - 1 \ \paratodo f \en f[X]$
 
-	      Por lo tanto $p(k+1)$ resultó verdadera.
+        Por lo tanto $p(k+1)$ resultó verdadera.
 
-	      \medskip
+        \medskip
 
-	      Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción en también lo es $p(n) \paratodo n \en \naturales$.
+        Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción en también lo es $p(n) \paratodo n \en \naturales$.
 
-	\item Lindo ejercicio, \cyan{intentá hacerlo antes de mirar la resolución}.
+  \item Lindo ejercicio, \cyan{intentá hacerlo antes de mirar la resolución}.
 
-	      Sale también por inducción.
+        Sale también por inducción.
 
+        Quiero probar la proposición:
+        $$
+          p(n) : \text{0 es raíz de multiplicidad $n$ de $f_n \ \paratodo n \en \naturales$}
+        $$
+        O de forma equivalente:
+        $$
+          p(n) :  X^n \divideA f_n \ \paratodo n \en \naturales
+        $$
 
-	      Quiero probar la proposición:
-	      $$
-		      p(n) : \text{0 es raíz de multiplicidad $n$ de $f_n \ \paratodo n \en \naturales$}
-	      $$
-	      O de forma equivalente:
-	      $$
-		      p(n) :  X^n \divideA f_n \ \paratodo n \en \naturales
-	      $$
+        \textit{Caso base:}
+        $$
+          p(\blue{1}) : X^{\blue{1}} \divideA f_{\blue{1}}
+        $$
+        Se cumple enseguida que:
+        $$
+          X \divideA X^3 + 2X
+          \sii
+          X \divideA X \cdot (X^2 + 2)
+        $$
+        Por lo tanto $p(\blue{1})$ es verdadera.
 
-	      \textit{Caso base:}
-	      $$
-		      p(\blue{1}) : X^{\blue{1}} \divideA f_{\blue{1}}
-	      $$
-	      Se cumple enseguida que:
-	      $$
-		      X \divideA X^3 + 2X
-		      \sii
-		      X \divideA X \cdot (X^2 + 2)
-	      $$
-	      Por lo tanto $p(\blue{1})$ es verdadera.
+        \textit{Paso inductivo:}
 
-	      \textit{Paso inductivo:}
+        Asumo para un $\blue{k} \en \naturales$ que:
+        $$
+          p(\blue{k}) : \ub{
+            X^{\blue{k}} \divideA f_{\blue{k}}
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es una proposición verdadera. Entonces quiero probar que:
+        $$
+          p(\blue{k + 1}) : X^{\blue{k+1}} \divideA f_{\blue{k+1}}
+        $$
+        también lo sea.
+        $$
+          X^{\blue{k+1}} \divideA f_{\blue{k+1}}
+          \sii
+          X^{\blue{k+1}} \divideA Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
+        $$
+        Exploto la \purple{hipótesis inductiva} para construir el paso $\blue{k+1}$:
+        $$
+          \begin{array}{c}
+            \Entonces{\purple{HI}}
+            X^k \divideA f_k
+            \Sii{\red{!}}
+            X^k \divideA f_k \cdot f_k
+            \Sii{\red{!}}
+            X \cdot X^k \divideA X\cdot f_k^2
+            \sii
+            X^{k+1} \divideA X \cdot f_k^2  \quad \llamada1 \\
+            \text{y parecido con la derivada}               \\
+            \Entonces{\red{!!}}	      X^{k-1} \divideA f'_k
+            \Sii{\red{!}}
+            X^2 \cdot X^{k-1} \divideA X^2 \cdot f'_k
+            \sii
+            X^{k+1} \divideA X^2 \cdot f'_k \quad \llamada2
+          \end{array}
+        $$
+        Donde en \red{!!} usé la \purple{hipótesis inductiva}, si $f_k$ tiene como raíz al 0 con multiplidad $k$ entonces la derivada tiene que
+        tener multiplicidad $k-1$ en 0.
+        Con esos hermosos, tiernos y sabrosos resultados de $\llamada1 \ytext \llamada2$:
+        $$
+          \llave{l}{
+            X^{k+1} \divideA X \cdot f_k^2  \\
+            X^{k+1} \divideA X^2 \cdot f'_k
+          }
+          \sii
+          X^{\blue{k+1}} \divideA X \cdot f_{\blue{k}}^2 +  X^2 \cdot f'_{\blue{k}} \\
+        $$
 
-	      Asumo para un $\blue{k} \en \naturales$ que:
-	      $$
-		      p(\blue{k}) : \ub{
-			      X^{\blue{k}} \divideA f_{\blue{k}}
-		      }{
-			      \text{\purple{hipótesis inductiva}}
-		      }
-	      $$
-	      es una proposición verdadera. Entonces quiero probar que:
-	      $$
-		      p(\blue{k + 1}) : X^{\blue{k+1}} \divideA f_{\blue{k+1}}
-	      $$
-	      también lo sea.
-	      $$
-		      X^{\blue{k+1}} \divideA f_{\blue{k+1}}
-		      \sii
-		      X^{\blue{k+1}} \divideA Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
-	      $$
-	      Exploto la \purple{hipótesis inductiva} para construir el paso $\blue{k+1}$:
-	      $$
-		      \begin{array}{c}
-			      \Entonces{\purple{HI}}
-			      X^k \divideA f_k
-			      \Sii{\red{!}}
-			      X^k \divideA f_k \cdot f_k
-			      \Sii{\red{!}}
-			      X \cdot X^k \divideA X\cdot f_k^2
-			      \sii
-			      X^{k+1} \divideA X \cdot f_k^2  \quad \llamada1 \\
-			      \text{y parecido con la derivada}               \\
-			      \Entonces{\red{!!}}	      X^{k-1} \divideA f'_k
-			      \Sii{\red{!}}
-			      X^2 \cdot X^{k-1} \divideA X^2 \cdot f'_k
-			      \sii
-			      X^{k+1} \divideA X^2 \cdot f'_k \quad \llamada2
-		      \end{array}
-	      $$
-	      Donde en \red{!!} usé la \purple{hipótesis inductiva}, si $f_k$ tiene como raíz al 0 con multiplidad $k$ entonces la derivada tiene que
-	      tener multiplicidad $k-1$ en 0.
-	      Con esos hermosos, tiernos y sabrosos resultados de $\llamada1 \ytext \llamada2$:
-	      $$
-		      \llave{l}{
-			      X^{k+1} \divideA X \cdot f_k^2  \\
-			      X^{k+1} \divideA X^2 \cdot f'_k
-		      }
-		      \sii
-		      X^{\blue{k+1}} \divideA X \cdot f_{\blue{k}}^2 +  X^2 \cdot f'_{\blue{k}} \\
-	      $$
+        \medskip
 
-	      \medskip
-
-	      Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción en también lo es $p(n) \paratodo n \en \naturales$.
-
+        Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción también lo es $p(n) \paratodo n \en \naturales$.
 
 \end{enumerate}
 
 \begin{aportes}
-	\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

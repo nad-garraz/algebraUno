@@ -4,13 +4,13 @@
 \begin{itemize}
 
   \item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \ytext b \distinto 0$ y sea
-        $$\boxed{
+        $$\cajaResultado{
             S = \set{ (x,y) \en \enteros^2 : aX + bY = c } \entonces
             S \distinto \vacio \sisolosi (a:b) \divideA c}
         $$
         \red{¡Coprimizar siempre que se pueda!: } Las soluciones de $S$ son las mismas que las de $S$ coprimizado.
         $$
-          \boxed{
+          \cajaResultado{
             aX + bY = c
             \Sii{$a' = \frac{a}{(a:b)} \ytext  b' = \frac{b}{(a:b)}$}[$ c' = \frac{c}{(a:b)}$]
             a'X + b'Y = c'
@@ -18,11 +18,15 @@
         $$
 
   \item Las solución general del sistema S coprimizado :
-        $$\boxed{
-            S = \set{(x,y) \en \enteros^2 : (x,y) =
-              \ub{(x_0, y_0)}{\text{Solución particular}} + k \cdot \ob{(-b', a')}{\text{Solución homogéneo}}
-              \text{ con } , k \en \enteros}
-          }$$
+        $$
+          \cajaResultado{
+            S = \bigg\{
+            (x,y) \en \enteros^2 : (x,y) =
+            \ub{(x_0, y_0)}{\text{Solución particular}} + k \cdot \ob{(-b', a')}{\text{Solución homogéneo}}
+            \text{ con } , k \en \enteros
+            \bigg\}
+          }
+        $$
 \end{itemize}\bigskip
 
 \textit{Ecuaciones de congruencia: }
@@ -47,7 +51,6 @@
           }
         $$
         Porque si $d \nocop b$ \red{no vale la vuelta $(\Leftarrow)$} en el "$\sisolosi$", y la cagás.
-
 
   \item Si te ponés a hacer cuentas en $\congruencia{aX}{c}{b}$
         \textit{sin que} $a \cop b$,
@@ -95,9 +98,9 @@
             \congruencia{a^{\purple{d}}}{1}{p} \entonces \purple{d} \divideA (p-1)
           }
         $$
-                Atento a esto que en algún que otro ejercicio uno encuentra un valor usando PTF, pero eso no quiere
-                decir que no haya \underline{otro valor menor}! Que habrá que encontrar con otro método.\par
+        Atento a esto que en algún que otro ejercicio uno encuentra un valor usando PTF, pero eso no quiere
+        decir que no haya \underline{otro valor menor}! Que habrá que encontrar con otro método.\par
 
-                \textit{Nota:} Cuando $p$ es primo y $a$ un entero cualquiera, será obvio o no, pero: \boxed{p \noDivide a \sii p \cop a}.
-                Se usan indistintamente.
+        \textit{Nota:} Cuando $p$ es primo y $a$ un entero cualquiera, será obvio o no, pero: \boxed{p \noDivide a \sii p \cop a}.
+        Se usan indistintamente.
 \end{itemize}

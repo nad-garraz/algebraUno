@@ -31,28 +31,39 @@
         $$
           \im(f(r)) = -r^3 + 4r^2 -2r = 0
           \sii
-          r\cdot(-r^2 + 4r -2) = 0
+          -r\cdot(r^2 - 4r + 2) = 0
           \Sii{\red{!}}
           r \en \set{0,\, 2 + \sqrt{2},\, 2 - \sqrt{2}}
         $$
         El 0 claramente no es raíz de la parte real $\re(f)$, por lo tanto las otras tienen que serlo, debido a que el polinomio no tiene
         coeficientes irracionales y por enunciado $f$ tiene \ul{al menos una raíz real}:
         $$
-          \divPol{X^4 - 4X^3 + 8X^2 -24X + 12}{-X^2 + 4X -2}
+          \divPol{X^4 - 4X^3 + 8X^2 -24X + 12}{X^2 - 4X + 2}
         $$
         Por lo tanto:
         $$
-          \re(f) =  (-X^2 + 4X -2) \cdot (-X^2 - 6) = (X - (2 + \sqrt{2}))(X - (2 - \sqrt{2}))(X - i\sqrt{6})(X + i\sqrt{6})
+          \re(f) =  (X^2 - 4X +2) \cdot (X^2 + 6) =
+          \big(X - (2 + \sqrt{2})\big)
+          \big(X - (2 - \sqrt{2})\big)
+          \big(X - i\sqrt{6}\big)
+          \big(X + i\sqrt{6}\big)
         $$
-        Sé que las raíces complejas no son raíces de la parte imaginaria así que no me sirven. Las únicas raíces que tienen en común
-        $\re(f)$ y $\im(f)$, me forman el $(\re(f): \im(g)) = -X^2 + 4X -2$, datazo que nadie pidió!
-        Ahora le bajo el grado al polinomio original:
+        Sé que las raíces complejas \ul{no} son raíces de la parte imaginaria así que no me sirven. Las únicas raíces que tienen en común
+        $\re(f)$ y $\im(f)$, me forman el $(\re(f): \im(g)) = X^2 - 4X + 2$, datazo que nadie pidió!
+
+        Ahora le bajo el grado al polinomio original $f$ y queda ahí medio cocinado:
         $$
-          f = (-X^2 + iX -6) \cdot (-X^2 + 4X -2) =
-          (X - 3i)
-          (X + 2i)\cdot
-          (2 + \sqrt{2})
-          (2 - \sqrt{2})
+          \begin{array}{rcl}
+            f & = & X^4 - (i + 4)X^3 + (8 + 4i)X^2 - (2i + 24)X + 12 \\
+              & = & (X^2 - iX + 6) \cdot (X^2 - 4X + 2)              \\
+              & = &
+            \cajaResultado{
+              \big(X - 3i\big)
+              \big(X + 2i\big)
+              \big(X - (2 + \sqrt{2})\big)
+              \big(X - (2 - \sqrt{2})\big)
+            }
+          \end{array}
         $$
 
   \item \hacer

@@ -12,50 +12,49 @@
 \begin{enumerate}[label=(\alph*)]
 
   \item Trabajemos con la primera condición
-
         $$
-          (n:945)=63
+          (n:945) = 63
           \sisolosi
           (n:3^3 \cdot 5 \cdot 7)= 3^2 \cdot 7
         $$
+        De aca tenemos que, en su factorización, $n$ tiene un $3^2$, no tiene un 5 y tiene un $7^m, ~ m \geq 1$.
 
-        De aca tenemos que, en su factorización, $n$ tiene un $3^2$, no tiene un 5 y tiene un $7^m, ~ m \geq 1$. \bigskip
+        \bigskip
 
         Veamos ahora la segunda condición
-
         $$
           (n:1176)=84
           \sisolosi
           (n:2^3 \cdot 3 \cdot 7^2)= 2^2 \cdot 3 \cdot 7
         $$
+        De aca tenemos que, en su factorización, $n$ tiene un $2^2$, tiene un $3^k, ~ k \geq 1$ y tiene un 7.
 
-        De aca tenemos que, en su factorización, $n$ tiene un $2^2$, tiene un $3^k, ~ k \geq 1$ y tiene un 7. \par
         Juntando todo, tenemos que
-
         $$
           n = 2^2 \cdot 3^2 \cdot 7 \cdot (P_1)^{m_1} \cdots (P_r)^{m_r}, ~ m_1, \dots, m_r ~ \en \naturales_0
         $$
 
-        Veamos ahora la tercer condición. \par
-        Si $n$ no tiene ningún primo más, tenemos que $n= 2^2 \cdot 3^2 \cdot 7 = 252 \leq 2800 \Tilde$ \par
+        Veamos ahora la tercer condición.
+
+        Si $n$ no tiene ningún primo más, tenemos que $n= 2^2 \cdot 3^2 \cdot 7 = 252 \leq 2800 \Tilde$
+
         Si $n$ tiene un primo más, sabiendo que el 5 no puede ser, probamos con el 11, que es el que le sigue al 7. Entonces, tenemos
         que $n= 2^2 \cdot 3^2 \cdot 7 \cdot 11 = 2772 \leq 2800 \Tilde$ \par
         Si agregamos otro 11, ya nos pasamos, pues $n=2^2 \cdot 3^2 \cdot 7 \cdot 11^2=30492$. Por otro lado, si no agregamos el 11 sino el que le sigue, el 13,
         tenemos que $n=2^2 \cdot 3^2 \cdot 7 \cdot 13 =3276$, con lo que también nos pasamos. De este modo, es evidente que con cualquier otro primo mayor a 13 también
-        nos pasariamos. Así, solo puede haber como máximo un 11 más.\bigskip
+        nos pasariamos. Así, solo puede haber como máximo un 11 más.
+
+        \bigskip
 
         Luego, los unicos $n$ que cumplen son
-
         $$
           n=2^2 \cdot 3^2 \cdot 7 = \boxed{252}
         $$
-
         $$
           n=2^2 \cdot 3^2 \cdot 7 \cdot 11 = \boxed{2772}
         $$
 
   \item Veamos la primera condición
-
         $$
           (n:1260)=70
           \sisolosi
@@ -64,52 +63,44 @@
 
         De aca deducimos que, en su factorización, $n$ tiene un 2, no tiene un 3, tiene un $5^m, ~ m \geq 1$ y tiene un $7^k, ~ k \geq 1$. \par
         Así, tenemos que
-
         $$
           n = 2^1 \cdot 5^m \cdot 7^k \cdot (P_1)^{m_1} \cdots (P_r)^{m_r}, ~ m_1, \dots, m_r ~ \en \naturales_0
         $$
-
         De la segunda condición tenemos que
-
         $$
           \#Div_+(n)=30
           \sisolosi
           30 = (1+1)(m+1)(k+1)(m_1+1) \cdots (m_r+1)
           \sisolosi
-        $$
-        $$
           15 =(m+1)(k+1)(m_1+1) \cdots (m_r+1)
         $$
-
         Notemos ahora que las únicas maneras de escribir a $15=3 \cdot 5$ como un producto de dos o más números es haciendo $15 \cdot 1$ o $3 \cdot 5$ \par
         Para empezar, estos nos dice que no hay más primos en la factorización de $n$, además del 2, 5 y 7. Luego, tenemos que
-
         $$
           15 =(m+1)(k+1)
         $$
-
         Como ambos factores son mayores iguales a 2 (pues k y m son mayores a 1), tenemos que la única manera que el producto de 15 es que uno sea
         igual a 3 y el otro a 5. Con lo que tenemos dos opciones:
-
         $$
           (m+1)= 3 \ytext (k+1)=5
         $$
-
         $$
           (m+1)= 5 \ytext (k+1)=3
         $$
-
         De la primera obtenemos que $m= 2$ y que $k=4$. Con lo que $n=2 \cdot 5^2 \cdot 7^4$.
-        De la segunda obtenemos que $m= 4$ y que $k=2$. Con lo que $n=2 \cdot 5^4 \cdot 7^2$. \bigskip
+        De la segunda obtenemos que $m= 4$ y que $k=2$. Con lo que $n=2 \cdot 5^4 \cdot 7^2$.
+
+        \bigskip
 
         Luego, los unicos $n$ que cumplen son
-
         $$
-          n = 2 \cdot 5^2 \cdot 7^4 = \boxed{120050}
-        $$
-
-        $$
-          n = 2 \cdot 5^4 \cdot 7^2 = \boxed{61250}
+          \cajaResultado{
+            n = 2 \cdot 5^2 \cdot 7^4 = 120050
+          }
+          \ytext
+          \cajaResultado{
+            n = 2 \cdot 5^4 \cdot 7^2 = 61250
+          }
         $$
 
 \end{enumerate}

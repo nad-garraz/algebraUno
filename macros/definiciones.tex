@@ -55,8 +55,8 @@
 \newcommand{\llaves}[2]{ \left\{ \begin{array}{#1} #2 \end{array} \right\} }
 \newcommand{\matriz}[2]{\left( \begin{array}{#1} #2 \end{array} \right)}
 \newcommand{\deter}[2]{\left| \begin{array}{#1} #2 \end{array} \right|}
-\newcommand{\lista}[2][(1)]{\begin{enumerate}[\bf #1]\setlength\itemsep{-0.6ex} #2 \end{enumerate}}
-\newcommand{\listal}[2][-0.6ex]{\begin{enumerate}[\bf(a)]\setlength\itemsep{#1} #2 \end{enumerate}}
+% \newcommand{\lista}[2][(1)]{\begin{enumerate}[\bf #1]\setlength\itemsep{-0.6ex} #2 \end{enumerate}}
+% \newcommand{\listal}[2][-0.6ex]{\begin{enumerate}[\bf(a)]\setlength\itemsep{#1} #2 \end{enumerate}}
 
 % naturales
 \newcommand{\sumatoria}[2]{\sum\limits_{#1}^{#2}}
@@ -296,7 +296,7 @@
   \addtocounter{ejercicio}{-1} % counter - 1
   \refstepcounter{ejercicio} % referencia al anterior y luego + 1
   \label{#1}}
-\newcommand{\refEjercicio}[1]{{\bf\ref{#1}.}}
+\newcommand{\refEjercicio}[1]{\textbf{\ref{#1}.}}
 
 \def\fueguito{{\color{orange}{\faIcon{fire}}}}
 \newcounter{ejExtra}[section] % contador que se resetea en cada sección
@@ -318,7 +318,7 @@
 }
 % Con esto llamos al ejercicio extra
 \newcommand{\refEjExtra}[1]{
-  {\fueguito\bf\ref{#1}.}
+    {\fueguito\textbf{\ref{#1}.}}
 }
 
 %=======================================================

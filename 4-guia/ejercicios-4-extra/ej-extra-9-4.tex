@@ -9,58 +9,55 @@
 \end{enunciado}
 
 Busco una fracción. Para que esa fracción $\ en \enteros$ es necesario que el
-denominador divida al numerador. Fin.\par
+denominador divida al numerador. Fin.
+$$
+  \frac{2a - 1}{5} - \frac{a - 1}{2a - 3} = \frac{4a^2 -13a + 8}{10a - 15}
+$$
 
 $$
-  \frac{2a - 1}{5} - \frac{a - 1}{2a - 3} = \frac{4a^2 -13a + 8}{10a - 15} \Tilde
-$$
-
-$
   \llamada1\llave{l}{
     10a - 15 \divideA  4a^2 -13a + 8\\
-    10a - 15 \divideA  10a - 15\\
+    10a - 15 \divideA  10a - 15
   }
   \flecha{operaciones}[varias]
   \llave{l}{
     10a - 15 \divideA  -25 \llamada2\\
-    10a - 15 \divideA  10a - 15\\
+    10a - 15 \divideA  10a - 15.
   }
-$.\par
-
-Para que ocurra $\llamada1$, debe ocurrir $\llamada2$.\par
-
+$$
+Para que ocurra $\llamada1$, debe ocurrir $\llamada2$.
 $$
   10a - 15 \divideA  -25
   \sisolosi
   10a-25 \en \set{\pm 1, \pm 5, \pm 25}\llamada3 \text{ para algún } a \en \enteros. \Tilde
-$$ \par
-De paso observo que $|10a - 25| \leq 25$. Busco $a$:\par
-
-$
+$$
+De paso observo que $|10a - 25| \leq 25$. Busco $a$:
+$$
   \llave{rlcl}{
-    \text{Caso: } & d = 10a - 15 = 1 & \sisolosi & a = \frac{8}{5} \quad \skull\\
-    \text{Caso: } & d = 10a - 15 = -1 & \sisolosi & a = \frac{8}{5} \quad \skull\\
-    \text{Caso: } & d = 10a - 15 = 5 & \sisolosi & a = 2\Tilde\\
-    \text{Caso: } & d = 10a - 15 = -5 & \sisolosi & a = 1  \Tilde\\
-    \text{Caso: } & d = 10a - 15 = 25 & \sisolosi & a = 4  \Tilde\\
-    \text{Caso: } & d = 10a - 15 = -25 & \sisolosi & a = -1  \Tilde
+    \text{Caso: } & d = 10a - 15 = 1 & \sisolosi & a = \frac{8}{5} \quad \text{\faIcon{skull}}\\
+    \text{Caso: } & d = 10a - 15 = -1 & \sisolosi & a = \frac{8}{5} \quad \text{\faIcon{skull}}\\
+    \text{Caso: } & d = 10a - 15 = 5 & \sisolosi & a = \magenta{2} \Tilde\\
+    \text{Caso: } & d = 10a - 15 = -5 & \sisolosi & a = \green{1}  \Tilde\\
+    \text{Caso: } & d = 10a - 15 = 25 & \sisolosi & a = \blue{4}  \Tilde\\
+    \text{Caso: } & d = 10a - 15 = -25 & \sisolosi & a = \yellow{-1}  \Tilde
   }
-$\par
-
+$$
 Los valores de $a \en \enteros$ que cumplen $\llamada2$ son $\set{-1,1,2,4}$. Voy a evaluar y así encontrar
 para cual de ellos se cumple $\llamada1$, es decir que el númerador sea un múltiplo del
 denominador para el valor de $a$ usado.\par
-
 $$
   \begin{array}{llcllr}
-    d = 5   & a = \magenta{2} & \entonces & 4 \cdot \magenta{2}^2 - 13 \cdot \magenta{2} + 8 = -2     & \to & 5 \noDivide -2 \quad\skull \\
-    d = -5  & a = \green{1}   & \entonces & 4 \cdot \green{1}^2 - 13 \cdot \green{1} + 8 = 1          & \to & -5 \noDivide 1 \quad\skull \\
-    d = 25  & a = \blue{4}    & \entonces & 4 \cdot \blue{4}^2 - 13 \cdot \blue{4} + 8 = 4            & \to & 25 \noDivide 4 \quad\skull \\
+    d = 5   & a = \magenta{2} & \entonces & 4 \cdot \magenta{2}^2 - 13 \cdot \magenta{2} + 8 = -2     & \to & 5 \noDivide -2 \quad \text{\faIcon{skull}} \\
+    d = -5  & a = \green{1}   & \entonces & 4 \cdot \green{1}^2 - 13 \cdot \green{1} + 8 = 1          & \to & -5 \noDivide 1 \quad \text{\faIcon{skull}} \\
+    d = 25  & a = \blue{4}    & \entonces & 4 \cdot \blue{4}^2 - 13 \cdot \blue{4} + 8 = 4            & \to & 25 \noDivide 4 \quad \text{\faIcon{skull}} \\
     d = -25 & a = \yellow{-1} & \entonces & 4 \cdot (\yellow{-1})^2 - 13 \cdot (\yellow{-1}) + 8 = 25 & \to & -25 \divideA 25 \Tilde
   \end{array}
 $$
 
-El único valor de $a \en \enteros$ que cumple lo pedido es \boxed{a = -1}
+El único valor de $a \en \enteros$ que cumple lo pedido es:
+$$
+  \cajaResultado{a = -1}
+$$
 
 \separadorCorto
 
@@ -71,23 +68,21 @@ $$
   r_5(4a^2 -13a + 8) \ytext  r_{25}(4a^2 -13a + 8)
 $$
 
-$
+$$
   r_5 (4a^2 -13a + 8) = 0
   \sii
   \llave{l}{
     \congruencia{a}{3}{5}\\
     \congruencia{a}{4 \congruente \red{-1}}{5}
   }
-$
-\quad y \quad
-$
+  \ytext
   r_{25} (4a^2 -13a + 8) = 0
   \sii
   \llave{l}{
     \congruencia{a}{23}{25}\\
     \congruencia{a}{24 \congruente \red{-1}}{25}
-  }$
-
+  }
+$$
 Se puede ver también así que el único valor de $a \en \enteros$,
 que cumple $\llamada1$ es $a = -1$
 

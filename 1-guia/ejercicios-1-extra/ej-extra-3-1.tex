@@ -38,11 +38,11 @@ $$
         Si tengo que $f \relacion g$, sé algo sobre sus conjuntos $\im$ ya que,
         \[
           \llave{ccc}{
-          \#\set{\im(f) \diferencia \im(g)} = 0 & \sisolosi & \im(f) \igual{$\llamada1$} \im(g) \\
-                                                & \otext    &                                   \\
-          \#\set{\im(f) \diferencia \im(g)} = 4
-                                                & \sisolosi &
-          \im(f) \stackrel{\llamada2}\inter \im(g) = \vacio
+            \#\set{\im(f) \diferencia \im(g)} = 0 & \sisolosi & \im(f) \igual{$\llamada1$} \im(g) \\
+            & \otext    &                                   \\
+            \#\set{\im(f) \diferencia \im(g)} = 4
+            & \sisolosi &
+            \im(f) \stackrel{\llamada2}\inter \im(g) = \vacio
           }
         \]
         Entonces los conjuntos $\im(f)$ y $\im(g)$ están relacionados por un "$=$" y un "$\inter$",
@@ -57,26 +57,27 @@ $$
           f
           \to
           \llave{l}{
-          f(1) = 1 \\
-          f(2) = 2 \\
-          f(3) = 3 \\
-          f(4) = 4
+            f(1) = 1 \\
+            f(2) = 2 \\
+            f(3) = 3 \\
+            f(4) = 4
           }\ytext
           g
           \to
           \llave{l}{
-          g(1) = 4 \\
-          g(2) = 3 \\
-          g(3) = 2 \\
-          g(4) = 1
+            g(1) = 4 \\
+            g(2) = 3 \\
+            g(3) = 2 \\
+            g(4) = 1
           }
         $$
 
         $\llave{l}{
-          f \relacion g, \text{ sus imágenes cumplen } \llamada1 \\
-          g \relacion f, \text{ sus imágenes cumplen } \llamada1
+            f \relacion g, \text{ sus imágenes cumplen } \llamada1 \\
+            g \relacion f, \text{ sus imágenes cumplen } \llamada1,
           }
-        $, pero por como están definidas las funciones $f \distinto g$. $\relacion$ no es antisimétrica. $\skull$\par
+        $
+        pero por como están definidas las funciones $f \distinto g$. $\relacion$ no es antisimétrica. \faIcon{skull}
 
         \textit{Transitiva: } Quiero ver que si
         $f \relacion g
@@ -90,39 +91,39 @@ $$
           f
           \to
           \llave{l}{
-          f(1) = 1 \\
-          f(2) = 2 \\
-          f(3) = 3 \\
-          f(4) = 4
+            f(1) = 1 \\
+            f(2) = 2 \\
+            f(3) = 3 \\
+            f(4) = 4
           },\quad
           g
           \to
           \llave{l}{
-          g(1) = 5 \\
-          g(2) = 6 \\
-          g(3) = 7 \\
-          g(4) = 8
+            g(1) = 5 \\
+            g(2) = 6 \\
+            g(3) = 7 \\
+            g(4) = 8
           }  \ytext
           h
           \to
           \llave{l}{
-          h(1) = 1 \\
-          h(2) = 2 \\
-          h(3) = 9 \\
-          h(4) = 10
+            h(1) = 1 \\
+            h(2) = 2 \\
+            h(3) = 9 \\
+            h(4) = 10
           }
         $$
 
         $\llave{l}{
-          f \relacion g, \text{ sus imágenes cumplen } \llamada2 \\
-          g \relacion h, \text{ sus imágenes cumplen } \llamada2
+            f \relacion g, \text{ sus imágenes cumplen } \llamada2 \\
+            g \relacion h, \text{ sus imágenes cumplen } \llamada2
           }
         $, pero
         $f \norelacion h$ dado que:
         $$
           \set{\im(f) \diferencia \im(g)} = \set{3,4} \entonces \# \set{\im(f) \diferencia \im(g)} = 2 \distinto 0 \otext 4.
         $$
-        $\relacion$ no es transitiva. $\skull$
+        $\relacion$ no es transitiva. \faIcon{skull}
 
   \item
         Para que $f$ y $g$ se relacionen se debe cumplir con $\llamada1$ o con $\llamada2$. En otras palabras necesito encontrar funciones
@@ -132,9 +133,9 @@ $$
         Hago la \textit{inyección} de los 4 valores que puede tomar la función inyectiva $g$.\par
         $$
           \llave{r c c c c }{
-          g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
-                             & \downarrow & \downarrow & \downarrow & \downarrow \\
-          \text{opciones}\to & \#4        & \#3        & \#2        & \#1
+            g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
+            & \downarrow & \downarrow & \downarrow & \downarrow \\
+            \text{opciones}\to & \#4        & \#3        & \#2        & \#1
           }
         $$
         Hay $4!$ permutaciones \Tilde\par
@@ -143,9 +144,9 @@ $$
         Hago la \textit{inyección} de los 46 valores que puede tomar la función inyectiva $g$.\par
         $$
           \llave{r c c c c }{
-          g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
-                             & \downarrow & \downarrow & \downarrow & \downarrow \\
-          \text{opciones}\to & \#46       & \#45       & \#44       & \#43
+            g \to              & g(1)       & g(2)       & g(3)       & g(4)       \\
+            & \downarrow & \downarrow & \downarrow & \downarrow \\
+            \text{opciones}\to & \#46       & \#45       & \#44       & \#43
           }
         $$
         Hay $\frac{46!}{42!}$ permutaciones \Tilde\par

@@ -56,7 +56,7 @@ Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
           }
         $$.
 
-  \item Parecido al anterior. Voy a ver que pasa con $p = 3$ y con $p = 5$ así descarto esos valores y después le manto PTF:
+  \item Parecido al anterior. Voy a ver que pasa con $p = 3$ y con $p = 5$ así descarto esos valores y después le mando PTF:
         $$
           p = 3
           \entonces
@@ -88,26 +88,36 @@ Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
             \congruencia{5^{p-1} + 3^{p^2+2}+833}{\blue{0}}{3} \llamada2
           }
         $$
-        Laburo en $\llamada1$ con PTF:
+        Laburo en $\llamada1$ con PTF y
+        $$
+          \polyset{vars=p}
+          \divPol{p^2 + 2}{p-1}
+          \qquad
+          \ytext
+          \qquad
+          \divPol{p-1}{p-1}
+        $$
         $$
           \llamada1
-          \entonces
-          \congruencia{5^0 + 3^1 + 833 = 837 = 3^3 \cdot 31}{\blue{0}}{p}
+          \sii
+          \congruencia{5^0 + 3^3 + 833 = 861 = 3 \cdot 7 \cdot 41}{\blue{0}}{p}
         $$
-        Como el $p = 3$ está descartado a este punto tengo que pedir que $p = \purple{31}$ para que se cumpla la congruencia.
-        Solo me falta chequear que $\llamada2$ funciones bien para este valor:
+        Como el $p = 3$ está descartado a este punto tengo que pedir que $p \en \set{\purple{7, 41}}$ para que se cumpla la congruencia.
+        Solo me falta chequear que $\llamada2$ funciones bien para estos valores:
         $$
-          \llamada2
-          \entonces
-          \congruencia{5^{\purple{31}-1} + 3^{\purple{31}^2+2}+833 \conga{3} 834 }{\blue{0}}{3}
+          \sii
+          \llave{ccl}{
+              \text{$p = 41$} & \Sii{$\llamada2$} & \congruencia{5^{\purple{41}-1} + 3^{\purple{41}^2 + 2} + 833 \conga{3} 5^0 + 3^1 + 2}{\blue{0}}{3}\\
+            \text{$p = 7$}  & \Sii{$\llamada2$} & \congruencia{5^{\purple{7}-1} + 3^{\purple{7}^2 + 2} + 833 \conga{3} 5^0 + 3^1 + 2}{\blue{0}}{3}
+          }
         $$
 
         \medskip
 
-        Concluyendo de esta manera que el número primo $31$ también es solución:
+        Concluyendo de esta manera que los números primos 7 y 41 también son soluciónes:
         $$
           \cajaResultado{
-            p \en \set{5, 31}
+            p \en \set{5, 7, 41}
           }
         $$
 \end{enumerate}

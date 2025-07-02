@@ -37,11 +37,7 @@ Si eso último te parece medio fantasma \purple{\faIcon[regular]{ghost}}, podés
 cada condición del divisor 4. De esa forma vas a eliminar \textit{incompatibilidades}
 y vas a terminar llegando al único sistema posible {\tiny (me contó un pajarito \blue{\faIcon{twitter}})}.
 
-\medskip
-
-El sistema de $\llamada1$ queda como:
-
-\medskip
+\bigskip
 
 Para que $(n^{63} -21 : 39) = 39$ debe ocurrir que:
 
@@ -52,8 +48,14 @@ $$
     \congruencia{n^{63}}{8}{13}
     \Sii{$13$ primo}[$13 \noDivide n$]
     \congruencia{n^{\blue{3}}}{2^3}{13}
-    \Sii{\red{!!!}}[$n \cop 13$]
-    \congruencia{n}{2}{13}                \\
+    \Sii{Tabula Rasta}[\red{!}]
+    \llave{l}{
+      \congruencia{n}{2}{13}                \\
+      \otext\\
+      \congruencia{n}{5}{13}  \text{\red{\faIcon{skull}}}              \\
+      \otext\\
+      \congruencia{n}{6}{13}  \text{\red{\faIcon{skull}}}
+    }\\
     3 \divideA  n^{63} -21  & \Sii{def} &
     \congruencia{n^{63}}{0}{3}
     \Sii{\red{!}}
@@ -63,7 +65,8 @@ $$
 
 \bigskip
 
-Junto info que salió de los máximos común múltiplos. Quedan dos sistemas de $\llamada1$ y $\llamada2$:
+Junto info que salió de los MCD. Quedan 3 sistemas de $\llamada1$ y $\llamada2$,
+descartando los valores de módulo 13 \red{\faIcon{skull}} que son incompatibles con $\llamada1$:
 
 $$
   \llave{l}{
@@ -107,4 +110,5 @@ $$
 $$
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/veraroux}{Vera R. \github}
 \end{aportes}

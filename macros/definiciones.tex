@@ -210,9 +210,9 @@
 
 \NewDocumentCommand{\conga}{m o}{
   \IfNoValueTF{#2}{
-    \overset{\mathclap{#1}}\equiv
+      \overset{(#1)}\equiv
   }{
-    \overset{\mathclap{#1}}{\underset{\mathclap{#2}}\equiv}
+      \overset{(#1)}{\underset{\mathclap{#2}}\equiv}
   }
 }
 
@@ -293,7 +293,7 @@
     Dale las gracias y un poco de amor \rosa{\faIcon{heart}} a los que contribuyeron!
     Gracias por tu aporte:
     \vspace{-10pt}
-    \begin{multicols}{3}
+    \begin{multicols}{4}
       \begin{itemize}[label={\tiny\yellow{\faIcon{medal}}}]
         }{
       \end{itemize}

@@ -9,25 +9,32 @@
 \end{enunciado}
 
 Inclusión :
-$
-  \begin{cases}
-    \text{Definición}      & A \subseteq B \text{ si } \paratodo x, x \en A \entonces x \en B   \\
-    \text{Contrarecíproco} & A \nsubseteq B \text{ si } \existe x, x \en A \entonces x \notin B
-  \end{cases}
-$
+$$
+  A \subseteq B \text{ si } \paratodo x \en \universo, x \en A \entonces x \en B
+$$
 \begin{enumerate}[label=(\roman*)]
-  \item $\begin{cases}
+  \item $\llave{l}{
             A = \set{1, 2, 3} \\
             B = \set{5,4,3,2,1}
-          \end{cases}
-          \flecha{respueta} \quad
+          }
+          \flecha{respuesta} \quad
           A \stacktext{\Tilde}{\subseteq} B$
-  \item $\begin{cases}
+
+  \item $$
+          \llave{l}{
             A = \set{1, 2, 3} \\
             B = \set{1,2,\set{3},-3}
-          \end{cases}
-          \flecha{respueta} \quad
-          A \nsubseteq B \flecha{dado}[que] 3 \in A\text{ pero }3 \notin B$
+          }
+          \flecha{respuesta} \quad
+          A \nsubseteq B
+          \flecha{dado}[que]
+          \ub{
+            3 \en A\text{ pero } 3 \notin B
+          }{
+            \text{contra ejemplo}
+          }
+        $$
+
   \item
         \def\tresiiiUno{
           \begin{tikzpicture}[scale=0.8, baseline=0]
@@ -60,28 +67,29 @@ $
             \node at (0,-0.3) {0};
           \end{tikzpicture}
         }
-        $
+        $$
           \llaves{ll}{
             A = \set{x \en \reales \talque 2<|x|<3} & \tresiiiUno \\
             B = \set{x \en \reales \talque x^2 < 3 } & \tresiiiDos
-          }\\
-          \flecha{respueta} A \nsubseteq B \flecha{dado}[que] 2.5 \en A \text{ y } 2.5 \not\en B
-        $
+          }
+        $$
+        En este caso:
+        $$
+          A \nsubseteq B \text{ dado que } 2.5 \en A \text{ y } 2.5 \not\en B
+        $$
+
   \item
         $
-          \begin{cases}
+          \llave{l}{
             A = \set{\vacio} \\
             B = \vacio
-          \end{cases}\\
-          \flecha{respueta}
+          }
+          \flecha{respuesta}
           A \nsubseteq B \flecha{dado}[que] \text{$B$ no tiene ningún elemento, sin embargo $A$ tiene un elemento: $\vacio$.}
         $
 \end{enumerate}
 
-% Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/MateCon}{Mateo Z \github}
 \end{aportes}

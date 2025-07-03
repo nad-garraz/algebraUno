@@ -18,21 +18,18 @@ $$
 $$
 A ver esta última expresión:
 $$
-  3^{r_4(3^n-2)}
-  \to
-  \begin{array}{|c|l|l|l|l|}
-    \hline
-    r_4(n)   & 0        & 1          & 2        & 3          \\ \hline
-    r_4(3^n) & \blue{1} & \purple{3} & \blue{1} & \purple{3} \\ \hline
-  \end{array}
-  \flecha{$n$ par}[$n$ impar]
+  \blue{X} = r_4(3^n - 2)
+  \Sii{def}
+  \congruencia{\blue{X}}{3^n-2}{4}
+  \sii
+  \congruencia{\blue{X}}{(-1)^n + 2}{4}
+  \Sii{\red{!}}
   \llave{rl}{
-    \text{si $n$ par}   & 3^{r_4(3^n-2)} \conga5 3^{\blue{1} - 2} \conga5 \congruencia{3^3}{2}{5} \\
-    \\
-    \text{si $n$ impar} & 3^{r_4(3^n-2)} \conga5 3^{\purple{3} - 2} \conga5 3 \ (5)
+    \congruencia{\blue{X}}{3}{4} & \text{si $n$ par}    \\
+    \congruencia{\blue{X}}{1}{4} & \text{si $n$ impar}
   }
 $$
-Voy sacando los siguientes resultados para la expresión del enunciado, formando dos sistemas de ecuaciones de congruencias:
+Volviendo a $\llamada1$ con los resultados calculados de $\blue{X}$:
 $$
   \llamada3
   \llave{ll}{
@@ -51,16 +48,18 @@ $$
   \congruencia{n}{0}{2}
   \entonces
   \llave{l}{
-    8^{3^n-2} = 4j
-    \to
-    \congruencia{4j}{2}{5}
+    \congruencia{8^{3^n-2}}{0}{4}
+    \Sii{def}
+    8^{3^n-2} = 4\green{j}
+    \Sii{reemplazo}
+    \congruencia{4\green{j}}{2}{5}
     \sii
-    \congruencia{j}{3}{5} \\
-    \sii
-    j = 5k + 3
+    \congruencia{\green{j}}{3}{5}
+    \Sii{def}
+    \green{j} = \green{5k + 3}\\
     \entonces
-    8^{3^n-2} = 4(5k+3)
-    \sii
+    8^{3^n-2} = 4\green{(5k+3)}
+    \Sii{def}
     \cajaResultado{
       \congruencia{8^{3^n-2}}{12}{20}
       \sii
@@ -68,19 +67,22 @@ $$
     }.
   }
 $$
-Ahora el sistema con $n$ impar $\llamada4$:
+Con $n$ impar $\llamada4$:
 $$
   \congruencia{n}{1}{2}
+  \entonces
   \llave{l}{
-    8^{3^n-2} = 4j
-    \to
-    \congruencia{4j}{3}{5}
+    \congruencia{8^{3^n-2}}{0}{4}
+    \Sii{def}
+    8^{3^n-2} = 4\green{j}
+    \Sii{reemplazo}
+    \congruencia{4\green{j}}{3}{5}
     \sii
-    \congruencia{j}{2}{5} \\
-    \sii
-    j = 5k + 2
+    \congruencia{\green{j}}{2}{5}
+    \Sii{def}
+    \green{j} = \green{5k + 2}\\
     \entonces
-    8^{3^n-2} = 4(5k+2)
+    8^{3^n-2} = 4\green{(5k+2)}
     \sii
     \cajaResultado{
       \congruencia{8^{3^n-2}}{8}{20}

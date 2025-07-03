@@ -62,7 +62,8 @@
         $$
         Por lo tanto $p(1)$ resulta verdadera.
 
-        \textit{Paso inductivo:}\par
+        \textit{Paso inductivo:}
+
         Uso la notación de congruencia de acá en adelante, porque es mucho más cómodo.
         Supongo que:
         $$
@@ -70,16 +71,18 @@
           \quad \text{ para algún } \blue{k} \en \enteros
         $$
         es  una proposición verdadera.
-        Entonces quiere probar que:\par
+        Entonces quiere probar que:
         $$
           p(\blue{k+1}) : \congruencia{49^{\blue{k+1}} + 208 \cdot (\blue{k+1}) - 1}{0}{256},
         $$
         también sea verdadera. Arranco del paso $(k+1)$ y haciendo un poco de \textit{matemagia}:
         $$
           \begin{array}{rcl}
-            49^{k+1} + 208 \cdot (k+1) - 1 & =                           & 49 \cdot 49^k + 208k + 208 - 1 \taa{(256)}{\purple{\text{HI}}}\equiv  49 \cdot (-208k + 1) + 208k + 208 - 1 \\
-                                           & \conga{256}                 & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49                                                   \\
-                                           & \taa{(256)}{\red{!!}}\equiv & 48 k + 49 - 48k - 49 = 0 \Tilde
+            49^{k+1} + 208 \cdot (k+1) - 1 & =                       & 49 \cdot 49^k + 208k + 208 - 1
+            \conga{(256)}[\purple{\text{HI}}]
+            49 \cdot (-208k + 1) + 208k + 208 - 1                                                                                \\
+                                           & \conga{256}             & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49 \\
+                                           & \conga{(256)}[\red{!!}] & 48 k + 49 - 48k - 49 = 0 \Tilde
           \end{array}
         $$
         En \red{!!} y gracias a Gauss $\congruencia{2352}{48}{256}$ ¿Casualidad? No sé y no me importa.\par
@@ -92,8 +95,6 @@
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}
 

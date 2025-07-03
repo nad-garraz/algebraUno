@@ -71,11 +71,10 @@
 \def\noCongruente{\, \not\equiv \,}
 \newcommand{\congruencia}[3]{#1 \equiv #2 \,\,(#3)}
 \newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \,\,(#3)}
-\newcommand{\conga}[1]{\stackrel{\mathclap{(#1)}}{\congruente}}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
-\newcommand{\ub}[2]{\underbrace{\textstyle #1}_{\mathclap{#2}}}
-\newcommand{\ob}[2]{\overbrace{\textstyle #1}^{\mathclap{#2}}}
+\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{\mathclap{\substack{#2}}} }
+\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{\mathclap{\substack{#2}}} }
 \newcommand{\ua}[2]{\underset{\mathclap{\substack{\downarrow \\ \everymath{\textstyle} #2}}}{#1}}
 \newcommand{\oa}[2]{\overset{\mathclap{\substack{\everymath{\textstyle}#2 \\ \uparrow }}}{#1}}
 \def\cop{\, \perp \, }
@@ -201,6 +200,24 @@
   }
 }
 
+\NewDocumentCommand{\menor}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{\text{#1}}}<
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}<}
+  }
+}
+
+\NewDocumentCommand{\conga}{m o}{
+  \IfNoValueTF{#2}{
+    \overset{\mathclap{#1}}\equiv
+  }{
+    \overset{\mathclap{#1}}{\underset{\mathclap{#2}}\equiv}
+  }
+}
+
+% \newcommand{\conga}[1]{\stackrel{\mathclap{(#1)}}{\congruente}}
+
 %=======================================================
 % Comandos con flechas extensibles.
 %=======================================================
@@ -234,8 +251,13 @@
 % fin comandos con flechas extensibles.
 
 % como el stackrel pero también se puede poner algo debajo
-\newcommand{\taa}[3]{ % [t]exto [a]rriba y [a]bajo
-  \overset{\mathclap{#1}}{\underset{\mathclap{#2}}{#3}}
+% Text
+\NewDocumentCommand{\taa}{m o m}{
+  \IfNoValueTF{#2}{
+      \overset{\mathclap{\text{#1}}}#3
+  }{
+    \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}#3}
+  }
 }
 
 %Update time

@@ -8,9 +8,16 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item Dado un $z = r e^{i\theta}$, tengo que $z\en \reales_{>0} \sisolosi
-          \re(z) > 0 \y \im(z) = 0 \sisolosi
-          r > 0 \y \theta = 2k\pi$ con $k \en \enteros$
+  \item Dado un $z = r e^{i\theta}$, tengo que:
+        $$
+          \begin{array}{rcl}
+            z\en \reales_{>0}
+             & \sisolosi & \re(z) > 0 \y \im(z) = 0                     \\
+             & \sisolosi & r > 0 \y \theta = 2k\pi$ con $k \en \enteros
+          \end{array}
+        $$
+
+        Arrancamos:
         \begin{itemize}
           \item  \textit{Reflexividad: } $z = r e^{i\theta},\, z \relacion z = r^2 e^{2\theta i}$ por lo tanto
                 $z \relacion z \sisolosi 2\theta = 2 k\pi \sisolosi \theta = k\pi \Tilde$
@@ -35,10 +42,14 @@
           Tengo que el $\argumento(1+i) = \frac{\pi}{4}$.
           La clase  $\clase z$ estará formada
           por los $w \en \complejos$ tal que:
-          \boxed{ w \relacion z \sisolosi \argumento(w) = \frac{1}{4}\pi}
+          $$
+            \cajaResultado{
+              w \relacion z \sisolosi \argumento(w) = \frac{1}{4}\pi
+            }
+          $$
         \end{minipage}
         \begin{minipage}{0.3\textwidth}
-          \begin{tikzpicture}[baseline=0, scale = 2, every node/.style={font=\tiny}]
+          \begin{tikzpicture}[baseline=0, scale = 1.5, every node/.style={font=\tiny}]
             % \draw[help lines, dashed, step=0.25, ultra thin](-.5,-0.5) grid (1.5,1.5);
 
             \draw[ultra thin,->,gray] (-.5,0) -- (1.5,0) node[below] {Re};

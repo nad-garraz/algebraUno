@@ -7,7 +7,9 @@
   \end{itemize}
 \end{enunciado}
 
-$\llave{l}{
+En forma exponencial es más fácil laburar esas cosas (para mí):
+$$
+  \llave{l}{
     |z| = 1 \\
     \theta_z = \frac{11}{6}\pi
   }
@@ -16,13 +18,11 @@ $\llave{l}{
   \entonces
   z^3 = e^{i\frac{11}{2}\pi} = -1
   \sii |z^3| = 1
-$
+$$
 
-\textit{Primera condición: }\par
-$
+\textit{Primera condición: }
+$$
   8 \divideA 3n + |z^3| = 3n + 1
-  \Sii{def}
-  3n + 1 = 8k
   \Sii{def}
   \congruencia{3n + 1}{0}{8}
   \sii
@@ -31,10 +31,10 @@ $
   {\congruencia{9n}{21}{8}}
   \sii
   \congruencia{n}{5}{8}  \Tilde
-$\par
+$$
 
-\textit{Segunda condición: }\par
-$
+\textit{Segunda condición: }
+$$
   \arg(z^{7n+6}) = \arg(i)
   \sii
   \parentesis{e^{i\frac{11}{6}\pi}}^{7n+6} = e^{i\frac{\pi}{2}}
@@ -42,21 +42,23 @@ $
   e^{i\frac{77}{6}\pi + 11 \pi} =
   e^{i\frac{\pi}{2}}
   \sii
-  \frac{77}{6}n\pi + 11 \pi = \frac{\pi}{2} + \magenta{2k\pi}\\
-  \flecha{despejo}[$n$]
+  \frac{77}{6}n\pi + 11 \pi = \frac{\pi}{2} + \magenta{2k\pi}
+$$
+Hay 2 números como para armar una ecuación de congruencias. Despejo $n$:
+$$
   \frac{77}{6}n + 11 = \frac{1}{2} + 2k
   \sii
   77n = -63 + 12k
   \Sii{def}
   \congruencia{77n}{-63}{12}
-  \sii
+  \Sii{\red{!}}
   \congruencia{5n}{-3}{12}
   \Sii{\red{!} \quad $\times 5$}[$(\Leftarrow) 5 \cop 12$]
-  \congruencia{n}{9}{12} \Tilde
-$\par
-
-$
-  \flecha{junto info}[\href{\chinito}{T\faIcon{cannabis}R}]
+  \congruencia{n}{9}{12}
+$$
+Junto la info que saqué de cada una de las condiciones del enunciado y
+armo sistemita:
+$$
   \llave{l}{
     \congruencia{n}{9}{12} \\
     \congruencia{n}{5}{8}
@@ -73,26 +75,28 @@ $
     \congruencia{n}{0}{3} \llamada1 \\
     \congruencia{n}{5}{8} \llamada2 \\
   }
-$
-\par
-
+$$
 Ahora sí, tengo el sistema con \red{\textit{divisores coprimos}},
-por \href{\chinito}{TCHR} tengo solución.\par
+por \href{\chinito}{T\faIcon{cannabis}R} tengo solución, hay que resolver el sistema:
 
-$
-  \flecha{de}[$\llamada1$]
-  n = 3k \llamada3 \Tilde
-  \flecha{reemplazo}[en $\llamada2$]
+De $\llamada1$:
+$$
+  n = 3k \llamada3
+$$
+Reemplazo en $\llamada2$ y hago cuentitas:
+$$
   \congruencia{3k}{5}{8}
   \Sii{$\times 3$}[$(\Leftarrow) 3 \cop 5$]
   \congruencia{k}{7}{8}
   \sii
-  k = \yellow{8j + 7} \Tilde\\
-  \flecha{reemplazo}[$k$ en $\llamada3$]
+  k = \yellow{8j + 7}
+$$
+Meto $k$ en $\llamada3$ y finito:
+$$
   n = 3 (\yellow{8j + 7}) = 24j + 21
   \sii
-  \boxed{\congruencia{n}{21}{24}} \Tilde
-$
+  \cajaResultado{\congruencia{n}{21}{24}}
+$$
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

@@ -44,7 +44,10 @@
         Desarrollemos el lado izquierdo de la desigualdad en la TI
         \begin{align*}
           3^{n+1} - 2^{n+1} = 3 \cdot 3^n - 2 \cdot 2^n \geq 3 \cdot 3^n - 3 \cdot 2^n = 3(3^n - 2^n)
-                \taa{\text{HI}}{}{>} 3n^3 \taa{\text{Aux}}{}{>} (n+1)^3 \entonces P(n+1):V
+                \mayor{\purple{HI}}
+                3n^3
+                \mayor{Aux}
+                (n+1)^3 \entonces P(n+1):V
         \end{align*}
         Hemos probado el caso base y el paso inductivo. Entonces $P(n):V,$ $\paratodo n \geq 4$.
 
@@ -70,7 +73,10 @@
         Desarrollemos el lado izquierdo de la desigualdad en la TI
         \begin{align*}
            & \sumatoria{i=1}{n+1} \frac{3^i}{i!} = \frac{3^{n+1}}{(n+1)!} + \sumatoria{i=1}{n}  \frac{3^i}{i!}
-                \taa{\text{HI}}{}{<} \frac{3^{n+1}}{(n+1)!} + 6n - 5 \taa{\text{Aux}}{}{<} 6 + 6n - 5 = 6(n+1) - 5,\ n \geq 5 \\
+                \menor{\purple{HI}}
+                \frac{3^{n+1}}{(n+1)!} + 6n - 5
+                \menor{Aux}
+                6 + 6n - 5 = 6(n+1) - 5,\ n \geq 5 \\
            & \sumatoria{i=1}{n+1} \frac{3^i}{i!} < 6(n+1) - 5, \ n \geq 5                                                        \\
            & \entonces P(n+1):V, \ n \geq 5
         \end{align*}

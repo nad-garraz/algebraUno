@@ -86,7 +86,8 @@ Si $w \en G_n \entonces
                 }
             \end{tikzpicture}
 
-            $"G_5" \subseteq G_{10}$\par
+            $G_{10} - G_5 = "G_5" \subseteq G_{10}$
+
             \begin{tikzpicture}[baseline=0]
               \draw[->] (-1.5,0) -- (1.5,0) node[below] {Re};
               \draw[->] (0,-1.5) -- (0,1.5) node[right] {Im};
@@ -113,15 +114,23 @@ Si $w \en G_n \entonces
         \frac{\magenta{1} - 1}{w^2 - 1} = 0
         $$
 
-  \item Calcular $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}}$ para cada $w \en G_5$
+  \item Calcular $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}}$
+        para cada $w \en G_5$
 
         \separadorCorto
-        \textit{Si} $w = 1$: \par
-        $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}} = 4$
 
-        \textit{Si} $w \distinto 1$: \par
-        $w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}} =
+        \textit{Si} $w = 1$:
+        $$
+          w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}} = 4
+        $$
+        \textit{Si} $w \distinto 1$:
+        $$
+          w^{14} + w^{-8} + \conj w^4 + \conj{w^{-3}} =
           w^4 + w^2 + w + w^3 =
-          \magenta{-1} + \ub{\magenta{1} + w + w^2 + w^3 + w^4}{= 0} = -1 $
-
+          \magenta{-1} + \ub{\magenta{1} + w + w^2 + w^3 + w^4}{= 0} = -1
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

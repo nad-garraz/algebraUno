@@ -8,33 +8,69 @@ $$
 $$
 Busco entonces:
 $$
-  r_7(5^{2^n})
+  r_7(12^{2^n}) = r_7(5^{2^n})
 $$
 
 Ataco con PTF, 7 es primo y $7 \noDivide 5$:
 $$
-  \congruencia{5^{2^n}}{X}{7}
-  \sii
-  \congruencia{5^{2^n}}{5^{r_6(2^n)}}{7}
+  r_7(5^{2^n}) = \orange{X}
+  \Sii{def}
+  \congruencia{\orange{X}}{5^{2^n}}{7}
+  \Sii{PTF}
+  \congruencia{\orange{X}}{5^{r_6(2^n)}}{7} \llamada1
 $$
-
-Tabla de restos para estudiar ese horrible exponente:
+Estudio $r_6(2^n)$:
 $$
-  \begin{array}{|c||c|c|c|c|c|c|}
-    \hline
-    r_6(n)       & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
-    r_6(2^n)     & 1 & 2 & 4 & 2 & 4 & 2 \\ \hline\hline
-    r_7(5^{2^n}) & 5 & 4 & 2 & 4 & 2 & 4 \\ \hline
-  \end{array}
+  r_6(2^n) = \blue{Y}
+  \Sii{def}
+  \congruencia{2^n}{\blue{Y}}{6}
+  \taa{\red{!}}\equivalente
+  \llave{l}{
+      \congruencia{2^n}{\blue{Y}}{3}
+    \Sii{\red{!!}}
+    \llave{rl}{
+      \congruencia{\blue{Y}}{2}{3} &\text{ si $n$ impar}\\
+      \congruencia{\blue{Y}}{1}{3} &\text{ si $n$ par}
+    }
+    \\
+    \congruencia{2^n \conga2 0}{\blue{Y}}{2}
+  }
 $$
-
-La tabla es muy sugestiva:
+En \red{!!} pensalo como $2^{2k + 1} = 4^k \cdot 2 \conga3 2$.
+Es así que quedan dos sistemas:
+$$
+  \text{para $n$ impar }
+  \llave{l}{
+    \congruencia{\blue{Y}}{2}{3}\\
+    \congruencia{\blue{Y}}{0}{2}
+  }
+  \Sii{\href{\chinito}{TCR}}
+  \congruencia{\blue{Y}}{2}{6}
+  \quad
+  \ytext
+  \quad
+  \text{para $n$ par }
+  \llave{l}{
+    \congruencia{\blue{Y}}{1}{3}\\
+    \congruencia{\blue{Y}}{0}{2}
+  }
+  \Sii{\href{\chinito}{TCR}}
+  \congruencia{\blue{Y}}{4}{6}
+$$
+Volviendo a $\llamada1$ sé que los posibles valores que puede
+tomar el exponente $\blue{Y} = r_6(2^n)$ son 2 o 4. Es decir que:
+$$
+  \llave{rl}{
+    \congruencia{\orange{X}}{5^2 \conga7 4}{7} & \text{ si $n$ impar}  \\
+    \congruencia{\orange{X}}{5^4 \conga7 1}{7} & \text{ si $n$ par}  \\
+  }
+$$
+Finalmente:
 $$
   \cajaResultado  {
     r_7(12^{2^n})  =
     \llave{ll}{
-      5 & \text{ si } \congruencia{n}{0}{6}                        \\
-      2 & \text{ si } \congruencia{n}{2}{6} \otext \congruencia{n}{4}{6} \\
+      1 & \text{ si } n \text{ par}                        \\
       4 & \text{ si } n \text{ impar}
     }
   }
@@ -44,5 +80,6 @@ $$
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/daniTadd}{Dani Tadd \github}
+  \item \aporte{https://github.com/nick052}{Nico Alegre \github}
 \end{aportes}
 

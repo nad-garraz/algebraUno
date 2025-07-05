@@ -1,0 +1,118 @@
+\begin{enunciado}{\ejExtra}{\tiny[\purple{segundo parcial 1er cuatri 2025}]}
+  \begin{enumerate}[label=(\alph*)]
+    \item Sea $w \en G_7, ~ w \distinto 1$, probar que
+          $(w^{16} - w^5 + w^{29} - \bar{w} - w^{-18} + w^{11})^3$
+          es imaginario puro
+
+    \item Hallar los $w \en G_{36}$ que verifican $1 + w^2 = - w^4(1 + w^2)$
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+  \item Esa expresión está para ser acomodada usando las propiedades que tienen los números de los grupos $G_n$,
+        en particular para $w \en G_7$:
+        $$
+          \llave{rcl}{
+            w^7 & = & 1\\
+            w^n & = & w^{r_7(n)}\\
+            \conj{w^n} & = & w^{-n}\\
+            \sumatoria{i = 0}{6} w^k & = & 0
+          }
+        $$
+        Usando esas propiedades queda algo así:
+        $$
+          \begin{array}{rcl}
+            (w^{16} - w^5 + w^{29} - \bar{w} - w^{-18} + w^{11})^3
+             & \igual{\red{!!}} &
+            (w^2 - w^5 + w - w^6 - w^3 + w^4)^3 \\
+             & =                &
+            (w + w^2 - w^3 + w^4 - w^5 - w^6)^3 \\
+             & =                &
+            \blue{z}^3                          \\
+          \end{array}
+        $$
+        Ahí esta la expresión un poco más bonita y reescribí a la base $\blue{z}$. Para probar que un número es imaginario puro,
+        puedo calcular que su parte real valga 0:
+        $$
+          \textstyle
+          \text{Si } \blue{z} \en \complejos,~ \re(\frac{\blue{z} + \blue{\bar{z}}}{2}) = 0
+          \sii
+          \blue{z} \text{ es imaginario puro o cero}.
+        $$
+        Calculo usando las propiedades:
+        $$
+          \begin{array}{rcl}
+            \blue{z} + \blue{\bar{z}}
+             & =                &
+            w + w^2 - w^3 + w^4 - w^5 - w^6 + \conj{w + w^2 - w^3 + w^4 - w^5 - w^6}                                    \\
+             & =                &
+            w + w^2 - w^3 + w^4 - w^5 - w^6 + \conj{w} + \conj{w^2} - \conj{w^3} + \conj{w^4} - \conj{w^5} - \conj{w^6} \\
+             & \igual{\red{!!}} &
+            w + w^2 - w^3 + w^4 - w^5 - w^6 + w^6 + w^5 - w^4 + w^3 - w^2 - w                                           \\
+             & \igual{\red{!}}  &
+            0
+          \end{array}
+        $$
+        Es así que $\re(\blue{z}) = 0$ por lo tanto $(\re(\blue{z}))^3 = 0$ y $\blue{z}^3$ es imaginario puro.
+
+  \item Acomodo la expresión y encuentro soluciones:
+        $$
+          1 + w^2 = - w^4 (1 + w^2)
+          \sii
+          (1 + w^2) \cdot (1 + w^4) = 0
+          \Sii{\red{!}}
+          \llamada1
+          \llave{rcc}{
+            w_1 & = & i \\
+            w_2 & = & -i \\
+            w_3 & = & 1 \\
+            w_4 & = & -1
+          }
+        $$
+        Notar que la solución a la ecuación es el conjunto $G_4$.
+        Resta ver cuales de esos $w \en G_{36}$.
+        \newcommand{\unitcircle}[1]{
+          \begin{tikzpicture}[baseline=0, scale=4.5, every node/.style={font=\tiny}]
+            \draw[ultra thin,->,gray] (-1.5,0) -- (1.8,0) node[below] {Re};
+            \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
+            \draw[ultra thin] (0,0) circle (1);
+            \foreach \x in {0,...,#1} {
+                \ifnum \x < #1 {
+                      \filldraw (\x*360/#1:0.8) node {$\x$};
+                      \filldraw (\x*360/#1:1) circle (0.3pt);
+                      \filldraw (\x*360/#1:1.4) node {$e^{i \frac{2\pi}{#1} \cdot \x}$};
+                      \draw[Cerulean] (\x*360/#1:1) -- ({(\x+1)*360/#1}:1);
+                    }
+                \fi
+                \ifnum \x < 4 {
+                      \draw[magenta] (\x*360/4:1) -- ({(\x+1)*360/4}:1);
+                    }
+                \fi
+                \ifnum \x < 2 {
+                      \draw[orange] (\x*360/2:1) -- ({(\x+1)*360/2}:1);
+                    }
+                \fi
+              }
+          \end{tikzpicture}
+        }
+        $$
+          \unitcircle{36}
+        $$
+
+        En el gráfico están todos los elementos de $\blue{G_{36}}$, de $\magenta{G_4}$ y de $\orange{G_2}$,
+        la idea \ul{no es que vos hagas un gráfico así en un parcial}, sino que veas que por la forma que tienen los grupos
+        $G_n$, $w = e^{i\frac{2\violet{k}}{n}\pi} ~ \violet{k} \en \enteros_{[0,n-1]}$, para saber si un elemento de $z \en G_m $ también está
+        en $G_n$ solo necesitás:
+        $$
+          m \divideA n
+        $$
+        en criollo, para el ejercicio este si ponés un $\violet{k}$ múltiplo de $\frac{36}{4} = 9$
+        obtenés en $w = e^{i\violet{\frac{2k}{n}}\pi}$ un número de $\magenta{G_4}$. Podés probar lo mismo para ver que los elementos
+        de $\orange{G_2}$ están en $\magenta{G_4}$.
+
+        Los $w$ que verifican la ecuación son todos los que se encontraron en $\llamada1$.
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

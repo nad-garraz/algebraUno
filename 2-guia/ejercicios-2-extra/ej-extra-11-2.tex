@@ -1,0 +1,67 @@
+\begin{enunciado}{\ejExtra}
+  Sea $(F_k)_{k\en \naturales_0}$ la sucesión de números enteros, conocida como sucesión de Fibonacci,
+  definida recursivamente por
+  $$
+    F_0 = 0,~ F_1= 1
+    \ytext
+    F_{k+2} = F_k + F_{k+1},~ \paratodo k \geq 0 .
+  $$
+  Probar que para todo $n \geq 1$ se tiene que $3 \divideA F_{4n}$.
+\end{enunciado}
+
+Inducción:
+
+Quiero probar el siguiente \textit{predicado}:
+$$
+  p(n) : 3 \divideA F_{4n} \paratodo n \en \naturales
+$$
+
+\textit{Caso base:}
+$$
+  p(\blue{1}) : 3 \divideA F_{4 \cdot \blue{1}}
+$$
+Proposición que resulta verdadera dado que:
+$$
+  F_4 \igual{def}
+  F_2 + F_3 \igual{def}
+  2F_0 + 3F_1 = 3
+  \sii
+  3 \divideA F_4
+$$
+
+\textit{Paso inductivo}:
+
+Asumo que para algún $\blue{h} \en \naturales$ la siguiente proposición:
+$$
+  p(\blue{h}) :
+  \ub{
+    3 \divideA F_{4\blue{h}}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero probar que la proposición:
+$$
+  p(\blue{h+1}) : 3 \divideA F_{4(\blue{h+1})},
+$$
+también lo sea.
+
+\medskip
+
+Parto del paso $\blue{h+1}$, por definición se tiene que:
+$$
+  F_{4(\blue{h+1})} =
+  F_{4h+4} \igual{def}
+  F_{4h+2} + F_{4h+3} \igual{def}
+  F_{4h} + 2F_{4h+1} + F_{4h+2} \igual{def}
+  2F_{4h} + 3F_{4h+1} \conga{3}[\text{\purple{HI}}] 0
+$$
+Por lo tanto la pr0posición $p(\blue{h+1})$ también resultó verdadera.
+
+Como
+$p(\blue{1}), p(\blue{h}) \ytext p(\blue{h + 1})$ resultaron verdaderas, por el principio de inducción también
+lo es $p(n) \paratodo n \en \naturales$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

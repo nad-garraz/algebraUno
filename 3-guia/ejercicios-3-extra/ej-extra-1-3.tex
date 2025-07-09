@@ -7,98 +7,83 @@
 
 \end{enunciado}
 
-Bajo el enunciado a:
-\begin{enumerate}
-  \item La relación toma valores de $\partes(\naturales)$
+Recordando que:
 
-  \item Los elementos del conjunto $\relacion \subseteq \partes(\naturales) \times \partes(\naturales)$
+El conjunto $\partes{\naturales}$ es un conjunto que tiene todos los subconjuntos que me puedo formar con los
+números naturales. El cardinal del conjunto $\partes(\naturales)$:
+$$
+  \#\partes(\naturales) = 2^{\#\naturales}.
+$$
 
-  \item El conjunto
-        $$
-          X = \set{\foreach \i in {6,...,10}{\i, }\dots}
-        $$
-        es simplemente un elemento de $\partes(\naturales)$. Los conjuntos $Y \en \partes(\naturales)$ tales que $X \relacion Y$
-        van a ser los conjuntos que junto a $X$ formarán la clase de equivalencia.
-
-        $ \clase{X} = \set{Y \en \partes(\naturales) : X \relacion Y}$
-\end{enumerate}
-
-Para tener una relación de equivalencia deben cumplirse:
-\begin{itemize}
-  \item \textit{Reflexividad:}
-        $$
-          X \triangle X = \vacio \stackrel{\checkmark}\subseteq \set{4,5,6,7,8}
-        $$
-
-  \item \textit{Simetría:}
-        $$
-          X \triangle Y \igual{\checkmark} Y \triangle X,\, \paratodo X,Y \in \partes(\naturales)
-        $$
-  \item \textit{Transitividad:}
-
-        \hacer
-\end{itemize}
-
-Nos piden que encontremos la cantidad de conjuntos que hay en la clase de equivalencia de $X$, eso
-es lo mismo que buscar el cardinal del conjunto.
-
-Las clases son conjuntos formados por los pares $X \relacion Y$. Entonces tenemos que pensar ¿Cómo es que tiene que
-ser un conjunto $Y$ para relacionarse con $X$?
-
+Una clase de equivalencia de $X$ se forma con los elementos de $\partes(\naturales)$ (acá son los $Y$) que estén relacionados con $X$, es
+decir los pares $X \relacion Y$. Surge la pregunta:
+\parrafoDestacado{
+  \textit{¿Cómo debería ser un conjunto $Y$ para estar relacionado con $X$?}
+}
 \bigskip
-
-Para esto me gusta pensar a la diferencia simétrica como: \textit{El conjunto formado por los elementos no comunes de los conjuntos:}.
-Este conjunto:
+Para esto me gusta pensar a la diferencia simétrica ($\triangle$) como:
+\parrafoDestacado{
+  \textit{Dados 2 conjuntos $A$ y $B$, su $A \triangle B$ es el conjunto formado por los elementos \ul{no comunes} entre $A$ y $B$}
+}
+Estos $Y$ que estoy buscando están sujetos a la condición:
 $$
-  X \triangle Y  \subseteq \set{4,5,6,7,8}
+  X \triangle Y  \subseteq \set{4,5,6,7,8} \text{ con } X = \set{6,7,8,\cdots}
 $$
-
-El conjunto $Y$ \ul{no puede tener} los elementos, 1, 2 y 3, porque \textit{rompo la relación}. Por otro lado $Y$ \ul{debe tener}
+Entonces un $Y$ \ul{no puede tener} los elementos 1, 2 y 3 porque \textit{rompería la relación}. Por otro lado $Y$ \ul{debe tener}
 los elementos en $\set{n \en \naturales : n \geq 9}$, de manera de \textit{cancelar} todos esos valores de $X$, de
 forma que $X \relacion Y \subseteq \set{4,5,6,7,8}$ y no tenga valores superiores a 8.
 
+Con esta idea armo unos conjuntos $Z_i$
+$$
+  Z_i \en \partes(\set{4,5,6,7,8})\ \text{ con } i \en [1, 32],
+$$
+
 Se concluye que la clase de equivalencia será el conjunto, {\tiny(en \red{notación inventada})}:
 $$
-  \clase{X}  =
+  \clase{Y}_1  =
   \bigg\{
   \ub{
-    Y_1  \union \set{9,10,\dots}
+    Z_1  \union \set{9,10,\dots}
   }{
-    \clase{X}_1
+    \clase{Y}_1
   },
   \ub{
-    Y_2  \union \set{9,10,\dots}
+    Z_2  \union \set{9,10,\dots}
   }{
-    \clase{X}_2
+    \clase{Y}_2
   },
   \dots,
   \ub{
-    Y_{32}  \union \set{9,10,\dots}
+    Z_{32}  \union \set{9,10,\dots}
   }{
-    \clase{X}_{32}
+    \clase{Y}_{32}
   }
   \bigg\}
   \quad
   \text{donde } \#\overline{X} = 2^5 = 32
 $$
 con los conjuntos:
-$$
-  Y_i \en \partes(\set{4,5,6,7,8})\ \text{ con } i \en [1, 32]
-$$
 
 En palabras:
 \parrafoDestacado{
-  Todos los $\clase{X}_i$ tienen el $\set{9,10,\ldots}$ así que a la hora de contar, esa parte \ul{no aporta nada}, porque
-  es igual en tooooodos los conjuntos $\clase{X}_i$
+  Todos los $\clase{Y}_i$ tienen el $\set{9,10,\ldots}$ así que a la hora de contar, esa parte \ul{no aporta nada}, porque
+  es igual en tooooodos los conjuntos $\clase{Y}_i$
 
-  La papa está en armar todos los subconjuntos que pueda con los elementos $\set{4,5,6,7,8}$, los $Y_i$.
+  La papa está en armar todos los subconjuntos que pueda con los elementos $\set{4,5,6,7,8}$, los $Z_i$.
   Eso es equivalente a construir:
   $$
     \partes(\set{4,5,6,7,8}),
   $$
   que por definición es el conjunto con todos los subconjuntos de $\set{4,5,6,7,8}$.
 
-  La cantidad de elementos de un conjunto $\partes(A)$ es $\#\partes(A) = 2^{\#A}$
+  La cantidad de elementos de un conjunto $\partes(A)$ es $\#\partes(A) = 2^{\#A}$ es por eso
+  que tengo
+  $$
+    \cajaResultado{
+      32
+    }
+  $$
+  conjuntos en la clase de equivalencias de $X$.
 }
 
 \begin{aportes}

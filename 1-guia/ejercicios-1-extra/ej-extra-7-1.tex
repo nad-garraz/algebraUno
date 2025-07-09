@@ -120,21 +120,25 @@
 
   \item
         $$
-          \#B = \set{n \en X : n \text{ es par} } = \#\set{2,4,6,\dots,198,200} = 100
+          \#B = \#\set{n \en X : n \text{ es par} } = \#\set{2,4,6,\dots,198,200} = 100
         $$
         Para que $A \relacion B$ necesito que los \underline{todos} los conjuntos $A$ \textit{le saquen} a $B$
         los elementos del $102$ al $200$. Por lo tanto:
         $$
           \set{102, 104, \dots, 200} \subseteq A.
         $$
-        De forma tal que $B - A \subseteq Y$. Teniendo en cuenta que $\#(\set{102, 104, \dots, 200}) = 50$, ahora tengo que jugar con el
-        resto de números de $B$:
+        De forma tal que $B - A \subseteq Y$. Teniendo en cuenta que $\#\set{102, 104, \dots, 200} = 50$, ahora tengo que jugar con el
+        conjunto $C$ que es como llamo al resto de números que le queda a $B$ después de restar, es decir:
         $$
+          C =
+          B - \set{102,\ldots,200} =
           \set{2, 4, \dots, 100}
-          \to
-          \#(\set{2, 4, \dots, 100}) = 50
+          \flecha{con cardinal}
+          \#C = \#\set{2, 4, \dots, 100} = 50
         $$
-        y tomar \underline{solo} 30 elementos, para satisfacer $\#(A \inter B) = 80$. Formas de tomar esos números:
+        y tomar \ul{solo} 30 elementos de $C$ para darselos a $A$ y así satisfacer $\#(A \inter B) = 80$.
+
+        Formas de tomar esos números:
         $$
           \binom{50}{30} = \frac{50!}{30! \cdot 20!}
         $$

@@ -1,42 +1,61 @@
 \begin{enunciado}{\ejExtra}
-	Hallar el menor $n \en \naturales$ tal que $(11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11) = 99$ y
-	que tenga exactamente 12 divisores positivos.
+  Hallar el menor $n \en \naturales$ tal que $(11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11) = 99$ y
+  que tenga exactamente 12 divisores positivos.
 \end{enunciado}
 
 Lindo enunciado. Bautizo:
 $$
-	d = (11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11)
+  d = (11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11)
 $$
 Factorizando ese $d$:
 $$
-	99 = 3^2 \cdot 11
+  99 = 3^2 \cdot 11
 $$
 Por la forma en que está expresado el número este ejercicio sale entendiendo que:
-\parrafoDestacado{
-	El \textit{máximo común divisor}, $d = (a:b)$, es el producto de los
-	primos comunes, de las factorizaciones de $a$ y $b$, elevados al menor exponente.
+\parrafoDestacado[\red{\small\atencion}]{\Large
+  El \textit{máximo común divisor}, $d = (a:b)$, es el producto de los
+  primos, de las factorizaciones de $a$ y $b$, \ul{comunes elevados al menor exponente}.
 }
 Para que $d$ sea 99 entonces:
 $$
-	n = 3 \cdot k \quad \text{con } k \en \naturales.
+  n = 3^{\yellow{1}} \cdot k \quad \text{con } k \en \naturales.
 $$
-Ya está con eso tenemos que $d = 99$ siempre que lo que agreguemos en $k$ \underline{no tenga ningún primo en común} con:
+Donde le puse a 3 el exponente $\yellow{1}$ para que no rompa la condición del $d = 99$.
+
+Ya está con eso tenemos que $d = 99$ siempre que lo que agreguemos en $k$ \ul{no tenga ningún primo en común} con:
 $$
-	2^2 \cdot 3^4 \cdot 5 \cdot 11.
+  2^2 \cdot 3^4 \cdot 5.
 $$
-Tenemos que agregar el primo más chico que no rompa esa condición para conseguir el menor $n$ posible:
+Tenemos que agregar entonces la combinación de primos que no rompan nada y que además generen un $n$ con 12 divisores,
+ya sea $7\alpha, 11^{\beta}, 13^{\gamma}, 17^{\delta}, \ldots$, peeeeero
+para que la cantidad de dividores de $n$ sea 12 no puede haber más de 3 primos en la factorización,
+sino \ul{habría más de 3 divisores} (\hyperlink{teoria-4:cantidadDivisores}{Acá un poco de formulitas sobre esto \click}).
+
+Armo sistema con los 3 primos más chicos que puedo elegir:
 $$
-	7,\text{ en la quiniela \textit{revólver}.}
+  \llave{rcl}{
+    n & = & 3^{\yellow{1}} \cdot 7^\alpha \cdot 11^\beta\\
+    (\yellow{1} + 1) \cdot (\alpha + 1) \cdot (\beta + 1) & = &  12
+    \quad \sisolosi \quad
+    (\alpha + 1) \cdot (\beta + 1) = 6
+  }
 $$
-Entonces:
+Quedan solo 4 opciones:
 $$
-	\cajaResultado{
-		n = 3^{\blue{1}} \cdot 7^{\blue{5}}
-	}
+  \llave{rcl}{
+    (\alpha,\beta) = (1,2) & \entonces & n = 3^{\yellow{1}} \cdot 7^1 \cdot 11^2  \quad\text{\tiny\faIcon[regular]{smile}}\\
+    (\alpha,\beta) = (2,1) & \entonces & n = 3^{\yellow{1}} \cdot 7^2 \cdot 11^1  \quad\text{\tiny\faIcon{skull}}\\
+    (\alpha,\beta) = (5,0) & \entonces & n = 3^{\yellow{1}} \cdot 7^0 \cdot 11^5  \quad\text{\tiny\faIcon{skull}}\\
+    (\alpha,\beta) = (0,5) & \entonces & n = 3^{\yellow{1}} \cdot 7^5 \cdot 11^0  \quad\text{\tiny\faIcon{skull}}
+  }
 $$
-Ese número tiene $(\blue{1} + 1) \cdot (\blue{5} + 1) = 12$ divisores.
-\hyperlink{teoria-4:cantidadDivisores}{Acá un poco de teoría sobre esto \click}.
+La combinación que da el menor $n$ es:
+$$
+  \cajaResultado{
+    n = 3^1 \cdot 7^2 \cdot 11^1
+  }
+$$
 
 \begin{aportes}
-	\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

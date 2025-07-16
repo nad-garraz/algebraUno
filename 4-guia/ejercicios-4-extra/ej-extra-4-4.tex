@@ -5,64 +5,33 @@
   $ si y solo si
   $3 \divideA n$.
 \end{enunciado}
-\begin{itemize}
-  \item[$\red{\entonces}$)]
-        $$
-          \begin{array}{c}
-            81 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{2024}
-            \Entonces{\red{!!!}}
-            3 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{506}
-            \Sii{def}             \\
-            \Sii{def}
-            \congruencia{(16 n^2 + 8^{2n} - 15n - 7)^{2024}}{0}{3}
-            \Sii{\red{!}}
-            \congruencia{(n^2)^{2024}}{0}{3}
-            \sii
-            \congruencia{n^{4048}}{0}{3}
-            \Entonces{\red{!!}}
-            \congruencia{n}{0}{3} \\
-            \boxed{
-              81 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{2024}
-              \entonces
-              3 \divideA n
-            }
-          \end{array}
-        $$
-
-        En el \red{!!!} uso \hyperlink{teoria4:exponentes}{esto $p^n \divideA a^n \sii p \divideA a$}.
-        En \red{!} son cuentas de congruencia.
-        Y en \red{!!} uso \hyperlink{teoria4:priProductos}{esto, $p \divideA a^n \entonces p \divideA a$}.
-
-  \item[$\red{\Leftarrow}$)]
-        $$
-          \begin{array}{c}
-            3 \divideA n
-            \Sii{def}
-            \congruencia{n}{0}{3}
-            \Sii{\red{!}}
-            \congruencia{n^2}{0}{3}
-            \Sii{\red{!}}
-            \congruencia{16n^2 + 8^{2n} -15n - 7}{0}{3}
-            \Sii{\red{!}}
-            \\
-            \Sii{\red{!}}
-            \congruencia{(16n^2 + 8^{2n} -15n - 7)^4}{0}{3^4}
-            \Entonces{\red{!}}
-            \congruencia{(16n^2 + 8^{2n} -15n - 7)^{2024}}{0}{3^4} \\
-            \boxed{
-              3 \divideA n
-              \entonces
-              81 \divideA (16n^2 + 8^{2n} -15n - 7)^{2024}
-            }
-          \end{array}
-        $$
-        En el primero y último \red{!} uso que
-        $
-          \congruencia{n}{0}{d}
-          \entonces
-          \congruencia{n^m}{0}{d}
-        $ y en los otros la mismas cosas que antes... \textit{ponele}
-\end{itemize}
+Probar usando propiedades:
+$$
+  \begin{array}{rcl}
+    81 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{2024}
+     & \Sii{\red{!!!}} &
+    3 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{506}          \\
+     & \Sii{def}       &
+    \congruencia{(16 n^2 + 8^{2n} - 15n - 7)^{506}}{0}{3} \\
+     & \Sii{\red{!}}   &
+    \congruencia{(n^2)^{506}}{0}{3}                       \\
+     & \Sii{\red{!!}}  &
+    \congruencia{n}{0}{3}                                 \\
+     & \Sii{def}       &
+    3 \divideA n
+  \end{array}
+$$
+$$
+  \cajaResultado{
+    81 \divideA (16 n^2 + 8^{2n} - 15n - 7)^{2024}
+    \sisolosi
+    3 \divideA n
+  }
+$$
+Son todas dobles implicaciones.
+En el \red{!!!} uso \hyperlink{teoria4:exponentes}{esto $p^n \divideA a^n \sii p \divideA a$}.
+En \red{!} son cuentas de congruencia.
+Y en \red{!!} uso \hyperlink{teoria4:priProductos}{esto, $p \divideA a^n \sisolosi p \divideA a$}.
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

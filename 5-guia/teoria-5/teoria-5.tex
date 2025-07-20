@@ -5,8 +5,9 @@
 
   \item Sea $aX + bY = c \text{ con } a,\, b,\, c \en \enteros,\, a \distinto 0 \ytext b \distinto 0$ y sea
         $$\cajaResultado{
-            S = \set{ (x,y) \en \enteros^2 : aX + bY = c } \entonces
-            S \distinto \vacio \sisolosi (a:b) \divideA c}
+            S = \set{ (X,Y) \en \enteros^2 : aX + bY = c } \distinto \vacio
+            \sisolosi
+            (a:b) \divideA c}
         $$
         \red{¡Coprimizar siempre que se pueda!: } Las soluciones de $S$ son las mismas que las de $S$ coprimizado.
         $$
@@ -20,10 +21,11 @@
   \item Las solución general del sistema S coprimizado :
         $$
           \cajaResultado{
-            S = \bigg\{
-            (x,y) \en \enteros^2 : (x,y) =
-            \ub{(x_0, y_0)}{\text{Solución particular}} + k \cdot \ob{(-b', a')}{\text{Solución homogéneo}}
-            \text{ con } , k \en \enteros
+            S =
+            \bigg\{
+            (X,Y) \en \enteros^2 : (X,Y) =
+            \ub{(X_0, Y_0)}{\text{Solución particular}} + \blue{k} \cdot \ob{(-b', a')}{\text{Solución homogéneo}}
+            ,\,\text{con } \blue{k} \en \enteros
             \bigg\}
           }
         $$

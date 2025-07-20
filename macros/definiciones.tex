@@ -17,9 +17,9 @@
 \DeclareMathOperator{\union}{\cup}
 \DeclareMathOperator{\inter}{\cap}
 \DeclareMathOperator{\diferencia}{\ \setminus \ }
-\DeclareMathOperator{\y}{\land}
-\def\o{\lor}
-\def\neg{\sim}
+\DeclareMathOperator{\y}{~\land~}
+\DeclareMathOperator{\o}{~\lor~}
+\DeclareMathOperator{\neg}{\sim}
 
 \DeclareMathOperator{\equivalente}{\leftrightsquigarrow}
 \def\entonces{\implies}
@@ -210,9 +210,9 @@
 
 \NewDocumentCommand{\conga}{m o}{
   \IfNoValueTF{#2}{
-      \overset{(#1)}\equiv
+    \overset{(#1)}\equiv
   }{
-      \overset{(#1)}{\underset{\mathclap{#2}}\equiv}
+    \overset{(#1)}{\underset{\mathclap{#2}}\equiv}
   }
 }
 
@@ -254,7 +254,7 @@
 % Text
 \NewDocumentCommand{\taa}{m o m}{
   \IfNoValueTF{#2}{
-      \overset{\mathclap{\text{#1}}}#3
+    \overset{\mathclap{\text{#1}}}#3
   }{
     \overset{\mathclap{\text{#1}}}{\underset{\mathclap{\text{#2}}}#3}
   }
@@ -340,7 +340,7 @@
 }
 % Con esto llamos al ejercicio extra
 \newcommand{\refEjExtra}[1]{
-    {\fueguito\textbf{\ref{#1}.}}
+  {\fueguito\textbf{\ref{#1}.}}
 }
 
 %=======================================================
@@ -360,8 +360,12 @@
   \end{minipage}\par\medskip
 }
 
+\newcommand\fechaEjercicio[1]{
+  {\tiny [\violet{#1}]}
+}
+
 %%% Emoticones
-\def\click{{\small click click \faIcon{mouse}}}
+\def\click{{\footnotesize click click \faIcon{mouse}}}
 \def\poo{\marron{\faIcon{poo}}\xspace}
 \def\grimaceR{\faIcon[regular]{grimace}\xspace}
 \def\grimace{\faIcon{grimace}\xspace}
@@ -372,9 +376,10 @@
 \def\rollingEyes{\faIcon[regular]{meh-rolling-eyes}\xspace}
 \def\surprise{\faIcon[regular]{surprise}\xspace}
 \def\magic{\href{https://www.youtube.com/watch?v=4u20AEDYhcw}{\faIcon{magic}}\xspace}
+\def\skull{\text{\faIcon{skull}\xspace}}
 
 %%% (☞⌐▀͡ ͜ʖ͡▀ )☞ Yo mama
-\def\superIdol{https://www.youtube.com/watch?v=DKpaKHUlyBY}
+\def\superIdol{https://www.youtube.com/watch?v=iJAxeafvn8Y}
 \def\videosTeresa{https://www.youtube.com/@AlgebraIC-gu7oc/videos}
 \def\videosPracticas{https://www.youtube.com/playlist?list=PLEtdiZTXB5c5e9BOcqbnROTHevanNfz6U}
 \def\justDoIt{https://www.youtube.com/watch?v=ZXsQAXx_ao0}
@@ -386,6 +391,7 @@
 
 %%% Iconos más usados
 \def\github{{\color{violet!80!black}{\faIcon{github}}}}
+\def\gitlab{{\color{violet!80!black}{\faIcon{gitlab}}}}
 \def\instagram{\faIcon{instagram}}
 \def\tiktok{\faIcon{tiktok}}
 \def\linkedin{\blue{\faIcon{linkedin}}}

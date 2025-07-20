@@ -1,0 +1,113 @@
+\begin{enunciado}{\ejExtra} \fechaEjercicio{final 30/07/2024}
+  Determinar todos los primos positivos $p$ que satisfacen:
+  $$
+    2p \divideA 13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}.
+  $$
+\end{enunciado}
+Arranco acomodando el enunciado:
+$$
+  2p \divideA 13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}
+  \Sii{def}
+  \congruencia{13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}}{0}{2p}
+$$
+Quiero ver para cuales valores de $p$ esa ecuación de congruencia es verdadera. Laburo el sistema equivalente, quebrando:
+\parrafoDestacado[\red{\atencion}]{
+  Hay que observar que el sistema quebrado funciona bien por el
+  \href{\superIdol}{\textit{teorema chino del resto}}. En particular cuando $p = 2$ también
+  funciona {\small(¡Mostralo, sino estás haciendo cagadas!)}:
+  $$
+    2p \divideA a
+    \entonces
+    p \divideA a \y 2 \divideA a
+  $$
+  peeeeero, la vuelta no vale en general para $p = 2$.
+}
+$$
+  \congruencia{13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}}{0}{2p}
+  \equivalente
+  \llave{l}{
+    \congruencia{{1} + 3 \cdot 26p + 295^{p-1} \conga{2}[\red{!}] 0}{0}{2}\\
+    \congruencia{13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}}{0}{p} \llamada1
+  }
+$$
+Hay que estudiar $\llamada1$ para distintos valores de $p$. Se va a usar fuerte el \hyperlink{teoria-5:PTF}{\textit{pequeño teorema de Fermat} \click}.
+Factorizando $295 = 5 \cdot 59$ para un $\blue{p} \not\en \set{2, 5, 13, 59}$ así uso PTF:
+$$
+  \llamada1
+  \Sii{PTF}
+  \llamada2
+  \llave{l}{
+    \congruencia{2^{\blue{p}^2 + \blue{p}}}{\green{2}}{\blue{p}}\\
+    \congruencia{13^{\blue{p}^2 + \blue{p}}}{\green{13^2}}{\blue{p}}\\
+    \congruencia{295^{\blue{p} - 1}}{\green{1}}{\blue{p}}
+  }
+$$
+Donde usé:
+{\tiny
+$$
+  \polyset{vars=p}
+  \divPol{p^2 + p}{p-1}
+  \quad
+  \ytext
+  \quad
+  \divPol{p - 1}{p-1}
+$$
+}
+Metiendo toda la info calculada en $\llamada2$ en $\llamada1$:
+$$
+  \congruencia{
+    \green{13^2} + 3\cdot \green{2} + \green{1}
+    \igual{\red{!}} 2^4 \cdot 11
+  }{0}{\blue{p}}
+  \sisolosi \blue{p} \en \set{2, 11}
+$$
+\parrafoDestacado{
+  Muchas cuentas. Pará respirá e interpretá. ¿Qué son estos valores encontrados? ¿Listo? ¿Terminó el ejercicio?
+}
+
+Las cuentas hechas habían arrancado con cierta restricción en $\blue{p}$, tengo que laburar los valores que propuse
+que $\blue{p}$ \ul{no} podía tomar para usar el PTF. Por lo tanto ahora voy a ver que pasa $\llamada1$ con
+los valores de $\magenta{p} \en \set{2,5,13,59}$:
+
+\bigskip
+
+\textit{$\magenta{p} = \magenta{2}$:}
+$$
+  \congruencia{ 13^{\magenta{2}^2 + \magenta{2}} + 3 \cdot 2^{\magenta{2}} + 295^{\magenta{2}-1} }{0}{\magenta{2}}
+$$
+
+\textit{$\magenta{p} = \magenta{5}$:}
+$$
+  \congruencia{ 13^{\magenta{5}^2 + \magenta{5}} + 3 \cdot 2^{\magenta{5}} + 295^{\magenta{5}-1} }{0}{\magenta{5}}
+$$
+
+\textit{$\magenta{p} = \magenta{13}$:}
+$$
+  \noCongruencia{ 13^{\magenta{13}^2 + \magenta{13}} + 3 \cdot 2^{\magenta{13}} + 295^{\magenta{13}-1} \congruente 7}{0}{\magenta{13}} \quad \red{\skull}
+$$
+
+\textit{$\magenta{p} = \magenta{59}$:}
+$$
+  \noCongruencia{
+    13^{\magenta{59}^2 + \magenta{59}} + 3 \cdot 2^{\magenta{59}} + 295^{\magenta{59}-1}
+    \taa{\red{!!}}\congruente 54
+  }{0}{\magenta{59}} \quad \red{\skull}
+$$
+
+\bigskip
+
+Los $p$ que cumplen que:
+$
+  2p \divideA 13^{p^2 + p} + 3 \cdot 2^p + 295^{p-1}
+$
+son:
+$$
+  \cajaResultado{
+    p \en \set{2, 5, 11}
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{https://www.gitlab.com/tizisf}{Tizi S. F. \gitlab}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

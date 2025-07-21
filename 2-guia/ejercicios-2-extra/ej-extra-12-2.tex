@@ -24,7 +24,7 @@ $$
 Por lo tanto la proposición $p(\blue{1})$ resultó verdadera.
 
 \textit{Paso inductivo}:
-Asumo que para algún valor de $\blue{k} \en \enteros$ la proposción:
+Asumo que para algún valor de $\blue{k} \en \naturales$ la proposción:
 $$
   p(\blue{k}) :~
   \ub{
@@ -49,14 +49,14 @@ $$
 Dado que el \textit{máximo común divisor} es un divisor común y por la \purple{hipótesis inductiva} es fácil ver que:
 $$
   2^{\blue{k} + 1} \divideA 2^{\blue{k} + 2}
-  \Entonces{\red{!}}
+  \Sii{\red{!}}
   2^{\blue{k} + 1} \divideA 7^{\blue{k} + 2} \cdot 2^{\blue{k} + 2} \quad \llamada1
 $$
 $$
   2^{\blue{k}} \ua{\divideA}{\text{\purple{HI}}} a_{\blue{k}}
   \sii
   2 \cdot 2^{\blue{k}} \divideA 2 \cdot a_{\blue{k}}
-  \Entonces{\red{!!}}
+  \Sii{\red{!!}}
   2^{\blue{k}+1} \divideA 6 \cdot a_{\blue{k}} \quad \llamada2
 $$
 Sumando $\llamada1$ y $\llamada2$:
@@ -69,7 +69,7 @@ Ahí vemos que $2^{\blue{k} + 1}$ es un divisor común. Quiero ver que sea el \t
     con bases comunes elevadas al menor exponente} de las factorizaciones en primos de $\alpha$ y $\beta$
 }
 
-La única potencia con base común a ambas expresiones es el 2 ¿Por qué?.
+La única potencia con base común a ambas expresiones es el 2 ¿Por qué?
 Pruebo ahora que el exponente tiene que ser $\blue{k} + 1$.
 
 Dado que en la \purple{hipótesis inductiva} el \textit{máximo común divisor} es $2^{\blue{k}}$, es decir que:
@@ -100,6 +100,8 @@ $$
 De forma tal que $2^{\blue{k} + 1}$ no solo es divisor común sino que es el máximo común divisor según la definición.
 
 Es así que la proposición $p(\blue{k} + 1)$ también resultó verdadera.
+
+\bigskip
 
 Dado que $p(1),\, p(\blue{k}), p(\blue{k} + 1)$ resultaron verdaderas por principio de inducción  también lo es $p(n) \paratodo n \en \naturales$.
 

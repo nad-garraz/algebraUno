@@ -1,0 +1,108 @@
+\begin{enunciado}{\ejExtra}\fechaEjercicio{final 23/02/2023}
+  Sea $(a_n)_{n \en \naturales}$ la sucesión de números enteros definida recursivamente de la forma siguiente:
+  $$
+    a_1 = 10
+    \quad,\quad
+    a_{n+1} = 6a_n + 14^{n+2}
+  $$
+  Probar que para todo $n \en \naturales$ se tiene que $(a_n : 2^{n+3}) = 2^n$.
+\end{enunciado}
+
+Ejercicio de inducción, con leves notas de final.
+
+Quiero probar la siguiente proposición:
+$$
+  p(n) : ~ (a_n : 2^{n+3}) = 2^n \paratodo n \en \naturales
+$$
+
+\textit{Caso base}, especificamos al predicado $p(n)$ en $n = \blue{1}$, así obteniendo la siguiente proposición:
+$$
+  p(\blue{1}) :~
+  (a_{\blue{1}} : 2^{\blue{1} + 3}) =
+  (10 : 16) = 2
+$$
+Por lo tanto la proposición $p(\blue{1})$ resultó verdadera.
+
+\textit{Paso inductivo}:
+Asumo que para algún valor de $\blue{k} \en \enteros$ la proposción:
+$$
+  p(\blue{k}) :~
+  \ub{
+    (a_{\blue{k}} : 2^{\blue{k} + 3}) = 2^{\blue{k}}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Por lo tanto quiero comprobar que la proposición:
+$$
+  p(\blue{k+1}) :~
+  (a_{\blue{k+1}} : 2^{\blue{k+1} + 3}) = 2^{\blue{k+1}},
+$$
+también lo sea.
+$$
+  (a_{\blue{k+1}} : 2^{\blue{k+1} + 3}) = 2^{\blue{k+1}}
+  \Sii{def}
+  (6a_{\blue{k}} + 14^{\blue{k} + 2} : 2^{\blue{k+1} + 3}) = 2^{\blue{k+1}}
+  \Sii{\red{!}}
+  (2 \cdot 3 \cdot a_{\blue{k}} + 7^{\blue{k} + 2} \cdot 2^{\blue{k} + 2} : 2^{\blue{k+1} + 3}) = 2^{\blue{k} + 1}
+$$
+Dado que el \textit{máximo común divisor} es un divisor común y por la \purple{hipótesis inductiva} es fácil ver que:
+$$
+  2^{\blue{k} + 1} \divideA 2^{\blue{k} + 2}
+  \Entonces{\red{!}}
+  2^{\blue{k} + 1} \divideA 7^{\blue{k} + 2} \cdot 2^{\blue{k} + 2} \quad \llamada1
+$$
+$$
+  2^{\blue{k}} \ua{\divideA}{\text{\purple{HI}}} a_{\blue{k}}
+  \sii
+  2 \cdot 2^{\blue{k}} \divideA 2 \cdot a_{\blue{k}}
+  \Entonces{\red{!!}}
+  2^{\blue{k}+1} \divideA 6 \cdot a_{\blue{k}} \quad \llamada2
+$$
+Sumando $\llamada1$ y $\llamada2$:
+$$
+  2^{\blue{k} + 1} \divideA 6 \cdot a_{\blue{k}} + 7^{\blue{k} + 2} \cdot 2^{\blue{k} + 2} \llamada3
+$$
+Ahí vemos que $2^{\blue{k} + 1}$ es un divisor común. Quiero ver que sea el \textit{máximo}.
+\parrafoDestacado[\atencion]{
+  El \textit{máximo común divisor} entre $\alpha$ y $\beta$ se encuentra multiplicando las \textit{potencias
+    con bases comunes elevadas al menor exponente} de las factorizaciones en primos de $\alpha$ y $\beta$
+}
+
+La única potencia con base común a ambas expresiones es el 2 ¿Por qué?.
+Pruebo ahora que el exponente tiene que ser $\blue{k} + 1$.
+
+Dado que en la \purple{hipótesis inductiva} el \textit{máximo común divisor} es $2^{\blue{k}}$, es decir que:
+$$
+  2^{\blue{k}} \divideA a_{\blue{k}} ~\land~
+  \ub{2^{\blue{k} + 1} \noDivide a_{\blue{k}}}{\text{¿Por qué?}}
+  \sii
+  a_{\blue{k}} = 2^{\blue{k}} \cdot b_{\blue{k}}
+  \quad \text{~con~} b_{\blue{k}} \text{~ impar~}\llamada4
+$$
+Escribir la sucesión $a_{\blue{k}}$ de esa forma está bueno para mostrar en $\llamada3$ que:
+$$
+  2^{\blue{k} + 1}
+  \divideA
+  6 \cdot a_{\blue{k}} + 7^{\blue{k} + 2} \cdot 2^{\blue{k} + 2}
+  \Sii{\red{!!}}[$\llamada4$]
+  2^{\blue{k} + 1}
+  \divideA
+  2^{\blue{k} + 1} \cdot
+  (
+  \ub{
+    3 \cdot  b_{\blue{k}} + 7^{\blue{k} + 2} \cdot 2
+  }{
+    \text{impar}
+  }
+  )
+$$
+De forma tal que $2^{\blue{k} + 1}$ no solo es divisor común sino que es el máximo común divisor según la definición.
+
+Es así que la proposición $p(\blue{k} + 1)$ también resultó verdadera.
+
+Dado que $p(1),\, p(\blue{k}), p(\blue{k} + 1)$ resultaron verdaderas por principio de inducción  también lo es $p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

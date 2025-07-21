@@ -84,7 +84,7 @@
           x \en A \triangle B
           \Sii{def}
           \ub{(x \en A \y x \notin B)}{I}
-          \o
+          ~\lor~
           \ub{(x \notin A \y x \en B)}{II},
         $$
         la otra parte:
@@ -92,29 +92,29 @@
           x \en (A \triangle C) \union (B \triangle C)
           \Sii{def}
           ((x \en A \y x \notin C)
-          \o
+          ~\lor~
           (x \notin A \y x \en C))
-          \o
-          ((x \en B \y x \notin C) \o (x \notin B \y x \en C))
+          ~\lor~
+          ((x \en B \y x \notin C) ~\lor~ (x \notin B \y x \en C))
         $$
 
         $$
           \sii
           (x \en A \y x \notin C)
-          \o
+          ~\lor~
           (x \notin A \y x \en C)
-          \o
+          ~\lor~
           (x \en B \y x \notin C)
-          \o
+          ~\lor~
           (x \notin B \y x \en C).
         $$
 
-        Se que $x \in A \triangle B \entonces I \o II$. Separo en casos,
+        Se que $x \in A \triangle B \entonces I ~\lor~ II$. Separo en casos,
         $$
-          \text{Si }I\text{ es Verdadero, }I \Entonces{$\llamada1$} (x \in A \y x \notin C) \o (x \notin B \y x \in C) \entonces x \in (A \triangle C) \union (B \triangle C)   \\
+          \text{Si }I\text{ es Verdadero, }I \Entonces{$\llamada1$} (x \in A \y x \notin C) ~\lor~ (x \notin B \y x \in C) \entonces x \in (A \triangle C) \union (B \triangle C)   \\
         $$
         $$
-          \text{Si }II\text{ es Verdadero, }II \Entonces{$\llamada1$} (x \notin A \y x \in C) \o (x \in B \y x \notin C) \entonces x \in (A \triangle C) \union (B \triangle C) \\
+          \text{Si }II\text{ es Verdadero, }II \Entonces{$\llamada1$} (x \notin A \y x \in C) ~\lor~ (x \in B \y x \notin C) \entonces x \in (A \triangle C) \union (B \triangle C) \\
         $$
         $$
           \text{Si }I \y II\text{ es Verdadero, }I \y II \entonces I
@@ -128,7 +128,7 @@
         $$
         como quería probar.
 
-        $\llamada1$ Observo que $(\text{Verdadero} \y p) \o (\text{Verdadero } \y \neg p)$ es una tautología.
+        $\llamada1$ Observo que $(\text{Verdadero} \y p) ~\lor~ (\text{Verdadero } \y \neg p)$ es una tautología.
 
   \item Sale casi en forma directa:
         $$

@@ -1,0 +1,136 @@
+\begin{enunciado}{\ejExtra} \fechaEjercicio{final 04/03/24}
+  Hallar $a \en \enteros$ y $a \distinta 0$ de forma tal que el polinomio $f \en \complejos[x]$ dado por
+  $$
+    f = x^5 - (4i -4)x^4 - (16i + 8)x^3 + (16i - 11)x^2 - (20i - 16)x - a
+  $$
+  tenga una raíz entera. Para el o los valores de $a$ hallados, dar la factorización de $f$ en $\complejos[x]$ si además
+  se sabe que $(f : x^6 - 1) \en \racionales[x]$  y su grado es mayor que 1.
+\end{enunciado}
+
+Para que un polinomio $f \en \complejos[x]$ tenga una raíz $\blue{r} \en \enteros$, debe ocurrir que:
+$$
+  f(\blue{r}) = 0
+  \sii
+  \re(f(\blue{r})) = 0 ~\land~ \im(f(\blue{r})) = 0
+$$
+\parrafoDestacado[{\small \atencion}]{
+  Ojo que ese razonamiento es válido porque $\blue{r} \en \enteros$ si no eso no tiene por qué cumplirse.
+  Dado podría haber una componente imaginaria dentro de $\blue{r}$
+}
+
+Después de hacer las cuentas queda el sistemita:
+$$
+  \llave{rclc}{
+    \re(f(\blue{r})) & = & \blue{r}^5 + 4\blue{r}^4 - 8\blue{r}^3 - 11\blue{r}^2 + 16\blue{r} - a = 0 & \llamada1\\
+    \im(f(\blue{r})) & = & -4\blue{r}^4 - 16\blue{r}^3 + 16\blue{r}^2 - 20\blue{r} = 0 & \llamada2
+  }
+$$
+Ataco $\llamada2$ porque no tiene la $a$:
+$$
+  \begin{array}{rcl}
+    -4\blue{r}^4 - 16\blue{r}^3 + 16\blue{r}^2 - 20\blue{r} = 0
+     & \sii                                    &
+    -4\blue{r} \cdot (\blue{r}^3 +4 \blue{r}^2 - 4\blue{r} + 5) = 0 \\
+     & \Sii{\red{!!}}                          &
+    -4\blue{r} \cdot (\blue{r} + 5) \cdot
+    \ub{
+      (\blue{r}^2 - \blue{r} +1 )
+    }{
+      (\blue{r} - (\frac{1}{2} + i \frac{\sqrt{3}}{2})
+      \cdot
+      (\blue{r} - (\frac{1}{2} - i \frac{\sqrt{3}}{2}) \llamada3
+    } = 0                                                           \\
+     & \Sii{\red{!!}}[$\blue{r} \en \enteros$] &
+    \blue{r} \en \set{0,-5}
+  \end{array}
+$$
+Esos valores de $\blue{r}$, también deben anular a $\re(f)$ lo cual sucede para los valores de $a$:
+$$
+  \begin{array}{rcrcrcl}
+    \blue{r} = 0  & \to & \re(f(0)) = 0  & \sii & a = 0      & \sii & \cajaResultado{a = 0} \quad \red{\skull} \\
+    \blue{r} = -5 & \to & \re(f(-5)) = 0 & \sii & 20 - a = 0 & \sii & \cajaResultado{a = 20}
+  \end{array}
+$$
+Hasta el momento quedarían dos posibles $f$:
+$$
+  \boxed{
+    f_{-5} =
+    x^5 - (4i -4)x^4 - (16i + 8)x^3 + (16i - 11)x^2 - (20i - 16)x - 20
+  }
+  \llamada4
+$$
+
+En la parte del dato del MCD, $\magenta{d} = (f : x^6 - 1)$ que tenga coeficientes $\racionales$ y grado mayor que uno, nos da info sobre las
+raíces comunes que tienen $f$ y $x^6 - 1$. Estudio el polinomio ese, que sé que sus raíces forman $G_6$:
+$$
+  \begin{array}{rcl}
+    x^6 - 1
+     & \igual{\red{!}}        &
+    (x^3 - 1) \cdot (x^3 + 1)    \\
+     & \igual{\red{!}}        &
+    (x - 1) \cdot (x^2 + x + 1)
+    \cdot
+    (x + 1) \cdot ( x^2 - x + 1) \\
+     & \igual{\red{!}}[$G_6$] &
+    (x - 1)
+    \cdot
+    ( x - (\frac{-1}{2} + i \frac{\sqrt{3}}{2}))
+    \cdot
+    ( x - (\frac{-1}{2} - i \frac{\sqrt{3}}{2}))
+    \cdot
+    (x + 1)
+    \cdot
+    ( x - (\frac{1}{2} + i \frac{\sqrt{3}}{2}))
+    \cdot
+    ( x - (\frac{1}{2} - i \frac{\sqrt{3}}{2}))
+  \end{array}
+$$
+Del resultado para calcular $a$, sé que ni $1$ ni $-1$ son raíces de $f$ porque son números enteros por lo tanto y dado que
+$\magenta{d} \en \racionales[x]$:
+$$
+  \magenta{d} \en
+  \bigg\{
+  ( x^2 - x + 1),
+  ( x^2 + x + 1),
+  \ub{(x^2 - x + 1)\cdot(x^2 + x + 1)
+  }{
+    x^4 + x^2 + 1
+  }
+  \bigg\}
+$$
+El $\magenta{d} = x^4 + x^2 + 1$ no puede ser, porque $f$ en $\llamada4$ no daría ni a palos.
+
+\parrafoDestacado[\red{\angry}]{No veo escapatoria a tener que hacer cuentas feas}
+
+En $\llamada3$ medio de \textit{pedo} apareció $x^2 - x + 1$, lo cual es un candidato a funcionar.
+Tengo que comprobar que:
+$$
+  \ub{
+    x^3 + 4x^2 - 4x + 5
+  } {
+    (x + 5) \cdot (x^2 - x + 1)
+  }\divideA f
+$$
+Y ahora divido por eso rezo \blue{\faIcon{pray}}:
+$$
+  \divPol{x^5 + (4 - 4i)x^4 + (-8 - 16i)x^3 + (-11 + 16i)x^2 + (16 - 20i)x - 20}{x^3 + 4x^2 - 4x + 5}
+$$
+El cociente es un cuadrado de binomio:
+$$
+  x^2 - 4ix - 4 = (x - 2i)^2
+$$
+Finalmente:
+$$
+  \cajaResultado{
+    \textstyle
+    f = (x + 5)\cdot
+    \big( x - (\frac{1}{2} + i \frac{\sqrt{3}}{2})\big)
+    \cdot
+    \big( x - (\frac{1}{2} - i \frac{\sqrt{3}}{2})\big)
+    \cdot
+    (x - 2i)^2
+  }
+$$
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

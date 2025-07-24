@@ -9,65 +9,90 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item \textit{coeficiente principal: } $4^{77}$\par
-        \textit{grado: } $6\cdot 77$\par
+  \item \textit{coeficiente principal: } $4^{77}$
 
-  \item \textit{coeficiente principal: } $(-3)^4 - 6^7 = -279.855$\par
-        \textit{grado: } $28$\par
+        \textit{grado: } $6\cdot 77$
+
+  \item \textit{coeficiente principal: } $(-3)^4 - 6^7 = -279.855$
+
+        \textit{grado: } $28$
 
   \item \textit{coeficiente principal: }
-        $(\ub{-3X^5 + X^4 - X + 5}{f})^4 + \ub{-81X^{20} + 19X^{19}}{g}$\par
-        Cuando sumo me queda: $\cp(f^4) - \cp(g) = (-3)^4 - 81 = 0$, esto quiere decir que no sé cual es el
-        coeficiente principal, porque el $0$ está matando al término $X^{20}$. Tengo entonces gr(f^4 + g) < 20 $\par
-          Calculo el $\cp(f^4+g)$ con $\gr(f^4 + g ) = 19$.\par
+        $(\ub{-3X^5 + X^4 - X + 5}{f})^4 + \ub{-81X^{20} + 19X^{19}}{g}$
 
-          \textit{Laburo a $f$: }\par
-        $
-        \begin{array}{c}
-          \flecha{para usar}[fórmula de $f\cdot g$]
-          (-3X^5 + X^4 - X + 5)^4 =
-          (\blue{-3}X^5 + \magenta{1}X^4 - X + 5)^2 \cdot (-3X^5 + X^4 - X + 5)^2                       \\
-          f^2 \cdot f^2 = \sumatoria{k=0}{20} \parentesis{ \sumatoria{i+j=k}{ }a_i \cdot b_j }X^k
-          \text{ con $a_i$ y $b_i$ los coeficientes de $f^2$ y el otro $f^2$ respectivamente }\llamada2 \\
-          \sumatoria{k=0}{20}\parentesis{\sumatoria{i+j=k}{ }a_i \cdot b_j}X^k
-          \flecha{me interesa solo}[el término con $k = 19$]
+        Cuando sumo me queda:
+        $$
+          \cp(f^4) - \cp(g) = (-3)^4 - 81 = 0,
+        $$
+        esto quiere decir que \ul{no sé} cual es el coeficiente principal, porque el $0$ está matando al término $X^{20}$.
+        Tengo entonces $\gr(f^4 + g) < 20$
+
+        Calculo el $\cp(f^4+g)$ con $\gr(f^4 + g ) = 19$.
+
+        \textit{Laburo a $f$: }
+        $$
+          \begin{array}{c}
+            f^4=
+            (-3X^5 + X^4 - X + 5)^4 =
+            (\blue{-3}X^5 + \magenta{1}X^4 - X + 5)^2 \cdot (-3X^5 + X^4 - X + 5)^2                              \\
+            f^2 \cdot f^2 = \sumatoria{k=0}{20} \parentesis{ \sumatoria{i+j=k}{ }a_i \cdot b_j }X^k
+            \text{ con $a_i$ y $b_j$ los coeficientes de $f^2$ y el otro $f^2$ respectivamente } \quad \llamada2 \\
+            \sumatoria{k=0}{20}\parentesis{\sumatoria{i+j=k}{ }a_i \cdot b_j}X^k
+          \end{array}
+        $$
+        En esa sumatoria fea, solo me interesa el término con $k = 19$
+        $$
           \sumatoria{i+j=19}{ } a_ib_j X^{19}
-          \igual{$\llamada1$} a_9 \cdot b_{10}  + a_{10} \cdot b_9
-          \igual{$\llamada2$} 2\cdot a_9 \cdot  b_{10}                                                  \\
+          \igual{$\llamada1$}[\red{!}]
+          (a_9 \cdot b_{10}  + a_{10} \cdot b_9)X^{19}
+          \igual{$\llamada2$}
+          2\cdot a_9 \cdot  b_{10}X^{19}                                \\
+        $$
+        Hay que resolver esas ecuaciones. Primero a \textit{ojímetro saco $b_{10}$}:
+        $$
+          b_{10} = (\blue{-3})^2 = 9
+        $$
+        $a_9$ no es tan fácil. Hay que  volver a usar $\sum f\cdot g$ en $k=9$:
+        $$
+          f\cdot f =
+          \sumatoria{k=0}{10}\parentesis{\sumatoria{i+j=k}{ }c_i \cdot d_j}X^k
+          \flecha{quiero el}[término $k = 9$]
+          \sumatoria{i+j = 9}{ }c_i \cdot d_j X^9
+          \igual{$\llamada3$}
+          (\magenta{c_4} \cdot \blue{d_5} + \blue{c_5} \cdot \magenta{d_4})X^9
+          \igual{$\llamada2$}
+          (2\cdot \magenta{c_4} \cdot \blue{d_5})X^9                    \\
+        $$
+        Parecido a antes primero calculo $\blue{d_5}$ y $\magenta{c_4}$ a \textit{ojímetro}:
+        $$
+          \blue{d_5} = \blue{-3}
+          \ytext
+          \magenta{c_4} = \magenta{1}
+        $$
+        Vuelvo el foco a $a_9$:
+        $$
+          a_9 = 2 \cdot \magenta{1} \cdot \blue{-3} = - 6
+        $$
+        Los coeficientes principales:
+        $$
           \llave{l}{
-          \flecha{$b_{10}$ sale a}[ojímetro] b_{10} = (\blue{-3})^2 = 9                                 \\
-            \flecha{$a_9$ no tan fácil, volver}[a usar $\sum f\cdot g$ en $k=9$] f\cdot f =
-            \sumatoria{k=0}{10}\parentesis{\sumatoria{i+j=k}{ }c_i \cdot d_j}X^k
-            \flecha{$k = 9$}
-            \sumatoria{i+j = 9}{ }c_i \cdot d_j X^9
-            \igual{$\llamada3$}
-            \magenta{c_4} \cdot \blue{d_5} + \blue{c_5} \cdot \magenta{d_4}
-            \igual{$\llamada2$}
-            2\cdot \magenta{c_4} \cdot \blue{d_5}
-          }                                                                                             \\
-          \llaves{l}{
-          \flecha{$\blue{d_5}$ sale a}[ojímetro] \blue{d_5} = \blue{-3}                                 \\
-            \flecha{$\magenta{c_4}$ sale a}[ojímetro] \magenta{c_4} = 1
-          }\to a_9 = -6
-          \to
-          \llaves{l}{
-          \cp{f^4} = 2\cdot(-6) \cdot (9) = -108                                                        \\
-          \cp{g} = 19                                                                                   \\
+            \cp(f^4) = 2 \cdot (-6) \cdot 9 = -108                        \\
+            \cp(g) = 19                                                   \\
           }
-          \to \boxed{\cp{f^4+g} = -89}
+          \to \boxed{\cp(f^4 + g) = -89}
           \Tilde
-        \end{array} $
+        $$
 
         $\llamada1$: Sabemos que el $\gr(f^4) = 20 \entonces \gr(f^2) = 10$. Viendo las posibles combinaciones al multiplicar 2 polinomios
-          de manera tal que los exponentes de las $X$ sumen 19, es decir $X^i\cdot X^j = X^{19}$ con $i,j \leq 10$
-          solo puede ocurrir \textit{cuando los exponentes}
+        de manera tal que los exponentes de las $X$ sumen 19, es decir $X^i\cdot X^j = X^{19}$ con $i,j \leq 10$
+        solo puede ocurrir \textit{cuando los exponentes}
         $\llaves{c}{
-          i = 10,\, j = 9\\
-          \o\\
-          i = 9,\, j = 10\\
-        }$
+            i = 10,\, j = 9\\
+            \o\\
+            i = 9,\, j = 10\\
+          }$
 
-        $\llamada2$: porque estoy multiplicando el mismo polinomio, $a_i = b_i$. Pero lo dejo distinto para hacerlos \textit{visualmente} más genérico.\\
+        $\llamada2$: Porque estoy multiplicando el mismo polinomio, $a_i = b_i$. Pero lo dejo distinto para hacerlos \textit{visualmente} más genérico.
 
         $\llamada3$: Idem $\llamada1$ para el polinomio $f$
 

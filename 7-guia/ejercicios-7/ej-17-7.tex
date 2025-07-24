@@ -1,53 +1,48 @@
-\ejercicio
+\begin{enunciado}{\ejercicio}
+  Sea $n \en \naturales$. Determinar todos los $a \en \complejos$ tales que
+  $f = nX^{n+1} - (n+1)X^n + a$ tiene solo raíces simples en $\complejos$.
+\end{enunciado}
 
-Sea $n \en \naturales$. Determinar todos los $a \en \complejos$ tales que
-$f = nX^{n+1} - (n+1)X^n + a$ tiene solo raíces simples en $\complejos$.
+Quiero raíces simples, entonces laburo para que $(f:f') = 1$
+$$
+  f = nX^{n+1} - (n+1)X^n + a
+  \ytext
+  f' = n(n+1)X^n - n(n+1)X^{n-1} =
+  n(n+1)X^{n-1}(X-1)
+$$
+Sea $\blue{\alpha}$ una raíz de $f'$, es decir:
+$$
+  f'(\blue{\alpha}) =
+  n(n+1)\blue{\alpha}^{n-1}(\blue{\alpha} - 1) = 0
+  \sii
+  \llave{l}{
+    \blue{\alpha} = 1 \text{ con } n = 1  ~ \llamada1\\
+    \blue{\alpha} \en \set{0, 1} \text{ con } n > 1
+  }
+$$
+Pido entonces:
+$$
+  \llave{l}{
+    f(\blue{1}) = n - (n+1) + a \distinto 0 \sii \cajaResultado{a \distinto 1}\\
+    f(\blue{0}) = a \sii \cajaResultado{a \distinto 0}
+  }
+$$
 
-\separadorCorto
+\textit{Caso $a = 0$, $n = 1$}:
+$$
+  f = X\cdot (X - 2)
+  \quad \text{ Tiene solo raíces simples.}
+$$
+\textit{Caso $a \distinto 0 $, $n \en \naturales_{>1}$}:
+$$
+  f \quad \text{ Tiene solo raíces simples.}
+$$
 
-$
-	f = nX^{n+1} - (n+1)X^n + a\\
-	\flecha{derivo}
-	f' =
-	n(n+1)X^n - n(n+1)X^{n-1}
-	\stackrel{n>0}\sisolosi
-	f' = n(n+1)X^{n-1}(X-1) \\
-	f'(\alpha) = 0
-	\sii
-	\llave{l}{
-		n > 1 \entonces f'(\alpha = 1) = 0 \ytext  f'(\alpha = 0) = 0\\
-		n = 1 \entonces f'(\alpha = 1) = 0\llamada1
-	}
-$\\
+\textit{Caso $a \distinto 1 $, $n \en \naturales$}:
+$$
+  f \quad \text{ Tiene solo raíces simples.}
+$$
 
-Para que las raíces $\alpha$, de $f$ no sean simples,
-es necesario que $f'(\alpha) = 0$. Por lo tanto, estudio solo los
-valores de raíces encontrados para la derivada. Si $f$ ha de tener
-raíces dobles, estás deberían ser $\alpha = 1 \otext \alpha=0$.
-Entonces:\\
-$
-	\llave{l}{
-		f(\alpha = 1) = a-1
-		\entonces
-		f(1) \distinto 0 \paratodo n \en \naturales
-		\sii
-		a \distinto 1\\
-		f(\alpha = 0) = a
-		\entonces
-		f(0) \distinto 0
-		\sii
-		a \distinto 0 \\
-	}
-$\\
-
-Si $a = 0 \y n \stackrel{\llamada1}= 1
-\entonces
-f$ tiene solo una raíz simple en 0.\\
-Si $a \distinto 1
-\entonces
-f$ tiene solo raíces simples $\paratodo n \en \naturales$.\\
-Si $a \distinto 0 \y n > 1
-\entonces
-f$ tiene solo raíces simples.
-
-\red{seguramente hay una mejor forma de expresar la respuesta.}
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

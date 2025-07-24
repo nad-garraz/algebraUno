@@ -1,4 +1,4 @@
-\begin{enunciado}{\ejExtra}{\tiny[\purple{segundo parcial 1er cuatri 2025}]}
+\begin{enunciado}{\ejExtra}\fechaEjercicio{2do parcial 7/4/25}
   \begin{enumerate}[label=(\alph*)]
     \item Sea $w \en G_7, ~ w \distinto 1$, probar que
           $(w^{16} - w^5 + w^{29} - \bar{w} - w^{-18} + w^{11})^3$
@@ -55,62 +55,88 @@
         $$
         Es así que $\re(\blue{z}) = 0$ por lo tanto $(\re(\blue{z}))^3 = 0$ y $\blue{z}^3$ es imaginario puro.
 
-  \item Acomodo la expresión y encuentro soluciones:
+  \item
+        Acomodo el enunciado:
         $$
-          1 + w^2 = - w^4 (1 + w^2)
+          1 + \omega^2 = - \omega^4(1 + \omega^2)
           \sii
-          (1 + w^2) \cdot (1 + w^4) = 0
-          \Sii{\red{!}}
+          (1 + \omega^2) \cdot (1 + \omega^4) = 0
+          \sii
+          \llave{l}{
+            \omega^2 = -1  \sii \omega \en \set{G_4 - G_2}\\
+            \omega^4 = -1 \sii \omega \en \set{G_8 - G_4}
+          }
           \llamada1
-          \llave{rcc}{
-            w_1 & = & i \\
-            w_2 & = & -i \\
-            w_3 & = & 1 \\
-            w_4 & = & -1
+        $$
+        Ese último resultado puede ser un poco oscuro, calculemos los resultados a manopla:
+        $$
+          \textstyle
+          \omega^4 = -1
+          \sii
+          r^4e^{i 4\theta} = e^{i\pi}
+          \sii
+          \llave{rcl}{
+            r^4 = 1 &\sii& r = 1 \\
+            4\theta = \pi + \blue{2k\pi} &\sii & \theta = \frac{2k + 1}{4}\pi \text{ con } k \en [0,3]
+          }
+          \sii
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
+          }\llamada2
+        $$
+        Esté más fácil lo hago de una:
+        $$
+          \omega^2 = -1
+          \sii
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}}
+          } \llamada3
+        $$
+        La unión de $\llamada2$ y $\llamada3$ son las soluciones de $\llamada1$:
+        $$
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}},
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
           }
         $$
-        Notar que la solución a la ecuación es el conjunto $G_4$.
-        Resta ver cuales de esos $w \en G_{36}$.
-        \newcommand{\unitcircle}[1]{
-          \begin{tikzpicture}[baseline=0, scale=4.5, every node/.style={font=\tiny}]
-            \draw[ultra thin,->,gray] (-1.5,0) -- (1.8,0) node[below] {Re};
-            \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.5) node[right] {Im};
-            \draw[ultra thin] (0,0) circle (1);
-            \foreach \x in {0,...,#1} {
-                \ifnum \x < #1 {
-                      \filldraw (\x*360/#1:0.8) node {$\x$};
-                      \filldraw (\x*360/#1:1) circle (0.3pt);
-                      \filldraw (\x*360/#1:1.4) node {$e^{i \frac{2\pi}{#1} \cdot \x}$};
-                      \draw[Cerulean] (\x*360/#1:1) -- ({(\x+1)*360/#1}:1);
-                    }
-                \fi
-                \ifnum \x < 4 {
-                      \draw[magenta] (\x*360/4:1) -- ({(\x+1)*360/4}:1);
-                    }
-                \fi
-                \ifnum \x < 2 {
-                      \draw[orange] (\x*360/2:1) -- ({(\x+1)*360/2}:1);
-                    }
-                \fi
-              }
-          \end{tikzpicture}
-        }
+        Esto de la inclusión o intersección de un conjunto $G_n$ en otro $G_m$ lo podés
+        (\hyperlink{teoria6:gruposGn}{mirar acá \click}), por lo tanto los $\omega$
+        que están en $G_{36}$ son los que cumplen:
         $$
-          \unitcircle{36}
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}},
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
+          }
+          \quad \land \quad
+          \omega^{36} = 1
+          \Sii{\red{!!}}
+          \cajaResultado{
+            \omega \en
+            \set{
+              e^{i\frac{\pi}{2}},
+              e^{i\frac{3\pi}{2}}
+            }
+          }
         $$
-
-        En el gráfico están todos los elementos de $\blue{G_{36}}$, de $\magenta{G_4}$ y de $\orange{G_2}$,
-        la idea \ul{no es que vos hagas un gráfico así en un parcial}, sino que veas que por la forma que tienen los grupos
-        $G_n$, $w = e^{i\frac{2\violet{k}}{n}\pi} ~ \violet{k} \en \enteros_{[0,n-1]}$, para saber si un elemento de $z \en G_m $ también está
-        en $G_n$ solo necesitás:
-        $$
-          m \divideA n
-        $$
-        en criollo, para el ejercicio este si ponés un $\violet{k}$ múltiplo de $\frac{36}{4} = 9$
-        obtenés en $w = e^{i\violet{\frac{2k}{n}}\pi}$ un número de $\magenta{G_4}$. Podés probar lo mismo para ver que los elementos
-        de $\orange{G_2}$ están en $\magenta{G_4}$.
-
-        Los $w$ que verifican la ecuación son todos los que se encontraron en $\llamada1$.
+        El exponente tiene que ser un múltiplo para de $\pi$. Fin
 \end{enumerate}
 
 \begin{aportes}

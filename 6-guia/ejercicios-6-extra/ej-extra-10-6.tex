@@ -1,0 +1,242 @@
+\begin{enunciado}{\ejExtra}\fechaEjercicio{2do parcial 4/7/25}
+  \begin{enumerate}[label=(\alph*)]
+    \item Sea $\omega \en G_7,\, \omega \distinto 1$. Probar que
+          $(\omega^{16} - \omega^5 + \omega^{29} - \bar{\omega} - \omega^{-18} + \omega^{11})^5$ es imaginario puro.
+    \item Hallar todos los $\omega \en G_{60}$ que verifican $1 + \omega^2 = - \omega^4(1 + \omega^2)$.
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+  \item Esa expresión está para ser acomodada usando las propiedades que tienen los números de los grupos $G_n$,
+        en particular para $\omega \en G_7$:
+        $$
+          \llave{rcl}{
+            \omega^7 & = & 1\\
+            \omega^n & = & \omega^{r_7(n)}\\
+            \conj{\omega^n} & = & \omega^{-n}\\
+            \sumatoria{i = 0}{6} \omega^k & = & 0
+          }
+        $$
+        Usando esas propiedades queda algo así:
+        $$
+          \begin{array}{rcl}
+            (\omega^{16} - \omega^5 + \omega^{29} - \bar{\omega} - \omega^{-18} + \omega^{11})^5
+             & \igual{\red{!!}} &
+            (\omega^2 - \omega^5 + \omega - \omega^6 - \omega^3 + \omega^4)^5 \\
+             & =                &
+            (\omega + \omega^2 - \omega^3 + \omega^4 - \omega^5 - \omega^6)^5 \\
+             & =                &
+            \blue{z}^5                                                        \\
+          \end{array}
+        $$
+        Ahí esta la expresión un poco más bonita y reescribí a la base como $\blue{z}$. Para probar que un número es imaginario puro,
+        puedo calcular que su parte real valga 0:
+        $$
+          \textstyle
+          \text{Si } \blue{z} \en \complejos,~ \re(\blue{z}) = \frac{\blue{z} + \blue{\bar{z}}}{2} = 0
+          \sii
+          \blue{z} \text{ es imaginario puro o cero}.
+        $$
+        Calculo usando las propiedades:
+        $$
+          \begin{array}{rcl}
+            \blue{z} + \blue{\bar{z}}
+             & =                &
+            \omega + \omega^2 - \omega^3 + \omega^4 - \omega^5 - \omega^6 + \conj{\omega + \omega^2 - \omega^3 + \omega^4 - \omega^5 - \omega^6}                                    \\
+             & =                &
+            \omega + \omega^2 - \omega^3 + \omega^4 - \omega^5 - \omega^6 + \conj{\omega} + \conj{\omega^2} - \conj{\omega^3} + \conj{\omega^4} - \conj{\omega^5} - \conj{\omega^6} \\
+             & \igual{\red{!!}} &
+            \omega + \omega^2 - \omega^3 + \omega^4 - \omega^5 - \omega^6 + \omega^6 + \omega^5 - \omega^4 + \omega^3 - \omega^2 - \omega                                           \\
+             & \igual{\red{!}}  &
+            0
+          \end{array}
+        $$
+        Es así que $\re(\blue{z}) = 0$ por lo tanto $(\re(\blue{z}))^5 = 0$ y $\blue{z}^5$ es imaginario puro.
+
+  \item Acomodo el enunciado:
+        $$
+          1 + \omega^2 = - \omega^4(1 + \omega^2)
+          \sii
+          (1 + \omega^2) \cdot (1 + \omega^4) = 0
+          \sii
+          \llave{l}{
+            \omega^2 = -1  \sii \omega \en \set{G_4 - G_2}\\
+            \omega^4 = -1 \sii \omega \en \set{G_8 - G_4}
+          }
+          \llamada1
+        $$
+        Ese último resultado puede ser un poco oscuro, calculemos los resultados a manopla:
+        $$
+          \textstyle
+          \omega^4 = -1
+          \sii
+          r^4e^{i 4\theta} = e^{i\pi}
+          \sii
+          \llave{rcl}{
+            r^4 = 1 &\sii& r = 1 \\
+            4\theta = \pi + \blue{2k\pi} &\sii & \theta = \frac{2k + 1}{4}\pi \text{ con } k \en [0,3]
+          }
+          \sii
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
+          }\llamada2
+        $$
+        Esté más fácil lo hago de una:
+        $$
+          \omega^2 = -1
+          \sii
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}}
+          } \llamada3
+        $$
+        La unión de $\llamada2$ y $\llamada3$ son las soluciones de $\llamada1$:
+        $$
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}},
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
+          }
+        $$
+        Esto de la inclusión o intersección de un conjunto $G_n$ en otro $G_m$ lo podés
+        (\hyperlink{teoria6:gruposGn}{mirar acá \click}), por lo tanto los $\omega$
+        que están en $G_{60}$ son los que cumplen:
+        $$
+          \omega
+          \en
+          \set{
+            e^{i\frac{\pi}{2}},
+            e^{i\frac{3\pi}{2}},
+            e^{i\frac{\pi}{4}},
+            e^{i\frac{3\pi}{4}},
+            e^{i\frac{5\pi}{4}},
+            e^{i\frac{7\pi}{4}}
+          }
+          \quad \land \quad
+          \omega^{60} = 1
+          \Sii{\red{!!}}
+          \cajaResultado{
+            \omega \en
+            \set{
+              e^{i\frac{\pi}{2}},
+              e^{i\frac{3\pi}{2}}
+            }
+          }
+        $$
+        El exponente tiene que ser un múltiplo para de $\pi$. Fin
+
+        \bigskip
+
+        \textit{Nota que nadie pidió pero que pintó poner:}
+
+        \parrafoDestacado{
+          $\llamada1$
+          Fijate que esas ecuaciones son extremadamente parecidas a $G_2$ y $G_4$, solo cambia que del otro lado hay un signo negativo:
+          $$
+            \omega^2 = -1
+            \sii
+            (re^{i \theta})^2 = e^{i\pi}
+            \sii
+            \llave{rcl}{
+              2\theta & = &  \pi + \blue{2k\pi}
+              \sii
+              \theta = \frac{2k + 1}{2}\pi \text{ con } k \en [0,1]
+              \\
+              r  & = & 1
+            }
+          $$
+          $$
+            \omega^4 = -1
+            \sii
+            (re^{i \theta})^4 = e^{i\pi}
+            \sii
+            \llave{rcl}{
+              4\theta & = &  \pi + \blue{2k\pi}
+              \sii
+              \theta = \frac{2k + 1}{4}\pi \text{ con } k \en [0,3]
+              \\
+              r  & = & 1
+            }
+          $$
+          ¿Se ve el parecido? Las soluciones son lo mismo, pero están rotadas, para $G_n$ en un ángulo $\magenta{\frac{\pi}{n}}$ en sentido antihorario.
+          $$
+            \begin{array}{rcl}
+              (\ub{
+                e^{i \frac{2k}{n}\pi}
+              }{
+              \omega \en G_n \text{ de }                                            \\
+                \text{toda la vida}
+              }
+              )^n = 1
+               & \Sii{\red{!}} &
+              (e^{i \frac{2k}{n}\pi})^n \cdot e^{i\pi} = -1                         \\
+               & \Sii{\red{!}} &
+              (e^{i \frac{2k}{n}\pi})^n \cdot (e^{i\magenta{\frac{\pi}{n}}})^n = -1 \\
+               & \Sii{\red{!}} &
+              \big(
+              \ub{e^{i (\frac{2k}{n}\pi + \frac{\pi}{n})}
+              }{
+              \omega's \text{ rotadas }                                             \\
+                \text{en } \frac{\pi}{n}
+              }
+              \big)^n = -1
+            \end{array}
+          $$
+          Si la acción de \textit{rotar} te marea, pensá que estás sumándole algo al \textit{argumento}, entonces
+          estás moviéndolo al rededor del origen. Mirá los gráficos así ves lo que pasa.
+        }
+        $$
+          \begin{tikzpicture}[baseline=0,scale = 2.3, every node/.style={font=\tiny}]
+            \draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
+            \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.7) node[right] {Im};
+            \draw[ultra thin] (0,0) circle (1);
+            \node at (-1,1.5)  {\blue{$G_4$} y \magenta{$G_4$ rotada}};
+            \foreach \x in {0,...,4} {
+                \filldraw (\x*360/4:1) circle (0.5pt);
+                \filldraw (\x*360/4 + 180/4:1) circle (0.5pt);
+                \ifnum\x<4
+                  \draw[Cerulean] ({\x*360/4}:1) -- ({(\x+1)*360/4}:1);
+                  \draw[magenta] ({\x*360/4 + 180/4}:1) -- ({(\x+1)*360/4 + 180/4}:1);
+                  \node at ({\x*360/4}:1.3)  { $e^{i\frac{{2 \cdot \x }}{4}\pi}$};
+                  \node at ({\x*360/4 + 180/4}:1.3)  { $e^{i\frac{{2 \cdot \x + 1}}{4}\pi}$};
+                \fi
+              }
+            \draw[dotted] (0,0) -- (45:1);
+            \draw[-Latex, thin, orange] (1,0) arc  (0:45:1)node [midway, right]{$\frac{\pi}{4}$};
+          \end{tikzpicture}
+          \quad
+          \begin{tikzpicture}[baseline=0,scale = 2.3, every node/.style={font=\tiny}]
+            \draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
+            \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.7) node[right] {Im};
+            \draw[ultra thin] (0,0) circle (1);
+            \node at (-1,1.5)  {\blue{$G_2$} y \magenta{$G_2$ rotada}};
+            \foreach \x in {0,...,2} {
+                \filldraw (\x*360/2:1) circle (0.5pt);
+                \filldraw (\x*360/2 + 180/2:1) circle (0.5pt);
+                \ifnum\x<2
+                  \draw[Cerulean] ({\x*360/2}:1) -- ({(\x+1)*360/2}:1);
+                  \draw[magenta] ({\x*360/2 + 180/2}:1) -- ({(\x+1)*360/2 + 180/2}:1);
+                  \node at ({\x*360/2}:1.3)  { $e^{i\frac{{2 \cdot \x }}{2}\pi}$};
+                  \node at ({\x*360/2 + 180/2}:1.3)  { $e^{i\frac{{2 \cdot \x + 1}}{2}\pi}$};
+                \fi
+              }
+            \draw[dotted] (0,0) -- (90:1);
+            \draw[-Latex, thin, orange] (1,0) arc  (0:90:1) node [midway, right]{$\frac{\pi}{2}$};
+          \end{tikzpicture}
+        $$
+        \textit{Fin nota que nadie pidió pero que pintó poner}
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

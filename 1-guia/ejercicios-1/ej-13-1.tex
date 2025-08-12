@@ -57,36 +57,108 @@
           }
         $$
 
-  \item ¡Es verdadera! Supongo que:
+  \item Este ejercicio sale en 2 patadas haciendo unos \textit{diagramas de Venn}, o casi de cualquier forma. Pero tenía ganas de hacer esta versión,
+        porque en las materias de \textit{algoritmos} se usa más esta forma de atacar los problemas.
+        \parrafoDestacado{
+          \textit{Sugerencia: Amigate con las implicaciones. Ayer.}
+        }
+        $$
+          \ob{
+            \ub{
+              C \subseteq A
+            }{
+              \text{\purple{hipótesis}}
+            }
+            \entonces
+            \ub{
+              B \inter C \subseteq (A \triangle B)^c
+            }{
+              \text{\purple{tesis}}
+            }
+          }{
+            \textit{razonamiento}
+          }
+        $$
+        Para que ese \textit{razonamiento} sea \green{válido}, la premisa, la \purple{hipótesis} tiene que ser \green{verdadera} y luego
+        la \purple{tesis} también tiene que ser \green{verdadera}.
+        Es decir que por \purple{hipótesis} laburo con valores, elementos $x$ tales que:
         $$
           C \subseteq A
+          \Sii{\red{!}}
+          x \en C \entonces x \en A
         $$
-        quiero probar que
+        o equivalentemente:
         $$
-          B \inter C \subseteq (A \triangle B)^c
+          \paratodo x \en \universo : (x \notin C) \lor (x \en A) \quad \llamada1
         $$
-        Tenemos que:
+        Esa proposición tiene un valor \green{verdadero} \ul{excepto para los $x \en C \land x \notin A$},
+        por lo que laburo con los valores de $x$ para los cuales eso \ul{no pasa}.
+        Esto es lo que me dice la \purple{hipótesis} $\llamada1$ y \ul{voy a usar más adelante}.
+
+        \bigskip
+
+        Estudio la \purple{tesis}
+
+        La proposición $B \inter C \subseteq (A \triangle B)^c$ en formato lógico:
         $$
-          (A \triangle B)^c \igual{def} ((A \union B) \inter (A \inter B)^c)^c
-          \igual{\red{!!}} (A^c \inter B^c) \union (A \inter B) \llamada1
+          \big(
+          \forall x \en \universo
+          \big):
+          \big(
+          (x \en B) \land (x \en C)
+          )
+          \entonces
+          \big(
+          (x \en (A \land B^c) ) \lor  (x \en ( A^c \land B))
+          \big)^c
+          \big) \llamada2
         $$
-        y también:
+        Esa proposición es \underline{inmediatamente \purple{verdadera}} si $x \notin C$ (también lo es $\llamada1$), así que el caso que me interesa estudiar,
+        que cumple que la \purple{hipótesis} es \textit{verdadera} es,
         $$
-          B \inter C \taa{$C \subseteq A$}[\red{!}]{\subseteq}
-          B \inter A = A \inter B \subseteq (A \inter B) \union (A^c \inter B^c)
-          \igual{$\llamada1$}
-          (A \triangle B)^c
+          x \en C \land x \en A.
         $$
-        Es así que:
+
+        Al igual que antes para que el razonamiento
+        de $\llamada2$ sea válido, necesito partir de algo \green{verdadero} y llegar a algo \green{verdadero}:
+        $$
+          \ob{
+            \ub{x \en B}{\text{debe ser}\\ \text{\green{verdadera}}} ~\land~ \ub{(x \en C)}{\text{por \purple{hipótesis}}\\\llamada1 \text{\green{verdadera}}}
+          }{
+            \text{\green{verdadero}}
+          }
+          \entonces
+          \ob{
+            \Big(
+            \big(
+            \ub{(x \en (A \land B^c) )}{\text{\red{falso}}\\\text{porque } x \en B}
+            \lor
+            \ub{(x \en (A^c \land B) )}{\text{\red{falso}}\\\text{por \purple{hipótesis} } x \en A}
+            \big)^c
+            \Big)
+          }{
+            \text{\green{verdadero}}
+          }
+        $$
+        \parrafoDestacado{
+          Si te cuestionás el ¿Pero que pasa si $x \notin B$? Bueno, la premisa sería falsa y la implicación $\llamada2$ sería verdadera, porque en la
+          implicación $p \entonces q$ con $p$ \red{falso} no importa $q$, la implicación es \green{verdadera} por default.
+        }
+
+        Por lo tanto el razonamiento del enunciado resulta válido.
         $$
           \cajaResultado{
+            C \subseteq A
+            \entonces
             B \inter C \subseteq (A \triangle B)^c
+            \quad
+            \text{es \green{verdadera}.}
           }
         $$
 
   \item\label{ej-13-1:itemiv} ¡Es verdadera!
         \begin{itemize}
-          \item[$\entonces)$]
+          \item[\red{$(\Rightarrow)$}]
                 $$
                   A \triangle B = \vacio
                   \Entonces{def}
@@ -97,7 +169,7 @@
                   A = B
                 $$
 
-          \item[$\Leftarrow)$]
+          \item[\red{$(\Leftarrow)$}]
                 $$
                   A = B \entonces A \triangle B = A \triangle A = \vacio
                 $$

@@ -144,7 +144,7 @@
 
   \item Para probar la igualdad, hay que probar la ida y la vuelta:
         \begin{itemize}
-          \item[($\entonces$)]
+          \item[\red{($\Rightarrow$)}]
                 Por hipótesis del ejercicio:
                 $$
                   A \subseteq B \llamada1
@@ -157,7 +157,7 @@
                   B - A = B \inter A^c
                 $$
 
-          \item[$(\Leftarrow)$]
+          \item[$\red{(\Leftarrow)}$]
                 La vuelta es similar:
                 $$
                   B \inter A^c
@@ -174,16 +174,64 @@
                 ¿Había qué hacer la ida y la vuelta? \faIcon[regular]{grin-beam-sweat}
         \end{itemize}
 
-  \item \text{$\Rightarrow$)} Sup que $A \subseteq B$. Si $x \in A \entonces x \in B$ y por contrarecíproco, si $x \notin B \entonces x \notin A \entonces B^c \subseteq A^c$ \\
-        $\text{$\Leftarrow$)}$ Es análogo.
+  \item Este lo resuelvo \textit{pulenta} para los puristas que subestiman
+        las \textit{tablas de verdad} y los \textit{diagramas de Venn}. En otras
+        palabras para la gente que le gusta complicar las cosas innecesariamente \faIcon[regular]{grin-tongue}.
+        \begin{itemize}
 
-  \item Mirando el item \ref{ej-14-1:itemi} sale solo. Dado que $X \triangle \vacio \igual{\red{!}} X$
+          \item[\red{($\Rightarrow$)}]
+                Quiero probar que:
+                $$
+                  A \subseteq B
+                  \entonces
+                  B^c \subseteq A^c
+                $$
+                $A$ subconjunto de $B$ se puede escribir en lenguaje lógico como:
+                $$
+                  \big[
+                    A \subseteq B
+                    \big]
+                  \taa{def}{\equivalente}
+                  \big[
+                    A \entonces B
+                    \big]
+                  \taa{$\llamada1$}{\equivalente}
+                  \big[
+                    \paratodo x \en \universo : (x \notin A) \lor (x \in B)
+                    \big]
+                $$
+                Esos corchetes son equivalentes ¡Tienen la misma información! Tomate
+                el tiempo hasta que lo veas. Laburo con el último corchete:
+                $$
+                  \begin{array}{rcl}
+                    \paratodo x \en \universo : (x \notin A) \lor (x \in B)
+                     & \Sii{def}                                 &
+                    \paratodo x \en \universo : (x \en A^c) \lor (x \notin B^c)  \\
+                     & \Sii{conmutatividad}[del $\red{\lor}$]    &
+                    \paratodo x \en \universo :  (x \notin B^c) \lor (x \en A^c) \\
+                     & \taa{$\llamada1$}[\red{!!}]{\equivalente} &
+                    B^c \entonces  A^c                                           \\
+                     & \sii                                      &
+                    B^c \subseteq  A^c                                           \\
+                  \end{array}
+                $$
+
+          \item[\red{($\Leftarrow$)}]
+                La vuelta es lo meeeeeesmo. Toda tuya.
+        \end{itemize}
+
+  \item Mirando el ítem \ref{ej-14-1:itemi} del ejercicio sale en dos patadas.
+        Tené en cuenta que:
+        $$
+          X \triangle \vacio
+          \igual{\red{!}}
+          X
+        $$
+        Todo tuyo!
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
   \item \aporte{https://github.com/nad-garraz}{naD GarRaz \github}
   \item \aporte{https://github.com/MateCon}{Mateo Z \github}
 \end{aportes}

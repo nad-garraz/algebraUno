@@ -139,7 +139,7 @@
           Decidir si las siguientes proposiciones son verdaderas o falsas, justificando debidamente:
           \begin{multicols}{2}
             \begin{enumerate}[label=\alph*)]
-              \item $\paratodo n \en \naturales,\, n \geq 5 \o n \leq 8$.
+              \item $\paratodo n \en \naturales,\, n \geq 5 \otext n \leq 8$.
               \item $\existe n \en \naturales \talque n \geq 5 \y n\leq 8.$
               \item $\paratodo n \en \naturales, \existe m \en \naturales \talque m > n$.
               \item $\existe n \en \naturales \talque \paratodo m \en \naturales, m >n$.
@@ -161,8 +161,9 @@
   \item
 
         \begin{enumerate}[label=\alph*)]
-          \item $\paratodo n \en \naturales,\, n \geq 5 \o n \leq 8$.\par
-                La proposición es verdadera. El conjunto descrito por $\set{ n \en \naturales \talque n \leq 8 \o n \geq 5} = \naturales$\par
+          \item $\paratodo n \en \naturales,\, n \geq 5 \otext n \leq 8$.
+
+                La proposición es verdadera. El conjunto descrito por $\set{ n \en \naturales \talque n \leq 8 \otext n \geq 5} = \naturales$
                 \doceiA                        \par
                 \red{¿Se puede justificar con un gráfico? \blue{$\to$ ¡Sí!}}
 
@@ -214,7 +215,8 @@
                 $A =  \set{n \en \naturales \talque n < 5 \y n > 8} = \vacio \entonces \noexiste n$ que cumpla lo pedido.\par
                 \doceiiA \par
 
-          \item $\paratodo n \en \naturales \talque n < 5 \o n > 8$.\par
+          \item $\paratodo n \en \naturales \talque n < 5 \otext n > 8$.
+
                 La proposición es falsa, $n = 6$ no cumple estar en ese conjunto.
 
           \item $\existe n \en \naturales, \paratodo m \en \naturales \talque m \leq n$.\par
@@ -255,7 +257,7 @@
             \hline
             \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \Tilde                  \\
             \hline
-            \sim p \lor q           & x \leq 3 \o x^2 > 4                              & \doceiiidos  & A \union B \igual{?} \universo \Tilde                \\
+            \sim p \lor q           & x \leq 3 \otext x^2 > 4                              & \doceiiidos  & A \union B \igual{?} \universo \Tilde                \\
             \hline
             \sim (p \lor \sim q)    & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \igual{?} \vacio^c = \universo \Tilde \\
             \hline

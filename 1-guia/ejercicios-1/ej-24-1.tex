@@ -1,47 +1,37 @@
 %Graficos
 \def\veinticuatro{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine]
-
-    \node[] (a) {$\bullet$};
-    \node[] at (a.north west) {$a$};
-
-    \node[below left=1cm of a] (b) {$\bullet$};
-    \node[] at (b.south) {$b$};
-
-    \node[below right=1cm of a] (f) {$\bullet$};
-    \node[] at (f.south) {$f$};
-
-    \node[above right=1cm of a] (d) {$\bullet$};
-    \node[] at (d.west) {$d$};
-
-    \node[right=1cm of a] (c) {$\bullet$};
-    \node[] at (c.south) {$c$};
-
-    \node[right=1cm of c] (e) {$\bullet$};
-    \node[] at (e.south) {$e$};
-
+  \begin{tikzpicture}[
+      scale=0.5,
+      baseline=0,
+      aristas/.style={-Latex, draw={##1}, thin, bend left=14},
+      rulo/.style={-Latex, draw={##1}},
+      node distance = 1.5cm,
+      every nodes/.style={font=\tiny},
+    ]
+    \node[] (a) {$a$};
+    \node[below left of=a] (b) {$b$};
+    \node[below right of=a] (f) {$f$};
+    \node[above right of=a] (d) {$d$};
+    \node[right of=a] (c) {$c$};  % Fixed: use xshift instead
+    \node[right of=c] (e) {$e$};  % Fixed: use xshift instead
     % Universo
-    \node[shape=ellipse, draw, black, fit={ (a) (b) (d) (f) (e)}] (universo) {};
+    \node[ellipse, draw, black, fit={(a) (b) (d) (f) (e)}] (universo) {};
     \node[above left = 0.1cm of universo] {$A$};
-
     % Aristas
-    \draw[magenta, ->, loop above] (a) to (a);
-    \draw[magenta, ->, loop left ] (b) to (b);
-    \draw[->, loop left] (c) to (c);
-    \draw[->, loop right ] (e) to (e);
-    \draw[magenta, ->, loop right ] (f) to (f);
-
-    \draw[OliveGreen, ->, loop above ] (d) to (d);
-
-    \draw[magenta, ->, bend left] (a.center) to (b);
-    \draw[magenta, ->, bend left] (b.center) to (a);
-    \draw[magenta, ->, bend left] (a.center) to (f);
-    \draw[magenta, ->, bend left] (f.center) to (a);
-    \draw[magenta, ->, bend left] (b.center) to (f);
-    \draw[magenta, ->, bend left] (f.center) to (b);
-
-    \draw[->, bend right] (c.center) to (e);
-    \draw[->, bend right] (e.center) to (c);
+    \draw[rulo=magenta, loop above] (a) to (a);
+    \draw[rulo=magenta, loop left ] (b) to (b);
+    \draw[rulo=Cerulean, loop left] (c) to (c);
+    \draw[rulo=Cerulean, loop right] (e) to (e);
+    \draw[rulo=magenta, loop right] (f) to (f);
+    \draw[rulo=OliveGreen, loop above ] (d) to (d);
+    \draw[aristas=magenta] (a) to (b);
+    \draw[aristas=magenta] (b) to (a);
+    \draw[aristas=magenta] (a) to (f);
+    \draw[aristas=magenta] (f) to (a);
+    \draw[aristas=magenta] (b) to (f);
+    \draw[aristas=magenta] (f) to (b);
+    \draw[aristas=Cerulean] (c) to (e);
+    \draw[aristas=Cerulean] (e) to (c);
   \end{tikzpicture}
 }
 
@@ -62,15 +52,33 @@
   y la partición asociada a $\relacion$
 \end{enunciado}
 
-\veinticuatro
-$\to
-  \llave{rclclcl}{
-    \magenta{\clase{a}} & = & \set{a, b, f} & = & \clase{b} & = & \clase{f} \\
-    \blue{\clase{c}}    & = & \set{c, e}                    & = & \clase{e} &   &           \\
-    {\textcolor{OliveGreen}{\clase{d}}} & = & \set{d}        &   &         &   & \\
-  }$\par
-La partición asociada a
-$\relacion:\,
-  \set{\set{d},
-    \set{c,e},
-    \set{a, b, f}} = \set{\clase{d}, \clase{b}, \clase{a}}$.
+Gráficamente la relación $\relacion$:
+$$
+  \veinticuatro
+$$
+Las clases son los conjuntos de elementos que están relacionados entre sí:
+$$
+  \cajaResultado{
+    \llave{rclclcl}{
+      \magenta{\clase{a}} & = & \set{a, b, f} & = & \clase{b} & = & \clase{f} \\
+      \blue{\clase{c}}    & = & \set{c, e}                    & = & \clase{e} &   &           \\
+      \green{\clase{d}} & = & \set{d}        &   &         &   &
+    }
+  }
+$$
+La partición asociada a $\relacion$:
+$$
+  \cajaResultado{
+    \relacion:\,
+    \set{
+      \set{d}, \set{c,e}, \set{a, b, f}
+    } =
+    \set{
+      \clase{d}, \clase{c}, \clase{a}
+    }.
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

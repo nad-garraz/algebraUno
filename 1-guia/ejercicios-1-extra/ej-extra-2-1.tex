@@ -11,9 +11,10 @@ $\to \begin{cases}
   \end{cases}
 $
 \begin{enumerate}[label=\arabic*)]
-  \item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $\\
-        Por hipótesis $x \en (A \inter B)^c  \Sii{def}  x \notin A \o x \notin B
-          \entonces x \en A^c \o x \en B^c \entonces x \en A^c \union B^c$\\
+  \item Prueba directa: Si $x \en (A \inter B)^c \entonces x \en A^c \union B^c $
+
+        Por hipótesis $x \en (A \inter B)^c  \Sii{def}  x \notin A \otext x \notin B
+          \entonces x \en A^c \otext x \en B^c \entonces x \en A^c \union B^c$
         $$\begin{array}{|c|c|c|c|}
             \hline
             A & B & A^c \union B^c & (A \inter B)^c \\ \hline\rowcolor{Cerulean!10}
@@ -24,13 +25,13 @@ $
           \end{array}
         $$
 
-        Uso la tabla para ver la definición $x \en (A \inter B)^c  \Sii{def}  x \notin A \o x \notin B$
+        Uso la tabla para ver la definición $x \en (A \inter B)^c  \Sii{def}  x \notin A \otext x \notin B$
 
   \item Pruebo por absurdo. Si $\paratodo x \en A^c \union B^c \entonces x \en (A \inter B)^c$\\
         \green{Supongo} que $ x \notin (A \inter B)^c  \Sii{def}  x \en (A \inter B) \flecha{por}[hipótesis] x \en A^c \union B^c \to
           \llaves{c}{
             x \notin A\\
-            \o \\
+            \otext \\
             x \notin B\\
           }$, por lo que $x \notin A \union B \entonces x \notin A \inter B$ contradiciendo el \green{supuesto}, absurdo. Debe ocurrir que $x \en (A \inter B)^c   $
 

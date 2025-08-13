@@ -52,11 +52,49 @@
 
         Dado que $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas por criterio de inducción $p(n)$ también lo es $\paratodo n \en \naturales$.
 
-  \item \hacer
+  \item Por induccion nuevamente:
+  
+          $$
+           p(n): X + a \divideA X^{2k + 1} + a^{2k + 1} \quad \text{en} \K[X] \paratodo n \in \naturales_0
+          $$
+          \textit{Caso base:}
+          $$
+           p(0) : X + a \divideA X^1 + a^1
+          $$
+          El caso $p(0)$ es verdadero. 
+
+          \textit{Paso inductivo: } 
+          Asumo que
+          $$
+           p(k) : \underbrace{X + a \divideA X^{2k + 1} + a^{2k + 1}}_{\text{hipotesis inductiva}}
+          $$
+          es verdadero. Luego quiero probar que 
+          $$
+           p(k + 1) : X + a \divideA X^{2(k+1) + 1} + a^{2(k+1) + 1} = X^{2k + 3} + a^{2k + 3}
+          $$
+          sea verdadero tambien.
+          Acá la idea es similar al item anterior, hacemos una division a mano y luego agrupamos y aplicamos la 
+          hipotesis inductiva. Vemos que para la hipotesis inductiva necesitamos de exponente $2k + 1$ pero tenemos
+          $2k + 3$, entonces en vez de dividir por $X + a$, dividimos por $X^2 - a^2$. 
+          
+          $$
+          \begin{array}{rcl}
+            X^{2k + 3} + a^{2k + 3} & = & X^{2k + 1}\cdot(X^2 - a^2) + a^{2k+3} + X^{2k + 1}\cdot a^2 \\
+                                    & = & X^{2k + 1}\cdot\blue{(X + a)}(X - a) + a^2 \cdot \blue{(X^{2k + 1} + a^{2k + 1})}
+          \end{array}
+          $$
+          El cociente seria $X^{2k + 1}\cdot (x-a) + a^2$
+          Aplicando la hipotesis inductiva se ve que el caso $p(k+1)$ es verdadero. Luego 
+          que $p(k)$ es verdadera $\forall k \in \naturales_0$, como se queria probar.
+           
+      
+          
+
   \item \hacer
 
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

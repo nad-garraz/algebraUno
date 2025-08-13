@@ -169,10 +169,24 @@
                 $$
 
           \item[($\red{\Leftarrow}$)]
-                \hacer
+                Tenemos dos casos que ver:
+                $\congruencia{f}{\magenta{r}}{h} \land r = 0$ y $\congruencia{f}{\magenta{r}}{h} \land \gr(\magenta{r}) < \gr(h)$.\\
+                Notar que el caso en el que el $\lor$ incluya las dos condiciones ya esta tomado en cuenta cuando $r = 0$ pues si eso ocurre
+                automaticamente $\gr(\magenta{r}) < \gr(h)$.
+                $$
+                \congruencia{f}{r}{h} \land r = 0 \entonces f = d\cdot h + r
+                $$
+                Cuando $r=0$, la congruencia va a ser $\congruencia{f}{0}{h}$, luego por definicion de la congruencia se llega a que 
+                $f = d\cdot h + 0$
+                $$
+                \congruencia{f}{r}{h} \land \gr(\magenta{r}) < \gr(h) \entonces f = d\cdot h + r
+                $$
+                Por definicion de la congruencia llegamos a que $f = d\cdot h + r$, luego sabemos que $\gr(\magenta{r}) < \gr(h)$ es la condicion
+                que tiene que tener el resto (por definicion), luego $r$ es el resto, como se queria ver.
         \end{itemize}
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

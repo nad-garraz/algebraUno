@@ -55,7 +55,7 @@
   \item Por induccion nuevamente:
   
           $$
-           p(n): X + a \divideA X^{2k + 1} + a^{2k + 1} \quad \text{en} \K[X] \paratodo n \in \naturales_0
+           p(n): X + a \divideA X^{2k + 1} + a^{2k + 1} \quad \text{en} \K[X] \paratodo k \in \naturales_0
           $$
           \textit{Caso base:}
           $$
@@ -83,15 +83,38 @@
                                     & = & X^{2k + 1}\cdot\blue{(X + a)}(X - a) + a^2 \cdot \blue{(X^{2k + 1} + a^{2k + 1})}
           \end{array}
           $$
-          El cociente seria $X^{2k + 1}\cdot (x-a) + a^2$
           Aplicando la hipotesis inductiva se ve que el caso $p(k+1)$ es verdadero. Luego 
-          que $p(k)$ es verdadera $\forall k \in \naturales_0$, como se queria probar.
+          $p(k)$ es verdadera $\forall k \in \naturales_0$, como se queria probar.
            
       
           
 
-  \item \hacer
-
+  \item Procedimiento igual a los anteriores:
+          $$
+           p(n) : X + a \divideA X^{2k} - a^{2k} \quad \text{en} \K[X] \paratodo k \in \naturales
+          $$
+          \textit{Caso base:}
+          $$
+           p(1) : X + a \divideA X^2 - a^2 = (X - a)(X + a)
+          $$
+          El caso $p(1)$ es verdadero.
+          Asumo que
+          $$
+           p(k) : \underbrace{X + a \divideA X^{2k} - a^{2k}}_{\text{hipotesis inductiva}}
+          $$
+          es verdadero. Luego quiero probar que 
+          $$
+           p(k + 1) : X + a \divideA X^{2k + 2} - a^{2k + 2}
+          $$
+          
+          $$
+          \begin{array}{rcl}
+            X^{2k} - a^{2k} &=& X^{2k}\cdot(X^2 - a^2) - a^{2k + 2} + a^2 \cdot X^{2k} \\
+                            &=& X^{2k}\cdot(X - a)\blue{(X + a)} + a^2 \cdot \blue{(X^{2k} - a^{2k})}
+          \end{array}
+          $$
+          Aplicando la hipotesis inductiva se ve que el caso $p(k+1)$ es verdadero. Luego 
+          $p(k)$ es verdadera $\forall k \in \naturales$, como se queria probar.
 \end{enumerate}
 
 \begin{aportes}

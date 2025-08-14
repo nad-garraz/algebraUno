@@ -1,3 +1,65 @@
 \begin{enunciado}{\ejercicio}
-  \hacer
+  El objetivo de este ejercicio es probar que si $n \in \naturales$ es distinto de $1$, entonces
+  $$
+   \congruencia{(n-1)!}{-1}{\text{mod } n} \iff n \text{ es primo .}
+  $$
+  \begin{enumerate}[label=\roman*)]
+  \item    
+  Verificar que $\noCongruencia{3!}{-1}{4}$ y probar que si $n \geq 5$ es compuesto, entonces 
+  $\congruencia{(n-1)!}{0}{\text{mod } n}$. Qué implicacion se prueba con esto?
+
+  \item
+  Sea $p$ un primo positivo. Se recuerda que $\enteros/p\enteros$ es un cuerpo. Probar que 
+  $\bar{a} = \bar{a}^{-1}$ en $\enteros/p\enteros$ si y solo si $\bar{a} = \pm \bar{1}$. 
+  Deducir que $\congruencia{(p - 1)!}{-1}{p}$.
+  \end{enumerate}
+
+  (Este test de primalidad debe su nombre al matematico inglés John Wilson, 1741-1793, pero era conocido
+  mucho antes por los árabes, y fue de hecho probado por primera vez por el matematico italiano 
+  Joseph-Louis Lagrange en 1771).
 \end{enunciado}
+
+Empecemos por el item i), primero de todo $\congruencia{3! = 6}{2}{4}$ que es distinto de $-1$, ahora vamos a probar que si 
+n es compuesto y mayor o igual a $5$ entonces $\congruencia{(n-1)!}{0}{\text{mod } n}$. 
+\medskip
+
+Bien, como $n$ es compuesto significa que se puede escribir como factor de dos numeros, que si a su vez son compuestos 
+se pueden escribir como factores de mas numeros, en definitiva, $n = p_1^{\alpha_1} \cdot  p_2^{\alpha_2} \cdots  p_n^{\alpha_n}$,
+todos estos factores son menores que $n$ por lo tanto esta garantizado que van a aparecer en algun momento al expandir $(n-1)!$, lo que significa que
+$n \divideA (n-1)!$, que es equivalente a decir $\congruencia{(n-1)!}{0}{\text{mod } n}$.
+
+Con este recurso podemos probar la implicacion hacia la derecha, nuestra hipotesis seria que $\congruencia{(n-1)!}{-1}{\text{mod } n}$, luego asumimos que $n$
+es compuesto, llegamos a una contradiccion por el argumento de arriba, por lo tanto $n$ es primo
+\medskip 
+
+Ahora con el item ii) vamos a proabr la vuelta, que es un poco mas complicado. Sea $p$ un primo, nos piden probar que 
+$$
+\bar{a} = \bar{a}^{-1} \sii \bar{a} = \pm \bar{1} \text{ en } \enteros/p\enteros
+$$
+Bueno vamos a transformar a palabras lo que quiere decir esto, primero que nada como $p$ es primo, sabemos que $\enteros/p\enteros$ es 
+un cuerpo, lo que quiere decir que cada elemento tiene un inverso, es decir:
+$$\forall \bar{a} \in (\enteros/p\enteros) \, \exists \, \bar{a}^{-1} \text{ tal que } \bar{a}\cdot\bar{a}^{-1} = \bar{1}
+$$
+Entonces, $\bar{a} = \bar{a}^{-1}$ significa un elemento que es igual a su inverso, bueno ahora vamos a probar el claim original.
+
+$\red{\rightarrow})$ 
+
+$$
+ \begin{array}{c}
+ \bar{a} \cdot \bar{a}^{-1} = \bar{a} \cdot \bar{a} = \bar{a}^2 = \bar{1} \\
+ \bar{a}^2 - \bar{1} = \bar{0} \, \sii \, (\bar{a} + 1)\cdot(\bar{a} - 1) = \bar{0} \\
+ \bar{a} = \pm \bar{1}
+ \end{array}
+$$ 
+$\red{\leftarrow})$ Este es mas facil, notemos que $\pm \bar{1}$ al cuadrado es 1, luego tanto $\bar{1}$ como $\bar{-1}$ son sus propios inversos. 
+
+Finalmente estamos listos para probar la implicacion hacia la izquierda del teorema, tenemos que $n$ es primo, luego consideramos todos los 
+elementos en el grupo multiplicativo de $\enteros/n\enteros$, cuyos elementos son $\{1,2, \ldots , (n - 1)\}$, sabemos que cada elemento tiene un inverso 
+multiplicativo, y tambien sabemos que hay solo dos elementos que son su propio inverso, $1$ y $n-1$ (Notar que $\congruencia{n-1}{-1}{n}$), luego $(n-1)! = 1\cdot 2\cdots (n - 1) = 1 \cdot (n - 1) \cdot \red{\text{(pares de inversos)}}$. 
+
+Acá esta la clave, como sabemos que cada elemento tiene su inverso, y ya separamos aquellos que son su propio inverso, todos los elementos que quedan van a venir de a pares de inversos, que multiplicados dan 1,
+por lo tanto $1\cdot 2\cdots n-1 = 1 \cdot (n - 1) \cdot \red{\text{(pares de inversos)}} = 1 \cdot (n - 1) \cdot \red{1} = \congruencia{n-1}{-1}{n}$, como se queria probar.
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

@@ -1,1 +1,105 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    Un elemento $\bar{a} \in \enteros/m\enteros$ es un cuadrado (en $\enteros/m\enteros$) si existe
+    $\bar{b} \in \enteros/m\enteros$ tal que $\bar{a}^2 = \bar{b}^2$ en $\enteros/m\enteros$
+    \begin{enumerate}[label=\roman*)]
+        \item Calcular los cuadrados en $\enteros/m\enteros$ para $m = 2, 3, 4, 9, 11$. Cuantos hay en cada caso?
+        \item Sea $p \in \naturales$ primo. Probar que, en  $\enteros/p\enteros$, si $\bar{a}^2 = \bar{b}^2$, 
+        entonces $\bar{a} = \bar{b}$ ó $\bar{a} = \bar{-b}$. Deducir que si $p$ es impar, entonces 
+        hay exactamente $\frac{p-1}{2}$ cuadrados no nulos en $\enteros/p\enteros$
+    \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label = \roman*)]
+ \item
+ \noindent
+ \begin{tabular}{*{5}{>{\centering\arraybackslash}p{0.18\textwidth}}}
+  $$
+  \begin{array}{c}
+  (m = 2) \\
+  \bar{0}^2 = \bar{0} \\
+  \bar{1}^2 = \bar{1} \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ 
+  \text{cantidad: } 2
+  
+  \end{array}
+  $$
+  &
+  $$
+  \begin{array}{c}
+  (m = 3) \\
+  \bar{0}^2 = \bar{0} \\
+  \bar{1}^2 = \bar{1} \\
+  \bar{2}^2 = \bar{1} \\ \\ \\ \\ \\ \\ \\ \\ \\
+  \text{cantidad: } 2
+  \end{array}
+  $$
+  &
+  $$
+  \begin{array}{c}
+  (m = 4) \\
+  \bar{0}^2 = \bar{0} \\
+  \bar{1}^2 = \bar{1} \\
+  \bar{2}^2 = \bar{0} \\
+  \bar{3}^2 = \bar{1} \\ \\ \\ \\ \\ \\ \\ \\ 
+  \text{cantidad: } 2
+  \end{array}
+  $$
+  &
+  $$
+  \begin{array}{c}
+  (m = 9) \\
+  \bar{0}^2 = \bar{0} \\
+  \bar{1}^2 = \bar{1} \\
+  \bar{2}^2 = \bar{4} \\
+  \bar{3}^2 = \bar{0} \\
+  \bar{4}^2 = \bar{7} \\
+  \bar{5}^2 = \bar{7} \\
+  \bar{6}^2 = \bar{0} \\
+  \bar{7}^2 = \bar{4} \\
+  \bar{8}^2 = \bar{1} \\ \\  \\ 
+  \text{cantidad: } 4
+  \end{array}
+  $$
+  &
+  $$
+  \begin{array}{c}
+  (m = 11) \\
+  \bar{0}^2 = \bar{0} \\
+  \bar{1}^2 = \bar{1} \\
+  \bar{2}^2 = \bar{4} \\
+  \bar{3}^2 = \bar{9} \\
+  \bar{4}^2 = \bar{5} \\
+  \bar{5}^2 = \bar{3} \\
+  \bar{6}^2 = \bar{3} \\
+  \bar{7}^2 = \bar{5} \\
+  \bar{8}^2 = \bar{9} \\
+  \bar{9}^2 = \bar{4} \\
+  \bar{10}^2 = \bar{1} \\
+  \text{cantidad: } 6
+  \end{array}
+  $$
+  
+\end{tabular}
+Notar que contamos al $\bar{0}$ como un cuadrado pues en el enunciado no especifica si tienen que ser cuadrados no nulos o no.
+\item 
+$$
+\begin{array}{c}
+\bar{a}^2 = \bar{b}^2 \, \sii \, \bar{a}^2 - \bar{b}^2 = 0 \, \sii \, (\bar{a} + \bar{b}) \cdot (\bar{a} - \bar{b}) = 0 \, \overset{\llamada1}{\sii} \, \bar{a} + \bar{b} = 0 \text{ ó } \bar{a} - \bar{b} = 0 \\
+\bar{a} + \bar{b} = 0 \, \sii \, \blue{\bar{a} = -\bar{b}} \\
+\bar{a} - \bar{b} = 0 \, \sii \, \blue{\bar{a} = \bar{b}} 
+\end{array}
+$$
+$\llamada1$ Ojo aca, este paso lo podemos hacer porque $\enteros/p\enteros$ es un dominio integro, es decir ($ab = 0 \implies a = 0 \text{ ó } b = 0$),
+pero en general no es valido para $\enteros/m\enteros$, $m$ compuesto.
+
+Ahora vamos a deducir que en $\enteros/p\enteros$ hay $\frac{p-1}{2}$ cuadrados no nulos, aca ya tenemos la primera pista, como 
+nos piden cuadrados no nulos, sacamos de la lista al $0$, por lo tanto de $p$ elementos que teniamos para elegir (del $0$ a $p-1$), ahora tenemos $p-1$ 
+elementos disponibles, ahora veamos, una conclusion de lo que demostramos mas arriba es que cada cuadrado tiene dos raices ($\bar{x}^2 = \bar{y}^2 \implies \bar{x} = \pm \bar{y}$).
+(Notar la similitud con $x^2 = y^2$ en el cuerpo de los numeros reales). 
+Luego de los $p-1$ elementos vamos a tener que solo la mitad son distintos, pues un cuadrado se puede conseguir con dos numeros diferentes (por ejemplo
+$\bar{2}^2 = \bar{5}^2$ en $\enteros/7\enteros$). Entonces nos queda que la cantidad de cuadrados no nulos es $\cajaResultado{\frac{p-1}{2}}$
+
+\end{enumerate}
+
+\begin{aportes}
+    \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

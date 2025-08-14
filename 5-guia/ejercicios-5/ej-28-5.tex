@@ -1,1 +1,36 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+    \begin{enumerate}[label = \roman*)]
+        \item Probar que $\{\bar{2}^n : n \in \naturales\} = \enteros/11\enteros - \{\bar{0}\}$
+        \item Hallar $\bar{a} \in \enteros/7\enteros$ tal que $\{\bar{a}^n : n \in \naturales\} = \enteros/7\enteros - \{\bar{0}\}$
+    \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label = \roman*)]
+    \item    
+    Bueno, en definitiva lo que queremos es que elevando 2 a potencias podamos construir todo $\enteros/11\enteros$,
+    estamos elevando 2 a potencias, y luego tomando modulo $11$, es decir, en algun momento se van a repetir \href{https://es.wikipedia.org/wiki/Principio_del_palomar}{(Ppio del palomar)}. 
+    Vamos a ver casos individuales que es la manera mas facil de probarlo porque $11$ no es un numero grande. 
+    $$
+    \begin{array}{c}
+     \bar{2}^1  = \red{\bar{2}} \\
+     \bar{2}^2  = \bar{4} \\
+     \bar{2}^3  = \bar{8} \\
+     \bar{2}^4  = \bar{5} \\
+     \bar{2}^5  = \bar{10} \\
+     \bar{2}^6  = \bar{9} \\
+     \bar{2}^7  = \bar{7} \\
+     \bar{2}^8  = \bar{3} \\
+     \bar{2}^9  = \bar{6} \\
+     \bar{2}^{10} = \bar{1} \\
+     \bar{2}^{11} = \red{\bar{2}} \\
+    \end{array}
+    $$
+    Vemos que a partir de $\bar{2}^{11}$ se va a volver a repetir todo el ciclo de vuelta.
+    Obtuvimos todos los elementos de $\enteros/11\enteros$, sin incluir el 0 (igual esto no podria haber pasado pues $11 \noDivide 2^k \paratodo k \in \naturales$). 
+    \item \hacer
+
+\end{enumerate}
+
+\begin{aportes}
+    \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

@@ -1,1 +1,30 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+Sea $p$ un primo. Probar que en $\enteros/p\enteros$ vale que $(\bar{a} + \bar{b})^p = \bar{a}^p + \bar{b}^p, \paratodo \bar{a}, \bar{b} \in \enteros/p\enteros$
+(sug: ver Ej. 25 Practica 4). Vale lo mismo en $\enteros/m\enteros$ si $m$ no es primo?
+\end{enunciado}
+
+Expandimos con Newton la expresion: 
+
+\begin{align}
+(\bar{a} + \bar{b})^p = \sum_{k=0}^p \binom{p}{k} \bar{a}^{k} \cdot \bar{b}^{p-k} = \\
+= \bar{a}^p + \red{\sum_{k=1}^{p - 1} \blue{\binom{p}{k}} \bar{a}^{k} \cdot \bar{b}^{p-k}} + \bar{b}^p
+\end{align}
+
+En el ejercicio 25 de la practica 4 se probó que $p \divideA \blue{\binom{p}{k}}, 0 < k < p$, por lo tanto:
+$$
+\red{\sum_{k=1}^{p - 1} \blue{\binom{p}{k}} \bar{a}^{k} \cdot \bar{b}^{p-k}} = \bar{0}
+$$
+Entonces 
+$$
+ \bar{a}^p + \red{\sum_{k=1}^{p - 1} \blue{\binom{p}{k}} \bar{a}^{k} \cdot \bar{b}^{p-k}} + \bar{b}^p = \bar{a}^p + \bar{b}^p
+$$
+Como se queria probar.
+Ahora veamos si lo mismo se cumple para $\enteros/m\enteros, m$ compuesto. Con un contraejemplo basta para desmotrar que no se cumple. 
+Consideremos $\enteros/6\enteros$, elijamos $a = \bar{2}$, $b = \bar{4}$. 
+$$
+(\bar{2} + \bar{4})^6 = \bar{0} \text{ pero } \bar{2}^6 + \bar{4}^6 = \bar{4} + \bar{4} = \bar{2} \neq \bar{0}
+$$
+
+\begin{aportes}
+    \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

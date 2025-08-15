@@ -3,4 +3,41 @@
     \ytext g \circ f \distinto \text{id}_{\naturales}$, donde $\text{id}_{\naturales}: \naturales \to \naturales$ denota la función identidad del
   conjunto $\naturales$.
 \end{enunciado}
-\hacer
+
+Antes que nada, ganemos un poco de intuición de lo que quiere decir el problema, exploremos
+como puede ser $g$. 
+
+$g$ no puede ser sobreyectiva, ya que implicaria que $\exists x_1, x_2 \in \naturales \text{ tal que } g(x_1) = g(x_2)$,
+al componerla con $f$, tendriamos que $f(g(x_1)) = f(g(x_2))$ pero f solo puede dar un valor, no dos, por lo tanto 
+estamos perdiendo algun valor, y no va a ser igual a la identidad nunca. 
+
+$g$ no puede ser biyectiva, ya que implicaria $\forall y \in \naturales \exists x \in \naturales \text{ tal que } g(x) = y$, esto 
+hasta ahora no es un problema, pero vamos a tener $f(y) = \text{id}_{\naturales}$ si y solo si f es biyectiva, y si f es biyectiva entonces 
+$g \circ f = \text{id}_{\naturales}$, pero por enunciado no queremos eso. 
+
+La unica opcion que queda es que $g$ sea inyectiva asi que vamos con eso. Ahora nos fijamos
+en $f$, $f$ no puede ser inyectiva tampoco, pues como $g$ es inyectiva existe algun $y_0 \in \naturales$ que no 
+es alcanzado por la funcion, es decir que no forma parte de la imagen de $f$, esto fuerza a $f$ a asignar a dos inputs diferentes
+el mismo valor para poder constuir la funcion identidad, es decir f es sobreyectiva (Ahora con el ejemplo se va a ver mejor esto). 
+$$
+\begin{array}{c}
+ g = \begin{cases}
+ 1 \text{ si } n = 1 \\
+ 2n \text{ si } n > 1
+ \end{cases}
+ f = \begin{cases}
+ 1 \text{ si } n = 1 \\
+ \lfloor \frac{n}{2} \rfloor \text{ si } n > 1
+ \end{cases}
+\end{array}
+$$
+Donde $\lfloor x \rfloor$ denota la funcion piso, es decir el valor entero de $x$. 
+
+Vemos que $f \circ g = f(g(n)) = \lfloor \frac{2n}{2} \rfloor = n$, la funcion identidad, sin embargo
+$g \circ f \neq \text{id}_{\naturales}$, considere $n = 3$, $f(3) = 1$, $g(1) = 2$, $2 \neq 3$. De este tipo
+de funciones se pueden construir infinitas cambiando el $2$ multiplicando por $k \in {\naturales}_{\geq 2}$. 
+Nota final: los $1$ en la funcion estan para que no haya problemas al hacer la cuenta $\lfloor \frac{1}{2} \rfloor = 0$ ya que consideramos que $0 \not\in \naturales$
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

@@ -1,3 +1,60 @@
 \begin{enunciado}{\ejercicio}
-        \hacer
+        Sea $A = {a,b,c,d,e,f}$ y sea $\relacion$ la relacion en $A$ representada por el grafico.  
+
+\begin{center}
+        \begin{tikzpicture}[
+        node distance=2.5cm and 3cm,
+        every node/.style={circle, fill=black, inner sep=0pt, minimum size=5pt},
+        ->, >=Latex
+        ]
+
+        \draw[thick] (0,0) rectangle (6,4);
+
+        % Nodes
+        \node[label=left:\textit{a}] (a) at (1,3.2) {};
+        \node[label=above:\textit{b}] (b) at (3,3.2) {};
+        \node[label=right:\textit{c}] (c) at (5,3.2) {};
+        \node[label=left:\textit{d}] (d) at (1,1.2) {};
+        \node[label=below:\textit{e}] (e) at (3,1.2) {};
+        \node[label=right:\textit{f}] (f) at (5,1.2) {};
+
+        % Arrows
+        \draw[->] (a) to[out=330,in=30,looseness=12] (a); % larger loop on a
+        \draw[->] (b) to[bend left=20] (c);
+        \draw[->] (d) to[bend left=20] (e);
+        \draw[->] (e) to[bend left=20] (d);
+        \draw[->] (e) to[out=330,in=30,looseness=12] (e);  % larger loop on e
+
+        \end{tikzpicture}
+\end{center}
+Hallar la minima cantidad de pares que se deben agregar a $\relacion$ de manera que la nueva relacion 
+obtenida sea 
+\begin{multicols}{3}
+\begin{enumerate}[label=\roman*)]
+  \item reflexiva
+  \item simétrica
+  \item transitiva
+  \item reflexiva y simétrica
+  \item simétrica y transitiva
+  \item de equivalencia
+\end{enumerate}
+\end{multicols}
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+ \item Para que la relacion sea reflexiva se debe cumplir que $\forall a \in A, a \relacion a$, visto como grafo, 
+ cada item tiene que tener un bucle (es decir una flecha hacia si mismo). Deberiamos agregar 4 pares : $\{(b,b),(c,c),(d,d),(f,f)\}$
+ \item Para que sea simetrica necesitamos que $a \relacion b \entonces b \relacion a, \quad a,b \in A$. En este caso el unico par que esta 
+ conectado pero no tiene la vuelta es el par $(b,c)$, asi que agregando el par $(c,b)$ ya hacemos que sea simetrica.  
+ \item Para que sea transitiva queremos que $a \relacion b \, \land \, b \relacion c \entonces a \relacion c, \quad a,b,c \in A$. Vemos que 
+ $d \relacion e \land e \relacion d$ pero $d \norelacion d$, por ende lo que falta seria agregar el par $(d,d)$, en todos los demas se cumple la transitividad.
+ \item Para hacerla reflexiva teniamos que agregar $\{(b,b),(c,c),(d,d),(f,f)\}$ y para que sea simetrica $(c,b)$
+ \item Para hacerla simetrica agregabamos $(c,b)$ y para transitiva $(d,d)$, pero tambien hay que agregar bucles en $b$ y $c$ ya que al haber 
+ hecho simetrico ese par queremos que cumpla la transitividad tambien. Asi que agregamos también $\{(b,b),(c,c)\}$
+ \item Para que sea de equivalencia tiene que ser, reflexiva, simetrica y transitiva, combinando todo lo que hicimos arriba queda 
+ que tenemos que agregar $\{(b,b),(c,c),(d,d),(f,f),(c,b)\}$
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

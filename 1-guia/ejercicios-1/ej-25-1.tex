@@ -1,3 +1,4 @@
+\usetikzlibrary{bending}
 \begin{enunciado}{\ejercicio}
   Sea $A = \set{1,2,3,4,5,6,7,8,9,10}$.
   Hallar y graficar la relación de equivalencia en $A$ asociada a la partición
@@ -5,5 +6,60 @@
   ¿Cuántas clases de equivalencia distintas tiene? Hallar un representante para cada clase.
 \end{enunciado}
 
-\hacer
+\begin{center}
+\begin{tikzpicture}[carrow/.style={to path={%
+    ($(\tikztotarget)+(#1:\pgfkeysvalueof{/tikz/cradius})+(#1+170:\pgfkeysvalueof{/tikz/cradius})$)
+    arc[start angle=#1+170,end angle=#1-170,radius=\pgfkeysvalueof{/tikz/cradius}]},
+    ->},dot/.style={circle,inner sep=1.2pt,fill,outer sep=0.5ex},
+    cradius/.initial=0.4,
+    >={Latex[bend]},bend angle=12]
+ \path node[dot,label=225:{$1$}](a){}
+  ++ (45:1.5) node[dot,label=45:{$3$}](b){}
+  ++ (-30:1.5) node[dot,label=90:{$5$}](c){}
+  ($(a)+(0,-1.8)$) node[dot,label=135:{$d$}](d){}
+  ($(d)+(1.25,0)$) node[dot,label=45:{$f$}](f){}
+  ++ (1.5,-0.3) node[dot,label=-120:{$2$}](e){}
+  ++ (0:1.8) node[dot,label=-60:{$6$}](h){}
+  ++ (120:1.8) node[dot,label=90:{$7$}](g){}
+  ($(d)+(0,-1.5)$) node[dot,label=225:{$8$}](i){}
+  ($(f)+(0,-1.5)$) node[dot,label=315:{$9$}](j){};
+ \path[shorten >=1ex, shorten <=0.5ex,semithick] 
+ (a) edge[->,bend left] (b) edge[carrow=45] (b)
+ (b) edge[->,bend left] (a) edge[carrow=-135,<-] (a)
+ edge[carrow=135,<-] (d)
+ edge[carrow=45,<-] (f)
+ edge[carrow=-120] (e)
+ edge[carrow=-60,<-] (h)
+ edge[carrow=90,<-] (g)
+ edge[carrow=90,<-] (c)
+ edge[carrow=-135,<-] (i)
+ edge[carrow=315,<-] (j)
+ (e) edge[->,bend left] (g)
+ (g) edge[->,bend left] (e)
+ (h) edge[->,bend left] (g)
+ (g) edge[->,bend left] (h)
+ (e) edge[->,bend left] (h)
+ (h) edge[->,bend left] (e)
+ (i) edge[->,bend left] (j)
+ (j) edge[->,bend left] (i)
+ (d) edge[->,bend left] (f)
+ (f) edge[->,bend left] (d)
+ (i) edge[->,bend left] (d)
+ (d) edge[->,bend left] (i)
+ (j) edge[->,bend left] (d)
+ (d) edge[->,bend left] (j)
+ (i) edge[->,bend left] (f)
+ (f) edge[->,bend left] (i)
+ (j) edge[->,bend left] (f)
+ (f) edge[->,bend left] (j);    
+\end{tikzpicture}
+\end{center}
 
+Ese seria el grafo de la relacion, es de equivalencia pues cumple que es reflexiva, simetrica y transitiva. 
+
+Hay $4$ clases de equivalencia ya que son $4$ las particiones disjuntas del conjunto, y como representante podemos elegir cualquiera de cada clase,
+como convencion digamos que elegimos el primero que aparece, luego los representantes son : $\cajaResultado{1, 2, 4, 5.}$
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

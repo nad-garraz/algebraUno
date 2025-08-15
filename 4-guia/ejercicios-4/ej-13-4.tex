@@ -7,49 +7,73 @@
   Probar que $\congruencia{a_n}{3^n}{\text{mod } 7} $ para todo $n\en\naturales$.
 \end{enunciado}
 
-La infumabilidad de esos números me obliga a atacar a esto con el resto e inducción.\par
-$
+La infumabilidad de esos números me obliga a atacar a esto con el resto e inducción:
+$$
   r_7(a_{n+2}) = r_7( r_7(a_{n+1}) - \ub{r_7(36)^n}{\conga7 1} \cdot
-  r_7(a_n) + \ub{r_7(21)^n}{\conga7 0} \cdot r_7(n)^{21}  ) =
-  \ub{r_7(a_{n+2}) = r_7(a_{n+1}) - r_7(a_n)}{\llamada{1}}\Tilde
-$\par
-
-Puesto de otra forma $ \congruencia{a_{n+2}}{a_{n+1} - a_n}{7}
+  r_7(a_n) + \ub{r_7(21)^n}{\conga7 0} \cdot r_7(n)^{21}  )
+  \sii
+  \ub{r_7(a_{n+2}) = r_7(a_{n+1}) - r_7(a_n)}{\llamada{1}}
+$$
+La congruencia módulo 7 de la sucesión:
+$$
+  \congruencia{a_{n+2}}{a_{n+1} - a_n}{7}
   \to
   \llave{l}{
     \congruencia{a_1}{3^1}{7} \sisolosi \congruencia{a_1}{3}{7} \\
     \congruencia{a_2}{3^2}{7} \sisolosi \congruencia{a_2}{2}{7} \\
     \congruencia{a_3}{3^3}{7} \sisolosi \congruencia{a_3}{6}{7}
-  }$\par
+  }
+$$
+Quiero probar que  $\congruencia{a_n}{3^n}{\text{mod } 7}$ por inducción:
+$$
+  p(n) : \congruencia{a_n}{3^n}{\text{mod }7} \paratodo n \en \naturales
+$$
+\textit{Casos base: }
+$$
+  \llave{l}{
+    p(\blue{1}) : \congruencia{a_1}{3^{\blue{1}}}{7}\\
+    p(\blue{2}) : \congruencia{a_2 = -5\conga7 9}{ 3^{\blue{2}} }{7}
+  }                                                                                                           \\
+$$
+Las proposiciones $p(\blue{1}) \ytext p(\blue{2})$ son verdaderas.
 
-Quiero probar que  $\congruencia{a_n}{3^n}{\text{mod } 7} \to$  inducción completa:\par
+\textit{Paso Inductivo: }
+Asumo que para algún $k \en \naturales$ y para $k+1$ las proposiciónes:
+$$
+  p(k) : \ub{
+    \congruencia{a_k}{3^k}{7}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+  \ytext
+  p(k+1) : \ub{
+    \congruencia{a_{k+1}}{3^{k+1}}{7}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+son verdaderas, entonces quiero probar que:
+$$
+  p(k+2) :  \congruencia{a_{k+2}}{3^{k+2}}{7}
+$$
+también lo sea.
 
-$ p(n) : \congruencia{a_n}{3^n}{\text{mod }7} \paratodo n \en \naturales\\
-  \begin{array}{rl}
-    \textit{Casos base: }          &
-    \llave{l}{
-    p(1) : \congruencia{a_1}{3^1}{7} \Tilde,\quad p(1) \text{ es verdadera}                                     \\
-      p(2) : \congruencia{a_2}{3^2}{7}\conga7 2 \conga7 -5  \Tilde,\quad p(2) \text{ es verdadera}
-    }                                                                                                           \\
-    \textit{Paso Inductivo: }      &
-    \llave{l}{
-    p(k) : \congruencia{a_k}{3^k}{\text{mod } 7}  \Tilde,\quad p(k) \text{ la asumo verdadera }                 \\
-    \text{ y }                                                                                                  \\
-    p(k+1): \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7}  \Tilde,\quad p(k+1) \text{ también asumo verdadera } \\
-    \entonces p(k+2) :  \congruencia{a_{k+2}}{3^{k+2}}{\text{mod } 7} \text{ quiero probar que es verdadera}    \\
-    }                                                                                                           \\
-    \textit{Hipótesis inductiva: } &
-    \llave{l}{
-    \congruencia{a_k}{3^k}{\text{mod } 7}                                                                       \\
-    \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7}                                                               \\
-      \flecha{sumo}[$\llamada{1}$]
-      a_{k+2} =
-      a_{k+1} - a_k \congruente 3^{k+1} - 3^k =
-    2\cdot 3^k \conga7 9 \cdot 3^k =3^{k+2} \ (7) \Tilde                                                        \\
-    p(k + 2) \text{  resultó ser verdadera.}
-    }                                                                                                           \\
-  \end{array}
-$\par
+Partiendo de mis \purple{hipótesis inductivas} sé que:
+$$
+  \llave{l}{
+    \congruencia{a_{k+1}}{3^{k+1}}{\text{mod } 7}\\
+    \congruencia{a_k}{3^k}{\text{mod } 7}
+  }
+$$
+Restando miembro a miembro eso me formo $a_{k+2}$ resultado de $\llamada1$:
+$$
+  a_{k+2} \conga7
+  a_{k+1} - a_k \congruente 3^{k+1} - 3^k =
+  2 \cdot 3^k \conga7 9 \cdot 3^k = 3^{k+2}                                                        \\
+  \sii
+  \congruencia{a_{k+2}}{3^{k+2}}{7}
+$$
+$p(k+2)$ resultó verdadera.
 
 Concluyendo como $p(1), p(2), p(k), p(k+1) \ytext p(k+2)$ resultaron verdaderas
 por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales$.

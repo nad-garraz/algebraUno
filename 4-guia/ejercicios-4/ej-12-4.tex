@@ -1,142 +1,130 @@
 \begin{enunciado}{\ejercicio}
-
   \begin{enumerate}[label=(\alph*)]
 
     \item Probar que  $\congruencia{2^{5k}}{1}{31}$ para todo $k \en \naturales$.
 
     \item Hallar el resto de la división de $2^{51833}$ por 31.
 
-    \item Sea $k \in \naturales$. Sabiendo que $\congruencia{2^k}{39}{31}$, hallar el resto de la división de $k$ por 5.
+    \item Sea $k \en \naturales$. Sabiendo que $\congruencia{2^k}{39}{31}$, hallar el resto de la división de $k$ por 5.
 
     \item Hallar el resto de la división de $43 \cdot 2^{163} + 11 \cdot 5^{221} + 61^{999}$ por 31.
 
   \end{enumerate}
-
 \end{enunciado}
 
 \begin{enumerate}[label=(\alph*)]
-
   \item Probémoslo por inducción.
 
-  Sea la proposición $P(k): \congruencia{2^{5k}}{1}{31}$, $\paratodo \ k \en \naturales$
+        Sea la proposición
+        $$
+          P(k): \congruencia{2^{5k}}{1}{31}, \paratodo  k \en \naturales
+        $$
 
-  \begin{itemize}
-  
+        \begin{itemize}
 
-    \item \textbf{Caso base}: $P(1)$
+          \item \textit{Caso base}:
+                $$
+                  P(1): \congruencia{2^{5 \cdot 1}}{1}{31} \sisolosi \congruencia{32}{1}{31} \Tilde
+                $$
+                Luego, $P(1)$ es verdadera.
 
-    $P(1): \congruencia{2^{5 \cdot 1}}{1}{31} \sisolosi \congruencia{32}{1}{31} \Tilde$
+          \item \textit{Paso inductivo} $P(k) \entonces P(k+1)$
 
-    Luego, $P(1)$ es verdadera.
+                Asumiendo verdadero $\ub{\congruencia{2^{5k}}{1}{31}}{\text{\purple{hipótesis inductiva}}}$,
+                queremos probar que $\congruencia{2^{5(k+1)}}{1}{31}$ también es verdadero.
 
-    \item \textbf{Paso inductivo} $P(k) \entonces P(k+1)$
+                De la hipótesis inductiva tenemos que
+                $$
+                  \congruencia{2^{5k}}{1}{31}
+                  \Entonces{$\congruencia{32}{1}{31}$}
+                  \congruencia{2^{5k} \cdot 32}{1 \cdot 1}{31}
+                  \sisolosi
+                  \congruencia{2^{5k} \cdot 2^5}{1}{31}
+                  \sisolosi
+                  \congruencia{2^{5(k+1)}}{1}{31} \Tilde
+                $$
+                Luego, $P(k+1)$ es verdadera.
 
-    Asumiendo verdadero $\congruencia{2^{5k}}{1}{31}$, queremos probar que $\congruencia{2^{5(k+1)}}{1}{31}$ es verdadero. \par
+        \end{itemize}
 
-    De la hipótesis inductiva tenemos que 
-
-    $$
-    \congruencia{2^{5k}}{1}{31}
-    \Entonces{$\congruencia{32}{1}{31}$}
-    \congruencia{2^{5k} \cdot 32}{1 \cdot 1}{31}
-    \sisolosi 
-    \congruencia{2^{5k} \cdot 2^5}{1}{31}
-    \sisolosi
-    \congruencia{2^{5(k+1)}}{1}{31} \Tilde
-    $$
-
-    Luego, $P(k+1)$ es verdadera.
-  
-  \end{itemize}
-
-  Como $P(1)$ es verdadera y $P(k) \entonces P(k+1), \paratodo\ k \en \naturales$, por el principio de inducción, $P(k)$ es verdadera para todo $k \en \naturales$
-
+        Como $P(1)$ es verdadera y $P(k) \entonces P(k+1), \paratodo\ k \en \naturales$, por el principio de inducción,
+        $P(k)$ es verdadera para todo $k \en \naturales$
 
   \item Queremos hallar el resto de la división de $2^{51833}$ por 31, lo que es lo mismo que buscar a qué es congruente $2^{51833}$ módulo 31.
 
-Observemos que $\congruencia{2^5}{1}{31}$, con lo que dividiendo 51833 por 5, tenemos que $51833=5 \cdot 10366 + 3$. Luego
+        Observemos que $\congruencia{2^5}{1}{31}$, con lo que dividiendo 51833 por 5, tenemos que $51833=5 \cdot 10366 + 3$. Luego
+        $$
+          2^{51833} \equiv 2^{5 \cdot 10366 + 3} \equiv 2^{5\cdot 10366} \cdot 2^3 \equiv (2^5)^{10366}\cdot 8 \equiv \congruencia{1^{10366} \cdot 8}{8}{31}
+        $$
+        Entonces, $\cajaResultado{r_{31}\parentesis{2^{51833}}=8}$
 
-$$
-2^{51833} \equiv 2^{5 \cdot 10366 + 3} \equiv 2^{5\cdot 10366} \cdot 2^3 \equiv (2^5)^{10366}\cdot 8 \equiv \congruencia{1^{10366} \cdot 8}{8}{31}
-$$
+  \item Como $\congruencia{39}{8}{31}$, tenemos que $\congruencia{2^k}{8}{31}$. Busquemos ahora que valores puede tomar $k$.
 
-Entonces, $\boxed{r_{31}\parentesis{2^{51833}}=8}$
+        Si van probando valores, van a darse cuenta que el 3, 8, 13, 18, ... funcionan, lo que nos permite conjetuar que $k=3+5q, \ q \en \naturales$.
+        Entonces podemos conjeturar que
 
-\item Como $\congruencia{39}{8}{31}$, tenemos que $\congruencia{2^k}{8}{31}$. Busquemos ahora que valores puede tomar $k$.
+        $$
+          \congruencia{2^k}{8}{31}
+          \sisolosi
+          k=3+5q, \ q \en \naturales
+        $$
 
-Si van probando valores, van a darse cuenta que el 3, 8, 13, 18, ... funcionan, lo que nos permite conjetuar que $k=3+5q, \ q \en \naturales$. 
-Entonces podemos conjeturar que 
+        Probemos la doble implicación.
 
-$$
-\congruencia{2^k}{8}{31}
-\sisolosi
-k=3+5q, \ q \en \naturales
-$$
+        \begin{itemize}
 
-Probemos la doble implicación.
+          \item[$(\red{\Leftarrow})$]
+                Reemplazando $k=3+5q$, tenemos que
+                $$
+                  2^k \equiv 2^{3+5q} \equiv 2^3 \cdot 2^{5q} \equiv 8 \cdot 32^q \equiv \congruencia{8 \cdot 1^q}{8}{31} \Tilde
+                $$
 
-\begin{itemize}
+          \item[$(\red{\Rightarrow})$]
 
-  \item $\Leftarrow$
+                Tenemos que probar que $k$ solo puede ser de la forma $k=3+5q$. Para esto debemos verificar que si $k$ es igual a $c + 5q$, con $c \en \set{0,1,2,4}$
+                entonces $\noCongruencia{2^k}{8}{31}$. Pues así estariamos viendo todas las posibilidades. Reemplacemos entonces $k=c+5q$:
+                $$
+                  2^k \equiv 2^{c+5q} \equiv 2^c \cdot 2^{5q} \equiv 2^c \cdot 32^q \equiv \congruencia{2^c \cdot 1^q}{2^c}{31}
+                $$
 
-  Reemplazando $k=3+5q$, tenemos que 
+                Veamos ahora los valores de $c$
 
-  $$
-  2^k \equiv 2^{3+5q} \equiv 2^3 \cdot 2^{5q} \equiv 8 \cdot 32^q \equiv \congruencia{8 \cdot 1^q}{8}{31} \Tilde 
-  $$
+                \begin{align*}
+                  c=0 \rightarrow 2^k \equiv 2^0 \equiv \noCongruencia{1}{8}{31}  \\
+                  c=1 \rightarrow 2^k \equiv 2^1 \equiv \noCongruencia{2}{8}{31}  \\
+                  c=2 \rightarrow 2^k \equiv 2^2 \equiv \noCongruencia{4}{8}{31}  \\
+                  c=4 \rightarrow 2^k \equiv 2^4 \equiv \noCongruencia{16}{8}{31} \\
+                \end{align*}
 
-  \item $\entonces$
+                Dado que ninguno es congruente a 8 módulo 31,
+                llegamos a la conclusión de que los únicos valores que puede tomar $k$ son los de la forma
+                $k=3+5q, \ q \en \naturales$.
+        \end{itemize}
 
-  Tenemos que probar que $k$ solo puede ser de la forma $k=3+5q$. Para esto debemos verificar que si $k$ es igual a $c + 5q$, con $c \en \set{0,1,2,4}$
-  entonces $\noCongruencia{2^k}{8}{31}$. Pues así estariamos viendo todas las posibilidades. Reemplacemos entonces $k=c+5q$:
+        Por último, dado que $k=3+5q$, es evidente que $\congruencia{3+5q}{3}{5}$. Entonces $\cajaResultado{r_5(k)=3}$
 
-  $$
-  2^k \equiv 2^{c+5q} \equiv 2^c \cdot 2^{5q} \equiv 2^c \cdot 32^q \equiv \congruencia{2^c \cdot 1^q}{2^c}{31}
-  $$
+  \item Reduzcamos cada término módulo 31.
 
-  Veamos ahora los valores de $c$
+        Es fundamental notar que $\congruencia{2^5}{1}{31}$, que $\congruencia{5^3}{1}{31}$ y que $\congruencia{61}{-1}{31}$
+        Entonces
+        \begin{align*}
+          \congruencia{43}{12}{31}                                                         \\
+          2^{163} \equiv 2^{5 \cdot 32 + 3} \equiv \congruencia{(2^5)^{32} \cdot 8}{8}{31} \\
+          5^{221} \equiv 5^{3 \cdot 73+2} \equiv \congruencia{(5^3)^{73} \cdot 25}{25}{31} \\
+          61^{999} \equiv \congruencia{(-1)^{999}}{-1}{31}
+        \end{align*}
+        Juntando todo
+        $$
+          43 \cdot 2^{163} + 11 \cdot 5^{221} + 61^{999}
+          \equiv
+          12 \cdot 8 + 11 \cdot 25 -1
+          \equiv
+          \congruencia{370}{29}{31}
+        $$
 
-  
-  \begin{align*}
-    c=0 \rightarrow 2^k \equiv 2^0 \equiv \noCongruencia{1}{8}{31} \\
-    c=1 \rightarrow 2^k \equiv 2^1 \equiv \noCongruencia{2}{8}{31} \\
-    c=2 \rightarrow 2^k \equiv 2^2 \equiv \noCongruencia{4}{8}{31} \\
-    c=4 \rightarrow 2^k \equiv 2^4 \equiv \noCongruencia{16}{8}{31} \\
-  \end{align*}
-
-  Dado que ninguno es congruente a 8 módulo 31, llegamos a la conclusión de que los únicos valores que puede tomar $k$ son los de la forma $k=3+5q, \ q \en \naturales$.
-\end{itemize}
-
-Por último, dado que $k=3+5q$, es evidente que $\congruencia{3+5q}{3}{5}$. Entonces $\boxed{r_5(k)=3}$
-
-\item Reduzcamos cada término módulo 31.
-
-Es fundamental notar que $\congruencia{2^5}{1}{31}$, que $\congruencia{5^3}{1}{31}$ y que $\congruencia{61}{-1}{31}$ \par
-
-Entonces
-
-\begin{align*}
-  \congruencia{43}{12}{31} \\
-  2^{163} \equiv 2^{5 \cdot 32 + 3} \equiv \congruencia{(2^5)^{32} \cdot 8}{8}{31} \\
-  5^{221} \equiv 5^{3 \cdot 73+2} \equiv \congruencia{(5^3)^{73} \cdot 25}{25}{31} \\
-  61^{999} \equiv \congruencia{(-1)^{999}}{-1}{31}
-\end{align*}
-
-Juntando todo
-
-$$
-43 \cdot 2^{163} + 11 \cdot 5^{221} + 61^{999} 
-\equiv
-12 \cdot 8 + 11 \cdot 25 -1
-\equiv
-\congruencia{370}{29}{31}
-$$
-
-Luego, $\boxed{r_{31}(43 \cdot 2^{163} + 11 \cdot 5^{221} + 61^{999})=29}$
+        Luego, $\cajaResultado{r_{31}(43 \cdot 2^{163} + 11 \cdot 5^{221} + 61^{999})=29}$
 \end{enumerate}
 
-
-
 \begin{aportes}
-    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+  \item \aporte{https://github.com/Nunezca}{Nunezca \github}
 \end{aportes}

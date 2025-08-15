@@ -3,23 +3,37 @@
   \begin{enumerate}[label=\roman*)]
     \begin{multicols}{2}
       \item simétricas y antisimétricas
-
-      \red{elementos en bucles sueltos?}
       \item de equivalencia y de orden
-
-      \red{Idem anterior}
     \end{multicols}
   \end{enumerate}
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item simétricas y antisimétricas
-
-        \red{elementos en bucles sueltos?}
+  \item 
+  Una relacion en $A$ es simetrica si $a \relacion b \entonces b \relacion a \quad a,b \in A$.
+  
+  Una relacion en $A$ es antisimetrica si $a \relacion b \, \land \, b \relacion a \entonces a = b$
+  
+  Juntando estas dos restricciones surge que los unicos elementos que sirven para construir tal relacion son los de la forma
+  $(a,a)$, ya que cumplen ambas condiciones, cualquier otro tipo de elemento no cumpliria ambas condiciones simultaneamente. 
+  Es decir $\relacion \subseteq \{(a,a) | a \in A\}$. O visto como un cuadro, todos los elementos de la diagonal, la cantidad 
+  de relaciones de este tipo que se pueden construir son $2^N$, siendo $N$ el cardinal del conjunto $A$. Notése que hay $N$ pares
+  $(a,a) | a \in A$, luego para constuir la relacion podemos elegir si usar o si no ese par, por cada par, el argumento es identico a porque 
+  el cardinal de las partes de un conjunto es $2^n$.
 
   \item de equivalencia y de orden
+  Para que sea de equivalencia y de orden tienen que cumplir las cuatro propiedades que vimos: Reflexividad, Simetria, Antisimetria, Transitividad. 
+  
+  Por el item anterior ya sabemos que solo nos sirven los elementos de la diagonal, pero al tener que ser reflexiva, es decir que $\forall a \in A, a \relacion a$, 
+  si o si tenemos que usar todos los elementos a la vez, ya que si dejamos un elemento sin usar, no seria reflexiva la relacion. 
+  Por el lado de la transitividad, la relacion va a ser transitiva siempre pues al no haber dos elementos distintos relacionados para aplicar la hipotesis, la hipotesis no se aplica nunca, entonces es transitiva.
 
-        \red{Idem anterior}
+  Entonces tenemos $\relacion = \{(a,a) | a \in A\}$, por lo tanto solo se puede construir una relacion en $A$ que sea 
+  de equivalencia y de orden
+
 \end{enumerate}
 
-¿Puede una relación en $A$ no ser ni simétrica ni antisimétrica? \red{22 (vi)?}
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}
+

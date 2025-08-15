@@ -1,23 +1,21 @@
-%Graficos
 \def\veinticuatro{
   \begin{tikzpicture}[
-      scale=0.5,
       baseline=0,
-      aristas/.style={-Latex, draw={##1}, thin, bend left=14},
-      rulo/.style={-Latex, draw={##1}},
+      aristas/.style={-Latex, thin, bend left=14, color={##1}},
+      nodo/.style={circle, draw, color={##1}, minimum size=4pt, inner sep=2pt, outer sep=3pt},
+      rulo/.style={-Latex, color={##1}},
       node distance = 1.5cm,
-      every nodes/.style={font=\tiny},
+      every nodes/.style={font=\small},
     ]
-    \node[] (a) {$a$};
-    \node[below left of=a] (b) {$b$};
-    \node[below right of=a] (f) {$f$};
-    \node[above right of=a] (d) {$d$};
-    \node[right of=a] (c) {$c$};  % Fixed: use xshift instead
-    \node[right of=c] (e) {$e$};  % Fixed: use xshift instead
-    % Universo
-    \node[ellipse, draw, black, fit={(a) (b) (d) (f) (e)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
-    % Aristas
+    \node[nodo=magenta] (a) {$a$};
+    \node[nodo=magenta, below left of=a] (b) {$b$};
+    \node[nodo=magenta, below right of=a] (f) {$f$};
+
+    \node[nodo=OliveGreen, right of=a] (d) {$d$};
+
+    \node[nodo=Cerulean, above left of=a] (c) {$c$};
+    \node[nodo=Cerulean, right of=c] (e) {$e$};
+
     \draw[rulo=magenta, loop above] (a) to (a);
     \draw[rulo=magenta, loop left ] (b) to (b);
     \draw[rulo=Cerulean, loop left] (c) to (c);
@@ -32,10 +30,14 @@
     \draw[aristas=magenta] (f) to (b);
     \draw[aristas=Cerulean] (c) to (e);
     \draw[aristas=Cerulean] (e) to (c);
+
+    % Al final para que agarre todo lo graficado
+    \draw[thick, rounded corners=5pt]
+    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
+    rectangle
+    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$A$};
   \end{tikzpicture}
 }
-
-% fin gráficos
 
 \begin{enunciado}{\ejercicio}
 

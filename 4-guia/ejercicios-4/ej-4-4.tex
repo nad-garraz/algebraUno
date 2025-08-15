@@ -9,32 +9,47 @@ $$
   p(n): 2^{n+2} \divideA a^{2^n} - 1,\, \text{ con } a \en \enteros \text{ e impar.} \paratodo n \en \naturales.
 $$
 
-\textit{Caso base: } $$
-  \begin{array}{c}
-    p(1)\ :\ 2^3 = 8 \divideA a^2 - 1 = (a - 1) \cdot (a + 1)                       \\
-    \flecha{$a$ es impar, si $m \en \enteros$}[$a \igual{}[$\llamada1$] 2m -1$]     \\
-    (a - 1) \cdot (a + 1) \igual{$\llamada1$}
-    (2m - 2)\cdot(2m) \igual{!}
-    4 \cdot \ub{m \cdot (m-1)}{par:\; \green{2h},\, h \en \enteros} =
-    4 \cdot \green{2 h} = 8 * h                                                     \\
-    \flecha{por lo}[tanto]                                                          \\
-    8 \divideA 8h = (a - 1) \cdot (a + 1) \text{ para algún } h \en \enteros \Tilde \\
+\textit{Caso base: }
+$$
+  p(1) : 2^3 = 8 \divideA a^2 - 1 = (a - 1) \cdot (a + 1)
+$$
+Como $a \en \enteros$ es impar, puedo escrirla como:
+$$
+  a \igual{$\llamada1$} 2m -1
+$$
+Entonces
+$$
+  \begin{array}{rcl}
+    (a - 1) \cdot (a + 1) & \igual{$\llamada1$} & (2m - 2)\cdot(2m)                         \\
+                          & \igual{\red{!}}     & 4 \cdot \ub{m \cdot (m-1)}{\text{seguro}  \\\text{es par} }                     \\
+                          & \igual{\red{!!}}    & 4 \cdot 2 \violet{h} = 8 \cdot \violet{h}
   \end{array}
 $$
+Es decir que $a^2 - 1 = 8 \cdot \violet{h}$ con $\violet{h} \en \enteros$. Por lo tanto:
+$$
+  8 \divideA 8h = (a - 1) \cdot (a + 1) \text{ para algún } h \en \enteros
+$$
 
-Por lo tanto $p(1)$ es verdadera.\par
+La proposición $p(1)$ es verdadera.
 
-\textit{Paso inductivo: }\par
-Asumo que:
-$ p(\blue{k}): \ob{2^{\blue{k}+2} \divideA a^{2^{\blue{k}}} - 1}{\purple{\text{hipótesis inductiva}}}, \text{ es verdadera }
-  \entonces \text{ Quiero ver que }
+\textit{Paso inductivo: }
+Asumo que para algún valor de $\blue{k} \en \naturales$ que:
+$$
+  p(\blue{k}): \ob{
+    2^{\blue{k}+2} \divideA a^{2^{\blue{k}}} - 1
+  }{
+    \purple{\text{hipótesis inductiva}}
+  },
+$$
+es verdadera, entonces quiero probar que la proposición:
+$$
   p(\blue{k}+1) : 2^{\blue{k} + 3} \divideA a^{2^{\blue{k} + 1}} - 1,
-  \text{ también lo sea}.
-$
+$$
+también lo sea.
 $$
   \begin{array}{c}
     2^{k+3} \divideA a^{2^{k+1}} - 1
-    \Sii{\red{!}}
+    \Sii{\red{!!}}
     2^{k+2} \cdot 2 \divideA (a^{2^k} - 1)
     \cdot
     \ob{(a^{2^k} + 1)}{\text{\green{par !}}}                                                           \\
@@ -43,15 +58,12 @@ $$
   \end{array}
 $$
 
-El \red{!} es todo tuyo, \textit{hints:} diferencia de cuadrados, propiedades de exponentes... \faIcon{hands-wash}
+El \red{!!} es todo tuyo (\textit{hints:} diferencia de cuadrados, propiedades de exponentes... \faIcon{hands-wash})
 
-En el último paso se comprueba que $p(k+1)$ es vedadera.\par
-Como $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas,
-por el principio de inducción también lo será ${p(n) \paratodo n \en \naturales}$.
+En el último paso se comprueba que $p(k+1)$ es vedadera.
 
-% Contribuciones
+Como $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción también lo será ${p(n) \paratodo n \en \naturales}$.
+
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

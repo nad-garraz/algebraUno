@@ -32,56 +32,37 @@
             \text{Conjuntos con \#10: }       & \clase{\set{1,2,3,4,5,6,7,8,9,10}} & A                       \\
           \end{array}
         $$
+        Entonces las clases de equivalencia con subconjunto de $\partes(A)$ con cardinal 0 y cardinal 10 son $\clase{\vacio} \ytext \clase{A}$
 
-        Pobres e incompletos ejemplitos, sino se me va la vida:
+        Mirá que lindo el gráfico de la clase de equivalencia de subconjuntos de $\partes(A)$ que tienen un cardinal 1.
+        \ul{un solo} elemento tiene 10 elementos y sería algo así:
         $$
-          \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine]
+          \begin{tikzpicture}[
+            node distance=1cm,
+            nodo/.style={color={#1}, minimum size=4pt, inner sep=1pt, outer sep=1pt},
+            arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=12, color={#1}},
+            rulo/.style 2 args = {-{Latex[length=2pt]}, out=#1, in=#1+45, looseness=4, color={#2}}
+            ]
+            \foreach \i in {1,...,10} {
+                \node[nodo=magenta] at ({36 * (\i-1)}:2cm) (\i) {$\set{\i}$};
+              }
 
-            \node[] (a) {$\set{2}$};
-            %\node[] at (a.north west) {};
-
-            \node[below left=1cm of a] (b) {$\set{3}$};
-            %\node[] at (b.south) {};
-
-            \node[below right=1cm of a] (f) {$\set{1}$};
-            %\node[] at (f.south) {};
-
-            \node[above right=1cm of a] (d) {$\vacio$};
-            %\node[] at (d.west) {};
-
-            \node[right=1.5cm of f] (d2) {$A$};
-            %\node[] at (d2.west) {$\vacio$};
-
-            \node[right=1.5cm of a] (c) {$\set{1,2}$};
-            %\node[] at (c.south) {$\set{1,2}$};
-
-            \node[right=1cm of c] (e) {$\set{3,10}$};
-            %\node[] at (e.south) {$\set{3,10}$};
-
-            % Universo
-            \node[shape=ellipse, draw, black, fit={ (a) (b) (d) (f) (e)}] (universo) {};
-
-            % Aristas
-            \draw[magenta, ->, loop above] (a) to (a);
-            \draw[magenta, ->, loop left ] (b) to (b);
-            \draw[->, loop left] (c) to (c);
-            \draw[->, loop right ] (e) to (e);
-            \draw[magenta, ->, loop right ] (f) to (f);
-
-            \draw[OliveGreen, ->, loop above ] (d) to (d);
-            \draw[OliveGreen, ->, loop below ] (d2) to (d2);
-
-            \draw[magenta, ->, bend left] (a.south) to (b);
-            \draw[magenta, ->, bend left] (b.north) to (a);
-            \draw[magenta, ->, bend left] (a.east) to (f);
-            \draw[magenta, ->, bend left] (f.north) to (a);
-            \draw[magenta, ->, bend left] (b.east) to (f);
-            \draw[magenta, ->, bend left] (f.south) to (b);
-
-            \draw[->, bend right] (c.south) to (e);
-            \draw[->, bend right] (e.north) to (c);
+            \foreach \i in {1,...,10} {
+                \foreach \j in {1,...,10}{
+                    \ifnum\i<\j
+                      \draw[arista=magenta] (\i) to (\j);
+                      \draw[arista=magenta] (\j) to (\i);
+                    \fi
+                  }
+              }
+            \foreach \fase in {1,...,10}{
+                \pgfmathsetmacro{\angulo}{-25 + (\fase-1)*36}
+                \draw[rulo={\angulo}{magenta}] (\fase) to (\fase);
+              }
           \end{tikzpicture}
         $$
+
+        Graficaría el resto de los conjuntos, pero no tengo interés en invocar a \red{Satanás} en el proceso.
 
   \item
         Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\par

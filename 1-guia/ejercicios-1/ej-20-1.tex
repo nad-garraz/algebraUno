@@ -1,46 +1,46 @@
 %Graficos
 \def\veinte{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine, transform shape]
+  \begin{tikzpicture}[
+    node distance=1.2cm,
+    nodo/.style={circle, draw, color={##1}, inner sep=1pt, outer sep=1pt},
+    arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=15, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=2pt]}, out=##1, in=##1+45, looseness=4, color={##2}}
+    ]
 
-    \node[] (1) {$\bullet$};
-    \node[] at (1.west) {$1$};
+    \node[nodo=Cerulean] (1) {$1$};
+    \node[nodo=Cerulean, right of=1] (3) {$3$};
 
-    \node[above right= of 1] (2) {$\bullet$};
-    \node[] at (2.east) {$2$};
+    \node[nodo=Cerulean, below of=1] (4) {$4$};
+    \node[nodo=Cerulean, right of=4] (6) {$6$};
 
-    \node[below right= of 2] (3) {$\bullet$};
-    \node[] at (3.east) {$3$};
+    \node[nodo=Cerulean, above left of=1] (2) {$2$};
+    \node[nodo=Cerulean, above right of=1] (5) {$5$};
 
-    \node[below= of 1] (4) {$\bullet$};
-    \node[] at (4.west) {$4$};
+    \draw[arista=Cerulean] (1) to (3);
+    \draw[arista=Cerulean] (3) to (1);
+    \draw[arista=Cerulean] (4) to (6);
+    \draw[arista=Cerulean] (6) to (4);
 
-    \node[right= of 2] (5) {$\bullet$};
-    \node[] at (5.west) {$5$};
+    \draw[rulo={150}{Cerulean}] (1) to (1);
+    \draw[rulo={-30}{Cerulean}] (3) to (3);
+    \draw[rulo={150}{Cerulean}] (4) to (4);
+    \draw[rulo={-30}{Cerulean}] (6) to (6);
 
-    \node[right= of d] (6) {$\bullet$};
-    \node[] at (6.east) {$6$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (1) (2) (3) (4)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
-
-    % Aristas
-    \draw[->, loop below] (1) to (1);
-    \draw[->, loop above ] (3) to (3);
-    \draw[->, loop above] (4) to (4);
-    \draw[->, loop below ] (6) to (6);
-
-    \draw[->, bend left] (6.center) to (4);
-    \draw[->, bend left] (4.center) to (6);
-
-    \draw[->, bend right] (1.center) to (3);
-    \draw[->, bend right] (3.center) to (1);
+    % Al final para que agarre todo lo graficado
+    \draw[thick, rounded corners=5pt]
+    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
+    rectangle
+    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$A$};
   \end{tikzpicture}
 }
 % fin gráficos
 
 \begin{enunciado}{\ejercicio}
-Sea $A = \set{1, 2, 3, 4, 5, 6}$. Graficar la relación, $\relacion= {(1,1), (1,3), (3,1), (3,3), (6,4), (4,6), (4,4), (6,6)}$
+  Sea $A = \set{1, 2, 3, 4, 5, 6}$. Graficar la relación,
+  $$
+    \relacion = \set{(1,1), (1,3), (3,1), (3,3), (6,4), (4,6), (4,4), (6,6)}
+  $$
+  como está hecho en el ejercicio anterior y determinar si es reflexiva, simétrica, antisimétrica o transitiva.
 \end{enunciado}
 
 \begin{minipage}{0.25\textwidth}

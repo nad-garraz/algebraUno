@@ -1,203 +1,144 @@
 % Gráficos
-
+\def\nodosDiecinueve{
+  \node[nodo=black, label=above:$a$] (a) {};
+  \node[nodo=black, label=above:$b$, above right of=a] (b) {};
+  \node[nodo=black, label=right:$c$, below right of=b] (c) {};
+  \node[nodo=black, label=left:$d$, below of=a] (d) {};
+  \node[nodo=black, label=below:$e$, below=1.5cm of c] (e) {};
+  \node[nodo=black, label=left:$f$, below right of=d] (f) {};
+  \node[nodo=black, label=above left:$g$, right of=c] (g) {};
+  \node[nodo=black, label=below right:$h$, below of=g] (h) {};
+}
+\def\universoDiecinueve{
+  \draw[thick, rounded corners=5pt]
+  ([xshift=5pt,yshift=-5pt]current bounding box.south east)
+  rectangle
+  ([xshift=-5pt,yshift=5pt]current bounding box.north west) node [above left] {$A$};
+}
 \def\diecinuevei{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
-
-    \node[] (a) {$\bullet$};
-    \node[] at (a.west) {$a$};
-
-    \node[above right= of a] (b) {$\bullet$};
-    \node[] at (b.east) {$b$};
-
-    \node[below right= of b] (c) {$\bullet$};
-    \node[] at (c.east) {$c$};
-
-    \node[below= of a] (d) {$\bullet$};
-    \node[] at (d.west) {$d$};
-
-    \node[below= of c] (e) {$\bullet$};
-    \node[] at (e.west) {$e$};
-
-    \node[right= of d] (f) {$\bullet$};
-    \node[] at (f.west) {$f$};
-
-    \node[right= of c] (g) {$\bullet$};
-    \node[] at (g.north) {$g$};
-
-    \node[below= of g] (h) {$\bullet$};
-    \node[] at (h.south) {$h$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
-
+  \begin{tikzpicture}
+    [
+    node distance=1.2cm,
+    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
+    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
+    ]
+    \nodosDiecinueve
     % Aristas
-    \draw[->, bend left] (a.center) to (b.center);
-    \draw[->, bend left] (b.center) to (a.center);
-    \draw[->, bend right] (c.center) to (d.center);
-    \draw[->, loop above] (c) to (c);
-    \draw[->, loop below ] (f) to (f);
-    \draw[->, bend right] (c.center) to (h.center);
-    \draw[->, bend left] (e.center) to (c.center);
-    \draw[->, bend right] (h.center) to (g.center);
+    \draw[arista=Cerulean] (a) to (b);
+    \draw[arista=Cerulean] (b) to (a);
+    \draw[arista=Cerulean, bend right] (c) to (d);
+    \draw[arista=Cerulean, bend right] (c) to (h);
+    \draw[arista=Cerulean] (e) to (c);
+    \draw[arista=Cerulean, bend right] (h) to (g);
+
+    \draw[rulo={60}{Cerulean}] (c) to (c);
+    \draw[rulo={240}{Cerulean}] (f) to (f);
+
+    % Al final para que agarre todo lo graficado
+    \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 ii
 \def\diecinueveii{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
-
-    \node[] (a) {$\bullet$};
-    \node[] at (a.west) {$a$};
-
-    \node[above right= of a] (b) {$\bullet$};
-    \node[] at (b.east) {$b$};
-
-    \node[below right= of b] (c) {$\bullet$};
-    \node[] at (c.east) {$c$};
-
-    \node[below= of a] (d) {$\bullet$};
-    \node[] at (d.west) {$d$};
-
-    \node[below= of c] (e) {$\bullet$};
-    \node[] at (e.west) {$e$};
-
-    \node[right= of d] (f) {$\bullet$};
-    \node[] at (f.west) {$f$};
-
-    \node[right= of c] (g) {$\bullet$};
-    \node[] at (g.east) {$g$};
-
-    \node[below= of g] (h) {$\bullet$};
-    \node[] at (h.east) {$h$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
+  \begin{tikzpicture} [
+    node distance=1.2cm,
+    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
+    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
+    ]
+    \nodosDiecinueve
 
     % Aristas
-    \draw[->, loop below] (a) to (a);
-    \draw[->, loop above ] (b) to (b);
-    \draw[->, loop above] (c) to (c);
-    \draw[->, loop below] (f) to (f);
+    \draw[rulo={150}{Cerulean}] (a) to (a);
+    \draw[rulo={-30}{Cerulean}] (b) to (b);
+    \draw[rulo={60}{Cerulean}] (c) to (c);
+    \draw[rulo={60}{Cerulean}] (f) to (f);
 
-    \draw[->, bend left] (a.center) to (b);
-    \draw[->, bend left] (b.center) to (a);
+    \draw[arista=Cerulean] (a) to (b);
+    \draw[arista=Cerulean] (b) to (a);
+    \draw[arista=Cerulean, bend right] (c) to (g);
+    \draw[arista=Cerulean, bend right] (c) to (h);
+    \draw[arista=Cerulean, bend right] (c) to (e);
+    \draw[arista=Cerulean, bend right] (h) to (g);
 
-    \draw[->, bend right] (c.center) to (g);
-    \draw[->, bend right] (c.center) to (h);
-    \draw[->, bend right] (c.center) to (e);
-    \draw[->, bend right] (h.center) to (g);
+    % Al final para que agarre todo lo graficado
+    \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 iii
 \def\diecinueveiii{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
+  \begin{tikzpicture}
+    [
+    node distance=1.2cm,
+    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
+    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
+    ]
 
-    \node[] (a) {$\bullet$};
-    \node[] at (a.west) {$a$};
-
-    \node[above right= of a] (b) {$\bullet$};
-    \node[] at (b.east) {$b$};
-
-    \node[below right= of b] (c) {$\bullet$};
-    \node[] at (c.east) {$c$};
-
-    \node[below= of a] (d) {$\bullet$};
-    \node[] at (d.west) {$d$};
-
-    \node[below= of c] (e) {$\bullet$};
-    \node[] at (e.west) {$e$};
-
-    \node[right= of d] (f) {$\bullet$};
-    \node[] at (f.west) {$f$};
-
-    \node[right= of c] (g) {$\bullet$};
-    \node[] at (g.east) {$g$};
-
-    \node[below= of g] (h) {$\bullet$};
-    \node[] at (h.east) {$h$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
+    \nodosDiecinueve
 
     % Aristas
-    \draw[->, loop below] (a) to (a);
-    \draw[->, loop above ] (b) to (b);
-    \draw[->, loop above] (c) to (c);
-    \draw[->, loop below ] (d) to (d);
-    \draw[->, loop below] (e) to (e);
-    \draw[->, loop below] (f) to (f);
-    \draw[->, loop above] (g) to (g);
-    \draw[->, loop below ] (h) to (h);
+    \draw[rulo={150}{Cerulean}] (a) to (a);
+    \draw[rulo={-30}{Cerulean}] (b) to (b);
+    \draw[rulo={60}{Cerulean}] (c) to (c);
+    \draw[rulo={240}{Cerulean}] (d) to (d);
+    \draw[rulo={-50}{Cerulean}] (e) to (e);
+    \draw[rulo={200}{Cerulean}] (f) to (f);
+    \draw[rulo={40}{Cerulean}] (g) to (g);
+    \draw[rulo={210}{Cerulean}] (h) to (h);
 
-    \draw[->, bend left] (a.center) to (b);
-    \draw[->, bend left] (b.center) to (a);
+    \draw[arista=Cerulean] (a) to (b);
+    \draw[arista=Cerulean] (b) to (a);
 
-    \draw[->, bend right] (c.center) to (d);
-    \draw[->, bend right] (c.center) to (e);
-    \draw[->, bend right] (c.center) to (h);
-    \draw[->, bend right] (d.center) to (c);
-    \draw[->, bend right] (h.center) to (g);
+    \draw[arista=Cerulean] (c) to (d);
+    \draw[arista=Cerulean] (c) to (e);
+    \draw[arista=Cerulean] (c) to (h);
+    \draw[arista=Cerulean] (d) to (c);
+    \draw[arista=Cerulean] (h) to (g);
+
+    % Al final para que agarre todo lo graficado
+    \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 iV
 \def\diecinueveiv{
-  \begin{tikzpicture}[scale=0.7, baseline=0, >=Latex, draw=Aquamarine,transform shape]
+  \begin{tikzpicture}
+    [
+    node distance=1.2cm,
+    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
+    arista/.style={-{Latex[length=4pt]}, ultra thin, bend left=25, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=5pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
+    ]
 
-    \node[] (a) {$\bullet$};
-    \node[] at (a.west) {$a$};
-
-    \node[above right= of a] (b) {$\bullet$};
-    \node[] at (b.east) {$b$};
-
-    \node[below right= of b] (c) {$\bullet$};
-    \node[] at (c.east) {$c$};
-
-    \node[below= of a] (d) {$\bullet$};
-    \node[] at (d.west) {$d$};
-
-    \node[below= of c] (e) {$\bullet$};
-    \node[] at (e.west) {$e$};
-
-    \node[right= of d] (f) {$\bullet$};
-    \node[] at (f.west) {$f$};
-
-    \node[right= of c] (g) {$\bullet$};
-    \node[] at (g.east) {$g$};
-
-    \node[below= of g] (h) {$\bullet$};
-    \node[] at (h.east) {$h$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (b) (d) (g) (e)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
+    \nodosDiecinueve
 
     % Aristas
-    \draw[->, loop below] (a) to (a);
-    \draw[->, loop above ] (b) to (b);
-    \draw[->, loop above] (c) to (c);
-    \draw[->, loop below ] (d) to (d);
-    \draw[->, loop below] (e) to (e);
-    \draw[->, loop below] (f) to (f);
-    \draw[->, loop above] (g) to (g);
-    \draw[->, loop below ] (h) to (h);
+    \draw[rulo={150}{Cerulean}] (a) to (a);
+    \draw[rulo={-30}{Cerulean}] (b) to (b);
+    \draw[rulo={150}{Cerulean}] (c) to (c);
+    \draw[rulo={30}{Cerulean}] (d) to (d);
+    \draw[rulo={150}{Cerulean}] (e) to (e);
+    \draw[rulo={60}{Cerulean}] (f) to (f);
+    \draw[rulo={20}{Cerulean}] (g) to (g);
+    \draw[rulo={-50}{Cerulean}] (h) to (h);
 
-    \draw[->, bend left] (a.center) to (b);
-    \draw[->, bend left] (b.center) to (a);
+    \draw[arista=Cerulean] (a) to (b);
+    \draw[arista=Cerulean] (b) to (a);
+    \draw[arista=Cerulean] (e) to (h);
+    \draw[arista=Cerulean] (e) to (g);
+    \draw[arista=Cerulean, bend left = 10] (h) to (g);
+    \draw[arista=Cerulean, bend left = 10] (h) to (e);
+    \draw[arista=Cerulean, bend left = 10] (g) to (h);
+    \draw[arista=Cerulean, bend left = 10] (g) to (e);
 
-    \draw[->, bend right] (e.center) to (h);
-    \draw[->, bend right] (e.center) to (g);
-    \draw[->, bend right] (h.center) to (g);
-    \draw[->, bend right] (h.center) to (e);
-    \draw[->, bend right] (g.center) to (h);
-    \draw[->, bend right] (g.center) to (e);
+    % Al final para que agarre todo lo graficado
+    \universoDiecinueve
   \end{tikzpicture}
 }
-
 % fin gráficos
 
 \begin{enunciado}{\ejercicio}
@@ -209,7 +150,7 @@ Podés ver el resumen de la \hyperlink{teoria-1:relaciones}{teoría acá y así 
 \begin{enumerate}[label=\roman*)]
 
   \item
-        \begin{minipage}{0.25\textwidth}
+        \begin{minipage}{0.3\textwidth}
           \diecinuevei
         \end{minipage}
         \begin{minipage}{0.7\textwidth}
@@ -251,7 +192,7 @@ Podés ver el resumen de la \hyperlink{teoria-1:relaciones}{teoría acá y así 
         \bigskip
 
   \item
-        \begin{minipage}{0.25\textwidth}
+        \begin{minipage}{0.3\textwidth}
           \diecinueveiii
         \end{minipage}
         \begin{minipage}{0.7\textwidth}
@@ -273,20 +214,21 @@ Podés ver el resumen de la \hyperlink{teoria-1:relaciones}{teoría acá y así 
         \bigskip
 
   \item
-        \begin{minipage}{0.25\textwidth}
+        \begin{minipage}{0.3\textwidth}
           \diecinueveiv
         \end{minipage}
         \begin{minipage}{0.7\textwidth}
           \textit{Por extensión:}
-          $$
-            \scriptstyle
-            \set{(a,a),(a,b),(b,a),(b,b),(c,c),(d,d),
-              (e,e),(e,g),(e,h),
-              (f,f),
-              (g,g),(g,e),(g,h),
-              (h,h),(h,e),(h,g)
-            }.
-          $$
+          {\tiny
+            $$
+              \set{(a,a),(a,b),(b,a),(b,b),(c,c),(d,d),
+                (e,e),(e,g),(e,h),
+                (f,f),
+                (g,g),(g,e),(g,h),
+                (h,h),(h,e),(h,g)
+              }.
+            $$
+          }
           \begin{itemize}
             \item Reflexiva, porque hay bucles en todos los elementos de $A$.
             \item Es simétrica, porque hay ida y vuelta en todos los pares de vértices.

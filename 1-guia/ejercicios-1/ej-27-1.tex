@@ -1,48 +1,48 @@
 %Graficos
 \def\veintisiete{
-  \begin{tikzpicture}[scale=0.5, baseline=0, >=Latex, draw=Aquamarine]
+  \begin{tikzpicture}[
+    node distance=1.2cm,
+    nodo/.style={circle, draw, color={##1}, inner sep=1pt, outer sep=1pt},
+    arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=15, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=2pt]}, out=##1, in=##1+45, looseness=4, color={##2}}
+    ]
 
-    \node[] (1) {$\bullet$};
-    \node[] at (1.west) {$1$};
+    \node[nodo=Aquamarine] (1) {$1$};
+    \node[nodo=Aquamarine, right of=1] (92) {$92$};
+    \draw[arista=Cerulean] (1) to (92);
+    \draw[arista=Cerulean] (92) to (1);
+    \draw[rulo={150}{Cerulean}] (1) to (1);
+    \draw[rulo={-30}{Cerulean}] (92) to (92);
 
-    \node[right = of 1] (92) {$\bullet$};
-    \node[] at (92.east) {$92$};
+    \node[nodo=Aquamarine, below of=1] (2) {$2$};
+    \node[nodo=Aquamarine, right of=2] (91) {$91$};
+    \draw[arista=Cerulean] (2) to (91);
+    \draw[arista=Cerulean] (91) to (2);
+    \draw[rulo={150}{Cerulean}] (2) to (2);
+    \draw[rulo={-30}{Cerulean}] (91) to (91);
 
-    \node[below = of 1] (2) {$\bullet$};
-    \node[] at (2.west) {$2$};
+    \node[nodo=Aquamarine, below of=2] (3) {$3$};
+    \node[nodo=Aquamarine, right of=3] (90) {$90$};
+    \draw[arista=Cerulean] (3) to (90);
+    \draw[arista=Cerulean] (90) to (3);
+    \draw[rulo={150}{Cerulean}] (3) to (3);
+    \draw[rulo={-30}{Cerulean}] (90) to (90);
 
-    \node[right = of 2] (91) {$\bullet$};
-    \node[] at (91.east) {$91$};
+    \node[below right=0.2cm of 3] (puntos) {$\vdots$};
 
-    \node[below right = .5 of 2] (puntos) {$\vdots$};
+    \node[nodo=Aquamarine, below left=0.1cm of puntos] (46) {$46$};
+    \node[nodo=Aquamarine, right of=46] (47) {$47$};
+    \draw[arista=Cerulean] (46) to (47);
+    \draw[arista=Cerulean] (47) to (46);
+    \draw[rulo={150}{Cerulean}] (46) to (46);
+    \draw[rulo={-30}{Cerulean}] (47) to (47);
 
-    \node[below left = .5 of puntos] (46) {$\bullet$};
-    \node[] at (46.west) {$46$};
+    %Universo
+    \draw[thick, rounded corners=5pt]
+    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
+    rectangle
+    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$a$};
 
-    \node[right = of 46] (47) {$\bullet$};
-    \node[] at (47.east) {$47$};
-
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (1) (92) (46) (47)}] (universo) {};
-    \node[above left = 0.1cm of universo] {$A$};
-
-    % Aristas
-    \draw[->, loop below] (1) to (1);
-    \draw[->, loop below ] (92) to (92);
-
-    \draw[->, loop below] (2) to (2);
-    \draw[->, loop below ] (91) to (91);
-
-    \draw[->, loop below] (46) to (46);
-    \draw[->, loop below ] (47) to (47);
-
-    \draw[->, bend left] (1.center) to (92);
-    \draw[->, bend left] (92.center) to (1);
-    \draw[->, bend left] (2.center) to (91);
-    \draw[->, bend left] (91.center) to (2);
-    \draw[->, bend left] (46.center) to (47);
-    \draw[->, bend left] (47.center) to (46);
   \end{tikzpicture}
 }
 
@@ -54,7 +54,7 @@
   \begin{enumerate}[label=\alph*)]
     \item Probar que $\relacion$ es una relación de equivalencia. ¿Es antisimétrica?
     \item Hallar la clase de equivalencia de cada $x \en A$.
-            Deducir cuántas clases de equivalencia \textbf{distintas} determina la relación $\relacion$.
+          Deducir cuántas clases de equivalencia \textbf{distintas} determina la relación $\relacion$.
   \end{enumerate}
 
 \end{enunciado}
@@ -62,7 +62,7 @@
 \begin{enumerate}[label=\alph*)]
   \item Primero acomodo la condición de la relación:
         $$x^2 - y^2 = 93x - 93y
-                \Sii{\red{!!!}}[\magic]
+          \Sii{\red{!!!}}[\magic]
           \llave{c}{
             x      \igual{$\llamada{1}$}  y \\
             \text{ o bien }                            \\
@@ -93,17 +93,17 @@
 
         \textit{Antisimétrica: }\par
         La $\relacion$ no es antisimétrica, como contraejemplo se ve que
-                $1 \relacion 92$ y $92 \relacion 1$ con $1 \distinto 92\quad$ \faIcon{skull}.
+        $1 \relacion 92$ y $92 \relacion 1$ con $1 \distinto 92\quad$ \faIcon{skull}.
 
   \item
         A priori no sé como encontrar las clases de equivalencia, pero solo buscando la relación del $1$
         con algún número (excepto el mismo) veo que únicamente se puede relacionar con el $92$
         por la condición $\llamada2$, dado que $1 + 92 \igual{$\llamada2$} 93$.
         De ahí se pueden inferir que todas las clases van a ser conjuntos \textit{chiquitos}, con los números que sumen
-                93.
+        93.
 
         \begin{minipage}{0.7\textwidth}
-        Las clases de equivalencia :\par
+          Las clases de equivalencia :\par
           $\llave{ccccc}{
               \clase{1}  & = & \clase{92} & = & \set{1, 92}  \\
               \clase{2}  & = & \clase{91} & = & \set{2, 91}  \\
@@ -119,7 +119,5 @@
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

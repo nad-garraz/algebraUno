@@ -1,37 +1,33 @@
 \def\veintidosi{
-  \begin{tikzpicture}[baseline=0, >=Latex, draw=Aquamarine,scale=0.7, transform shape]
+  \begin{tikzpicture}[
+    node distance=1.2cm,
+    nodo/.style={circle, draw, color={##1}, inner sep=1pt, outer sep=1pt},
+    arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=15, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=2pt]}, out=##1, in=##1+45, looseness=4, color={##2}}
+    ]
 
-    \node[] (1) {$\bullet$};
-    \node[] at (1.west) {$1$};
+    \node[nodo=Cerulean] (1) {$1$};
+    \node[nodo=Cerulean, above right of=1] (2) {$2$};
+    \node[nodo=Cerulean, below right of=1] (3) {$3$};
+    \node[nodo=Cerulean, right of=1] (5) {$5$};
+    \draw[arista=Cerulean] (1) to (2);
+    \draw[arista=Cerulean] (1) to (3);
+    \draw[arista=Cerulean] (1) to (5);
+    \draw[arista=Cerulean] (2) to (5);
 
-    \node[above right= of 1] (2) {$\bullet$};
-    \node[] at (2.east) {$2$};
+    \node[nodo=Cerulean, below left of=1] (4) {$4$};
 
-    \node[below right= of 2] (3) {$\bullet$};
-    \node[] at (3.east) {$3$};
+    \draw[rulo={150}{Cerulean}] (1) to (1);
+    \draw[rulo={-30}{Cerulean}] (2) to (2);
+    \draw[rulo={-30}{Cerulean}] (3) to (3);
+    \draw[rulo={-30}{Cerulean}] (4) to (4);
+    \draw[rulo={-30}{Cerulean}] (5) to (5);
 
-    \node[below= of 1] (4) {$\bullet$};
-    \node[] at (4.west) {$4$};
-
-    \node[right= of 2] (5) {$\bullet$};
-    \node[] at (5.west) {$5$};
-
-    % Universo
-    \node[shape=ellipse, draw, black, fit={ (1) (2) (3) (4)}] (universo) {};
-    \node[above left = 0.1em of universo] {$A$};
-
-    % Aristas
-    \draw[->, loop below] (1) to (1);
-    \draw[->, loop left] (2) to (2);
-    \draw[->, loop above] (3) to (3);
-    \draw[->, loop above] (4) to (4);
-    \draw[->, loop right] (5) to (5);
-
-    \draw[->, bend right] (1.center) to (2);
-    \draw[->, bend right] (1.center) to (3);
-    \draw[->, bend right] (1.center) to (5);
-
-    \draw[->, bend left] (2.center) to (5);
+    % Al final para que agarre todo lo graficado
+    \draw[thick, rounded corners=5pt]
+    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
+    rectangle
+    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$A$};
   \end{tikzpicture}
 }
 % fin gráficos
@@ -69,7 +65,7 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
           Es antisimétrica. No hay ningún par que tenga la vuelta, excepto los casos $x \relacion x$.
 
           \textit{Transitiva:}
-          
+
           Es transitiva. La terna 1, 2, 5 es transitiva.
           La relación es R, AS y T, por lo tanto es una \textit{relación de orden}.
         \end{minipage}

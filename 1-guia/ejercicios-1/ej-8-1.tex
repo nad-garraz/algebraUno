@@ -9,39 +9,60 @@
   \end{multicols}
 \end{enunciado}
 
-  Recordando que:\par
-$
-  \partes(A) \to
+Recordando la definición de conjunto de partes:
+
+El conjunto de partes de $A$, $\partes(A)$, está formado por todos los conjuntos $B$ tal que $B$ es un subconjunto de $A$
+$$
   \begin{cases}
-    B \en \partes(A) \sisolosi B \subseteq A \\
     \partes(A) = \set{B \talque B \subseteq A}
   \end{cases}
-$
+$$
+Los elemntos del conjunto de $\partes(A)$ son conjuntos.
+
 \begin{enumerate}[label=(\roman*)]
-  \item $A = \set{1} \to \partes(A) = \set{\vacio, A}$ \Tilde
+  \item $A = \set{1}$ entonces $\partes(A)$:
+        $$
+          \cajaResultado{
+            \partes(A) = \set{\vacio, A}
+          }
+        $$
+
   \item $A =
           \set{a, b}
-          \to
-          \partes(A) =
-          \set{
-            \vacio,
-            \set{a},
-            \set{b},
-            A
-          }$\Tilde
+        $ entonces $\partes(A)$:
+        $$
+          \cajaResultado{
+            \partes(A) =
+            \set{
+              \vacio,
+              \set{a},
+              \set{b},
+              A
+            }
+          }
+        $$
+
   \item $
           A =
           \set{1, \set{1,2}, 3}
-          \to
-          \partes(A) =
-          \set{
-            \vacio,
-            \set{1},
-            \set{\set{1,2}},
-            \set{3},
-            \set{1,\set{1,2}},
-            \set{1,3},
-            \set{\set{1,2},3},
-            A
-          }$\Tilde
+        $ enteonces $\partes(A)$:
+        $$
+          \cajaResultado{
+            \partes(A) =
+            \set{
+              \vacio,
+              \set{1},
+              \set{\set{1,2}},
+              \set{3},
+              \set{1,\set{1,2}},
+              \set{1,3},
+              \set{\set{1,2},3},
+              A
+            }
+          }
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

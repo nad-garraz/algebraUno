@@ -20,31 +20,32 @@
   \item $\partes(A) = \set{\vacio, \set{1}, \set{1,2}, \cdots, \set{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}}$, el conjunto $\partes(A)$ tiene un total de
         $2^{10} = 1024$ elementos. La relación determina 11 \textit{clases de equivalencia} distintas.
         $$
-          \begin{array}{ccc}
+          \begin{array}{cccc}
             \rowcolor{Cerulean!10}
-            \text{Característica de la clase} & \text{clase}                       & \text{elemento ejemplo} \\ \hline
-            \text{Conjuntos con \#0: }        & \clase{\vacio}                     & \vacio                  \\
-            \text{Conjuntos con \#1: }        & \clase{\set{1}}                    & \set{3}                 \\
-            \text{Conjuntos con \#2: }        & \clase{\set{1,2}}                  & \set{5,2}               \\
-            \text{Conjuntos con \#3: }        & \clase{\set{1,2,3}}                & \set{1,6, 3}            \\
-            \text{Conjuntos con \#4: }        & \clase{\set{1,2,3,4}}              & \set{1,8, 10,4}         \\
-            \vdots                            & \vdots                             & \vdots                  \\
-            \text{Conjuntos con \#10: }       & \clase{\set{1,2,3,4,5,6,7,8,9,10}} & A                       \\
+            \text{Característica de la clase} & \text{clase}                       & \text{elementos ejemplo}                  & \text{Cantidad de conjuntos} \\ \hline
+            \text{Conjuntos con \# = 0: }     & \clase{\vacio}                     & \vacio                                    & \binom{10}{0} = 1            \\
+            \text{Conjuntos con \# = 1: }     & \clase{\set{1}}                    & \set{3}, \set{7}, \set{10}                & \binom{10}{1} = 10           \\
+            \text{Conjuntos con \# = 2: }     & \clase{\set{1,2}}                  & \set{5,2}, \set{1,10}, \set{1,2}          & \binom{10}{2} = 45           \\
+            \text{Conjuntos con \# = 3: }     & \clase{\set{1,2,3}}                & \set{1,6, 3}, \set{5,6,7}, \set{8, 9, 10} & \binom{10}{3} = 120          \\
+            \text{Conjuntos con \# = 4: }     & \clase{\set{1,2,3,4}}              & \set{1,8, 10,4}, \set{2,4,6,8}            & \binom{10}{4} = 210          \\
+            \text{Conjuntos con \# = 5: }     & \clase{\set{1,2,3,4,5}}            & \set{1,3, 5, 7, 9}, \set{2,4,6,8, 10}     & \binom{10}{5} = 252          \\
+            \vdots                            & \vdots                             & \vdots                                    & \vdots                       \\
+            \text{Conjuntos con \# = 10: }    & \clase{\set{1,2,3,4,5,6,7,8,9,10}} & A                                         & \binom{10}{10} = 1           \\
           \end{array}
         $$
-        Entonces las clases de equivalencia con subconjunto de $\partes(A)$ con cardinal 0 y cardinal 10 son $\clase{\vacio} \ytext \clase{A}$
+        Entonces las clases de equivalencia del subconjuntos de $\partes(A)$ con cardinal = 0 es $\clase{\vacio}$ y
+        de cardinal = 10 es $\clase{A}$.
 
-        Mirá que lindo el gráfico de la clase de equivalencia de subconjuntos de $\partes(A)$ que tienen un cardinal 1.
-        \ul{un solo} elemento tiene 10 elementos y sería algo así:
+        Mirá que \textit{bonito} queda el gráfico de la clase de equivalencia de elementos de $\partes(A)$ que tienen un cardinal igual 1,
+        es decir \ul{un solo} elemento, hay un total de 10 de esos elementos de $\partes(A)$:
         $$
           \begin{tikzpicture}[
-            node distance=1cm,
-            nodo/.style={color={#1}, minimum size=4pt, inner sep=1pt, outer sep=1pt},
-            arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=12, color={#1}},
-            rulo/.style 2 args = {-{Latex[length=2pt]}, out=#1, in=#1+45, looseness=4, color={#2}}
+            nodo/.style={color={#1}, text={black}, font={\small}, minimum size=4pt, inner sep=1pt, outer sep=1pt},
+            arista/.style={-{Latex[length=3pt, color = red]}, bend left=12, color={#1}, line width=0.06},
+            rulo/.style 2 args = {-{Latex[length=3pt]}, out=#1, in=#1+45, looseness=4, color={#2}, line width=0.06}
             ]
             \foreach \i in {1,...,10} {
-                \node[nodo=magenta] at ({36 * (\i-1)}:2cm) (\i) {$\set{\i}$};
+                \node[nodo=magenta] at ({36 * (\i-1)}:2.5cm) (\i) {$\set{\i}$};
               }
 
             \foreach \i in {1,...,10} {
@@ -62,7 +63,34 @@
           \end{tikzpicture}
         $$
 
-        Graficaría el resto de los conjuntos, pero no tengo interés en invocar a \red{Satanás} en el proceso.
+        El grafo para los conjuntos que tienen un cardinal igual a 2 tiene $\binom{10}{2} = 45$ nodos.
+        Graficaría el resto de los conjuntos, pero no tengo interés en invocar a \red{Satanás} en el proceso...
+        % $$
+        %   \begin{tikzpicture}
+        %     [
+        %     node distance=1cm,
+        %     nodo/.style={color=#1, minimum size=4pt, inner sep=1pt, outer sep=1pt},
+        %     arista/.style={-{Latex[length=2pt]}, bend left=12, color={#1},line width=0.06},
+        %     rulo/.style 2 args = {-{Latex[length=2pt]}, out=#1, in=#1+45, looseness=4, color={#2}, line width=0.06}
+        %     ]
+        %     \foreach \i in {1,...,45} {
+        %         \node[nodo=magenta, text=black] at ({360/45 * (\i-1)}:5cm) (\i) {$\bullet$};
+        %       }
+        %
+        %     \foreach \i in {1,...,45} {
+        %         \foreach \j in {1,...,45}{
+        %             \ifnum\i<\j
+        %               \draw[arista=magenta] (\i) to (\j);
+        %               \draw[arista=magenta] (\j) to (\i);
+        %             \fi
+        %           }
+        %       }
+        %     \foreach \fase in {1,...,45}{
+        %         \pgfmathsetmacro{\angulo}{-25 + (\fase-1)*360/45}
+        %         \draw[rulo={\angulo}{magenta}] (\fase) to (\fase);
+        %       }
+        %   \end{tikzpicture}
+        % $$
 
   \item
         Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\par

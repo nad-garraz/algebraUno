@@ -9,21 +9,41 @@
       \item $\set{2} \en A $
     \end{multicols}
   \end{enumerate}
-
 \end{enunciado}
+
+El símbolo \textit{pertenece}: $\en$ se usa para decir si un elemento cualquiera está en un dado conjunto. El símbolo \textit{subconjunto o inclusión}: $\subseteq$ , es para decir que un conjunto está incluido en otro conjunto.
+
+Por ejemplo:
+$$
+  \begin{array}{c}
+    C_1 = \set{1, 2, \set{1,2,3}} \ytext C_2 = \set{1, 2, \set{1,2}}                                            \\
+    \llave{rl}{
+    1 \en C_1           & \text{ y también }\set{1} \subseteq C_1 \text{ pero } \set{\set{1}} \not\subseteq C_1 \\
+    \set{1,2,3} \en C_1 & \text{ pero } \set{1,2,3} \not\subseteq C_1                                           \\
+    \set{1,2} \en C_2   & \text{ y también } \set{1,2} \subseteq C_2                                            \\
+
+    }
+  \end{array}
+$$
 
 $$
   A = \set{1,2,3}
 $$
-\begin{multicols}{3}
-  \begin{enumerate}[label=(\roman*)]
-    \item $1 \en A \flecha{respuesta} \text{V}$
-    \item $\set{1} \subseteq A \flecha{respuesta} \text{V}$
-    \item $\set{2,1} \subseteq A \flecha{respuesta} \text{V}$
-    \item $\set{1,3} \en A \flecha{respuesta} \text{F}$
-    \item $\set{2} \en A \flecha{respuesta} \text{F}$
-  \end{enumerate}
-\end{multicols}
+\begin{enumerate}[label=(\roman*)]
+  \item $1 \en A$. Es verdadero, porque 1 es un elemento que pertenece al conjunto $A$.
+
+  \item $\set{1} \subseteq A$. Es verdadero, porque el conjunto, lo bautizo, $B = \set{1}$,
+        es un conjunto cuyos elementos están todos (en este caso particular solo el 1) en $A$. Se dice que $B$ es un subconjunto de $A$.
+
+  \item $\set{2,1} \subseteq A$. Es verdadero, porque el conjunto, lo bautizo, $C = \set{2,1}$,
+        es un conjunto cuyos elementos están todos en $A$. Se dice que $C$ es un subconjunto de $A$.
+
+  \item\label{ej-1:item4} $\set{1,3} \en A$. Es falso, porque el \ul{elemento} \textit{conjunto que tiene al 1 y a 3}: $\ub{\set{1,3}}{\text{Sí, esto es \red{un}}\\ \text{\red{solo} elemento}}$ no está en el conjunto $A$.
+        Peeero ojo que $\set{1,3} \subseteq A$, ¿Comprás?
+
+  \item $\set{2} \en A$ Es falso, por lo mismo que el ítem \ref{ej-1:item4}. El \ul{elemento} \textit{conjunto que tiene al 2} : $\set{2}$, no es un elemento de $A$,
+        peeero como antes $\set{2} \subseteq A$.
+\end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

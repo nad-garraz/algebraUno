@@ -1,5 +1,5 @@
 \begin{enunciado}{\ejercicio}
-  Sean $A, B \ytext C$ conjuntos. Probar que si $f: B \to C$ y $g: A \to B$ son funciones entonces valen
+  Sean $A, B \ytext C$ conjuntos. Probar que si $f: B \to C$ y $g: A \to B$ son funciónes entonces valen
   \begin{enumerate}[label=\roman*), itemsep = -5pt]
     \item si $f \circ g$ es inyectiva entonces $g$ es inyectiva.
     \item si $f \circ g$ es sobreyectiva entonces $f$ es sobreyectiva.
@@ -11,40 +11,53 @@
 
 Primero refresquemos las definiciones para el problema:
 
-\underline{Inyectividad:} Sea $f:A \to B$ inyectiva,  $\forall x_1, x_2 \in A | f(x_1) = f(x_2) \entonces x_1 = x_2$ \vspace{0.25em}
+\underline{Inyectividad:}
+\begin{center}
+  Sea $f:A \to B$ inyectiva,  $\paratodo x_1, x_2 \en A \big/ f(x_1) = f(x_2) \entonces x_1 = x_2$ \vspace{0.25em}
+\end{center}
 
-\underline{Sobreyectividad:} Sea $f:A \to B$ sobreyectiva, $\forall y \in B, \exists x \en A | f(x) = y$ \vspace{0.25em}
+\underline{Sobreyectividad:}
+\begin{center}
+  Sea $f:A \to B$ sobreyectiva, $\paratodo y \en B, \existe x \en A \big/ f(x) = y$ \vspace{0.25em}
+\end{center}
 
-\underline{Biyectividad:} Sea $f:A \to B$ biyectiva, si es inyectiva y sobreyectiva a la vez, o $\forall y \in B, \exists! x \en A | f(x) = y$
+\underline{Biyectividad:}
+\begin{center}
+  Sea $f:A \to B$ biyectiva, si es inyectiva y sobreyectiva a la vez, o $\paratodo y \en B, \existe! x \en A \big/ f(x) = y$
+\end{center}
+
 \begin{enumerate}[label=\roman*)]
- \item por hipotesis $f \circ g$ es inyectiva, es decir $\forall x_1, x_2 \en A, \, (f \circ g)(x_1) = (f \circ g)(x_2) \entonces 
- x_1 = x_2$, bien, ahora supongamos que para algun $x_1, x_2$, se cumple que $g(x_1) = g(x_2)$, aplicamos la funcion $f$ y tenemos 
- $(f \circ g)(x_1) = (f \circ g)(x_2)$, por hipotesis esto implica que $x_1 = x_2$, quedando que $g(x_1) = g(x_2) \entonces x_1 = x_2$, como se
- queria demostrar. 
- \item por hipotesis $f \circ g$ es sobreyectiva, es decir $\forall z \en C, \exists x \en A | (f \circ g)(x) = z$, queremos demostrar que f
- es sobreyectiva, es decir que $\forall z \en C, \exists y \en B | f(y) = z$. Notemos que $g(x) \en B$, Sea $y := g(x) \llamada1$, luego $f(g(x)) = f(y) = z$, es decir 
- para todo $z$ encontramos un $y$ tal que $f(y) = z$, como se queria demostrar. 
- \item hipotesis: $\forall y_1, y_2 \en B, f(y_1) = f(y_2) \entonces y_1 = y_2$  y  
- $\forall x_1, x_2 \en A, g(x_1) = g(x_2) \entonces x_1 = x_2$.
+  \item Por hipótesis $f \circ g$ es inyectiva, es decir $\paratodo x_1, x_2 \en A, \, (f \circ g)(x_1) = (f \circ g)(x_2) \entonces
+          x_1 = x_2$, bien, ahora supongamos que para algun $x_1, x_2$, se cumple que $g(x_1) = g(x_2)$, aplicamos la función $f$ y tenemos
+        $(f \circ g)(x_1) = (f \circ g)(x_2)$, por hipótesis esto implica que $x_1 = x_2$, quedando que $g(x_1) = g(x_2) \entonces x_1 = x_2$, como se
+        quería demostrar.
 
- Queremos demostrar que $f(g(x_1)) = f(g(x_2)) \entonces x_1 = x_2$.
- Supongamos que $f(g(x_1)) = f(g(x_2))$, por inyectividad de f tenemos que $g(x_1) = g(x_2)$, luego por inyectividad de g
- tenemos que $x_1 = x_2$, como se queria demostrar. 
- \item hipotesis: $\forall z \en C, \exists y \en B | f(y) = z$  y  
- $\forall y \en B, \exists x \en A | g(x) = y$. 
+  \item Por hipótesis $f \circ g$ es sobreyectiva, es decir $\paratodo z \en C, \existe x \en A \big/ (f \circ g)(x) = z$, queremos demostrar que f
+        es sobreyectiva, es decir que $\paratodo z \en C, \existe y \en B \big/ f(y) = z$. Notemos que $g(x) \en B$, Sea $y := g(x) \llamada1$, luego $f(g(x)) = f(y) = z$, es decir
+        para todo $z$ encontramos un $y$ tal que $f(y) = z$, como se quería demostrar.
 
- Queremos demostrar que $\forall z \en C, \exists x \en A | f(g(x)) = z$.
- Por hipotesis sabemos que $f$ y $g$ son sobreyectivas, para el caso de g podemos decir que existe $x$ tal que $g(x) = y$, reemplazamos en f y tenemos 
- $f(g(x)) = z$, es decir para todo $z$ encontramos un $x$ tal que $f(g(x)) = z$, como se queria demostrar.
- 
- \item Por hipotesis $f$ y $g$ son biyectivas entonces son inyectivas y sobreyectivas, por ende $f \circ g$ es inyectiva y sobreyectiva (por las dos proposiciones probadas
- arriba), luego $f \circ g$ es biyectiva
+  \item Por hipótesis: $\paratodo y_1, y_2 \en B, f(y_1) = f(y_2) \entonces y_1 = y_2$  y
+        $\paratodo x_1, x_2 \en A, g(x_1) = g(x_2) \entonces x_1 = x_2$.
+
+        Queremos demostrar que $f(g(x_1)) = f(g(x_2)) \entonces x_1 = x_2$.
+        Supongamos que $f(g(x_1)) = f(g(x_2))$, por inyectividad de $f$ tenemos que $g(x_1) = g(x_2)$, luego por inyectividad de $g$
+        tenemos que $x_1 = x_2$, como se quería demostrar.
+
+  \item Por hipótesis: $\paratodo z \en C, \existe y \en B \big/ f(y) = z$  y
+        $\paratodo y \en B, \existe x \en A \big/ g(x) = y$.
+
+        Queremos demostrar que $\paratodo z \en C, \existe x \en A \big/ f(g(x)) = z$.
+        Por hipótesis sabemos que $f$ y $g$ son sobreyectivas, para el caso de $g$ podemos decir que existe $x$ tal que $g(x) = y$, reemplazamos en $f$ y tenemos
+        $f(g(x)) = z$, es decir para todo $z$ encontramos un $x$ tal que $f(g(x)) = z$, como se quería demostrar.
+
+  \item Por hipótesis $f$ y $g$ son biyectivas entonces son inyectivas y sobreyectivas,
+        por ende $f \circ g$ es inyectiva y sobreyectiva (por las dos proposiciones probadas arriba), luego $f \circ g$ es biyectiva
 \end{enumerate}
 
-$\llamada1$ quiero hacer una salvedad acá, cuando decimos sea $y := g(x)$, estamos tomando un $y \en B$ especifico construido a partir de un $x \en A$. 
-No estamos eligiendo un $y$ arbitrario ya que eso implicaria que \textbf{todo} $y$ se puede escribir como $g(x)$ lo que 
+$\llamada1$ quiero hacer una salvedad acá, cuando decimos sea $y := g(x)$, estamos tomando un $y \en B$ especifico construido a partir de un $x \en A$.
+No estamos eligiendo un $y$ arbitrario ya que eso implicaria que \textbf{todo} $y$ se puede escribir como $g(x)$ lo que
 implicaría que $g$ es sobreyectiva, lo cual no necesariamente sea cierto.
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

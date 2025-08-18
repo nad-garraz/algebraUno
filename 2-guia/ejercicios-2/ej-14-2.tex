@@ -11,25 +11,8 @@
 \begin{enumerate}[label=\roman*)]
   \item La cantidad de diagonales de un polígono de $n$ lados es $\frac{n(n-3)}{2}$.\par
         Ejercicio donde hay que encontrar una fórmula a partir de algún método \textit{creativo} para luego probar por inducción.\par
-        \begin{tikzpicture}[scale=0.9]
-          \coordinate (n) at (0,0);
-          \coordinate (1) at (2,0);
-          \coordinate (2) at (3,1.5);
-          \coordinate (3) at (3.5,2.5);
-          \coordinate (k) at (2.5,3.8);
-          \coordinate (n-3) at (0.5,4);
-          \coordinate (n-2) at (-1,3.2);
-          \coordinate (n-1) at (-2,2);
-
-          \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
-            {
-              \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
-              \draw[dashed, magenta] (n) -- (\point);
-            }
-          \draw[dashed, green] (n-1) -- (1);
-          \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
-
-          \begin{scope}[xshift=8cm]
+        $$
+          \begin{tikzpicture}[scale=0.9]
             \coordinate (n) at (0,0);
             \coordinate (1) at (2,0);
             \coordinate (2) at (3,1.5);
@@ -38,25 +21,56 @@
             \coordinate (n-3) at (0.5,4);
             \coordinate (n-2) at (-1,3.2);
             \coordinate (n-1) at (-2,2);
+
+            \draw[dashed, orange] (n-1) -- (1);
+            \draw[thick, Cerulean] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+
             \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
               {
+                \draw[dotted, magenta] (n) -- (\point);
                 \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
               }
-          \end{scope}
+            \begin{scope}[xshift=8cm]
+              \coordinate (n) at (0,0);
+              \coordinate (1) at (2,0);
+              \coordinate (2) at (3,1.5);
+              \coordinate (3) at (3.5,2.5);
+              \coordinate (k) at (2.5,3.8);
+              \coordinate (n-3) at (0.5,4);
+              \coordinate (n-2) at (-1,3.2);
+              \coordinate (n-1) at (-2,2);
 
-          \draw[ultra thick, red] (n-1) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+              \draw[thick, red] (n-1) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
 
-        \end{tikzpicture}\\
-        Se desprende del gráfico el siguiente razonamiento: En el polígono \cyan{cyan} de $n$ lados voy a tener una cantidad de
-        diagonales dada por la sucesión $d_n$. El polígono \red{rojo} me genera polígono que tiene un lado menos y
-        un lado menos, cantidad que viene determinada por $d_{n-1}$. Las líneas punteadas son las diagonales de $d_n$ que no estarán en
-        $d_{n-1}$. Ahora voy a encontrar una relación entre ambas sucesiones. Al sacan un lado pierdo las \magenta{diagonales} desde $2$ hasta $n-2$ que
-        serían $n - 3$ en total y además pierdo la {\color{green}diagonal} que conectan el vértice $1$ con el $n-1$:
-        $\cyan{d_n} = \red{d_{n-1}} + \green{1} +\magenta{n-2} = d_{n-1} + n - 1$
-        $\to {d_n = d_{n-1} + n - 1}$
+              \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
+                {
+                  \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
+                }
+            \end{scope}
+
+          \end{tikzpicture}
+        $$
+
+        Se desprende del gráfico el siguiente razonamiento:
+
+        En el polígono \blue{azul} de $n$ lados voy a tener una \textit{cantidad de
+          diagonales} dada por la sucesión $d_n$. El polígono \red{rojo}, tiene un lado menos,
+        por lo tanto la sucesión que describe su \textit{cantidad de diagonales} es $d_{n-1}$.
+
+        Las líneas \magenta{punteadas} son las diagonales de $d_n$ que \ul{no} estarán en
+        $d_{n-1}$.
+
+        La idea es encontrar una relación entre ambas sucesiones. Al modificar el polígono sacando el vértice $n$ pierdo las
+        \magenta{diagonales punteadas} desde el nodo $2$ hasta $n-2$ que
+        serían $\magenta{n-3}$ en total y no hay que olvidarse también que pierdo la \orange{diagonal naranja} que conectan el vértice $1$ con el $n-1$:
+        $$
+          \blue{d_n} = \red{d_{n-1}} + \orange{1} +\magenta{n-3} = d_{n-1} + n - 2
+          \sii \cajaResultado{d_n = d_{n-1} + n - 2}
+        $$
 
         Ahora inducción:
-        Quiero probar:
+
+        Quiero probar la siguiente proposición:
         $$
           p(n): d_n = \frac{n(n-3)}{2} \paratodo n \geq 3
         $$
@@ -71,65 +85,70 @@
         $$
           p(\blue{k}) : \ub{d_{\blue{k}} = \frac{\blue{k} (\blue{k} - 3)}{2}}{\text{\purple{hipótesis inductiva}}}
         $$
-        es verdadera para algún $k \en \enteros_{\geq 3}$.
+        es verdadera para algún $k \en \naturales_{\geq 3}$.
 
         Entonces quiero probar que:
         $$
           p(\blue{k+1}): d_{\blue{k+1}} =
           \frac{(\blue{k+1})(\blue{k + 1} - 3)}{ 2 }
           =
-          \frac{(k+1)(k - 2)}{ 2 }
+          \frac{(k+1)(k - 2)}{2}
         $$
         también sea verdadera.
 
-        Arranco por la definición de $p(\blue{k+1})$ y busco usar la \purple{hipótesis inductiva} para
-        encontrar la expresión buscada:
+        Arranco por la proposición $p(\blue{k+1})$ y uso la \purple{hipótesis inductiva}:
         $$
-          d_{k+1} \igual{def} d_k + k-1
+          d_{k+1}
+          \igual{def}
+          d_k + k - 1
           \igual{\purple{HI}}
-          \purple{\frac{k (k-3)}{2}} + k-1 =
+          \purple{\frac{k (k-3)}{2}} + k - 1 =
           \frac{k^2 - k - 2}{2} \igual{\red{!}}
           \frac{(k+1)(k-2)}{2}
         $$
 
-        Como $p(3),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
+        Como $p(3),\, p(k) \text{ y } p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
 
-  \item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.\\
-        \begin{tikzpicture}[scale=0.9]
-          \coordinate (n) at (0,0);
-          \coordinate (1) at (2,0);
-          \coordinate (2) at (3.2,1.5);
-          \coordinate (3) at (3.7,2.8);
-          \coordinate (k) at (2.5,3.8);
-          \coordinate (n-3) at (0.5,4);
-          \coordinate (n-2) at (-1,3.2);
-          \coordinate (n-1) at (-2,2);
+  \item la suma de los ángulos interiores de un polígono de $n$ lados es $\pi(n-2)$.
+        $$
+          \begin{tikzpicture}[scale=0.9]
+            \coordinate (n) at (0,0);
+            \coordinate (1) at (2,0);
+            \coordinate (2) at (3.2,1.5);
+            \coordinate (3) at (3.7,2.8);
+            \coordinate (k) at (2.5,3.8);
+            \coordinate (n-3) at (0.5,4);
+            \coordinate (n-2) at (-1,3.2);
+            \coordinate (n-1) at (-2,2);
 
-          \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
-            {
-              \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
-            }
-          \draw[dashed, green] (n-1) -- (1);
-          \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+            \draw[dashed, green] (n-1) -- (1);
+            \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
 
-          \draw[dashed, green] (n-1) -- (1);
-          \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
+            \draw[dashed, green] (n-1) -- (1);
+            \draw[ultra thick, cyan] (n) -- (1) -- (2) -- (3) -- (k) -- (n-3) -- (n-2) -- (n-1) -- cycle;
 
-          \pic [draw, angle eccentricity=1.5] {angle = 1--n--n-1};
-          \pic [draw, angle eccentricity=1.5] {angle = 2--1--n};
-          \pic [draw, angle eccentricity=1.5] {angle = 3--2--1};
-          \pic [draw, angle eccentricity=1.5] {angle = k--3--2};
-          \pic [draw, angle eccentricity=1.5] {angle = n-3--k--3};
-          \pic [draw, angle eccentricity=1.5] {angle = n-2--n-3--k};
-          \pic [draw, angle eccentricity=1.5] {angle = n-1--n-2--n-3};
-          \pic [draw, angle eccentricity=1.5] {angle = n--n-1--n-2};
+            \pic [draw, angle eccentricity=1.5] {angle = 1--n--n-1};
+            \pic [draw, angle eccentricity=1.5] {angle = 2--1--n};
+            \pic [draw, angle eccentricity=1.5] {angle = 3--2--1};
+            \pic [draw, angle eccentricity=1.5] {angle = k--3--2};
+            \pic [draw, angle eccentricity=1.5] {angle = n-3--k--3};
+            \pic [draw, angle eccentricity=1.5] {angle = n-2--n-3--k};
+            \pic [draw, angle eccentricity=1.5] {angle = n-1--n-2--n-3};
+            \pic [draw, angle eccentricity=1.5] {angle = n--n-1--n-2};
 
-          \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n-1--1--n};
-          \pic [draw, red, angle eccentricity=1.5, angle radius=0.7cm] {angle = 1--n--n-1};
-          \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n--n-1--1};
-        \end{tikzpicture}\par
+            \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n-1--1--n};
+            \pic [draw, red, angle eccentricity=1.5, angle radius=0.7cm] {angle = 1--n--n-1};
+            \pic [draw, red, angle eccentricity=1.5, angle radius=1cm] {angle = n--n-1--1};
+
+            \foreach \point/\position in {n/below left, 1/below, 2/right, 3/right, k/above right, n-3/above, n-2/above left, n-1/left}
+              {
+                \fill[OliveGreen] (\point) circle (3pt) node [\position] {$\point$};
+              }
+          \end{tikzpicture}
+        $$
         En este caso estoy generando la suma de los ángulos internos de 2 polígonos,
-        uno con $\alpha_n$ de $n$ lados y otro con $n-1, \alpha_{n-1}$
+        uno con $\alpha_n$ de $n$ lados y otro con $n-1, \alpha_{n-1}$.
+
         Es más claro en este caso que al sacarle un lado, estoy formando un triángulo
         {\tiny(en el gráfico con vértices $n$, $n-1$, 1)}
         que tiene como suma de sus ángulos internos $\pi$, entonces afirmo
@@ -152,7 +171,7 @@
         $$
           p(k): \ub{\alpha_k = \pi(k-2)}{\text{\purple{hipótesis inductiva}}}
         $$
-        es verdadero para algún $k \en \enteros_{\geq 3}$, entonces también quiero que:
+        es verdadero para algún $k \en \naturales_{\geq 3}$, entonces también quiero que:
         $$
           p(\blue{k+1}): \alpha_{\blue{k+1}} = \pi(k-1)
         $$
@@ -168,17 +187,15 @@
         $$
           \alpha_{k+1}
           \igual{\red{!}}
-          \purple{\pi(k-2)} + \pi = \pi(k-1)\Tilde
+          \purple{\pi(k-2)} + \pi = \pi(k-1)
         $$
 
-        Como $p(3),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio
+        Como $p(3),\, p(k) \text{ y } p(k+1)$ resultaron verdaderas, por el principio
         de inducción $p(n)$ es verdadera $\paratodo n \en \naturales_{\geq 3}$
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \enstagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
   \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{\neverGonnaGiveYouUp}{Damián Rojas \youtube}
 \end{aportes}

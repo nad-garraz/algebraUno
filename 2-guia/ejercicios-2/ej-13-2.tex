@@ -3,43 +3,60 @@
 \end{enunciado}
 
 Pruebo algunos valores de $n$:
-\begin{itemize}[label=-]
-  \item $n = 1 \rightarrow 1^2 + 1 = 2 \not< 2$
-  \item $n = 2 \rightarrow 2^2 + 1 = 5 \not< 4$
-  \item $n = 3 \rightarrow 3^2 + 1 = 10 \not< 8$
-  \item $n = 4 \rightarrow 4^2 + 1 = 17 \not< 16$
-  \item $n = 5 \rightarrow 5^2 + 1 = 26 < 32$ \Tilde
+\begin{itemize}
+  \item $n = 1 \to 1^2 + 1 = 2 \not< 2$
+  \item $n = 2 \to 2^2 + 1 = 5 \not< 4$
+  \item $n = 3 \to 3^2 + 1 = 10 \not< 8$
+  \item $n = 4 \to 4^2 + 1 = 17 \not< 16$
+  \item $n = 5 \to 5^2 + 1 = 26 < 32$ \Tilde
 \end{itemize}
 
-Parece ser que se cumple para los $n \geq 5$. Lo pruebo por inducción corrida.\par
+Parece ser que se cumple para los $n \geq 5$. Lo pruebo por inducción.
+Quiero probar que la siguiente proposición es verdadera:
 $$
-  P(n):  "n^2 + 1 < 2^n" \paratodo n \en \naturales_{\geq 5}
+  p(n) :  n^2 + 1 < 2^n \quad \paratodo n \en \naturales_{\geq 5}
 $$
 
-\underline{Caso Base}:
+\textit{Caso Base}:
 $$
-  P(5) \text{Verdadero}
+  p(5) \text{Verdadero}
   \sisolosi 5^2 + 1 < 2^5
   \sisolosi 26 < 32 \Tilde
 $$
 
-\underline{Paso Inductivo}: Sea $k \en \naturales_{\geq 5}$. Supongo $\HI{P(k)}$ Verdadero, quiero ver que $P(k + 1)$ Verdadero.
+\textit{Paso Inductivo}:
 
-\begin{align*}
-  P(k + 1) \text{Verdadero}
-   & \sisolosi (k + 1)^2 + 1 < 2^{k + 1}   \\
-   & \sisolosi (k + 1)^2 + 1 < 2^k \cdot 2
-\end{align*}
+Asumo que para algún valor $k \en \naturales_{\geq 5}$
+$$
+  p(k) :
+  \ub{
+    k^2 + 1 < 2^k
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera, entonces quiero ver que:
+$$
+  p(k+1) :
+  (k+1)^2 + 1 < 2^{k+1}
+$$
+también lo sea.
 
-y como $(k^2 + 1) \cdot 2 < 2^k \cdot 2$ por HI, si $(k + 1)^2 + 1 \leq (k^2 + 1) \cdot 2 \entonces (k + 1)^2 + 1 < 2^k \cdot 2$ como se quiere ver.
+Masajeo $p(k+1)$ para usar la \purple{hipótesis inductiva}:
+$$
+  \begin{array}{rcl}
+    (k+1)^2 + 1 & =    & k^2 + 1 + 2k + 1 \menor{\purple{HI}}  2^k + 2k + 1 \\
+                & \sii & k^2 + 1 < 2^k                                      \\
+                & \sii & k^2 + 1 \menorIgual{\red{!}} 2^{k+1}               \\
+                & \sii &
+    \cajaResultado{
+      (k+1)^2 + 1 < 2^{k+1}
+    }
+  \end{array}
+$$
+Se cumple el caso base y el paso inductivo,
+por el principio de inducción $p(n)$ es verdadero $\paratodo n \en \naturales_{\geq 5}$.
 
-\begin{align*}
-  (k + 1)^2 + 1 \leq (k^2 + 1) \cdot 2
-   & \sisolosi k^2 + 2k + 2 \leq 2k^2 + 2                                        \\
-   & \sisolosi 2k \leq k^2                                                       \\
-   & \underset{k > 0}{\sisolosi} 2 \leq k \Tilde \text{(Pues $k \geq 5$ por HI)}
-\end{align*}
-
-Así, $(k + 1)^2 + 1 < 2^k \cdot 2$ \quad y $\therefore P(k + 1)$ Verdadero.
-
-Como se cumple tanto el caso base como el paso inductivo, por el principio de inducción $P(n)$ es verdadero $\paratodo n \en \naturales$.
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

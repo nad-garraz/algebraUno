@@ -1,3 +1,67 @@
 \begin{enunciado}{\ejercicio}
-\hacer
+\begin{enumerate}[label=\roman*)]
+ \item Dadas las funciones 
+ 
+ $f : \naturales \to \naturales, \, f(n)= $
+ $
+ \begin{cases}
+ \frac{n^2}{2} \text{ si } n \text{ es divisible por } 6 \\
+ 3n + 1 \text{ en los otros casos}
+ \end{cases}
+ $
+ y
+ $g : \naturales \times \naturales \to \naturales, \, g(n,m) = n(m + 1)$,
+ calcular, de ser posible, $(f \circ g)(3, 4)$, $(f \circ g)(2, 5)$ y $(f \circ g)(3, 2)$
+
+ \item Dadas las funciones 
+ $f : \reales \to \reales, \, f(x)= $
+ $
+ \begin{cases}
+ x^2 \text{ si } x \leq 7 \\
+ 2x - 1 \text{ si } x > 7
+ \end{cases}
+ $
+ y
+ $g : \naturales \to \reales, \, g(n) = \sqrt{n}$, 
+
+ hallar, si existen, todos los $n \en \naturales$ tales que $(f \circ g)(n) = 13$ y todos los
+ $m \in \naturales$ tales que $(f \circ g)(m) = 15$.
+\end{enumerate}
 \end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+\item \begin{enumerate}
+        \item $g(3, 4) = 15, \, f(15) = 46$
+        \item $g(2,5) = 12, \, f(12) = 72$
+        \item $g(3,2) = 9, \, f(9) = 28$
+      \end{enumerate}
+
+\item \begin{enumerate}
+       Como $g$ va de $\naturales$ a $\reales$ y $f$ toma inputs de $\reales$ podemos hacer una composicion
+       $(f \circ g): \naturales \to \reales$
+       $$
+       (f \circ g)(n) =
+       \begin{cases}
+       \sqrt{n}^2 \text{ si } \sqrt{n} \leq 7 \\
+       2\sqrt{n} - 1 \text{ si } \sqrt{n} > 7 
+       \end{cases}
+       =
+       \begin{cases}
+       n \text{ si } n \leq 49 \\
+       2\sqrt{n} - 1 \text{ si } n > 49 
+       \end{cases}
+       $$
+       De esta forma ya vemos directamente que $n = 13$ y $m = 15$ son opciones validas para lo q pide el enunciado, veamos
+       si hay mas. 
+       Ya tenemos la primera rama de la funcion cubierta con esos dos valores, asique buscamos en la otra rama.  
+       $2\sqrt{n} - 1 = 13 \sii \sqrt{n} = 7 \sii n = 49$, pero $n = 49$ cae en la primera rama de la funcion, asi que no nos sirve. 
+       $2\sqrt{m} - 1 = 15 \sii \sqrt{m} = 8 \sii m =64$, valido pues $64 \geq 49$. 
+       Luego los $n \en \naturales$ tales que $(f \circ g)(n) = 13$ es $n = 13$. 
+
+       Y los  $m \in \naturales$ tales que $(f \circ g)(m) = 15$ son $m = 15$ y $m = 64$
+      \end{enumerate}
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

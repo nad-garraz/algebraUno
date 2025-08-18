@@ -137,7 +137,21 @@
         se puede reescribir finalmente todo como $7\divideA a^2 + b^2$.\\
         Finalmente se han probado las dos implicaciones, por lo tanto la proposicion inicial es verdadera
 
-  \item
+  \item $5 \divideA a^2 + b^2 + 1 \sii a^2 + b^2 + 1 \equiv 0 \sii a^2 + b^2 \equiv 4 \, (5)$. Ahora armamos una tabla de cuadrados
+  congruencia 5 para ver como se podria formar esta suma. 
+  $$
+  \begin{array}{|c|c|c|c|c|c|}
+  \hline
+   a    & 0 & 1 & 2 & 3 & 4 \\ \hline
+   a^2  & 0 & 1 & 4 & 4 & 1 \\ \hline
+  \end{array}
+  $$
+  Observamos que la unica forma de que dos cuadrados sumen $4$ es que alguno sea $4$ y el otro sea $0$. Bien, supongamos 
+  sin perdida de generalidad que $\congruencia{a^2}{4}{5}$ y $\congruencia{b^2}{0}{5}$, sigue que $\congruencia{b}{0}{5}
+  \sii 5 \divideA b$, como se queria demostrar (el caso para $a$ es simetrico).  
+  Ahora nos piden comprobar si la vuelta se cumple también. 
+
+  Contraejemplo: $a = 5$ y $b=4$, $5^2 + 4^2 + 1 = 42$, pero $5 \noDivide 42$. Entonces la implicacion inversa no se cumple.
 \end{enumerate}
 
 \begin{aportes}

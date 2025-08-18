@@ -1,3 +1,43 @@
 \begin{enunciado}{\ejercicio}
-  \hacer
+  \begin{enumerate}[label=\roman*)]
+    \item Probar que si $n$ es compuesto, entonces $2^n - 1$ es compuesto. 
+    \item Probar que si $2^n + 1$ es primo, entonces $n$ es una potencia de 2. 
+  \end{enumerate}
 \end{enunciado}
+
+Para el ejercicio vamos a considerar 2 identidades que son las siguientes: 
+\begin{enumerate}[label=\alph*)]
+\item $a^n - 1 = (a - 1)(a^{n-1} + a^{n-2} + \cdots + a + 1)$
+
+Prueba: Consideramos la serie geometrica: 
+\begin{align*}
+\sum_{k=0}^{N - 1} a^k &= \frac{a^N - 1}{a - 1} \\
+1 + a + \cdots + a^{N - 1} &= \frac{a^N - 1}{a - 1} \\
+(1 + a + \cdots + a^{N - 1})(a - 1) &= a^N - 1
+\end{align*}
+
+\item $a^m + 1 = (a + 1)(a^{m-1} - a^{m-2} + \cdots - x + 1)$ con $m$ impar 
+
+Pruba por inducción: $p(1)$ verdadero. Asumo $p(2k + 1)$ verdadero, luego qvq $p(2k + 3)$ es verdadero. 
+Considero la divivsion $\frac{a^{2k + 3} + 1}{a + 1}$, que es igual a $(a + 1)(a^{2k + 2} - a^{2k + 1})
++ \red{\underbrace{\frac{a^{2k + 1}}{a + 1}}_{\text{hipotesis inductiva}}}$, como se queria probar.
+
+\end{enumerate}
+
+Ahora encaramos el ejercicio
+\begin{enumerate}[label = \roman*)]
+ \item si $n$ es compuesto entonces se puede escribir como $ab$. 
+ 
+ Sigue que $2^{ab} - 1 = (2^a)^b - 1 = (2^a - 1)((2^a)^{b-1} + (2^a)^{b - 2} + \cdots + 2^a + 1)$, 
+ claramente este numero es compuesto, como se queria probar.
+
+ \item Para probar esta implicacion vamos a probar el contrarreciproco ($p \entonces q = \lnot q \entonces \lnot p$). 
+ Entonces, queremos probar que dado $n$ divisible por un primo impar entonces $2^n + 1$ es compuesto. 
+
+ $p \divideA n \sii n = kp$, luego $2^n + 1$ = $2^{kp} + 1 = (2^k)^p + 1 = (2^k + 1)((2^k)^{p - 1} - (2^k)^{p - 2} + \cdots - 2^k + 1)$. 
+ Que es un numero compuesto, como se queria probar. 
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

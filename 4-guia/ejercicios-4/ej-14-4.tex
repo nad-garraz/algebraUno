@@ -1,6 +1,5 @@
-
 \begin{enunciado}{\ejercicio}
-        \begin{enumerate}[label=(\alph*)]
+  \begin{enumerate}[label=(\alph*)]
     \item Hallar el desarrollo en base 2 de
           \begin{multicols}{4}
             \begin{enumerate}[label=\roman*.]
@@ -11,39 +10,122 @@
             \end{enumerate}
           \end{multicols}
 
-  \item Hallar el desarrollo en base 16 de 2800.
+    \item Hallar el desarrollo en base 16 de 2800.
   \end{enumerate}
 \end{enunciado}
+{
+\footnotesize
+\parrafoDestacado{
+  A veces escribo $(12)_2 = 1100$ para decir
+  \textit{El número $12$ en base dos es $1100$} y a veces puede ser que se escriba como
+  $12 = (1100)_2$. A mí me gusta la primera, pero bueh, mientras se entienda, \faIcon{hands-wash}.
+}
+}
 
-Para hallar el desarollo en base $2$ de algun numero dado su representacion decimal, simplemente dividimos por $2$, truncamos, anotamos el resto 
-y seguimos iterando hasta que lleguemos a $0$, luego escribimos los restos que conseguimos en orden inverso y esta es la representacion. 
+Para hallar el desarrollo en base $2$ de algún número dado su representación decimal, simplemente dividimos por $2$, truncamos, anotamos el resto
+y seguimos iterando hasta que lleguemos a $0$, luego escribimos los restos que conseguimos en orden inverso y esta es la representación.
 
-Pequeño ejemplo para que se vea: Consideremos el numero $6$, que su representacion en base $2$ es $2^2 \cdot 1 + 2^1 \cdot 1 + 2^0 \cdot 0$.
-Vamos a usar una notacion de $n \flecha{$r_2(n)$} \lfloor \frac{n}{2} \rfloor$. 
+\medskip
 
-$6 \flecha{$0$} 3 \flecha{$1$} 1 \flecha{$1$} 0$. Ahora ponemos en reversa los restos que obtuvimos, y nos queda 
-$2^2 \cdot 1 + 2^1 \cdot 1 + 2^0 \cdot$ 0
+Pequeño ejemplo para que se vea: Consideremos el número $6$, que su representación en base $2$ es:
+$$
+  6 = 2^2 \cdot \blue{1} + 2^1 \cdot \blue{1} + 2^0 \cdot \blue{0}
+  \entonces
+  (6)_2 =  \blue{110}
+$$
+Lo mismo pero usando una notación de $n \flecha{$r_2(n)$} \lfloor \frac{n}{2} \rfloor$:
+$$
+  6 \flecha{$\magenta{0}$} 3 \flecha{$\magenta{1}$} 1 \flecha{$\magenta{1}$} 0 \quad \llamada1
+$$
+Ahora ponemos en reversa los restos que obtuvimos en $\llamada1$, y nos queda:
+$$
+  2^2 \cdot \magenta{1} + 2^1 \cdot \magenta{1} + 2^0 \cdot \magenta{0}
+  \entonces
+  (6)_2 =  \magenta{110}
+$$
 
 \begin{enumerate}[label=(\alph*)]
-  \item 
-    \begin{enumerate}[label=\roman*.]
-      \item 
-       $1365 \flecha{1} 682 \flecha{0} 341 \flecha{1} 170 \flecha{0} 85
-       \flecha{1} 42 \flecha{0} 21 \flecha{1} 10 \flecha{0} 5 \flecha{1} 2 \flecha{0} 1 \flecha{1} 0$. 
-       Hacemos el display en reversa y nos da $10101010101$, cada $1$ representa que multiplica al respectivo $2^d$ y $0$ que lo hace cero. En este caso 
-       lo escribimos con $0$ y $1$ porque es mas conveniente que andar poniendo tal multiplicado por $2^d$ 
-       \item 
-       $2800 \flecha{0} 1400 \flecha{0} 700 \flecha{0} 350 \flecha{0} 175 \flecha{1} 87 \flecha{1} 43
-       \flecha{1} 21 \flecha{1} 10 \flecha{0} 5 \flecha{1} 2 \flecha{0} 1 \flecha{1} 0$. 
-       Hacemos el display en reversa y nos da $10101111000$. 
-       \item $3 \cdot 2^{12} = (2 + 1)\cdot 2^{12} = 2^{13} + 2^{12}$. 
-       \item $13 \cdot 2^n + 5 \cdot 2^{n - 1} = (2^3 + 2^2 + 2^0) \cdot 2^n + (2^2 + 2^0) \cdot 2^{n - 1} 
-       = 2^{n + 3} + 2^{n + 2} + 2^n + 2^{n + 1} + 2^{n - 1}$
-      \end{enumerate}
   \item
-  $2800 \flecha{0} 175 \flecha{F} 10 \flecha{A} 0$. Entonces su representacion en base $16$ es $(AF0)_{16}$
+        \begin{enumerate}[label=\roman*.]
+          \item
+                $$
+                  1365 \flecha{\magenta{1}}
+                  682 \flecha{$\magenta{0}$}
+                  341 \flecha{\magenta{1}}
+                  170 \flecha{\magenta{0}}
+                  85 \flecha{\magenta{1}}
+                  42 \flecha{\magenta{0}}
+                  21 \flecha{\magenta{1}}
+                  10 \flecha{\magenta{0}}
+                  5 \flecha{\magenta{1}}
+                  2 \flecha{\magenta{0}}
+                  1 \flecha{\magenta{1}} 0.
+                $$
+                Hacemos el display en reversa y nos da:
+                $$
+                  (1365)_2 = \magenta{10101010101},
+                $$
+                cada $1$ representa que multiplica al respectivo $2^d$ y $0$ que lo hace cero. En este caso
+                lo escribimos con $0$ y $1$ porque es más conveniente que andar poniendo tal multiplicado por $2^d$
+
+          \item
+                $$
+                  2800 \flecha{\magenta{0}}
+                  1400 \flecha{\magenta{0}}
+                  700 \flecha{\magenta{0}}
+                  350 \flecha{\magenta{0}}
+                  175 \flecha{\magenta{1}}
+                  87 \flecha{\magenta{1}}
+                  43 \flecha{\magenta{1}}
+                  21 \flecha{\magenta{1}}
+                  10 \flecha{\magenta{0}}
+                  5 \flecha{\magenta{1}}
+                  2 \flecha{\magenta{0}}
+                  1 \flecha{\magenta{1}}
+                  0.
+                $$
+                Hacemos el display en reversa y nos da:
+                $$
+                  (2800)_2 = \magenta{10101111000}.
+                $$
+
+          \item $$
+                  3 \cdot 2^{12} =
+                  (2 + 1)\cdot 2^{12} = 2^{13} + 2^{12}
+                  \igual{\red{!}}
+                  2^{13} \cdot \magenta{1} + 2^{12} \cdot \magenta{1} + \sumatoria{i=0}{11} 2^{11 - i} \cdot \magenta{0}
+                $$
+                Queda como:
+                $$
+                  (3\cdot 2^{12})_2 = \magenta{11000000000000}.
+                $$
+
+          \item $$
+                  13 \cdot 2^n + 5 \cdot 2^{n - 1} =
+                  (2^3 + 2^2 + 2^0) \cdot 2^n + (2^2 + 2^0) \cdot 2^{n - 1} =
+                  2^{n + 3} + 2^{n + 2} + 2^n + 2^{n + 1} + 2^{n - 1}
+                $$
+                Para algún $n\en \naturales$ queda como:
+                $$
+                  (13 \cdot 2^n + 5 \cdot 2^{n - 1})_2 =
+                  \magenta{11111}\ub{\magenta{0 \cdots 0}}{n - 1 \text{ dígitos}}
+                $$
+        \end{enumerate}
+  \item Así como en base 2, un dígito puede tomar 2 valores, el 0 o el 1, en base 16 cada dígito de nuestro número puede tomar 16 posibles valores:
+        $$
+          0,\,1,\,2,\,3,\,4,\,5,\,6,\,7,\,8,\,9,\,A,\,B,\,C,\,D,\,E \otext F
+        $$
+        Es igual a lo anterior, pero ahora los posibles restos serán valores entre $0$ y $\ua{F}{15}$:
+        $$
+          2800 \flecha{\magenta{0}} 175 \flecha{\magenta{F}} 10 \flecha{\magenta{A}} 0.
+        $$
+        Entonces su representación en base $16$:
+        $$
+          (2800)_{16} = \magenta{AF0}
+        $$
 \end{enumerate}
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

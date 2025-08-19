@@ -39,7 +39,30 @@
         $
         Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
 
-  \item \hacer
+  \item $56 \divideA 13^{2n} + 28n^2 - 84n -1 \Sii{def} \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$. Procedemos a probar esto por induccion:
+  
+  $$
+  p(n) : \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}
+  $$
+
+  \textit{Caso base: }
+
+  \begin{align}
+  p(1) : \congruencia{13^2 + 28 - 84 - 1}{0}{56} \\
+  \congruencia{0}{0}{56} \Tilde
+  \end{align}
+
+  Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo es. 
+
+  \begin{align}
+  \congruencia{13^{2n + 2} + 28(n+1)^2 - 84(n+1) - 1}{0}{56} \\
+  \congruencia{13^{2n} \cdot 13^2 + 28n^2 + 56n + 28 -84n - 84 - 1}{0}{56} \\
+  \congruencia{\red{\underbrace{13^{2n} + 28n^2 + 56n -84n}_{\text{hipotesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
+  \congruencia{28 - 84 + 168}{0}{56} \\
+  \congruencia{112}{0}{56} \Tilde
+  \end{align}
+
+  Se probó que $p(n + 1)$ es verdadera, luego $p(n)$ es verdadera para todo $n \in \naturales$
 
   \item  Hermoso ejercicio en el que sin fe en el todo poderoso Gauss sencillamente uno tira la toalla.
 

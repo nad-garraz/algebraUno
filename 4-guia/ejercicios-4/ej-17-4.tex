@@ -1,3 +1,21 @@
 \begin{enunciado}{\ejercicio}
-    \hacer
+    \begin{enumerate}[label=(\alph*)]
+     \item Sea $k \en \naturales, k = (aaaa)_7$. Probar que $8 \divideA k$
+     \item Sea $k \en \naturales, k = (\underbrace{a \ldots a}_{d})_7$. Determinar para qué valores de $d \en \naturales$ 
+     se tiene que $8 \divideA k$
+    \end{enumerate}
 \end{enunciado}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Expreamos $k$ en base 10: $7^3 \cdot a + 7^2 \cdot a + 7^1 \cdot a + a = a(7^3 + 7^2 + 7 + 1)
+    = a(400), 8 \divideA 400 \implies 8 \divideA a(400) = k$
+
+    \item Expresamos $k$ en base 10: $a(7^{d-1} + 7^{d-2} + \cdots 7 + 1)$. Queremos que lo adentro sea multiplo de 8, motivado
+    por el ejercicio anterior, vemos que si agrupamos dos potencias de 7 contiguas tal que la primera potencia sea par obtenemos un multiplo de 8, veamos que onda. 
+    Yo propongo que $8 \divideA 7^{2k} + 7^{2k + 1} = 7^{2k}(1 + 7)$, claramente divisible por 8, entonces necesitamos que vengan potencias 
+    de 7 de a pares, luego $d$ tiene que ser par. Entonces el enunciado se cumple siempre que $\congruencia{d}{0}{2}$.
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

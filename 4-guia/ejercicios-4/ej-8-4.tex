@@ -16,22 +16,20 @@
 
 Voy a usar $\blue{q}$ para el \blue{cociente} y \magenta{$r$} para el \magenta{resto}:
 \parrafoDestacado[\purple{\atencion}]{
-  $b$ el divisor tiene que cumplir: $|b| \leq |a|$
 
   $\magenta{r}$ tiene que cumplir condición de resto: $0 \leq \magenta{r} \leq |d|$.
 }
 
-\begin{enumerate}[label=\alph*)]
-  \item Congruencia:
+Congruencia:
         $$
           d \divideA a
-          \Sii{def}
+          \Sii{def} \congruencia{a}{0}{d}
         $$
 
+\begin{enumerate}[label=\alph*)]
+  \item $a = 133 = -14 \cdot \ua{\blue{-9}}{\blue{q}} + \ua{\magenta{7}}{\magenta{r}}$
+  
   \item $13 \div 111  \entonces 13 = 111 \cdot \ua{\blue{0}}{\blue{q}} + \ua{\magenta{13}}{\magenta{r}}$
-
-        ¿Qué onda esto? Si bien el divisor $b = 111 > 13 = a$ ¿El algoritmo de división vale igual entonces y
-        valen el cociente y el resto?
 
   \item $a = 3b + 7,\quad b = b$
         $$
@@ -89,14 +87,36 @@ Voy a usar $\blue{q}$ para el \blue{cociente} y \magenta{$r$} para el \magenta{r
         Entonces en la tabla están los valores de los cocientes. Los primeros están sacados a manopla:
         $$
           \llave{ccl}{
-            \blue{q_n(a)} = n - 2 & \text{ para } & n \geq 8 \\
-            \magenta{r_n(a)} = 9 & \text{ para } & n \geq 8
+            \blue{q_b(a)} = n - 2 & \text{ para } & n \geq 8 \\
+            \magenta{r_b(a)} = 9 & \text{ para } & n \geq 8
           }
         $$
 
-  \item \hacer
+  \item Cuando $b$ sea mayor que $a$ el resto va a ser simplemente $a$, asi que busco cuando esto se cumpla
+  Digo que $n^2 + 1 > n + 3 \sii n^2 - n - 2 > 0 \sii n > 2 \sii n \geq 3$. Hago los casos separados para $n = 1$ y $n = 2$. 
+
+  $n = 1$. $a = 4$, $b=2$, $\blue{q} = 2$, $\magenta{r} = 0$
+
+  $n = 2$. $a = 5$, $b=5$, $\blue{q} = 1$, $\magenta{r} = 0$
+
+  Finalmente 
+  $$
+  \blue{q_b(a)} = 
+  \begin{cases}
+  2 \text{ si } n = 1 \\
+  1 \text{ si } n = 2 \\
+  0 \text{ si } n \geq 3 
+  \end{cases}
+  \magenta{r_b(a)} =
+  \begin{cases}
+  0 \text{ si } n < 3 \\
+  n + 3 \text{ si } n \geq 3
+  \end{cases}
+  $$
+
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

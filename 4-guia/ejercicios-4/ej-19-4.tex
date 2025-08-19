@@ -1,1 +1,12 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+Sean $a,b \in \enteros$. Sabiendo que el resto de dividir a $a$ por $b$ es $27$ y que el resto de dividir $b$ por $27$ 
+es $21$, calcular $(a:b)$
+\end{enunciado}
+
+Traducimos lo que nos da el enunciado a congruencias y tenemos $\congruencia{a}{27}{b}$ y $\congruencia{b}{21}{27}$. 
+Podemos expresar a $a$ como $bj + 27$ (por la def de congruencia). Luego vemos que $(a:b) = (bj + 27 : b)
+= (27:b)$, ahora expremos $b$ como $27k + 21$, luego $(27:b) = (27: 27k + 21) = (27:21) = (3^3:3 \cdot 7) = 3$. 
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

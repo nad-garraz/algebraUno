@@ -1,1 +1,21 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+Sea $a = (a_d a_{d-1} \ldots a_1 a_0)_2$ un numero escrito en base $2$ (o sea escrito en bits). Determinar 
+simplemente como son las escrituras en base $2$ del numero $2a$ y del numero $a/2$ cuando $a$ es par, o sea 
+las operaciones "multiplicar por 2" y "dividir por 2" cuando se puede. Estas operaciones se llaman $shift$ en inglés,
+o sea corrimiento, y son operaciones que una computadora hacer en forma sencilla. 
+
+\end{enunciado}
+
+$a = (a_d a_{d-1} \ldots a_1 a_0)_2$ podemos escribirlo en base 10 como
+$2^d \cdot a_d + 2^{d-1} \cdot a_{d-1} + \cdots + 2^1 \cdot a_1 + 2^0 \cdot a_0$. 
+Multiplicamos por $2$ y obtenemos $2^{d + 1} \cdot a_d + 2^d \cdot a_{d-1} + \cdots + 2^1 \cdot a_0 + \red{2^0 \cdot 0}$
+En base $2$ este numero seria $(a_d a_{d-1} \ldots a_1 a_0 \red{0})_2$. Vemos que los numeros se corrieron a la izquierda. 
+Esta operacion es el left shift. 
+
+Ahora hacemos lo mismo pero dividimos por $2$, obtenemos 
+$2^{d - 1} \cdot a_d + 2^{d - 2} \cdot a_{d-1} + \cdots + 2^1 a_2 + 2^0 a_1 + \red{r}$, escrito en base $2$ seria 
+$(a_{d} a_{d-1} \ldots a_2 a_1)$ ya que el resto se elimina. Vemos que perdimos informacion del ultimo digito, porque dividimos por 2 y truncamos.
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

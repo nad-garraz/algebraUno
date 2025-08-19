@@ -14,4 +14,36 @@
   \item Hallar el desarrollo en base 16 de 2800.
   \end{enumerate}
 \end{enunciado}
-\hacer
+
+Para hallar el desarollo en base $2$ de algun numero dado su representacion decimal, simplemente dividimos por $2$, truncamos, anotamos el resto 
+y seguimos iterando hasta que lleguemos a $0$, luego escribimos los restos que conseguimos en orden inverso y esta es la representacion. 
+
+Pequeño ejemplo para que se vea: Consideremos el numero $6$, que su representacion en base $2$ es $2^2 \cdot 1 + 2^1 \cdot 1 + 2^0 \cdot 0$.
+Vamos a usar una notacion de $n \flecha{$r_2(n)$} \lfloor \frac{n}{2} \rfloor$. 
+
+$6 \flecha{$0$} 3 \flecha{$1$} 1 \flecha{$1$} 0$. Ahora ponemos en reversa los restos que obtuvimos, y nos queda 
+$2^2 \cdot 1 + 2^1 \cdot 1 + 2^0 \cdot$ 0
+
+\begin{enumerate}[label=(\alph*)]
+  \item 
+    \begin{enumerate}[label=\roman*.]
+      \item 
+       $1365 \flecha{1} 682 \flecha{0} 341 \flecha{1} 170 \flecha{0} 85
+       \flecha{1} 42 \flecha{0} 21 \flecha{1} 10 \flecha{0} 5 \flecha{1} 2 \flecha{0} 1 \flecha{1} 0$. 
+       Hacemos el display en reversa y nos da $10101010101$, cada $1$ representa que multiplica al respectivo $2^d$ y $0$ que lo hace cero. En este caso 
+       lo escribimos con $0$ y $1$ porque es mas conveniente que andar poniendo tal multiplicado por $2^d$ 
+       \item 
+       $2800 \flecha{0} 1400 \flecha{0} 700 \flecha{0} 350 \flecha{0} 175 \flecha{1} 87 \flecha{1} 43
+       \flecha{1} 21 \flecha{1} 10 \flecha{0} 5 \flecha{1} 2 \flecha{0} 1 \flecha{1} 0$. 
+       Hacemos el display en reversa y nos da $10101111000$. 
+       \item $3 \cdot 2^{12} = (2 + 1)\cdot 2^{12} = 2^{13} + 2^{12}$. 
+       \item $13 \cdot 2^n + 5 \cdot 2^{n - 1} = (2^3 + 2^2 + 2^0) \cdot 2^n + (2^2 + 2^0) \cdot 2^{n - 1} 
+       = 2^{n + 3} + 2^{n + 2} + 2^n + 2^{n + 1} + 2^{n - 1}$
+      \end{enumerate}
+  \item
+  $2800 \flecha{0} 175 \flecha{F} 10 \flecha{A} 0$. Entonces su representacion en base $16$ es $(AF0)_{16}$
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

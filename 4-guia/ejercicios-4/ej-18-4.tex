@@ -7,4 +7,79 @@
   \end{enumerate}
 \end{enunciado}
 
-\hacer
+\begin{enumerate}[label=\roman*)]
+  \item
+        Para calcular el máximo común divisor hay que usar el \textit{algoritmo de Euclides}, en forma matricial
+        lo que hago es ir restando las filas hasta encontrar el $\magenta{0}$, el valor de la fila anterior es le \blue{mcd}.
+
+        Lo que me gusta de este método es que en cada línea vas a escribiendo una combinación entera
+        entre los números sin mucho esfuerzo.
+        $$
+          \begin{array}{|c|c|c|l|} \hline\rowcolor{red!5!white}
+            1           & 0            & 2532     & F_1               \\ \hline\rowcolor{red!5!white}
+            0           & 1            & 63       & F_2               \\ \hline
+            1           & -40          & 12       & F_3 = F_1 - 40F_2 \\ \hline \rowcolor{Cerulean!5!white}
+            \orange{-5} & \orange{201} & \blue{3} & F_4 = F_2 - 5F_3  \\ \hline
+            -           & -            & \red{0}  & F_5 = F_3 - 4F_4  \\ \hline
+          \end{array}
+        $$
+        El \textit{máximo común divisor} entre 2532 y 63 escrito como combinación entera de los mismos:
+        $$
+          \cajaResultado{
+            \blue{3} = \orange{-5} \cdot 2532 + \orange{201} \cdot 63
+          }
+        $$
+
+        También se puede encontar el $(2532 : 63)$ haciendo la factorización en primos
+        y agarrando las \ul{potencias comunes elevadas al menor exponente}:
+        $$
+          2532 = 2^2 \cdot 3^1 \cdot 211
+          \ytext
+          63 = 3^2 \cdot 7
+          \entonces
+          (2532 : 63) = \blue{3^1}
+        $$
+
+  \item Dado que 131 y 23 son dos números primos, sabemos que $(131:23)$. El tema es la combinación entera
+        para lo cual vuelvo a usar el método matricial de Euclides.
+        $$
+          \begin{array}{|c|c|c|l|} \hline\rowcolor{red!5!white}
+            1            & 0           & 131      & F_1              \\ \hline\rowcolor{red!5!white}
+            0            & 1           & 23       & F_2              \\ \hline
+            1            & -5          & 16       & F_3 = F_1 - 5F_2 \\ \hline
+            -1           & 6           & 7        & F_4 = F_2 - F_3  \\ \hline
+            3            & -17         & 2        & F_5 = F_3 - 2F_4 \\ \hline \rowcolor{Cerulean!5!white}
+            \orange{-10} & \orange{57} & \blue{1} & F_6 = F_4 - 3F_5 \\ \hline
+            -            & -           & 0        & F_7 = F_5 - 2F_6 \\ \hline
+          \end{array}
+        $$
+        El \textit{máximo común divisor} entre 2532 y 63 escrito como combinación entera de los mismos:
+        $$
+          \cajaResultado{
+            \blue{1} = \orange{-10} \cdot 131 + \orange{57} \cdot 23
+          }
+        $$
+
+  \item
+        En este caso con estos polinomios hago división polinomial:
+        $$
+          \polyset{vars=n}
+          \divPol{n^4-3}{n^2+2}
+        $$
+        Tengo según Euclides:
+        $$
+          (n^4-3 : n^2+2) = (n^2+2 : \blue{1}) = 1
+        $$
+        Por el algoritmo de división sé que:
+        $$
+          n^4 - 3 =  (n^2+2) \cdot (n^2 - 2) + \blue{1}
+          \sii
+          \cajaResultado{
+            \blue{1} = \orange{1} \cdot (n^4 - 3) + \orange{-(n^2 - 2)} \cdot (n^2 + 2)
+          }
+        $$
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

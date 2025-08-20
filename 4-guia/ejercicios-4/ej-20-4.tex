@@ -1,45 +1,183 @@
-\ejercicio
-Sea $a \en \enteros$.
-\begin{enumerate}[label=\alph*)]
-	\item Probar que $(5a + 8 : 7a + 3) = 1 \otext 41.$
-    Exhibir un valor de $a$ para el cual da 1, y verificar
-	      que efectivamente para $a = 23$ da $41$.
+\begin{enunciado}{\ejercicio}
+  Sea $a \en \enteros$.
+  \begin{enumerate}[label=\alph*)]
+    \item Probar que
+          $(5a + 8 : 7a + 3) = 1 \otext 41.$
+          Exhibir un valor de $a$ para el cual da 1, y verificar
+          que efectivamente para $a = 23$ da $41$.
 
-	\item Probar que $(2 a^2 + 3a : 5a +6) = 1 \otext 43.$ Exhibir un valor de $a$ para el cual da 1, y verificar
-	      que efectivamente para $a = 16$ da $43$
+    \item Probar que $(2 a^2 + 3a -1 : 5a +6) = 1 \otext 43.$ Exhibir un valor de $a$ para el cual da 1, y verificar
+          que efectivamente para $a = 16$ da $43$
 
-	\item Probar que $(a^2-3a+2 : 3a^3 -5a^2) = 2 \otext 4$, y exhibir un valor de $a$ para cada caso.\\
-	      (Para este item es \textbf{indispensable} mostrar que el máximo común divisor nunca puede ser 1).
-\end{enumerate}
+    \item Probar que $(a^2-3a+2 : 3a^3 -5a^2) = 2 \otext 4$, y exhibir un valor de $a$ para cada caso.
 
-\separadorCorto
+          (Para este item es \textbf{indispensable} mostrar que el máximo común divisor nunca puede ser 1).
+  \end{enumerate}
+\end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-	\item \hacer 
-	\item \hacer
-	\item
-	      $(a^2-3a+2 : 3a^3 -5a^2)
-		      \flecha{Euclides}
-		      (\ub{a^2 - 3a + 2}{\llamada{1} par} : \ub{6a -8}{\llamada{1}{} par})\\
-		      \flecha{busco}[divisor]
-		      \llaves{l}{
-			      d \divideA a^2 - 3a + 2\\
-			      d \divideA 6a - 8
-		      }
-		      \flecha{$\times 6$}[$\times a$]
-		      \llaves{l}{
-			      d \divideA 10a -12\\
-			      d \divideA 6a - 8
-		      }
-		      \flecha{$\times 6$}[$\times 10$]
-		      \llaves{l}{
-			      d \divideA 8
-		      }\to
-		      \divsetP{8}{1,2,4,8} \llamada{1}= \set{2,4,8}\\
-		      \llave{ll}{
-			      a = 1 & (0:-2) = 2\\
-			      a = 2 & (0:4) = 4
-		      }$\\
-	      \red{Parecido al hecho en clase.}\\
-	      \red{¿Qué onda el 8? Hice mal cuentas? Si no, cómo lo descarto?}
+  \item
+        Si $d = (5a + 8 : 7a + 3)$, entonces $d$ divide ambas expresiones:
+        $$
+          \llave{l}{
+            d \divideA 5a + 8 \\
+            d \divideA 7a + 3
+          }
+          \Sii{$7F_1 - 5F_2 \to F_2$}
+          \llave{l}{
+            d \divideA 5a + 8 \\
+            d \divideA 41
+          }
+        $$
+        Para que se cumpla ese último resultado:
+        $$
+          d \en \set{\pm1, \pm 41}
+        $$
+        Pero el \textit{máximo común divisor} es positivo así que:
+        $$
+          d \en \set{1, 41}
+        $$
+        Si $a = 1$ queda $d = (13 : 10) = 1$. En el caso en que $a = 23$:
+        $$
+          d = (123:164)
+          \igual{\red{!}}
+          (123:41) = 41
+        $$
+        Donde en el \red{!} usé Euclides. Haciendo el algoritmo de Euclides, recordar que el valor del
+        \textit{máximos común divisor} se encuentra en el último resto distinto de 0.
+
+  \item
+        Si $d = (2a^2 + 3a - 1 : 5a + 6)$, entonces $d$ divide ambas expresiones:
+        $$
+          \llave{l}{
+            d \divideA 2a^2 + 3a - 1 \\
+            d \divideA 5a + 6
+          }
+          \Sii{$5F_1 - 2a F_2 \to F_1$}
+          \llave{l}{
+            d \divideA 3a - 5\\
+            d \divideA 5a + 6
+          }
+          \Sii{$5F_1 - 3 F_2 \to F_2$}
+          \llave{l}{
+            d \divideA 3a -5\\
+            d \divideA -43
+          }
+        $$
+        Para que se cumpla ese último resultado:
+        $$
+          d \en \set{\pm1, \pm 43}
+        $$
+        Pero el \textit{máximo común divisor} es positivo así que:
+        $$
+          d \en \set{1, 43}
+        $$
+        Si $a = 0$ queda $d = (-1 : 6) = 1$. En el caso en que $a = 16$:
+        $$
+          d = (559:86)
+          \igual{\red{!}}
+          (86:42)
+          \igual{\red{!}}
+          (86:43)
+          = 43
+        $$
+        Donde en el \red{!} usé Euclides. Haciendo el algoritmo de Euclides, recordar que el valor del
+        \textit{máximos común divisor} se encuentra en el último resto distinto de 0.
+
+  \item  Dado que voy a hacer cuentas en la cuales $a$ no puede ser 0. Me saco de encima eso primero:
+        $$
+          a = 0 \entonces (a^2 -3a + 2 : 3a^3 - 5a^2) = (0:-2) = 2
+        $$
+
+        Acomodo un poco y hago Euclides haciendo división de polinomios para achicar la expresión:
+        $$
+          \polyset{vars=a}
+          \divPol{3a^3 - 5a^2}{a^2 - 3a + 2}
+        $$
+        Con ese resultado:
+        $$
+          d =
+          (a^2 -3a + 2 : 3a^3 - 5a^2)
+          =
+          (a^2 -3a + 2 : 6a - 8)
+        $$
+        Procedo ahora a encontrar los posibles divisores comunes:
+        $$
+          \llave{l}{
+            d \divideA a^2 -3a + 2\\
+            d \divideA 6a - 8
+          }
+          \Sii{$6F_1 - 2a F_2 \to F_1$}[$a \distinto 0$]
+          \llave{l}{
+            d \divideA  -2a + 12\\
+            d \divideA 6a - 8
+          }
+          \Sii{$3F_1 + F_2 \to F_1$}
+          \llamada1
+          \llave{l}{
+            d \divideA  28\\
+            d \divideA 6a - 8
+          }
+        $$
+        Para que se cumpla ese último resultado teniendo en cuenta que $28 = 2^2 \cdot 7$:
+        $$
+          d \en \set{\pm1, \pm2, \pm 4, \pm 7, \pm 14, \pm 28}
+        $$
+        Pero el \textit{máximo común divisor} es positivo así que:
+        $$
+          d \en \set{1, 2, 4, 7, 14, 28}
+        $$
+        Hay que sacar posibles valores del MCD. De $\llamada1$ necesito que $d \divideA 6a-8$.
+
+        Puedo hacer una tabla de restos para estudiar eso:
+        $$
+          \begin{array}{|c|c|c|c|c|c|c|c|} \hline
+            r_7(a)      & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+            r_7(6a - 8) & 6 & 5 & 4 & 3 & 2 & 1 & 5 \\ \hline
+          \end{array}
+        $$
+        La tabla de restos dice que el $7$ no divide núnca a la expresión $6a -8$, por lo que podemos
+        descartar todos los divisores que sean multiplos enteros de 7. Actualizo los posibles valores para $d$:
+        $$
+          d \en \set{1, 2, 4}
+        $$
+        Necesito como dice la \textbf{sugerencia}, \ul{descartar la posibilidad de que $d = 1$ para algún valor de $a$}:
+        $$
+          \begin{array}{|c|c|c|} \hline
+            r_2(a)      & 0 & 1 \\ \hline
+            r_2(6a - 8) & 0 & 0 \\ \hline
+          \end{array}
+        $$
+        La tabla dice que \ul{para todo valor de $a$} la expresión va a ser divisible por 2. Eso descarta que
+        1 pueda ser \textit{un máximos común divisor}.
+        $$
+          \begin{array}{|c|c|c|c|c|} \hline
+            r_4(a)      & 0 & 1 & 2 & 3 \\ \hline
+            r_4(6a - 8) & 0 & 2 & 0 & 2 \\ \hline
+          \end{array}
+        $$
+        Juntando todos estos resultados se puede concluir:
+        $$
+          d =
+          \llave{rcl}{
+            2 & \text{ si } & \congruencia{a}{1}{2}  \lor a = 0\\
+            4 & \text{ si } & \congruencia{a}{0}{4} \land a \distinto 0
+          }
+        $$
+        O puesto de otra manera
+        $$
+          d =
+          \llave{rcl}{
+            2 & \text{ si } & a \text{ es impar} \lor a = 0\\
+            4 & \text{ si } & a \text{ par} \land a\distinto 0
+          }
+        $$
+        Solo falta el ejemplo de $a$ para que $d = 4$:
+        $$
+          a = 2 \entonces (a^2 -3a + 2 : 3a^3 - 5a^2) = (0:4) = 4
+        $$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

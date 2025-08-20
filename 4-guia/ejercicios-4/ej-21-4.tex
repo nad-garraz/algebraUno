@@ -1,16 +1,41 @@
-\ejercicio
-Sean $a,b \en \enteros$ coprimos.
-Probar que $7a - 3b \ytext 2a -b$ son coprimos.
+\begin{enunciado}{\ejercicio}
+  Sean $a,b \en \enteros$ coprimos.
+  Probar que $7a - 3b \ytext 2a -b$ son coprimos.
+\end{enunciado}
 
-\separadorCorto
+Puedo buscar divisores comunes para ver si son coprimos:
+$$
+  \llave{l}{
+    d \divideA 7a-3b\\
+    d \divideA 2a-b
+  }
+  \Sii{$2F_1 - 7F_2 \to F_1$}
+  \llave{l}{
+    d \divideA b\\
+    d \divideA 2a-b
+  }
+$$
+Pero también:
+$$
+  \llave{l}{
+    d \divideA 7a-3b\\
+    d \divideA 2a-b
+  }
+  \Sii{$F_1 - 3F_2 \to F_2$}
+  \llave{l}{
+    d \divideA 7a-3b\\
+    d \divideA a
+  }
+$$
+Es decir que $d$ es un divisor común de $a$ y $b$, peeeeeero por enunciado sé que $(a:b) = 1$.
+Por lo tanto el único divisor común que tienen 2 números coprimos es 1, así que $d$ puede valer
+$d = \pm 1$, a los fines del ejercicio $d = 1$:
+$$
+  d = 1 = (7a - 3b : 2a -b)
+$$
+La expresiones son números coprimos porque el único divisor común que tienen es 1.
 
-$\llaves{ccccc}{
-		d \divideA 7a-3b & \flecha{$\cdot 2$} &d \divideA b  &\to&d \divideA b\\
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
 
-		d \divideA 2a-b &\flecha{$\cdot 7$} & d \divideA 2a-b & \to &d \divideA a\\
-
-	}
-	\flecha{propiedad}[divisor y \mcd] d \divideA (a:b) \flecha{$(a:b)$}[coprimos]
-	d \divideA 1\\
-$
-Por lo tanto $(7a - 3b  : 2a -b) = 1$ son coprimos como se quería mostrar.

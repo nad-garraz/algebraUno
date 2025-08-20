@@ -1,12 +1,39 @@
 \begin{enunciado}{\ejercicio}
-Sean $a,b \in \enteros$. Sabiendo que el resto de dividir a $a$ por $b$ es $27$ y que el resto de dividir $b$ por $27$ 
-es $21$, calcular $(a:b)$
+  Sean $a,b \in \enteros$. Sabiendo que el resto de dividir a $a$ por $b$ es $27$ y que el resto de dividir $b$ por $27$
+  es $21$, calcular $(a:b)$
 \end{enunciado}
 
-Traducimos lo que nos da el enunciado a congruencias y tenemos $\congruencia{a}{27}{b}$ y $\congruencia{b}{21}{27}$. 
-Podemos expresar a $a$ como $bj + 27$ (por la def de congruencia). Luego vemos que $(a:b) = (bj + 27 : b)
-= (27:b)$, ahora expremos $b$ como $27k + 21$, luego $(27:b) = (27: 27k + 21) = (27:21) = (3^3:3 \cdot 7) = 3$. 
+Traducimos lo que nos da el enunciado a congruencias y tenemos:
+$$
+  \llave{rcl}{
+    \congruencia{a}{27}{b} & \Sii{def} & a = b \cdot \magenta{j} + 27 \text{ con } \magenta{j} \en \enteros \llamada1\\
+    \congruencia{b}{21}{27} & \Sii{def} & b = 27 \cdot \green{k} + 21 \text{ con } \green{k} \en \enteros \llamada2.
+  }
+$$
+Reescribimos el \textit{máximo común divisor} $(a:b)$:
+$$
+  (a:b)
+  \igual{$\llamada1$}
+  (b \cdot \magenta{j} + 27 : b)
+  \igual{\red{!}}
+  (27 : b)
+  \igual{$\llamada2$}
+  \big(27 : (27 \cdot \green{k} + 21)\big)
+  \igual{\red{!}}
+  (27 : 21)
+  \igual{\red{!}}
+  (21 : 6)
+  \igual{\red{!}}
+  (6 : 3)
+  =
+  (3^2 : 3^1)
+  =3
+$$
+Quizás los últimos pasos son medio un \textit{overkill}, pero quedó claro.
+
+Si en los \red{!} te quedás pensando: No es otra cosa que el algoritmo de Euclides.
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

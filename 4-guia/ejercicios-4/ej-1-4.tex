@@ -19,94 +19,147 @@
   \end{multicols}
 \end{enunciado}
 
+Este ejercicio clave para el resto de la materia.
+
 \begin{enumerate}[label=\alph*)]
-  \item $a \cdot b \divideA c \entonces a \divideA c$ \ y \ $b \divideA c$\par
-        $\llave{l}{
-            c = k\cdot a \cdot b = \underbrace{h}_{k \cdot b} \cdot a \entonces a \divideA c \Tilde\\
-            c = k\cdot a \cdot b = \underbrace{i}_{k \cdot a} \cdot b \entonces b \divideA c\Tilde
-          }$
+  \item\label{ej1:itemA} Esta proposición es \green{verdadera}:
+        $$
+          a \cdot b \divideA c \Sii{def}  c = a \cdot b \cdot q \quad \text{con } q \en \enteros
+        $$
+        Mirando cada número por separado:
+        $$
+          \llave{l}{
+            c =
+            a \cdot b \cdot q
+            \igual{\red{!}} a \cdot q'  \Sii{def} a \divideA c \\
+            c =
+            a \cdot b \cdot q
+            \igual{\red{!}} b \cdot q^{''}  \Sii{def} b \divideA c
+          }
+        $$
 
-  \item $4 \divideA a^2 \entonces 2 \divideA a $\par
-        $ a^2 = k \cdot 4 = \underbrace{h}_{k \cdot 2} \cdot 2 \entonces a^2 \divideA 2
-          \flecha{si $a\cdot b \divideA c$}[$\entonces a \divideA c \y b \divideA c$]
-          a \divideA 2 \Tilde$
+  \item La proposición es \green{verdadera}:
+        $$
+          4 \divideA a^2
+          \Sii{def}
+          a^2 = 4 \cdot q = 2 \cdot 2 \cdot q = 2 \cdot q'
+        $$
+        Es decir que $a^2$ es un número par, más aún:
+        $$
+          a^2 \text{ es par } \sisolosi a \text{ es par} \quad \text{con}~  a \en \enteros
+        $$
+        Y bueh, si $a$ es par entonces $2 \divideA a$.
 
-  \item $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$\par
-        Si $2 \divideA a \cdot b \entonces
-          \llaves{c}{
-            a \text{ tiene que ser } par \\
-            \otext \\
-            b \text{ tiene que ser } par \\
-          } \flecha{para que} a \cdot b$ sea par. Por lo tanto si  $2 \divideA a \cdot b \entonces 2 \divideA a $ \ o \ $2 \divideA b$.
+  \item La afirmación es \green{verdadera}.
+        $$
+          2 \divideA a \cdot b
+          \Sii{def}
+          a \cdot b = 2 \cdot q \quad \llamada1
+        $$
+        El producto de 2 números es par, si y solo si alguno es par:
 
-  \item $9 \divideA a\cdot b \entonces 9 \divideA a  $ \ o \ $9 \divideA b$\par
-        Si $a = 3 \y b = 3$, se tiene que $9 \divideA 9$, sin embargo $9 \noDivide 3$
+        \textit{2 \blue{pares}}:
+        $$
+          \blue{2n} \cdot \blue{2m} = 2 \cdot \ub{(2\cdot n \cdot m)}{q'} = 2 \cdot q'
+        $$
+        \textit{1 \blue{par} y el otro \orange{impar}}
+        $$
+          \blue{2n} \cdot (\orange{2m - 1}) = 2 \cdot (\ub{2\cdot n \cdot m - n}{q'}) = 2 \cdot q'
+        $$
+        Con este resultado en $\llamada1$ queda:
+        $$
+          a \cdot b = 2 \cdot q' \sisolosi 2 \divideA a ~\lor~ 2 \divideA b
+        $$
 
-  \item $a \divideA b + c \entonces a \divideA b $ \ o \  $a \divideA c$\par
-        $12 \divideA 20 + 4 \entonces 12 \noDivide 20$  \ y\   $ 12\noDivide 4 $
+  \item La proposición es \red{falsa}.
 
-  \item
-        $a\divideA c \ytext b \divideA c \entonces a \cdot b \divideA c$\par%
-        $4\divideA 12 \ytext 6 \divideA 12 \text{ pero } 24 \noDivide 12$
+        \textit{Contraejemplo:} Si $a = 3 \y b = 3$, se tiene que $9 \divideA 9$, sin embargo $9 \noDivide 3$.
 
-  \item
-        $a\divideA b \entonces a \leq b$\par
-        $2\divideA -4 \text{ pero } 2 > -4$
-  \item
-        $a\divideA b \entonces |a| \leq |b|$\par
-        $4 \divideA 0 \text{ pero }|4| > 0$\par
-        Igual, si $b \neq 0$ es verdadero, el enunciado no lo especifica pero ese caso es el que esta bueno ver.\par
-        $\text{si } a\divideA b,\, b = k \cdot a$, tomo el modulo de todo porque que todo sea positivo no va a cambiar la veracidad de la prueba.\par
-        $|b| = |k|\cdot|a|$, $|k| \geq 1$ asi que acoto por esa expresion, queda $|b| = |k|\cdot|a| \geq 1\cdot|a|$, finalmente $|b| \geq |a|,\, b \neq 0$
+  \item La proposición es \red{falsa}.
 
-  \item $a \divideA b + a^2 \entonces a \divideA b$\par
-        $  a \divideA b + a^2
-          \entonces
-          b + a^2 = k \cdot a
-          \flecha{acomodo}
-          b = (k - a) \cdot a = h \cdot a
-          \entonces
-          a | b \Tilde$\par
-        $ \flecha{también puedo}[decir si:]
-          \llaves{l}{
-            a \divideA a^2 \\
-            a \divideA b - a^2
-          } \flecha{por}[propiedad]
-          a \divideA (b - a^2) + (a^2) = b \entonces a \divideA b \Tilde $
+        \textit{Contraejemplo}: Se tiene que $12 \divideA 20 + 4$, sin embargo $12 \noDivide 20  ~~\text{ni}~~  12\noDivide 4$
 
-  \item $a \divideA b \entonces a^n \divideA b^n, \paratodo n \en \naturales$\par
-        Pruebo por inducción.
+  \item La proposición es \red{falsa}.
+
+        \textit{Contraejemplo}: Se tiene que $4 \divideA 12 ~\land~ 6 \divideA 12$, sin embargo $24 \noDivide 12$
+
+  \item La proposición es \red{falsa}.
+
+        \textit{Contraejemplo}: Se tiene que $2 \divideA -4$, sin embargo $2 \not\leq -4$
+
+  \item La proposición es \red{falsa}.
+
+        \textit{Contraejemplo}: Se tiene que $4 \divideA 0$, sin embargo $|4| > 0$
+
+        En el caso en que $b \distinto 0$ la proposición es \green{verdadera}.
+        $$
+          a \divideA b
+          \Sii{def}[$q \en \enteros_{\distinto 0}$]
+          b = a \cdot q
+          \Sii{\red{!}}
+          |b| = |a \cdot q|
+          \sii
+          |b| = |a| \cdot |q|
+          \Sii{\red{!}}
+          |b| \geq |a|
+        $$
+
+  \item La proposición es \green{verdadera}.
+        $$
+          a \divideA b + a^2
+          \Sii{def}
+          b + a^2 = a \cdot q
+          \Sii{\red{!}}
+          b = a \cdot (q - a)
+          \sii
+          b = a \cdot q'
+          \Sii{def}
+          a \divideA b
+        $$
+
+  \item La proposición es \green{verdadera}.
+
+        Pruebo por inducción. Quiero probar que la siguiente proposición es verdadera:
         $$
           p(n)  :  a \divideA b \entonces a^n \divideA b^n
         $$
 
         \textit{Caso base: }
         $$
-          n = 1 \entonces a \divideA b \entonces a^1 \divideA b^1 \Tilde
+          p(\blue{1}) :  a \divideA b \entonces a^{\blue{1}} \divideA b^{\blue{1}}
         $$
+        $p(\blue{1})$ resultó verdadera.
 
-        $p(1)$ resulta verdadera.\par
+        \textit{Paso inductivo:}
 
-        \textit{Paso inductivo: }\par
-        Asumo $\ub{p(h): a \divideA b \entonces a^h \divideA b^h}{\text{\purple{hipótesis inductiva}}}$
-        verdadera $\entonces$ quiero ver que $p(h+1): a \divideA b \entonces a^{h+1} \divideA b^{h+1}$\par
-        Parto de la \purple{hipótesis inductiva} y voy llegar a $p(k+1)$. Si:
+        Asumo  que para algún $\blue{h} \en \naturales$ la proposición:
         $$
-          a \divideA b
-          \Entonces{\purple{HI}}
-          a^k \divideA b^k
-          \sii
-          a^k \cdot c = b^k
-          \Sii{$\times b$}
-          b \cdot a^k \cdot c = b^{k+1}
-          \Sii{$a \divideA b$}[$a \cdot d = b$]
-          a \cdot d \cdot a^k \cdot c =
-          a^{k+1} \cdot (cd) = b^{k+1}\\
-          \sii
-          a^{k+1} \divideA b^{k+1}.
+          p(\blue{h}): \ub{a \divideA b \entonces a^{\blue{h}} \divideA b^{\blue{h}}}{\text{\purple{hipótesis inductiva}}}
         $$
-        Como $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el principio de inducción $p(n)$
-        es verdadera $\paratodo n \en \naturales.$\medskip
+        es verdadera, entonces quiero probar que la proposición:
+        $$
+          p(\blue{h+1}): a \divideA b \entonces a^{\blue{h + 1}} \divideA b^{\blue{h + 1}}
+        $$
+        también lo sea.
+
+        Si:
+        $$
+          \begin{array}{rcl}
+            a \divideA b
+             & \Entonces{\purple{HI}}                 &
+            a^{\blue{h}} \divideA b^{\blue{h}}                                                        \\
+             & \Sii{def}                              &
+            b^{\blue{h}} = a^{\blue{h}} \cdot q                                                       \\
+             & \Sii{$\times b$}                       &
+            b^{\blue{h + 1}} =  b \cdot a^{\blue{h}} \cdot q                                          \\
+             & \Sii{$a \divideA b$}[$b = a \cdot q'$] &
+            b^{\blue{h + 1}} =  a \cdot q' \cdot a^{\blue{h}} \cdot q = a^{\blue{h + 1}} \cdot q^{''} \\
+             & \Sii{def}                              &
+            a^{\blue{h + 1}} \divideA b^{\blue{h + 1}}.
+          \end{array}
+        $$
+        Como $p(\blue{1}),\, p(\blue{h}) \ytext p(\blue{h+1})$ resultaron verdaderas, por el principio de inducción la proposición
+        $p(n)$ es verdadera $\paratodo n \en \naturales$.
 
         \textit{Este resultado es importante y se va a ver en muchos ejercicios:}
         $$

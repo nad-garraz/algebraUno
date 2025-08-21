@@ -1,43 +1,70 @@
 \begin{enunciado}{\ejercicio}
   \begin{enumerate}[label=\roman*)]
-    \item Probar que si $n$ es compuesto, entonces $2^n - 1$ es compuesto. 
-    \item Probar que si $2^n + 1$ es primo, entonces $n$ es una potencia de 2. 
+    \item Probar que si $n$ es compuesto, entonces $2^n - 1$ es compuesto.
+    \item Probar que si $2^n + 1$ es primo, entonces $n$ es una potencia de 2.
   \end{enumerate}
 \end{enunciado}
 
-Para el ejercicio vamos a considerar 2 identidades que son las siguientes: 
-\begin{enumerate}[label=\alph*)]
-\item $a^n - 1 = (a - 1)(a^{n-1} + a^{n-2} + \cdots + a + 1)$
+Un número compuesto es un número natural que tiene más de 2 divisores. Un número compuesto $n$ se puede
+escribir como el producto de 2 números menores, en particular son dos divisores de n, $n = d_1 \cdot d_2$.
 
-Prueba: Consideramos la serie geometrica: 
-\begin{align*}
-\sum_{k=0}^{N - 1} a^k &= \frac{a^N - 1}{a - 1} \\
-1 + a + \cdots + a^{N - 1} &= \frac{a^N - 1}{a - 1} \\
-(1 + a + \cdots + a^{N - 1})(a - 1) &= a^N - 1
-\end{align*}
+\begin{enumerate}[label=\roman*)]
+  \item  Mirá el ejercicio \refEjercicio{ej:3} a ver si se te ocurre como usar ese resultado en esta parte.
 
-\item $a^m + 1 = (a + 1)(a^{m-1} - a^{m-2} + \cdots - x + 1)$ con $m$ impar 
+        A partir del resultado dle ejercicio \refEjercicio{ej:3}:
+        $\congruencia{a^n - b^n}{0}{a - b} \paratodo n \en \naturales \ytext a\distinto b \en \enteros$.
+        $$
+          \begin{array}{rcl}
+            \congruencia{a^n - b^n}{0}{a - b}
+             & \Sii{def}                      &
+            a^n - b^n = (a - b) \cdot k                 \\
+             & \Sii{$a = 2^{d_1}$}[$n = d_2$] &
+            (2^{d_1})^{d_2} - b = (2^{d_1} - b) \cdot k \\
+             & \Sii{$b = 1$}                  &
+            2^{d_1 \cdot d_2} - 1 = (2^{d_1} - 1) \cdot k
+          \end{array}
+        $$
+        Por lo tanto una potencia de 2 con un exponente \textit{compuesto} menos 1, es otro número compuesto.
 
-Pruba por inducción: $p(1)$ verdadero. Asumo $p(2k + 1)$ verdadero, luego qvq $p(2k + 3)$ es verdadero. 
-Considero la divivsion $\frac{a^{2k + 3} + 1}{a + 1}$, que es igual a $(a + 1)(a^{2k + 2} - a^{2k + 1})
-+ \red{\underbrace{\frac{a^{2k + 1}}{a + 1}}_{\text{hipotesis inductiva}}}$, como se queria probar.
+  \item Mirá el ejercicio \refEjercicio{ej:4} a ver si se te ocurre como usar ese resultado en esta parte.
 
-\end{enumerate}
+        Por contrarrecíproco:
+        $$
+          (p \entonces q) \sisolosi (\lnot q \entonces \lnot p)
+        $$
+        Entonces, queremos probar que dado $n$ divisible por un \ul{primo impar}, $\blue{p}$, es decir que $n \distinto 2^m$,
+        entonces $2^n + 1$ es compuesto, es decir que \ul{no es primo} ni a palos.
 
-Ahora encaramos el ejercicio
-\begin{enumerate}[label = \roman*)]
- \item si $n$ es compuesto entonces se puede escribir como $ab$. 
- 
- Sigue que $2^{ab} - 1 = (2^a)^b - 1 = (2^a - 1)((2^a)^{b-1} + (2^a)^{b - 2} + \cdots + 2^a + 1)$, 
- claramente este numero es compuesto, como se queria probar.
-
- \item Para probar esta implicacion vamos a probar el contrarreciproco ($p \entonces q = \lnot q \entonces \lnot p$). 
- Entonces, queremos probar que dado $n$ divisible por un primo impar entonces $2^n + 1$ es compuesto. 
-
- $p \divideA n \sii n = kp$, luego $2^n + 1$ = $2^{kp} + 1 = (2^k)^p + 1 = (2^k + 1)((2^k)^{p - 1} - (2^k)^{p - 2} + \cdots - 2^k + 1)$. 
- Que es un numero compuesto, como se queria probar. 
+        Dado un $\blue{p}$ impar:
+        $$
+          p \divideA n \Sii{def} n = \blue{p} \cdot \green{q},
+        $$
+        Asegurando así que $n \distinto 2^m$.
+        Del ejercicio \refEjercicio{ej:4} sé que para un natural impar, $\blue{p}$ en este caso:
+        $$
+          a + b \divideA a^{\blue{p}} + b^{\blue{p}}
+          \Sii{def}
+          a^{\blue{p}} + b^{\blue{p}} = (a + b) \cdot k
+          \Sii{$a = 2^{\green{q}}$}[$b = 1$]
+          (2^{\green{q}})^{\blue{p}} + 1 = (2^{\green{q}} + 1) \cdot k
+          \sii
+          \cajaResultado{
+            2^{\blue{p} \cdot \green{q}} + 1 = (2^{\green{q}} + 1) \cdot k
+          }
+        $$
+        El último resultado muestra que:
+        \begin{center}
+          \big(
+          Si $n \distinto 2^k \entonces 2^n + 1$ no es primo
+          \big)
+          \quad$\sisolosi$\quad
+          \big(
+          Si $2^n + 1$ es primo $\entonces n$ es una potencia de 2.
+          \big)
+        \end{center}
 \end{enumerate}
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

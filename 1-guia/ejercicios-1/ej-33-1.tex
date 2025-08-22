@@ -1,44 +1,99 @@
+% MACRO LOCAL
+%=======
+\def\idn{\text{id}_{\naturales}}
+%=======
 \begin{enunciado}{\ejercicio}
-  Hallar dos funciones $f : \naturales \to \naturales$ \ytext $g : \naturales \to \naturales$ tales que $f \circ g = \text{id}_{\naturales}
-    \ytext g \circ f \distinto \text{id}_{\naturales}$, donde $\text{id}_{\naturales}: \naturales \to \naturales$ denota la función identidad del
-  conjunto $\naturales$.
+  Hallar dos funciones $f : \naturales \to \naturales$ \ytext $g : \naturales \to \naturales$ tales que $f \circ g = \idn
+    \ytext g \circ f \distinto \idn$, donde $\idn: \naturales \to \naturales$ denota la función identidad del conjunto $\naturales$.
 \end{enunciado}
 
-Antes que nada, ganemos un poco de intuición de lo que quiere decir el problema, exploremos
-como puede ser $g$.
+La identidad en naturales es la función: $\idn = n$.
 
-$g$ no puede ser sobreyectiva, ya que implicaría que $\existe x_1, x_2 \en \naturales \text{ tal que } g(x_1) = g(x_2)$,
-al componerla con $f$, tendríamos que $f(g(x_1)) = f(g(x_2))$ pero $f$ solo puede dar un valor, no dos, por lo tanto
-estamos perdiendo algún valor, y no va a ser igual a la identidad nunca.
-
-$g$ no puede ser biyectiva, ya que implicaría $\paratodo y \en \naturales \existe x \en \naturales \text{ tal que } g(x) = y$, esto
-hasta ahora no es un problema, pero vamos a tener $f(y) = \text{id}_{\naturales}$ si y solo si $f$ es biyectiva, y si $f$ es biyectiva entonces
-$g \circ f = \text{id}_{\naturales}$, pero por enunciado no queremos eso.
-
-La única opción que queda es que $g$ sea inyectiva así que vamos con eso. Ahora nos fijamos
-en $f$, $f$ no puede ser inyectiva tampoco, pues como $g$ es inyectiva existe algun $y_0 \en \naturales$ que no
-es alcanzado por la función, es decir que no forma parte de la imagen de $f$, esto fuerza a $f$ a asignar a dos \textit{inputs} diferentes
-el mismo valor para poder construir la función identidad, es decir $f$ es sobreyectiva (Ahora con el ejemplo se va a ver mejor esto).
+Quiero funciones que no sean biyectivas, porque de serlo:
 $$
-  g = \llave{rcl}{
-    1 & \text{si} & n = 1 \\
-    2n & \text{si} & n > 1
-  }
+  \text{Si } (f \circ g)(n) = \idn \text{ con } f,\, g \text{ biyectivas }
+  \entonces
+  (g \circ f)(n) = \idn
+  \qquad
+  \begin{tikzpicture}[
+    baseline=0,
+    node distance=1.5cm,
+    oval/.style={ellipse, draw, minimum width=1cm, minimum height=1.5cm, align=center, label=#1:{$\naturales$}},
+    arrow/.style={{Latex[length=5pt]}-{Latex[length=5pt]}, bend left=20},
+    comp/.style={-{Latex[length=5pt]}, color=#1, bend right=25, font={\tiny}}
+    ]
+    \node[oval={above left}] (A) {};
+    \node[oval={above}, right of=A] (B) {};
+    \node[oval={above right}, right of=B] (C) {};
+
+    \draw[arrow] (A.north east) to node[above] {$g$} (B.north west);
+    \draw[arrow] (B.north east) to node[above] {$f$} (C.north west);
+
+    \draw[comp={Cerulean}] (A.south east) to node[below] {$f \circ g$} (C.south west);
+    \draw[comp={magenta}, bend left=40] (C.south) to node[below] {$g \circ f$} (A.south);
+  \end{tikzpicture}
+$$
+Algo que no quiero porque por enunciado necesito que:
+$$
+  g \circ f \distinto \idn
+$$
+
+\bigskip
+
+Por otro lado sí quiero algo así:
+\begin{tikzpicture}[
+  baseline=0,
+  node distance=1.7cm,
+  imagen/.style={ellipse, draw, dashed, minimum width=0.3cm, minimum height=0.8cm, align=center, color=Cerulean, font={\tiny}},
+  oval/.style={ellipse, draw, minimum width=1cm, minimum height=1.5cm, align=center, label=#1:{$\naturales$}},
+  arrow/.style={-{Latex[length=5pt]}, bend left=20},
+  comp/.style={-{Latex[length=5pt]}, color=#1, bend right=25, font={\tiny}}
+  ]
+  \node[oval={above left}] (A) {};
+  \node[oval={above}, right of=A] (B) {};
+  \node[oval={above right}, right of=B] (C) {};
+  \node[imagen] at (B) (gimagen) {Im};
+
+  \draw[arrow] (A.north east) to node[above] {$g$} (gimagen.north west);
+  \draw[arrow] (gimagen.north east) to node[above] {$f$} (C.north west);
+
+  \draw[comp=Cerulean] (A.south east) to node[below] {$f \circ g$} (C.south west);
+
+\end{tikzpicture}
+Es decir que $g$ no sea \textit{sobreyectiva}, pero $f$ sí. Buscando inspiración en el ejercicio \refEjercicio{ej:30}:
+$$
+  g(m) = 2m
   \quad
-  f = \llave{rcl}{
-    1 & \text{si} & n = 1 \\
-    \lfloor \frac{n}{2} \rfloor & \text{si} & n > 1
+  \ytext
+  \quad
+  f = \llave{cl}{
+    \frac{n+1}{2} & \text{si $n$ impar}  \\
+    \frac{n}{2} & \text{si $n$ par}
   }
 $$
-Donde $\lfloor x \rfloor$ denota la función piso, es decir el valor entero de $x$.
-
-Vemos que $f \circ g = f(g(n)) = \lfloor \frac{2n}{2} \rfloor = n$, la función identidad, sin embargo
-$g \circ f \neq \text{id}_{\naturales}$, consideré $n = 3$, $f(3) = 1$, $g(1) = 2$, $2 \neq 3$.
-De este tipo de funciones se pueden construir infinitas cambiando el $2$ multiplicando por $k \en {\naturales}_{\geq 2}$.
-
-\textit{Nota final:} Los $1$ en la función están para que no haya problemas al hacer la cuenta
-$\lfloor \frac{1}{2} \rfloor = 0$ ya que consideramos que $0 \not\en \naturales$
+La composición quedaría
+$$
+  (f \circ g)(m)=
+  f(g(m)) =
+  \llave{cl}{
+    \frac{2m+1}{2} & \text{si $2m$ impar}  \\
+    m & \text{si $2m$ par}
+  }
+  \sisolosi
+  f \circ g(m) = m = \idn
+$$
+No obstante
+$$
+  (g \circ f)(n)=
+  g(f(n)) =
+  \llave{cl}{
+    n + 1 & \text{si $n$ impar}  \\
+    n & \text{si $n$ par}
+  }
+$$
+Donde enseguida comprobamos que $g(f(1)) = 2$ por lo tanto, $g \circ f \distinto \idn$.
 
 \begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}

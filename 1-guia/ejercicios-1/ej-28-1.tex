@@ -93,21 +93,24 @@
         % $$
 
   \item
-        Es parecido al inciso anterior, donde ahora $A = \set{1,2,3, \cdots, N-1, N}$, donde $\partes(\naturales_N)$ tiene $2^N$ elementos.\par
-        La relación determina $N+1$ \textit{clases de equivalencia} distintas.
+        Es parecido al inciso anterior, donde ahora $A = \partes(\naturales_N)$, donde me quedo con los subconjuntos finitos.
         $$
-          \begin{array}{cccc}
+          \begin{array}{ccc}
             \rowcolor{Cerulean!10}
-            \text{Característica de la clase} & \text{clase}                   & \text{elemento ejemplo}      & \text{Conjuntos en clase} \\ \hline
-            \text{Conjuntos con \#0 }         & \clase{\vacio}                 & \vacio                       & \binom{N}{0}              \\
-            \text{Conjuntos con \#1}          & \clase{\set{1}}                & \set{3}                      & \binom{N}{1}              \\
-            \text{Conjuntos con \#2 }         & \clase{\set{1,2}}              & \set{5,2}                    & \binom{N}{2}              \\
-            \text{Conjuntos con \#3 }         & \clase{\set{1,2,3}}            & \set{1,6, 3}                 & \binom{N}{3}              \\
-            \vdots                            & \vdots                         & \vdots                       &                           \\
-            \text{Conjuntos con \#$N-1$: }    & \clase{\set{1,2,\ldots,N-1}}   & \set{1,2,3, \ldots,N-2, N-1} & \binom{N}{N-1}            \\
-            \text{Conjuntos con \#$N$: }      & \clase{\set{1,2,\ldots,N-1,N}} & A                            & \binom{N}{N}              \\
+            \text{Característica de la clase} & \text{clase}                              & \text{elementos ejemplo}                  \\ \hline
+            \text{Conjuntos con \#0 }         & \clase{\vacio}                            & \vacio                                    \\
+            \text{Conjuntos con \#1}          & \clase{\set{1}}                           & \set{3}                                   \\
+            \text{Conjuntos con \#2 }         & \clase{\set{1,2}}                         & \set{5,2}                                 \\
+            \text{Conjuntos con \#3 }         & \clase{\set{1,2,3}}                       & \set{1,6,3}                               \\
+            \vdots                            & \vdots                                    & \vdots                                    \\
+            \text{Conjuntos con \#$N-1$: }    & \clase{\set{1, 2, \ldots, N-1}}           & \set{1, 2, 3, \ldots,N-2, N-1}            \\
+            \text{Conjuntos con \#$N$: }      & \clase{\set{1, 2, \ldots, N-1, N}}        & \set{2, \ldots, N-1,N, N+1}               \\
+            \text{Conjuntos con \#$N+1$: }    & \clase{\set{1, 2, \ldots, N-1, N, N + 1}} & \set{3, 4, \ldots, N-1, N, N+1, N+2, N+3} \\
           \end{array}
         $$
+        Dado que $\naturales$ es un conjunto no acotado, habrá \textit{infinitos} subconjuntos de cardinal $N \en \naturales$ y
+        eso ocurrirá para cada $N \en \naturales$.
+        La única clase que no tiene infinitos elementos será: $\clase{\vacio}$
 \end{enumerate}
 
 \begin{aportes}

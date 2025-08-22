@@ -1,24 +1,95 @@
-\separador
-\underline{\textit{Funciones}}\par
+\def\nodosVeintinueve{
+  \node[nodo=black, label=left:$1$] (1) {};
+  \node[nodo=black, label=left:$2$, below of=1] (2) {};
+  \node[nodo=black, label=left:$3$, below of=2] (3) {};
+  \node[nodo=black, label=left:$4$, below of=3] (4) {};
+  \node[nodo=black, label=left:$5$, below of=4] (5) {};
+
+  \node[nodo=black, label=right:$a$, right=2cm of 1] (a) {};
+  \node[nodo=black, label=right:$b$, below of=a] (b) {};
+  \node[nodo=black, label=right:$c$, below of=b] (c) {};
+  \node[nodo=black, label=right:$d$, below of=c] (d) {};
+
+  \node[container={$A$}, fit={(1) (2) (3) (4) (5)}]  {};
+  \node[container={$B$}, fit={(a) (b) (c) (d)}]  {};
+}
 
 \begin{enunciado}{\ejercicio}
   Determinar si $\relacion$ es una función de $A$ en $B$ en los casos
-\end{enunciado}
   \begin{enumerate}[label=\roman*)]
-    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,a),(4,b),(5,c),(3,d)} $\par
-          No es función, dado que $3 \relacion a$, $3 \relacion d$ y $a \distinto d$
-
-    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b)}$\par
-          No es función, dado que todo elemnto de $A$ tiene que estar relacionado a algún elemento de $B,\, 5 \norelacion y$ para ninún $ y \en B$
-
-    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b),(5,c)} $\par
-          Es función.
-
-    \item $A = \naturales,\, B = \reales, \, \relacion = \set{(a,b) \en \naturales \times \reales \talque a = 2b - 3} $\par
-          Es función.
-
-    \item $A = \reales,\, B = \naturales, \, \relacion = \set{(a,b) \en \reales \times \naturales \talque a = 2b - 3} $\par
-          No es función, $\sqrt{2} \norelacion b$ para ningún $b \en \naturales$
-    \item $A = \enteros,\, B = \enteros, \, \relacion = \set{(a,b) \en \enteros \times \enteros \talque a +b \text{ es divisible por }5} $\par
-          No es función, porque $0 \relacion 5$ y $0 \relacion 10$ y necesito que $\paratodo x \en \enteros,\, \existe!\, y \en \enteros$
+    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,a),(4,b),(5,c),(3,d)} $
+    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b)}$
+    \item $A = \set{1,2,3,4,5},\, B = \set{a,b,c,d},\, \relacion = \set{(1,a), (2,a),(3,d),(4,b),(5,c)} $
+    \item $A = \naturales,\, B = \reales, \, \relacion = \set{(a,b) \en \naturales \times \reales \talque a = 2b - 3} $
+    \item $A = \reales,\, B = \naturales, \, \relacion = \set{(a,b) \en \reales \times \naturales \talque a = 2b - 3} $
+    \item $A = \enteros,\, B = \enteros, \, \relacion = \set{(a,b) \en \enteros \times \enteros \talque a +b \text{ es divisible por }5} $
   \end{enumerate}
+
+\end{enunciado}
+\begin{enumerate}[label=\roman*)]
+  \item No es función, dado que $3 \relacion a$, $3 \relacion d$ y $a \distinto d$
+        $$
+          \begin{tikzpicture}
+            [
+            scale = 0.4,
+            node distance=0.8cm,
+            nodo/.style={circle, fill=black, color={#1}, minimum size = 2pt, inner sep = 1pt},
+            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
+            container/.style={draw, rectangle, rounded corners = 10pt,label=above:#1, inner sep=15pt}
+            ]
+            \nodosVeintinueve
+            \draw[arista=Cerulean] (1) to (a);
+            \draw[arista=Cerulean] (2) to (a);
+            \draw[arista=Cerulean, bend right=10] (3) to (a);
+            \draw[arista=red, bend right=10] (3) to (d);
+            \draw[arista=Cerulean] (4) to (b);
+            \draw[arista=Cerulean, bend right] (5) to (c);
+          \end{tikzpicture}
+        $$
+        Onda, si salen dos flechas del mismo valor ya no es función.
+
+  \item No es función, dado que \ul{todo} elemento de $A$ tiene que estar relacionado a algún elemento de $B,\, 5 \norelacion y$ para ningún $ y \en B$
+        $$
+          \begin{tikzpicture}
+            [
+            scale = 0.4,
+            node distance=0.8cm,
+            nodo/.style={circle, fill=black, color={#1}, minimum size = 2pt, inner sep = 1pt},
+            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
+            container/.style={draw, rectangle, rounded corners = 10pt,label=above:#1, inner sep=15pt}
+            ]
+            \nodosVeintinueve
+            \draw[arista=Cerulean] (1) to (a);
+            \draw[arista=Cerulean] (2) to (a);
+            \draw[arista=Cerulean, bend right=10] (3) to (d);
+            \draw[arista=Cerulean] (4) to (b);
+          \end{tikzpicture}
+        $$
+
+  \item Es función.
+        $$
+          \begin{tikzpicture}
+            [
+            scale = 0.4,
+            node distance=0.8cm,
+            nodo/.style={circle, fill=black, color={#1}, minimum size = 2pt, inner sep = 1pt},
+            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
+            container/.style={draw, rectangle, rounded corners = 10pt,label=above:#1, inner sep=15pt}
+            ]
+            \nodosVeintinueve
+            \draw[arista=Cerulean] (1) to (a);
+            \draw[arista=Cerulean] (2) to (a);
+            \draw[arista=Cerulean, bend right=10] (3) to (d);
+            \draw[arista=Cerulean] (4) to (b);
+            \draw[arista=Cerulean] (5) to (c);
+          \end{tikzpicture}
+        $$
+
+  \item Es función.
+
+  \item No es función, $\sqrt{2} \norelacion b$ para ningún $b \en \naturales$ tal que $\sqrt{2} = 2b - 3$. Por lo tanto hay infinitos
+        elementos en el conjunto $A$ que no se relacionan con el conjunto $B$.
+
+  \item No es función, porque $0 \relacion 5$ y $0 \relacion 10$ y necesito que si dos elementos $b,\, b' \en B ~\land~ a \relacion b \entonces a \norelacion b'$.
+        Un elemento del conjunto de partida no puede estar relacionado con más de un elmentos del conjunto de llegada.
+\end{enumerate}

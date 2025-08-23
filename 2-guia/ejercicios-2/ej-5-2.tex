@@ -2,7 +2,31 @@
   Probar que, $\paratodo n \en \naturales,\, \sumatoria{i = 1}{n} (2i - 1) = n^2$:
 
   \begin{enumerate}[label=\roman*)]
-    \item Contando de dos maneras la cantidad total de cuadraditos del diagrama. (\red{hacer diagrama})
+    \item Contando de dos maneras la cantidad total de cuadraditos del diagrama.
+          $$
+            \begin{tikzpicture}
+              [
+                b/.style={draw=gray!50!white, fill=black},
+                g/.style={draw=gray!50!white, fill=gray!60},
+                scale = 0.4
+              ]
+
+              \matrix[
+              matrix of nodes,
+              rounded corners=1pt,
+              row sep=1pt,
+              column sep=1pt,
+              nodes in empty cells] {
+              |[g]| & |[g]| & |[g]| & |[g]| & |[g]| & |[g]| & |[g]| \\
+              |[b]| & |[b]| & |[b]| & |[b]| & |[b]| & |[b]| & |[g]| \\
+              |[g]| & |[g]| & |[g]| & |[g]| & |[g]| & |[b]| & |[g]| \\
+              |[b]| & |[b]| & |[b]| & |[b]| & |[g]| & |[b]| & |[g]| \\
+              |[g]| & |[g]| & |[g]| & |[b]| & |[g]| & |[b]| & |[g]| \\
+              |[b]| & |[b]| & |[g]| & |[b]| & |[g]| & |[b]| & |[g]| \\
+              |[g]| & |[b]| & |[g]| & |[b]| & |[g]| & |[b]| & |[g]| \\
+              };
+            \end{tikzpicture}
+          $$
 
     \item Usando la suma aritmética (o suma de Gauss).
 
@@ -11,26 +35,144 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item
+  \item La forma fácil de contar sería multiplicando la cantidad de filas por la cantidad de columnas:
+        $$
+          7 \cdot 7 = 49
+        $$
+        También puedo sumar los cuadradadito construyendo la matriz, sumando 2 nuevas filas menos 1 \magenta{cuadradito} que me sobraría:
+        $$
+          \begin{tikzpicture}
+            [
+              b/.style={draw=gray!50!white, fill=black},
+              g/.style={draw=gray!50!white, fill=gray!60},
+              m/.style={draw=gray!50!white, fill=magenta!60},
+              c/.style={draw=gray!50!white, fill=Cerulean!60},
+              flecha/.style={-Latex, bend left = 50pt, draw = Cerulean},
+              every node/.style={font={\tiny}},
+              node distance = 2cm,
+              matriz/.style={
+                  matrix of nodes,
+                  rounded corners=1pt,
+                  row sep=1pt,
+                  column sep=1pt,
+                  nodes in empty cells
+                },
+            ]
+            \matrix[
+            matriz,
+            ] (1) {
+            |[g]|   \\
+            };
 
-  \item $\ub{s = \frac{n(n+1)}{2} = \sumatoria{1}{n} i }{Gauss}
-          \to
-          \sumatoria{i = 1}{n} 2i -1 =
-          2 \sumatoria{i = 1}{n} i - \sumatoria{1}{n} 1 =
-          2 \frac{n (n+1)}{2} - n = n^2 + n -n = n^2 \Tilde $
+            \matrix[
+            matriz,
+            right of = 1,
+            ] (2) {
+            |[c]| & |[c]|  \\
+            |[g]| & |[c]|  \\
+            };
 
-  \item \textit{Proposición: }\par
-        $p(n):  \sumatoria{i = 1}{n} (2i - 1) = n^2 \paratodo n \en \naturales$\par
-        \textit{Caso base : } $p(1) : \sumatoria{i = 1}{1} 2i -1 = 1 = 1^2  \entonces p(1) $  es verdadera. \Tilde\par
-        \textit{Paso inductivo: } $p(h) : \sumatoria{i = 1}{h} 2i -1 = k^2
-                \text{ verdadera con }h \en \enteros 
-          \entonces
-          \text{ quiero ver que }
-          \sumatoria{i=1}{h+1} 2i -1 \igual{?} (h+1)^2.\\
-          \sumatoria{i=1}{h+1} 2i -1 =
-          \sumatoria{i=1}{h} (2i - 1) + 2(h+1) -1
-          \igual{\magenta{HI}}
-          \magenta{h^2} + 2h + 1 = (h+1)^2 \Tilde
-        $\par
+            \matrix[
+            matriz,
+            right of = 2,
+            ] (3) {
+            |[c]| & |[c]| & |[c]|    \\
+            |[b]| & |[b]| & |[c]|    \\
+            |[g]| & |[b]| & |[c]|    \\
+            };
+
+            \matrix[
+            matriz,
+            right of = 3,
+            ] (4) {
+            |[c]| & |[c]| & |[c]| & |[c]|   \\
+            |[g]| & |[g]| & |[g]| & |[c]|   \\
+            |[b]| & |[b]| & |[g]| & |[c]|   \\
+            |[g]| & |[b]| & |[g]| & |[c]|   \\
+            };
+
+            \matrix[
+            matriz,
+            right of = 4,
+            ]
+            (5)  {
+            |[c]| & |[c]| & |[c]| & |[c]| & |[c]|  \\
+            |[b]| & |[b]| & |[b]| & |[b]| & |[c]|  \\
+            |[g]| & |[g]| & |[g]| & |[b]| & |[c]|  \\
+            |[b]| & |[b]| & |[g]| & |[b]| & |[c]|  \\
+            |[g]| & |[b]| & |[g]| & |[b]| & |[c]|  \\
+            };
+
+            \node[right of = 5] (dots) {$\dots$};
+
+            \node[below of = 1, yshift = 28pt] (1l) {$n = 1$};
+            \node[below of = 2, yshift = 28pt] (2l) {$n = 2$};
+            \node[below of = 3, yshift = 28pt] (3l) {$n = 3$};
+            \node[below of = 4, yshift = 28pt] (4l) {$n = 4$};
+            \node[below of = 5, yshift = 28pt] (5l) {$n = 5$};
+
+            \draw[flecha] (1.north) to node[midway, above]{$1+\blue{3}$}  (2.north);
+            \draw[flecha] (2.north) to node[midway, above]{$4 + \blue{5}$}  (3.north);
+            \draw[flecha] (3.north) to node[midway, above]{$9 + \blue{7}$}  (4.north);
+            \draw[flecha] (4.north) to node[midway, above]{$16 + \blue{9}$}  (5.north);
+            \draw[flecha] (5.north) to node[midway, above]{$25 + \blue{11}$}  (dots.north);
+
+          \end{tikzpicture}
+        $$
+
+        La verdad que no sé si esto era la idea, pero bueh, así estaría dando la fórmula.
+
+  \item Gauss
+        $$
+          \frac{n \cdot (n+1)}{2} = \sumatoria{1}{n} i
+        $$
+        Partiendo de la fórmula del enunciado:
+        $$
+          \sumatoria{i = 1}{n} 2i - 1 =
+          2 \sumatoria{i = 1}{n} i - \sumatoria{1}{n} 1 \igual{\red{!}}
+          2 \frac{n \cdot (n + 1)}{2} - n =
+          n^2 + n - n = n^2
+        $$
+
+  \item Quiero probar que la siguiente proposición es verdadera:
+        $$
+          p(n):  \sumatoria{i = 1}{n} (2i - 1) = n^2 \paratodo n \en \naturales
+        $$
+        \textit{Caso base : }
+        $$
+          p(1) : \sumatoria{i = 1}{1} 2i -1 = 1 = 1^2  \entonces p(1)
+        $$
+        $p(1)$ resutló verdadera.
+
+        \textit{Paso inductivo: }
+
+        Para algún $h \en \naturales$ asumo que
+        $$
+          p(h) : \ub{
+            \sumatoria{i = 1}{h} 2i -1 = h^2
+          }{
+            \text{
+              \purple{hipótesis inductiva}
+            }
+          }
+        $$
+        es verdadera, entonce quiero probar que la proposición:
+        $$
+          p(h + 1) : \sumatoria{i = 1}{h + 1} 2i -1 = (h+1)^2
+        $$
+        también lo sea.
+
+        Acomodo la sumatoria y uso la \purple{hipótesis inductiva}:
+        $$
+          \begin{array}{rcl}
+            \sumatoria{i=1}{h+1} 2i -1 = (h+1)^2 & \sii & \sumatoria{i=1}{h+1} 2i -1 = (h + 1)^2                                                        \\
+                                                 & \sii & \sumatoria{i=1}{h} (2i - 1) + 2(h+1) -1  \igual{\purple{HI}} \magenta{h^2} + 2h + 1 = (h+1)^2
+          \end{array}
+        $$
+
         Dado que $p(1),\, p(h),\, p(h+1)$ resultaron verdaderas, por criterio de inducción también lo es $p(n) \en \naturales$
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

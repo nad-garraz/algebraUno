@@ -4,40 +4,86 @@
   Exhibir valores de $a$ y $b$ para los cuales da $2$ y para los cuales da $94$.
 \end{enunciado}
 
-Si $d = (7a + 3b: 4a - 5b)$, entonces $d$ divide a ambas expresiones:
+Si $d = (7a + 3b: 4a - 5b)$, entonces $d$ divide a ambas expresiones. Podemos \textit{coprimizar}
+para hacer las cuentas más chicas:
+
+Dado que $(a:b) = 2 $, puedo cambiar las variables:
 $$
-\begin{cases}
- d \divideA 7a + 3b \\
- d \divideA 4a - 5b 
-\end{cases}
-\Entonces{$4F_1 \to F_1$}[$7F_2 \to F_2$]
-\begin{cases}
-d \divideA 28a + 12b \\
-d \divideA 28a - 35b
-\end{cases}
-\Entonces{}
-d \divideA 47b
+  \flecha{cambio}[variables]
+  \llamada1
+  \llave{rcl}{
+    a &=& 2A \\
+    b &=& 2B
+  }
+$$
+Donde ahora $(A:B) = 1$. Reemplazando en la expresión de $d$ obtengo así una expresion para $D$:
+$$
+  d =
+  (7\cdot 2A + 3\cdot 2B : 4 \cdot 2A - 5 \cdot 2B) =
+  2\cdot \ub{(7A + 3B : 4A - 5B)}{D} \igual{$\llamada2$}
+  2D
+  \entonces
+  D = (7A + 3B : 4A - 5B)
+$$
+Busco posibles divisores de $D$:
+$$
+  \begin{cases}
+    D \divideA 7A + 3B \\
+    D \divideA 4A - 5B
+  \end{cases}
+  \Entonces{$4F_1 \to F_1$}[$7F_2 \to F_2$]
+  \begin{cases}
+    d \divideA 28A + 12B \\
+    d \divideA 28A - 35B
+  \end{cases}
+  \entonces
+  d \divideA 47B
 $$
 
 $$
-\begin{cases}
- d \divideA 7a + 3b \\
- d \divideA 4a - 5b 
-\end{cases}
-\Entonces{$5F_1 \to F_1$}[$3F_2 \to F_2$]
-\begin{cases}
-d \divideA 35a + 15b \\
-d \divideA 12a - 15b
-\end{cases}
-\Entonces{}
-d \divideA 47a
+  \begin{cases}
+    D \divideA 7A + 3B \\
+    D \divideA 4A - 5B
+  \end{cases}
+  \Entonces{$5F_1 \to F_1$}[$3F_2 \to F_2$]
+  \begin{cases}
+    D \divideA 35A + 15B \\
+    D \divideA 12A - 15B
+  \end{cases}
+  \entonces
+  D \divideA 47A
+$$
+\ul{Como $A$ y $B$ son coprimos} los únicos posibles divisores de $D$ son:
+$$
+  D \en \set{1, 47}
+$$
+Para obtener el $D = 1$ por inspección saco:
+$$
+  A = 1 ~\land~ B = 0
+  \entonces
+  D = (7:4) = 1
+$$
+Y en las variables originales $\llamada1$:
+$$
+  \cajaResultado{
+    a = 2 ~\land~ b = 0 \Entonces{$\llamada2$} d = 2
+  }
 $$
 
-Luego $d \divideA 47b \, \land \, d \divideA 47a \implies d \divideA 47(a:b) = 94$. 
-De aquí los posibles divisores serian $1, 2, 47, 94$, pero aquellos impares no pueden ser pues la expresion del mcd original
-tiene combinaciones lineales de $a$ y $b$ por lo tanto siempre van a ser multiplos de $2$, de ahi que las unicas soluciones son
-$2$ o $94$.
+Para obtener el $D = 47$ por inspección saco:
+$$
+  A = 5 ~\land~ B = 4
+  \entonces
+  D = (47:0) = 47
+$$
+Y en las variables originales $\llamada1$:
+$$
+  \cajaResultado{
+    a = 10 ~\land~ b = 8 \Entonces{$\llamada2$} d = 94
+  }
+$$
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

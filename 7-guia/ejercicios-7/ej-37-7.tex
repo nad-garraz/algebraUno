@@ -8,4 +8,27 @@
     \end{multicols}
   \end{enumerate}
 \end{enunciado}
-\hacer
+
+$a, b, c$ son las 3 raices del polinomio, luego podemos plantear al polinomio como 
+$2(X-a)(X-b)(X-c)$. 
+
+\begin{align}
+\red{2}(X-a)(X-b)(X-c) = \red{2}(X^2 - aX - bX + ab)(X - c) = \\
+= \red{2}(X^3 - aX^2 - bX^2 + abX -cX^2 +acX +bcX - abc) = \\
+= \red{2}(X^3 -(a + b + c)X^2 + (ab + ac + bc)X - abc)
+\end{align}
+Si comparamos esta expansion generica con el polinomio, vemos que justamente lo que nos piden son los coeficientes
+del polinomio original, esta forma de relacionar raices con coeficientes se puede generalizar y se conoce como \href{https://en.wikipedia.org/wiki/Vieta\%27s_formulas}{Formulas de Viete}. 
+Vemos tambien que toda la expresion se multiplica por $2$ porq es el coeficiente principal, asi que a cada coeficiente tenemos que dividirlo por $2$
+para obtener lo pedido, Entonces:
+\begin{enumerate}[label=\roman*)]
+  \item $-2(a+b+c) = -3 \iff (a+b+c) = \frac{3}{2}$
+  \item $2(ab + ac + bc) = 4 \iff (ab + ac + bc) = 2$
+  \item $-2(abc) = 1 \iff (abc) = -\frac{1}{2}$
+
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}
+

@@ -9,4 +9,25 @@
   \end{enumerate}
 \end{enunciado}
 
-\Hacer
+\begin{enumerate}[label=\alph*)]
+ \item Recordemos que una relacion de equivalencia en $A$ parte al conjunto en suboconjuntos disjuntos, luego por 
+ enunciado me piden que cada $a \in A$ su clase de equivalencia tenga $n$ elementos, por lo tanto vamos a tener que partir 
+ a $A$ en 2 subconjuntos. La idea es la siguiente, fijo un elemento $a_0 \in A$, luego tengo que relacionar ese consigo mismo y con
+ $n - 1$ elementos mas, de esa forma creo una clase con $n$ elementos, y automaticamente la otra clase de equivalencia queda determinada. 
+ Esto seria $\binom{2n}{n}$. Y tenemos que dividir por $2!$ ya que el orden en el que realizamos las operaciones no afecta el conteo total. 
+ Finalmente seria 
+ $$
+ \cajaResultado{\binom{2n}{n} \cdot 1 \cdot \frac{1}{2!}}
+ $$
+
+ \item Este es similar al anterior, vamos a tener que armar en total $3$ clases de equivalencia, primero de los $3n$ elementos elijo $n$, luego 
+ me quedan $2n$ elementos restantes, de los cuales tambien elijo $n$, luego quedan $n$ que es la clase final (ya quedo determinada por las elecciones anteriores), luego 
+ dividimos por $3!$ ya que el orden en el que hagamos las operaciones no cambia el conteo final. 
+ $$
+ \cajaResultado{\binom{3n}{n} \cdot \binom{2n}{n} \cdot 1 \cdot \frac{1}{3!}}
+ $$
+\end{enumerate}
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

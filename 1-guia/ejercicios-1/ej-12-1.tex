@@ -3,26 +3,35 @@
   \begin{tikzpicture}[
     scale=0.8,
     baseline=0,
-    nodo lleno/.style 2 args={draw, circle, color={##1}, fill={##1}, inner sep = 0.6pt, label=below: {$##2$}},
-    ejes/.style={thin, color=gray, Latex-Latex}
-    ]
-    \draw[ejes] (-1,0) -- (10,0);
-    \node[nodo lleno={magenta}{5}] at (5,0) {};
-    \node[nodo lleno={OliveGreen}{8}] at (8,0) {};
-    \draw[{Latex-]},thick, OliveGreen] (0.5,0) -- (8,0);
-    \draw[{[-Latex},thick, magenta] (5,0) -- (9,0);
+    nodo lleno/.style 2 args={color={##1}, label=below:$##2$, outer sep=0, inner sep=0},
+    ejes/.style={thin, color=gray, Latex-Latex},
+    flecha/.style={thick, color=##1, {[-Latex}},
+      ]
+    \draw[ejes] (0,0) -- (12,0);
+
+    \node[nodo lleno={magenta}{5}] (5) at (5,0.2) {};
+    \node[nodo lleno={OliveGreen}{8}] (8) at (8,0.3) {};
+
+    \draw[flecha=OliveGreen] (8) to ++(-6,0);
+    \draw[flecha=magenta] (5) to ++(4,0);
   \end{tikzpicture}
 }
 
 \def\doceiiA{
-  \begin{tikzpicture}[scale=0.8, baseline=0]
-    \draw[thick, Latex-Latex,] (1,0) -- (11,0);
-    \draw[color=magenta] (5,0.1) circle (3pt);
-    \draw[color=OliveGreen] (8,0.1) circle (3pt);
-    \draw[Latex-, magenta, thick] (2,0.1) -- (5,0.1);
-    \draw[-Latex, OliveGreen, thick] (8,0.1) -- (10,0.1);
-    \node [color=magenta]at (5,-0.3) {5};
-    \node[color=OliveGreen] at (8,-0.3) {8};
+  \begin{tikzpicture}[
+      scale=0.8,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1, thick},
+    ]
+    \draw[eje] (1,0) -- (11,0);
+
+    \node[nodo=magenta, label=below:$5$] (5) at (5,0.2) {};
+    \node[nodo=OliveGreen, label=below:$8$] (8) at (8,0.2){};
+
+    \draw[flecha=magenta] (5) to ++(-3,0);
+    \draw[flecha=OliveGreen] (8) to ++(2,0);
   \end{tikzpicture}
 }
 
@@ -30,93 +39,99 @@
   \begin{tikzpicture}[
       scale=0.8,
       baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1},
     ]
-    \draw[thick, Latex-Latex,] (-4,0) -- (5,0);
+    \draw[eje] (-4,0) -- (5,0);
 
-    \draw[fill=magenta, color=magenta] (3,0.3) circle (3pt);
-    \draw[-Latex, magenta, thick] (3,0.3) -- (5,0.3);
-    \node[color=magenta] at (3,-0.3) {3};
+    \node[nodo=magenta, label=below:$3$] (3) at (3,0.2) {};
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.2){};
+    \node[nodo=OliveGreen, fill=OliveGreen,label=below:$-2$] (-2) at (-2,0.2){};
 
-    \draw[fill=OliveGreen, color=OliveGreen] (2,0.3) circle (3pt);
-    \draw[fill=OliveGreen, color=OliveGreen] (-2,0.3) circle (3pt);
-    \draw[-, OliveGreen, thick] (-2,0.3) -- (2,0.3);
-    \node[color=OliveGreen] at (2,-0.3) {2};
-    \node[color=OliveGreen] at (-2,-0.3) {-2};
+    \draw[flecha=magenta] (3) to ++(2,0);
+    \draw[OliveGreen] (-2) to (2);
 
   \end{tikzpicture}
 }
 
 \def\doceiiicero{
-  \begin{tikzpicture}[scale=0.6, baseline=0]
+  \begin{tikzpicture}[
+      scale=0.6,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1},
+    ]
+    \draw[eje] (-4.5,0) -- (4.5,0);
 
-    \draw[thick, Latex-Latex,] (-4.5,0) -- (4.5,0);
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.3){};
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$-2$] (-2) at (-2,0.3){};
+    \node[nodo=magenta, fill=magenta, label=below:$3$] (3) at (3,0.2) {};
 
-    \draw[color=magenta] (3,0.1) circle (3pt);
-    \draw[color=OliveGreen] (2,0.2) circle (3pt);
-    \draw[color=OliveGreen] (-2,0.2) circle (3pt);
-
-    \draw[-Latex, magenta, thick] (3,0.1) -- (4.5,0.1);
-    \draw[Latex-, OliveGreen, thick] (-4.5,0.2) -- (-2,0.2);
-    \draw[-Latex, OliveGreen, thick] (2,0.2) -- (4.5,0.2);
-
-    \node[color=magenta] at (3,-0.3) {3};
-    \node[color=OliveGreen] at (2,-0.3) {2};
-    \node[color=OliveGreen] at (-2,-0.3) {-2};
+    \draw[flecha=OliveGreen] (-2) to ++(-2,0);
+    \draw[flecha=OliveGreen] (2) to ++(2,0);
+    \draw[flecha=magenta] (3) to ++(1,0);
   \end{tikzpicture}
 }
 
 \def\doceiiiuno{
-  \begin{tikzpicture}[scale=0.6, baseline=0]
-    % Number line
-    \draw[thick, Latex-Latex,] (-4.5,0) -- (4.5,0);
-    % Interval
-    \draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
-    \draw[fill=OliveGreen, color=OliveGreen] (2,0.2) circle (3pt);
-    \draw[fill=OliveGreen, color=OliveGreen] (-2,0.2) circle (3pt);
+  \begin{tikzpicture}[
+      scale=0.6,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1},
+    ]
+    \draw[eje] (-4.5,0) -- (4.5,0);
 
-    \draw[Latex-, magenta, thick] (-3,0.1) -- (3,0.1);
-    \draw[-, OliveGreen, thick] (-2,0.2) -- (2,0.2);
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.3){};
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$-2$] (-2) at (-2,0.3){};
+    \node[nodo=magenta, fill=magenta, label=below:$3$] (3) at (3,0.2) {};
 
-    \node[color=magenta] at (3,-0.3) {3};
-    \node[color=OliveGreen] at (2,-0.3) {2};
-    \node[color=OliveGreen] at (-2,-0.3) {-2};
+    \draw[OliveGreen] (-2) -- (2);
+    \draw[flecha=magenta] (3) -- ++(-6,0);
   \end{tikzpicture}
 }
 
 \def\doceiiidos{
-  \begin{tikzpicture}[scale=0.6, baseline=0]
+  \begin{tikzpicture}[
+      scale=0.6,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1, thick},
+    ]
     % Number line
-    \draw[thick, Latex-Latex,] (-4.5,0) -- (4.5,0);
-    % Interval
-    \draw[fill=magenta, color=magenta] (3,0.1) circle (3pt);
-    \draw[color=OliveGreen] (2,0.2) circle (3pt);
-    \draw[color=OliveGreen] (-2,0.2) circle (3pt);
+    \draw[eje] (-4.5,0) -- (4.5,0);
 
-    \draw[Latex-, magenta, thick] (-4,0.1) -- (3,0.1);
-    \draw[Latex-, OliveGreen, thick] (-4,0.2) -- (-2,0.2);
-    \draw[-Latex, OliveGreen, thick] (2,0.2) -- (4,0.2);
+    \node[nodo=OliveGreen, label=below:$2$] (2) at (2,0.3){};
+    \node[nodo=OliveGreen, label=below:$-2$] (-2) at (-2,0.3){};
+    \node[nodo=magenta, fill=magenta, label=below:$3$] (3) at (3,0.2) {};
 
-    \node[color=magenta] at (3,-0.3) {3};
-    \node[color=OliveGreen] at (2,-0.3) {2};
-    \node[color=OliveGreen] at (-2,-0.3) {-2};
+    \draw[flecha=OliveGreen] (-2) -- ++(-2,0);
+    \draw[flecha=OliveGreen] (2) -- ++(2,0);
+    \draw[flecha=magenta] (3) -- ++(-6,0);
+
   \end{tikzpicture}
 }
 
 \def\doceiiitres{
-  \begin{tikzpicture}[scale=0.6, baseline=0]
-    % Number line
-    \draw[thick, Latex-Latex] (-4.5,0) -- (4.5,0);
-    % Interval
-    \draw[color=magenta] (3,0.1) circle (3pt);
-    \draw[color=OliveGreen] (2,0.2) circle (3pt);
-    \draw[color=OliveGreen] (-2,0.2) circle (3pt);
+  \begin{tikzpicture}[
+      scale=0.6,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thick, Latex-Latex},
+      flecha/.style={-Latex, color=##1},
+    ]
+    \draw[eje] (-4.5,0) -- (4.5,0);
 
-    \draw[-Latex, magenta, thick] (3,0.1) -- (4.5,0.1);
-    \draw[-, OliveGreen, thick] (-2,0.2) -- (2,0.2);
+    \node[nodo=magenta, label=below:$3$] (3) at (3,0.2) {};
+    \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.2){};
+    \node[nodo=OliveGreen, fill=OliveGreen,label=below:$-2$] (-2) at (-2,0.2){};
 
-    \node[color=magenta] at (3,-0.3) {3};
-    \node[color=OliveGreen] at (2,-0.3) {2};
-    \node[color=OliveGreen] at (-2,-0.3) {-2};
+    \draw[flecha=magenta] (3) to ++(2,0);
+    \draw[OliveGreen] (-2) to (2);
   \end{tikzpicture}
 }
 
@@ -273,7 +288,7 @@
                   $n \en \naturales$ no termina con 4 o $n$ es par.
                 \end{center}
 
-                \textit{$\sim (p \land \sim q$:}
+                \textit{$\sim (p \land \sim q)$:}
                 ¿Cómo se enuncia esto?
                 \begin{center}
                   No es el caso en que $n \en \naturales$ termina con 4 y $n$ es impar

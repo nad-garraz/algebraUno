@@ -47,16 +47,19 @@ $$
           \begin{tikzpicture}[
             scale=0.8,
             baseline=0,
-            nodo vacio/.style={draw,circle,inner sep = 1pt, fill=white, label=below: {$##1$}},
-            ejes/.style={thick, Latex-Latex}
+            nodo vacio/.style={draw,circle,inner sep = 2pt, fill=white, label=below: {$##1$}},
+            ejes/.style={thick, Latex-Latex},
+            intervalo/.style={ultra thick, color=magenta}
             ]
             \draw[ejes] (-3.5,0) -- (3.5,0);
-            \draw[magenta, ultra thick] (2,0) -- (3,0);
-            \draw[magenta, ultra thick] (-2,0) -- (-3,0);
-            \node[nodo vacio={2}] at (2,0) {};
-            \node[nodo vacio={3}] at (3,0) {};
-            \node[nodo vacio={-2}] at (-2,0) {};
-            \node[nodo vacio={-3}] at (-3,0) {};
+
+            \node[nodo vacio={2}] (2) at (2,0) {};
+            \node[nodo vacio={3}] (3) at (3,0) {};
+            \node[nodo vacio={-2}] (-2) at (-2,0) {};
+            \node[nodo vacio={-3}] (-3) at (-3,0) {};
+
+            \draw[intervalo] (-3) to (-2);
+            \draw[intervalo] (2) to (3);
           \end{tikzpicture}
         }
 
@@ -64,13 +67,16 @@ $$
           \begin{tikzpicture}[
             scale=0.8,
             baseline=0,
-            nodo vacio/.style={draw,circle,inner sep = 1pt, fill=white, label=below: {$##1$}},
-            ejes/.style={thick, Latex-Latex}
+            nodo vacio/.style={draw,circle,inner sep = 2pt, fill=white, label=below: {$##1$}},
+            ejes/.style={thick, Latex-Latex},
+            intervalo/.style={ultra thick, color=Cerulean},
             ]
             \draw[ejes] (-3.5,0) -- (3.5,0);
-            \draw[-, cyan, ultra thick] (1.732,0) -- (-1.732,0);
-            \node[nodo vacio={\sqrt{3}}] at (1.732,0) {};
-            \node[nodo vacio={-\sqrt{3}}] at (-1.732,0) {};
+
+            \node[nodo vacio={\sqrt{3}}] (sqrt3) at (1.732,0) {};
+            \node[nodo vacio={-\sqrt{3}}] (nsqrt3) at (-1.732,0) {};
+
+            \draw[intervalo] (sqrt3) to (nsqrt3);
           \end{tikzpicture}
         }
         $$

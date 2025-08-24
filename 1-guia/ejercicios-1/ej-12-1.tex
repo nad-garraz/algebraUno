@@ -1,16 +1,23 @@
-% Gráficos, separados para no generar bardo
+\tikzset{
+  plot style/.style={
+      scale=0.6,
+      baseline=0,
+      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
+      eje/.style={thin, Latex-Latex, color=gray},
+      flecha/.style={-Latex, color=##1, thick},
+    }
+}
+
 \def\doceiA{
   \begin{tikzpicture}[
-    scale=0.8,
-    baseline=0,
-    nodo lleno/.style 2 args={color={##1}, label=below:$##2$, outer sep=0, inner sep=0},
-    ejes/.style={thin, color=gray, Latex-Latex},
+    plot style,
+    nodo/.style 2 args={color={##1}, label=below:$##2$, outer sep=0, inner sep=0},
     flecha/.style={thick, color=##1, {[-Latex}},
       ]
-    \draw[ejes] (0,0) -- (12,0);
+    \draw[eje] (0,0) -- (12,0);
 
-    \node[nodo lleno={magenta}{5}] (5) at (5,0.2) {};
-    \node[nodo lleno={OliveGreen}{8}] (8) at (8,0.3) {};
+    \node[nodo={magenta}{5}] (5) at (5,0.2) {};
+    \node[nodo={OliveGreen}{8}] (8) at (8,0.3) {};
 
     \draw[flecha=OliveGreen] (8) to ++(-6,0);
     \draw[flecha=magenta] (5) to ++(4,0);
@@ -18,13 +25,7 @@
 }
 
 \def\doceiiA{
-  \begin{tikzpicture}[
-      scale=0.8,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1, thick},
-    ]
+  \begin{tikzpicture}[plot style]
     \draw[eje] (1,0) -- (11,0);
 
     \node[nodo=magenta, label=below:$5$] (5) at (5,0.2) {};
@@ -36,13 +37,7 @@
 }
 
 \def\doceiiE{
-  \begin{tikzpicture}[
-      scale=0.8,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1},
-    ]
+  \begin{tikzpicture}[plot style]
     \draw[eje] (-4,0) -- (5,0);
 
     \node[nodo=magenta, label=below:$3$] (3) at (3,0.2) {};
@@ -56,13 +51,7 @@
 }
 
 \def\doceiiicero{
-  \begin{tikzpicture}[
-      scale=0.6,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1},
-    ]
+  \begin{tikzpicture}[plot style]
     \draw[eje] (-4.5,0) -- (4.5,0);
 
     \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.3){};
@@ -76,13 +65,7 @@
 }
 
 \def\doceiiiuno{
-  \begin{tikzpicture}[
-      scale=0.6,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1},
-    ]
+  \begin{tikzpicture}[plot style]
     \draw[eje] (-4.5,0) -- (4.5,0);
 
     \node[nodo=OliveGreen, fill=OliveGreen, label=below:$2$] (2) at (2,0.3){};
@@ -95,14 +78,7 @@
 }
 
 \def\doceiiidos{
-  \begin{tikzpicture}[
-      scale=0.6,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1, thick},
-    ]
-    % Number line
+  \begin{tikzpicture}[plot style]
     \draw[eje] (-4.5,0) -- (4.5,0);
 
     \node[nodo=OliveGreen, label=below:$2$] (2) at (2,0.3){};
@@ -115,15 +91,8 @@
 
   \end{tikzpicture}
 }
-
 \def\doceiiitres{
-  \begin{tikzpicture}[
-      scale=0.6,
-      baseline=0,
-      nodo/.style={circle, color=##1, draw=##1, fill=white, inner sep=2pt, outer sep=0pt},
-      eje/.style={thick, Latex-Latex},
-      flecha/.style={-Latex, color=##1},
-    ]
+  \begin{tikzpicture}[plot style]
     \draw[eje] (-4.5,0) -- (4.5,0);
 
     \node[nodo=magenta, label=below:$3$] (3) at (3,0.2) {};

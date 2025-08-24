@@ -15,14 +15,18 @@
   rectangle
   ([xshift=-5pt,yshift=5pt]current bounding box.north west) node [above left] {$A$};
 }
+
+\tikzset{
+plot style/.style={
+node distance=1.2cm,
+nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
+arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
+rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}},
+}
+}
+
 \def\diecinuevei{
-  \begin{tikzpicture}
-    [
-    node distance=1.2cm,
-    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
-    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
-    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
-    ]
+  \begin{tikzpicture} [plot style]
     \nodosDiecinueve
 
     \draw[arista=Cerulean] (a) to (b);
@@ -35,19 +39,13 @@
     \draw[rulo={60}{Cerulean}] (c) to (c);
     \draw[rulo={240}{Cerulean}] (f) to (f);
 
-    % Al final para que agarre todo lo graficado
     \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 ii
 \def\diecinueveii{
-  \begin{tikzpicture} [
-    node distance=1.2cm,
-    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
-    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
-    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
-    ]
+  \begin{tikzpicture} [plot style]
     \nodosDiecinueve
 
     % Aristas
@@ -63,21 +61,13 @@
     \draw[arista=Cerulean, bend right] (c) to (e);
     \draw[arista=Cerulean, bend right] (h) to (g);
 
-    % Al final para que agarre todo lo graficado
     \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 iii
 \def\diecinueveiii{
-  \begin{tikzpicture}
-    [
-    node distance=1.2cm,
-    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
-    arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={##1}},
-    rulo/.style 2 args = {-{Latex[length=3pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
-    ]
-
+  \begin{tikzpicture}[plot style]
     \nodosDiecinueve
 
     % Aristas
@@ -99,24 +89,15 @@
     \draw[arista=Cerulean] (d) to (c);
     \draw[arista=Cerulean] (h) to (g);
 
-    % Al final para que agarre todo lo graficado
     \universoDiecinueve
   \end{tikzpicture}
 }
 
 % 19 iV
 \def\diecinueveiv{
-  \begin{tikzpicture}
-    [
-    node distance=1.2cm,
-    nodo/.style={circle, fill=black, color={##1}, minimum size = 5pt, inner sep = 2pt},
-    arista/.style={-{Latex[length=4pt]}, ultra thin, bend left=25, color={##1}},
-    rulo/.style 2 args = {-{Latex[length=5pt]}, out=##1, in=##1+80, looseness=12, color={##2}}
-    ]
-
+  \begin{tikzpicture}[plot style]
     \nodosDiecinueve
 
-    % Aristas
     \draw[rulo={150}{Cerulean}] (a) to (a);
     \draw[rulo={-30}{Cerulean}] (b) to (b);
     \draw[rulo={150}{Cerulean}] (c) to (c);
@@ -135,11 +116,9 @@
     \draw[arista=Cerulean, bend left = 10] (g) to (h);
     \draw[arista=Cerulean, bend left = 10] (g) to (e);
 
-    % Al final para que agarre todo lo graficado
     \universoDiecinueve
   \end{tikzpicture}
 }
-% fin gráficos
 
 \begin{enunciado}{\ejercicio}
   Sea $A = \set{a,b,c,d,e,f,g,h}$. Para cada uno de los siguientes gráficos describir por

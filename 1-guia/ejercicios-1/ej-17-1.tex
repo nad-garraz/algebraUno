@@ -18,6 +18,14 @@
   rectangle
   ([xshift=20pt, yshift=5pt]1b.north east) node [left] {$B$};
 }
+\tikzset{
+    plot style/.style={
+            scale = 0.7,
+            node distance=1.2cm,
+            nodo/.style={circle, fill=black, color=##1, minimum size = 5pt, inner sep = 2pt},
+            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color=##1},
+    }
+}
 
 \separador
 
@@ -46,13 +54,7 @@ Es útil traer la \textit{definición de Relación, $\relacion$:}
 \begin{enumerate}[label=\roman*)]
   \item Esta es una $\relacion$:
         $$
-          \begin{tikzpicture}
-            [
-            scale = 0.7,
-            node distance=1.2cm,
-            nodo/.style={circle, fill=black, color={#1}, minimum size = 5pt, inner sep = 2pt},
-            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
-            ]
+          \begin{tikzpicture}[ plot style ]
             \nodosDiecisiete
             \draw[arista=Cerulean] (1) to (1b);
             \draw[arista=Cerulean] (1) to (3b);
@@ -66,13 +68,7 @@ Es útil traer la \textit{definición de Relación, $\relacion$:}
 
   \item Es una relación:
         $$
-          \begin{tikzpicture}
-            [
-            scale = 0.7,
-            node distance=1.2cm,
-            nodo/.style={circle, fill=black, color={#1}, minimum size = 5pt, inner sep = 2pt},
-            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
-            ]
+          \begin{tikzpicture}[ plot style ]
             \nodosDiecisiete
             \draw[arista=violet] (1) to (1b);
             \draw[arista=violet, bend left=10] (2) to (7);
@@ -82,13 +78,7 @@ Es útil traer la \textit{definición de Relación, $\relacion$:}
 
   \item Es una relación:
         $$
-          \begin{tikzpicture}
-            [
-            scale = 0.7,
-            node distance=1.2cm,
-            nodo/.style={circle, fill=black, color={#1}, minimum size = 5pt, inner sep = 2pt},
-            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color={#1}},
-            ]
+          \begin{tikzpicture}[ plot style ]
             \nodosDiecisiete
             \draw[arista=orange] (1) to (3b);
             \draw[arista=orange, bend left=10] (2) to (1b);

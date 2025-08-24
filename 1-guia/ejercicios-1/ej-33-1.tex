@@ -1,6 +1,14 @@
 % MACRO LOCAL
 %=======
 \def\idn{\text{id}_{\naturales}}
+\tikzset{
+plot style/.style={
+baseline=0,
+oval/.style={ellipse, draw, minimum width=1cm, minimum height=1.5cm, align=center, label={##1}:{$\naturales$}},
+arrow/.style={-{Latex[length=5pt]}, bend left=20},
+comp/.style={-{Latex[length=5pt]}, color=##1, bend right=25, font={\tiny}}
+}
+}
 %=======
 \begin{enunciado}{\ejercicio}
   Hallar dos funciones $f : \naturales \to \naturales$ \ytext $g : \naturales \to \naturales$ tales que $f \circ g = \idn
@@ -16,11 +24,8 @@ $$
   (g \circ f)(n) = \idn
   \qquad
   \begin{tikzpicture}[
-    baseline=0,
-    node distance=1.5cm,
-    oval/.style={ellipse, draw, minimum width=1cm, minimum height=1.5cm, align=center, label=#1:{$\naturales$}},
+    plot style,
     arrow/.style={{Latex[length=5pt]}-{Latex[length=5pt]}, bend left=20},
-    comp/.style={-{Latex[length=5pt]}, color=#1, bend right=25, font={\tiny}}
     ]
     \node[oval={above left}] (A) {};
     \node[oval={above}, right of=A] (B) {};
@@ -39,15 +44,11 @@ $$
 $$
 
 \bigskip
-
 Por otro lado sí quiero algo así:
 \begin{tikzpicture}[
-  baseline=0,
-  node distance=1.7cm,
-  imagen/.style={ellipse, draw, dashed, minimum width=0.3cm, minimum height=0.8cm, align=center, color=Cerulean, font={\tiny}},
-  oval/.style={ellipse, draw, minimum width=1cm, minimum height=1.5cm, align=center, label=#1:{$\naturales$}},
-  arrow/.style={-{Latex[length=5pt]}, bend left=20},
-  comp/.style={-{Latex[length=5pt]}, color=#1, bend right=25, font={\tiny}}
+    plot style,
+    node distance=1.7cm,
+    imagen/.style={ellipse, draw, dashed, minimum width=0.3cm, minimum height=0.8cm, align=center, color=Cerulean, font={\tiny}},
   ]
   \node[oval={above left}] (A) {};
   \node[oval={above}, right of=A] (B) {};

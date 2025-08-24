@@ -4,4 +4,40 @@
   Exhibir valores de $a$ y $b$ para los cuales da $2$ y para los cuales da $94$.
 \end{enunciado}
 
-\hacer
+Si $d = (7a + 3b: 4a - 5b)$, entonces $d$ divide a ambas expresiones:
+$$
+\begin{cases}
+ d \divideA 7a + 3b \\
+ d \divideA 4a - 5b 
+\end{cases}
+\Entonces{$4F_1 \to F_1$}[$7F_2 \to F_2$]
+\begin{cases}
+d \divideA 28a + 12b \\
+d \divideA 28a - 35b
+\end{cases}
+\Entonces{}
+d \divideA 47b
+$$
+
+$$
+\begin{cases}
+ d \divideA 7a + 3b \\
+ d \divideA 4a - 5b 
+\end{cases}
+\Entonces{$5F_1 \to F_1$}[$3F_2 \to F_2$]
+\begin{cases}
+d \divideA 35a + 15b \\
+d \divideA 12a - 15b
+\end{cases}
+\Entonces{}
+d \divideA 47a
+$$
+
+Luego $d \divideA 47b \, \land \, d \divideA 47a \implies d \divideA 47(a:b) = 94$. 
+De aquí los posibles divisores serian $1, 2, 47, 94$, pero aquellos impares no pueden ser pues la expresion del mcd original
+tiene combinaciones lineales de $a$ y $b$ por lo tanto siempre van a ser multiplos de $2$, de ahi que las unicas soluciones son
+$2$ o $94$.
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

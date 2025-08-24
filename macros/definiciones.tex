@@ -220,7 +220,7 @@
 %=======================================================
 % Comandos con flechas extensibles.
 %=======================================================
-% *Flechita* extensible con texto {arriba} y [abajo] 
+% *Flechita hacia la derecha* extensible con texto {arriba} y [abajo] 
 \NewDocumentCommand{\flecha}{m o}{%
   \IfNoValueTF{#2}{%
     \xrightarrow[]{\text{#1}}
@@ -228,7 +228,7 @@
     \xrightarrow[\text{#2}]{\text{#1}}
   }
 }
-% *Si solo si* extensible con texto {arriba} y [abajo] 
+% *Flecha hacia la derecha* extensible con texto {arriba} y [abajo] 
 \NewDocumentCommand{\Sii}{m o}{%
   \IfNoValueTF{#2}{%
     \xLeftrightarrow[]{\text{#1}}

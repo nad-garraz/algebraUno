@@ -13,12 +13,68 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item \hacer
-  \item
+  \item Antes de nada, vemos que el enunciado no nos pide que los polinomios sean monicos, esto en este caso no va a ser un problema ya que 
+  el coeficiente si no es congruente a $1 mod 2$ va a ser 0 y por lo tanto no seria un polinomio de grado $2$.
+  
+  Usando el ejericio anterior, deberia haber $3$ polinomios reducibles y $1$ irreducible. Como son pocos casos, vayamos uno por uno. 
+  \begin{align*}
+  (X - \bar{0})^2 &= X^2 \\
+  (X - \bar{1})^2 &= X^2 + \bar{1} \\
+  (X - \bar{0})(X - \bar{1}) &= X^2 - X
+  \end{align*}
+  Vemos que el unico que falta que podemos construir con elementos de $(\enteros/2\enteros)$ es $X^2 - X + \bar{1}$. Asi que 
+  ese es el unico polinomio irreducible en $(\enteros/2\enteros)[X]$
+  
+  \item Son todos polinomios de grado $4$, para cada caso vemos que no hay un elemento directo que los anule, es decir 
+  que los haga cero, sin embargo esto no significa que sean irreducibles, ya que podrian ser descomponibles por $2$ polinomios de grado $2$ indescomponibles. 
+  
+  Consideremos la siguiente expansion generica:
+  $$
+  (aX^2 + bX + c)(dX^2 + eX + f) = adX^4 + (ae + bd)X^3 + (af + be + cd)X^2 + (bf + ce)X + cf
+  $$
+  Luego armamos con ello un sistema de ecuaciones, en el que igualamos cada expresion con el respectivo coeficiente del polinomio 
+  a descomponer, si el sistema tiene solución, con los valores encontrados de $a,b,c,d,e,f$ reconstruimos los polinomios que lo descompusieron,
+  si el sistema no tiene solucion o se llega a un absurdo, entonces el polinomio original de grado $4$ es irreducible.
         \begin{enumerate}[label=(\alph*)]
-          \item \hacer
-          \item \hacer
-          \item \hacer
+          \item Planteamos el sistema que tiene las siguientes ecuaciones:
+          \begin{align}
+          ad = 1 \\
+          ae + bd = 0 \\
+          af + be + cd = 0 \\
+          bf + ce = 1 \\
+          cf = 1
+          \end{align}
+
+          De $(5)$ vemos que $c = f = 1$, de $(1)$ vemos que $a = d = 1$, ahora notamos que $bf + ce = 1
+          \iff b \neq e$, pero $ae + bd = 0 \iff b = e$, por lo tanto llegamos a un absurdo, y el polinomio es irreducible. 
+          \item Planteamos el sistema que tiene las siguientes ecuaciones:
+          \begin{align}
+          ad = 1 \\
+          ae + bd = 0 \\
+          af + be + cd = 1 \\
+          bf + ce = 0 \\
+          cf = 1
+          \end{align}
+
+          Vemos ya que $a = d = c = f = 1$, de $(8)$ vemos que $be = 1 \iff b = e = 1$. Con esta eleccion, todas las demas
+          ecuaciones se cumplen, asi que este polinomio es descomponible. 
+          $$
+          X^4 + X^2 + 1 = (X^2 + X + 1)(X^2 + X + 1) = (X^2 + X + 1)^2
+          $$
+          
+          \item Planteamos el sistema que tiene las siguientes ecuaciones:
+          \begin{align}
+          ad = 1 \\
+          ae + bd = 1 \\
+          af + be + cd = 0 \\
+          bf + ce = 0 \\
+          cf = 1
+          \end{align}
+          Vemos que $a = d = c = f = 1$, de $(12)$ tenemos que $e \neq b$, pero para $(14)$ necesitamos
+          que $e = b$, por lo tanto llegamos a una contradiccion, entonces el polinomio es irreducible.
         \end{enumerate}
 \end{enumerate}
 
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

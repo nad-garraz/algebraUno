@@ -13,68 +13,79 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item Antes de nada, vemos que el enunciado no nos pide que los polinomios sean monicos, esto en este caso no va a ser un problema ya que 
-  el coeficiente si no es congruente a $1 mod 2$ va a ser 0 y por lo tanto no seria un polinomio de grado $2$.
-  
-  Usando el ejericio anterior, deberia haber $3$ polinomios reducibles y $1$ irreducible. Como son pocos casos, vayamos uno por uno. 
-  \begin{align*}
-  (X - \bar{0})^2 &= X^2 \\
-  (X - \bar{1})^2 &= X^2 + \bar{1} \\
-  (X - \bar{0})(X - \bar{1}) &= X^2 - X
-  \end{align*}
-  Vemos que el unico que falta que podemos construir con elementos de $(\enteros/2\enteros)$ es $X^2 - X + \bar{1}$. Asi que 
-  ese es el unico polinomio irreducible en $(\enteros/2\enteros)[X]$
-  
-  \item Son todos polinomios de grado $4$, para cada caso vemos que no hay un elemento directo que los anule, es decir 
-  que los haga cero, sin embargo esto no significa que sean irreducibles, ya que podrian ser descomponibles por $2$ polinomios de grado $2$ indescomponibles. 
-  
-  Consideremos la siguiente expansion generica:
-  $$
-  (aX^2 + bX + c)(dX^2 + eX + f) = adX^4 + (ae + bd)X^3 + (af + be + cd)X^2 + (bf + ce)X + cf
-  $$
-  Luego armamos con ello un sistema de ecuaciones, en el que igualamos cada expresion con el respectivo coeficiente del polinomio 
-  a descomponer, si el sistema tiene solución, con los valores encontrados de $a,b,c,d,e,f$ reconstruimos los polinomios que lo descompusieron,
-  si el sistema no tiene solucion o se llega a un absurdo, entonces el polinomio original de grado $4$ es irreducible.
+  \item
+        Usando resultados del ejercicio \refEjercicio{ej:39},
+        debería haber un total de $3$ polinomios \ul{reducibles} y $1$ \ul{irreducible}.
+
+        Son solo \blue{4 polinomios}, vayamos uno por uno:
+        $$
+          \begin{array}{rclcl}
+            (X - 0)^2      & = & \blue{X^2}                                                                         \\
+            (X - 1)^2      & = & X^2 - 2X + 1 & \igual{$\scriptscriptstyle \enteros/_{2\enteros}$} & \blue{X^2 + 1} \\
+            (X - 0)(X - 1) & = & X^2 - X      & \igual{$\scriptscriptstyle \enteros/_{2\enteros}$} & \blue{X^2 + X}
+          \end{array}
+        $$
+        Vemos que el único que falta que podemos construir con elementos de $(\enteros/2\enteros)$:
+        $$
+          \blue{X^2 + X + 1},
+        $$
+        el único polinomio irreducible en $(\enteros/2\enteros)[X]$.
+
+  \item
+        Este ejercicio sale usando el resultado del ítem anterior:
+
+        \textit{Nota que puede ser de interés:}
+        \parrafoDestacado[\red{\atencion}]{
+          Por ejemplo $P \en \reales[X]$:
+          $$
+            P = X^4 + 3X^2 + 2 = (X^2 + 1) \cdot (X^2 + 2)
+          $$
+          es un polinomio que \ul{no tiene} raíces reales, pero se puede factorizar como producto de irreducibles,
+          es decir otros polinomio que {\tiny obviamente} \ul{ tampoco tienen} raíces reales.
+        }
+        \textit{fin nota que puede ser de interés}
+
+        Los polinomio no tienen raíces en $(\enteros/2\enteros)$, lo cual \textit{no} implica que sean \textit{irreducibles}. Porque
+        podrían ser divisibles por un polinomio \textit{irreducible} de menor grado, o sorpresa \red{\surprise}, tenemos el que calculamos
+        en el ítem anterior.
+
         \begin{enumerate}[label=(\alph*)]
-          \item Planteamos el sistema que tiene las siguientes ecuaciones:
-          \begin{align}
-          ad = 1 \\
-          ae + bd = 0 \\
-          af + be + cd = 0 \\
-          bf + ce = 1 \\
-          cf = 1
-          \end{align}
+          \item
+                $$
+                  \polyset{vars=X}
+                  \divPol{X^4 + X + 1}{X^2 + X + 1}
+                $$
+                Ese resultado en $(\enteros/2\enteros)$:
+                $$
+                  X^4 + X + 1 \igual{\red{!}} (X^2 + X + 1)\cdot(X^2 + 1) + 1
+                $$
+                El resto es siempre 1, así que no se va a poder factorizar, $X^4 + X + 1$ es \ul{irreducible} en $(\enteros/2\enteros)$.
 
-          De $(5)$ vemos que $c = f = 1$, de $(1)$ vemos que $a = d = 1$, ahora notamos que $bf + ce = 1
-          \iff b \neq e$, pero $ae + bd = 0 \iff b = e$, por lo tanto llegamos a un absurdo, y el polinomio es irreducible. 
-          \item Planteamos el sistema que tiene las siguientes ecuaciones:
-          \begin{align}
-          ad = 1 \\
-          ae + bd = 0 \\
-          af + be + cd = 1 \\
-          bf + ce = 0 \\
-          cf = 1
-          \end{align}
+          \item
+                $$
+                  \polyset{vars=X}
+                  \divPol{X^4 + X^2 + 1}{X^2 + X + 1}
+                $$
+                Ese resultado en $(\enteros/2\enteros)$:
+                $$
+                  X^4 + X^2 + 1 \igual{\red{!}} (X^2 + X + 1)\cdot(X^2 + X + 1)
+                $$
+                Este sí se puede factorizar, $X^4 + X^2 + 1$ es \ul{reducible} en $(\enteros/2\enteros)$.
 
-          Vemos ya que $a = d = c = f = 1$, de $(8)$ vemos que $be = 1 \iff b = e = 1$. Con esta eleccion, todas las demas
-          ecuaciones se cumplen, asi que este polinomio es descomponible. 
-          $$
-          X^4 + X^2 + 1 = (X^2 + X + 1)(X^2 + X + 1) = (X^2 + X + 1)^2
-          $$
-          
-          \item Planteamos el sistema que tiene las siguientes ecuaciones:
-          \begin{align}
-          ad = 1 \\
-          ae + bd = 1 \\
-          af + be + cd = 0 \\
-          bf + ce = 0 \\
-          cf = 1
-          \end{align}
-          Vemos que $a = d = c = f = 1$, de $(12)$ tenemos que $e \neq b$, pero para $(14)$ necesitamos
-          que $e = b$, por lo tanto llegamos a una contradiccion, entonces el polinomio es irreducible.
+          \item
+                $$
+                  \polyset{vars=X}
+                  \divPol{X^4 + X^3 + 1}{X^2 + X + 1}
+                $$
+                Ese resultado en $(\enteros/2\enteros)$:
+                $$
+                  X^4 + X^3 + 1 \igual{\red{!}} (X^2 + X + 1)\cdot(X^2 + 1) + X
+                $$
+                Este no se puede factorizar, $X^4 + X^3 + 1$ es \ul{irreducible} en $(\enteros/2\enteros)$.
         \end{enumerate}
 \end{enumerate}
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

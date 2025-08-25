@@ -8,11 +8,11 @@ $$
   X^2 + aX + b \quad a, b \en (\enteros/p\enteros)
 $$
 
-Tenemos que elegir un elemento para $a$ y otro para $b$, entre $0$ y $p-1$, o sea
+Tenemos que elegir un valor para $a$ y otro para $b$, entre $0$ y $p-1$, o sea
 $p$ distintos, dos veces.
-Así que la cantidad de polinmios mónicos de grado dos sería:
+Así que la cantidad de polinomios mónicos de grado dos \ul{total}:
 $$
-  \cajaResultado{p^2}.
+  \cajaResultado{\green{p^2}}.
 $$
 
 Para buscar aquellos que sean \ul{reducibles}, es decir que puedan factorizarse en mónicos de $(\enteros/p\enteros)[X]$:
@@ -23,18 +23,28 @@ $$
 $$
 \textit{Caso donde $p_1 \distinto p_2$:}
 
-$\blue{p \cdot (p - 1)}$ opciones, pero el orden de los factores no va a alterar el polinomio,
+Hay $\blue{p \cdot (p - 1)}$ opciones, pero como el orden de los factores no va a alterar el polinomio,
 por ejemplo:
 $$
   (X - 2)(X - 3) = (X - 3)(X - 2).
 $$
-\textit{¡Hay que dividir por \blue{2} para no contar dos veces lo mismo!}.
+\textit{¡Hay que dividir por $\blue{2}$ para no contar dos veces lo mismo!}.
 
 \textit{Caso donde $p_1 = p_2$:}
+
 Los elementos de la forma $(X - p_0)^2$ están contados solo una vez,
-de estos hay exactamente $\magenta{p}$ elementos. Por lo tanto, la cantidad de reducibles es la siguiente:
+de estos hay exactamente $\magenta{p}$ elementos.
+
+La cantidad de polinomios en $(\enteros/p\enteros)$ \ul{reducibles}:
 $$
   \cajaResultado{\blue{\frac{p^2 - p}{2}} + \magenta{p} = \frac{p^2 + p}{2}}
+$$
+
+La cantidad de polinomios en $(\enteros/p\enteros)$ \ul{irreducibles}:
+$$
+  \cajaResultado{
+    \green{p^2} - \frac{p^2 + p}{2} = \frac{p^2 - p}{2}
+  }
 $$
 
 \begin{aportes}

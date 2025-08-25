@@ -9,26 +9,44 @@
   \end{enumerate}
 \end{enunciado}
 
-$a, b, c$ son las 3 raices del polinomio, luego podemos plantear al polinomio como 
-$2(X-a)(X-b)(X-c)$. 
+Si $a, b, c$ son las 3 raíces del polinomio $P = 2X^3 - 3X^2 + 4X + 1$. El polinomio $P$ en \textit{forma factorizada}:
+$$
+  2(X-a)(X-b)(X-c) \quad \text{con } a,\, b,\, c \en \complejos.
+$$
+Distribuyendo todo se recupera la \textit{forma polinómica} de $P$:
+$$
+  \begin{array}{rcl}
+    \red{2}(X-a)(X-b)(X-c) & = & \red{2}(X^2 - aX - bX + ab)(X - c)                                       \\
+                           & = & \red{2}(X^3 - aX^2 - bX^2 + abX -cX^2 +acX +bcX - abc)                   \\
+                           & = & \red{2}X^3 - \red{2}(a + b + c)X^2 + \red{2}(ab + ac + bc)X - \red{2}abc
+  \end{array}
+$$
+Si comparamos esta expansión genérica con el polinomio, vemos que justamente lo que nos piden en el enunciado
+son los coeficientes de $P$, \ul{expresados en función de sus raíces}.
+{\tiny
+\parrafoDestacado{
+  Esta forma de relacionar raices con coeficientes se puede generalizar y se conoce como \href{https://en.wikipedia.org/wiki/Vieta\%27s_formulas}{Fórmulas de Viete}.
+}
+}
 
-\begin{align*}
-\red{2}(X-a)(X-b)(X-c) = \red{2}(X^2 - aX - bX + ab)(X - c) = \\
-= \red{2}(X^3 - aX^2 - bX^2 + abX -cX^2 +acX +bcX - abc) = \\
-= \red{2}(X^3 -(a + b + c)X^2 + (ab + ac + bc)X - abc)
-\end{align*}
-Si comparamos esta expansion generica con el polinomio, vemos que justamente lo que nos piden son los coeficientes
-del polinomio original, esta forma de relacionar raices con coeficientes se puede generalizar y se conoce como \href{https://en.wikipedia.org/wiki/Vieta\%27s_formulas}{Formulas de Viete}. 
-Vemos tambien que toda la expresion se multiplica por $2$ porq es el coeficiente principal, asi que a cada coeficiente tenemos que dividirlo por $2$
-para obtener lo pedido, Entonces:
-\begin{enumerate}[label=\roman*)]
-  \item $-2(a+b+c) = -3 \iff (a+b+c) = \frac{3}{2}$
-  \item $2(ab + ac + bc) = 4 \iff (ab + ac + bc) = 2$
-  \item $-2(abc) = 1 \iff (abc) = -\frac{1}{2}$
-
-\end{enumerate}
+Para resolver el ejercicio se plantea la igualdad de los polinomios:
+{\small
+$$
+  \red{2}X^3 - \red{2}(a + b + c)X^2 + \red{2}(ab + ac + bc)X - \red{2}abc
+  =
+  2X^3 - 3X^2 + 4X + 1
+$$
+Dos polinomios son iguales si y solo si todos sus coeficientes son iguales:
+$$
+  \llave{rcl}{
+    -\red{2}(a+b+c) = -3 & \sii & \cajaResultado{\textstyle a + b + c = \frac{3}{2}} \\
+    \red{2}(ab + ac + bc) = 4 & \sii & \cajaResultado{\textstyle ab + ac + bc = 2} \\
+    -\red{2}abc = 1 & \sii & \cajaResultado{\textstyle abc = -\frac{1}{2}}
+  }
+$$
+}
 
 \begin{aportes}
- \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
 \end{aportes}
 

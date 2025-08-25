@@ -1,1 +1,66 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+ Hallar todos los $a \in \complejos$ para los cuales al menos una de las raices de 
+ $$
+ f = X^6 + X^5 - 3X^4 + 2X^3 + X^2 -3X + a
+ $$
+ es una raíz sexta de la unidad que no es una raíz cubica de la unidad. 
+ Para cada valor de $a \in \complejos$ hallado, factorizar $f$ en $\racionales[X], \reales[X]$ y $\complejos[X]$
+\end{enunciado}
+
+Sea $w$ una raiz sexta de la unidad tal que $w^3 = -1$. (por enunciado). 
+Evaluamos el polinomio en esa $w$ y arreglamos el $a$ para que sea igual a cero, asi $w$ es raiz.  
+
+\begin{align*}
+f(w) = w^6 + w^5 - 3w^4 + 2w^3 + w^2 - 3w + a \igual{?} 0 \\
+f(w) = \red{1 + w^2 + w^3 + w^5}\llamada{1} - 3w^4 + w^3 - 3w + a \\
+f(w) = -4w^4 -4w + w^3 + a \\
+f(w) = -4(w^4 + w) +w^3 + a \\
+f(w) = -4(w\red{(w^3 + 1)})\llamada{2} + w^3 + a \\
+f(w) = w^3 + a \igual{?} 0 \iff -1 + a = 0 \iff a = 1
+\end{align*}
+
+Como eso fue para una $w$ generica que cumple eso, agarremos ahora $\zeta$ raiz primitiva sexta de la unidad, de esta manera
+$\zeta, \zeta^3, \zeta^5$ son distintas, y cumplen lo pedido por el enunciado$\llamada{3}$, como son raices sigue que 
+$(X - \zeta)(X - \zeta^3)(X - \zeta^5) \divideA X^6 + X^5 - 3X^4 + 2X^3 + X^2 -3X + 1
+\iff (X + 1)(X^2 - \zeta \zeta^5X + \zeta \zeta^5) = (X + 1)(X^2 -X + 1) = (X^3 + 1) \divideA X^6 + X^5 - 3X^4 + 2X^3 + X^2 -3X + 1$. 
+Ahora que sabemos eso procedemos a hacer la division. 
+$$
+\divPol{X^6 + X^5 - 3X^4 + 2X^3 + X^2 -3X + 1}{X^3 + 1}
+$$
+Ahora buscamos raices racionales en el polinomio resultante de la división ya que es de grado $3$, veo aplicando Gauss que las posibles son 
+$1$ y $-1$, pruebo evaluando en $1$ y veo que es raíz, luego hago la división:
+$$
+\divPol{X^3 + X^2 -3X + 1}{X - 1}
+$$
+Ahora veamos las raices de el polinomio resultante, para eso aplicamos la formula resolvente o de Bhaskara, y 
+obtenemos que $X^2 + 2X - 1 = (X + 1 - \sqrt{2})(X + 1 + \sqrt{2})$. 
+
+Ya practicamente tenemos todas las factorizaciones, pero retomamos momentaneamente una parte de la factorizacion compleja, 
+habiamos dicho $(X - \zeta)(X - \zeta^5) = (X^2 - X + 1)$, pero quienes son estos $\zeta$?, son las raices primitivas sextas de la unidad, 
+asi que las escribimos en forma exponencial, serian $e^{\frac{2 \pi i}{6}}$ y $e^{\frac{10 \pi i}{6}}$. 
+
+Finalmente, las 3 factorizaciones serian: 
+
+$$
+\cajaResultado{
+\begin{array}{rcl}
+  \racionales[X] & \to & f = (X + 1)(X - 1)(X^2 + 2X - 1)(X^2 - X + 1) \\
+  \reales[X]     & \to & f = (X + 1)(X - 1)(X + 1 - \sqrt{2})(X + 1 + \sqrt{2})(X^2 - X + 1) \\
+  \complejos[X]  & \to & f = (X + 1)(X - 1)(X + 1 - \sqrt{2})(X + 1 + \sqrt{2})(X - e^{\frac{2 \pi i}{6}})(X - e^{\frac{10 \pi i}{6}})
+
+\end{array}
+}
+$$
+
+
+$\llamada{1}$ Acá usamos que $1 + w + w^2 + w^3 + w^4 + w^5 = 0$ y movemos ciertos terminos para la derecha. 
+
+$\llamada{2}$ Aca usamos que $w^3 = -1$
+
+$\llamada{3}$ Sabemos que cumplen lo del enunciado por que $\zeta$ y $\zeta^5$ son raices primitivas
+ya que $(1:6) = (5:6) = 1$, y $\zeta^3$ es simplemente $-1$, por lo tanto con estas elecciones estamos respetando lo que pide 
+el enunciado
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

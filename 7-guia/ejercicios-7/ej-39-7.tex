@@ -1,1 +1,29 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+Sea $p$ un número primo. Cuantos polinomios mónicos de grado 2 hay en $(\enteros/p\enteros)[X]$? Cuántos de ellos
+son reducibles y cuántos irreducibles?
+\end{enunciado}
+
+Veamos, la estructura de un polinomio mónico de grado $2$ es la siguiente:
+$$
+X^2 + aX + b \quad a, b \in (\enteros/p\enteros)
+$$
+
+Por lo tanto tenemos que elegir un elemento para $a$ y otro para $b$, podemos elegir desde el $0$ hasta $p-1$, o sea 
+$p$ distintos, dos veces. Asi que la cantidad de polinmios monicos de grado dos seria $\cajaResultado{p^2}$. 
+
+Para buscar aquellos que sean irreducibles, recordamos que son irreducibles si son descomponibles por factores mas chicos, en este 
+caso por dos polinomios de grado $1$, o sea de la forma $X - a$, donde $a \in (\enteros/p\enteros)$. Aqui observamos lo siguiente, 
+el orden de los factores no va a alterar el polinomio, es decir $(X-2)(X-3) = (X-3)(X-2)$, asi que vamos a tener que dividir por 2 para no contar dos veces lo mismo, 
+pero ojo porque los los elementos de la forma $(X-a)^2$ estan contados solo una vez, de estos hay exactamente $p$ elementos. 
+Por lo tanto, la cantidad de reducibles es la siguiente:
+$$
+\cajaResultado{\frac{p^2 - p}{2} + p = \frac{p^2 + p}{2}} 
+$$
+En la primera parte, de todos los elementos le sacamos los $p$ que estan contados una vez, y dividimos por $2$ para 
+no hacer doble conteo, luego volvemos a agregar los $p$ que momentaneamente habiamos sacado.
+Para calcular los irreducibles, simplemente le restamos a $p^2$ la cantidad de rreducibles, ya que seria el complemento. 
+El resultado de hacer esa cuenta da $\frac{p^2 - p}{2}$
+
+\begin{aportes}
+ \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

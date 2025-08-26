@@ -1,1 +1,63 @@
-\ejercicio\hacer
+\begin{enunciado}{\ejercicio}
+Calcular el coeficiente de $X^{20}$ de los siguientes polinomios 
+  \begin{enumerate}[label=\roman*)]
+    \item $(X^{18} + X^{16} + 1)(X^5 + X^4 + X^3 + X^2 + X + 1)$ en $\racionales[X]$ y en $(\enteros/2\enteros)[X]$
+    \item $(X - 3i)^{133}$ en $\complejos[X]$
+    \item $(X - 1)^4(X + 5)^{19} + X^{33} - 5X^{20} + 7$ en $\racionales[X]$
+    \item $X^{10}(X^5 + 4)^7$ en $(\enteros/5\enteros)[X]$
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\roman*)]
+    \item Expandimos el polinomio y nos fijamos: 
+    $$
+    (X^{18} + X^{16} + 1)(X^5 + X^4 + X^3 + X^2 + X + 1) =
+    $$ 
+    $$
+    = X^{23} + X^{22} + 2X^{21} + \red{2}X^{20} + 2X^{19} + 3X^{18} + X^{17} + X^{16} + X^5 + X^4 + X^3 + X^2 + X + 1
+    $$
+    Para $\racionales[X]$ el coeficiente es $2$ y para $(\enteros/2\enteros)[X]$ es $0$ pues $\congruencia{2}{0}{2}$
+
+    \item Consideramos el binomio de newton: 
+    $$
+    (a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^k \cdot b^{n-k}
+    $$
+    Aplicamos el binomio a el ejercicio: 
+    $$
+    (X + (-3i))^{133} = \sum_{k=0}^{133} \binom{133}{k} X^k \cdot (-3i)^{133 - k}
+    $$
+    Ahora queremos ver el coeficiente de $X^20$, es decir cuando en la sumatoria $k = 20$, se ve que el coeficiente
+    que acompaña a la $X$ es $\cajaResultado{\binom{133}{20} \cdot (-3)^{113} \cdot i}$
+
+    \item Consideremos el binomio de newton para los primeros dos terminos: 
+    $$
+    (X - 1)^4(X + 5)^{19} = \sum_{k = 0}^{4} \binom{4}{k} X^k \cdot (-1)^{4 - k} \cdot \sum_{j=0}^{19} \binom{19}{j} X^j \cdot 5^{19 - j}
+    $$
+    Nos interesa cuando el coeficiente de la $X$ sea $20$, es decir las combinaciones de $k$ y $j$ tal que $k + j = 20$
+    Esas posibles combinaciones son $(j,k) = (19,1),(18,2),(17,3),(16,4)$. 
+
+    Caso $(19,1)$: $\binom{19}{19}X^{19} \cdot 5^{19-19} \cdot \binom{4}{1}X^1 \cdot (-1)^{4-1} = -4X^{20}$
+
+    Caso $(18,2)$: $\binom{19}{18}X^{18} \cdot 5^{19-18} \cdot \binom{4}{2}X^2 \cdot (-1)^{4-2} = 570X^{20}$
+
+    Caso $(17,3)$: $\binom{19}{17}X^{17} \cdot 5^{19-17} \cdot \binom{4}{3}X^3 \cdot (-1)^{4-3} = -17100X^{20}$
+
+    Caso $(16,4)$: $\binom{19}{16}X^{16} \cdot 5^{19-16} \cdot \binom{4}{4}X^4 \cdot (-1)^{4-4} = 121125X^{20}$
+
+    Luego comparando el resto de coeficientes de $X^{20}$ del polinomio tenemos que los coeficientes suman a:
+    $-4 + 570 - 17100 + 121125 -5 = \cajaResultado{104586}$
+
+    \item Del polinomio nos interesa solo la parte de la derecha cuando el coeficiente de $X$ sea $10$, asi al multiplicarse
+    por el $X^{10}$ el grado se hace $20$. Hacemos la expansion binomial: 
+    $$
+    (X^5 + 4)^7 = \sum_{k=0}^{7} \binom{7}{k} (X^5)^k \cdot 4^{7 - k}
+    $$
+    Queremos $k = 2$, ahi el coeficiente de $X^{10}$ seria $\binom{7}{2} \cdot 4^{5} = 21 \cdot 1024 = 21504 \equiv \cajaResultado{4} \, \, (5)$
+    
+    Finalmente ese coeficiente que acompaña a $X^{10}$ se multiplica por el otro $X^{10}$, siendo el coeficiente de $X^{20}$
+
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+\end{aportes}

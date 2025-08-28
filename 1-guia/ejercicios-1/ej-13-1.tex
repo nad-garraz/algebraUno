@@ -160,13 +160,15 @@
         \begin{itemize}
           \item[\red{$(\Rightarrow)$}]
                 $$
-                  A \triangle B = \vacio
-                  \Entonces{def}
-                  (A - B) \union (B - A) = \vacio
-                  \Entonces{\red{!}}
-                  A - B = \vacio \ytext B - A = \vacio
-                  \entonces
-                  A = B
+                  \begin{array}{rcl}
+                    A \triangle B  =  \vacio
+                     & \Entonces{def} &
+                    (A - B) \union (B - A) = \vacio            \\
+                     & \Sii{\red{!}}  &
+                    (A - B = \vacio) ~\land~  (B - A = \vacio) \\
+                     & \sii           &
+                    A = B
+                  \end{array}
                 $$
 
           \item[\red{$(\Leftarrow)$}]

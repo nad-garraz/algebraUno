@@ -3,13 +3,14 @@
   Sean $A$, $B$ y $C$ subconjuntos de un conjunto referencial $\universo$. Probar que:
   \begin{multicols}{2}
     \begin{enumerate}[label=\roman*)]
-      \item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$
-      \item $A - (B - C) = (A-B) \union (A \inter C)$
-      \item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$
-      \item $(A \inter C ) - B = (A - B) \inter C$
-      \item $A \subseteq B \entonces A \triangle B = B \inter A^c$
-      \item $A \subseteq B \sisolosi B^c \subseteq A^c$
-      \item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$
+      \item $A \inter (B \triangle C) = (A \inter B) \triangle (A \inter C)$.
+      \item $A - (B - C) = (A-B) \union (A \inter C)$.
+      \item $A \triangle B \subseteq (A \triangle C) \union (B \triangle C)$.
+      \item $(A \inter B)^c \union (C \inter D)^c = (A \inter C)^c \union (B \inter D)^c$.
+      \item $A \subseteq B \entonces A \triangle B = B \inter A^c$.
+      \item $A \inter C = \vacio \entonces A \inter (B \triangle C) = A \inter B$.
+      \item $(A \inter C ) - B = (A - B) \inter C$.
+      \item $A \subseteq B \sisolosi B^c \subseteq A^c$.
     \end{enumerate}
   \end{multicols}
 
@@ -130,17 +131,28 @@
 
         $\llamada1$ Observo que $(\text{Verdadero} \y p) ~\lor~ (\text{Verdadero } \y \neg p)$ es una tautología.
 
-  \item Sale casi en forma directa:
+  \item $(A \inter B)^c \union (C \inter D)^c = (A \inter C)^c \union (B \inter D)^c$
+        Las intrucciones: Intentalo y después mirá la solución.
+        \begin{enumerate}[label=\arabic*)]
+          \item De Morgan
+          \item Conmutatividad, asociatividad de la unión
+          \item De Morgan nuevamente
+        \end{enumerate}
         $$
-          (A \inter C) - B
-          \igual{def}
-          (A \inter C) \inter B^c
-          \igual{\red{!}}
-          (A \inter B^c) \inter C
-          \igual{def}
-          (A - B) \inter C
+          \begin{array}{rcl}
+            (A \inter B)^c \union (C \inter D)^c
+             & = &
+            (A^c \union B^c) \union (C^c \union D^c) \\
+             & = &
+            A^c\union B^c \union C^c  \union D^c     \\
+             & = &
+            A^c \union C^c \union B^c \union D^c     \\
+             & = &
+            (A^c \union C^c) \union (B^c \union D^c) \\
+             & = &
+            (A \inter C)^c \union (B \inter D)^c
+          \end{array}
         $$
-        Queda así demostrada la igualdad.
 
   \item Para probar la igualdad, hay que probar la ida y la vuelta:
         \begin{itemize}
@@ -173,6 +185,26 @@
 
                 ¿Había qué hacer la ida y la vuelta? \faIcon[regular]{grin-beam-sweat}
         \end{itemize}
+  \item Sale casi en forma directa:
+        $$
+          (A \inter C) - B
+          \igual{def}
+          (A \inter C) \inter B^c
+          \igual{\red{!}}
+          (A \inter B^c) \inter C
+          \igual{def}
+          (A - B) \inter C
+        $$
+        Queda así demostrada la igualdad.
+
+  \item Mirando el ítem \ref{ej-14-1:itemi} del ejercicio sale en dos patadas.
+        Tené en cuenta que:
+        $$
+          X \triangle \vacio
+          \igual{\red{!}}
+          X
+        $$
+        Todo tuyo!
 
   \item Este lo resuelvo \textit{pulenta} para los puristas que subestiman
         las \textit{tablas de verdad} y los \textit{diagramas de Venn}. En otras
@@ -220,14 +252,6 @@
                 La vuelta es lo meeeeeesmo. Toda tuya.
         \end{itemize}
 
-  \item Mirando el ítem \ref{ej-14-1:itemi} del ejercicio sale en dos patadas.
-        Tené en cuenta que:
-        $$
-          X \triangle \vacio
-          \igual{\red{!}}
-          X
-        $$
-        Todo tuyo!
 \end{enumerate}
 
 % Contribuciones

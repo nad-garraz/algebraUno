@@ -284,7 +284,7 @@
   \end{center}
 }
 
-\newenvironment{aportes}{
+\newenvironment{aportes}[1][3]{
   \par
   \vspace{10pt}
   \begin{minipage}{0.9\linewidth}
@@ -292,7 +292,7 @@
     Dale las gracias y un poco de amor \rosa{\faIcon{heart}} a los que contribuyeron!
     Gracias por tu aporte:
     \vspace{-10pt}
-    \begin{multicols}{4}
+    \begin{multicols}{#1}
       \begin{itemize}[label={\tiny\yellow{\faIcon{medal}}}]
         }{
       \end{itemize}

@@ -11,7 +11,7 @@
   \item $P(n): n! \geq 3^{n-1}, \ \paratodo n \geq 5$ \par
         \underline{Caso Base}, $n = 5$:
         \begin{align*}
-           & P(5): 5! \geq 3^{5-1}             \\
+           & P(5): 5! \geq 3^{5-1}              \\
            & P(5): 120 \geq 81 \entonces P(5):V
         \end{align*}
         \underline{Paso inductivo.} $Sea n \geq 5$:
@@ -22,7 +22,7 @@
 
         Desarrollemos el lado izquierdo de la desigualdad en la TI
         \begin{align*}
-                (n+1)! = (n+1)n! \mayorIgual{HI} (n+1)3^{n-1} \mayorIgual{Aux} 3 \cdot 3^{n-1} = 3^n
+          (n+1)! = (n+1)n! \mayorIgual{HI} (n+1)3^{n-1} \mayorIgual{Aux} 3 \cdot 3^{n-1} = 3^n
           \entonces P(n+1):V
         \end{align*}
         Hemos probado el caso base y el paso inductivo. Entonces $P(n):V,$ $\paratodo n \geq 5$.
@@ -32,7 +32,7 @@
   \item $P(n): 3^n - 2^n > n^3, \ \paratodo n \geq 4$ \\
         \underline{Caso Base}, $n = 4$:
         \begin{align*}
-           & P(4): 3^4 - 2^4 > 4^3         \\
+           & P(4): 3^4 - 2^4 > 4^3          \\
            & P(4): 65 > 64 \entonces P(5):V
         \end{align*}
         \underline{Paso inductivo.} $Sea n \geq 4$:
@@ -44,65 +44,82 @@
         Desarrollemos el lado izquierdo de la desigualdad en la TI
         \begin{align*}
           3^{n+1} - 2^{n+1} = 3 \cdot 3^n - 2 \cdot 2^n \geq 3 \cdot 3^n - 3 \cdot 2^n = 3(3^n - 2^n)
-                \mayor{\purple{HI}}
-                3n^3
-                \mayor{Aux}
-                (n+1)^3 \entonces P(n+1):V
+          \mayor{\purple{HI}}
+          3n^3
+          \mayor{Aux}
+          (n+1)^3 \entonces P(n+1):V
         \end{align*}
         Hemos probado el caso base y el paso inductivo. Entonces $P(n):V,$ $\paratodo n \geq 4$.
 
-                \paragraph{Auxiliar}{$3n^3 > (n+1)^3 \iff \sqrt[3]{(3n^3)} > \sqrt[3]{(n+1)^3} \Sii{Aux}
-                \sqrt[3]{3}n > n+1 \Sii{*} \\
-                \Sii{*} \sqrt[3]{3}n - n > 1 \sii n(\sqrt[3]{3}-1) > 1 \sii n > \frac{1}{\sqrt[3]{3}-1} \simeq 2.3
+        \paragraph{Auxiliar}{$3n^3 > (n+1)^3 \iff \sqrt[3]{(3n^3)} > \sqrt[3]{(n+1)^3} \Sii{Aux}
+            \sqrt[3]{3}n > n+1 \Sii{*} \\
+            \Sii{*} \sqrt[3]{3}n - n > 1 \sii n(\sqrt[3]{3}-1) > 1 \sii n > \frac{1}{\sqrt[3]{3}-1} \simeq 2.3
             \entonces 3n^3 > (n+1)^3, \ \paratodo n \geq 4$}
 
-  \item 
-          $P(n): 
-                 \sumatoria{i=1}{n} \frac{3^i}{i!} < 6n - 5, \ \paratodo n \geq 3$ \\
-        \underline{Caso Base}, $n = 3$:
-        \begin{align*}
-           & P(3): \sumatoria{i=1}{3} \frac{3^i}{i!} < 6 \cdot 3 - 5          \\
-           & P(4): \frac{3^1}{1!} + \frac{3^2}{2!} + \frac{3^3}{3!} > 13 \\
-           & P(4): 12 < 13 \entonces P(5):V
-        \end{align*}
-        \underline{Paso inductivo.} Sea $n \geq 3$:
-        \begin{enumerate}
-          \item[HI.] $P(n): V$
-          \item[TI.] $ \sumatoria{i=1}{n+1} \frac{3^i}{i!} < 6(n+1) - 5$
-        \end{enumerate}
-        Desarrollemos el lado izquierdo de la desigualdad en la TI
-        \begin{align*}
-           & \sumatoria{i=1}{n+1} \frac{3^i}{i!} = \frac{3^{n+1}}{(n+1)!} + \sumatoria{i=1}{n}  \frac{3^i}{i!}
-                \menor{\purple{HI}}
-                \frac{3^{n+1}}{(n+1)!} + 6n - 5
-                \menor{Aux}
-                6 + 6n - 5 = 6(n+1) - 5,\ n \geq 5 \\
-           & \sumatoria{i=1}{n+1} \frac{3^i}{i!} < 6(n+1) - 5, \ n \geq 5                                                        \\
-           & \entonces P(n+1):V, \ n \geq 5
-        \end{align*}
-        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 5$. Como solo probamos el
-        paso inductivo para $n \geq 5$, deberiamos ver que $P(4)$ y $P(5)$ son verdaderas.
-        \begin{align*}
-          P(4): \sumatoria{i=1}{4} \frac{3^i}{i!} < 6 \cdot 4 - 5 \entonces P(4): 15.75 < 19 \entonces P(4):V \\
-          P(5): \sumatoria{i=1}{5} \frac{3^i}{i!} < 6 \cdot 5 - 5 \entonces P(4): 17.4 < 25 \entonces P(5):V
-        \end{align*}
-        Tenemos
-        \begin{align*}
-           & P(3):V \land P(4):V \land P(5):V           \\
-           & \paratodo n \geq 5, P(n):V \entonces P(n+1):V
-        \end{align*}
-        Entonces $P(n):V, \ \paratodo n \geq 3$.
+  \item
+        Hay que proba la siguiente proposición:
+        $$
+          p(n): \sumatoria{i=1}{n} \frac{3^i}{i!} < 6n - 5, ~ \paratodo n \geq 3
+        $$
 
-        \paragraph{Auxiliar}{Por el punto (i), si $n \geq 5$ tenemos que $3^{n-1} \leq n! \entonces 3^{n} \leq
-            (n+1)! \Entonces{*} \\
-            \Entonces{*}  \frac{3^n}{(n+1)!} \leq 1 \entonces 3\frac{3^n}{(n+1)!} \leq 3 \entonces
-            \frac{3^{n+1}}{(n+1)!} \leq 3 \Entonces{$(3 < 6)$} \frac{3^{n+1}}{(n+1)!} < 6 $\\
-          Llegamos a que $ \frac{3^{n+1}}{(n+1)!} < 6, \text{ si } n \geq 5$.}
+        \textit{Caso Base:}
+        $$
+          p(\blue{3}):
+          \sumatoria{i=1}{\blue{3}} \frac{3^i}{i!} < 6\cdot\blue{3} - 5
+        $$
+        Haciendo la cuenta de la sumatoria queda:
+        $$
+          3 + \frac{9}{2} + \frac{27}{6} = 12 < 6 \cdot 3 - 5 \sii 12 < 13.
+        $$
+        Es así que la proposición $p(\blue{1})$ resultó verdadera.
+
+        \medskip
+
+        \textit{Paso inductivo:}
+
+        Asumo que para algún $\blue{k} \en \naturales$ la siguiente proposición:
+        $$
+          p(\blue{k}):
+          \ub{
+            \sumatoria{i=1}{\blue{k}} \frac{3^i}{i!} < 6\blue{k} - 5, ~ \paratodo \blue{k} \geq 3
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es verdadera, entonces quiero probar que
+        $$
+          p(\blue{k + 1}): \sumatoria{i=1}{\blue{k + 1}} \frac{3^i}{i!} < 6(\blue{k + 1}) - 5,
+        $$
+        también lo sea.
+
+        Usamos el \textit{truquito de la sumatoria} para que aparezca la \purple{hipótesis inductiva}:
+        $$
+          \begin{array}{rcl}
+            \sumatoria{i=1}{\blue{k + 1}} \frac{3^i}{i!}
+             & =                   &
+            \frac{3^{k+1}}{(k+1)!} + \sumatoria{i=1}{k} \frac{3^i}{i!} \\
+             & \menor{\purple{HI}} &
+            \frac{3^{k+1}}{(k+1)!} + 6k - 5 ~ \llamada1                \\
+          \end{array}
+        $$
+        En la última expresión queda algo que quizás te moleste. Tenés que acotar. Es decir
+        \textit{asegurar} que esa expresión va a ser \underline{menor a $6(\blue{k+1}) - 5 ~\paratodo k>3$ }. Si mirás fuerte
+        al primer término y pensás en lo rápido que crece el factorial: ¿Qué tan grande puede ser?
+        $\llamada1$:
+        $$
+          \frac{3^{k+1}}{(k+1)!} + 6k - 5 \menor{\red{!!}} \magenta{6} + 6k - 5 = 6(k+1) - 5
+        $$
+        Por lo tanto $p(\blue{k+1})$ es verdadera también.
+
+        En el \red{!!} podría haber puesto un 3 o 4 también {\footnotesize(¿Por qué?)}, pero elegí el \magenta{6} para que me quede ya la expresión final que buscaba
+        al sacar el último factor común.
+
+        Dado que $p(3), p(k) \ytext p(k+1)$ son verdaderas, por principio de inducción también lo es $p(n) \paratodo n \en \naturales_{\geq 3}$
+
 \end{enumerate}
 
 % Contribuciones
 \begin{aportes}
-  %% iconos : \github, \enstagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
   \item \aporte{https://github.com/koopardo/}{Marcos Zea \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

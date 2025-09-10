@@ -160,13 +160,130 @@ Voy a estar usando cosas del \hyperlink{teoria-1:relaciones}{resumen teórico de
 
         Parecido a cuando se probó la simetría, un ejemplo para un par relacionado:
         $$
-        -1 \relacion 1 \text{ ya que } |-1| \leq |1|, \text{ pero } -1 \distinto 1 
+          -1 \relacion 1 \text{ ya que } |-1| \leq |1|, \text{ pero } -1 \distinto 1
         $$
         La relación \ul{no es antisimétrica}.
 
-  \item \hacer
+  \item Arranco acomodando el enunciado:
+        $$
+          a \relacion b \sii a = k \cdot b ~ \text{para algún} ~ k \en \enteros
+        $$
+        \textit{Reflexiva:}
+        $$
+          a \relacion a \sii a = k \cdot a \sii k = 1
+        $$
+        La relación $\relacion$ es \textit{reflexiva}
 
-  \item \hacer
+        \textit{Simetría:}
+        $$
+          a \relacion b \entonces b \relacion a
+        $$
+        Contraejemplo:
+        $$
+          2 \relacion 4 \sii 4 = k \cdot 2 \sii  k = 2
+        $$
+        peeero,
+        $$
+          4 \norelacion 2  ~ \text{ya que no existe ningún} ~  k \en \enteros ~ \text{tal que} ~  2 = k \cdot 4.
+        $$
+        La relación $\relacion$ no es \textit{simétrica}.
+
+        \textit{Transitividad:}
+        $$
+          \text{Si} ~ a \relacion b  ~ \land ~  b \relacion c \entonces \text{¿}~ a \relacion c ~\text{?}
+        $$
+        Escribimos la definición y vemos que:
+        $$
+          a \relacion b ~ \land  ~ b \relacion c
+          \sii
+          \llave{rcl}{
+            b & = & k \cdot a \\
+            & \land & \\
+            c & = & k' \cdot b
+          }
+          \entonces c = k' \cdot ( k \cdot a) =k^{''} \cdot a
+        $$
+        la relación $\relacion$ es \textit{transitiva}.
+
+        \textit{Antisimetría:}
+        $$
+          \text{Si} ~ a \relacion b  ~ \land ~ b \relacion a \entonces  a = b
+        $$
+        Contraejemplo:
+        $$
+          2 \relacion -2 ~ \land  ~ -2 \relacion 2
+          \sii
+          \llave{rcl}{
+            -2 & = & (-1) \cdot 2 \\
+            & \land & \\
+            2 & = & (-1) \cdot (-2)
+          }
+          ~ \text{y} ~
+          2 \distinto -2
+        $$
+        la relación $\relacion$ no es \textit{antisimétrica}.
+
+        Por lo tanto $\relacion$ no es una relación de orden ni de equivalencia.
+  \item
+        \textit{Reflexividad}
+        $$
+          X \relacion X \sii X \inter \set{1,2,3} \subseteq X \inter \set{1,2,3}
+        $$
+        La relación $\relacion$ es \textit{reflexiva}.
+
+        \textit{Simetría}:
+
+        Contraejemplo:
+        $$
+          \set{1} \relacion \set{1,2}
+        $$
+        peeero,
+        $$
+          \set{1,2} \norelacion \set{1}
+          ~ \text{ya que} ~
+          \llave{l}{
+            \set{1,2} \inter \set{1,2,3} = \set{1,2}\\
+            \set{1} \inter \set{1,2,3} = \set{1}
+          }
+          ~ \text{y} ~
+          \set{1,2} \not\subseteq \set{1}
+        $$
+        La relación $\relacion$ no es \textit{simétrica}.
+
+        \textit{Transitividad:}
+        $$
+          \text{Si} ~ X \relacion Y  ~ \land ~  Y \relacion Z \entonces \text{¿}~ X \relacion Z ~\text{?}
+        $$
+        Vemos que por transitividad de los subconjunto esto tiene que valer:
+        $$
+          \llave{l}{
+            X \relacion Y  \Sii{def}  X \inter \set{1,2,3} \subseteq Y \inter \set{1,2,3}\\
+            Y \relacion Z  \Sii{def}  Y \inter \set{1,2,3} \subseteq Z \inter \set{1,2,3}
+          }
+          \entonces
+          X \inter \set{1,2,3} \subseteq Z \inter \set{1,2,3}
+        $$
+        la relación $\relacion$ es \textit{transitiva}.
+
+        \textit{Antisimetría:}
+        $$
+          \text{Si} ~ X \relacion Y  ~ \land ~ Y \relacion X \entonces  Y = X
+        $$
+        Contraejemplo:
+        $$
+          \set{1,4}  \relacion \set{1,5} ~ \land  ~ \set{1,5} \relacion \set{1,4}
+          \Sii{def}
+          \llave{rcl}{
+            \set{1,4} \inter \set{1,2,3} & = & \set{1} \\
+            & \land & \\
+            \set{1,5} \inter \set{1,2,3} & = & \set{1} \\
+          }
+          ~ \text{y} ~
+          \set{1,4} \distinto \set{1,5}
+        $$
+        la relación $\relacion$ no es \textit{antisimétrica}.
+
+        Por lo tanto $\relacion$ no es una relación de orden ni de equivalencia.
 
   \item $
           A =

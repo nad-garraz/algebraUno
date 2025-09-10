@@ -133,70 +133,103 @@
           \frac{1}{1+i} \leq 1, \ \paratodo i \en \naturales \entonces \sumatoria{i=1}{n} \frac{1}{1+i} \leq \sumatoria{i=1}{n} 1
         \end{align*}
 
-  \item $P(n):  \sumatoria{i=n}{2n} \frac{i}{2^i} \leq n, \ n \en \naturales$.
-        \begin{enumerate}[label=\arabic*)]
-          \item Caso base, $n = 1$:
-                \begin{align*}
-                  P(1) & : \sumatoria{i=1}{2 \cdot 1} \frac{i}{2^i} \leq 1    \\
-                  P(1) & : \frac{1}{2} + \frac{2}{4} \leq 1 \entonces P(1): V
-                \end{align*}
-          \item Paso inductivo. Sea $n \en \naturales$:
-                \begin{enumerate}
-                  \item[HI.] $P(n): V$
-                  \item[TI.] $P(n+1):  \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i} \leq n+1$
-                \end{enumerate}
+  \item
+        Quiero probar que la proposición:
+        $$
+          p(n): \sumatoria{i = n}{2n} \frac{i}{2^i} \leq n ~ \paratodo n \en \naturales
+        $$
+        es verdadera.
 
-                Desarrollemos el lado izquierdo de la desigualdad:
-                \begin{align*}
-                  \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i}           & = \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}}
-                  + \sumatoria{i=n+1}{2n} \frac{i}{2^i} = \frac{n}{2^n} - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}}
-                  + \frac{2n+1}{2^{2n+1}} + \sumatoria{i=n+1}{2n} \frac{i}{2^i}                                                                                             \\
-                                                                    & = - \frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2n+1}{2^{2n+1}} + \sumatoria{i=n}{2n} \frac{i}{2^i}
-                  = - \frac{2^{n+2}}{2^{n+2}}\frac{n}{2^n} + \frac{2n+2}{2^{2n+2}} + \frac{2}{2}\frac{2n+1}{2^{2n+1}}
-                  + \sumatoria{i=n}{2n} \frac{i}{2^i}                                                                                                                       \\
-                                                                    & = - \frac{4n 2^n}{2^{2n+2}} + \frac{2n+2}{2^{2n+2}} + \frac{4n+2}{2^{2n+2}}
-                  + \sumatoria{i=n}{2n} \frac{i}{2^i} = \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + \sumatoria{i=n}{2n} \frac{i}{2^i}
-                  \menorIgual{HI}                                                                                                                                           \\
-                                                                    & \menorIgual{HI} \frac{-4n 2^n + 6n + 4}{2^{2n+2}} + n
-                  \menorIgual{Aux} 1 + n, \ n \geq 2                                                                                                                        \\
-                  \entonces \sumatoria{i=n+1}{2(n+1)} \frac{i}{2^i} & \leq n + 1, \ n \geq 2 \entonces P(n+1): V, \ n \geq 2
-                \end{align*}
+        \textit{Caso base:}
 
-        \end{enumerate}
+        El predicado $p(n)$ cuando $\blue{n = 1}$
+        $$
+          p(\blue{1}) : \sumatoria{i = \blue{1}}{2 \cdot \blue{1}} \frac{i}{2^i} = \frac{1}{2} + \frac{2}{4} = 1 \leq 1
+        $$
+        es inmediatamente verdadero.
 
-        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso
-        inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera.
-        \begin{align*}
-          P(2) & : \sumatoria{i=2}{2 \cdot 2} \frac{i}{2^i} \leq 2 \\
-          P(2) & : \frac{2}{4} + \frac{3}{8} + \frac{4}{16} \leq 2 \\
-          P(2) & : \frac{9}{8} \leq 2 \entonces P(2): V
-        \end{align*}
+        \medskip
 
-        Tenemos que
+        \textit{Paso inductivo}
 
-        $P(1): V \land P(2): V \\
-          \text{si } n \geq 2, \ P(n): V \entonces P(n+1): V$
+        Asumo que para algún $\blue{k} \en \naturales$ la proposición:
+        $$
+          p(\blue{k}):
+          \ub{
+            \sumatoria{i = \blue{k}}{2\blue{k}} \frac{i}{2^i} \leq \blue{k}
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es verdadera. Entonces quiero probar que la proposición:
+        $$
+          p(\blue{k} + 1): \sumatoria{i = \blue{k} + 1}{2(\blue{k} + 1)} \frac{i}{2^i} \leq \blue{k} + 1
+        $$
+        también lo sea.
 
-        Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
+        Esa sumatoria se puede acomodar para poder usar la \purple{hipótesis inductiva}. Sumo un \magenta{0} para agregar
+        un término y luego le saco a la sumatoria los que tiene demás en comparación al paso $\blue{k}$:
+        $$
+          \begin{array}{rcl}
+            \sumatoria{i = \blue{k} + 1}{2(\blue{k} + 1)} \frac{i}{2^i}
+             & \igual{\red{!!}}         &
+            \ub{
+              \magenta{\frac{-k}{2^k}} + \magenta{\frac{k}{2^k}}
+            }{
+              = 0
+            } +
+            \Big(
+            \sumatoria{i = \blue{k} + 1}{\red{2k}} \frac{i}{2^i}
+            \Big)
+            +
+            \green{\frac{2k+1}{2^{2k+1}}}+
+            \green{\frac{2k+2}{2^{2k+2}}}                   \\
+             & \igual{\red{!}}          &
+            \magenta{\frac{-k}{2^k}} +
+            \green{\frac{2k+1}{2^{2k+1}}}+
+            \green{\frac{2k+2}{2^{2k+2}}} +
+            \sumatoria{i = \red{k}}{\red{2k}} \frac{i}{2^i} \\
+             & \menorIgual{\purple{HI}} &
+            \ub{
+              \magenta{\frac{-k}{2^k}} +
+              \green{\frac{2k+1}{2^{2k+1}}}+
+              \green{\frac{2k+2}{2^{2k+2}}}
+            }{
+              \llamada1
+            }
+            +
+            \blue{k}
+          \end{array}
+        $$
+        Para que la proposición $p(\blue{k} + 1)$ sea verdadera necesito que $\llamada1$ sea \ul{menor o igual a 1}:
+        $$
+          \begin{array}{rcl}
+            \frac{-k}{2^k} +
+            \frac{2k+1}{2^{2k+1}}+
+            \frac{2k+2}{2^{2k+2}} \leq 1
+              & \Sii{\red{!!}} &
+            6\orange{k} + 4 \leq (2^{k+2}\cdot  \orange{k}+ 2^{2k + 2})
+            \llamada2                                                    \\
+              & \sii           &
+            \llave{rcl}{
+            6 & <              & 2^{k + 2} ~ \paratodo k \en \naturales  \\
+            4 & <              & 2^{2k + 2} ~ \paratodo k \en \naturales
+            }
+          \end{array}
+        $$
+        En el \red{!!} saqué denominador común y acomodé un poco la expresión, \ul{nada raro}. Esa expresión en $\llamada2$
+        es súper verdadera para todo $k$, fijate que la acomodé parecida, .
 
-        \subsubsection*{Auxiliar}
-        Acotemos el termino $-4n 2^n$
-        \begin{align*}
-          -4n 2^n \leq -4n \cdot 2 = -8n \entonces -4n 2^n \leq -8n
-        \end{align*}
+        \medskip
 
-        Usemos esto para acotar toda la fracción
-        \begin{align*}
-          \frac{-4n 2^n + 6n + 4}{2^{2n+2}} \leq \frac{-8n + 6n + 4}{2^{2n+2}} \leq \frac{-2n + 4}{2^{2n+2}}
-          \overset{(n \geq 2)}{\leq} \frac{1}{2^{2n+2}} \leq 1
-        \end{align*}
+        ¿Lo querés probar por inducción? \textit{Be my guest}, yo no pienso hacerlo.
 
-        Por último, veamos porque $-2n+4 \leq 1$
-        \begin{align*}
-          -2n + 4 & \leq 0 \sisolosi -2n \leq -4 \sisolosi n \geq \frac{-4}{-2}
-          \sisolosi n \geq 2                                                                    \\
-          -2n + 4 & \leq 0, \text{ si } n \geq 2 \entonces -2n + 4 \leq 1, \text{ si } n \geq 2
-        \end{align*}
+        \medskip
+
+        Esto probaría que $\llamada1 \leq 1$ por lo tanto la proposición $p({\blue{k} + 1})$ resultó verdadera.
+
+        Dado que $p(1), p(\blue{k}) \ytext p(\blue{k + 1})$ son verdaderas,
+        por principio de inducción también lo es $p(n) \paratodo n \en \naturales$
 
   \item $P(n):  \sumatoria{i=1}{2^n} \frac{1}{2i-1} > \frac{n+3}{4}, \ n \en \naturales$.
         \begin{enumerate}[label=\arabic*)]

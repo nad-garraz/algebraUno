@@ -283,35 +283,35 @@
         $$
           \begin{array}{rcl}
             \sumatoria{i=2^{\blue{k}} + 1}{2 \cdot 2^{\blue{k}}} \frac{1}{2i-1}
-             & =                 &
+             & =                   &
             \frac{1}{2^{k+1} + 1} +
             \frac{1}{2^{k+1} + 2} +
             \cdots +
-            \frac{1}{2^{k+1} + 2^k + 2}                        \\
-             & \mayor{\red{!!!}} &
+            \frac{1}{2^{k+1} + 2^k + 2}                   \\
+             & \mayor{\red{!!!}}   &
             \frac{1}{2^{k+1} + 2^k + 2} +
             \frac{1}{2^{k+1} + 2^k + 2} +
             \cdots +
-            \frac{1}{2^{k+1} + 2^k + 2}                        \\
-             & =                 &
+            \frac{1}{2^{k+1} + 2^k + 2}                   \\
+             & =                   &
             \frac{1}{3 \cdot 2^{\blue{k}} + 2} +
             \frac{1}{3 \cdot 2^{\blue{k}} + 2} +
             \cdots +
-            \frac{1}{3 \cdot 2^{\blue{k}} + 2}                 \\
-             & \mayor{\red{!}}   &
-            \frac{1}{3 \cdot 2^{\blue{k}} + 6} +
-            \frac{1}{3 \cdot 2^{\blue{k}} + 6} +
-            \cdots +
-            \frac{1}{3 \cdot 2^{\blue{k}} + 6}                 \\
-             & \igual{\red{!}}   &
-            \frac{2^{\blue{k}} + 2}{3 \cdot 2^{\blue{k}} + 6}  \\
-             & =                 &
-            \frac{2^{\blue{k}} + 2}{3\cdot (2^{\blue{k}} + 2)} \\
-             & =                 &
-            \frac{1}{3}                                        \\
-             & >                 &
+            \frac{1}{3 \cdot 2^{\blue{k}}+ 2}             \\
+             & \igual{\red{!}}     &
+            \frac{2^{\blue{k}}}{3 \cdot 2^{\blue{k}} + 2} \\
+             & \mayor{$\llamada2$} &
             \frac{1}{4}
           \end{array}
+        $$
+        $$
+          \textstyle
+          \llamada2
+          \frac{2^{\blue{k}}}{3 \cdot 2^{\blue{k}} + 2} > \frac{1}{4}
+          \sii
+          4 \cdot 2^{\blue{k}} > 3 \cdot 2^{\blue{k}} + 2
+          \sii
+          \cajaResultado{2^{\blue{k}} >  2} \paratodo \blue{k}>1
         $$
         Mostrando así que $\llamada1$ es efectivamente mayor que $\frac{1}{4}$
         Si te perdiste en la acotación, la idea fue acotar por el término más chico de todos, \textit{el último}. Una vez que

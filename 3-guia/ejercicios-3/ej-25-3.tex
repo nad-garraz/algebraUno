@@ -1,8 +1,8 @@
 \begin{enunciado}{\ejercicio}
-    Un grupo de 15 amigos organiza un asado en un club al que llegarían en 3 autos distintos (4 por auto) 
-    y 3 irían caminando. Sabiendo que solo importa en qué auto están o si van caminando, determinar de 
-    cuántas formas pueden viajar si se debe cumplir que al menos uno entre Lucía, María y Diego debe 
-    ir en auto, y que Juan y Nicolás tienen que viajar en el mismo auto.
+  Un grupo de 15 amigos organiza un asado en un club al que llegarían en 3 autos distintos (4 por auto)
+  y 3 irían caminando. Sabiendo que solo importa en qué auto están o si van caminando, determinar de
+  cuántas formas pueden viajar si se debe cumplir que al menos uno entre Lucía, María y Diego debe
+  ir en auto, y que Juan y Nicolás tienen que viajar en el mismo auto.
 \end{enunciado}
 
 Este ejercicio sale contando por el complemento: primero contamos las formas totales de viajar (con el hecho de que Juan y Nicolás tienen
@@ -10,75 +10,86 @@ que viajar en el mismo auto) y luego les restamos las formas en las que Lucía, 
 
 \begin{itemize}
 
-    \item \underline{Formas totales}
+  \item \underline{Formas totales}
 
-    Teniendo en cuenta que Juan y Nicolás tienen que viajar en el mismo auto, primero elegimos en que auto van. Para esto, 
-    tenemos $\binom{3}{1}$ opciones. \bigskip
+        Teniendo en cuenta que Juan y Nicolás tienen que viajar en el mismo auto, primero elegimos en que auto van. Para esto,
+        tenemos $\binom{3}{1}$ opciones.
 
-    Ahora completemos los dos lugares que faltan en el auto en el que van Juan y Nicolás. Como nos quedan 13 personas por asginar, 
-    tenemos $\binom{13}{2}$ opciones. \bigskip
+        \bigskip
 
-    Completemos ahora otro auto. Como nos quedan 11 personas por asignar, tenemos $\binom{11}{4}$ opciones. Pero como cada auto es distinto, 
-    debemos contemplar que vayan en el otro auto que queda, de modo que hay que multiplicar ese número por un 2, 
-    pues son dos los autos que quedan. \bigskip
+        Ahora completemos los dos lugares que faltan en el auto en el que van Juan y Nicolás. Como nos quedan 13 personas por asignar,
+        tenemos $\binom{13}{2}$ opciones.
 
-    Por último, debemos llenar el último auto. Como quedan 7 personas sin asignar, tenemos $\binom{7}{4}$ opciones. Respecto a los que van caminando,
-    no hay que asignar nada, pues ya quedan asignados al haber llenados todos los autos. \bigskip
+        \bigskip
 
-    Entonces
+        Completemos ahora otro auto. Como nos quedan 11 personas por asignar, tenemos $\binom{11}{4}$ opciones.
+        Pero como cada auto \ul{es distinto}, debemos contemplar que vayan en el otro auto que queda,
+        de modo que hay que multiplicar ese número por un 2, pues son dos los autos que quedan.
 
-    $$
-    \text{Formas totales} = 
-    \underbrace{\binom{3}{1}}_{\text{Auto para J y N}} \cdot
-    \underbrace{\binom{13}{2}}_{\text{Completo auto de J y N}} \cdot
-    \underbrace{\binom{11}{4}}_{\text{Completo otro auto}} \cdot
-    \underbrace{2}_{\text{Dos autos}} \cdot
-    \underbrace{\binom{7}{4}}_{\text{Ultimo auto}} 
-    =5405400
-    $$
+        \bigskip
 
+        Por último, debemos llenar el último auto. Como quedan 7 personas sin asignar, tenemos $\binom{7}{4}$ opciones.
+        Respecto a los que van caminando, no hay que asignar nada, pues ya quedan asignados al haber llenados todos los autos.
 
-    \item \underline{Formas en las que Lucía, María y Diego van caminando}
+        \bigskip
 
-    Como los tres que van caminando ya están asignados, solo tenemos que asignar en los autos, que es similar a lo que ya hicimos. \bigskip
+        Entonces
+        $$
+          \text{Formas totales} =
+          \ua{\binom{3}{1}}{\text{Auto para}\\ \text{J y N}} \cdot
+          \oa{\binom{13}{2}}{\text{Completo auto }\\ \text{de J y N}} \cdot
+          \ua{\binom{11}{4}}{\text{Completo }\\ \text{otro auto}} \cdot
+          \oa{2}{\text{Dos}\\ \text{autos}} \cdot
+          \ua{\binom{7}{4}}{\text{Último}\\ \text{auto}}
+          =5405400
+        $$
 
-    Teniendo en cuenta que Juan y Nicolás tienen que viajar en el mismo auto, primero elegimos en que auto van. Para esto, 
-    tenemos $\binom{3}{1}$ opciones. \bigskip
+  \item \underline{Formas en las que Lucía, María y Diego van caminando}
 
-    Ahora completemos los dos lugares que faltan en el auto en el que van Juan y Nicolás. Como nos quedan 10 personas por asginar, 
-    tenemos $\binom{10}{2}$ opciones. \bigskip
+        Como los tres que van caminando ya están asignados, solo tenemos que asignar en los autos, que es similar a lo que ya hicimos.
 
-    Completemos ahora otro auto. Como nos quedan 8 personas por asignar, tenemos $\binom{8}{4}$ opciones. Además, por lo mismo que antes,
-    hay que multiplicar por 2. Con el último auto no queda nada por hacer, pues se asignan a las cuatro personas que quedan. \bigskip
+        \bigskip
 
-    Entonces
+        Teniendo en cuenta que Juan y Nicolás tienen que viajar en el mismo auto, primero elegimos en que auto van. Para esto,
+        tenemos $\binom{3}{1}$ opciones.
 
-    $$
-    \text{Formas totales} = 
-    \underbrace{\binom{3}{1}}_{\text{Auto para J y N}} \cdot
-    \underbrace{\binom{10}{2}}_{\text{Completo auto de J y N}} \cdot
-    \underbrace{\binom{8}{4}}_{\text{Completo otro auto}} \cdot
-    \underbrace{2}_{\text{Dos autos}} \cdot
-    =18900
-    $$
+        \bigskip
+
+        Ahora completemos los dos lugares que faltan en el auto en el que van Juan y Nicolás. Como nos quedan 10 personas por asginar,
+        tenemos $\binom{10}{2}$ opciones.
+
+        \bigskip
+
+        Completemos ahora otro auto. Como nos quedan 8 personas por asignar, tenemos $\binom{8}{4}$ opciones.
+        Además, por lo mismo que antes, hay que multiplicar por 2.
+        Con el último auto no queda nada por hacer, pues se asignan a las cuatro personas que quedan.
+
+        \bigskip
+
+        Entonces
+        $$
+          \text{Formas totales} =
+          \ua{\binom{3}{1}}{\text{Auto para}\\ \text{J y N}} \cdot
+          \oa{\binom{10}{2}}{\text{Completo auto}\\ \text{de J y N}} \cdot
+          \ua{\binom{8}{4}}{\text{Completo}\\ \text{otro auto}} \cdot
+          \oa{2}{\text{Dos}\\ \text{autos}}
+          =18900
+        $$
 
 \end{itemize}
-
 
 Entonces, la formas totales con Juan y Nicolás en el mismo auto y con al menos uno entre Lucía, María y Diego en auto son
 
 $$
-\binom{3}{1} \cdot \binom{13}{2} \cdot \binom{11}{4} \cdot 2 \cdot \binom{7}{4}
--
-\binom{3}{1} \cdot \binom{10}{2} \cdot \binom{8}{4} \cdot 2 
-=5405400-18900= \boxed{5386500}
+  \cajaResultado{
+    \binom{3}{1} \cdot \binom{13}{2} \cdot \binom{11}{4} \cdot 2 \cdot \binom{7}{4}
+    -
+    \binom{3}{1} \cdot \binom{10}{2} \cdot \binom{8}{4} \cdot 2
+    =5405400-18900 = 5386500
+  }
 $$
 
 \begin{aportes}
-    \item \aporte{https://github.com/Nunezca}{Nunezca \github}
+  \item \aporte{https://github.com/Nunezca}{Nunezca \github}
 \end{aportes}
 
-   
-
-
-    

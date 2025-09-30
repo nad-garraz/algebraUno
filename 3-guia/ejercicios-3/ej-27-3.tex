@@ -25,22 +25,22 @@ $$
 
 Resulta que $p(1)$ es verdadera.
 
+\medskip
+
 \textit{Paso inductivo:}
-Voy a asumir como verdaderaa a
+Voy a asumir como verdadera a
 $$
   p(\blue{k}) :
-  \underbrace{a_{\blue{k}} = \binom{2\blue{k}}{\blue{k}}}_{\text{\purple{hipótesis inductiva}}}
+  \ub{a_{\blue{k}} = \binom{2\blue{k}}{\blue{k}}}{\text{\purple{hipótesis inductiva}}}
 $$
-para algún $\blue{k} \en \enteros$.
+para algún $\blue{k} \en \naturales$.
 
 Ahora quiero probar que:
-
 $$
   p(k+1) : a_{k+1} = \binom{2(k+1)}{k+1}
 $$
-
-La idea es escribir la definición, meter la \purple{HI}, y como siempre, rezar para que
-se acomode todo y que aparezca lo que queresmos que aparezca.
+La idea es escribir la definición, meter la \purple{hipótesis inductiva}, y como siempre, rezar para que
+se acomode todo y que aparezca lo que queremos que aparezca.
 Voy a escribir la expresión:
 $$
   a_{k+1}
@@ -58,28 +58,30 @@ $$
 $$
   \begin{array}{rcl}
     a_{k+1}
-     & \igual{def}      &
-    4a_k - 2 \frac{(2k)!}{(k+1)! k!}
-    \igual{\purple{HI}}
-    4 \purple{\binom{2k}{k}} - 2 \frac{(2k)!}{(k+1)! k!} =
-    4 \frac{(2k)!}{k!\cdot k!}  - 2 \frac{(2k)!}{(k+1)! k!} =
+     & \igual{def}         &
+    4a_k - 2 \frac{(2k)!}{(k+1)! k!}                        \\
+     & \igual{\purple{HI}} &
+    4 \purple{\binom{2k}{k}} - 2 \frac{(2k)!}{(k+1)! k!}    \\
+     & =                   &
     4 \frac{(2k)!}{k!\cdot k!}  - 2 \frac{(2k)!}{(k+1)! k!} \\
-     & \igual{\red{!!}} &
-    2  \frac{(2k)!}{k!\cdot k!} \cdot (2 - \frac{1}{k+1})=
-    2  \frac{(2k)!}{k!\cdot k!} \cdot (\frac{2k +1}{k+1})
-    \igual{\red{!!!}}
-    \frac{(2k + 2)!}{(k+1)! (k+1)!}
-    \igual{def}
+     & \igual{\red{!!}}    &
+    2  \frac{(2k)!}{k!\cdot k!} \cdot (2 - \frac{1}{k+1})   \\
+     & =                   &
+    2  \frac{(2k)!}{k!\cdot k!} \cdot (\frac{2k +1}{k+1})   \\
+     & \igual{\red{!!!}}   &
+    \frac{(2k + 2)!}{(k+1)! (k+1)!}                         \\
+     & \igual{def}         &
     \binom{2(k+1)}{k+1}
   \end{array}
 $$
-Oka, qué carajo pasó en el \red{!!!} y en el \red{!!}, lo de siempre, factores comunes, sacar algún factor del factorial y coso. En el \red{!!!} multipliqué
-y dividí por algo y \textit{mirá fuerte a ese $2$ que está adelante de todo {\tiny \faIcon[regular]{smile-wink}}}, para que se alineen los planetas \href{\mindExplosion}{\faIcon{user-astronaut}}.\bigskip
+Oka. \textit{¿Qué carajos pasó en el \red{!!!} y en el \red{!!}?} Lo de siempre, factores comunes, sacar algún factor del factorial y coso.
+En el \red{!!!} multipliqué y dividí por \textit{algo} y \textit{mirá fuerte a ese $2$ que está adelante de todo
+    {\tiny \faIcon[regular]{smile-wink}}}, para que se alineen los planetas \href{\mindExplosion}{\faIcon{user-astronaut}}.
+
+\bigskip
 
 Por lo tanto $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas. Por el principio de inducción $p(n)$ también es verdadera $\paratodo n \en \naturales$.
 
 \begin{aportes}
-  %% iconos : \github, \instagram, \tiktok, \linkedin
-  %\aporte{url}{nombre icono}
-  \item \aporte{https://github.com/nad-garraz}{Nad Garraz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

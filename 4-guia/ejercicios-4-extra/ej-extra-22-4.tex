@@ -1,4 +1,6 @@
 \begin{enunciado}{\ejExtra}
+  \fechaEjercicio{parcial 1er cuatrimestre 2025}
+
   Hallar el menor $n \en \naturales$ tal que $(11n^2 : 2^2 \cdot 3^4 \cdot 5 \cdot 11) = 99$ y
   que tenga exactamente 12 divisores positivos.
 \end{enunciado}
@@ -12,10 +14,12 @@ $$
   99 = 3^2 \cdot 11
 $$
 Por la forma en que está expresado el número este ejercicio sale entendiendo que:
+
 \parrafoDestacado[\red{\small\atencion}]{\Large
   El \textit{máximo común divisor}, $d = (a:b)$, es el producto de los
   primos, de las factorizaciones de $a$ y $b$, \ul{comunes elevados al menor exponente}.
 }
+
 Para que $d$ sea 99 entonces:
 $$
   n = 3^{\yellow{1}} \cdot k \quad \text{con } k \en \naturales.
@@ -28,7 +32,7 @@ $$
 $$
 Tenemos que agregar entonces la combinación de primos que no rompan nada y que además generen un $n$ con 12 divisores,
 ya sea $7^{\blue{\alpha}}, 11^{\green{\beta}}, 13^{\magenta{\gamma}}, 17^{\violet{\delta}}, \ldots$, peeeeero
-para que la cantidad de dividores de $n$ sea 12 no puede haber más de 3 primos en la factorización,
+para que la cantidad de divisores de $n$ sea 12 no puede haber más de 3 primos en la factorización,
 sino \ul{habría más de 3 divisores} (\hyperlink{teoria-4:cantidadDivisores}{Acá un poco de formulitas sobre esto \click}).
 
 Armo sistema con los 3 primos más chicos que puedo elegir:
@@ -43,10 +47,10 @@ $$
 Quedan solo 4 opciones:
 $$
   \llave{rcl}{
-    (\blue{\alpha},\green{\beta)} = (1,2) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{1}} \cdot 11^{\green{2}}  \quad\text{\tiny\faIcon[regular]{smile}}\\
-    (\blue{\alpha},\green{\beta)} = (2,1) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{2}} \cdot 11^{\green{1}}  \quad\text{\tiny\faIcon{skull}}\\
-    (\blue{\alpha},\green{\beta)} = (5,0) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{0}} \cdot 11^{\green{5}}  \quad\text{\tiny\faIcon{skull}}\\
-    (\blue{\alpha},\green{\beta)} = (0,5) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{5}} \cdot 11^{\green{0}}  \quad\text{\tiny\faIcon{skull}}
+    (\blue{\alpha},\green{\beta)} = (1,2) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{1}} \cdot 11^{\green{2}}\quad\text{\tiny\skull}\\
+    (\blue{\alpha},\green{\beta)} = (2,1) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{2}} \cdot 11^{\green{1}}  \quad\text{\tiny\faIcon[regular]{smile}}\\
+    (\blue{\alpha},\green{\beta)} = (5,0) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{0}} \cdot 11^{\green{5}}  \quad\text{\tiny\skull}\\
+    (\blue{\alpha},\green{\beta)} = (0,5) & \entonces & n = 3^{\yellow{1}} \cdot 7^{\blue{5}} \cdot 11^{\green{0}}  \quad\text{\tiny\skull}
   }
 $$
 La combinación que da \ul{el menor $n$} es:

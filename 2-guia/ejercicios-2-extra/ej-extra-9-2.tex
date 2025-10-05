@@ -37,17 +37,26 @@ $$
 $$
 Partiendo del paso $(\blue{h + 1})-$ésimo:
 $$
-  \productoria{k=1}{\blue{h+1}}\frac{10k - 5}{2k} =
-  \frac{10(\blue{h+1}) - 5}{2(h+1)} \cdot
-  \productoria{k=1}{\blue{h}}\frac{10k - 5}{2k}
-  \mayor{\purple{HI}}
-  \frac{10\blue{h} + 5}{2(h+1)} \cdot \blue{h}\cdot 3^{\blue{h}-1} \mayor{\red{!}} (\blue{h+1}) \cdot 3^{\blue{h}}
+  \begin{array}{rcl}
+    \productoria{k=1}{\blue{h+1}}\frac{10k - 5}{2k}
+     & \igual{\red{!}}     &
+    \frac{10(\blue{h+1}) - 5}{2(h+1)} \cdot
+    \productoria{k=1}{\blue{h}}\frac{10k - 5}{2k}                    \\
+     & \mayor{\purple{HI}} &
+    \frac{10\blue{h} + 5}{2(h+1)} \cdot \blue{h}\cdot 3^{\blue{h}-1} \\
+     & \mayor{\red{!}}     &
+    (\blue{h+1}) \cdot 3^{\blue{h}}
+  \end{array}
 $$
 Si podemos probar que el último $\mayor{\red{!}}$ es verdadero, listo, ganamos. Acomodo un poco, nada raro:
 $$
+  \frac{10\blue{h} + 5}{2(h+1)} \cdot \blue{h}\cdot 3^{\blue{h}-1}
+  >
+  (\blue{h+1}) \cdot 3^{\blue{h}}
+  \sisolosi
   10h^2 + 5h \mayor{\red{!}} 6(h+1)^2
 $$
-Esa expresión es verdadera $ \paratodo n \en \naturales$.
+Esa última desigualdad es verdadera $ \paratodo h\en \naturales_{>2}$.
   {\small
     \parrafoDestacado[\atencion]{
       Dependiendo del grado de paranoia que uno tenga se va a poner a probar eso
@@ -57,7 +66,9 @@ Esa expresión es verdadera $ \paratodo n \en \naturales$.
     }
   }
 
-Dado que $p(1), p(h) \ytext p(h+1)$ resultaron ser verdaderas, por el principio de inducción también lo es $p(n)$ para todo $n \en \naturales$ como se
+Se puede probar a mano que $p(n = 2)$ es veradera.
+
+Dado que $p(1), p(2), p(h) \ytext p(h+1)$ resultaron ser verdaderas, por el principio de inducción también lo es $p(n)$ para todo $n \en \naturales$ como se
 quería mostrar.
 
 \begin{aportes}

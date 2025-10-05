@@ -3,43 +3,82 @@
   Hallar todos los $d = (2a + b : 3a - 2b)$ y dar un ejemplo en cada caso.
 \end{enunciado}
 
-Conviene \textit{coprimizar}: $(a:b) = 6 \sisolosi
+Conviene \textit{coprimizar} para hacer menos cuentas:
+$$
+  (a:b) = 6
+  \sisolosi
   \llaves{l}{
     a = 6A\\
     b = 6B
-  }$ con $(A:B) \llamada{1}= 1$\\
-$d =
+  }
+  ~\text{con}~
+  (A:B) \igual{$\llamada{1}$} 1
+$$
+
+Uso ahora las nuevas variables coprimas entre sí, $A$ y $B$. Con esto la expresión de $d$ queda:
+$$
+  d =
   (2\cdot 6A + 6B : 3\cdot 6A - 2\cdot 6B) =
   (6\cdot( 2 \cdot A + B) : 6\cdot (3\cdot A - 2\cdot B)) =
-  6 \cdot \ub{(2A + B : 3A - 2B)}{D}\\
-  \to d \llamada{2}= 6 D \flecha{busco divisores}[comunes]
+  6 \cdot (2A + B : 3A - 2B) = D
+$$
+
+Entonces ahora puedo estudiar $D = (2A + B : 3A - 2B)$. Busco \textit{divisores comunes}:
+$$
   \llave{l}{
     D \divideA 2A + B  \\
-    D \divideA 3A - 2B \\
-  } \flecha{operaciones}[$\dots$]
+    D \divideA 3A - 2B
+  } \Sii{\red{!}}
   \llave{l}{
     D \divideA 7B \\
-    D \divideA 7A \\
-  }\entonces
-  D = (7A:7B) =7 \cdot (A:B) \llamada{1}= 7$  \\
-Por lo tanto $D \en \divsetP{7}{1,7}$, pero yo quiero encontrar ejemplos de $a$ y $b$:\\
-$\llamada{2}\to
-  \llave{c}{
-    d = 6 \cdot 7 = 42
-    \llave{ll}{
-      \text{Si:} & A = 2 \to a = 12 \\
-                 & B = 3 \to b = 18 \\
-      \multicolumn{2}{l}{(7:0)\entonces D = 7 \to d = (42:0) = \ub{42}{6\cdot D}}
-    } \\
+    D \divideA 7A
+  }
+  \sii
+  D = (7A:7B) = 7 \cdot (A:B) \igual{$\llamada{1}$} 7
+$$
+Por lo tanto los posibles divisores comúnes:
+$$
+  D \en \divsetP{7}{1,7},
+$$
+pero yo quiero encontrar ejemplos de $A$ y $B$:
 
-    \magenta{\o}                              \\
-    d = 6 \cdot 1 = 6
-    \llave{ll}{
-      \text{Si:} & A = 0 \to a = 0 \\
-                 & B = 1 \to b = 6 \\
-      \multicolumn{2}{l}{(1:-2) \entonces D = 1 \to d = (6:-12) = \ub{6}{6\cdot D}}
+\textit{Para $D = 7$}
+$$
+  A = 2
+  \ytext
+  B = 3
+$$
+Traduciendo esto para los valores de $a, b$ y $d$:
+$$
+  \cajaResultado{
+    d = 42
+    \ytext
+    \llave{l}{
+      a = 12\\
+      b = 18
     }
-  }$
+  }
+$$
+
+\bigskip
+
+\textit{Para $D = 1$}
+$$
+  A = 0
+  \ytext
+  B = 1
+$$
+Traduciendo esto para los valores de $a, b$ y $d$:
+$$
+  \cajaResultado{
+    d = 6
+    \ytext
+    \llave{l}{
+      a = 0\\
+      b = 6
+    }
+  }
+$$
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}

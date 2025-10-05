@@ -10,20 +10,20 @@ filtramos los máximos común divisores que quedaron.
 
 \textit{Euclides con División de polinomios}
 $$
-  \divPol{X^2 - 2X -5}{X-1}
+\polyset{vars=a}
+  \divPol{a^2 - 2a -5}{a-1}
 $$
 
 Que en el resto quede un número es una excelente noticia, podemos reescribir al mcd:
-
 $$
   d = (a^2 - 2a -5: a-1) = (a-1 : -6)
 $$
 
 Con ese resultado y dado que $d  \divideA a - 1$ y también $d\divideA 6$:
-
 $$
   d \en \set{1, 2, 3, 6}
 $$
+
 Tabla de restos para ver para que valores de $a$ se divide la expresión $a-1$
 $$
   \begin{array}{|r|cc|}
@@ -51,6 +51,7 @@ Hay que tener cuidado, porque los conjuntos de $a$ que salen de la tabla de rest
 Los siguientes valores salen a ojímetro:
 $$
   \begin{array}{c}
+    \text{si } a = 0 \entonces d = 1 \\
     \text{si } a = 5 \entonces d = 2 \\
     \text{si } a = 4 \entonces d = 3 \\
     \text{si } a = 7 \entonces d = 6

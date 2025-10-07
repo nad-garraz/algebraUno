@@ -1,0 +1,85 @@
+\begin{enunciado}{\ejExtra}
+  Sean $a$ y $b \en \enteros$ tales que $(a:b) = 5^2$. Hallar los posibles valores de
+  $(a^2b : 5^4(a^2 + b^2))$.
+  Dar ejemplo de cada caso posible.
+\end{enunciado}
+
+Arranco coprimizando:
+$$
+  (a : b) = 5^2
+  \Entonces{coprimizar}[$(A:B) = 1$]
+  \llamada1
+  \llave{rcl}{
+    a & = & A \cdot 5^2\\
+    b & = & B \cdot 5^2
+  }
+$$
+
+Quedando el MCD como:
+$$
+  d = (a^2b : 5^4(a^2 + b^2))
+  \Sii{$\llamada1$}
+  d = 5^6 \cdot (A^2B : 5^2(A^2 + B^2))
+$$
+
+Laburo ahora con:
+$$
+  (A : B) = 1
+  \ytext
+  D = (A^2B : 5^2(A^2 + B^2)) ~ \llamada2
+$$
+Dado que $D$ es un \textit{divisor común}:
+$$
+  \llave{l}{
+    D  \divideA A^2B \\
+    D \divideA 5^2(A^2 + B^2)
+  }
+  \Entonces{\magic}
+  \llave{c}{
+    \llave{l}{
+      D \divideA A^2B \\
+      D \divideA 5^2B^3
+    } \\
+    \ytext \\
+    \llave{l}{
+      D \divideA A^2B \\
+      D \divideA 5^2A^4
+    }
+
+  }
+$$
+Dado que $A$ y $B$ no comparten ningún primo en su factorización, \textit{because} coprimos los posibles valores que puede tomar $D$:
+$$
+  D \en \set{1, 5, 25}.
+$$
+Si encuentro valores de $A$ y $B$ con $A \cop B$ para esos $D$, gané. Miro fuerte la expresión de $D$ en $\llamada2$.
+Probando valores razonables a \textit{ojímetro}:
+$$
+  \begin{array}{rclc}
+    (A, B) = (1, 1) & \entonces & D = (1, 5^2) = 1                                & \Entonces{$\llamada1$}
+    \cajaResultado{
+      \llave{ccc}{
+    (a, b)          & =         & (5^2, 5^2)                                                               \\
+    d               & =         & 5^6
+      }
+    }                                                                                                      \\
+    (A, B) = (1, 5) & \entonces & D \igual{\red{!}} (5, 5^2 \cdot 13 \cdot 2) = 5 & \Entonces{$\llamada1$}
+    \cajaResultado{
+      \llave{ccc}{
+    (a, b)          & =         & (5^2, 5^3)                                                               \\
+    d               & =         & 5^7
+      }
+    }                                                                                                      \\
+    (A, B) = (0, 1) & \entonces & D = (0, 25) = 25                                & \Entonces{$\llamada1$}
+    \cajaResultado{
+      \llave{ccc}{
+    (a, b)          & =         & (0, 5^2)                                                                 \\
+    d               & =         & 5^8
+      }
+    }
+  \end{array}
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

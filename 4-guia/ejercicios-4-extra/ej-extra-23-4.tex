@@ -1,0 +1,86 @@
+\begin{enunciado}{\ejExtra}\fechaEjercicio{(7/10/25) primer parcial}
+  \begin{center}
+    Probar que para todo $n \en \naturales$ vale que $36 \divideA 19^n -18n^2 - 1$.
+  \end{center}
+\end{enunciado}
+
+Acomodo el enunciado como:
+$$
+  36 \divideA 19^n -18n^2 - 1
+  \Sii{def}
+  \congruencia{19^n -18n^2 - 1}{0}{36}
+$$
+
+\textit{Inducción:}
+Quiero probar que la proposición $p(n)$:
+$$
+  p(n) : \congruencia{19^n -18n^2 - 1}{0}{36} \paratodo n \en \naturales
+$$
+es verdadera.
+
+\bigskip
+
+\textit{Caso base:}
+Quiero ver que para $n=1$ la proposición es verdadera.
+$$
+  p(\blue{1}) : \congruencia{19^{\blue{1}} -18 \cdot \blue{1}^2 - 1 = 0}{0}{36}.
+$$
+Por lo tanto $p(1)$ es verdadera.
+
+\textit{Paso inductivo:}
+Para algún $k \en \naturales$ asumo que la proposición:
+$$
+  p(\blue{k}) :
+  \ub{
+    \congruencia{19^{\blue{k}} - 18 \blue{k}^2 - 1}{0}{36}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero probar que:
+$$
+  p(\blue{k + 1}) : \congruencia{19^{\blue{k + 1}} -18 (\blue{k + 1})^2 - 1}{0}{36}
+$$
+también lo sea.
+
+Partiendo del paso $k+1$:
+$$
+  \begin{array}{rcl}
+    19^{\blue{k + 1}} -18 (\blue{k + 1})^2 - 1
+     & \igual{\red{!}} &
+    19 \cdot 19^{\blue{k}} - 18 \blue{k}^2 - 36\blue{k} - 19  \\
+     & =               &
+    19 \cdot (19^{\blue{k}} - 1) - 18 \blue{k}^2 - 36\blue{k} \\
+     & \conga{36}      &
+    19 \cdot (19^{\blue{k}} - 1) - 18 \blue{k}^2 \llamada1
+  \end{array}
+$$
+Usando la \purple{hipótesis inductiva}:
+$$
+  \congruencia{19^{\blue{k}} - 18 \blue{k}^2 - 1}{0}{36}
+  \Sii{$\llamada2$}
+  \congruencia{19^{\blue{k}} - 1}{18 \blue{k}^2}{36}
+$$
+puedo escribir a $\llamada1$ como:
+$$
+  \begin{array}{rcl}
+    \llamada1 \to 19 \cdot (19^{\blue{k}} - 1) - 18 \blue{k}^2
+     & \conga{36}[\llamada2] &
+    19 \cdot (18\blue{k}^2) - 18 \blue{k}^2 \\
+     & =                     &
+    18 \cdot (18\blue{k}^2)                 \\
+     & =                     &
+    18^2 \blue{k}^2                         \\
+     & \conga{36}[\red{!}]   &
+    0
+  \end{array}
+$$
+
+Probando así que $p(\blue{k + 1})$ es verdadera.
+
+Dado que $p(1), p(\blue{k}) \ytext p(\blue{k+1})$ resultaron verdaderas, por principio de inducción también lo es $p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
+

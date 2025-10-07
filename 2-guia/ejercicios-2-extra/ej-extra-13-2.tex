@@ -55,9 +55,44 @@ $$
   \end{array}
 $$
 \parrafoDestacado{
-  ¿Hace falta demostrar que $(h+2)! \geq 2^h \paratodo h \en \naturales$? No sé. Para mí no es necesario
-  pero el corrector tiene la última palabra. Yo solo voy a decir que el factorial crece más rápido. Fin.
+  \textit{
+    ¿Hace falta demostrar que $(h+2)! \geq 2^h \paratodo h \en \naturales$? No sé. Para mí no es necesario
+    pero el corrector tiene la última palabra.
+  }
+  Lo pruebo porque se me quejan con que hay que demostrarlo y yo que sé:
+  $$
+    \text{Si} \quad a_h = (h+2)!
+    \ytext
+    b_h = 2^h
+  $$
+  La razón a la que crece está sucesión:
+  $$
+    \frac{a_{n+1}}{a_n} =
+    \frac{(h + 3)!}{(h+2)!} = h + 3
+    \ytext
+    \frac{b_{n+1}}{b_n} =
+    \frac{2^{h+1}}{2^h} = 2
+  $$
+  Ese resultado muestra que la sucesión $a_n$ crece cada vez más rápido (acelera \faIcon{car}) y particularmente siempre crece más que el doble.
+  Los primeros valores de cada sucesión:
+  $$
+    \llave{rclc}{
+      a_{\magenta{1}} & = & (\magenta{1} + 2)! &= 6 \\
+      b_{\magenta{1}} & = & 2^{\magenta{1}} &= 2
+    }
+  $$
+  Listo, $a_h > b_h \paratodo h \en \naturales$.
+
+  \bigskip
+
+  ¿Por qué hago eso y no hago inducción? Porque en ese \ul{mismo parcial había 2 ejercicios} que salían por inducción, entonces
+  me \textit{empaqué} en no hacer 3 veces inducción, y además ahora tenés otra herramienta en tu \textit{toolbox}.
+
+  Pero por inducción sale lo más bien, así que \textit{allá vos}.
 }
+
+\bigskip
+
 Por lo tanto $p(\blue{h+1})$ también resultó verdadera.
 
 \bigskip

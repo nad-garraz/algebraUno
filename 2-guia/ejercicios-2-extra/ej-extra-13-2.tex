@@ -1,0 +1,62 @@
+\begin{enunciado}{\ejExtra}\fechaEjercicio{(7/10/25) primer parcial}
+
+  Probar por inducción que $\sumatoria{k=1}{n} k! \geq \frac{2^n}{n+1}$ para todo $n \en \naturales$.
+\end{enunciado}
+
+Ejercicio de \textit{inducción}:
+
+Quiero probar que la proposición $p(n)$:
+$$
+  p(n) : \sumatoria{k=1}{n} k! \geq \frac{2^n}{n+1} \paratodo n \en \naturales
+$$
+es verdadera.
+
+\textit{Caso base:}
+$$
+  p(\blue{1}) : \sumatoria{k=1}{\blue{1}} k!  = 1 \geq \frac{2^{\blue{1}}}{\blue{1} + 1} = 1.
+$$
+Por lo tanto el caso base es verdadero.
+
+\bigskip
+
+\textit{Paso inductivo:}
+Asumo que para algún $\blue{h} \en \naturales$ la proposición
+$$
+  p(\blue{h}) :
+  \ub{
+    \sumatoria{k = 1}{\blue{h}} k!  \geq \frac{2^{\blue{h}}}{\blue{h} + 1}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero probar que:
+$$
+  \textstyle
+  p(\blue{h + 1}) : \sumatoria{k=1}{\blue{h + 1}} k!  \geq \frac{2^{\blue{h + 1}}}{\blue{ h + 1 } + 1}
+$$
+también lo sea.
+
+Arranco por el paso $\blue{h + 1}$:
+$$
+  \begin{array}{rcl}
+    \sumatoria{k = 1}{\blue{h + 1}} k!
+     & =                        &
+    (\blue{h + 1})! + \sumatoria{k = 1}{\blue{h}} k!                                  \\
+     & \mayorIgual{\purple{HI}} &
+    (\blue{h + 1})! +  \frac{2^{\blue{h}}}{\blue{h} + 1}                              \\
+     & \mayorIgual{\red{!}}     &
+    \frac{h+2}{h+2} \cdot  (\blue{h + 1})! +  \frac{2^{\blue{h}}}{\blue{h} + \red{2}} \\
+     & =                        &
+    \frac{(h+2)! +  2^{\blue{h}}}{h + \red{2}}                                        \\
+     & \mayorIgual{\red{!}}     &
+    \frac{\red{2^h} +  2^{\blue{h}}}{h + \red{2}}                                     \\
+     & =                        &
+    \frac{2^{\blue{h + 1}}}{h + \red{2}}                                              \\
+  \end{array}
+$$
+Por lo tanto $p(\blue{h+1})$ también resultó verdadera.
+
+\bigskip
+
+Dado que $p(1),\, p(\blue{h}), p(\blue{h + 1})$ resultaron verdaderas por principio de inducción
+también lo es $p(n) \paratodo n \en \naturales$.

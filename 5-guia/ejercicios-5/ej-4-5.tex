@@ -10,53 +10,93 @@
   \end{multicols}
 \end{enunciado}
 
+\begin{itemize}
+  \item Algunos cálculos salen a ojo. Recordar que una ecuación de congruencia se puede pensar expresar como una diofántica:
+        $$
+          \congruencia{aX}{r}{b}
+          \equivalente
+          a \cdot X + b \cdot Y = r
+        $$
+
+  \item Coprimizar siempre que se pueda.
+\end{itemize}
+
 \begin{enumerate}[label=\roman*)]
-  \item $\congruencia{17X}{3}{11}
+  \item $$
+          \congruencia{17X}{3}{11}
           \sisolosi
           \congruencia{6X}{3}{11}
           \Sii{$\times 2$}[$(\Leftarrow) 2 \cop 11$]
-          \congruencia{X}{6}{11} $\Tilde
+          \cajaResultado{
+            \congruencia{X}{6}{11}
+          }
+        $$
 
-  \item $
+  \item
+        $$
           \congruencia{56X}{28}{35}
           \sisolosi
           \congruencia{21X}{28}{35}
           \Sii{coprimizo}[$(21:35) = 7$]
           \congruencia{3X}{4}{5}
-          \Sii{$\times 7$}[$7\cop 5$]
-          \congruencia{X}{3}{5} \Tilde
-        $
+          \Sii{$\times 7$}[$(\Leftarrow) 7\cop 5$]
+          \cajaResultado{
+            \congruencia{X}{3}{5}
+          }
+        $$
 
-  \item $
+  \item Empiezo coprimizando:
+        $$
           \congruencia{56X}{2}{884}
           \sisolosi
           \congruencia{28X}{1}{442}
-          \text{ tiene solución }
-          \Sii{$(28:442)   \stackrel{\red{?}}{\divideA} 1$}[pero $2\noDivide 1$]
-          X = \vacio \Tilde
-        $
+        $$
 
-  \item $$
-          \begin{array}{c}
-            \congruencia{78X}{30}{12126}
-            \Sii{coprimizar}[(78:12126) = 6]
-            \congruencia{13X}{5}{2021},\,                                                                                   \\
-            \textit{{dado que $\ob{(13:2021)}{1} \divideA 5$ hay solución.}}                                                \\
-            \text{Busco solución particular con Euclides. Escribo al 5 como combinación entera de \blue{13} y \blue{2021}:} \\
-            \llave{c}{
+        Esa ecuación tiene solución, si y solo si $(28:442) \divideA 1$, peeeeero no es el caso \textit{cause} $28 \not\perp 442$ así que:
+        $$
+          \cajaResultado{
+            X = \vacio
+          }
+        $$
+
+  \item Empiezo coprimizando:
+        $$
+          \congruencia{78X}{30}{12126}
+          \Sii{coprimizar}[(78:12126) = 6]
+          \congruencia{13X}{5}{2021},\,
+        $$
+        Dado que $\ob{(13:2021)}{1} \divideA 5$ hay solución \faIcon[regular]{smile}.
+\medskip
+
+        Busco solución particular con Euclides. Escribo al 5 como combinación entera de \blue{13} y \blue{2021}:
+        $$
+          \llave{c}{
             \blue{2021} =  \blue{13} \cdot 155 + 6                                                                          \\
-              \blue{13} =  6 \cdot 2 + 1
-            }
-            \flecha{1 como combinación}[de \blue{13} y \blue{2021}]
-            1 = \blue{13} \cdot 311 + \blue{2021} \cdot (-2)                                                                \\
-            1 = 13 \cdot 311 + 2021 \cdot (-2)
-            \Sii{$\times 5$}[$(\Leftarrow) 5 \cop 2021$]
-            5 =  13\cdot 1555 + 2021 \cdot (-10)                                                                            \\
-            13\cdot \ub{1555}{\text{Solución particular}} = 2021 \cdot 10  + 5
-            \Entonces{Solución general}[\red{!!}]
-            \boxed{ \congruencia{X}{1555}{2021}} \Tilde
-          \end{array}
+            \blue{13} =  6 \cdot 2 + 1
+          }
+          \Entonces{1 como combinación}[de \blue{13} y \blue{2021}]
+          1 = \blue{13} \cdot 311 + \blue{2021} \cdot (-2)
+          1 = 13 \cdot 311 + 2021 \cdot (-2) \llamada1
+        $$
+
+        Multiplico $\llamada1$ por 5 para obtener la expresión que buscaba:
+        $$
+          \llamada1
+          \Sii{$\times 5$}[$(\Leftarrow) 5 \cop 2021$]
+          5 =  13\cdot 1555 + 2021 \cdot (-10)                                                                            \\
+        $$
+        De donde obtengo la \textit{solución particular}:
+        $$
+          13\cdot \ub{1555}{\text{Solución} \\ \text{particular}} = 2021 \cdot 10  + 5
+          \Entonces{Solución general, $X$}[\red{!!}]
+          \cajaResultado{
+            \congruencia{X}{1555}{2021}
+          }
         $$
         Si no ves el paso \red{!!}, hacé el procedimiento para resolver la diofántica, $13X + 2021Y = 5$ que es equivalente
         a $\congruencia{13X}{5}{2021}$.
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

@@ -2,24 +2,65 @@
   Hallar todos los $(a,b) \en \enteros^2$ tales que $\congruencia{b}{2a}{5}$ y $28a + 10b = 26$.
 \end{enunciado}
 
-Este es parecido al \refEjercicio{ej:2}\par
+Este es parecido al \refEjercicio{ej:2}. Voy a despejar de una ecuación y meter en la otra:
 
-$ \congruencia{b}{2a}{5}
-  \sisolosi
-  b = 5k + 2a
-  \flecha{meto en}[$28a + 10b = 26$]
-  48a + 50k = 26
-  \flecha{$(48:59) = 2$}[$2 \divideA 26$]
+Despejo:
+$$ \congruencia{b}{2a}{5}
+  \Sii{def}
+  \magenta{b} = 5\blue{k} + 2a \llamada1
+$$
+
+Meto ahora en la otra ecuación:
+$$
+  28a + 10\magenta{b} = 26
+  \Sii{$\llamada1$}
+  48a + 50\blue{k} = 26
+$$
+
+¿Esta última ecuación tiene solución? Sí, dado que: $(48:50) = 2$ y $2 \divideA 26$.
+
+Coprimizo:
+$$
   24a + 25k = 13
-  \flecha{a}[ojo]
-  \llaves{l}{
-    a = -13 + (-25)q\\
-    k = 13 + 24 q
+$$
+
+A ojo veo que {\tiny(si no se ve a ojo, se puede hacer Euclides)}:
+$$
+  (a,k) = q\cdot (-25, 24) + (-13, 13)
+  \sii
+  \llave{rcl}{
+    a & = &  -13 + (-25)q\\
+    k & = &  13 + 24 q
   }
-$\\
-\textit{Let's corroborate:}\\
-$b = 5\cdot \ub{(13 + 24q)}{k} + 2\cdot \ub{(-13 + (-25)q)}{a} = 39 + 70q
-  \llave{l}{
-    b = \congruencia{39 + 70 q}{4}{5}\Tilde  \\
-    2a = \congruencia{-26-50q}{-1}{5} \congruente 4\ (5)\Tilde
-  }$
+$$
+
+\textit{Let's corroborate:} Uso esos valores para comprobar que se cumplen las ecuaciones del enunciado:
+$$
+  b = 5\cdot \ub{(13 + 24q)}{k} + 2\cdot \ub{(-13 + (-25)q)}{a} =
+  39 + 70q
+  \Entonces{módulo}[5]
+  b   =  \congruencia{39 + 70 q}{4}{5}
+  \sii
+  \cajaResultado{
+    \congruencia{b}{4}{5}
+  }
+$$
+
+Por otro lado:
+$$
+  2a = \congruencia{-26-50q}{-1}{5} \congruente 4\ (5)
+  \sii
+  \cajaResultado{
+    \congruencia{2a}{4}{5}
+  }
+$$
+
+Concluyendo que efectivamente:
+$$
+  \congruencia{b}{2a}{5}
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/MPoncini}{M Poncini \github}
+\end{aportes}

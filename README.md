@@ -83,7 +83,7 @@ git pull
 git push origin nombre-nueva-rama
 ```
 5 - Los cambios deberían aparecer en github, EN TU RAMA. Para fusionar vas a hacer una PULL REQUEST
-    desde la página. Cuando estés ahí vas a tener que esperar el visto bueno para la fusión y luego
+    desde la página. Cuando estés ahí vas a tener que esperar el visto bueno para la fusión y luego 
     se mergea y listo. La rama nombre-nueva-rama va desaparecer.
 
 6 - Si en tu repositorio local todavía ves la rama y la querés borrar:

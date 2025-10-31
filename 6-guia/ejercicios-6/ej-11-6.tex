@@ -12,10 +12,10 @@
 Si $w \en G_n$, entonces tengo las siguiente propiedades:
 $$
   \llave{l}{
-    w^n = 1 \entonces w^k = w^{r_n(k)}                                                                         \\
+    \text{Si } w \en G_n  \entonces w^k = w^{r_n(k)}                                                                         \\
     \conj w^k = w^{r_n(-k)}                                                                                    \\
-    \sumatoria{k=0}{n-1}w^k = 0                                                                                \\
-    m \divideA n \entonces G_m \subseteq G_n \\
+    \sumatoria{k=0}{n-1} w^k = 0                                                                                \\
+    m \divideA n \sii G_m \subseteq G_n \\
   }
 $$
 
@@ -23,7 +23,8 @@ $$
   \item Calcular $w + \conj w + (w + w^2)^2 - w^{38}(1 - w^2)$ para cada $w \en G_7$.
 
         \separadorCorto
-        Raíces de $G_7$ de interés: 7 es primo e impar $\entonces w = 1$ se hace a parte.
+        Raíces de $G_7$ de interés: 7 es impar entonces $w = 1$ se hace a parte en caso de usar la serie geométrica,
+        pero al final no la voy a estar usando.
 
         \textit{Si $w = 1$}:
         $$
@@ -35,9 +36,14 @@ $$
           \begin{array}{rcl}
             w + \ua{\conj w}{w^6} + (w + w^2)^2 - w^{38}(1 - w^2)
              & = &
-            w + w^6 + w^2 + 2w^3 + w^4 - \oa{(w^7}{=1})^5 w^3(1 - w^2) \\
+            w + w^6 + w^2 + 2w^3 + w^4 -
+            \ub{
+              \oa{(w^7}{=1})^5 w^3
+            }{
+              w^{38}
+            }(1 - w^2) \\ \\
              & = &
-            \magenta{-1} + \ub{\magenta{1} + w + w^2 + w^3 + w^4 + w^5 + w^6}{=0} = -1 \Tilde
+            \magenta{-1} + \ub{\magenta{1} + w + w^2 + w^3 + w^4 + w^5 + w^6}{=0} = -1
           \end{array}
         $$
 

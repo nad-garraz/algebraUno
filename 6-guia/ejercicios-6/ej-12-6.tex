@@ -23,20 +23,29 @@
             \sumatoria{k = 0}{35} w^k = 0
           }
         $$
-        Por enunciado me dicen que $w^4 \distinto 1 \entonces w \distinto \pm 1$. Esto está bueno, porque ahora puedo usar la
-        fórmula geométrica sin pensar que estoy metiendo un 0 en el denominador. Si no tendría que considerar casos particulares para la suma.
-        Acomodo un poco la sumatoria, para que aparezcan todos los términos para armar la serie geométrica como la formulita. Le
-        agrego los términos que faltan entre 0 y 7:
+        Por enunciado me dicen que $w^4 \distinto 1 \entonces w \distinto 1$. Esto está bueno, porque ahora puedo usar la
+        fórmula geométrica sin pensar que estoy metiendo un 0 en el denominador. Si no tendría que considerar el caso particular para la suma.
+        Acomodo un poco la sumatoria, para que aparezcan todos los términos para armar la serie geométrica como la formulita.
+        Le agrego los términos que faltan entre 0 y 7:
         $$
-          \begin{array}{c}
-            \sumatoria{k = 7}{60}w^{4k} =
-            \ub{\sumatoria{k = 7}{60}w^{4k} + \magenta{\sumatoria{k = 0}{6}w^{4k}}}{\sumatoria{k=0}{60}w^{4k}}
-            - \magenta{\sumatoria{k = 0}{6}w^{4k}} =
-            \sumatoria{k = 0}{60}w^{4k} - \sumatoria{k=0}{6}w^{4k} = \\
-            \frac{(w^4)^{61} - 1}{w^4 - 1} - \frac{(w^4)^7 - 1}{w^4 - 1} =
-            \frac{(w^4)^{61} - (w^4)^7 }{w^4 - 1}
-            \Sii{$61 = 9\cdot6 + 7 $}[$\llamada1$]
-            \frac{ (w^{36})^6  \cdot (w^4)^7 - (w^4)^7 }{w^4 - 1} = 0
+          \begin{array}{rcl}
+            \sumatoria{k = 7}{60}w^{4k}
+             & \igual{\red{!}}               &
+            \ob{\textstyle\sumatoria{k = 7}{60}w^{4k} + \magenta{\sumatoria{k = 0}{6}w^{4k}}}{\sumatoria{k=0}{60}w^{4k}} - \magenta{\sumatoria{k = 0}{6}w^{4k}} \\\\
+             & =                             &
+            \sumatoria{k = 0}{60}w^{4k} - \sumatoria{k=0}{6}w^{4k}                                                                                              \\
+             & =                             &
+            \sumatoria{k = 0}{60}(w^4)^k - \sumatoria{k=0}{6}(w^4)^k                                                                                            \\
+             & \igual{\red{!}}               &
+            \frac{(w^4)^{61} - 1}{w^4 - 1} - \frac{(w^4)^7 - 1}{w^4 - 1}                                                                                        \\
+             & =                             &
+            \frac{(w^4)^{61} - (w^4)^7 }{w^4 - 1}                                                                                                               \\
+             & \igual{\red{!!}}[$\llamada1$] &
+            \frac{ (w^{36})^6  \cdot (w^4)^7 - (w^4)^7 }{w^4 - 1}                                                                                               \\
+             & \igual{\red{!}}               &
+            \frac{(w^4)^7 - (w^4)^7 }{w^4 - 1}                                                                                                                  \\
+             & =                             &
+            0
           \end{array}
         $$
         Se concluye que:

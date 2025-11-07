@@ -16,50 +16,89 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\roman*)]
-  \item $g \divideA g \sisolosi \congruencia{X^{31} - 2}{ 0 }{X^{31} - 2} \sisolosi \congruencia{X^{31}}{2}{g}$
+  \item Busco una expresión para sustituir luego en la definición de división:
+        $$
+          g \divideA g
+          \Sii{def}
+          \congruencia{X^{31} - 2}{ 0 }{X^{31} - 2}
+          \sii
+          \congruencia{X^{31}}{2}{g} \llamada1
+        $$
 
-        $f = X^{353} - X - 1 =
-          (\ub{X^{31}}{\conga g 2})^{11} X^{12} - X - 1 \conga g
-          2^{11} X^{12} -X -1
-          \to $
-        \boxed{r_g(f) = 2^{11} X^{12} -1 }
+        Ese resultado se puede usar así:
+        $$
+          f = X^{353} - X - 1 =
+          \congruencia{
+            (\ub{X^{31}}{\conga{g}[\llamada1] 2})^{11}
+          }
+          {
+            2^{11} X^{12} -X -1
+          }{g}
+        $$
+        Finalmente:
+        $$
+          \cajaResultado{
+            r_g(f) = 2^{11} X^{12} -X -1
+          }
+        $$
 
-  \item
-        $g \divideA g
-          \sisolosi
+  \item Al igual que antes:
+        $$g \divideA g
+          \Sii{def}
           \congruencia{X^6 + 1}{ 0 }{X^6 + 1}
-          \sisolosi
-          \congruencia{X^6}{-1}{g}$
+          \sii
+          \congruencia{X^6}{-1}{g} \llamada1
+        $$
 
-        $f =
-          X^{1000} + X^{40} + X^{20}  + 1 =
-          (X^6)^{166}X^4 + (X^6)^6 X^4 + (X^6)^3 X^2  + 1 \conga g
-          X^4 + X^4 \magenta{-} X^2  + 1 =
-          2X^4 - X^2 + 1\\
-          \to$
-        \boxed{r_g(f) = 2X^4 - X^2 + 1}\\
-        \red{¿Qué onda en $\enteros/p\enteros$?}
-        $\to
+        Puedo usar eso así:
+        $$
+          \begin{array}{rcl}
+            f & =                    & X^{1000} + X^{40} + X^{20}  + 1 \\
+              & =                    &
+            (X^6)^{166}X^4 + (X^6)^6 X^4 + (X^6)^3 X^2  + 1            \\
+              & \conga{g}[\llamada1] &
+            X^4 + X^4 \magenta{-} X^2  + 1 =
+            2X^4 - X^2 + 1
+          \end{array}
+        $$
+
+        Finalmente:
+        $$
+          \cajaResultado{
+            r_g(f) = 2X^4 - X^2 + 1
+          }
+        $$
+        \red{¿Qué onda en $\enteros/p\enteros[X]$?}
+        $$
           \llave{l}{
             \text{si } p = 2 \to \boxed{X^2 + 1}\\
             \text{si } p > 2 \to \boxed{2X^4 + (p-1) X^2 + 1}
           }
-        $
+        $$
 
   \item
-        $g \divideA g
-          \sisolosi
+        $$
+          g \divideA g
+          \Sii{def}
           \congruencia{X^{100} - X + 1}{0}{X^{100} - X + 1}
-          \sisolosi
-          \congruencia{X^{100}}{X - 1}{g}$
+          \sii
+          \congruencia{X^{100}}{X - 1}{g} \llamada1
+        $$
 
-        $f =
-          X^{200} - 3X^{101} + 2 =
-          (X^{100})^2 - 3 X^{100} X + 2 \conga g
-          (X - 1)^2 - 3 (X - 1) X + 2
-          \\
-          \to$
-        \boxed{r_g(f) = (X - 1)^2 - 3 (X - 1) X + 2}
+        Sopa
+        $$
+          \begin{array}{rcl}
+            f & =                    & X^{200} - 3X^{101} + 2 \\
+              & =                    &
+            (X^{100})^2 - 3 X^{100} X + 2                     \\
+              & \conga{g}[\llamada1] &
+            (X - 1)^2 - 3 (X - 1) X + 2
+          \end{array}
+        $$
+        Tonces:
+        $$
+          \cajaResultado{r_g(f) = (X - 1)^2 - 3 (X - 1) X + 2}
+        $$
 
   \item \textit{Usando la sugerencia}:
         Del ejercicio \refEjercicio{ej:4}\ref{ej4:item-iii}
@@ -67,35 +106,42 @@
         $$
           X^n - 1 = (X-1) \cdot \sumatoria{k=0}{n-1} X^k
         $$
+
         Con $n = 5$:
         $$
-          X^5 - 1 = (X-1)\ub{(X^4 + X^3 +X^2 + X + 1)}{g}
-          \Sii{\red{!}}
-          \congruencia{X^5}{\ub{1}{r_g(X^5)}}{g} \llamada1
-        $$
-        Usando ese resultado de congruencia, reescribo $f$:
-        {\footnotesize
-        $$
           \begin{array}{rcl}
-            f = (X^5)^{603} X + 2(X^5)^{366} X^3 - (X^5)^{34} X^4 + (X^5)^{27} X^2 + 2X^4 - X^3 + 1
-             & \Sii{$\llamada1$} &
-            \congruencia{f}{
-              \ub{
-                X + 2X^3 - X^4 + X^2 + 2X^4 - X^3 + 1
-              }{
-                = X^4 + X^3 +X^2 + X + 1 =g
-              }
-            }{g}                   \\
-             & \sisolosi         &
-            \cajaResultado{
-              \congruencia{f}{0}{g}
-            }
+            X^5 - 1 & =             & (X-1)\ub{(X^4 + X^3 +X^2 + X + 1)}{g\llamada1} \\
+                    & \Sii{\red{!}} &
+            \congruencia{X^5}{\ub{1}{r_g(X^5)}}{g} \llamada2
           \end{array}
         $$
-        }
 
+        Usando ese resultado de congruencia, reescribo $f$:
+        $$
+          \begin{array}{rcl}
+            f & =                    & (X^5)^{603} X + 2(X^5)^{366} X^3 - (X^5)^{34} X^4 + (X^5)^{27} X^2 + 2X^4 - X^3 + 1 \\
+              & \conga{g}[\llamada2] &
+
+            \ub{
+              X + 2X^3 - X^4 + X^2 + 2X^4 - X^3 + 1
+            }{
+              = X^4 + X^3 +X^2 + X + 1 = g^{\llamada1}
+            }
+            \quad (g)                                                                                                      \\
+              & \conga{g}[\llamada2] &
+            0 \quad (g)
+          \end{array}
+        $$
+
+        Finalmente:
+        $$
+          \cajaResultado{
+            \congruencia{f}{0}{g}
+          }
+        $$
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/MPoncini}{M Poncini \github}
 \end{aportes}

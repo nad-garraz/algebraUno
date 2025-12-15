@@ -1,11 +1,92 @@
-\begin{enunciado}{\ejExtra}
-        Calcule la cantidad de anagramas de 6 letras que se pueden obtener usando las letras de la palaba PARTICULA, con la condición de que empiecen con C.
-        Por ejemplo, posibles anagramas son CAPTAR y CRIPTA.
+\begin{enunciado}{\ejExtra}\fechaEjercicio{recuperatorio 10/12/2024}
+
+  ¿Cuántos anagramas tiene la palabra $LOLLAPALOOZA$ tales que
+  \begin{enumerate}[label=$\alph*)$]
+    \item empiezan en consonante?
+    \item no tienen dos vocales ni dos consonantes juntas?
+  \end{enumerate}
 \end{enunciado}
 
-Hay que calcular anagrámas en una palabra con \magenta{9} letras, donde 2 son repetidas
+\begin{enumerate}[label=$\alph*)$]
+  \item Tengo 6 consonantes $LLLPLZ \to \set{L,P,Z}$,  y 6 vocales $OAAOOA \to \set{O,A}$. Para ubicar una consonante en la primera
+        ubicación, puedo poner una $L$, una $P$ o una $Z$. En el caso de usar la $\blue{L}$ voy a estar \textit{modificando el \textit{stock} de $\blue{L}$'s
+          que quedan para el resto de la palabra}. Marco en \blue{azul} lo que es referente a las $\blue{L}$'s:
+        $$
+          \ub{
+            \blue{1} \cdot \frac{11!}{\blue{3}! \cdot 3! \cdot 3!}
+          }{
+            \text{Uso una $\blue{L}$}\\
+            \text{y completo}
+          }
+          +
+          \ob{
+            2 \cdot \frac{11!}{\blue{4}! \cdot 3! \cdot 3!}
+          }{
+            \text{Uso una $P$ o}\\
+            \text{una $Z$ y completo}
+          }
+          = 277200
+        $$
 
+        El 2 en el segundo término es porque puedo elegir $P$ o $Z$ como primera consonante y después me quedan \blue{4} $\blue{L}$'s y vocales
+        para completar el resto de las palabras. En el término donde uso la $\blue{L}$ tengo que recordar que solo quedan $\blue{3}$ luego para
+        la parte de completar.
+
+        \bigskip
+
+        También se puede atacar el problema contando todas las palabras posibles y restarle las palabras que empiezan con una vocal:
+        $$
+          \ub{
+            \frac{12!}{4! \cdot 3! \cdot 3!}
+          }{
+            \text{todas las}\\
+            \text{posibles palabras}\\
+            \text{distintas}
+          }
+          -
+          \ob{
+            2 \cdot (\frac{11!}{4! \cdot 3! \cdot 2!})
+          }{
+            \text{Uso una $A$ o}\\
+            \text{una $O$ y completo}
+          }
+          = 277200
+        $$
+
+        Dio igual, así que me quedo tranquilo. Y si hay algo mal avisá!
+
+  \item Quiero armar palabras así:
+        $$
+          \begin{array}{cc}
+            V C V C V C V C V C V C & \to ~\text{Empiezan con consonante} \\
+            C V C V C V C V C V C V & \to ~\text{Empiezan con vocal}
+          \end{array}
+        $$
+        Para completar ese bosquejo del ejercicio, puedo pensar al problema de completar las vocales y las consonantes por separado.
+
+        Poner las 6 consonantes en sus respectivos lugares contemplando las repeticiones me da:
+        $$
+          \frac{6!}{4!} = 30
+        $$
+
+        Poner las 6 vocales en sus respectivos lugares contemplando las repeticiones me da:
+        $$
+          \frac{6!}{3! \cdot 3!} = 20
+        $$
+
+        Es decir que por cada una de las 30 \textit{ubicaciones} de las consonantes tengo 20 \textit{ubicaciones} para las vocales:
+        $$
+          20 \cdot 30 = 600
+        $$
+        Multiplicando por 2, debido a que la palabra puede empezar con vocal o consonante se obtienen:
+        $$
+          \cajaResultado{
+            1200
+          }
+        $$
+        anagramas de $LOLLAPALOOZA$ que no tienen consonantes y vocales juntas.
+\end{enumerate}
 
 \begin{aportes}
-\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

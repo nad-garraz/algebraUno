@@ -1,0 +1,176 @@
+\begin{enunciado}{\ejExtra}\fechaEjercicio{recuperatorio 25/11/25}
+
+  Sea $\F = \set{f: \set{1,2,3,4,5,6,7} \to \set{1,2,\ldots,18}: f ~ \text{es una función} }$. Se define en $\F$ la relación dada por
+  $$
+    f \relacion g \sisolosi \im(f) \triangle \im(g) \distinto \im(f) \union \im(g).
+  $$
+  \begin{enumerate}[label=\alph*)]
+    \item Determinar si la relación es reflexiva, simétrica, transitiva y/o antisimétrica.
+    \item Sean $f,\, g \en \F$ definidas por $f(n) = 2n$ y $g(n) = 18 - n$. ¿Cuántas funciones $h \en \F$ satisfacen
+          que $f\relacion h$ pero $g \norelacion h$?
+  \end{enumerate}
+\end{enunciado}
+
+El lado izquierdo de la relación me cae mejor escrito así:
+$$
+  \boxed{
+    f \relacion g \sisolosi \im(f) \inter \im(g) \distinto \vacio.
+  }
+$$
+Eso se puede ver fácil en un \textit{diagrama de Venn} o también restando $\blue{ \im(f) \union \im(g) }$ en la definición original escribiendo
+que
+$$
+  (\im(f) \triangle \im(g))
+  -
+  (\im(f) \union \im(g))
+  =
+  \im(f) \inter \im(g)
+$$
+
+En fin.
+
+\bigskip
+
+\begin{enumerate}[label=\alph*)]
+  \item
+
+        \textit{Reflexividad:} ¿$f \relacion f$?
+
+        Sí. Sale trivial, porque la intersección es reflexiva.
+
+        \bigskip
+
+        \textit{Simetría:} ¿$f \relacion g \entonces g \relacion f$?
+
+        Sí, por el mismo motivo de antes.
+
+        \bigskip
+
+        \textit{Transitividad:} ¿$f \relacion g \land g \relacion h \entonces f \relacion h$?
+        $$
+          \ub{
+            \llave{rcl}{
+              \rowcolor{blue!10}
+              f(1) & = & 1 \\
+              f(2) & = & 1 \\
+              f(3) & = & 1 \\
+              f(4) & = & 1 \\
+              f(5) & = & 1 \\
+              f(6) & = & 1 \\
+              f(7) & = & 1
+            }
+            \quad \relacion \quad
+            \llave{rcl}{
+              \rowcolor{blue!10}
+              g(1) & = & 1 \\
+              g(2) & = & 2 \\
+              g(3) & = & 2 \\
+              g(4) & = & 2 \\
+              g(5) & = & 2 \\
+              g(6) & = & 2 \\
+              g(7) & = & 2
+            }
+          }{
+            f \relacion g
+          }
+          ~ \ytext~
+          \ub{
+            \llave{rcl}{
+              g(1) & = & 1 \\
+              g(2) & = & 2 \\
+              g(3) & = & 2 \\
+              \rowcolor{blue!10}
+              g(4) & = & 2 \\
+              g(5) & = & 2 \\
+              g(6) & = & 2 \\
+              g(7) & = & 2
+            }
+            \quad \relacion \quad
+            \llave{rcl}{
+              h(1) & = & 3 \\
+              h(2) & = & 3 \\
+              h(3) & = & 3 \\
+              h(4) & = & 3 \\
+              h(5) & = & 3 \\
+              h(6) & = & 3 \\
+              \rowcolor{blue!10}
+              h(7) & = & 2
+            }
+          }{
+            g \relacion h
+          }
+        $$
+        Peeeeero, $f\norelacion g$, porque sus conjuntos imagen no tienen nada en común. No es transitiva.
+
+        \bigskip
+
+        \textit{Antisimetría:} ¿$f \relacion g \land g \relacion f \entonces f = g$?
+
+        Noup, agarrando las funciones $f$ y $g$ que usé antes tengo un \textit{contraejemplo}. $f \distinto g$, sin embargo $f \relacion g$ y $g \relacion f$.
+
+  \item
+        Nos dan 2 funciones bien definidas $f$ y $g$:
+        $$
+          \llave{rcl}{
+            f(1) & = & 2 \\
+            f(2) & = & 4 \\
+            f(3) & = & 6 \\
+            f(4) & = & 8 \\
+            f(5) & = & 10 \\
+            f(6) & = & 12 \\
+            f(7) & = & 14
+          }
+          \quad \ytext \quad
+          \llave{rcl}{
+            g(1) & = & 17 \\
+            g(2) & = & 16 \\
+            g(3) & = & 15 \\
+            g(4) & = & 14 \\
+            g(5) & = & 13 \\
+            g(6) & = & 12 \\
+            g(7) & = & 11
+          }
+        $$
+
+        Para cumplir lo que pide el enunciado observo que necesito una función cuyo conjunto $\im(h)$ tenga algún número par de $\im(f)$,
+        peeero, que ese número par
+        no aparezca en el conjunto $\im(g)$. Es decir que necesito que:
+        $$
+          \im(h) \inter \set{2,4,6,8,10}  \distinto \vacio
+          ~ \ytext ~
+          \im(h) \inter \set{17, 16, 15, 14, 13, 12, 11} = \vacio
+        $$
+
+        Por lo tanto puedo formarme las funciones $h$ con el siguiente conjunto de números:
+        $$
+          A = \set{1,2,3,4,5,6,7,8,9,10,\magenta{18}}
+          \ytext
+          \#A = 11
+        $$
+
+        Podemos reducir lo que queda a ¿Cuántas funciones $h(n)$ me puedo formar con los elementos de $A$, si debe aparecer por lo menos
+        un \textit{número par de $A$} distinto de \magenta{18}?
+
+        En total (sin pensar en las restricciones) con 11 números me puedo formar un total de $11^7 \llamada1$ funciones. Ahora quiero agarrar de todas
+        esas aquellas que tengan algún número par ($\distinto 18$).
+
+        O dicho de otra manera quiero las funciones (restringidas a $A$) que \underline{\textit{no sean todos números impares o \magenta{18}}}.
+        Voy a ir por acá, entonces calculo cuántas funciones me puedo armar con:
+        $$
+          B = \set{1,3,5,7,9,18} \ytext \#B = 6
+        $$
+        De donde saco que puedo armar restringido a $B$ un total de $6^7\llamada2$ funciones.
+
+        Concluyo entonces que en total satisfaciendo lo que pide el enunciado voy a tener un total de ($\llamada1 \ytext \llamada2$):
+        $$
+          \cajaResultado{
+            11^7 - 6^7 ~ \text{funciones}~ h(n)
+          }
+        $$
+        funciones que cumplen que por lo menos tienen un número par de $A$ distinto de \magenta{18}.
+
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

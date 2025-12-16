@@ -1,0 +1,45 @@
+\begin{enunciado}{\ejExtra} \fechaEjercicio{recuperatorio integrador 16/12/2025}
+
+  Sea $\relacion$ la relación de equivalencia en $G_{100}$ definida por
+  $$
+    z \relacion w \sii z^5 = w^5.
+  $$
+  Hallar la clase de equivalencia de $-i$.
+\end{enunciado}
+
+La clase de equivalencia va a estar formada por los número de $G_{100}$ que satisfagan ecuación de la relación.
+
+Teniendo en cuenta que:
+$$
+  z = -i \sii z^5 = (-i)^5 = -i = e^{i\frac{3}{2} \pi} \llamada1
+$$
+
+Quiero los números $w = e^{i\theta} \en G_{100}$ tal que:
+$$
+  \llamada1
+  \to e^{i\frac{3}{2}\pi} = (e^{i\theta})^5
+  \Sii{\red{!}}
+  \theta =  \frac{3}{10} \pi + \frac{2}{5}k \pi
+$$
+Condicionando el argumento:
+$$
+  0 \leq \theta < 2\pi \sii k \en \set{0,1,2,3,4}
+  \entonces
+  w \en \set{
+    e^{i\frac{3}{10}\pi} ,
+    e^{i\frac{7}{10}\pi} ,
+    e^{i\frac{11}{10}\pi} ,
+    e^{i\frac{15}{10}\pi} ,
+    e^{i\frac{19}{10}\pi}
+  }
+$$
+
+Los números de ese conjunto satisfacen estar relacionados con $z = -i$. Solo falta ver si pertenecen a $G_{100}$.
+
+Dado que una propiedad de cualquier número de $w \en G_{100}$ es que $w^{100} = 1$, puedo fácilmente comprobar
+que esos números están en $G_{100}$, porque los argumentos quedan como múltiplos pares de $\pi$.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/fransureda}{Francisco Sureda \github}
+\end{aportes}

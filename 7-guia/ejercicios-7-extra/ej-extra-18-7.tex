@@ -1,0 +1,81 @@
+\begin{enunciado}{\ejExtra} \fechaEjercicio{recuperatorio integrador 16/12/2025}
+
+  Sea $f = X^5 + 2X^3 + 2a^3 X^2 + 21X + 2a^2$. Determinar para qué valores de $a \en \complejos$ sucede que
+  $(X + 1)^2 \divideA (f:f')$. Para cada valor de $a$ hallado, factorizar el polinomio correspondiente como producto
+  de polinomios irreducibles en $\racionales[X], \reales[X] \ytext \complejos[X]$.
+\end{enunciado}
+
+La condición:
+$
+  (X + 1)^2 \divideA (f:f')
+$
+dice entre otras cosas que $r = -1$ es una raíz \textit{al menos} doble de $f$.
+$$
+  \llave{ccl}{
+    f(-1) = 0
+    & \sii &
+    -1 - 2 + 2a^3 - 21 + 2a^2 =
+    2a^3 + 2a^2 - 24  = 0
+    \sii
+    a^3 + a^2 - 12  = 0 \\
+    f'(-1) = 0
+    & \sii &
+    5 + 6 - 4a^3 + 21 =
+    -4a^3 + 32 = 0 \sii a^3 = 8
+    \Sii{casi}[$G_3$]
+    \llave{rcl}{
+      a_1 & = &  2\\
+      a_2 & = & - 1 +i \sqrt{3}\\
+      a_3 & = & - 1 -i \sqrt{3}
+    }
+  }
+$$
+
+A ojímetro $f(a_1) = f(2) = 0$:
+$$
+  \polyset{vars=a}
+  \divPol{a^3 + a^2 -12}{a-2}
+$$
+
+Dado que las raíces del cociente $a^2 + 3a + 6$ no son ni $a_2$ ni $a_3$, el único valor de $a$ que divide simultáneamente
+a $f$ y a $f'$ es:
+$$
+  \magenta{a = 2}
+$$
+
+Ahora hay que factorizar:
+$$
+  f = X^5 + 2X^3 + 16 X^2 + 21X + 8
+$$
+Bajo grado:
+$$
+  \polyset{vars=X}
+  \divPol{X^5 + 2X^3 + 16 X^2 + 21X + 8}{(X + 1)^2}
+$$
+Con \textit{Gauss} se puede calcular una raíz o con la calcu o preguntale a tu vieja, en fin $-1$ era una raíz triple:
+$$
+  \polyset{vars=X}
+  \divPol{X^3 - 2X^2 + 5X+ 8}{X + 1}
+$$
+
+Las raíces de
+$X^2 - 3X + 8 =
+  \llave{rcl}{
+    r_1 &=& \frac{3}{2} - i \frac{\sqrt{23}}{2}\\
+    r_2 &=& \frac{3}{2} + i \frac{\sqrt{23}}{2}
+  }
+$
+
+\textit{Factorizaciones:}
+$$
+  \cajaResultado{
+    \begin{array}{rcl}
+      Q[X] \ytext R[X] & \to & f = (X-1)^3 (X^2 - 3X + 8)                                                                                      \\
+      C[X] \ytext R[X] & \to & f = (X-1)^3 \cdot (X - (\frac{3}{2} - i \frac{\sqrt{23}}{2})) \cdot (X - (\frac{3}{2} + i \frac{\sqrt{23}}{2}))
+    \end{array}
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

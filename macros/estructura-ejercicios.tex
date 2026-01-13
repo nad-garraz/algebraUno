@@ -10,10 +10,11 @@
 
 \newpage
 
-
 %=========================
 % Un poco de teoría
 %=========================
+\phantomsection
+\addcontentsline{toc}{section}{Notas teóricas}
 \subsubsection*{\hypertarget{teoria-\guia}{Notas teóricas:}}
 \input{./teoria-\guia/teoria-\guia.tex}
 
@@ -22,16 +23,18 @@
 %=========================
 % Ejercicios guia
 %=========================
-\subsubsection*{Ejercicios de la guía:}
 
+\phantomsection
+\addcontentsline{toc}{section}{Ejercicios de la Guía} % Para el TOC colapsado
+\subsubsection*{Ejercicios de la guía:}
 \foreach \x in {1,...,\cantidadEjerciciosGuia} { % cantidad de ejercicios de la guía
-		\IfFileExists{./ejercicios-\guia/ej-\x-\guia.tex}{
-			\input{./ejercicios-\guia/ej-\x-\guia.tex}
-		}{
-			\typeout{¡Atención! El archivo ./ejercicios-\guia/ej-\x-\guia.tex no está.
-            Revisar variable: 'cantidadEjerciciosGuia` en \guia-sol.tex}
-		}
-	}
+    \IfFileExists{./ejercicios-\guia/ej-\x-\guia.tex}{
+      \input{./ejercicios-\guia/ej-\x-\guia.tex}
+    }{
+      \typeout{¡Atención! El archivo ./ejercicios-\guia/ej-\x-\guia.tex no está.
+        Revisar variable: 'cantidadEjerciciosGuia` en \guia-sol.tex}
+    }
+  }
 
 \newpage % página nueva
 
@@ -39,13 +42,14 @@
 % Ejercicios extras, parciales, etc.
 %=========================
 
+\phantomsection
+\addcontentsline{toc}{section}{Ejercicios de Parciales} % Para el TOC colapsado
 \subsubsection*{\hypertarget{extras-\guia}{{\Large\color{orange}{\faIcon{fire}}} Ejercicios de parciales:}}
-
 \foreach \x in {1,...,\cantidadEjerciciosExtras} { % cantidad de ejercicios extras
-		\IfFileExists{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}{
-			\input{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}
-		}{
-			\typeout{¡Atención! El archivo ./ejercicios-\guia-extra/ej-extra-\x-\guia.tex no está.
-             Revisar variable: 'cantidadEjerciciosExtras' en \guia-sol.tex}
-		}
-	}
+    \IfFileExists{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}{
+      \input{./ejercicios-\guia-extra/ej-extra-\x-\guia.tex}
+    }{
+      \typeout{¡Atención! El archivo ./ejercicios-\guia-extra/ej-extra-\x-\guia.tex no está.
+        Revisar variable: 'cantidadEjerciciosExtras' en \guia-sol.tex}
+    }
+  }

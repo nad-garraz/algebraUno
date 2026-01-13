@@ -92,6 +92,21 @@
 \newcommand{\divPol}[2]{\polylongdiv[style=D]{#1}{#2}}
 \newcommand{\mcd}[2]{\polylonggcd{#1}{#2}}
 
+%% Emojis
+\def\fueguito{{\color{orange}{\faIcon{fire}}}}
+\def\click{{\footnotesize click click \faIcon{mouse}}}
+\def\poo{\marron{\faIcon{poo}}\xspace}
+\def\grimaceR{\faIcon[regular]{grimace}\xspace}
+\def\grimace{\faIcon{grimace}\xspace}
+\def\angry{\faIcon[regular]{angry}\xspace}
+\def\atencion{\faIcon{exclamation-triangle}\xspace}
+\def\meh{\faIcon[regular]{meh}\xspace}
+\def\mehBlank{\faIcon[regular]{meh-blank}\xspace}
+\def\rollingEyes{\faIcon[regular]{meh-rolling-eyes}\xspace}
+\def\surprise{\faIcon[regular]{surprise}\xspace}
+\def\magic{\href{https://www.youtube.com/watch?v=4u20AEDYhcw}{\faIcon{magic}}\xspace}
+\def\skull{\text{\faIcon{skull}\xspace}}
+
 % =====
 % Miscelanea
 % =====
@@ -304,43 +319,43 @@
 %=======================================================
 % sección ejercicio con su respectivo formato y contador
 %=======================================================
-\newcounter{ejercicio}[section] % contador que se resetea en cada sección
-\renewcommand{\theejercicio}{\arabic{ejercicio}} % el contador es un número arabic
-\newcommand{\ejercicio}{%
-  \stepcounter{ejercicio}% incremento en uno
-  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{1em}{}%
-  \section*{\theejercicio.}\labelEjercicio{ej:\theejercicio}
+
+% --- EJERCICIO NORMAL ---
+\newcounter{ejercicio}
+\renewcommand{\theejercicio}{\arabic{ejercicio}}
+\NewDocumentCommand{\ejercicio}{o}{%
+  \refstepcounter{ejercicio}%
+  \titleformat{\section}[runin]{\bfseries}{\theejercicio}{}{}%
+  \section*{\theejercicio.}%
+  
+  \IfNoValueTF{#1}{%
+    \addcontentsline{toc}{subsection}{Ejercicio \theejercicio}% Sin nombre
+  }{%
+    \addcontentsline{toc}{subsection}{Ejercicio \theejercicio: #1}% Con nombre
+  }%
+  
+  \label{ej:\theejercicio}%
 }
 
-% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
-\newcommand{\labelEjercicio}[1]{
-  \addtocounter{ejercicio}{-1} % counter - 1
-  \refstepcounter{ejercicio} % referencia al anterior y luego + 1
-  \label{#1}}
-\newcommand{\refEjercicio}[1]{\textbf{\ref{#1}.}}
-
-\def\fueguito{{\color{orange}{\faIcon{fire}}}}
-\newcounter{ejExtra}[section] % contador que se resetea en cada sección
-\renewcommand{\theejExtra}{\arabic{ejExtra}} % el contador es un número arabic
-\newcommand{\ejExtra}{%
-  \stepcounter{ejExtra}% incremento en uno
+% --- EJERCICIO EXTRA ---
+\newcounter{ejExtra}[section]
+\renewcommand{\theejExtra}{\arabic{ejExtra}}
+\NewDocumentCommand{\ejExtra}{o}{%
+  \refstepcounter{ejExtra}%
   \titleformat{\section}[runin]{\bfseries}{\theejExtra}{1em}{}%
-  % Es como una sección. Le pongo un ícono, luego el número del ejercicio con la etiqueta para poder
-  % linkearlo en el índice u otro lugar.
-  % con \ref{ejExtra:{numero del ejercicio}} es que salto al ejercicio.
-  \section*{\fueguito\theejExtra.}\labelEjExtra{ejExtra:\theejExtra}
+  \section*{\fueguito\theejExtra.}%
+  
+  \IfNoValueTF{#1}{%
+    \addcontentsline{toc}{subsection}{\protect\space Extra \theejExtra}%
+  }{%
+    \addcontentsline{toc}{subsection}{\protect\space Extra \theejExtra: #1}%
+  }%
+  
+  \label{ejExtra:\theejExtra}%
 }
 
-% Label y refencia para ejercicio hay alguna forma más elegante de hacer esto?
-\newcommand{\labelEjExtra}[1]{
-  \addtocounter{ejExtra}{-1} % counter - 1
-  \refstepcounter{ejExtra} % referencia al anterior y luego + 1
-  \label{#1} % etiqueta para cada ejercicio extra
-}
-% Con esto llamos al ejercicio extra
-\newcommand{\refEjExtra}[1]{
-  {\fueguito\textbf{\ref{#1}.}}
-}
+\newcommand{\refEjercicio}[1]{\textbf{\ref{#1}.}}
+\newcommand{\refEjExtra}[1]{\textbf{\fueguito\ref{#1}.}}
 
 %=======================================================
 % fin sección ejercicio con su respectivo formato y contador
@@ -363,19 +378,6 @@
   {\tiny [\violet{#1}]}
 }
 
-%%% Emoticones
-\def\click{{\footnotesize click click \faIcon{mouse}}}
-\def\poo{\marron{\faIcon{poo}}\xspace}
-\def\grimaceR{\faIcon[regular]{grimace}\xspace}
-\def\grimace{\faIcon{grimace}\xspace}
-\def\angry{\faIcon[regular]{angry}\xspace}
-\def\atencion{\faIcon{exclamation-triangle}\xspace}
-\def\meh{\faIcon[regular]{meh}\xspace}
-\def\mehBlank{\faIcon[regular]{meh-blank}\xspace}
-\def\rollingEyes{\faIcon[regular]{meh-rolling-eyes}\xspace}
-\def\surprise{\faIcon[regular]{surprise}\xspace}
-\def\magic{\href{https://www.youtube.com/watch?v=4u20AEDYhcw}{\faIcon{magic}}\xspace}
-\def\skull{\text{\faIcon{skull}\xspace}}
 
 %%% (☞⌐▀͡ ͜ʖ͡▀ )☞ Yo mama
 \def\superIdol{https://www.youtube.com/watch?v=iJAxeafvn8Y}

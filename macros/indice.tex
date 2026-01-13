@@ -13,20 +13,19 @@
   \begin{itemize}
     \item[\tiny\faIcon{meh-blank}] \hyperlink{teoria-\guia}{Notas teóricas}
 
-    \item[\tiny\faIcon{meh}]
-          Ejercicios de la guía:
-          \begin{multicols}{8}
+    \item[\tiny\faIcon{meh}] Ejercicios de la guía:
+          \parrafoDestacado{
             \foreach \ejer in {1,...,\cantidadEjerciciosGuia}{
-                \refEjercicio{ej:\ejer}\\
+                \refEjercicio{ej:\ejer} \hspace{2pt}
               }
-          \end{multicols}
+          }
 
     \item[\tiny\faIcon{angry}] Ejercicios de Parciales
-          \begin{multicols}{8}
+          \parrafoDestacado{
             \foreach \extras in {1,...,\cantidadEjerciciosExtras}{
-                \refEjExtra{ejExtra:\extras}\\
+                \refEjExtra{ejExtra:\extras} \hspace{2pt}
               }
-          \end{multicols}
+          }
 
   \end{itemize}
 \end{center}

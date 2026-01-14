@@ -26,7 +26,7 @@ Sé que las relaciones reflexivas son de la forma:
 $$
   \paratodo a_i \en A \entonces a_i \relacion a_i,
 $$
-es decir, lo $n$ elementos de la diagonal de una matriz:
+es decir, los $n$ elementos de la diagonal de una matriz:
 $$
   \begin{array}{c|c|c|c|c|c|c|c|}
     \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
@@ -45,7 +45,7 @@ $$
 $$
 solo hay una posibilidad para que pase eso.
 
-Todo muy lindo, hago un ejemplo de juguete para entender esta verga. Ejemplo con $A = \set{a_1, a_2}$):
+Todo muy lindo, hago un ejemplo de juguete para entender esta verga. Ejemplo con $A = \set{a_1, a_2}$:
 $$
   \begin{array}{c|c|c|}
     \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} \\ \cline{2-3}
@@ -67,11 +67,9 @@ a mi única ($\llamada1$) relación hasta el momento.
 
 \medskip
 
-\begin{center}
-  \begin{minipage}{0.7\textwidth}
-    ¿Cómo calculo todas las posibilidades de combinar los elementos en un conjunto $A = \set{a_1, \cdots, a_n }$?
-  \end{minipage}
-\end{center}
+\parrafoDestacado{
+  ¿Cómo calculo todas las posibilidades de combinar los elementos en un conjunto $A = \set{a_1, \cdots, a_n }$?
+}
 
 \medskip
 
@@ -90,7 +88,7 @@ Noto que ese resultado es $\#\partes(\set{\textit{elementos no diagonales}})$.
 El total de relaciones \textit{reflexivas}:
 $$
   \cajaResultado{
-    2^{(n^2 + n)}
+    2^{n^2 - n}
   }
 $$
 
@@ -101,7 +99,7 @@ $$
   a_i \relacion a_j \entonces a_j \relacion a_i,\quad
   \paratodo a_i \ytext a_j \en A.
 $$
-Arranco con un ejemplo de juguete, para un conjunto $A = \set{a_1, a_2}$) tengo las siguientes relaciones simétricas:
+Arranco con un ejemplo de juguete, para un conjunto $A = \set{a_1, a_2}$, tengo las siguientes relaciones simétricas:
 $$
   \begin{array}{c|c|c|}
     \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} \\ \cline{2-3}
@@ -121,7 +119,7 @@ $$
   }
 $$
 Es así que se comprueba que las profundidades del infierno no están acotadas.
-Por otro lado voy a ver cuántos elementos tengo para armar estar relaciones:
+Por otro lado voy a ver cuántos elementos tengo para armar estas relaciones:
 $$
   \begin{array}{c|c|c|c|c|c|c|c|}
     \multicolumn{1}{c}{} & \multicolumn{1}{c}{a_1} & \multicolumn{1}{c}{a_2} & \multicolumn{1}{c}{a_3} & \multicolumn{1}{c}{\cdots} & \multicolumn{1}{c}{a_{n-2}} & \multicolumn{1}{c}{a_{n-1}} & \multicolumn{1}{c}{a_n} \\ \cline{2-8}
@@ -155,15 +153,22 @@ $$
     2^{\frac{(n^2 + n)}{2}} - 1
   }
 $$
+Si $n = 1$ tengo la relación \textit{simétrica} $(a_1, a_1)$ nomás.
 
 \vspace{1cm}
 
-\textit{¿Cuántas relaciones reflexivas y simétricas habrá:}
+\textit{¿Cuántas relaciones reflexivas y simétricas habrá?}
 
-Como se laburó en la parte de reflexividad, tengo que agarrar los $n$ pares $(a_i,a_i)$ y para eso hay solo una forma de hacerlo.
-Si quiero que las relaciones sean \textit{reflexivas} y \textit{simétricas} tengo que jugar con los elementos que conté para la
-reflexividad, pero solo con la mitad, dado que cuando aparezca el elemento matricial $a_{ij}$ aparecerá el elemento $a_{ji}$
-debido a la simetría.
+Como se laburó en la parte de reflexividad, tengo que agarrar \ul{todos los $n$ pares $(a_i,a_i)$} y para eso hay solo una forma de hacerlo.
+Si quiero que las relaciones sean \textit{reflexivas} y \textit{simétricas} tengo que tomar de los elementos que conté para la
+\textit{reflexividad} \ul{no diagonales} únicamente la mitad (por ejemplo todos los de abajo de la diagonal)
+dado que cuando aparezca el elemento matricial $a_{ij}$ aparecerá el elemento $a_{ji}$
+debido a la simetría, es decir no puedo tener la relación $\relacion$ que tenga al $a_{ij}$ sin su simétrico.
+
+Serían un total de:
+$$
+  \oa{1}{\text{diagonales}} \cdot \ub{\frac{n\cdot (n-1)}{2}}{\text{no diagonales}}
+$$
 
 El total de relaciones \textit{simétricas} y \textit{reflexivas}:
 $$

@@ -1,7 +1,7 @@
 \begin{enunciado}{\ejercicio}
   Si $A$ es un conjunto con $n$ elementos ¿Cuántas relaciones en $A$ hay?
   ¿Cuántas de ellas son reflexivas?
-  ¿Cuántas de  ellas son simétricas? ¿Cuántas de ellas son reflexivas y simétricas? \\
+  ¿Cuántas de  ellas son simétricas? ¿Cuántas de ellas son reflexivas y simétricas?
 \end{enunciado}
 
 Para dos conjuntos
@@ -139,21 +139,20 @@ $$
   \frac{n \cdot (n - 1)}{2}
 $$
 Usando un razonamiento análogo a cuando calculamos las reflexivas estos elementos pueden aparecer o no aparecer
-en la relación, \red{peeeeero} alguno tiene que aparecer:
+en la relación:
 $$
-  \ub{(2 \cdot 2 \cdots 2)}{\#(\textit{elementos $S$ en la matriz)}} \red{- 1 }
+  \ub{(2 \cdot 2 \cdots 2)}{\#(\textit{elementos $S$ en la matriz)}}
   =
-  2^{\frac{(n^2 + n)}{2}} \red{ - 1}
+  2^{\frac{(n^2 + n)}{2}}
 $$
-Agrego el $\red{ - 1}$ porque sino estoy tomando al conjunto vacío $\vacio$ como una relación simétrica más.
 
 El total de relaciones \textit{simétricas}:
 $$
   \cajaResultado{
-    2^{\frac{(n^2 + n)}{2}} - 1
+    2^{\frac{(n^2 + n)}{2}}
   }
 $$
-Si $n = 1$ tengo la relación \textit{simétrica} $(a_1, a_1)$ nomás.
+\textit{Sanity check}: $n = 1$ tengo la relación \textit{simétrica} $(a_1, a_1)$ y $\vacio$.
 
 \vspace{1cm}
 

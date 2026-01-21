@@ -15,7 +15,7 @@
 
   \item $d \divideA 0 $, dado que $0 = 0\cdot d$. Se desprende que $\divset{0}{\enteros - \set{0}}$
 
-  \item A la hora de laburar con la divisibilidad \textit{``los signos no importan'':}\par
+  \item A la hora de laburar con la divisibilidad \textit{``los signos no importan'':}
         $$
           \llave{rcl}{
             d \divideA a & \sisolosi & -d \divideA a \text{ (pues }a = k \cdot d \sisolosi a = (-k) \cdot (-d))  \\
@@ -24,7 +24,7 @@
           \Entonces{corta} \boxed{d \divideA a \sisolosi |d| \,\big|\, |a|}
         $$
 
-  \item Propiedades súper útiles para justificar los cálculos en los ejercicios:\par
+  \item Propiedades súper útiles para justificar los cálculos en los ejercicios:
         $$\llave{l}{
             d \divideA a \ytext d \divideA b \entonces d \divideA a \pm b                         \\
             d \divideA a \entonces d \divideA c \cdot a, \paratodo c \en \enteros                 \\
@@ -44,19 +44,22 @@
             6 \noDivide 4
           }
         $$
-\end{itemize}\bigskip
+\end{itemize}
+
+\bigskip
 
 \textit{Definición congruencia: }
 
 \begin{itemize}[label=$\scriptscriptstyle\blacksquare$]
-  \item \textit{Definición congruencia: }\par
-        $$\llave{l}{
+  \item \textit{Definición congruencia: }
+        $$
+          \llave{l}{
             \textit{'$a$' es congruente a '$b$' módulo '$d$'} \text{ si }   d \divideA a-b. \quad \text{ Notación } \boxed{\congruencia{a}{b}{d}} \\
             \congruencia{a}{b}{d} \sisolosi d \divideA a-b
           }
         $$
 
-  \item Sumar ecuaciones de congruencia \textit{de mismo módulo}, conserva la congruencia: \par
+  \item Sumar ecuaciones de congruencia \textit{de mismo módulo}, conserva la congruencia:
         $$
           \llave{c}{
             \congruencia{a_1}{b_1}{d} \\
@@ -65,7 +68,8 @@
           }
           \entonces \congruencia{a_1 + \cdots + a_n}{a_b + \cdots + b_n}{d}
         $$.
-  \item Multiplicar ecuacioines de congruencia \textit{de mismo módulo}, conserva la congruencia: \par
+
+  \item Multiplicar ecuacioines de congruencia \textit{de mismo módulo}, conserva la congruencia:
         $$
           \llave{c}{
             \congruencia{a_1}{b_1}{d} \\
@@ -86,7 +90,7 @@
         $$
 \end{itemize}\bigskip
 
-\textit{\underline{Algoritmo de división:}}\par
+\textit{\underline{Algoritmo de división:}}
 % macro local
 \newcommand{\condicionResto}[1]{\ub{0 \leq #1 < |d|}{\text{\tiny cumple condición de resto}}}
 \begin{itemize}
@@ -169,7 +173,7 @@
 
   \item $\mcd \en \naturales$ (pues $\mcd \geq 1$) \textit{siempre existe} y es \textit{único}.
 
-  \item Propiedades del $(a:b)$, con $a$ y $b \en \enteros$, no ambos nulos.\par
+  \item Propiedades del $(a:b)$, con $a$ y $b \en \enteros$, no ambos nulos.
         \begin{itemize}[label={\tiny\faIcon{atom}}]
           \item Los signos no importan: $\mcd = (\pm a : \pm b)$
           \item Es simétrico: $\mcd = (b:a)$
@@ -186,11 +190,12 @@
 
   \item \textit{Algoritmo de Euclides}:
         Para encontrar el $(a:b)$ con números o expresiones feas. Hay que saber hacer esto. Fin.
-        \red{¡Se usa de acá hasta el final de la materia!}.\par
+        \red{¡Se usa de acá hasta el final de la materia!}.
 
   \item \textit{Combinacion Entera}: Otra herramienta gloriosa que sale de hacer \textit{Euclides}. Por ejemplo
         se usa cuando no se ve a ojo una solución en ecuaciones diofánticas.
-        \red{¡Se usa de acá hasta el final de la materia!}.\par
+        \red{¡Se usa de acá hasta el final de la materia!}.
+
         Sean $a,b \en \enteros$ no ambos nulos, entonces $\existe s,\ t \en \enteros$ tal que $\mcd = \cz$.
         \begin{itemize}[label=\tiny\faIcon{atom}]
           \item Todos los divisores comunes entre $a$ y $b$ dividen al $\mcd$. Sean $a,b \en \enteros$ no ambos nulos, $d \en \enteros - \set{0}$. Entonces:
@@ -211,7 +216,8 @@
 \textit{Coprimos: }
 
 \begin{itemize}
-  \item Definición coprimos:\par
+  \item Definición coprimos:
+
         Dados $a,b \en \enteros$, no ambos nulos, se dice que son \textit{coprimos} si $\mcd = 1$
         $$
           \begin{array}{rcl}
@@ -246,37 +252,37 @@
                 $$
                   p \divideA a\cdot b \entonces p \divideA a \quad \otext\quad p \divideA b
                 $$
-          \item\hypertarget{teoria4:priProductos}{\textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores $\to$}}\par
-                Sean $a_1,\dots, a_n \en \enteros$:\par
-                \begin{center}
-                  $
-                    \llave{l}{
-                      p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n. \\
-                      p \divideA a^n \entonces p \divideA a.
-                    }$
-                \end{center}
+          \item\hypertarget{teoria4:priProductos}{\textit{Si $p$ divide a algún producto de números, tiene que dividir a alguno de los factores}}.
 
-          \item Si $a \en \enteros$, $p$ primo:\par
-                \begin{center}
-                  $\llave{l}{
-                      (a:p) = 1 \sisolosi p \noDivide a \\
-                      (a:p) = p \sisolosi p \divideA a
-                    }$
-                \end{center}
-
-        \item \hypertarget{teoria-4:cantidadDivisores} Sea $n \en \enteros - \set{0},\,
-                  n = \ub{s }{\set{-1,1}} \cdot \productoria{i=1}{k} p_i^{\alpha_i} =
-                  p_1^{\alpha_1} \cdots p_k^{\alpha_k}$
-                su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:\par
+                Sean $a_1,\dots, a_n \en \enteros$:
                 $$
-                  \llave{c}{
-                    \text{Si } m \divideA n \to  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
-                  \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\, 1\leq i \leq k\\
-                  \text{ y hay } \\
-                  (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} \alpha_i +1 \\
-                  \text{divisores positivos de } n.
+                  \llave{l}{
+                    p \divideA a_1 \cdot a_2 \cdots a_n \entonces p \divideA a_i \text{ para algún } i \text{ con } 1 \leq i \leq n. \vspace{2pt}\\
+                    p \divideA a^n \entonces p \divideA a.
                   }
                 $$
+
+          \item Si $a \en \enteros$, $p$ primo:
+                $$
+                  \llave{l}{
+                    (a:p) = 1 \sisolosi p \noDivide a \\
+                    (a:p) = p \sisolosi p \divideA a
+                  }
+                $$
+
+          \item \hypertarget{teoria-4:cantidadDivisores} Sea $n \en \enteros - \set{0},\,
+                  n = \ua{s }{\set{-1,1}} \cdot \productoria{i=1}{k} p_i^{\alpha_i} =
+                  p_1^{\alpha_1} \cdots p_k^{\alpha_k}$
+                su factorización en primos. Entonces todo divisor $m$ positivo de $n$ se escribe como:
+                $$
+                  \llave{c}{
+                    \text{Si } m \divideA n \entonces  m = p_1^{\beta_1} \cdots p_k^{\beta_k}
+                  \text{ con } 0 \leq \beta_i \leq \alpha_i,\, \paratodo i\,~ 1\leq i \leq k\\
+                  \text{ y la cantidad total de divisores de $n$ es } \\
+                  (\alpha_1 + 1) \cdot (\alpha_2 + 1)\cdots (\alpha_k + 1) = \productoria{i=1}{k} (\alpha_i + 1)
+                  }
+                $$
+
           \item Sean $a$ y $b \en \enteros$ no nulos, con
                 $$
                   \llave{l}{
@@ -297,8 +303,11 @@
           \item Sean $a,b,c \en \enteros$ no nulos:
                 \begin{itemize}
                   \item $a \cop b \sisolosi \text{no tienen primos en común}.$
+
                   \item $\mcd = 1 \ytext (a : c) = 1 \sisolosi (a : bc) = 1$
+
                   \item $\mcd = 1 \sisolosi (a^m: b^n) = 1 ,\, \paratodo m, n \en \naturales$
+
                   \item $(a^n:b^n) = (a:b)^n \paratodo n \en \naturales$
                 \end{itemize}
 

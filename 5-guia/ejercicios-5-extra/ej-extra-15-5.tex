@@ -1,0 +1,44 @@
+\begin{enunciado}{\ejExtra[integrador 16/12/2025]}\fechaEjercicio{integrador 16/12/2025}
+  Calcular el resto de dividir por 11 al producto de todos los divisores positivos de $23 \cdot 5^{32}$.
+\end{enunciado}
+
+Por suerte el número $23 \cdot 5^{32}$ ya es un producto de primos por lo que es fácil escribir
+todos los divisores positivos:
+$$
+  \llave{rcl}{
+    23^{\blue{\alpha}} & \text{con} & 0 \leq \blue{\alpha} \leq 1 \\
+    5^{\green{\beta}} & \text{con} & 0 \leq \green{\beta} \leq 32
+  }
+$$
+Si bien no se pidió hay un total de $(1+1) \cdot (32 + 1) = 66$ divisores.
+
+El producto de todos los divisores va a ser algo así:
+$$
+  23^{\blue{0}} 5^{\green{0}} \cdot
+  23^{\blue{0}} 5^{\green{1}} \cdots
+  23^{\blue{0}} 5^{\green{31}} \cdot
+  23^{\blue{0}} 5^{\green{32}} ~\red{\cdot}~
+  23^{\blue{1}} 5^{\green{0}} \cdot
+  23^{\blue{1}} 5^{\green{1}} \cdots
+  23^{\blue{1}} 5^{\green{31}} \cdot
+  23^{\blue{1}} 5^{\green{32}}
+  \igual{\red{!!}}
+  23^{32} \cdot 5^{1056}
+$$
+En el \red{!!} es solo multiplicar potencias, nada súper raro, bueh, usé la suma de \textit{Gauss}.
+
+Calculo el resto haciendo un par de cuentas y usando \textit{PTF}. 11 es primo y $11\noDivide 5$:
+$$
+  \congruencia{23^{32} \cdot 5^{1056}}{1^{32} \cdot 5^{r_{10}(1056)}}{11}
+  \sisolosi
+  \cajaResultado{
+    \congruencia{23^{32} \cdot 5^{1056}}{5}{11}
+  }
+$$
+Por lo tanto:
+$$
+  \cajaResultado{
+    r_{11}(\textit{\tiny el producto de los divisores de} ~ 23\cdot 5^{32}) = 5
+  }
+$$
+

@@ -10,7 +10,7 @@
   \end{enumerate}
 \end{enunciado}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=(\roman*)]
   \item Separo en parte real e imaginaria para que sea más manejable:
         {\small
         $$
@@ -66,7 +66,52 @@
           \end{array}
         $$
 
-  \item \hacer
+  \item Si $r$ es una raíz y $r \en \enteros$:
+        $$
+          \begin{array}{rcl}
+            f(r) = 0
+             & \sisolosi      &
+            r^6 - 3r^4 -  (2 + 8i)r^3 + 24ir + 16i = 0 \\
+             & \Sii{\red{!!}} &
+            \llave{rcl}{
+            r^3 \cdot (r^3 -3r - 2) = 0                \\
+              -8i \cdot (r^3 -3r - 2) = 0
+            }                                          \\
+             & \Sii{\red{!!}} &
+            \llave{rcl}{
+            r^3 \cdot (r+1) \cdot (r^2 -r - 2) = 0     \\
+              -8i \cdot (r+1) \cdot (r^2 -r - 2) = 0
+            }                                          \\
+             & \Sii{\red{!!}} &
+            \llave{rcl}{
+            r^3 \cdot (r+1)^2 \cdot (r - 2) = 0        \\
+              -8i \cdot (r+1)^2 \cdot (r - 2) = 0
+            }
+          \end{array}
+        $$
+        Ya encontré 3 raíces. Bajo el grado de $f$ y sigo buscando:
+        $$
+          \polyset{vars=X}
+          \divPol{X^6 - 3X^4 +  (-2 - 8i)X^3 + 24iX + 16i}{X^3 -3X - 2}
+        $$
+        Solo resta buscar las raíces en el cociente calculado. Si $X = r e^{i \theta}$:
+        $$
+          \begin{array}{rcl}
+            X^3 - 8i = 0
+                   & \sii &
+            r^3 e^{i3 \theta} = 8e^{i\frac{\pi}{2}}                                                                                     \\
+                   & \sii &
+            \llave{rcl}{
+            r      & =    & 2                                                                                                           \\
+            \theta & =    & \frac{\pi}{6} + \frac{\blue{2k \pi}}{3} \sii \theta \en \set{\frac{\pi}{6}; \frac{5\pi}{6}; \frac{3\pi}{2}}
+            }
+          \end{array}
+        $$
+        Las raíces del polinomio $f$:
+        $$
+          \textstyle
+          \set{-1;\, 2;\, \sqrt{3} + i;\, -\sqrt{3} + i;, -2i }
+        $$
 \end{enumerate}
 
 \begin{aportes}

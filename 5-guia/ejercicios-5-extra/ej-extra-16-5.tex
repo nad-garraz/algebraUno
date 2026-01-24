@@ -1,0 +1,121 @@
+\begin{enunciado}{\ejExtra[recuperatorio 21/03/2025]}\fechaEjercicio{recuperatorio 21/03/2025}
+
+  Encuentre todos los divisores de $3^{200}$ que tengan resto 82 en la división por 119.
+\end{enunciado}
+
+Tiene pinta de que voy a usar PTF. Con $119 = 7 \cdot 17$.
+
+Los divisores de $3^{200}$ son números de la pinta:
+$$
+  \pm3^\alpha ~ \text{con} ~ \alpha \en [0,200]
+$$
+Trato a los valores de positivos y negativos por separado:
+$$
+  \begin{array}{rcl}
+    \congruencia{3^{\alpha}}{82}{119}
+     & \taa{$\llamada1$}{\equivalente} &
+    \llave{rcl}{
+      \congruencia{3^{\alpha}}{5}{7}
+     & \Sii{PTF}[7 primo]              &
+      \congruencia{3^{r_6(\alpha)}}{5}{7}
+    \\
+      \congruencia{3^{\alpha}}{14}{17}
+     & \Sii{PTF}[17 primo]             &
+      \congruencia{3^{r_{16}(\alpha)}}{14}{17}
+    }
+    \\ \\
+    \congruencia{-3^{\alpha}}{82}{119}
+    \sii
+    \congruencia{3^{\alpha}}{37}{119}
+     & \taa{$\llamada2$}{\equivalente} &
+    \llave{rcl}{
+      \congruencia{3^{\alpha}}{2}{7}
+     & \Sii{PTF}[7 primo]              &
+      \congruencia{3^{r_6(\alpha)}}{2}{7}
+    \\
+      \congruencia{3^{\alpha}}{3}{17}
+     & \Sii{PTF}[17 primo]             &
+      \congruencia{3^{r_{16}(\alpha)}}{3}{17}
+    }
+  \end{array}
+$$
+Uso tablas de restos para resolver:
+$$
+  \begin{array}{|c|c|c|c|c|c|c|}
+    \hline
+    r_6(\alpha)          & 0 & 1 & 2 & 3 & 4 & 5 \\  \hline
+    r_7(3^{r_6(\alpha)}) & 1 & 3 & 2 & 6 & 4 & 5 \\ \hline
+  \end{array}
+$$
+$$
+  \begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    r_{16}(\alpha)             & 0 & 1 & 2 & 3  & 4  & 5 & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 15 \\  \hline
+    r_{17}(3^{r_{16}(\alpha)}) & 1 & 3 & 9 & 10 & 13 & 5 & 15 & 11 & 16 & 14 & 8  & 7  & 4  & 12 & 2  & 6  \\ \hline
+  \end{array}
+$$
+\parrafoDestacado{
+  \textit{ \color{gray!40}
+    (¿Cómo harías esto más elegante sin toda esa tabla fea? Mandame un mesaje con esa idea así lo cambiamos, que no me gusta como quedó.)
+  }
+}
+
+Para poder satisfacer la ecuaciones de congruencias necesito que:
+$$
+  \flecha{para}[$\llamada1$]
+  \llave{l}{
+    \congruencia{\alpha}{5}{6}
+    \equivalente
+    \llave{l}{
+      \congruencia{\alpha}{2}{3}\\
+      \congruencia{\alpha}{1}{2}\\
+    }\\
+    \congruencia{\alpha}{9}{16}
+    \equivalente
+    \llave{l}{
+      \congruencia{\alpha}{1}{2}\\
+    }
+  }
+$$
+
+$$
+  \flecha{para}[$\llamada2$]
+  \llave{l}{
+    \congruencia{\alpha}{2}{6}
+    \equivalente
+    \llave{l}{
+      \congruencia{\alpha}{2}{3}\\
+      \congruencia{\alpha}{0}{2}
+    }\\
+    \congruencia{\alpha}{1}{16}
+    \equivalente
+    \llave{l}{
+      \congruencia{\alpha}{1}{2} \quad \red{\skull}
+    }
+  }
+$$
+
+Tengo un sistema compatible solo para $\llamada1$, lo que quiere decir que ningún \textit{divisor negativo} de $3^{200}$ satisface lo que se pide.
+Resuelvo para encontrar valores de $\alpha$ que cumplan $\llamada1$:
+$$
+  \llave{l}{
+    \congruencia{\alpha}{2}{3}\\
+    \congruencia{\alpha}{9}{16}
+  }
+$$
+Por los divisores con coprimos, por \href{\chinito}{TCH} habemos solución, la cual no quiero desarrollar todo el procedimiento porque \textit{pajilla}, pero
+es $\congruencia{\alpha}{41}{48}$.
+
+\bigskip
+
+Los divisores de $3^{200}$ que cumplen que $r_{119}(3^{200}) = 82$:
+$$
+  \cajaResultado{
+    \set{
+      3^{41};\;
+      3^{89};\;
+      3^{137};\;
+      3^{185}
+    }
+  }
+$$

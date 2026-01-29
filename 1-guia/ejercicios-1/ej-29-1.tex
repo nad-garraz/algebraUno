@@ -10,8 +10,8 @@
   \node[nodo=black, label=right:$c$, below of=b] (c) {};
   \node[nodo=black, label=right:$d$, below of=c] (d) {};
 
-  \node[container={$A$}, fit={(1) (2) (3) (4) (5)}]  {};
-  \node[container={$B$}, fit={(a) (b) (c) (d)}]  {};
+  \node[universo={$A$}, fit={(1) (2) (3) (4) (5)}]  {};
+  \node[universo={$B$}, fit={(a) (b) (c) (d)}]  {};
 }
 \tikzset{
 plot style/.style={
@@ -19,7 +19,7 @@ scale = 0.4,
 node distance=0.8cm,
 nodo/.style={circle, fill=black, color=##1, minimum size = 2pt, inner sep = 1pt},
 arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color=##1},
-container/.style={draw, rectangle, rounded corners = 10pt,label=above:##1, inner sep=15pt}
+universo/.style={draw, rectangle, rounded corners = 10pt, label=above:##1, inner sep=15pt}
 }
 }
 

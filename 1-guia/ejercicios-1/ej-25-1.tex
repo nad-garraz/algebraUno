@@ -9,7 +9,8 @@ $$
     node distance=1.4cm,
     nodo/.style={circle, draw, color={#1}, minimum size=4pt, inner sep=2pt, outer sep=3pt},
     arista/.style={-{Latex[length=3pt]}, thin, bend left=10, color={#1}},
-    rulo/.style 2 args = {-{Latex[length=3pt]}, out=#1, in=#1+45, looseness=4, color={#2}}
+    rulo/.style 2 args = {-{Latex[length=3pt]}, out=#1, in=#1+45, looseness=4, color={#2}},
+    universo/.style={rectangle, draw, thick, rounded corners=5pt}
     ]
     \node[nodo=Cerulean] (1) {$1$};
     \node[nodo=Cerulean, above right of=1] (3) {$3$};
@@ -48,10 +49,7 @@ $$
     \draw[rulo={290}{Purple}] (10) to (10);
 
     %Universo
-    \draw[thick, rounded corners=5pt]
-    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
-    rectangle
-    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [right] {$A$};
+    \node[universo, fit=(1)(3)(7)(10), label=above right:$A$, inner sep = 15pt] () {};
   \end{tikzpicture}
 $$
 Ese sería el grafo de la relación, es de equivalencia pues cumple que es reflexiva, simétrica y transitiva.

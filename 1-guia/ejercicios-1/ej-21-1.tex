@@ -6,15 +6,15 @@
         nodos/.style={ circle, fill=black, outer sep = 4pt, inner sep=0pt, minimum size=5pt},
         arista/.style={-Latex, bend left = 30, very thick},
         rulo/.style={-Latex, very thick},
-        universo/.style={rectangle, draw,  thick, scale=1.4 }
+        universo/.style={rectangle, draw, thick, rounded corners=5pt},
       ]
 
-      \node[nodos, label=left:{a}] (a) at (0,0) {};
-      \node[nodos, right of=a, label=above right:{b}, yshift=10pt] (b) {};
-      \node[nodos, right of=c, label=above right:{c}] (c) {};
-      \node[nodos, below of=a, label=below left:{d}, xshift = -10pt] (d) {};
-      \node[nodos, right=1.7cm of d, label=right:{e}, yshift=-10pt] (e) {};
-      \node[nodos, below right of=c, label= below:{f}] (f) {};
+      \node[nodos, label=left:{$a$}] (a) at (0,0) {};
+      \node[nodos, right of=a, label=above right:{$b$}, yshift=10pt] (b) {};
+      \node[nodos, right of=c, label=above right:{$c$}] (c) {};
+      \node[nodos, below of=a, label=below left:{$d$}, xshift = -10pt] (d) {};
+      \node[nodos, right=1.7cm of d, label=right:{$e$}, yshift=-10pt] (e) {};
+      \node[nodos, below right of=c, label= below:{$f$}] (f) {};
 
       \draw[rulo] (a) to [out=120, in=220, looseness=12]  (a);
       \draw[rulo] (e) to [out=60, in=-30, looseness=12]  (e);
@@ -24,10 +24,7 @@
       \draw[arista] (e) to (d);
 
       %Universo
-      \draw[thick, rounded corners=5pt]
-      ([xshift=5pt,yshift=-5pt]current bounding box.south east)
-      rectangle
-      ([xshift=-5pt,yshift=5pt]current bounding box.north west) node [above left] {$A$};
+      \node[universo, label=north west:$A$, fit=(a)(b)(f)(c)(d), inner sep = 20pt] (){};
     \end{tikzpicture}
   $$
   Hallar la minima cantidad de pares que se deben agregar a $\relacion$ de manera que la nueva relación

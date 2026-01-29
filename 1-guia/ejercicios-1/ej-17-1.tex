@@ -3,28 +3,22 @@
   \node[nodo=black, label=left:$2$, below of=1] (2) {};
   \node[nodo=black, label=left:$3$, below of=2] (3) {};
 
-  \draw[thick, rounded corners = 10pt]
-  ([xshift=5pt,yshift=-5pt]current bounding box.south east)
-  rectangle
-  ([xshift=-5pt,yshift=5pt]current bounding box.north west) node [left] {$A$};
+  \node[rectangle, draw = black, fit={(1)(2)(3)},inner sep = 10pt, thick, rounded corners = 10pt, label=north west:$A$] () {};
 
   \node[nodo=black, label=right:$1$, right of=1] (1b) {};
   \node[nodo=black, label=right:$3$, below of=1b] (3b) {};
   \node[nodo=black, label=right:$5$, below of=3b] (5) {};
   \node[nodo=black, label=right:$7$, below of=5] (7) {};
 
-  \draw[rectangle, draw, fit={(1b) (3b) (5) (7)}, thick, rounded corners = 10pt]
-  ([xshift=-5pt, yshift=-5pt]7.south west)
-  rectangle
-  ([xshift=20pt, yshift=5pt]1b.north east) node [left] {$B$};
+  \node[rectangle, draw = black, fit={(1b) (3b) (5) (7)},inner sep = 10pt, thick, rounded corners = 10pt, label=north east:$B$] () {};
 }
 \tikzset{
-    plot style/.style={
-            scale = 0.7,
-            node distance=1.2cm,
-            nodo/.style={circle, fill=black, color=##1, minimum size = 5pt, inner sep = 2pt},
-            arista/.style={-{Latex[length=3pt]}, ultra thin, bend left=25, color=##1},
-    }
+plot style/.style={
+scale = 0.7,
+node distance=1.2cm,
+nodo/.style={circle, fill=black, color=##1, minimum size = 5pt, inner sep = 2pt},
+arista/.style={-{Latex[length=3pt]}, very thin, bend left=25, color=##1},
+}
 }
 
 \separador
@@ -58,7 +52,7 @@ Es útil traer la \textit{definición de Relación, $\relacion$:}
             \nodosDiecisiete
             \draw[arista=Cerulean] (1) to (1b);
             \draw[arista=Cerulean] (1) to (3b);
-            \draw[arista=Cerulean, bend right=10] (1) to (7);
+            \draw[arista=Cerulean, bend right=10pt] (1) to (7);
             \draw[arista=Cerulean] (3) to (3b);
             \draw[arista=Cerulean, bend right] (3) to (5);
           \end{tikzpicture}

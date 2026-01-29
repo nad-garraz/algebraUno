@@ -3,8 +3,9 @@
   \begin{tikzpicture}[
     node distance=1.2cm,
     nodo/.style={circle, draw, color={##1}, inner sep=1pt, outer sep=1pt},
-    arista/.style={-{Latex[length=2pt]}, ultra thin, bend left=15, color={##1}},
-    rulo/.style 2 args = {-{Latex[length=2pt]}, out=##1, in=##1+45, looseness=4, color={##2}}
+    arista/.style={-{Latex[length=2pt]}, very thin, bend left=15, color={##1}},
+    rulo/.style 2 args = {-{Latex[length=2pt]}, out=##1, in=##1+45, looseness=4, color={##2}},
+    universo/.style={rectangle, draw, thick, rounded corners=5pt},
     ]
 
     \node[nodo=Aquamarine] (1) {$1$};
@@ -38,10 +39,7 @@
     \draw[rulo={-30}{Cerulean}] (47) to (47);
 
     %Universo
-    \draw[thick, rounded corners=5pt]
-    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
-    rectangle
-    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$A$};
+    \node[universo, fit=(1)(92)(46)(47), label=above right:$A$, inner sep = 15pt] () {};
 
   \end{tikzpicture}
 }

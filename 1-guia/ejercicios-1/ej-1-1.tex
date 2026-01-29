@@ -11,21 +11,32 @@
   \end{enumerate}
 \end{enunciado}
 
-El símbolo \textit{pertenece}: $\en$ se usa para decir si un elemento cualquiera está en un dado conjunto. El símbolo \textit{subconjunto o inclusión}: $\subseteq$ , es para decir que un conjunto está incluido en otro conjunto.
+El símbolo \textit{pertenece}:
+'$\en$' se usa para decir si un \magenta{elemento} cualquiera está en un dado \magenta{conjunto}. Es un
+operador que toma 2 cosas un \magenta{elemento} y un \magenta{conjunto} y te devuelve un valor
+\textit{booleano} ya sea \textit{\red{verdadero}} o \textit{\red{falso}}.
+$$
+  \magenta{elemento} \en \magenta{conjunto}
+$$
+
+El símbolo \textit{subconjunto o inclusión}: '$\subseteq$', es como el anterior pero toma 2 conjuntos
+$$
+  \magenta{conjunto_1} \en \magenta{conjunto_2}
+$$
 
 Por ejemplo:
 $$
   \begin{array}{c}
-    C_1 = \set{1, 2, \set{1,2,3}} \ytext C_2 = \set{1, 2, \set{1,2}}                                            \\
+    C_1 = \set{1, 2, \set{1,2,3}} \ytext C_2 = \set{1, 2, \set{1,2}}                                                     \\
     \llave{rl}{
-    1 \en C_1           & \text{ y también }\set{1} \subseteq C_1 \text{ pero } \set{\set{1}} \not\subseteq C_1 \\
-    \set{1,2,3} \en C_1 & \text{ pero } \set{1,2,3} \not\subseteq C_1                                           \\
-    \set{1,2} \en C_2   & \text{ y también } \set{1,2} \subseteq C_2                                            \\
-
+    1 \en C_1           & \text{ y también }\set{1} \subseteq C_1 \text{ pero } \set{\set{1}} \not\subseteq C_1          \\
+    \set{1,2,3} \en C_1 & \text{ y también } \set{\set{1,2,3}} \subseteq C_1 \text{ pero } \set{1,2,3} \not\subseteq C_1 \\
+    \set{1,2} \en C_2   & \text{ y también } \set{1,2} \subseteq C_2 \text{ y todavía } \set{\set{1,2}} \subseteq C_2
     }
   \end{array}
 $$
 
+Hagamos el ejercicio. Jugamos con el conjunto:
 $$
   A = \set{1,2,3}
 $$

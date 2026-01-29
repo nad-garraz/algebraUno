@@ -6,6 +6,7 @@
       rulo/.style={-Latex, color={##1}},
       node distance = 1.5cm,
       every nodes/.style={font=\small},
+      universo/.style={rectangle, draw, thick, rounded corners=5pt},
     ]
     \node[nodo=magenta] (a) {$a$};
     \node[nodo=magenta, below left of=a] (b) {$b$};
@@ -32,10 +33,7 @@
     \draw[aristas=Cerulean] (e) to (c);
 
     % Al final para que agarre todo lo graficado
-    \draw[thick, rounded corners=5pt]
-    ([xshift=-5pt,yshift=-5pt]current bounding box.south west)
-    rectangle
-    ([xshift=5pt,yshift=5pt]current bounding box.north east) node [above right] {$A$};
+    \node[universo, fit=(c)(b)(d), label=above right:$A$, inner sep = 15pt] () {};
   \end{tikzpicture}
 }
 

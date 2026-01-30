@@ -24,6 +24,7 @@ Así que en el índice, pie de página y referencias podés hacer doble click pa
 
 _¡Una estrellita 🌟 al repo es siempre bienvenida!_
 `(^_^)/`
+[Ni hablar de uno o más cafecitos ☕️☕️☕️](https://cafecito.app/nad-garraz)
 
 
 # Idea
@@ -96,6 +97,7 @@ git branch -D nombre-nueva-rama
 Si tenés preguntas sobre el workflow preguntá en el grupo de [Telegram](https://t.me/+1znt2GV1i8cwMTNh)
 
 Si querés contribuir _no hace falta codear ni saber LaTeX_, podés marcar algún error que pueda haber en un ejercicio por ejemplo.
+[Y también un feca que si no me duermo `(-o-)zzZ☽ ` ☕️☕️☕️ `(ﾟ◇ﾟ；)ノﾞ`](https://cafecito.app/nad-garraz)
 
 Podés usar el código como quieras siguiendo esta licencia: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
 

@@ -68,7 +68,7 @@
             \ub{\displaystyle \binom{\rosa{n}}{\rosa{1}}\binom{\blue{n}}{\blue{n} - \rosa{0}}}
             {\substack{\text{elijo  $\rosa{1}$ mujeres}\\
                 \ytext \\
-                \text{ $\blue{n} - \rosa{1}$ hombres}
+                \text{ $\blue{n} - \rosa{0}$ hombres}
               }}
             +
             \cdots
@@ -209,224 +209,224 @@
         $\sumatoria{k=0}{m}\binom{m}{k} = 2^m = 2^{2n} = 4^n$. \par\smallskip
         Otra manera de pensarlo es contando funciones de esta manera: \par\smallskip
         \textit{Recuerdo: }\par
-        $\sumatoria{k=0}{n}\binom{n}{k} = 2^n$ esta identidad equivale a contar las partes $\partes$ de un conjunto de n elementos. 
-        Que tambien se puede obtener contando las funciones $f:A \subseteq \naturales \to \set{0,1}, \, \#(A) = n$, esta notacion nos dice de manera intuitiva que 
-        por cada elemento tenemos dos opciones, o lo incluimos ($1$), o no ($0$), todas las posibles maneras de relacionar el dominio con el codominio son 
-        $\#(\set{0,1})^{\#(A)} = 2^5$ \par\smallskip   
-        Ahora la idea es que tenemos el doble de elementos ($2n$) y hay que armar subconjuntos de hasta $2n$ elementos, la idea entonces 
+        $\sumatoria{k=0}{n}\binom{n}{k} = 2^n$ esta identidad equivale a contar las partes $\partes$ de un conjunto de n elementos.
+        Que tambien se puede obtener contando las funciones $f:A \subseteq \naturales \to \set{0,1}, \, \#(A) = n$, esta notacion nos dice de manera intuitiva que
+        por cada elemento tenemos dos opciones, o lo incluimos ($1$), o no ($0$), todas las posibles maneras de relacionar el dominio con el codominio son
+        $\#(\set{0,1})^{\#(A)} = 2^5$ \par\smallskip
+        Ahora la idea es que tenemos el doble de elementos ($2n$) y hay que armar subconjuntos de hasta $2n$ elementos, la idea entonces
         es extender esta idea de la funcion a dar la posibilidad de repetir las elecciones ya hechas, extendiendo el codominio a
         $\set{00, 01, 10, 11}$, de esta manera tenemos todas las posibilidades $2^n$ anteriores, y extendemos posibilidad de repetir o agregar elemento. Obteniendo
         todos los posibles subconjuntos de $2n$ elementos, ahora el codominio tiene 4 elementos, por lo que tenemos que la cantidad de funciones son $4^n$. \\
         Si no se entendió voy a hacer un ejemplo para que se vea mas visual: \smallskip
-        Imaginemos un conjunto de $n = 2$ elementos $\set{a,b}$, ahora para calcular las partes voy a usar la idea de contar  
+        Imaginemos un conjunto de $n = 2$ elementos $\set{a,b}$, ahora para calcular las partes voy a usar la idea de contar
         las funciones, tenemos 4 posibilidades: \par\smallskip
         $
-        \llave{l}{
-          f(a) = 0 \\
-          f(b) = 0
-        }
-        \flecha{queda}
-        \vacio
-        \quad$
+          \llave{l}{
+            f(a) = 0 \\
+            f(b) = 0
+          }
+          \flecha{queda}
+          \vacio
+          \quad$
         $
-        \llave{l}{
-          f(a) = 1 \\
-          f(b) = 0
-        }
-        \flecha{queda}
-        \set{a}
-        \quad$
+          \llave{l}{
+            f(a) = 1 \\
+            f(b) = 0
+          }
+          \flecha{queda}
+          \set{a}
+          \quad$
         $
-        \llave{l}{
-          f(a) = 0 \\
-          f(b) = 1
-        }
-        \flecha{queda}
-        \set{b}
-        \quad$
+          \llave{l}{
+            f(a) = 0 \\
+            f(b) = 1
+          }
+          \flecha{queda}
+          \set{b}
+          \quad$
         $
-        \llave{l}{
-          f(a) = 1 \\
-          f(b) = 1
-        }
-        \flecha{queda}
-        \set{a,b}
-        \quad$ \par
-        Si combinamos todos estos conjuntos obtenemos $\set{\set{a},\set{b},\set{a,b},\vacio}$ que precisamente son 
+          \llave{l}{
+            f(a) = 1 \\
+            f(b) = 1
+          }
+          \flecha{queda}
+          \set{a,b}
+          \quad$ \par
+        Si combinamos todos estos conjuntos obtenemos $\set{\set{a},\set{b},\set{a,b},\vacio}$ que precisamente son
         las partes $\partes$ del conjunto $\set{a,b}$ \\
         Ahora veo la idea pero con el codominio extendido: \par\smallskip
         $
-        \llave{l}{
-          f(a) = 00 \\
-          f(b) = 00
-        }
-        \flecha{queda}
-        \vacio
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 00 \\
+            f(b) = 00
+          }
+          \flecha{queda}
+          \vacio
+          \hspace{0.75em}$
         $
-        \llave{l}{
-          f(a) = 10 \\
-          f(b) = 00
-        }
-        \flecha{queda}
-        \set{a}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 10 \\
+            f(b) = 00
+          }
+          \flecha{queda}
+          \set{a}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-          f(a) = 01 \\
-          f(b) = 00
-        }
-        \flecha{queda}
-        \set{\tilde{a}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 01 \\
+            f(b) = 00
+          }
+          \flecha{queda}
+          \set{\tilde{a}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-          f(a) = 11 \\
-          f(b) = 00
-        }
-        \flecha{queda}
-        \set{a,\tilde{a}}
-        \hspace{0.75em}$ \par
+          \llave{l}{
+            f(a) = 11 \\
+            f(b) = 00
+          }
+          \flecha{queda}
+          \set{a,\tilde{a}}
+          \hspace{0.75em}$ \par
         $
-        \llave{l}{
-          f(a) = 00 \\
-          f(b) = 10
-        }
-        \flecha{}
-        \set{b}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 00 \\
+            f(b) = 10
+          }
+          \flecha{}
+          \set{b}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 10 \\
-        f(b) = 10
-        }
-        \flecha{}
-        \set{a,b}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 10 \\
+            f(b) = 10
+          }
+          \flecha{}
+          \set{a,b}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 01 \\
-        f(b) = 10
-        }
-        \flecha{}
-        \set{\tilde{a},b}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 01 \\
+            f(b) = 10
+          }
+          \flecha{}
+          \set{\tilde{a},b}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 11 \\
-        f(b) = 10
-        }
-        \flecha{}
-        \set{a,\tilde{a},b}
-        \hspace{0.75em}$ \par
+          \llave{l}{
+            f(a) = 11 \\
+            f(b) = 10
+          }
+          \flecha{}
+          \set{a,\tilde{a},b}
+          \hspace{0.75em}$ \par
         $
-        \llave{l}{
-          f(a) = 00 \\
-          f(b) = 01
-        }
-        \flecha{}
-        \set{\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 00 \\
+            f(b) = 01
+          }
+          \flecha{}
+          \set{\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 10 \\
-        f(b) = 01
-        }
-        \flecha{}
-        \set{a,\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 10 \\
+            f(b) = 01
+          }
+          \flecha{}
+          \set{a,\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 01 \\
-        f(b) = 01
-        }
-        \flecha{}
-        \set{\tilde{a},\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 01 \\
+            f(b) = 01
+          }
+          \flecha{}
+          \set{\tilde{a},\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 11 \\
-        f(b) = 01
-        }
-        \flecha{}
-        \set{a,\tilde{a},\tilde{b}}
-        \hspace{0.75em}$ \par
+          \llave{l}{
+            f(a) = 11 \\
+            f(b) = 01
+          }
+          \flecha{}
+          \set{a,\tilde{a},\tilde{b}}
+          \hspace{0.75em}$ \par
         $
-        \llave{l}{
-          f(a) = 00 \\
-          f(b) = 11
-        }
-        \flecha{}
-        \set{b,\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 00 \\
+            f(b) = 11
+          }
+          \flecha{}
+          \set{b,\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 10 \\
-        f(b) = 11
-        }
-        \flecha{}
-        \set{a,b,\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 10 \\
+            f(b) = 11
+          }
+          \flecha{}
+          \set{a,b,\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 01 \\
-        f(b) = 11
-        }
-        \flecha{}
-        \set{\tilde{a},b,\tilde{b}}
-        \hspace{0.75em}$
+          \llave{l}{
+            f(a) = 01 \\
+            f(b) = 11
+          }
+          \flecha{}
+          \set{\tilde{a},b,\tilde{b}}
+          \hspace{0.75em}$
         $
-        \llave{l}{
-        f(a) = 11 \\
-        f(b) = 11
-        }
-        \flecha{}
-        \set{a,\tilde{a},b,\tilde{b}}
-        \hspace{0.75em}$ \par
+          \llave{l}{
+            f(a) = 11 \\
+            f(b) = 11
+          }
+          \flecha{}
+          \set{a,\tilde{a},b,\tilde{b}}
+          \hspace{0.75em}$ \par
 
-        \textit{Aclaración: } \par   
+        \textit{Aclaración: } \par
         El uso de las tildes $\tilde{~}$ en las letras es simplemente para marcar diferencia porq en un conjunto no puede haber elementos repetidos. \\
         Ahora llamo $c = \tilde{a}$ y $d = \tilde{b}$ y miren lo que tengo:
         \[
-        \set{\vacio,\set{a},\set{b},\set{c},\set{d},\set{a,b},\set{a,c},\set{a,d},\set{b,c},\set{b,d},\set{c,d},
-        \set{a,b,c},\set{a,b,d},\set{a,c,d},\set{b,c,d},\set{a,b,c,d}}
+          \set{\vacio,\set{a},\set{b},\set{c},\set{d},\set{a,b},\set{a,c},\set{a,d},\set{b,c},\set{b,d},\set{c,d},
+            \set{a,b,c},\set{a,b,d},\set{a,c,d},\set{b,c,d},\set{a,b,c,d}}
         \]
         Esto precisamente son las partes de un conjunto de 4 elementos!, que corresponde con contar $2^4 = 2^{2n} = 4^n$. Despues de todo este choclo, recordemos que originalmente
         teniamos $n = 2$ elementos $a,b$, y con esta idea de la funcion contamos las partes de un conjunto de $2n$ elementos. \par\bigskip
         Despues el enunciado nos pedia deducir que: $\binom{2n}{n} < 4^n$. \\
         Este no tiene mucho misterio, expandimos el lado derecha con lo que probamos recientemente y nos queda:
         \[
-        \binom{2n}{n} < \sumatoria{k = 0}{2n} \binom{2n}{k}
+          \binom{2n}{n} < \sumatoria{k = 0}{2n} \binom{2n}{k}
         \]
         \[
-        \red{\binom{2n}{n}} < \binom{2n}{0} + \cdots + \red{\binom{2n}{n}} + \cdots \binom{2n}{2n}
+          \red{\binom{2n}{n}} < \binom{2n}{0} + \cdots + \red{\binom{2n}{n}} + \cdots \binom{2n}{2n}
         \]
         Bueno todos los terminos de la derecha son positivos asi que se ve claramente que lo que nos planteaba el enunciado es verdadero.
 
   \item
         Para calcular lo que nos piden no damos mucha vuelta, hacemos cambio de variable $m = 2n + 1$ y vemos que:
         \[
-        \sumatoria{k=0}{2n + 1} \binom{2n+1}{k} \xrightarrow{m = 2n + 1} \sumatoria{k=0}{m} \binom{m}{k} = 2^m \xrightarrow{m = 2n + 1} 2^{2n + 1} = 2^{2n} \cdot 2 = \cajaResultado{4^n \cdot 2}
+          \sumatoria{k=0}{2n + 1} \binom{2n+1}{k} \xrightarrow{m = 2n + 1} \sumatoria{k=0}{m} \binom{m}{k} = 2^m \xrightarrow{m = 2n + 1} 2^{2n + 1} = 2^{2n} \cdot 2 = \cajaResultado{4^n \cdot 2}
         \] \\
         Ya tenemos la primera parte del ejercicio, ahora nos piden \textit{deducir} $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$. Para hacer este vamos a usar un poco de intuicion del triangulo de pascal:\\
         \[
-        \begin{tabular}{c|ccccccccccc}
-        n=0&  &     &     &     &      & $\binom{0}{0}$   &      &      &     &     & \\
-        &  &     &     &     &      &     &      &      &     &     & \\
-        n=1&  &     &     &     & $\binom{1}{0}$    &     &  $\binom{1}{1}$     &      &     &     & \\
-        &  &     &     &     &      &     &      &      &     &     & \\
-        n=2&  &     &     & $\binom{2}{0}$     &      & $\binom{2}{1}$     &      & $\binom{2}{2}$      &     &     & \\
-        &  &     &     &     &      &     &      &      &     &     & \\
-        n=3&  &     & $\binom{3}{0}$     &     & $\binom{3}{1}$      &     &  $\binom{3}{2}$     &      & $\binom{3}{3}$     &     & \\
-        &  &     &     &     &      &     &      &      &     &     & \\
-        n=4&  & $\binom{4}{0}$     &     & $\binom{4}{1}$     &      & $\binom{4}{2}$     &      & $\binom{4}{3}$      &     & $\binom{4}{4}$     & \\
-        &  &     &     &     &      &     &      &      &     &     & \\
-        n=5&$\binom{5}{0}$   &     &  $\binom{5}{1}$    &     &  $\binom{5}{2}$    &     & $\binom{5}{3}$     &      &  $\binom{5}{4}$    &     & $\binom{5}{5}$  
-        \end{tabular}
+          \begin{tabular}{c|ccccccccccc}
+            n=0 &                &                &                &                &                & $\binom{0}{0}$ &                &                &                &                &                \\
+                &                &                &                &                &                &                &                &                &                &                &                \\
+            n=1 &                &                &                &                & $\binom{1}{0}$ &                & $\binom{1}{1}$ &                &                &                &                \\
+                &                &                &                &                &                &                &                &                &                &                &                \\
+            n=2 &                &                &                & $\binom{2}{0}$ &                & $\binom{2}{1}$ &                & $\binom{2}{2}$ &                &                &                \\
+                &                &                &                &                &                &                &                &                &                &                &                \\
+            n=3 &                &                & $\binom{3}{0}$ &                & $\binom{3}{1}$ &                & $\binom{3}{2}$ &                & $\binom{3}{3}$ &                &                \\
+                &                &                &                &                &                &                &                &                &                &                &                \\
+            n=4 &                & $\binom{4}{0}$ &                & $\binom{4}{1}$ &                & $\binom{4}{2}$ &                & $\binom{4}{3}$ &                & $\binom{4}{4}$ &                \\
+                &                &                &                &                &                &                &                &                &                &                &                \\
+            n=5 & $\binom{5}{0}$ &                & $\binom{5}{1}$ &                & $\binom{5}{2}$ &                & $\binom{5}{3}$ &                & $\binom{5}{4}$ &                & $\binom{5}{5}$
+          \end{tabular}
         \] \\
         Vemos que las filas con $n$ impares tienen una cantidad par de terminos, por ejemplo $n = 3$, tiene 4 terminos, esto se debe a que como el listado empieza
-        en $0$. Como tienen una cantidad par de terminos, y sabemos que el triangulo de pascal es simétrico (por la identidad: $\binom{n}{k} = \binom{n}{n - k}$), con 
-        saber la mitad ya sabemos el resto (en el caso de los $n$ impares). Entonces vamos a usar esta idea, nos piden deducir $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$, vemos 
+        en $0$. Como tienen una cantidad par de terminos, y sabemos que el triangulo de pascal es simétrico (por la identidad: $\binom{n}{k} = \binom{n}{n - k}$), con
+        saber la mitad ya sabemos el resto (en el caso de los $n$ impares). Entonces vamos a usar esta idea, nos piden deducir $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$, vemos
         que $2n + 1$ siempre va a ser un numero impar, asi que podemos aplicar esta idea de la simetria, la clave acá es que sumar hasta $n$ es sumar exactamente
         hasta la mitad de su respectiva fila en el triangulo de pascal. Por que? Tiene que ver con que el triangulo de pascal esta indexado en 0, pero mejor
         verlo graficamente, por ejemplo vean que en la fila 3 del triangulo de pascar, es como decir la fila $2m + 1,\, m=1$, y justamente en $m$ se parte al medio
@@ -434,7 +434,7 @@
         Bueno combinemos todas estas ideas y entonces para calcular $\sumatoria{k = 0}{n} \binom{2n + 1}{k}$ primero calculamos todos los elementos de la fila correspondiente
         al $2n + 1$ y luego dividimos por dos porque partimos al medio la fila. Entonces tenemos:
         \[
-        \sumatoria{k = 0}{n} \binom{2n + 1}{k} = \frac{\sumatoria{k = 0}{2n + 1} \binom{2n + 1}{k}}{2} = \frac{4^n \cdot \cancel{2}}{\cancel{2}} = \cajaResultado{4^n}
+          \sumatoria{k = 0}{n} \binom{2n + 1}{k} = \frac{\sumatoria{k = 0}{2n + 1} \binom{2n + 1}{k}}{2} = \frac{4^n \cdot \cancel{2}}{\cancel{2}} = \cajaResultado{4^n}
         \]
 
 \end{enumerate}
@@ -442,4 +442,5 @@
 \begin{aportes}
   \item \aporte{https://github.com/sigfripro}{sigfripro \github}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/APNieto/}{Ale Nieto \github}
 \end{aportes}

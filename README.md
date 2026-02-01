@@ -26,7 +26,6 @@ _¡Una estrellita 🌟 al repo es siempre bienvenida!_
 `(^_^)/`
 [Ni hablar de uno o más cafecitos ☕️☕️☕️](https://cafecito.app/nad-garraz)
 
-
 # Idea
 Si bien hay muchos buenos apuntes por ahí. La idea es que en este repo haya un apunte _dinámico_, uno que se pueda
 ir curando y modificando junto con las guías de nuevos cuatrimestres. Vas a tener que laburar!

@@ -23,9 +23,6 @@ que viajar en el mismo auto) y luego les restamos las formas en las que Lucía, 
         \bigskip
 
         Completemos ahora otro auto. Como nos quedan 11 personas por asignar, tenemos $\binom{11}{4}$ opciones.
-        Pero como cada auto \red{\ul{es distinto, son distinguibles, no es lo mismo que vayan en uno o en el otro}},
-        debemos contemplar que vayan en el otro auto que queda también, de modo que hay que multiplicar ese número por un 2,
-        pues son dos los autos que quedan.
 
         \bigskip
 
@@ -40,68 +37,67 @@ que viajar en el mismo auto) y luego les restamos las formas en las que Lucía, 
           \ua{\binom{3}{1}}{\text{Auto para}\\ \text{J y N}} \cdot
           \oa{\binom{13}{2}}{\text{Completo auto }\\ \text{de J y N}} \cdot
           \ua{\binom{11}{4}}{\text{Completo }\\ \text{otro auto}} \cdot
-          \oa{2}{\text{Dos}\\ \text{autos}} \cdot
           \ua{\binom{7}{4}}{\text{Último}\\ \text{auto}}
-          =5405400
+          =2702700
         $$
-        Lo escribo de una segunda forma, un poco más explicita, para que se note la \textit{distinguibilidad} de los autos. El $+$ aparece
-        cuando tengo \textit{una u otra opción}, primero tengo 3 autos, después 2 y por último 1. En cada corchete se eligió un color.
-        $$
-          \llave{c}{
-            \text{\orange{\faIcon[regular]{car-side}}}\\
-            \text{\blue{\faIcon[regular]{car-side}}}\\
-            \text{\green{\faIcon[regular]{car-side}}}
-          }
-        $$
-        $$
-          \text{Formas totales} =
-          \Big[
-            \ua{1}{\text{\orange{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
-            \oa{\binom{13}{2}}{\text{Completo \orange{\faIcon{car-side}} }\\ \text{de J y N}}
-            +
-            \ua{1}{\text{\blue{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
-            \oa{\binom{13}{2}}{\text{Completo \blue{\faIcon{car-side}} }\\ \text{de J y N}}
-            +
-            \ua{1}{\text{\green{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
-            \oa{\binom{13}{2}}{\text{Completo \green{\faIcon{car-side}} }\\ \text{de J y N}}
-            \Big]
-          \cdot
-          \Big[
-            \ua{\binom{11}{4}}{\text{Completo }\\ \text{el \blue{\faIcon{car-side}}}}
-            +
-            \ua{\binom{11}{4}}{\text{Completo }\\ \text{el \green{\faIcon{car-side}}}}
-            \cdot
-            \Big]
-          \cdot
-          \Big[
-            \ua{\binom{7}{4}}{\text{Completo}\\\text{último}\\ \green{\text{\faIcon{car-side}}}}
-            \Big]
-          =5405400
-        $$
-        O todavia hay una tercera forma de escribirlo \textit{GIGA explícito}:
-        Voy llenando todo según este orden:
-        $$
-          \textit{Posibles viajes}:
-          \llave{ccc}{
-            1 & \to & \set{ \text{\orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \green{\faIcon{car-side}}}}\\
-            2 & \to & \set{ \text{\orange{\faIcon{car-side}}, \green{\faIcon{car-side}}, \blue{\faIcon{car-side}}}}\\
-            3 & \to & \set{ \text{\green{\faIcon{car-side}}, \orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}}}\\
-            4 & \to & \set{ \text{\green{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \orange{\faIcon{car-side}}}}\\
-            5 & \to & \set{ \text{\blue{\faIcon{car-side}}, \green{\faIcon{car-side}}, \orange{\faIcon{car-side}}}}\\
-            6 & \to & \set{ \text{\blue{\faIcon{car-side}}, \orange{\faIcon{car-side}}, \green{\faIcon{car-side}}}}
-          }
-        $$
-        $$
-          \text{Formas de llenar}(\set{ \text{\orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \green{\faIcon{car-side}}}}) =
-          \oa{\binom{13}{2}}{\text{Completo auto }\\ \text{de J y N}} \cdot
-          \ua{\binom{11}{4}}{\text{Completo }\\ \text{otro auto}} \cdot
-          \ua{\binom{7}{4}}{\text{Último}\\ \text{auto}}
-          = 900900
-        $$
-        Es lo mismo para los demás casos, son 6 casos, \textit{because} $3!$ :
-        $$
-          \text{Formas totales} = 6 \cdot 900900 = 5405400
-        $$
+        % Lo escribo de una segunda forma, un poco más explicita, para que se note la \textit{distinguibilidad} de los autos. El $+$ aparece
+        % cuando tengo \textit{una u otra opción}, primero tengo 3 autos, después 2 y por último 1. En cada corchete se eligió un color.
+        % $$
+        %   \llave{c}{
+        %     \text{\orange{\faIcon[regular]{car-side}}}\\
+        %     \text{\blue{\faIcon[regular]{car-side}}}\\
+        %     \text{\green{\faIcon[regular]{car-side}}}
+        %   }
+        % $$
+        % $$
+        %   \text{Formas totales} =
+        %   \Big[
+        %     \ua{1}{\text{\orange{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
+        %     \oa{\binom{13}{2}}{\text{Completo \orange{\faIcon{car-side}} }\\ \text{de J y N}}
+        %     +
+        %     \ua{1}{\text{\blue{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
+        %     \oa{\binom{13}{2}}{\text{Completo \blue{\faIcon{car-side}} }\\ \text{de J y N}}
+        %     +
+        %     \ua{1}{\text{\green{\faIcon{car-side}} para}\\ \text{J y N}} \cdot
+        %     \oa{\binom{13}{2}}{\text{Completo \green{\faIcon{car-side}} }\\ \text{de J y N}}
+        %     \Big]
+        %   \cdot
+        %   \Big[
+        %     \ua{\binom{11}{4}}{\text{Completo }\\ \text{el \blue{\faIcon{car-side}}}}
+        %     +
+        %     \ua{\binom{11}{4}}{\text{Completo }\\ \text{el \green{\faIcon{car-side}}}}
+        %     \cdot
+        %     \Big]
+        %   \cdot
+        %   \Big[
+        %     \ua{\binom{7}{4}}{\text{Completo}\\\text{último}\\ \green{\text{\faIcon{car-side}}}}
+        %     \Big]
+        %   =5405400
+        % $$
+        % O todavia hay una tercera forma de escribirlo \textit{GIGA explícito}:
+        % Voy llenando todo según este orden:
+        % $$
+        %   \textit{Posibles viajes}:
+        %   \llave{ccc}{
+        %     1 & \to & \set{ \text{\orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \green{\faIcon{car-side}}}}\\
+        %     2 & \to & \set{ \text{\orange{\faIcon{car-side}}, \green{\faIcon{car-side}}, \blue{\faIcon{car-side}}}}\\
+        %     3 & \to & \set{ \text{\green{\faIcon{car-side}}, \orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}}}\\
+        %     4 & \to & \set{ \text{\green{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \orange{\faIcon{car-side}}}}\\
+        %     5 & \to & \set{ \text{\blue{\faIcon{car-side}}, \green{\faIcon{car-side}}, \orange{\faIcon{car-side}}}}\\
+        %     6 & \to & \set{ \text{\blue{\faIcon{car-side}}, \orange{\faIcon{car-side}}, \green{\faIcon{car-side}}}}
+        %   }
+        % $$
+        % $$
+        %   \text{Formas de llenar}(\set{ \text{\orange{\faIcon{car-side}}, \blue{\faIcon{car-side}}, \green{\faIcon{car-side}}}}) =
+        %   \oa{\binom{13}{2}}{\text{Completo auto }\\ \text{de J y N}} \cdot
+        %   \ua{\binom{11}{4}}{\text{Completo }\\ \text{otro auto}} \cdot
+        %   \ua{\binom{7}{4}}{\text{Último}\\ \text{auto}}
+        %   = 900900
+        % $$
+        % Es lo mismo para los demás casos, son 6 casos, \textit{because} $3!$ :
+        % $$
+        %   \text{Formas totales} = 6 \cdot 900900 = 5405400
+        % $$
 
   \item \underline{Formas en las que Lucía, María y Diego van caminando}
 
@@ -120,8 +116,8 @@ que viajar en el mismo auto) y luego les restamos las formas en las que Lucía, 
         \bigskip
 
         Completemos ahora otro auto. Como nos quedan 8 personas por asignar, tenemos $\binom{8}{4}$ opciones.
-        Además, por lo mismo que antes, hay que multiplicar por 2.
-        Con el último auto no queda nada por hacer, pues se asignan a las cuatro personas que quedan.
+
+        Con el último auto no queda nada por hacer, pues se ponen las únicas cuatro personas que quedan.
 
         \bigskip
 
@@ -131,8 +127,7 @@ que viajar en el mismo auto) y luego les restamos las formas en las que Lucía, 
           \ua{\binom{3}{1}}{\text{Auto para}\\ \text{J y N}} \cdot
           \oa{\binom{10}{2}}{\text{Completo auto}\\ \text{de J y N}} \cdot
           \ua{\binom{8}{4}}{\text{Completo}\\ \text{otro auto}} \cdot
-          \oa{2}{\text{Dos}\\ \text{autos}}
-          =18900
+          = 9450
         $$
 
 \end{itemize}
@@ -141,10 +136,10 @@ Entonces, la formas totales con Juan y Nicolás en el mismo auto y con al menos 
 
 $$
   \cajaResultado{
-    \binom{3}{1} \cdot \binom{13}{2} \cdot \binom{11}{4} \cdot 2 \cdot \binom{7}{4}
+    \binom{3}{1} \cdot \binom{13}{2} \cdot \binom{11}{4} \cdot \binom{7}{4}
     -
-    \binom{3}{1} \cdot \binom{10}{2} \cdot \binom{8}{4} \cdot 2
-    =5405400-18900 = 5386500
+    \binom{3}{1} \cdot \binom{10}{2} \cdot \binom{8}{4}
+    = 2702700 - 9450 = 2.693.250
   }
 $$
 
@@ -163,5 +158,6 @@ $$
 \begin{aportes}
   \item \aporte{https://github.com/Nunezca}{Nunezca \github}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/APNieto/}{Ale Nieto \github}
 \end{aportes}
 

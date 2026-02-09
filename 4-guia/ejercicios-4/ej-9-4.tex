@@ -11,28 +11,69 @@
   \end{enumerate}
 \end{enunciado}
 
-\begin{enumerate}[label=\alph*)]
-  \item $r_{18}(a) =
-          r_{18}( \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11} ) =
+\begin{enumerate}[label=\purple{\alph*)}]
+  \item $r_{18}(a) = 5
+          \entonces
+          r_{18}
+          \big(
+          a^2 -3a +11
+          \big) =
+          r_{18}\big(
+          \ub{r_{18}(a)^2}{5^2} - \ub{r_{18}(3)}{3} \cdot \ub{r_{18}(a)}{5} + \ub{r_{18}(11)}{11}
+          \big) =
           r_{18}(21) = 3 $
 
-        \separadorCorto
 
-  \item $
-          \llaves{l}{
-            a = 3 \cdot q + r_3(a)\\
-            6 \cdot a = 18 \cdot q + \ub{\green{6 \cdot r_3(a)}}{r_{18}(6a)}\\
-          } \to
-          r_{18}(6a) = r_{18}( r_{18}(6) \cdot r_{18}(a) ) = r_{18}(30) = 12\\
-          \entonces \green{6 \cdot r_3(a)} = r_{18}(6a) \to  r_3(a) = 2
-        $
-        \separadorCorto
+  \item Dividir a cualquier valor $a$ por 3 es hacer:
+        $$
+          a = 3 \cdot q + r_3(a)\llamada1
+        $$
+        Busco que en el algoritmo de división quede como divisor $18$ para poder usar el dato de que $r_{18}(a) = 5$.
+        Multiplico en $\llamada1$ por 6 ambos miembros:
+        $$
+          \blue{6} \cdot a = \blue{6} \cdot 3 \cdot q + \blue{6} \cdot r_3(a)
+          \sisolosi
+          \blue{6a} = 18 \cdot q + \ub{\blue{6} \cdot r_3(a)}{\text{esto debe ser} \\ r_{18}(\blue{6a})}
+        $$
+        Por lo tanto usando el \textit{dato} de $r_{18}(a) = 5$:
+        $$
+          r_{18}(\blue{6a}) = 6 \cdot r_3(a)
+          \Sii{\red{!!}}[\textit{dato}]
+          30 = 6 \cdot r_3(a)
+          \sii
+          5 = r_3(a)
+          \Sii{\textit{condición}}[\textit{de resto}]
+          \cajaResultado{
+            r_3(a) = 2
+          }
+        $$
 
-  \item $r_9(4a+1) = \ub{r_9(4 \cdot r_9(a) + 1)}{\blue{*1}} \to\\
-          a = 18 \cdot q + 5 = 9 \cdot \ub{( 9 \cdot q)}{q'} + \ub{5}{r_9(a)}
-          \flecha{\blue{*1}}
-          r_9(a) = r_9(21) = 3
-        $
+
+  \item
+        Dividir a cualquier valor $4a + 1$ por 9 es hacer:
+        $$
+          4a + 1 = 9 \cdot q + r_9(4a + 1)\llamada1
+        $$
+        Busco que en el algoritmo de división quede como divisor $18$ para poder usar el dato de que $r_{18}(a) = 5$.
+        Multiplico en $\llamada1$ por 2 ambos miembros:
+        $$
+          \blue{2} \cdot (4a + 1) = \blue{2} \cdot 9 \cdot q + \blue{2} \cdot r_9(4a + 1)
+          \sisolosi
+          \blue{8a + 2} = 18 \cdot q + \ub{\blue{2} \cdot r_9(4a + 1)}{\text{esto debe ser} \\ r_{18}(\blue{8a + 2})}
+        $$
+        Por lo tanto usando el \textit{dato} de $r_{18}(a) = 5$:
+        $$
+          r_{18}(\blue{8a + 2}) = 2 \cdot r_9(\blue{4a + 1})
+          \Sii{\red{!!}}[\textit{dato}]
+          8 \cdot 5 + 2 = 2 \cdot r_9(\blue{4a + 1})
+          \sii
+          21
+          = r_3(a)
+          \Sii{\textit{condición}}[\textit{de resto}]
+          \cajaResultado{
+            r_9(4a + 1) = 2
+          }
+        $$
 
   \item A ver el resto de esa expresión:
         $$

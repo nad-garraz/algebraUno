@@ -64,14 +64,20 @@ $$
     b^{2\blue{k}} + 1 ~ \llamada1
   \end{array}
 $$
-Si puedo probar que $\congruencia{b^{2\blue{k}}}{1}{8}$ listo gané, dado que me quedaría que $\congruencia{a_{\blue{k+1}}}{2}{8}$.
+Si puedo probar que $\congruencia{b^{2\blue{k}}}{1}{8}$ listo gané,
+dado que me quedaría que $\congruencia{a_{\blue{k+1}}}{2}{8}$.
+Lo voy a probar de 2 formas distintas, cuál se te ocurre a vos es cosa tuya. La primera es más \textit{"creativa y elegante"},
+la segunda más \textit{"intuitiva y mecánica"}.
+
+\parrafoDestacado{
+  Mirar los ejercicios \refEjercicio{ej:4} y \refEjercicio{ej:13} puede servir de inspiración.
+  Anyways, si no salió ahí va.
+}
+
 \parrafoDestacado[\magic]{
   \it
   ¿Cómo verga se hace esto?
-
   Es un salto creativo para pensar un ratito y probar cositas hasta que salga.
-
-  Mirar el ejercicio \refEjercicio{ej:4} puede servir de inspiración. Anyways, si no salió ahí va.
 }
 
 Resulta que $b$ es impar:
@@ -100,6 +106,24 @@ $$
 
 Si te perdiste en los \red{!}, en uno son cuentas y en otro escribo un número par en su forma genérica.
 
+\bigskip
+\parrafoDestacado{
+  \it
+  Estás pensando:
+
+  ¡Eso no se me ocurre ni en pedo en un parcial! Fair enough, tabla de restos
+}
+
+$$
+  \begin{array}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    r_8(\orange{i})          & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    r_8((2\orange{i} + 1)^2) & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ \hline
+  \end{array}
+$$
+
+Mucho más fácil honestamente, menos elegante y \textit{mathy snoby}, pero mucho más fácil. Elige tu propia aventura.
+
 Así queda demostrado $\llamada1$ que $\congruencia{a_{\blue{k+1}}}{2}{8}$.
 
 \bigskip
@@ -110,4 +134,5 @@ $p(n) \paratodo n \en \naturales$.
 \begin{aportes}
   \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/Diego-Dev-Moros}{Diego Moros \github}
 \end{aportes}

@@ -1,0 +1,113 @@
+\begin{enunciado}{\ejExtra[11/02/26 🌶Ejercicio de la Práctica]}
+  \fechaEjercicio{11/02/26 Ejercicio de la Práctica}
+
+  Sea $b \en \enteros$ impar y sea $a_n$ la sucesión de enteros dada por
+  $$
+    \llave{ccl}{
+      a_1 & = & -6 \\
+      a_{n+1} & = & 41 a_n + b^{2n} + 7
+    }.
+  $$
+  Probar que $\congruencia{a_n}{2}{8},\, \paratodo n \en \naturales$.
+\end{enunciado}
+
+Sale por inducción:
+
+Dada una suceción definida por recurrencia
+$
+  \llave{ccl}{
+    a_1 & = & -6 \\
+    a_{n+1} & = & 41 a_n + b^{2n} + 7
+  }
+$
+
+Quiero probar que la siguiente proposición es verdadera:
+$$
+  p(n) :  \congruencia{a_n}{2}{8}
+$$
+
+\textit{Caso base:}
+
+Quiero probar que
+$$
+  p(\blue{1}) :  \congruencia{a_{\blue{1}}}{2}{8}
+$$
+es verdadera.
+
+Es trivialmente verdadera dado que $a_1 \igual{def} -6 \conga8 2$.
+
+\bigskip
+
+\textit{Paso inductivo:}
+
+Para algún $\blue{k} \en \naturales$ asumo que la proposición:
+$$
+  p(\blue{k}) :  \ub{
+    \congruencia{a_{\blue{k}}}{2}{8}
+  }{
+    \text{\purple{hipótesis inductiva}}
+  }
+$$
+es verdadera. Entonces quiero ver que la proposición:
+$$
+  p(\blue{k+1}) :  \congruencia{a_{\blue{k+1}}}{2}{8}
+$$
+también lo sea.
+
+Usando la \purple{hipótesis inductiva} en la definición de la sucesión:
+$$
+  \begin{array}{rcl}
+    a_{\blue{k+1}} = 41 a_{\blue{k}} + b^{2\blue{k}} + 7
+     & \conga{8}[\purple{\text{HI}}\red{!!}] &
+    2 + b^{2\blue{k}} + 7                      \\\\
+     & \conga{8}                             &
+    b^{2\blue{k}} + 1 ~ \llamada1
+  \end{array}
+$$
+Si puedo probar que $\congruencia{b^{2\blue{k}}}{1}{8}$ listo gané, dado que me quedaría que $\congruencia{a_{\blue{k+1}}}{2}{8}$.
+\parrafoDestacado[\magic]{
+  \it
+  ¿Cómo verga se hace esto?
+
+  Es un salto creativo para pensar un ratito y probar cositas hasta que salga.
+
+  Mirar el ejercicio \refEjercicio{ej:4} puede servir de inspiración. Anyways, si no salió ahí va.
+}
+
+Resulta que $b$ es impar:
+$$
+  b \igual{$\llamada2$} 2\orange{i} + 1
+  \entonces
+  \llave{rcl}{
+    b^{2\blue{k}}
+    & =                   &
+    (b^2)^{\blue{k}}         \\
+    & \igual{$\llamada2$} &
+    ((2\orange{i} + 1)^2)^{\blue{k}}\\
+    & \igual{\red{!}}&
+    (4
+    \ub{
+      \orange{i}(\orange{i+1})
+    }{
+      \text{esto es} \\ \text{siempre}\\ \text{par}
+    } + 1 )^{\blue{k}}\\
+    & \igual{\red{!!!}}&
+    (8\magenta{j} + 1 )^{\blue{k}}\\
+    & \conga{8} &
+    (1 )^{\blue{k}} = 1\\
+  }
+$$
+
+Si te perdiste en los \red{!}, en uno son cuentas y en otro escribo un número par en su forma genérica.
+
+Así queda demostrado $\llamada1$ que $\congruencia{a_{\blue{k+1}}}{2}{8}$.
+
+\bigskip
+
+Dado que $p(1),\, p(\blue{k}), p(\blue{k+1})$ resultaron verdaderas, por el principio de inducción también lo es
+$p(n) \paratodo n \en \naturales$.
+
+\begin{aportes}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

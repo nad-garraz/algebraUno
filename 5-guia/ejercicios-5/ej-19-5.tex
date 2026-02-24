@@ -41,11 +41,61 @@
           }
         $$
 
-        Ehm, paja resolverlo.
+        \parrafoDestacado{
+          \it
+          Este no es mi método favorito de resolución, pero me llegó esta versión que está bueno para aportar
+          un poco de divsersidad resolutiva.
+        }
+        Dado que tengo a los divisores primos por \href{\chinito}{T\faIcon{cannabis}R} voy a tener una solución de la pinta:
+        $$
+          x_0 = x_1 + x_2 + x_3
+        $$
+        donde, $x_1, x_2 \ytext x_3$ son soluciones particulares de los sistemas:
+        $$
+          \llave{l}{
+            \congruencia{x_1}{9}{13}\\
+            \congruencia{x_1}{0}{7}\\
+            \congruencia{x_1}{0}{5}
+          }
+          ,~~
+          \llave{l}{
+            \congruencia{x_2}{0}{13}\\
+            \congruencia{x_2}{3}{7}\\
+            \congruencia{x_2}{0}{5}
+          }
+          \ytext
+          \llave{l}{
+            \congruencia{x_3}{0}{13}\\
+            \congruencia{x_3}{0}{7}\\
+            \congruencia{x_3}{1}{5}
+          }
+        $$
+        respectivamente.
 
-        \hacer
+        \parrafoDestacado[{\faIcon[regular]{eye}\faIcon{ruler}}]{
+          \it
+          \ul{Ojímetro:}
+          Hay que mirar las ecuaciones con \ul{resto cero} que se cumplen para productos entre los divisores.
 
-  \item
+          Funciona directo para el primer y tercer sistema. Para el segundo hay que ir viendo los multiplos enteros de $13 \cdot 5$ y
+          sale.
+        }
+        Las soluciones particulares, $x_i$ y la solución general $x_0$ quedarán como:
+        $$
+          \llave{rcl}{
+            x_1 & = & 35\\
+            x_2 & = & 325\\
+            x_3 & = & 91
+          }
+          \equivalente
+          \cajaResultado{
+            \congruencia{x_0}{451}{455}
+          }
+        $$
+
+        por lo tanto
+
+  \item Se procede similar al ejercicio anterior:
         $$
           \llave{l}{
             \congruencia{10^{49}X}{17}{39}
@@ -81,11 +131,28 @@
             \congruencia{X}{5}{9}
           }
         $$
-        Ehm, paja resolverlo.
+        Resolver eso es hacer:
+        $$
+          X \igual{def} 13\cdot \blue{k} + 3
+          \flecha{meto en}[segunda ecuación]
+          13 \cdot \blue{k} + 3 \conga9
+          \congruencia{4 \cdot \blue{k} + 3}{5}{9}
+          \Sii{\red{!}}
+          \congruencia{\blue{k}}{5}{9}
+          \sii \blue{k} \igual{def} \blue{k} = 9\magenta{j} + 5
+        $$
+        Reemplazo el valor de $\blue{k}$ para encontrar la $X$:
+        $$
+          X = 13 \cdot ( 9\magenta{j} + 5) + 3 = 117 \magenta{j} + 68
+          \sii
+          \cajaResultado{
+            \congruencia{X}{68}{117}
+          }
+        $$
 
-        \hacer
 \end{enumerate}
 
-\begin{aportes}
+\begin{aportes}[2]
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
 \end{aportes}

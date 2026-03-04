@@ -24,15 +24,40 @@ Sí, se cumple de forma inmediata.
 
 \bigskip
 
+\textit{Transitividad:}
+\parrafoDestacado{
+  \it
+  ¿Se cumple que si
+  $$
+    5^a \cdot 7^b \leq 5^c \cdot 7^d
+    ~ \land ~
+    5^c \cdot 7^d \leq 5^e \cdot 7^f
+    \entonces
+    5^a \cdot 7^b \leq 5^e \cdot 7^f
+  $$
+  para todos los pares $(a,b),\,(c,d) \ytext  (e,f) \en A$
+  ?
+}
+
+Sí, se cumple de forma inmediata por la transitividad del $\leq$.
+
+\bigskip
+
 \textit{Antisimetría:}
 \parrafoDestacado{
   \it
   ¿Se cumple que si
-  $
+  $$
     5^a \cdot 7^b \leq 5^c \cdot 7^d
     \entonces
     5^c \cdot 7^d \not\leq 5^a \cdot 7^b
-  $
-  para todos los pares $(a,b),\, (c,d) \en A$
+  $$
+  para todos los pares $(a,b) \distinto (c,d) \en A$
   ?
 }
+La $"<"$ se cumple de forma trivial, y la parte del $"="$ se cumple dado que es un
+\textit{producto de potencias con bases de números primos} y la descomposición en factores primos es única.
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

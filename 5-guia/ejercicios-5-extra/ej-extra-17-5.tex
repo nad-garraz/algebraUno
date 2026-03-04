@@ -1,0 +1,90 @@
+\begin{enunciado}{\ejExtra}
+  Calcular el resto de dividir por $3^2 \cdot 19$ al número $\sumatoria{k = 1}{100}3^{k!}$.
+\end{enunciado}
+
+Ejercicio para hacer TCH y también PTF \hyperlink{teoria-5:PTF}{\tiny\textit{Teoría Pequeño teorema de Fermat} \click}.
+
+El divisor nos lo dan \textit{sugestivamente} factorizado en primos:
+$$
+  3^2 \cdot 19 = 171
+$$
+
+Quiero calcular:
+$$
+  r_{171}\Big(\sumatoria{k = 1}{100}3^{k!}\Big) = X
+$$
+Escrito en notación de ecuaciones de congruencia:
+$$
+  \congruencia{X}{\sumatoria{k = 1}{100}3^{k!}}{171}
+  \equivalente
+  \llave{l}{
+    \congruencia{X}{\sumatoria{k = 1}{100}3^{k!}}{9} ~~ \llamada1\\
+  \congruencia{X}{\sumatoria{k = 1}{100}3^{k!}}{19} ~~ \llamada2
+  }
+$$
+Laburo en $\llamada1$. Sale directo, porque todos los términos de la sumatoria son potencias de 3. Abro la sumatoria y calculo:
+$$
+  \sumatoria{k = 1}{100}3^{k!} = 3^1 + 3^2 + \ub{3^6}{(3^2)^3} + \ub{3^{24}}{(3^2)^{12}} + \cdots +  \ub{3^{100!}}{(3^2)^{\frac{100!}{2}}}
+  ~ \Entonces{\red{!!}} ~
+  r_9\Big(\sumatoria{k = 1}{100}3^{k!}\Big) = 3
+  \sii
+  \congruencia{\sumatoria{k = 1}{100}3^{k!}}{3}{9}
+$$
+Laburo en $\llamada2$. Acá se usa PTF y también TCH, tengo que el 19 es primo y obviamente $19 \noDivide 3$:
+$$
+  \congruencia{3^{k!}}{3^{r_{18}(k!)}}{19}
+$$
+La papa está en calcular el $r_{18}$. Dado que $k! = 1 \cdot 2 \cdot \magenta{3} \cdot 4 \cdot 5 \cdot \magenta{6}$, $k!$ va a ser
+un múltiplo de 18 para cualquier $k \geq 6$. Haciendo una tablita de restos:
+$$
+  r_{18}(k!)
+  \entonces
+  \begin{array}{|c|c|c|c|c|c|c|}
+    \hline
+    k          & 1 & 2 & 3 & 4  & 5   & 6       \\ \hline
+    k!         & 1 & 2 & 6 & 24 & 120 & 720     \\\hline
+    r_{18}(k!) & 1 & 2 & 6 & 6  & 12  & \red{0} \\
+    \hline
+  \end{array}
+$$
+La expresión de la sumatoria queda:
+$$
+  \sumatoria{k = 1}{100}3^{k!} =
+  3^1 + 3^2 + 3^6 + 3^{24} + 3^{120} + \ub{3^{720}}{(3^{18})^{\frac{6!}{18}}} +  \cdots +  \ub{3^{100!}}{(3^{18})^{\frac{100!}{18}}}
+  ~~\llamada3
+$$
+Usando el resultado del PTF, de la tabla de restos y tomando el módulo 19 a $\llamada3$ queda:
+$$
+  r_{19}\Big(\sumatoria{k = 1}{100}3^{k!}\Big)
+  \igual{\red{!}}
+  r_{19}\Big(
+  3^1 + 3^2 + 3^6 + 3^6 + 3^{12} + \ub{1 + \cdots + 1}{95}
+  \Big)
+  \igual{\red{!!}}
+  r_{19}\Big(
+  3 + 9 + 7 + 7 + 49 + \ub{1 + \cdots + 1}{95}
+  \Big)
+  = 18
+$$
+
+\bigskip
+
+Juntando los resultados de $\llamada1$ y $\llamada2$:
+$$
+  \llave{l}{
+    \congruencia{X}{3}{9}\\
+    \congruencia{X}{18}{19}
+  }
+$$
+Por TCH hay solución, dado que los divisores son coprimos 2 a 2. Resolviendo como
+siempre:
+$$
+  \cajaResultado{
+    \congruencia{X}{75}{171}
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}
+

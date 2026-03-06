@@ -3,7 +3,7 @@
     \item Hallar todas la raíces racionales de
           \begin{enumerate}[label=(\alph*)]
             \item $2X^5 + 3X^4 + 2X^3 - X$,
-            \item $X^5 - \frac{1}{2} X^4 - 2X^3 + \frac{1}{2} X^2 - \frac{7}{3}X -3$,
+            \item $X^5 - \frac{1}{2} X^4 - 2X^3 + \frac{1}{2} X^2 - \frac{7}{2}X -3$,
           \end{enumerate}
     \item Probar que $X^4 + 2X^3 - 3X^2 - 2$ no tiene raíces racionales.
   \end{enumerate}
@@ -12,8 +12,49 @@
 \begin{enumerate}[label=\roman*)]
   \item
         \begin{enumerate}[label=(\alph*)]
-          \item \hacer
-          \item \hacer
+          \item Sale inmediato una raíz $f(r = 0) = 0$:
+                $$
+                  f(X) = 2X^5 + 3X^4 + 2X^3 - X = X \cdot (\ub{2X^4 + 3 X^3 + 2X^2 - 1}{g})
+                $$
+                Las posibles raíces de $g$ por \textit{lemma de Gauss}:
+                $$
+                  \set{\pm 1, \pm \frac{1}{2}}
+                $$
+                Probando se llega a que el conjunto de raíces $r \en \racionales$ de $f$:
+                $$
+                  \cajaResultado{
+                    r \en \set{0, -1, \frac{1}{2}}
+                  }
+                $$
+                Dado que no salieron más potenciales raíces del \textit{lemma de Gauss} el polinomio no tiene más raíces en $\racionales$
+
+          \item
+                Para poder usar el \textit{lemma de Gauss} hago $2f$ para tener coeficientes enteros:
+                $$
+                  F = 2f = 2X^5 - X^4 - 4X^3 + X^2 - 7X - 6
+                $$
+                Posibles raíces estarán en:
+                $$
+                  \big\{
+                  \pm6, \pm 3, \pm 2, \pm 1, \pm \frac{3}{2}, \pm \frac{1}{2}
+                  \big\}
+                $$
+                Probando como cualquier persona \textcolor{black!10}{sin amigos, novia, ni perro que me ladre}, encuentro 2 raíces:
+                $$
+                  \cajaResultado{
+                    r \en \set{-\frac{3}{2}, 2}
+                  }
+                $$
+
         \end{enumerate}
-  \item \hacer
+  \item De tener raíces racionales estas deberían, por \textit{lemma de Gauss} estar en:
+        $$
+          \set{\pm2, \pm1}
+        $$
+        Probando esos valores ninguno es raíz
 \end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
+\end{aportes}

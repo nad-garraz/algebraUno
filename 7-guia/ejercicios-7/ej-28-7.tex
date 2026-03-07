@@ -3,11 +3,147 @@
   $\complejos[X], \reales[X], \racionales[X]$ y en $(\enteros/7\enteros)[X]$ los polinomios cuadráticos
   \begin{enumerate}[label=\roman*)]
     \begin{multicols}{3}
-      \item $X^2 + 6X - 2,$
-      \item $X^2 + X - 6,$
-      \item $X^2 + -2X + 10$
+      \item $X^2 + 6X - 2$,
+      \item $X^2 + X - 6$,
+      \item $X^2 - 2X + 10$
     \end{multicols}
   \end{enumerate}
 \end{enunciado}
 
-\red{PASAR contribución de IVÁN}
+Fácil, si tenemos un polinomio de grado 2 de la pinta $aX^2 + bX + c$, mandamos la resolvente siempre con el cuidado de no escribir algo negativo dentro
+de la raíz, es decir las raíces $r$:
+$$
+  r = \frac{-b \pm \omega}{2a} ~~ \text{con} ~~ \omega^2 = b^2 - 4ac.
+$$
+\parrafoDestacado{
+  \tiny \it
+  Cuenta la leyenda que si ponés un número negativo en el radicando, viene el Ratón Pérez, te caga a palos, te roba los dientes y se los vende a Satanas.
+}
+
+\begin{enumerate}[label=\roman*)]
+  \item
+        Haciendo las cuentas que no pienso hacer, las raíces:
+        $$
+          \omega = 2 \sqrt{11} \entonces r_{1,2} = (-3 \pm \sqrt{11}) \notin \racionales
+        $$
+
+        \textit{Con cuerpo $\K = \racionales$}:
+
+        Con el resultado de la resolvente concluyo que el polinomio $X^2 + 6X - 2$ es \textit{irreducible} en $\racionales$.
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = \reales, \complejos$}:
+
+        Con el resultado de la resolvente:
+        $$
+          \cajaResultado{
+            X^2 + 6X - 2 = (X - (-3 + \sqrt{11}) ) \cdot (X - (-3 - \sqrt{11}) )
+          }
+        $$
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = (\enteros/7\enteros)$}:
+
+        El polinomio $X^2 + 6X - 2$ en este cuerpo lo puedo escribir así:
+        $$
+          X^2 + 6X - 2  \Entonces{$\K = (\enteros/7\enteros)$} X^2 + 6X + 5
+        $$
+        Calcular las raíces de eso:
+        $$
+          r_{1,2} = -3 \pm 2 \conga7
+          \llave{rcl}{
+            r_1 & = & 6\\
+            r_2 & = & 2
+          }
+        $$
+        \parrafoDestacado{
+          \it
+          Fijate que si agarrabas las raíces previamente calculadas:
+          $$
+            -3 \pm \sqrt{11} \conga7 4 \pm \sqrt{4} = 4 \pm 2 =
+            \llave{rcl}{
+              r_1 & = & 6\\
+              r_2 & = & 2
+            }
+          $$
+        }
+        La factorización buscada en $(\enteros/7\enteros)$:
+        $$
+          X^2 + 6X - 2 = (X - 6) (X - 2)
+        $$
+
+  \item
+        Haciendo las cuentas que no pienso hacer, las raíces:
+        $$
+          \omega = 5 \entonces r_{1,2} =
+          \llave{rcl}{
+            r_1 & = & 2\\
+            r_2 & = & -3
+          }
+        $$
+        Resultados más lindo no podemos pedir.
+
+        \textit{Con cuerpo $\K = \racionales, \reales, \complejos$}
+        $$
+          \cajaResultado{
+            X^2 + X - 6 = (X -2) (X + 3)
+          }
+        $$
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = (\enteros/7\enteros)$}:
+        $$
+          \cajaResultado{
+            X^2 + X - 6 =
+            X^2 + X + 1 =
+            (X + 5)(X + 3)
+          }
+        $$
+
+  \item
+        Haciendo las cuentas que no pienso hacer, las raíces:
+        $$
+          \omega^2 = -36 \entonces r_{1,2} =
+          \llave{rcl}{
+            r_1 & = & 1 + 3i\\
+            r_2 & = & 1 - 3i
+          }
+        $$
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = \racionales, \reales$}:
+
+        El polinomio $X^2 + -2X + 10$ es irreducible.
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = \complejos$}:
+
+        El polinomio tiene una factorización:
+        $$
+          \cajaResultado{
+            X^2 -2X + 10 = (X - (1+3i))(X - (1 - (1-3i)))
+          }
+        $$
+
+        \bigskip
+
+        \textit{Con cuerpo $\K = (\enteros/7\enteros)$}:
+        $$
+          X^2 -2X + 10 =
+          X^2 + 5X + 3
+          \Entonces{raíces}
+          r_{1,2} = \frac{2 \pm \sqrt{6}}{2} \notin (\enteros/7\enteros)
+        $$
+        Por lo tanto
+        $X^2 -2X + 10$  también es irreducible en $(\enteros/7\enteros)$.
+\end{enumerate}
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
+\end{aportes}

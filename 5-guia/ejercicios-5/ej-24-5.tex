@@ -11,9 +11,12 @@
 Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
 
 \bigskip
+
 \begin{enumerate}[label=\alph*)]
 
-  \item Para poder usar PTF tengo que tener un primo en el divisor, quiebro:
+  \item Para poder usar PTF tengo que tener un primo en el divisor, quiebro \textit{buscando divisores coprimos}:
+
+        \textit{Caso \magenta{$p \distinto 2$}}:
         $$
           \begin{array}{c}
             \congruencia{38^{2p^2 -p -1} + 3p + 171}{\blue{0}}{2p}
@@ -55,6 +58,16 @@ Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
             p = 43
           }
         $$.
+
+        \textit{Caso \magenta{$p = 2$}}:
+        $$
+          4 \taa{?}\divideA 38^5 + 6 + 171
+        $$
+        noup, dado que:
+        $$
+        \congruencia{38^5 + 6 + 171}{1}{4}
+        $$
+        El caso $p = 2$ no satisface.
 
   \item Parecido al anterior. Voy a ver que pasa con $p = 3$ y con $p = 5$ así descarto esos valores y después le mando PTF:
         $$
@@ -107,7 +120,7 @@ Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
         $$
           \sii
           \llave{ccl}{
-              \text{$p = 41$} & \Sii{$\llamada2$} & \congruencia{5^{\purple{41}-1} + 3^{\purple{41}^2 + 2} + 833 \conga{3} 5^0 + 3^1 + 2}{\blue{0}}{3}\\
+            \text{$p = 41$} & \Sii{$\llamada2$} & \congruencia{5^{\purple{41}-1} + 3^{\purple{41}^2 + 2} + 833 \conga{3} 5^0 + 3^1 + 2}{\blue{0}}{3}\\
             \text{$p = 7$}  & \Sii{$\llamada2$} & \congruencia{5^{\purple{7}-1} + 3^{\purple{7}^2 + 2} + 833 \conga{3} 5^0 + 3^1 + 2}{\blue{0}}{3}
           }
         $$
@@ -122,7 +135,8 @@ Voy a buscar primos $p$ que cumplan lo pedido, usando PTF:
         $$
 \end{enumerate}
 
-\begin{aportes}
+\begin{aportes}[3]
   \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://github.com/TotoMC-13}{Tomás A. \github}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
 \end{aportes}

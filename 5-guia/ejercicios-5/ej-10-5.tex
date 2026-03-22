@@ -1,5 +1,5 @@
 \begin{enunciado}{\ejercicio}
-  Hallar, cuando existan, todos los enteros $a$ que satisfacen simultáneamente:\\
+  Hallar, cuando existan, todos los enteros $a$ que satisfacen simultáneamente:
 
   \begin{enumerate}[label=\roman*)]
     \begin{multicols}{3}
@@ -81,15 +81,78 @@
           \Sii{def}
           \congruencia{a}{23}{630}
         $$
-                El TCH nos \textit{aseguraba} una solución en el 
-                intervalo $[0, 630)$ \Tilde
+        El TCH nos \textit{aseguraba} una solución en el
+        intervalo $[0, 630)$ \Tilde
 
-        \item Quebrando se ve que es \textit{incompatible}. \red{DESARROLLAR}
+  \item Quebrando se ve que es \textit{incompatible}. Los sistemas \textit{quebrados} tienen que
+        contener las soluciones del sistema \textit{original}:
+        $$
+          \llave{l}{
+            \congruencia{a}{1}{6}
+            \equivalente
+            \llave{l}{
+              \congruencia{a}{1}{2}~~ \red{\skull}  \\
+              \congruencia{a}{1}{3}~~ \blue{\skull}
+            }\\
+            \congruencia{a}{2}{20}
+            \equivalente
+            \llave{l}{
+              \congruencia{a}{1}{5}\\
+              \congruencia{a}{0}{2} ~~ \red{\skull}
+            }\\
+            \congruencia{a}{3}{9}
+            \equivalente
+            \llave{l}{
+              \congruencia{a}{0}{3}~~ \blue{\skull}
+            }
+          }
+        $$
+        Lo cual no puede ocurrir, dado que \red{por un lado} pido que $a$ sea par y por otro impar. \blue{Por otro lado} pido algo similar
+        con los múltiplos de 3.
 
-        \item Quebrando se ve que es \textit{compatible}. \red{DESARROLLAR}
+  \item Quebrando se ve que es \textit{compatible}.
+        $$
+          \llave{rcl}{
+            \congruencia{a}{1}{12}
+            &\equivalente &
+            \llave{l}{
+              \congruencia{a}{1}{4}
+              \equivalente
+              \llave{l}{
+                \congruencia{a}{1}{2}
+              }
+              \\
+              \congruencia{a}{1}{3}
+            }\\
+            \congruencia{a}{7}{10}
+            &\equivalente &
+            \llave{l}{
+              \congruencia{a}{1}{2}  \\
+              \congruencia{a}{2}{5}
+            }\\
+            \congruencia{a}{4}{9}
+            &\equivalente &
+            \llave{l}{
+              \congruencia{a}{1}{3}
+            }
+          }
+        $$
+        Todos los sistemas  \textit{quebrados} van a tener soluciones dentro de las soluciones de sus \textit{antecesores}. Los sistemas que uso
+        para resolver son los que tiene los \textit{mayores divisores}, \magenta{siempre de manera que los divisores queden coprimos 2 a 2}:
+        $$
+          \llave{l}{
+            \congruencia{a}{1}{4}\\
+            \congruencia{a}{2}{5}\\
+            \congruencia{a}{4}{9}
+          }
+        $$
+        Por \href{\chinito}{TCH} esto tiene solución. Eso queda para que lo hagas vos, \textit{because pajilla}. Si no está mal sería:
+        $$
+          \congruencia{a}{157}{180}
+        $$
 \end{enumerate}
 
-
 \begin{aportes}
-	\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/ivdou}{Ivan Doumerc \github}
 \end{aportes}

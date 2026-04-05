@@ -10,7 +10,7 @@
 
 ## Las guías resueltas:
 
-[Video explicando como bajar las guías 1](https://youtu.be/JbqIlyzaXNs)
+[Video explicando como bajar las guías resueltas](https://youtu.be/JbqIlyzaXNs)
 
 En cada directorio `i-guia` vas a encontrar el archivo `i-sol.pdf` que no es otra cosa que la última actualización de la guía `i-ésima` y al final tenés ejerecicios sacados de parciales resueltos. _Sin necesidad de compilar nada_.
 Los archivos son largos como para andar scrolleando todo el tiempo, *usá* los `links`, que para algo los puse.

@@ -204,7 +204,7 @@
 
           \item $\existe x \en \reales,\, x > 3 \land x^2 \leq 4$.\par
                 La proposición es falsa. El nuevo conjunto propuesto es vacío.\par
-                \[
+                $$
                   \llaves{c}{
                     \magenta{A = \set{x \en \reales \talque x > 3}}
                     \\
@@ -212,13 +212,15 @@
                     \\
                     \green{B = \set{x \en \reales \talque |x| \leq 2}}
                   } \to \doceiiE
-                \]
+                $$
 
-          \item \textit{Si $n$ es un natural que no termina en 4 entonces no es par}.\par
+          \item \textit{Si $n$ es un natural que no termina en 4 entonces no es par}.
+
                 Un contraejemplo bastaría para probar que esto es falso: El número 12. No termina con el
                 número cuatro y es par, ya que $12 = 2\cdot 6$.
 
-          \item Si $z$ no es un número real, entonces $z \notin \complejos$.\par
+          \item Si $z$ no es un número real, entonces $z \notin \complejos$.
+
                 La proposición es falsa. Están proponiendo que dado $z \notin \reales \entonces z \notin \complejos$.
                 Si $z = i$, se prueba lo contrario.
                 Dado que $i \notin \reales$, pero  $i \en \complejos$
@@ -227,19 +229,20 @@
   \item
         \begin{itemize}
           \item[e)]
-                $$
-                  \begin{array}{|c|c|c|c|}
-                    \hline
-                    p \entonces q           & \paratodo x \en \reales, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \Tilde                  \\
-                    \hline
-                    \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                    & \doceiiiuno  & A \stacktext{?}{\subseteq} B \Tilde                  \\
-                    \hline
-                    \sim p \lor q           & x \leq 3 \otext x^2 > 4                          & \doceiiidos  & A \union B \igual{?} \universo \Tilde                \\
-                    \hline
-                    \sim (p \land \sim q)   & \sim (x > 3 \y x^2 \leq 4 )                      & \doceiiitres & (A \inter B)^c \igual{?} \vacio^c = \universo \Tilde \\
-                    \hline
-                  \end{array}
-                $$
+                En la tabla están distintos sabores sobre como leer la proposición. En lenguaje lógico, en notación de conjuntos, gráfico y coso.
+
+                A mí me gusta más en notación de conjuntos, pero lo más claro es hacer un grafiquito, pero ¿Quién me preguntó?
+                  {\small
+                    $$
+                      \begin{array}{|c|c|c|c|}\cline{4-4}
+                        \multicolumn{3}{c|}{}   & p \to A \ytext q \to B                                                                                                     \\ \hline
+                        p \entonces q           & \paratodo x \en \reales,\, x > 3 \entonces x^2 > 4 & \doceiiicero & A \stacktext{?}{\subseteq} B \Tilde                    \\ \hline
+                        \sim q \entonces \sim p & x^2 \leq 4 \entonces x \leq 3                      & \doceiiiuno  & B^c \stacktext{?}{\subseteq} A^c \Tilde                \\ \hline
+                        \sim p \lor q           & x \leq 3 \otext x^2 > 4                            & \doceiiidos  & A^c \union B \igual{?} \universo \Tilde                \\ \hline
+                        \sim (p ~ ~ \land \sim q)  & \sim (x > 3 \y x^2 \leq 4 )                     & \doceiiitres & (A \inter B^c)^c \igual{?} \vacio^c = \universo \Tilde \\ \hline
+                      \end{array}
+                    $$
+                  }
 
           \item[f)]
                 \textit{$p \entonces q$:}
@@ -265,8 +268,9 @@
         \end{itemize}
 \end{enumerate}
 
-\begin{aportes}
+\begin{aportes}[4]
   \item \aporte{\dirRepo}{naD GarRaz \github}
   \item \aporte{https://www.instagram.com/juaanparajo}{Juan Parajó \instagram}
   \item \aporte{https://github.com/APNieto/}{Ale Nieto \github}
+  \item \aporte{https://github.com/notgaspo}{Gaspar B.K. \github}
 \end{aportes}

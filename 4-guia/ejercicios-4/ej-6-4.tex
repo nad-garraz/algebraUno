@@ -6,46 +6,29 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
-  \item
-        Este es bastante sencillo de ver, tenemos el producto de $n$ enteros consecutivos como:
+  \item Dado que $\binom{\green{m}}{n} \en \enteros$. Escribo al número combinatorio como:
         $$
-          \productoria{i=\green{m}}{n + \green{m} - 1} i = \green{m} \times (\green{m} + 1) \times \cdots \times (n + \green{m} - 1)
+          \begin{array}{rcl}
+            \binom{\green{m}}{n} & \igual{def} & \frac{\green{m}!}{n! \cdot (\green{m}-n)!} \\
+                                 & =           &
+            \frac{\green{m}}{(\green{m}-n)!} \cdot \frac{1}{n!}                             \\
+                                 & =           &
+            \frac{\frac{\green{m}}{(\green{m}-n)!}}{n!}                                     \\
+                                 & =           &
+            \frac{
+              \ob{
+                \scriptstyle \green{m} \cdot (\green{m} - 1) \cdot (\green{m} - 2) \cdots (\green{m} - n + 2) \cdot (\green{m} - n + 1)
+              }{
+                \text{ \tiny producto de $\green{m}$ números consecutivos}
+            }}{n!}                                                                          \\
+                                 & \en         & \enteros
+          \end{array}
         $$
-        Por ejemplo:
-        $$
-          \productoria{i=4}{7} i  = 4\times5\times6\times7
-        $$
-        Tenemos que ver que es divisible por $n!$, si uno se lo pone a pensar intuitivamente, es bastante logico
-        ya que $n!$ va a siempre compartir factores, de hecho el factorial se puede definir como $\productoria{i=1}{n}  i = n!$, asi que
-        si empezamos desde otro indice no cambia nada, igual sigue siendo divisible por $n!$.
 
-        Vamos a probarlo por inducción porque es lo más fácil, sino se podría generalizar con productorias pero es un \textit{quilombo de notación}.
-
-        Tenemos que nuestra \purple{hipotesis inductiva} es:
-        $$
-          p(n):\productoria{i=\green{m}}{n} i \text{ es divisible por } n!
-        $$
-        Probemos el caso base $p(1)$:
-        $$
-          p(1): \productoria{i=\green{m}=1}{1}  i = 1 \text{ es divisible por 1!}
-        $$
-        Ahora queremos ver que $p(n) \entonces p(n+1)$
-        $$
-          \productoria{i=\green{m}}{n+1}  i \text { es divisible por $(n+1)!$ ?}
-        $$
-        $$
-          (\red{n+1})  \times \ub{\displaystyle \productoria{i=\green{m}}{\red{n}}  i}{\text{\purple{hipótesis inductiva}}}
-          \text{ es divisible por }
-          \ub{n! \times (\red{n+1})}{=(n+1)!} \llamada1
-        $$
-        Finalmente entonces probamos que $p(n+1)$ es verdadera, completando la prueba.
-
-        $\llamada1 :$ Aca usamos que
-        $
-          a\divideA b
-          \entonces
-          t\cdot a \divideA t \cdot b,\, t \en \enteros
-        $
+        \parrafoDestacado{
+          \it
+          ¿Es esto la demostración de algo? Naa.
+        }
 
   \item
         Expandimos el coeficiente binomial con su fórmula de factoriales:
@@ -58,11 +41,12 @@
         $$
         Entonces me basta ver que
         $$
-          \frac{n(2n-1)!}{(n!)^2} \quad \en \enteros
+          \frac{n \cdot (2n-1)!}{(n!)^2} ~ \en \enteros
         $$
         Manipulamos la expresión un poco:
         $$
-          \frac{\cancel{n}(2n-1)!}{(n!)\cancel{n}(n-1)!}
+          \frac{n \cdot (2n-1)!}{n! \cdot n!} \igual{\red{!}}
+          \frac{(2n-1)!}{n! \cdot  (n-1)!}
         $$
         Ahora podemos ver que esta expresión es lo mismo que $\binom{2n-1}{n-1}$, el cual es un número entero. Concluimos
         entonces que $\binom{2n}{n}$ es par.
@@ -72,7 +56,6 @@
           con $n$ par (en este caso el $n$ seria el $2n$ de nuestro coeficiente binomial), pueden ver que todos los valores que están en el medio
           en el triángulo de pascal surgen de la suma de los dos de arriba, que son exactamente iguales.
         }
-
 \end{enumerate}
 
 \begin{aportes}

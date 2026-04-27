@@ -6,28 +6,55 @@
 \end{enunciado}
 
 \begin{enumerate}[label=\alph*)]
-  \item Dado que $\binom{\green{m}}{n} \en \enteros$. Escribo al número combinatorio como:
+  \item Dado que $\binom{n}{m} \en \naturales$, para $n, m \en \naturales$. Escribo al número combinatorio como:
+        $$
+          \binom{n + m - 1}{m}_{\text{\magic}}
+        $$
+        y ahora se masajea hasta buscar la expresión de:
+        \parrafoDestacado{
+          Un producto de $\orange{m}$ números consecutivos dividido $\orange{m!}$
+        }
         $$
           \begin{array}{rcl}
-            \binom{\green{m}}{n} & \igual{def} & \frac{\green{m}!}{n! \cdot (\green{m}-n)!} \\
-                                 & =           &
-            \frac{\green{m}}{(\green{m}-n)!} \cdot \frac{1}{n!}                             \\
-                                 & =           &
-            \frac{\frac{\green{m}}{(\green{m}-n)!}}{n!}                                     \\
-                                 & =           &
+            \binom{n + m - 1}{m} & \igual{def}      & \frac{(n + m - 1)!}{m! \cdot (n - 1)!} \\\\
+                                 & =                &
+            \frac{(n + m - 1)!}{(n - 1)!} \cdot \frac{1}{\orange{m!}}                        \\
+                                 & \igual{\red{!!}} &
+            \frac{
+              \frac{
+                (n+m-\orange{1}) \cdot
+                (n+m-\orange{2})
+                \cdots
+                (n + m - \orange{(m - 1)}) \cdot
+                (n + m - \orange{m}) \cdot
+                \ob{
+                  \scriptscriptstyle
+                  (n + m - \orange{(m + 1)})!
+                }{
+                  \scriptscriptstyle
+                  \blue{(n-1)!}
+                }
+              }{\blue{(n-1)!}}
+            }{\orange{m!}}                                                                   \\\\
+                                 & \igual{\red{!!}} &
             \frac{
               \ob{
-                \scriptstyle \green{m} \cdot (\green{m} - 1) \cdot (\green{m} - 2) \cdots (\green{m} - n + 2) \cdot (\green{m} - n + 1)
-              }{
-                \text{ \tiny producto de $\green{m}$ números consecutivos}
-            }}{n!}                                                                          \\
-                                 & \en         & \enteros
+                \scriptstyle
+                (n + m - \orange{1}) \cdot
+                (n + m - \orange{2})
+                \cdots
+                (n + m - \orange{(m - 1)}) \cdot
+                (n + m - \orange{m})
+              }{\scriptscriptstyle
+                \orange{m} ~ \text{números consecutivos}
+              }
+            }{\orange{m!}}            \en               \naturales
           \end{array}
         $$
 
         \parrafoDestacado{
           \it
-          ¿Es esto la demostración de algo? Naa.
+          ¿Es esto la demostración de algo? ¡Misterio!
         }
 
   \item
@@ -60,4 +87,5 @@
 
 \begin{aportes}
   \item \aporte{https://github.com/sigfripro}{sigfripro \github}
+  \item \aporte{https://github.com/xbz-24}{Renato C. \github}
 \end{aportes}

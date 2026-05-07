@@ -10,61 +10,90 @@
   \end{multicols}
 \end{enunciado}
 
-\begin{enumerate}[label=\alph*)]
-  \item $99 \divideA 10^{2n} + 197 \Sii{def}
-          \congruencia{10^{2n} + 197}{0}{99} \to
-          \congruencia{10^{2n} + 198}{1}{99} \to
-          \congruencia{10^{2n} + \ub{198}{\conga{99} 0}}{1}{99} \to \congruencia{100^n}{1}{99}\to \\
-          \llave{l}{
-            \flecha{sé}[que] \congruencia{100}{1}{99} \sisolosi \congruencia{100^2}{\ub{100}{ \conga{99} 1 }}{99} \to
-            \congruencia{100^2}{1}{99} \sisolosi \dots \sisolosi \congruencia{100^n}{1}{99} \\
-          }
-        $\par
-        Se concluye que  $99 \divideA 10^{2n} + 197 \sisolosi 99 \divideA \ub{100 - 1}{99}$
+\parrafoDestacado[\atencion]{
+  \it
+  Por ser el primer ejercicio de este estilo algunos pasos, son evitables/redundantes, pero siguen siendo válidos.
+  Más adelante los ejercicios van a estar hechos usando resultados de forma más directa.
+}
 
+\begin{enumerate}[label=\alph*)]
   \item
-        $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
-          \Sii{def}
-          \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}
-          \flecha{sumo $2\cdot 5^{2n}$}[M.A.M]
-          \congruencia{\ub{9 \cdot 5^{2n}}{\conga9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9}\\
-          \flecha{simplifico}[y acomodo]
-          \congruencia{2^{4n}}{5^{2n}}{9} \to
-          \congruencia{16^n}{25^n}{9}
-          \flecha{simetría}[congruencia]
-          \congruencia{25^n}{16^n}{9}
-          \flecha{$25\conga9 16$}
-          \congruencia{25}{16}{9} =
-          \congruencia{9}{0}{9}\\
-        $
-        Se concluye que $9 \divideA 7 \cdot 5^{2n} + 2^{4n+1} \sisolosi 9 \divideA 9$ \red{$\leftarrow$ ¿Se concluye esto...?}
+        $$
+          \begin{array}{rcl}
+            99 \divideA 10^{2n} + 197 & \Sii{def}      & \congruencia{10^{2n} + 197}{0}{99}                    \\
+                                      & \sii           & \congruencia{10^{2n} + 198}{1}{99}                    \\
+                                      & \Sii{\red{!}}  & \congruencia{10^{2n} + \ub{198}{\conga{99} 0}}{1}{99} \\
+                                      & \sii           & \congruencia{100^n}{1}{99}                            \\
+                                      & \Sii{\red{!!}} & \congruencia{1^n}{1}{99}                              \\
+                                      & \Sii{def}      & 99 \divideA 1 - 1 \sii 99 \divideA 0                  \\
+          \end{array}
+        $$
+        En el último \red{!!} uso que $a^n \conga{b} (r_b(a))^n$ que funciona por algo así (\textit{pseudo-demo}):
+        $$
+          \begin{array}{rcl}
+            \congruencia{100}{1}{99} & \Sii{$\times 100$}[M.A.M] & \congruencia{100^2}{\ub{100}{ \conga{99} 1 }}{99} \sii \congruencia{100^2}{1}{99} \\\\
+                                     & \Sii{$\times 100$}[M.A.M] & \congruencia{100^3}{100}{99} \sii \congruencia{100^3}{1}{99}                      \\
+                                     & \vdots                    & \vdots                                                                            \\
+                                     & \Sii{$\times 100$}[M.A.M] & \congruencia{100^n}{100}{99} \sii \cajaResultado{\congruencia{100^n}{1}{99} }     \\
+          \end{array}
+        $$
+
+        Se concluye que:
+        $$
+          \cajaResultado{
+            99 \divideA 10^{2n} + 197
+          }
+        $$
+
+  \item Parecido al anterior:
+        $$
+          \begin{array}{rcl}
+            9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
+             & \Sii{def}                         & \congruencia{7\cdot5^{2n} + 2^{4n+1}}{0}{9}                                     \\
+             & \Sii{sumo $2\cdot 5^{2n}$}[M.A.M] & \congruencia{\ub{9 \cdot 5^{2n}}{\conga9 0} + 2\cdot 2^{4n}}{2 \cdot 5^{2n}}{9} \\
+             & \sii                              & \congruencia{2^{4n}}{5^{2n}}{9}                                                 \\
+             & \sii                              & \congruencia{16^n}{25^n}{9}                                                     \\
+             & \Sii{\red{!}}                     & \congruencia{7^n}{7^n}{9}                                                       \\
+             & \Sii{def}                         & 9 \divideA 0
+          \end{array}
+        $$
+        Se concluye que:
+        $$
+          \cajaResultado{
+            9 \divideA 7 \cdot 5^{2n} + 2^{4n+1}
+          }
+        $$
 
   \item $56 \divideA 13^{2n} + 28n^2 - 84n -1 \Sii{def} \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$. Procedemos a probar esto por induccion:
-  
-  $$
-  p(n) : \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}
-  $$
 
-  \textit{Caso base: }
+        $$
+          p(n) : \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}
+        $$
 
-  \begin{align}
-  p(1) : \congruencia{13^2 + 28 - 84 - 1}{0}{56} \\
-  \congruencia{0}{0}{56} \Tilde
-  \end{align}
+        \textit{Caso base: }
+        $$
+          p(1) : \congruencia{\ub{13^2 + 28 - 84 - 1}{\conga{56} 0}}{0}{56}
+        $$
+        El caso base resultó verdadero.
 
-  Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo es. 
+        \medskip
+        \textit{Paso inductivo:}
 
-  \begin{align}
-  \congruencia{13^{2n + 2} + 28(n+1)^2 - 84(n+1) - 1}{0}{56} \\
-  \congruencia{13^{2n} \cdot 13^2 + 28n^2 + 56n + 28 -84n - 84 - 1}{0}{56} \\
-  \congruencia{\red{\underbrace{13^{2n} + 28n^2 + 56n -84n}_{\text{hipotesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
-  \congruencia{28 - 84 + 168}{0}{56} \\
-  \congruencia{112}{0}{56} \Tilde
-  \end{align}
+        Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo es.
+        $$
+          \begin{array}{rcl}
+            \congruencia{13^{2n + 2} + 28(n+1)^2 - 84(n+1) - 1}{0}{56}
+             & \sii              & \congruencia{13^{2n} \cdot 13^2 + 28n^2 + 56n + 28 -84n - 84 - 1}{0}{56}                                                \\
+             & \Sii{\purple{HI}} & \congruencia{\purple{\underbrace{13^{2n} + 28n^2 + 56n -84n}_{\text{hipotesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
+             & \sii              & \congruencia{28 - 84 + 168}{0}{56}                                                                                      \\
+             & \sii              & \congruencia{112}{0}{56}
+          \end{array}
+        $$
 
-  Se probó que $p(n + 1)$ es verdadera, luego $p(n)$ es verdadera para todo $n \in \naturales$
+        Se probó que $p(n + 1)$ es verdadera, luego $p(n)$ es verdadera para todo $n \en \naturales$.
 
-  \item  Hermoso ejercicio en el que sin fe en el todo poderoso Gauss sencillamente uno tira la toalla.
+  \item
+        Hermoso ejercicio en el que sin fe, en el \textit{todo poderoso Gauss}, sencillamente uno tira la toalla antes de tiempo.
 
         Sale por inducción:
 
@@ -105,7 +134,7 @@
             \conga{(256)}[\purple{\text{HI}}]
             49 \cdot (-208k + 1) + 208k + 208 - 1                                                                                \\
                                            & \conga{256}             & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49 \\
-                                           & \conga{(256)}[\red{!!}] & 48 k + 49 - 48k - 49 = 0 \Tilde
+                                           & \conga{256}[\red{!!}] & 48 k + 49 - 48k - 49 = 0 \Tilde
           \end{array}
         $$
         En \red{!!} y gracias a Gauss $\congruencia{2352}{48}{256}$ ¿Casualidad? No sé y no me importa.\par

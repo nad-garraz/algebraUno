@@ -6,12 +6,16 @@
 \end{enunciado}
 
 Un número compuesto es un número natural que tiene más de 2 divisores. Un número compuesto $n$ se puede
-escribir como el producto de 2 números menores, en particular son dos divisores de n, $n = d_1 \cdot d_2$.
+escribir como el producto de 2 números menores,
+en particular son dos divisores de $n$:
+$$
+  n = d_1 \cdot d_2
+$$
 
 \begin{enumerate}[label=\roman*)]
   \item  Mirá el ejercicio \refEjercicio{ej:3} a ver si se te ocurre como usar ese resultado en esta parte.
 
-        A partir del resultado dle ejercicio \refEjercicio{ej:3}:
+        A partir del resultado del ejercicio \refEjercicio{ej:3}:
         $\congruencia{a^n - b^n}{0}{a - b} \paratodo n \en \naturales \ytext a\distinto b \en \enteros$.
         $$
           \begin{array}{rcl}
@@ -19,7 +23,7 @@ escribir como el producto de 2 números menores, en particular son dos divisores
              & \Sii{def}                      &
             a^n - b^n = (a - b) \cdot k                 \\
              & \Sii{$a = 2^{d_1}$}[$n = d_2$] &
-            (2^{d_1})^{d_2} - b = (2^{d_1} - b) \cdot k \\
+              (2^{d_1})^{d_2} - b^{d_2} = (2^{d_1} - b) \cdot k \\
              & \Sii{$b = 1$}                  &
             2^{d_1 \cdot d_2} - 1 = (2^{d_1} - 1) \cdot k
           \end{array}

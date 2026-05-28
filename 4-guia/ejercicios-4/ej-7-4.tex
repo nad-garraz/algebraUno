@@ -1,5 +1,5 @@
 \begin{enunciado}{\ejercicio}
-  Proba que las siguientes afirmaciones son vedaderas para todo $n \en \naturales.$
+  Proba que las siguientes afirmaciones son verdaderas para todo $n \en \naturales.$
   \begin{multicols}{2}
     \begin{enumerate}[label=\alph*)]
       \item $99 \divideA 10^{2n} + 197$
@@ -64,27 +64,30 @@
           }
         $$
 
-  \item $56 \divideA 13^{2n} + 28n^2 - 84n -1 \Sii{def} \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$. Procedemos a probar esto por induccion:
+  \item $56 \divideA 13^{2n} + 28n^2 - 84n -1
+      \Sii{def}
+        \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$.
 
+        Lo \textit{hagaimos} por inducción:
         $$
           p(n) : \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}
         $$
 
-        \textit{Caso base: }
+        \textit{Caso base:}
         $$
           p(1) : \congruencia{\ub{13^2 + 28 - 84 - 1}{\conga{56} 0}}{0}{56}
         $$
-        El caso base resultó verdadero.
+        El caso base resultó \textit{verdadero}.
 
         \medskip
         \textit{Paso inductivo:}
 
-        Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo es.
+        Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo sea.
         $$
           \begin{array}{rcl}
             \congruencia{13^{2n + 2} + 28(n+1)^2 - 84(n+1) - 1}{0}{56}
              & \sii              & \congruencia{13^{2n} \cdot 13^2 + 28n^2 + 56n + 28 -84n - 84 - 1}{0}{56}                                                \\
-             & \Sii{\purple{HI}} & \congruencia{\purple{\underbrace{13^{2n} + 28n^2 + 56n -84n}_{\text{hipotesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
+             & \Sii{\purple{HI}} & \congruencia{\ub{13^{2n} + 28n^2 + 56n -84n}{\purple{\text{hipótesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
              & \sii              & \congruencia{28 - 84 + 168}{0}{56}                                                                                      \\
              & \sii              & \congruencia{112}{0}{56}
           \end{array}
@@ -97,7 +100,7 @@
 
         Sale por inducción:
 
-        \textit{Quiero ver que:}
+        \textit{Quiero ver que la siguiente proposición es verdadera:}
         $$
           p(n) : 256 \divideA 49^n + 208n - 1
         $$
@@ -119,20 +122,19 @@
         Uso la notación de congruencia de acá en adelante, porque es mucho más cómodo.
         Supongo que:
         $$
-          p(\blue{k}) : \ub{\congruencia{49^{\blue{k}} + 208 \cdot \blue{k} - 1}{0}{256}}{\purple{\text{hipótesis inductiva}}}
+          p(\blue{k}) : \ub{\congruencia{49^{\blue{k}} + 208  \blue{k} - 1}{0}{256}}{\purple{\text{hipótesis inductiva}}}
           \quad \text{ para algún } \blue{k} \en \enteros
         $$
         es  una proposición verdadera.
         Entonces quiere probar que:
         $$
-          p(\blue{k+1}) : \congruencia{49^{\blue{k+1}} + 208 \cdot (\blue{k+1}) - 1}{0}{256},
+          p(\blue{k+1}) : \congruencia{49^{\blue{k+1}} + 208  (\blue{k+1}) - 1}{0}{256},
         $$
         también sea verdadera. Arranco del paso $(k+1)$ y haciendo un poco de \textit{matemagia}:
         $$
           \begin{array}{rcl}
-            49^{k+1} + 208 \cdot (k+1) - 1 & =                       & 49 \cdot 49^k + 208k + 208 - 1
-            \conga{(256)}[\purple{\text{HI}}]
-            49 \cdot (-208k + 1) + 208k + 208 - 1                                                                                \\
+            49^{k+1} + 208 \cdot (k+1) - 1 & =                       & 49 \cdot 49^k + 208k + 208 - 1 \\
+              &\conga{256}[\purple{\text{HI}}]& 49 \cdot (\purple{-208k + 1}) + 208k + 208 - 1 \\\\
                                            & \conga{256}             & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49 \\
                                            & \conga{256}[\red{!!}] & 48 k + 49 - 48k - 49 = 0 \Tilde
           \end{array}

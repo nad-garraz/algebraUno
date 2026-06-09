@@ -68,88 +68,195 @@
 
         Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción en también lo es $p(n) \paratodo n \en \naturales$.
 
-  \item Lindo ejercicio, \cyan{intentá hacerlo antes de mirar la resolución}.
+  \item
+        Se muestran 2 formas de resolver. La segunda más corta. Ambas tienen el mismo \textit{truco}, las dejo a ambas, porque no le hace mal a nadie:
+        Lindo ejercicio, \cyan{intentá hacerlo antes de mirar la resolución}.
 
-        Sale también por inducción.
+        \begin{enumerate}[label=\violet{(\arabic*)}]
+          \item
 
-        Quiero probar la proposición:
-        $$
-          p(n) : \text{0 es raíz de multiplicidad $n$ de $f_n \ \paratodo n \en \naturales$}
-        $$
-        O de forma equivalente:
-        $$
-          p(n) :  X^n \divideA f_n \ \paratodo n \en \naturales
-        $$
+                Sale también por inducción.
 
-        \textit{Caso base:}
-        $$
-          p(\blue{1}) : X^{\blue{1}} \divideA f_{\blue{1}}
-        $$
-        Se cumple enseguida que:
-        $$
-          X \divideA X^3 + 2X
-          \sii
-          X \divideA X \cdot (X^2 + 2)
-        $$
-        Por lo tanto $p(\blue{1})$ es verdadera.
+                Quiero probar la proposición:
+                $$
+                  p(n) : \text{0 es raíz de multiplicidad $n$ de $f_n \ \paratodo n \en \naturales$}
+                $$
+                O de forma equivalente:
+                $$
+                  p(n) :  X^n \divideA f_n ~ \land ~ X^{n+1} \noDivide f_n \paratodo n \en \naturales
+                $$
 
-        \textit{Paso inductivo:}
+                \textit{Caso base:}
+                $$
+                  p(\blue{1}) : X^{\blue{1}} \divideA f_{\blue{1}} ~ \land ~ X^{\blue{1} + 1} \noDivide f_1
+                $$
+                Se cumple enseguida que:
+                $$
+                  X \divideA X^3 + 2X ~ \land ~ X^2 \noDivide X^3 + 2X
+                  \sii
+                  X \divideA X \cdot (X^2 + 2)  ~ \land ~ X^2 \noDivide X \cdot (X^2 + 2)
+                $$
+                Por lo tanto $p(\blue{1})$ es verdadera.
 
-        Asumo para un $\blue{k} \en \naturales$ que:
-        $$
-          p(\blue{k}) : \ub{
-            X^{\blue{k}} \divideA f_{\blue{k}}
-          }{
-            \text{\purple{hipótesis inductiva}}
-          }
-        $$
-        es una proposición verdadera. Entonces quiero probar que:
-        $$
-          p(\blue{k + 1}) : X^{\blue{k+1}} \divideA f_{\blue{k+1}}
-        $$
-        también lo sea.
-        $$
-          X^{\blue{k+1}} \divideA f_{\blue{k+1}}
-          \sii
-          X^{\blue{k+1}} \divideA Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
-        $$
-        Exploto la \purple{hipótesis inductiva} para construir el paso $\blue{k+1}$:
-        $$
-          \begin{array}{c}
-            \Entonces{\purple{HI}}
-            X^k \divideA f_k
-            \Sii{\red{!}}
-            X^k \divideA f_k \cdot f_k
-            \Sii{\red{!}}
-            X \cdot X^k \divideA X\cdot f_k^2
-            \sii
-            X^{k+1} \divideA X \cdot f_k^2  \quad \llamada1 \\
-            \text{y parecido con la derivada}               \\
-            \Entonces{\red{!!}}	      X^{k-1} \divideA f'_k
-            \Sii{\red{!}}
-            X^2 \cdot X^{k-1} \divideA X^2 \cdot f'_k
-            \sii
-            X^{k+1} \divideA X^2 \cdot f'_k \quad \llamada2
-          \end{array}
-        $$
-        Donde en \red{!!} usé la \purple{hipótesis inductiva}, si $f_k$ tiene como raíz al 0 con multiplidad $k$ entonces la derivada tiene que
-        tener multiplicidad $k-1$ en 0.
-        Con esos hermosos, tiernos y sabrosos resultados de $\llamada1 \ytext \llamada2$:
-        $$
-          \llave{l}{
-            X^{k+1} \divideA X \cdot f_k^2  \\
-            X^{k+1} \divideA X^2 \cdot f'_k
-          }
-          \sii
-          X^{\blue{k+1}} \divideA X \cdot f_{\blue{k}}^2 +  X^2 \cdot f'_{\blue{k}} \\
-        $$
+                \textit{Paso inductivo:}
 
-        \medskip
+                Asumo para un $\blue{k} \en \naturales$ que:
+                $$
+                  p(\blue{k}) : \ub{
+                    X^{\blue{k}} \divideA f_{\blue{k}}
+                    ~\land~
+                    X^{\blue{k} + 1} \noDivide f_{\blue{k}}
+                  }{
+                    \text{\purple{hipótesis inductiva}}
+                  }
+                $$
+                es una proposición verdadera. Entonces quiero probar que:
+                $$
+                  p(\blue{k + 1}) : X^{\blue{k+1}} \divideA f_{\blue{k+1}}
+                  ~\land~
+                  X^{\blue{k + 1} + 1} \noDivide f_{\blue{k+1}}
+                $$
+                también lo sea.
+                $$
+                  X^{\blue{k+1}} \divideA f_{\blue{k+1}}
+                  \Sii{def}
+                  X^{\blue{k+1}} \divideA Xf_{\blue{k}}^2 + X^2f'_{\blue{k}}
+                $$
+                Exploto la \purple{hipótesis inductiva} para construir el paso $\blue{k+1}$:
+                $$
+                  \begin{array}{c}
+                    \Entonces{\purple{HI}}
+                    X^k \divideA f_k
+                    \Entonces{\red{!}}
+                    X^k \divideA f_k \cdot f_k
+                    \Sii{\red{!}}
+                    X \cdot X^k \divideA X\cdot f_k^2
+                    \sii
+                    X^{k+1} \divideA X \cdot f_k^2  \quad \llamada1 \\
+                    \text{y parecido con la derivada}               \\
+                    \Entonces{\red{!!}}	      X^{k-1} \divideA f'_k
+                    \Sii{\red{!}}
+                    X^2 \cdot X^{k-1} \divideA X^2 \cdot f'_k
+                    \sii
+                    X^{k+1} \divideA X^2 \cdot f'_k \quad \llamada2
+                  \end{array}
+                $$
+                Donde en \red{!!} usé la \purple{hipótesis inductiva}, si $f_k$ tiene como raíz al 0 con multiplidad $k$ entonces la derivada tiene que
+                tener multiplicidad $k-1$ en 0.
+                Con esos hermosos, tiernos y sabrosos resultados de $\llamada1 \ytext \llamada2$:
+                $$
+                  \llave{l}{
+                    X^{k+1} \divideA X \cdot f_k^2  \\
+                    X^{k+1} \divideA X^2 \cdot f'_k
+                  }
+                  \entonces
+                  X^{\blue{k+1}} \divideA X \cdot f_{\blue{k}}^2 +  X^2 \cdot f'_{\blue{k}}
+                $$
+                Lista la primera parte.
 
-        Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción también lo es $p(n) \paratodo n \en \naturales$.
+                \medskip
+
+                Para mostrar que
+                $
+                  X^{k + 2} \noDivide f_{k+1}
+                $
+                Contruyo la función $f_{k+1} \igual{$\llamada3$} Xf_k^2 + X^2 f_n'$ a partir de la \purple{hipótesis inductiva}:
+                $$
+                  \purple{X^{k + 1} \noDivide f_k}
+                  \Sii{descomposición}[en irreducibles]
+                  f_k = X^k \cdot
+                  \ub{q(X)}
+                  {
+                    \distinto 0 ~ \text{para} ~ X=0
+                  }
+                $$
+                Esa forma de escribir a $f_k$ implica que no hay factores $X^{\blue{\alpha}}$ en $q(X)$, es decir que la multiplicidad de  $X = 0$ como
+                raíz de $f_{\blue{k}}$ no puede ser $\blue{k+1}$.
+
+                Consiguiendo los ingredientes y cocinando \faIcon{mortar-pestle}:
+                $$
+                  \llave{rcl}{
+                    f_k^2 &=& X^{2k} \cdot q^2(X)  \\
+                    f_k' & = & kX^{k+1} \cdot q(X) + X^k q'(X)
+                  }
+                  \Entonces{\red{!!!}}[$\llamada3$]
+                  f_{\blue{k+1}} =
+                  X^{\blue{k}+1} \cdot
+                  \ub{
+                    \big(
+                    X^{\blue{k}} \cdot q^2(X) + \blue{k} \cdot q(X) + X \cdot q'(X)
+                    \big)
+                  }
+                  {
+                    \distinto 0 ~ \text{para} ~ X=0
+                  }
+                $$
+                Mostrando así que $p(\blue{k+1})$ también es verdadera.
+
+                \medskip
+
+                Como $p(1), p(k) \ytext p(k+1)$ resultaron todas verdaderas por principio de inducción también lo es $p(n) \paratodo n \en \naturales$.
+
+                \bigskip
+
+          \item
+
+                \textbf{Proposición:}
+                $$
+                  p(n): f_n = X^n \cdot Q_n(X) \quad \text{con} \quad Q_n \en \racionales[X] \quad \text{y} \quad Q_n(0) \distinto 0
+                $$
+
+                \textbf{Caso base:}
+
+                $$p(1): f_1 = X^3 + 2X = X
+                  \ub{
+                    (X^2 + 2)
+                  }{
+                    Q_1(X)
+                  }$$
+                $Q_1(0) = 0^2 + 2 = 2 \distinto 0 \entonces p(1)$ es verdadera.
+
+                \textbf{Paso Inductivo:}
+
+                Sea $h \en \naturales$. Supongamos que $p(h)$ es verdadera.
+
+                (H.I.) $p(h): f_h = X^h \cdot Q_h(X) \quad \text{con} \quad Q_h(0) \distinto 0$
+
+                (T.I.) $p(h+1): f_{h+1} = X^{h+1} \cdot Q_{h+1}(X) \quad \text{con} \quad Q_{h+1}(0) \distinto 0$
+
+                Por definición de la sucesión sabemos que:
+                $$
+                  \begin{array}{rcl}
+                    f_{h+1} & =                 & X \cdot f_h^2 + X^2 \cdot f'_h                                                                       \\
+                            & \Sii{\purple{HI}} & X \cdot (X^h \cdot Q_h(X))^2 + X^2 \cdot (X^h \cdot Q_h(X))'                                         \\
+                            & \sisolosi         & X \Big[ X^{2h} \cdot Q_h(X)^2 + X \cdot \big( h X^{h-1} \cdot Q_h(X) + X^h \cdot Q'_h(X) \big) \Big] \\
+                            & \sisolosi         & X \Big[ X^{2h} \cdot Q_h(X)^2 + h X^h \cdot Q_h(X) + X^{h+1} \cdot Q'_h(X) \Big]                     \\
+                            & \sisolosi         & X^{h+1}
+                    \ub{
+                      \Big[ X^h \cdot Q_h(X)^2 + h \cdot Q_h(X) + X \cdot Q'_h(X) \Big]
+                    }{
+                      Q_{h+1}(X)
+                    }
+                  \end{array}
+                $$
+                Ahora hay que verificar que $\mult(0; f_{h+1}) = h+1$, o equivalentemente que $Q_{h+1}(0) \distinto 0$:
+                \begin{align*}
+                  Q_{h+1}(0) & = 0^h \cdot (Q_h(0))^2 + h \cdot Q_h(0) + 0 \cdot Q'_h(0) \\
+                             & = \ub{h}{h \en \naturales                                 \\ \entonces h \distinto 0}
+                  \cdot
+                  \ob{Q_h(0)}{\text{Por H.I. es } \distinto 0}                           \\
+                             & \entonces Q_{h+1}(0) \distinto 0
+                \end{align*}
+
+                \vspace{0.5cm}
+                \noindent\textbf{Conclusión:} \\
+                Como $p(1)$ es verdadera y $p(h) \entonces p(h+1)$ para todo $h \en \naturales$, por el Principio de Inducción Matemática, $p(n)$ es verdadera para todo $n \en \naturales$.
+
+        \end{enumerate}
 
 \end{enumerate}
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/TotoMC-13}{Tomás A. \github}
 \end{aportes}

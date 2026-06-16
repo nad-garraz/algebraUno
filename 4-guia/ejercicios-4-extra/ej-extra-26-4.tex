@@ -1,0 +1,125 @@
+\begin{enunciado}{\ejExtra[10/06/26 🌶Ejercicio de la Práctica]}
+  \fechaEjercicio{10/06/26 Ejercicio de la Práctica}
+  Sean $a$, $b \en \enteros$ tal que $(a:b) = 7$.
+  Hallar todos los $d = (15a^2 - 9b + 27: 189)$.
+\end{enunciado}
+
+Arranco \textit{coprimizando}, dado que tener números coprimos permite inferir la divisibilidad o no de las expresiones:
+$$
+  (a:b) = 7
+  \Sii{
+    $\llaves{rcl}{
+        a = 7A\\
+        b = 7B
+      }$
+  }
+  d = 3 \cdot \ub{(5\cdot7^2A^2 - 3 \cdot 7 B + 9: 3^2 \cdot 7)}{D}
+  \sii
+  d = 3 \cdot D
+$$
+Estudio ahora los posibles valores de $D$ con $A \cop B$.
+
+\bigskip
+\parrafoDestacado{
+  El \textit{máximo común divisor} se consigue haciendo el producto de las potencias,
+  de la factorización en primos, comunes entre ambos números, de mayor exponte.
+}
+
+Posibles valores de $D$ dado que debe cumplir que:
+
+$$
+  \llave{rcl}{
+
+    D & \divideA & 5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9 \\
+    & &\land  \\
+    D & \divideA & 3^2 \cdot 7
+  }
+  \entonces
+  D \en \set{1, 3, 7, 9, 21, 63}
+$$
+Estudio la divisibilidad de $ 5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9$
+para ver de \textit{descartar} potenciales valores de $D$.
+Sale rápido que:
+$$
+  \llave{l}{
+    \congruencia{ 5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9}{2}{7} \\
+    \congruencia{ 5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9}{0}{3}
+  }
+  \Entonces{actualizo}[$D$]
+  D \en \set{1, 3, 9}
+$$
+\medskip
+
+\textit{Estudio divisibilidad por $9$:}
+$$
+  \llave{l}{
+    \congruencia{ 5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9}{2 \cdot (\ub{r_9(A)^2 + 3 \cdot r_9(B))}{\distinto 0 ~ ~ \text{para} ~~ A \cop B}}{9} \\
+  }
+$$
+Para que la expresión sea nula, deberían tener tanto $A$ como $B$ a 3 como un divisor común y eso no puedo ocurrir dado que son \textit{coprimos}.
+
+Actualizando $D$:
+$$
+  D \en \set{1,3}
+$$
+
+\medskip
+
+\textit{Estudio divisibilidad por $3$:}
+
+\magenta{Suponiendo el caso particular} en que $A$ \ul{no} es un múltiplo de 3:
+
+$$
+  \begin{array}{|r|c|c|c|} \hline
+    r_3(A)                 & 1 & 2 \\\hline
+    r_3((r_3(A)^2)         & 1 & 1 \\ \hline
+    r_3(2 \cdot (r_3(A)^2) & 2 & 2 \\ \hline
+  \end{array}
+  \entonces
+  \congruencia{5 \cdot 7^2 A^2 - 3 \cdot 7 B + 9}{\ub{2 \cdot (r_3(A))^2}{3 \noDivide A \entonces \distinto 0}}{3}
+$$
+Si no es divisible por 3, tampoco lo será por 9. Concluyo así que \textit{en este caso}:
+$$
+  D = 1 \entonces d = 3
+$$
+
+\bigskip
+
+\magenta{Suponiendo el caso particular} en que $A$ \ul{sí} es un múltiplo de 3:
+$$
+  \text{Si} ~ ~ A = 3\alpha ~ \land ~ A \cop B \entonces \alpha \cop B \land 3 \noDivide B
+$$
+Puedo reescribir la expresión de $D$:
+$$
+  D = 3 \cdot \ub{(3 \cdot 5\cdot7^2 \alpha^2 - 7 B + 3: 3 \cdot 7)}{\delta} \sii D = 3 \delta
+$$
+\parrafoDestacado{
+  \it
+  ¿Qué sé sobre $\delta$?
+}
+Sin pensar nada sé que $\delta \en \set{1, 3, 7, 21}$, pero con un mínimo de ganas:
+$$
+  \begin{array}{lcl}
+    \congruencia{3 \cdot 5 \cdot 7^2 \alpha^2 - 7 B + 3}{3}{7}                                & \entonces & \delta \distinto 7 \\
+    \congruencia{3 \cdot 5 \cdot 7^2 \alpha^2 - 7 B + 3}{2 \cdot \ub{r_3(B)}{\distinto 0}}{3} & \entonces & \delta \distinto 3
+  \end{array}
+$$
+Concluyo así que cuando $A = 3 \cdot \alpha$:
+$$
+  \delta = 1 \entonces D \divideA 3 \entonces d \divideA 9
+$$
+
+Por lo tanto:
+$$
+  \cajaResultado{
+    d =
+    \llave{rcl}{
+      9 & \sii & 21 \divideA a \\
+      3 & \multicolumn{2}{l}{\text{si no}}
+    }
+  }
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

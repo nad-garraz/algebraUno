@@ -1,0 +1,73 @@
+\begin{enunciado}{\ejExtra[23/06/26 🌶Ejercicio de la Práctica]}
+  \fechaEjercicio{23/06/26 Ejercicio de la Práctica}
+
+  Calcular la cantidad de funciones inyectivas $f: \set{1,2,\ldots, 7} \to \set{1,2, \ldots, 11}$
+  que cumplen simultáneamente
+  \begin{itemize}
+    \item $f(1) < f(7)$
+    \item $f(3)$ es par
+  \end{itemize}
+\end{enunciado}
+
+\begin{itemize}
+  \item Para cumplir que $f(1) < f(7)$ tomo 2 números cualesquiera del conjunto de llegada,
+        la cantidad de formas de elegir esos dos valores sería:
+        $$
+          \binom{11}{2}.
+        $$
+        Eso me resuelve la primera condición. Recordar que contar con el número combinatorio
+        a ciegas \faIcon{blind} funciona lo más bien, porque entre 2 números distintos que yo elija
+        siempre van a ser \textit{uno mayor que el otro} y el número combinatorio
+        \textit{no cuenta permutaciones}, es decir que, si agarro el \textit{3 y el 2}, los
+        ordeno tipo:
+        $$
+          f(1) = 2 ~~\text{y} ~~ f(7) = 3
+        $$
+        y listo, \textit{hacerlo al revés no entra dentro del cálculo del número combinatorio}
+
+  \item La segunda condición: \textit{$f(3)$ es par} está condicionada a los números que tomé
+        en el paso anterior, dado que no sé si tomé números \ul{pares}, \ul{impares}
+        $\ua{\red{\text{o}}}{\text{\red{\atencion}}}$
+        \ul{uno de cada}.
+        \begin{enumerate}[label=(\faIcon{calculator}$_{\arabic*}$)]
+          \item
+                \ul{\textit{Si tomé 2 números pares}}:
+                \parrafoDestacado{
+                  Me quedan para elegir 3 números pares, entonces
+                  puedo elegir para
+
+                  \ul{$f(3) \to  \magenta{3}$ posibles números pares}.
+                }
+
+          \item
+                \ul{\textit{Si tomé 1 número par y 1 impar}}:
+                \parrafoDestacado{
+                  Me quedan para elegir 4 números pares, entonces
+                  puedo elegir para
+
+                  \ul{$f(3) \to \magenta{4}$ posibles números pares}.
+                }
+
+          \item
+                \ul{\textit{Si tomé 2 números impares}}:
+                \parrafoDestacado{
+                  Me quedan para elegir 5 números pares, entonces
+                  puedo elegir para
+
+                  \ul{$f(3) \to \magenta{5}$ posibles números pares}.
+                }
+        \end{enumerate}
+\end{itemize}
+
+Juntando toda esa info solo resta completar de forma \textit{inyectiva}
+los \blue{4} elementos restantes del dominio con los \green{8} elementos restantes del codominio:
+$$
+  \binom{11}{2} \cdot
+  (\magenta{3} + \magenta{4} + \magenta{5} ) \cdot
+  \frac{\green{8}!}{(\green{8} - \blue{4})!} =
+  55 \cdot 12 \cdot 1680 = 1.108.800
+$$
+
+\begin{aportes}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
+\end{aportes}

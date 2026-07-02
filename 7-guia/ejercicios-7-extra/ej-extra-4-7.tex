@@ -11,24 +11,48 @@
 
 Si el $(f:X^4 - X^3 +6X^2  -5X +5) \distinto 1$, esto nos da información
 sobre \textit{raíces comunes} entre $f$ y $X^4 - X^3 +6X^2  -5X +5$. Puedo hacer el algoritmo de Euclides para encontrar el MCD, con esa
-o esas raíces. El último resto no nulo hecho \textbf{mónico} será el MCD.
+o esas raíces. El último \textit{resto no nulo hecho} \textbf{mónico} será el MCD.
 
 \medskip
 
-{\tiny
 $$
-      \mcd{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^4 - X^3 +6X^2  -5X +5}
+  \divPol{X^5 + 2X^4 - 7X^3 - 7X^2 + 10X -15}{X^4 - X^3 +6X^2 - 5X +5}
 $$
-}
-Por lo que:
-
+Euclides me dice que:
 $$
-  (f:X^4 - X^3 +6X^2  -5X +5) = X^2 - X + 1.
+  \begin{array}{rcl}
+    (f : X^4 - X^3 +6X^2 - 5X +5) & \igual{\red{!}} & (X^4 - X^3 +6X^2 - 5X +5 : \ub{X^3 + 2X^2 - 2X + 3}{\text{lo hice mónico\red{!}}})
+  \end{array}
+$$
+Divido otra vez haciendo así más Euclides:
+$$
+  \divPol{X^4 - X^3 +6X^2 - 5X +5}{X^3 + 2X^2 - 2X + 3}
+$$
+Euclides me tira ahora que:
+$$
+  \begin{array}{rcl}
+    (f : X^4 - X^3 +6X^2 - 5X +5) & =               & (X^4 - X^3 +6X^2 - 5X +5 : X^3 + 2X^2 - 2X + 3)                        \\
+                                  & \igual{\red{!}} & (X^3 + 2X^2 - 2X + 3 : \ub{X^2 - X + 1}{\text{lo hice mónico\red{!}}})
+  \end{array}
+$$
+Una vez más \rollingEyes:
+Divido otra vez haciendo así más Euclides:
+$$
+  \divPol{X^3 + 2X^2 - 2X + 3}{X^2 - X + 1}
+$$
+Finalmente identifico con el algoritmo de Euclides al MCD que es el último resto \textit{distinto de 0}:
+$$
+  \begin{array}{rcl}
+    (f : X^4 - X^3 +6X^2 - 5X +5) & =               & (X^4 - X^3 +6X^2 - 5X +5 : X^3 + 2X^2 - 2X + 3) \\
+                                  & =               & (X^3 + 2X^2 - 2X + 3 : X^2 - X + 1)             \\
+                                  & =               & X^2 - X + 1 : 0)                                \\
+                                  & \igual{\red{!}} & X^2 - X + 1
+  \end{array}
 $$
 
 Las raíces del MCD son $\alpha_{1,2} = \frac{1 \pm \magenta{w}}{2}$ con $\magenta{w}^2 = 3i$.
-
 $$
+  \textstyle
   X^2 - X + 1 = (X - (\frac{1}{2}  - \frac{\sqrt{3}}{2} ))(X - (\frac{1}{2}  + \frac{\sqrt{3}}{2} ))\Tilde
 $$
 Por definición de lo que es el MCD sabemos que $X^2 - X + 1 \divideA f$, haciendo la división
@@ -47,7 +71,7 @@ $$
 $$
 
 Hermoso resultado, donde la hermosura se mide en su simpleza para ser factorizado.
-\underline{Sin} usar calculadora ni Guass ni ninguna cosa extraña podemos expresar a $f$ como:
+\underline{Sin} usar calculadora ni Gauss ni ninguna cosa extraña podemos expresar a $f$ como:
 
 $$
   f \igual{\red{!!!}} (X^2 - X + 1) \cdot \ub{\magenta{(X-\sqrt{5}) \cdot (X + \sqrt{5}) \cdot (X + 3)}}{X^3 + 3X^2 -5X - 15}

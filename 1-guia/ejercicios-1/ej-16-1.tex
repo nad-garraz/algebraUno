@@ -28,15 +28,14 @@
             \Sii{def prod.}[Cartesiano]
             x \en (A \union B) \ytext y \en C
             \Sii{def}[$\union$]
-            (x \en A \otext x \en  B  )\ytext x \en C
+            (x \en A \otext x \en  B  )\ytext y \en C
           \end{array}
         $$
-        Si está en $A$ o en $B$ y seguro está en $C$, entonces $x$ tiene que estar en $A \inter C$ o bien en $B \inter C$,
-        que no es otra cosa que distribuir el "y" con el "o":
+        Si $x$ está en $A$ o en $B$ e $y$ seguro está en $C$, entonces al distribuir el "y" con el "o":
         $$
           \Sii{distribución}
-          (x \en A  \ytext x \en C) \otext (x \en  B \ytext x \en C)
-          \Sii{\red{!}}
+          (x \en A  \ytext y \en C) \otext (x \en  B \ytext y \en C)
+          \Sii{def}[\red{!}]
           (x,y) \en (A \times C) \otext (x,y) \en (B\times C)
         $$
         Ese paso del \red{!} es la definición de producto cartesiano como al principio y se concluye que:

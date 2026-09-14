@@ -23,7 +23,6 @@
           \big) =
           r_{18}(21) = 3 $
 
-
   \item Dividir a cualquier valor $a$ por 3 es hacer:
         $$
           a = 3 \cdot q + r_3(a)\llamada1
@@ -48,7 +47,6 @@
           }
         $$
 
-
   \item
         Dividir a cualquier valor $4a + 1$ por 9 es hacer:
         $$
@@ -63,16 +61,19 @@
         $$
         Por lo tanto usando el \textit{dato} de $r_{18}(a) = 5$:
         $$
-          r_{18}(\blue{8a + 2}) = 2 \cdot r_9(\blue{4a + 1})
-          \Sii{\red{!!}}[\textit{dato}]
-          8 \cdot 5 + 2 = 2 \cdot r_9(\blue{4a + 1})
-          \sii
-          21
-          = r_3(a)
-          \Sii{\textit{condición}}[\textit{de resto}]
-          \cajaResultado{
-            r_9(4a + 1) = 2
-          }
+          \begin{array}{rccrcl}
+            r_{18}(\blue{8a + 2}) = 2 \cdot r_9(\blue{4a + 1})
+                                                  & \Sii{\red{!!}}[\textit{dato}] &
+            r_{18}(8 \cdot \oa{r_{18}(a)}{5} + 2) & =                             & 2 \cdot r_9(\blue{4a + 1}) \\
+                                                  & \Sii{\red{!}}                 &
+            6                                     & =                             & 2 \cdot r_9(\blue{4a + 1}) \\
+                                                  & \sii                          &
+            \multicolumn{3}{c}{
+              \cajaResultado{
+                r_9(4a + 1) = 3
+              }
+            }
+          \end{array}
         $$
 
   \item A ver el resto de esa expresión:
@@ -119,4 +120,5 @@
 
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/ftg73}{Fran Gelós \github}
 \end{aportes}

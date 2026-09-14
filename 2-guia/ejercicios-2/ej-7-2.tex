@@ -97,35 +97,58 @@
         Dado que $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el criterio de inducción también lo es $p(n) \en \naturales$
 
   \item
-        \textit{Proposición: } $ p(n) \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} - 1 \paratodo n \en \naturales$\par
-        \textit{Caso base: }   $p(1) : \sumatoria{i=1}{1} \frac{i2^i}{(i + 1)(i+2)} = \frac{1*2^1}{(1+1)(1+2)} = \frac{2}{6} = \frac{1}{3} = \frac{2^2 - 3}{1 + 2} \entonces p(1) $ es verdadera$ \Tilde$ \par
-        \textit{Paso inductivo: } \text{Asumo }$p(n) : \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} -1 \text{ como verdadera.}$\\
+        \textit{Proposición: }
+        $$
+          p(n):
+          \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{n+1}}{n+2} - 1 \paratodo n \en \naturales
+        $$
 
-        $
-          \entonces
-          p(n+1) : \text{quiero ver que }
-          \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1 \text{ también lo sea.}$\\
+        \textit{Caso base: }
+        $$
+          p(1) :
+          \sumatoria{i=1}{1} \frac{i2^i}{(i + 1)(i+2)} = \frac{1*2^1}{(1+1)(1+2)} = \frac{2}{6} = \frac{1}{3} = \frac{2^2 - 3}{1 + 2}
+        $$
+        Entonces $p(1)$ es verdadera.
 
-        $
-          \sumatoria{i=1}{n+1} \frac{i2^i}{(i + 1)(i+2)}
-          = \sumatoria{i=1}{n} \frac{i2^i}{(i + 1)(i+2)} + \frac{(n+1)2^{n+1}}{((n+1) + 1)((n+1)+2)}
-          \igual{\magenta{HI}} \frac{2^{n+1}}{n+2} -1 + \frac{(n+1) 2^{n+1}}{((n+1) + 1)((n+1)+2)}$\\
+        \medskip
 
-        $\text{Si } \frac{2^{n+1}}{n+2} -1 + \frac{(n+1)2^{n+1}}{((n+1) + 1)((n+1)+2)} = \frac{2^{(n+1)+1}}{(n+1)+2} - 1\entonces
-          \text{ sera verdadero}$\\
+        \textit{Paso inductivo: }
 
-        \begin{subequations}
-          \begin{align*}
-            \frac{2^{n+1}}{n+2} -1 + \frac{(n+1)2^{n+1}}{(n+ 2)(n+ 3)} & = \frac{2^{n+2}}{n+3} - 1 \\
-            (n + 3) \frac{2^{n+1}}{n+2} + \frac{(n+1)2^{n+1}}{(n+ 2)}  & = 2^{n+2}                 \\
-            (n + 3)2^{n+1} + (n+1)2^{n+1}                              & = 2^{n+2} (n+2)           \\
-            (n + 3) + (n+1)                                            & = 2 (n+2)                 \\
-            2n + 4                                                     & = 2 (n+2)                 \\
-            2n + 4                                                     & = 2n + 4                  \\
-            0                                                          & = 0
-          \end{align*}
-        \end{subequations}
+        Asumo que para algún $\blue{h} \en \naturales$:
+        $$
+          p(\blue{h}) :
+          \ub{
+            \sumatoria{i=1}{\blue{h}} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{\blue{h}+1}}{\blue{h}+2} -1
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        es verdadera. Entonces quiero ver que
+        $$
+          p(\blue{h+1}) :
+          \sumatoria{i=1}{\blue{h+1}} \frac{i2^i}{(i + 1)(i+2)} = \frac{2^{(\blue{h+1})+1}}{(\blue{h+1}) + 2} - 1
+        $$
+        también lo sea.
 
+        Arranco por el paso $h+1$ y busco usar la \purple{hipótesis inductiva}:
+        $$
+          \begin{array}{rcl}
+            \sumatoria{i=1}{\blue{h+1}} \frac{i2^i}{(i + 1)(i+2)}
+             & =                    &
+            \frac{(h+1)2^{h+1}}{((h+1) + 1)((h+1)+2)}  +  \sumatoria{i=1}{\blue{h}} \frac{i2^i}{(i + 1)(i+2)} \\
+             & \igual{\magenta{HI}} &
+            \frac{(h+1) 2^{h+1}}{(h + 2)\cdot (h + 3)} + \frac{2^{\blue{h}+1}}{\blue{h}+2} - 1                \\
+             & =                    &
+            \frac{(h+1) 2^{h+1} + (h+3) \cdot 2^{h+1}}{(h+2)\cdot (h+3)} - 1                                  \\
+             & =                    &
+            \frac{(2h+4) 2^{h+1}}{(h+2)\cdot (h+3)} - 1                                                       \\
+             & \igual{\red{!!}}     &
+            \frac{2^{h+2}}{h+3} - 1                                                                           \\
+          \end{array}
+        $$
+        En el \red{!!} saqué factor común y usé propiedades de potencias para el exponente, nada raro.
+
+        Dado que $p(1),\, p(k) \ytext p(k+1)$ resultaron verdaderas, por el criterio de inducción también lo es $p(n) \en \naturales$
   \item
         $\productoria{i=1}{n} \parentesis{ 1 + a^{2^{i-1}} } = \frac{1-a^{2^n}}{1-a}$\par
 
@@ -143,8 +166,8 @@
         $$
           p(k): \text{ Asumo que }
           \ub{
-          \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
-          \frac{1-a^{2^k}}{1-a}
+            \productoria{i=1}{k} ( 1 + a^{2^{i-1}} ) =
+            \frac{1-a^{2^k}}{1-a}
           }{\purple{\text{hipótesis inductiva}}}
           \text{ es verdadera. }
         $$

@@ -1,27 +1,24 @@
 \begin{enunciado}{\ejExtra}
-
   Determinar todos los $a \en \enteros$ que cumplen que
-
   $$
     \frac{2a - 1}{5} - \frac{a - 1}{2a - 3} \en \enteros.
   $$
 
 \end{enunciado}
 
-Busco una fracción. Para que esa fracción $\ en \enteros$ es necesario que el
+Busco una fracción. Para que esa fracción en $\enteros$ es necesario que el
 denominador divida al numerador. Fin.
 $$
   \frac{2a - 1}{5} - \frac{a - 1}{2a - 3} = \frac{4a^2 -13a + 8}{10a - 15}
 $$
-
 $$
   \llamada1\llave{l}{
-      10a - 15 \divideA  4a^2 -13a + 8 \vspace{2pt}\\
+    10a - 15 \divideA  4a^2 -13a + 8 \\\\
     10a - 15 \divideA  10a - 15
   }
-  \Sii{\red{!!!}}
+  \Entonces{\red{!!}}
   \llave{l}{
-    10a - 15 \divideA  -25 \llamada2 \vspace{2pt}\\
+    10a - 15 \divideA  -25 \llamada2 \\\\
     10a - 15 \divideA  10a - 15
   }
 $$
@@ -31,15 +28,22 @@ $$
   \sisolosi
   10a-25 \en \set{\pm 1, \pm 5, \pm 25}\llamada3 \text{ para algún } a \en \enteros. \Tilde
 $$
-De paso observo que $|10a - 25| \leq 25$. Busco $a$:
+\parrafoDestacado{
+  De paso observo que en módulo la expresión tiene que ser:
+  $$
+    -25 \leq 10a - 25 \leq 25,
+  $$, pues sino no dividiría, dah!
+  Busco \ul{todos los posibles valores de $a$} para que la expresión $10a - 25$ sea un posible divisor.
+  Esto me acota la cantidad de valores de $a$ que cumplen lo pedido:
+}
 $$
-  \llave{rlcl}{
-    \text{Caso: } & d = 10a - 15 = 1 & \sisolosi & a = \frac{8}{5} \quad \text{\faIcon{skull}}\\
-    \text{Caso: } & d = 10a - 15 = -1 & \sisolosi & a = \frac{8}{5} \quad \text{\faIcon{skull}}\\
-    \text{Caso: } & d = 10a - 15 = 5 & \sisolosi & a = \magenta{2} \Tilde\\
-    \text{Caso: } & d = 10a - 15 = -5 & \sisolosi & a = \green{1}  \Tilde\\
-    \text{Caso: } & d = 10a - 15 = 25 & \sisolosi & a = \blue{4}  \Tilde\\
-    \text{Caso: } & d = 10a - 15 = -25 & \sisolosi & a = \yellow{-1}  \Tilde
+  \llave{rccrcccl}{
+    \text{Caso: } & d &=& 1   & = & 10a - 15 & \sisolosi & a = \frac{8}{5} \quad \skull\\
+    \text{Caso: } & d & =& -1  & = & 10a - 15 & \sisolosi & a = \frac{7}{5} \quad \skull\\
+    \text{Caso: } & d & =& 5   & = & 10a - 15 & \sisolosi & a = \magenta{2} \Tilde\\
+    \text{Caso: } & d & =& -5  & = & 10a - 15 & \sisolosi & a = \green{1}  \Tilde\\
+    \text{Caso: } & d & =& 25  & = & 10a - 15 & \sisolosi & a = \blue{4}  \Tilde\\
+    \text{Caso: } & d & =& -25 & = & 10a - 15 & \sisolosi & a = \yellow{-1}  \Tilde
   }
 $$
 Los valores de $a \en \enteros$ que cumplen $\llamada2$ son $\set{-1,1,2,4}$. Voy a evaluar y así encontrar

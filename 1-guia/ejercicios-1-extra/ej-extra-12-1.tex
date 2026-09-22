@@ -1,0 +1,40 @@
+\begin{enunciado}{\ejExtra[parcial 07/10/25]}\fechaEjercicio{parcial 07/10/25}
+
+  Sea $\F$ el conjunto de todas lafunciones del conjunto $\set{1,2,3,4,5,6,7,8,9,10}$ en
+  $\set{n \en \enteros : 0 \leq n \leq 30}$ es decir,
+  $$
+    \F = \set{f : \set{1,2,3,4,5,6,7,8,9,10} \to \set{n \en \enteros : 0 \leq n \leq 30} }
+  $$
+  En $\F$ se define una relación $\relacion$ de la siguiente manera:
+  $$
+    f \relacion g \sisolosi
+    \congruencia{f(1) + f(2)}{g(1) + g(2)}{~\text{mód 3}}
+  $$
+  \begin{enumerate}[label=\alph*)]
+    \item Determinar si $\relacion$ es una relación reflexiva, simétrica, transitiva y/o antisimétrica.
+
+    \item Sea $f$ la función tal que $f(n) = n + 4$ para todo $n \en \set{1,2,3,4,5,6,7,8,9,10}$
+          ¿Cuántas funciones $g \en \F$ inyectivas cumplen que $f \relacion g$?
+
+  \end{enumerate}
+\end{enunciado}
+
+\begin{enumerate}[label=\alph*)]
+  \item La $\relacion$ tiene una congruencia en el medio así que sería razonable que sea una \textit{relación de equivalencia}:
+        \Hacer
+  \item
+        Respuesta corta: \red{DESARROLLAR}
+
+        Dada la definición de $f$ sé que:
+        $$
+          \congruencia{f(1) + f(2)}{2}{~\text{mód 3}}
+        $$
+        Quiero los casos en que $g(1) + g(2) \conga3 2$. Tengo 3 casos. A mano cuento cuantas cositas se pueden agarrar.
+
+        El total de funciones:
+        $$
+          10 \cdot 11 \cdot \frac{29!}{(29-8)!} +
+          10 \cdot 9 \cdot \frac{29!}{(29-8!} +
+          10 \cdot 11 \cdot \frac{29!}{(29-8)!} +
+        $$
+\end{enumerate}

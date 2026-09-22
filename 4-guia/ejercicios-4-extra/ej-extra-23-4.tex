@@ -4,6 +4,50 @@
   \end{center}
 \end{enunciado}
 
+\parrafoDestacado[\atencion]{Dos formas de solucionar esto, por congruencia y por inducción}
+\ul{\textit{Resoviendo con congruencia:}}
+
+El truco estaría en \textit{achicar el divisor} y probar que la expresión tiene que ser dividida por sus potencias
+de primos.
+
+Algo así:
+$$
+  36 \divideA 19^n -18n^2 - 1
+  \Sii{\red{!!}}
+  \llave{rcl}{
+    \congruencia{19^n -18n^2 - 1}{0}{9} & \sii & \congruencia{0}{0}{9} ~ \paratodo n \en \naturales\\
+    \congruencia{19^n -18n^2 - 1}{0}{4} & \Sii{\red{!}} & \congruencia{(-1)^n + 2 n^2 + 3}{0}{4} ~~\llamada1
+  }
+$$
+Hago una tabla de restos para estudiar la congruencia con el 4:
+$$
+  \begin{array}{|c|c|c|c|c|}
+    \hline
+    r_4(n)     & 0           & 1 & 2 & 3 \\\hline
+    r_4(2 n^2) & \magenta{0} & 2 & 0 & 2 \\\hline
+  \end{array}
+$$
+Con los resultados de la tabla concluyo para $\llamada1$ dependiendo si $n$ es par o $n$ impar:
+$$
+  \begin{array}{rcl}
+    n ~\text{par}   & \Entonces{$\llamada1$} & \congruencia{1 + 0 + 3}{0}{4}  \\
+    n ~\text{impar} & \Entonces{$\llamada1$} & \congruencia{-1 + 2 + 3}{0}{4}
+  \end{array}
+$$
+Por lo tanto queda demostrado que
+$$
+  \llave{r}{
+    4 \divideA 19^n -18n^2 - 1\\\\
+    9 \divideA 19^n -18n^2 - 1
+  }
+  \entonces
+  36 \divideA 19^n -18n^2 - 1 ~ \paratodo n \en \naturales
+$$
+
+\bigskip
+
+\ul{\textit{Resoviendo por inducción:}}
+
 Acomodo el enunciado como:
 $$
   36 \divideA 19^n -18n^2 - 1

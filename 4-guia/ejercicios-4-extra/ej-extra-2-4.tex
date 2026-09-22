@@ -7,27 +7,34 @@
   \end{enumerate}
 \end{enunciado}
 
-Analizo los números:
+Analizo y acomodo todos los números:
 $$
   \llave{l}{
     \flecha{factorizo}[2528] 2528 = 2^5 \cdot 79 \Tilde \\
-    \flecha{factorizo}[316] 316 = 2^2 \cdot 79 \Tilde   \\
-    \flecha{reescribo}[condición] (n:2^5 \cdot 79) = 2^2 \cdot 79
+    \flecha{factorizo}[316] 316 = 2^2 \cdot 79 \Tilde
   }
-  \flecha{quiero}[encontrar] n = 2^{\alpha_2} \cdot 3^{\alpha_3} \cdot 5^{\alpha_5} \cdot 7^{\alpha_7} \cdots 79^{\alpha_79} \cdots .\\
 $$
-
-$
-  \flecha{como} (n:2^5 \cdot 79) = 2^2 \cdot 79
-  \flecha{tengo}[que]
+Reescribo las condiciones del enunciado porque pintó:
+$$
+  (n:2^5 \cdot 79) = 2^2 \cdot 79
+$$
+Quiero encontrar:
+$$
+  n = 2^{\alpha_2} \cdot 3^{\alpha_3} \cdot 5^{\alpha_5} \cdot 7^{\alpha_7} \cdots 79^{\alpha_{79}} \cdots
+$$
+La condición del MCD me obliga a que $n$ tenga ciertos primos con ciertos exponentes:
+$$
+  (n:2^5 \cdot 79) = 2^2 \cdot 79
+  \entonces
   \llave{ll}{
-    \alpha_2 = 2,                    & \text{dado que $2^2 \cdot 79 \divideA n$. \blue{busco el menor $n$!}.} \\
-    \alpha_{79} \geq 1,              & \text{Al igual que antes.}                                        \\
-    \flecha{notar}[que] \alpha_3 < 3 & \text{ si no } 3^3 = 27 \divideA n
+    \alpha_2 = 2,                    & \text{dado que $2^2 \cdot 79 \divideA n$. \ul{Busco el menor $n$}.} \\
+    \alpha_{79} \geq 1,              & \text{Todavía no sé exactamente cuánto es $\alpha_{79}$.}
   }
-$
+$$
+Notar que $\alpha_3 < 3$ si no pasaría que $3^3 = 27 \divideA n$
 
-La estrategia sigue con el primo más chico que haya:\par
+La estrategia sigue con el primo más chico que haya. Para saber la cantidad de divisores de un número acá está el machete
+\hyperlink{teoria-4:cantidadDivisores}{\click}.
 $$
   \llave{l}{
     48 = \ub{(\alpha_2 + 1)}{2 + 1} \cdot (\alpha_3 + 1) \cdots                                                                             \\
@@ -41,5 +48,5 @@ $$
 El $n$ que cumple lo pedido sería $n = 2^2 \cdot 3^1 \cdot 5^1 \cdot 7^1 \cdot 79^1$
 
 \begin{aportes}
-\item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{\dirRepo}{naD GarRaz \github}
 \end{aportes}

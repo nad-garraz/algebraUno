@@ -9,6 +9,39 @@
   \end{itemize}
 \end{enunciado}
 
+\parrafoDestacado[\red{\faIcon{exclamation-triangle}}]{
+  Dos formas. Una \magenta{\textit{primera forma}} más directa y la otra \magenta{\textit{segunda forma}}
+  más \textit{larga} para cuando pisamos el palito
+
+    {\tiny(yo lo pisé \red{\rollingEyes})}.
+}
+
+\magenta{\textit{Primera forma:}}
+Primero agarro la segunda condición. Hay una cantidad de 5 números pares en $\set{1,2, \ldots, 11}$, tengo
+$$
+  \binom{5}{1} = 5
+$$
+formas de elegir ese número par.
+
+Es más fácil ahora cumplir la primera condición. Solo tengo que tomar 2 números de los 10 que quedan:
+$$
+  \binom{10}{2} = \frac{10!}{2! \cdot 8!} = 45
+$$
+Completo \textit{inyectivamente} los 4 números del
+dominio que faltan con los 8 números del codominio que sobraron:
+$$
+  \frac{8!}{(8 - 4)!} = 1680
+$$
+Finalmente puedo formar:
+$$
+  \cajaResultado{
+    5 \cdot 45 \cdot 1680 = 378.000
+  }
+$$
+
+\bigskip
+
+\magenta{\textit{Segunda forma:}}
 \begin{itemize}
   \item Para cumplir que $f(1) < f(7)$ tomo 2 números cualesquiera del conjunto de llegada,
         la cantidad de formas de elegir esos dos valores sería:

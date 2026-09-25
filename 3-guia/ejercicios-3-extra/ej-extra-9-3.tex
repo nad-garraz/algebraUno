@@ -39,6 +39,12 @@
                   \ul{$f(3) \to  \magenta{3}$ posibles números pares}.
                 }
 
+                Por lo tanto si hay $5$ números pares en el \textit{codominio}, puedo
+                elegir dos de cinco así:
+                $$
+                  \binom{5}{2}  = 10 ~ \text{maneras posibles}
+                $$
+
           \item
                 \ul{\textit{Si tomé 1 número par y 1 impar}}:
                 \parrafoDestacado{
@@ -48,6 +54,12 @@
                   \ul{$f(3) \to \magenta{4}$ posibles números pares}.
                 }
 
+                Por lo tanto si hay $5$ números pares y 6 impares en el \textit{codominio}, puedo
+                elegir uno de cinco y uno de seis así:
+                $$
+                  \binom{5}{1} \cdots \binom{6}{1} = 30 ~ \text{maneras posibles}.
+                $$
+
           \item
                 \ul{\textit{Si tomé 2 números impares}}:
                 \parrafoDestacado{
@@ -56,18 +68,25 @@
 
                   \ul{$f(3) \to \magenta{5}$ posibles números pares}.
                 }
+                Por lo tanto si hay 6 impares en el \textit{codominio}, puedo
+                elegir dos de seis así:
+                $$
+                  \binom{6}{2} = 15 ~ \text{maneras posibles}.
+                $$
         \end{enumerate}
+
+        Juntando esa info y luego completando de forma \textit{inyectiva} tengo:
+        $$
+          (10 \cdot 3 + 30 \cdot 4 + 15 \cdot 5) \cdot \frac{8}{(8-4)!} =
+          \cajaResultado{
+            378.000
+          }
+        $$
+
+
 \end{itemize}
 
-Juntando toda esa info solo resta completar de forma \textit{inyectiva}
-los \blue{4} elementos restantes del dominio con los \green{8} elementos restantes del codominio:
-$$
-  \binom{11}{2} \cdot
-  (\magenta{3} + \magenta{4} + \magenta{5} ) \cdot
-  \frac{\green{8}!}{(\green{8} - \blue{4})!} =
-  55 \cdot 12 \cdot 1680 = 1.108.800
-$$
-
-\begin{aportes}
+\begin{aportes}[2]
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/GonsaAvalos}{Gon. Avalos \github}
 \end{aportes}

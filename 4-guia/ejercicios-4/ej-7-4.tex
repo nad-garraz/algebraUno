@@ -65,8 +65,8 @@
         $$
 
   \item $56 \divideA 13^{2n} + 28n^2 - 84n -1
-      \Sii{def}
-        \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$.
+          \Sii{def}
+          \congruencia{13^{2n} + 28n^2 - 84n -1}{0}{56}$.
 
         Lo \textit{hagaimos} por inducción:
         $$
@@ -80,20 +80,36 @@
         El caso base resultó \textit{verdadero}.
 
         \medskip
+
         \textit{Paso inductivo:}
 
-        Asumimos $p(n)$ verdadera, queremos ver que $p(n + 1)$ también lo sea.
+        Asumimos $p(h)$ es verdadera para algún $h \en \enteros$:
+        $$
+          p(h):
+          \ub{
+            \congruencia{13^{2h} + 28h^2 - 84h - 1}{0}{56}
+          }{
+            \text{\purple{hipótesis inductiva}}
+          }
+        $$
+        entonces queremos ver que $p(h + 1)$ también lo sea:
         $$
           \begin{array}{rcl}
-            \congruencia{13^{2n + 2} + 28(n+1)^2 - 84(n+1) - 1}{0}{56}
-             & \sii              & \congruencia{13^{2n} \cdot 13^2 + 28n^2 + 56n + 28 -84n - 84 - 1}{0}{56}                                                \\
-             & \Sii{\purple{HI}} & \congruencia{\ub{13^{2n} + 28n^2 + 56n -84n}{\purple{\text{hipótesis inductiva}}} + 28 - 84 + 13^2 - 1}{0}{56} \\
-             & \sii              & \congruencia{28 - 84 + 168}{0}{56}                                                                                      \\
-             & \sii              & \congruencia{112}{0}{56}
+            \congruencia{13^{2h + 2} + 28(h+1)^2 - 84(h+1) - 1}{0}{56}
+             & \sii              & \congruencia{13^{2h} \cdot 13^2 + 28h^2 + 56h + 28 - 84h - 84 - 1}{0}{56} \\
+             & \sii              & \congruencia{13^{2h} \cdot 1 + 28h^2 + 56h + 28 - 84h - 84 - 1}{0}{56}    \\
+             & \Sii{\purple{HI}} &
+            \congruencia{
+              \ub{
+                13^{2h} + 28h^2 - 84h - 1
+              }{
+                \purple{\text{hipótesis inductiva}}
+              } + 56h + 28 - 84
+            }{0}{56}                                                                                         \\
+             & \sii              & \congruencia{56h - 56}{0}{56}
           \end{array}
         $$
-
-        Se probó que $p(n + 1)$ es verdadera, luego $p(n)$ es verdadera para todo $n \en \naturales$.
+        Se probó que $p(1), p(h) \ytext p(h + 1)$ son verdaderas, entonces $p(n)$ es verdadera $\paratodo n \en \naturales$.
 
   \item
         Hermoso ejercicio en el que sin fe, en el \textit{todo poderoso Gauss}, sencillamente uno tira la toalla antes de tiempo.
@@ -133,15 +149,17 @@
         también sea verdadera. Arranco del paso $(k+1)$ y haciendo un poco de \textit{matemagia}:
         $$
           \begin{array}{rcl}
-            49^{k+1} + 208 \cdot (k+1) - 1 & =                       & 49 \cdot 49^k + 208k + 208 - 1 \\
-              &\conga{256}[\purple{\text{HI}}]& 49 \cdot (\purple{-208k + 1}) + 208k + 208 - 1 \\\\
-                                           & \conga{256}             & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49 \\
-                                           & \conga{256}[\red{!!}] & 48 k + 49 - 48k - 49 = 0 \Tilde
+            49^{k+1} + 208 \cdot (k+1) - 1 & =                               & 49 \cdot 49^k + 208k + 208 - 1                            \\
+                                           & \conga{256}[\purple{\text{HI}}] & 49 \cdot (\purple{-208k + 1}) + 208k + 208 - 1            \\\\
+                                           & \conga{256}                     & 49 \cdot (48k + 1) - 48k -48 - 1 = 2352 k + 49 - 48k - 49 \\
+                                           & \conga{256}[\red{!!}]           & 48 k + 49 - 48k - 49 = 0 \Tilde
           \end{array}
         $$
-        En \red{!!} y gracias a Gauss $\congruencia{2352}{48}{256}$ ¿Casualidad? No sé y no me importa.\par
+        En \red{!!} y gracias a Gauss $\congruencia{2352}{48}{256}$ ¿Casualidad? No sé y no me importa.
 
-        Dado que $\congruencia{49^{k+1} + 208 \cdot (k+1) - 1}{0}{256}$, la proposición $p(k+1)$ resultó verdadera.\par\bigskip
+        Dado que $\congruencia{49^{k+1} + 208 \cdot (k+1) - 1}{0}{256}$, la proposición $p(k+1)$ resultó verdadera.
+
+        \bigskip
 
         Dado que $p(1), p(k) \ytext p(k+1)$ resultaron verdaderas, por principio de inducción $p(n)$ también lo es para todo $n \en \naturales$.
 
@@ -150,5 +168,6 @@
 % Contribuciones
 \begin{aportes}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/notgaspo}{Gaspar B.K. \github}
 \end{aportes}
 

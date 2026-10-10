@@ -3,7 +3,7 @@
   \begin{multicols}{2}
     \begin{enumerate}[label=\roman*)]
       \item $3^n + 5^n \geq 2^{n+2}$
-      \item $3^n \leq n^3$
+      \item $3^n \geq n^3$
       \item $ \sumatoria{i=1}{n} \frac{n+i}{i+1} \leq 1 + n(n-1)$
       \item $ \sumatoria{i=n}{2n} \frac{i}{2^i} \leq n$
       \item $ \sumatoria{i=1}{2^n} \frac{1}{2i-1} > \frac{n+3}{4}$
@@ -79,59 +79,91 @@
           \approx 2.6 \sisolosi n \geq 3$ \\
         $\therefore 3n^3 \geq (n+1)^3 \sisolosi n \geq 3$
 
-  \item $P(n):  \sumatoria{i=1}{n} \frac{n+i}{1+i} \leq 1 + n(n-1), \ n \en \naturales$.
-        \begin{enumerate}[label=\arabic*)]
-          \item Caso base, $n = 1$:
-                \begin{align*}
-                  P(1) & : \sumatoria{i=1}{1} \frac{1+i}{1+i} \leq 1 + 1(1-1) \\
-                  P(1) & : \frac{1+1}{1+1}\leq 1 \entonces P(1): V
-                \end{align*}
-          \item Paso inductivo. Sea $n \en \naturales$:
-                \begin{enumerate}
-                  \item[HI.] $P(n): V$
-                  \item[TI.] $ \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n$
-                \end{enumerate}
+  \item Quiero probar que
+        $$
+          p(n):
+          \sumatoria{i=1}{n} \frac{n+i}{1+i} \leq 1 + n(n-1), \paratodo n \en \naturales.
+        $$
 
-                Desarrollemos el lado izquierdo de la desigualdad:
-                \begin{align*}
-                            & \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \frac{n+1+i}{1+i}
-                  = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \left(\frac{1}{1+i} + \frac{n+i}{1+i} \right)                        \\
-                            & = \frac{2(n+1)}{n+2} + \sumatoria{i=1}{n} \frac{1}{1+i} + \sumatoria{i=1}{n} \frac{n+i}{1+i}
-                  \menorIgual{Aux} \frac{2\cancelto{1}{(n+1)}}{\cancelto{1}{(n+1)}} + \sumatoria{i=1}{n} 1
-                  + \sumatoria{i=1}{n} \frac{n+i}{1+i} \igual{*}                                                                 \\
-                            & \igual{*} 2 + n + \sumatoria{i=1}{n} \frac{n+i}{1+i} \menorIgual{HI} 2 + n + 1 + n(n-1)
-                  = 2 + n + 1 + n^2 - n \igual{**}                                                                               \\
-                            & \igual{**} 1 + n^2 + 2 \overset{(2 \leq n)}{\leq} 1 + n^2 + n = 1 + (n+1)n                         \\
-                  \entonces & \sumatoria{i=1}{n+1} \frac{n+1+i}{1+i} \leq 1 + (n+1)n, \text{ si } n \geq 2                       \\
-                  \entonces & P(n+1): V,\text{ si } n \geq 2
-                \end{align*}
-        \end{enumerate}
+        \textit{Caso base:}
+        $$
+          p(1) : \sumatoria{i=1}{1} \frac{1+i}{1+i} \leq 1 + 1(1-1)
+        $$
+        $p(1)$ resultó verdadera.
 
-        Hemos probado el caso base y el paso inductivo, este último para los $n \geq 2$. Como solo probamos el paso
-        inductivo para $n \geq 2$, deberiamos ver que $P(2)$ es verdadera.
-        \begin{align*}
-          P(2) & : \sumatoria{i=1}{2} \frac{2+i}{1+i} \leq 1 + 2(2-1) \\
-          P(2) & : \frac{2+1}{1+1} + \frac{2+2}{1+2} \leq 3           \\
-          P(2) & : \frac{17}{6} \leq 3 \entonces P(2): V
-        \end{align*}
-        Tenemos que
+        \bigskip
 
-        $P(1): V \land P(2): V \\
-          \text{si } n \geq 2, \ P(n): V \entonces P(n+1): V$
+        \textit{Paso inductivo}
+        Quiero probar que para algún $h \en \naturales$ la proposición:
+        $$
+          p(h) : ~
+          \ub{
+            \sumatoria{i=1}{h} \frac{h+i}{1+i} \leq 1 + h(h-1)
+          }{
+            \text{\magenta{hipótesis inductiva}}
+          }
+        $$
+        es verdadera. Entonces quiero probar que:
+        $$
+          p(h + 1) : ~ \sumatoria{i=1}{h + 1} \frac{(h+1)+i}{1+i} \leq 1 + (h+1) \cdot h
+        $$
+        también lo sea.
+        $$
+          \begin{array}{rcl}
+            \sumatoria{i=1}{h + 1} \frac{(h+1)+i}{1+i}
+             & =                                   &
+            \sumatoria{i=1}{h + 1} \frac{h+i}{1+i}  + \sumatoria{i=1}{h + 1} \frac{1}{1+i}                                        \\
+             & =                                   &
+            \frac{2h + 1}{h + 2} + \sumatoria{i=1}{h} \frac{h+i}{1+i}  + \sumatoria{i=1}{h + 1} \frac{1}{1+i}                     \\
+             & \menorIgual{\red{!!}}[\magenta{HI}] &
+            \frac{2h + 1}{h + 2} + \magenta{1 + h \cdot (h - 1)} + \sumatoria{i=1}{h + 1} \frac{1}{1+i}                           \\
+             & \igual{\red{!}}                     &
+            \magenta{1 + h \cdot (h - 1)} + \green{2h} - \green{2h} + \frac{2h + 1}{h + 2} + \sumatoria{i=1}{h + 1} \frac{1}{1+i} \\
+             & =                                   &
+            \ub{
+              1 + h \cdot (h \red{+} 1)
+            }{
+            \text{Lo que}                                                                                                         \\ \text{quiero}
+            } +
+            \ub{
+              \frac{-2h^2 - 2h + 1}{h + 2} + \sumatoria{i=1}{h + 1} \frac{1}{1+i}
+            }{
+            \llamada1                                                                                                             \\ \text{ lo que} \\ \text{me sobra}
+            }
+          \end{array}
+        $$
+        Para que todo funcione y quede la proposición lista, debería poder probar que la expresión $\llamada1$:
+        $$
+          \textstyle
+          \frac{-2h^2- 2h  + 1}{h + 2} + \sumatoria{i=1}{h + 1} \frac{1}{1+i} \red{\leq} 0
+        $$
+        y listo gané.
 
-        Concluimos que $\paratodo n \en \naturales, \ P(n): V$.
+        Los terminos de la sumatoria son decrecientes, es decir que \textit{el término más grande de todos es el primero} $\orange{\frac{1}{2}}$,
+        cuando $i = 1$, por lo tanto puedo acotar así:
+        $$
+          \begin{array}{rcl}
+            \frac{-2h^2 - 2h + 1}{h + 2} +
+            \ob{
+              \sumatoria{i=1}{h + 1} \frac{1}{1+i}
+            }{
+              \leq \orange{\frac{1}{2}} + \cdots + \orange{\frac{1}{2}}
+            }
+             & \menorIgual{\red{!}} &
+            \frac{-2h^2 - 2h + 1}{h + 2} + \sumatoria{i=1}{h + 1} \orange{\frac{1}{2}} \\
+             & =                    &
+            \frac{-2h^2 - 2h + 1}{h + 2} + \orange{\frac{1}{2}} \cdot (h+1)            \\
+             & =                    &
+            \frac{1}{2} \cdot \frac{-3h^2 - h + 4}{2h + 4}                             \\
+             & \leq                 &
+            0 ~ \paratodo h \en \naturales
+          \end{array}
+        $$
 
-        \subsubsection*{Auxiliar}
-        Acotemos $1/(n+2)$
-        \begin{align*}
-          n+1 \leq n + 2 , \ \paratodo n \en \naturales \sisolosi \frac{1}{n+2} \leq \frac{1}{n+1},
-          \ \paratodo n \en \naturales
-        \end{align*}
+        Juntando todo queda probado el paso inductivo.
 
-        Acotemos la sumatoria
-        \begin{align*}
-          \frac{1}{1+i} \leq 1, \ \paratodo i \en \naturales \entonces \sumatoria{i=1}{n} \frac{1}{1+i} \leq \sumatoria{i=1}{n} 1
-        \end{align*}
+        Dado que $p(1), p(h) \ytext p(h + 1)$ son verdaderas, por principio de inducción también lo es $p(n) \paratodo n \en \naturales$
+
 
   \item
         Quiero probar que la proposición:

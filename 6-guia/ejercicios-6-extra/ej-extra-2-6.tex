@@ -12,54 +12,70 @@ $
   }
 $
 
-\underline{Si $w = 1$: }\par
-$$\ub{w^7}{= \green{1}} + \sumatoria{j=7}{140} \ub{w^{2j}}{=1} =
+\textit{Si $w = 1$}:
+
+$$
+  \ub{w^7}{= \green{1}} + \sumatoria{j=7}{140} \ub{w^{2j}}{=1} =
   \green{1} + (\ub{1+1+\dots+1}{ = 134}) =
   1 + 134 =
-  135 \Tilde
-$$\par
+  135
+$$
 
-\underline{Si $w = -1$: }\par
-$$\ub{w^7}{= \green{-1}} + \sumatoria{j=7}{140} \ub{(w^j)^2}{= 1} =
+\textit{Si $w = -1$}:
+
+$$
+  \ub{w^7}{= \green{-1}} + \sumatoria{j=7}{140} \ub{(w^j)^2}{= 1} =
   \green{-1} + (\ub{1+1+\dots+1}{ = 134}) =
   -1 + 134 =
-  133 \Tilde
-$$\par
+  133
+$$
 
-\underline{Si $w \distinto \pm 1$: }\par
-$
-  w \en G_{14}
-  \entonces
-  w = e^{i\frac{2k\pi}{14}} \text{ con } k \en \enteros_{[0,13]}
-  \entonces
+\textit{Si $w \distinto \pm 1$}:
+
+Como $w \en G_{14}$ es de la forma:
+$$
+  w = e^{i\frac{2k\pi}{14}} \text{ con } k \en \enteros_{[0,13]}.
+$$
+y se desprende inmediatamente que $w^{14} \igual{$\llamada1$} 1$
+Entonces es fácil ver que:
+$$
+  \textstyle
   w^2 =
-  \parentesis{e^{i\frac{2k\pi}{14} }}^2 =
-  e^{i\frac{2\pi}{7}\cdot k} \en G_7
-  \entonces
-  \yellow{\sumatoria{j=0}{6} (w^2)^j = 0}
-$ \par
-
-$w^7 + \sumatoria{j=7}{140} w^{2j} =
-  w^7 + \sumatoria{j=0}{140} (w^{2})^j - \ub{\sumatoria{j=0}{6} (w^2)^j}{\yellow{ = 0}} =
-  w^7 + \frac{(w^2)^{141} - 1}{w^2 - 1} - \yellow{0} =
-  \magenta{w^7} + \ub{\frac{w^2 ((\ob{\scriptstyle w^{14}}{=1})^{20} - 1}{w^2 - 1}}{=1} =
-  \magenta{w^7} + 1
-$ \par
-
-Si
-$\llave{rl}{
-    w \en G_7          & \entonces w^7 = 1  \\
-    w \en G_{14} - G_7 & \entonces w^7 = -1
+  (
+  e^{i\frac{2k\pi}{14}}
+  )^2 =
+  \ub{
+    e^{i\frac{2\pi}{7}\cdot k}
+  }{
+    \en G_7
   }
-$
-
+  \Entonces{Por lo tanto}
+  \sumatoria{j=0}{6} (w^2)^j \igual{$\llamada2$} 0
 $$
-  \llave{ccl}{
-    w \en G_7          & \to & \magenta{1} + 1 = 2 \Tilde  \\
-    w \en G_{14} - G_7 & \to & \magenta{-1} + 1 = 0 \Tilde
-  }
+Ahora con la cuenta del enunciado:
 $$
-
+  \begin{array}{rcl}
+    w^7 + \sumatoria{j=7}{140} w^{2j}
+     & \igual{\red{!!}}    &
+    w^7 + \sumatoria{j=0}{140} (w^2)^j -
+    \ob{
+      \sumatoria{j=0}{6} (w^2)^j
+    }{
+      \igual{$\llamada2$} 0
+    }                                     \\
+     & \igual{\red{!}}     &
+    w^7 + \frac{(w^2)^{141} - 1}{w^2 - 1} \\
+     & \igual{\red{!}}     &
+    w^7 + \frac{
+      (w^{14})^{10}\cdot w^2 - 1
+    }{w^2 - 1}                            \\
+     & \igual{$\llamada1$} &
+    \cajaResultado{
+      w^7 + 1
+    }\llamada3
+  \end{array}
+$$
+Los posibles valores que puede tomar la expresión dependen de $w^7$ con $w \en G_{14}$:
 $$
   \begin{tikzpicture}[baseline=0,scale = 2.3, every node/.style={font=\tiny}]
     \draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
@@ -80,6 +96,7 @@ $$
         \fi
       }
   \end{tikzpicture}
+  \qquad
   \begin{tikzpicture}[baseline=0,scale = 2.3, every node/.style={font=\tiny}]
     \draw[ultra thin,->,gray] (-1.5,0) -- (1.7,0) node[below] {Re};
     \draw[ultra thin,->,gray] (0,-1.5) -- (0,1.7) node[right] {Im};
@@ -101,6 +118,26 @@ $$
         \fi
       }
   \end{tikzpicture}
+$$
+De los gráficos observo que:
+$$
+  \begin{array}{rccl}
+    \text{si} & w \en G_7          & \entonces & w^7 = 1  \\
+    \text{si} & w \en G_{14} - G_7 & \entonces & w^7 = -1
+  \end{array}
+$$
+Por lo tanto en la expresión $\llamada3$ puedo obtener dependiendo del $w$:
+$$
+  \llave{ccl}{
+    w \en G_7          & \to & \magenta{1} + 1 = 2  \\
+    w \en G_{14} - G_7 & \to & \magenta{-1} + 1 = 0
+  }
+$$
+Finalmente los posibles valores serán:
+$$
+  \cajaResultado{
+    \set{0,2,133, 135}
+  }
 $$
 
 \begin{aportes}

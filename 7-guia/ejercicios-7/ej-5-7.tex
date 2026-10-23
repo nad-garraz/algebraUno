@@ -35,7 +35,32 @@
         Luego, el valor de $a \en \complejos$
         tal que $X^3 + 2X^2 + 2X + 1$ es divisible por $X^2 + aX + 1$ es \cajaResultado{a = 1}.
 
-  \item \hacer
+  \item
+        $$
+          \begin{array}{r@{\quad}l}
+            X^4 - aX^3 + 2X^2 + X + 1                                    & \multicolumn{1}{c}{| \quad X^2 + X + 1}          \\
+            \cline{2-2}
+            \underline{-(X^4 + X^3 + X^2)\phantom{-aX^3 + 2X^2 + X + 1}} & \multicolumn{1}{c}{| \quad X^2 - (a+1)X + (a+2)} \\
+            -(a+1)X^3 + X^2 + X + 1                                      &                                                  \\
+            \underline{-[-(a+1)X^3 - (a+1)X^2 - (a+1)X]\phantom{+1}}     &                                                  \\
+            (a+2)X^2 + (a+2)X + 1                                        &                                                  \\
+            \underline{-[(a+2)X^2 + (a+2)X + (a+2)]}                     &                                                  \\
+            -(a+1)                                                       &
+          \end{array}
+        $$
+        Ahora, para que $X^4 -aX^3 + 2X^2 + X + 1$ sea divisible por $X^2 + X + 1$ el resto de la división debe ser 0, es decir:
+        $$
+          a + 1 = 0
+          \sii
+          \cajaResultado{
+            a = -1
+          }
+        $$
+
+        Se puede comprobar reemplazando $a$ por $-1$ en el polinomio original
+        $$
+          \divPol{X^4 + X^3 + 2X^2 + X + 1}{X^2 + X + 1}
+        $$
 
   \item Haciendo la division de:
         $$
@@ -120,4 +145,5 @@
 \begin{aportes}
   \item \aporte{\neverGonnaGiveYouUp}{Autor original \youtube}
   \item \aporte{\dirRepo}{naD GarRaz \github}
+  \item \aporte{https://github.com/reynosocony-dat}{Paloma R. \github}
 \end{aportes}

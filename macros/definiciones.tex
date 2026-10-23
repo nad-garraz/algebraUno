@@ -72,8 +72,8 @@
 \newcommand{\noCongruencia}[3]{#1 \not\equiv #2 \,\,(#3)}
 \newcommand{\divset}[2]{\mathcal{D}(#1) = \set{#2}}
 \newcommand{\divsetP}[2]{\mathcal{D_+}(#1) = \set{#2}}
-\newcommand{\ub}[2]{ \underbrace{\textstyle #1}_{\mathclap{\substack{#2}}} }
-\newcommand{\ob}[2]{ \overbrace{\textstyle #1}^{\mathclap{\substack{#2}}} }
+\newcommand{\ub}[2]{\underbrace{\textstyle #1}_{\mathclap{\substack{#2}}}}
+\newcommand{\ob}[2]{\overbrace{\textstyle #1}^{\mathclap{\substack{#2}}}}
 \newcommand{\ua}[2]{\underset{\mathclap{\substack{\downarrow \\ \everymath{\textstyle} #2}}}{#1}}
 \newcommand{\oa}[2]{\overset{\mathclap{\substack{\everymath{\textstyle}#2 \\ \uparrow }}}{#1}}
 \def\cop{\, \perp \, }
@@ -327,13 +327,13 @@
   \refstepcounter{ejercicio}%
   \titleformat{\section}[runin]{\bfseries}{\theejercicio}{}{}%
   \section*{\theejercicio.}%
-  
+
   \IfNoValueTF{#1}{%
     \addcontentsline{toc}{subsection}{Ejercicio \theejercicio}% Sin nombre
   }{%
     \addcontentsline{toc}{subsection}{Ejercicio \theejercicio: #1}% Con nombre
   }%
-  
+
   \label{ej:\theejercicio}%
 }
 
@@ -344,13 +344,13 @@
   \refstepcounter{ejExtra}%
   \titleformat{\section}[runin]{\bfseries}{\theejExtra}{1em}{}%
   \section*{\fueguito\theejExtra.}%
-  
+
   \IfNoValueTF{#1}{%
     \addcontentsline{toc}{subsection}{\protect\space 🔥 Ejercicio Parcial \theejExtra}%
   }{%
     \addcontentsline{toc}{subsection}{\protect\space 🔥 Ejercicio Parcial \theejExtra: #1}%
   }%
-  
+
   \label{ejExtra:\theejExtra}%
 }
 
@@ -377,7 +377,6 @@
 \newcommand\fechaEjercicio[1]{
   {\tiny [\violet{#1}]}
 }
-
 
 %%% (☞⌐▀͡ ͜ʖ͡▀ )☞ Yo mama
 \def\superIdol{https://www.youtube.com/watch?v=iJAxeafvn8Y}

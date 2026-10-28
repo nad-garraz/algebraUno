@@ -54,7 +54,8 @@
           \end{tikzpicture}
         \end{minipage}
 
-  \item Sean $z, w \en \complejos -\set{0}$, $z = r_z e^{\theta_z i}$ y $w = r_w e^{\theta_w i }$ con $r_z,\, s_w \en \reales_{>0}$
+  \item Sean $z, w \en \complejos -\set{0}$, $z = r_z e^{\theta_z i}$ y $w =
+          r_w e^{\theta_w i }$ con $r_z,\, s_w \en \reales_{>0}$
         y $\theta_z,\, \theta_w \en \reales$.\par
         Entonces $z = w
           \Sii{\red{!!}}
@@ -79,7 +80,10 @@
 \hypertarget{teoria6:gruposGn}{\underline{\textit{Grupos $G_n$:}}}
 
 \begin{itemize}[label=\color{gray} \tiny \faIcon{smile}]
-    \item $G_n = \set{w \en \complejos / w^n = 1} = \set{e^{\frac{2k \pi}{n} i}\ :\ 0\leq k \leq n-1} ~~ \text{con} ~~ k \en \enteros$
+  \item $
+          G_n = \set{
+            w \en \complejos / w^n = 1
+          } = \set{e^{2\pi\blue{\frac{k}{n}} i}\ :\ 0\leq k \leq n-1} ~~ \text{con} ~~ k \en \enteros$
         %==========================
         % Macro para reducir los gráficos
         \newcommand{\unitcircle}[1]{
@@ -119,8 +123,9 @@
         \begin{itemize}
           \item Si $n$ es par el grupo tiene al $-1$.
           \item Toda raíz compleja tiene a su conjugado complejo.
-          \item Para ir de un punto a otro, se lo múltiplica por $e^{i \theta}$ eso \textit{rota} al número en $\theta$
-                respecto al origen.
+          \item Para ir de un punto a otro,
+                se lo múltiplica por $e^{i \theta}$ eso
+                \textit{rota} al número en $\theta$ respecto al origen.
         \end{itemize}
 
   \item $(G_n, \cdot)$ es un grupo abeliano, o conmutativo.
@@ -129,25 +134,29 @@
 
           \item $1 \en G_n,\ w \cdot 1 = 1 \cdot w = w \qquad \paratodo w \en G_n$.
 
-          \item $w \en G_n \entonces \existe w^{-1} \en G_n,\ w \cdot w^{-1} = w^{-1}\cdot w = 1$
+          \item $w \en G_n \entonces \existe w^{-1} \en G_n,\ w \cdot w^{-1} = w^{-1} \cdot w = 1$
                 \begin{itemize}
                   \item $\conj w \en G_n,\ w \cdot \conj w = |w|^2 = 1 \entonces \conj w = w^{-1}$
                 \end{itemize}
         \end{itemize}
 
-  \item \hypertarget{teoria6:propiedadesGn}{\textit{Propiedades: $w \en G_n$}}
+  \item \hypertarget{teoria6:propiedadesGn}{\textit{Propiedades \red{que se usan}: $w \en G_n$}}
 
         \begin{itemize}
           \item $m \en \enteros$ y $n \divideA m \entonces w^m = 1$.
 
           \item $\congruencia{m}{m'}{n} \entonces w^m = w^{m'} \quad (\red{w^m = w^{r_n(m)}})$
 
+          \item $\conj{w} = w^{-1} = w^{n-1}$
+
           \item $n \divideA m \sisolosi G_n \subseteq G_m$
 
           \item $G_n \inter G_m = G_{(n:m)}$
 
           \item La suma de una raíz $w$ de $G_n$:
-                $\sumatoria{k=0}{n-1}w^k = \frac{w^n -1}{w -1} = 0$ si $w \distinto 1$
+                $\sumatoria{k=0}{n-1} w^k = \frac{w^n -1}{w -1} = 0$
+                si
+                $\red{w \distinto 1}$
         \end{itemize}
 
 \end{itemize}

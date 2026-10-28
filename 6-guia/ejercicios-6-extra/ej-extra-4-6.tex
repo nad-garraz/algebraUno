@@ -6,6 +6,11 @@
   $$
   Expresar la solución como una única ecuación de congruencia.
 \end{enunciado}
+\parrafoDestacado{
+  \it
+  Prestar atención que $w$ es un número fijo, \ul{no es un misterio}
+  que haya que resolver. El misterio es $n$.
+}
 
 Por enunciado tengo que:
 $$
@@ -25,7 +30,7 @@ $$
   \sii
   (w^3)^{5n+2} = 1.
 $$
-Queda una ecuación para encontrar $w$:
+Queda una ecuación para encontrar $n$ sabiendo que $w = e^{i\frac{\pi}{18}}$:
 $$
   \begin{array}{c}
     (w^3)^{5n+2} = 1
@@ -45,7 +50,7 @@ $$
   \sii
   (w^4)^{4n+7} = 1 \\
 $$
-Igual que antes, busco los $w$ que satisfacen:
+Igual que antes, busco los $n$ que satisfacen, sabiendo que $w = e^{i\frac{\pi}{18}}$:
 $$
   \begin{array}{c}
     (w^4)^{4n+7} = 1
@@ -63,22 +68,29 @@ $$
     \llamada1 \\
     \llamada2
   \end{array}
+  \llave{ccc}{
+    \congruencia{n}{2}{12}
+    & \equivalente &
+    \llave{l}{
+      \congruencia{n}{2}{3} \\
+      \congruencia{n}{2}{4} \\
+    }
+    \\
+    \congruencia{n}{5}{9}
+    & \equivalente &
+    \llave{l}{
+      \congruencia{n}{2}{3}
+    }
+  }
+  \taa{\red{!}}{\equivalente}
   \llave{l}{
-    \congruencia{n}{2}{12} \\
+    \congruencia{n}{2}{4} \\
     \congruencia{n}{5}{9}
   }
-  \leftrightsquigarrow
-  \llave{l}{
-    \congruencia{n}{2}{3} \\
-    \congruencia{n}{2}{4} \\
-    \congruencia{n}{2}{3}
-  }
-  \taa{\red{!}}{\leftrightsquigarrow}
-  \llave{l}{
-    \congruencia{n}{2}{4} \\
-    \congruencia{n}{5}{9}
-  }
-  \flecha{$9 \cop 4$ hay}[solución por \href{\chinito}{TCR}]
+$$
+Hay solución por \href{\chinito}{TCR}, dado que $9 \cop 4$. Los valores
+de $n$ que satisfacen lo pedido:
+$$
   \cajaResultado{\congruencia{n}{14}{36}}
 $$
 
